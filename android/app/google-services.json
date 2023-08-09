@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "376408084302",
+    "project_id": "hango-bfc6b",
+    "storage_bucket": "hango-bfc6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376408084302:android:958db7a0a0496361bf581f",
+        "android_client_info": {
+          "package_name": "com.hango"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376408084302-arive3n4ivl0fgqkv3cfselu8r9f57ti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgAGHHm7w6LdGQegp1WY5ctmX-IsLeMek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376408084302-arive3n4ivl0fgqkv3cfselu8r9f57ti.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "376408084302-fd5rf4luh761hhvem9tf3l84o6cs68q4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hango"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
