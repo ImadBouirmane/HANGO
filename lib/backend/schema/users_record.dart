@@ -56,6 +56,26 @@ class UsersRecord extends FirestoreRecord {
   bool get administratorRole => _administratorRole ?? false;
   bool hasAdministratorRole() => _administratorRole != null;
 
+  // "user_role" field.
+  bool? _userRole;
+  bool get userRole => _userRole ?? false;
+  bool hasUserRole() => _userRole != null;
+
+  // "age" field.
+  int? _age;
+  int get age => _age ?? 0;
+  bool hasAge() => _age != null;
+
+  // "birthday" field.
+  DateTime? _birthday;
+  DateTime? get birthday => _birthday;
+  bool hasBirthday() => _birthday != null;
+
+  // "gender" field.
+  String? _gender;
+  String get gender => _gender ?? '';
+  bool hasGender() => _gender != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -65,6 +85,10 @@ class UsersRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _lastName = snapshotData['last_name'] as String?;
     _administratorRole = snapshotData['administrator_role'] as bool?;
+    _userRole = snapshotData['user_role'] as bool?;
+    _age = castToType<int>(snapshotData['age']);
+    _birthday = snapshotData['birthday'] as DateTime?;
+    _gender = snapshotData['gender'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -109,6 +133,10 @@ Map<String, dynamic> createUsersRecordData({
   String? phoneNumber,
   String? lastName,
   bool? administratorRole,
+  bool? userRole,
+  int? age,
+  DateTime? birthday,
+  String? gender,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -120,6 +148,10 @@ Map<String, dynamic> createUsersRecordData({
       'phone_number': phoneNumber,
       'last_name': lastName,
       'administrator_role': administratorRole,
+      'user_role': userRole,
+      'age': age,
+      'birthday': birthday,
+      'gender': gender,
     }.withoutNulls,
   );
 
@@ -138,7 +170,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.lastName == e2?.lastName &&
-        e1?.administratorRole == e2?.administratorRole;
+        e1?.administratorRole == e2?.administratorRole &&
+        e1?.userRole == e2?.userRole &&
+        e1?.age == e2?.age &&
+        e1?.birthday == e2?.birthday &&
+        e1?.gender == e2?.gender;
   }
 
   @override
@@ -150,7 +186,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.createdTime,
         e?.phoneNumber,
         e?.lastName,
-        e?.administratorRole
+        e?.administratorRole,
+        e?.userRole,
+        e?.age,
+        e?.birthday,
+        e?.gender
       ]);
 
   @override

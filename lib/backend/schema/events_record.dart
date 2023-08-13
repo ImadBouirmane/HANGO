@@ -86,6 +86,26 @@ class EventsRecord extends FirestoreRecord {
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
 
+  // "Location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
+
+  // "eventRef" field.
+  DocumentReference? _eventRef;
+  DocumentReference? get eventRef => _eventRef;
+  bool hasEventRef() => _eventRef != null;
+
+  // "entranceCheck" field.
+  bool? _entranceCheck;
+  bool get entranceCheck => _entranceCheck ?? false;
+  bool hasEntranceCheck() => _entranceCheck != null;
+
+  // "updatedAt" field.
+  DateTime? _updatedAt;
+  DateTime? get updatedAt => _updatedAt;
+  bool hasUpdatedAt() => _updatedAt != null;
+
   void _initializeFields() {
     _eventId = snapshotData['event_id'] as String?;
     _establishmentId = snapshotData['establishment_id'] as DocumentReference?;
@@ -101,6 +121,10 @@ class EventsRecord extends FirestoreRecord {
     _artist = getDataList(snapshotData['artist']);
     _image = snapshotData['image'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
+    _location = snapshotData['Location'] as LatLng?;
+    _eventRef = snapshotData['eventRef'] as DocumentReference?;
+    _entranceCheck = snapshotData['entranceCheck'] as bool?;
+    _updatedAt = snapshotData['updatedAt'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -149,6 +173,10 @@ Map<String, dynamic> createEventsRecordData({
   String? promo,
   String? image,
   DateTime? createdTime,
+  LatLng? location,
+  DocumentReference? eventRef,
+  bool? entranceCheck,
+  DateTime? updatedAt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -164,6 +192,10 @@ Map<String, dynamic> createEventsRecordData({
       'promo': promo,
       'image': image,
       'created_time': createdTime,
+      'Location': location,
+      'eventRef': eventRef,
+      'entranceCheck': entranceCheck,
+      'updatedAt': updatedAt,
     }.withoutNulls,
   );
 
@@ -189,7 +221,11 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.promo == e2?.promo &&
         listEquality.equals(e1?.artist, e2?.artist) &&
         e1?.image == e2?.image &&
-        e1?.createdTime == e2?.createdTime;
+        e1?.createdTime == e2?.createdTime &&
+        e1?.location == e2?.location &&
+        e1?.eventRef == e2?.eventRef &&
+        e1?.entranceCheck == e2?.entranceCheck &&
+        e1?.updatedAt == e2?.updatedAt;
   }
 
   @override
@@ -207,7 +243,11 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.promo,
         e?.artist,
         e?.image,
-        e?.createdTime
+        e?.createdTime,
+        e?.location,
+        e?.eventRef,
+        e?.entranceCheck,
+        e?.updatedAt
       ]);
 
   @override

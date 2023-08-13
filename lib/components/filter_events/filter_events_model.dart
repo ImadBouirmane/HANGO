@@ -5,18 +5,20 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:text_search/text_search.dart';
 
-class FiltersEventModel extends FlutterFlowModel {
-  ///  State fields for stateful widgets in this page.
+class FilterEventsModel extends FlutterFlowModel {
+  ///  State fields for stateful widgets in this component.
 
-  final unfocusNode = FocusNode();
   // State field(s) for ChoiceChips widget.
-  String? choiceChipsValue;
-  FormFieldController<List<String>>? choiceChipsValueController;
+  String? choiceChipsValue1;
+  FormFieldController<List<String>>? choiceChipsValueController1;
+  // State field(s) for ChoiceChips widget.
+  String? choiceChipsValue2;
+  FormFieldController<List<String>>? choiceChipsValueController2;
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue1;
   // State field(s) for SwitchListTile widget.
@@ -25,15 +27,12 @@ class FiltersEventModel extends FlutterFlowModel {
   bool? switchListTileValue3;
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue4;
-  List<EventsRecord> simpleSearchResults = [];
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 
   /// Action blocks are added here.
 

@@ -1,8 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/side_bar_widget.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -10,6 +12,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
@@ -17,16 +20,24 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CreateEstablishmentModel extends FlutterFlowModel {
+class UpdateEstablishmentModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // Model for SideBar component.
   late SideBarModel sideBarModel;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
   // State field(s) for TFName widget.
   TextEditingController? tFNameController;
   String? Function(BuildContext, String?)? tFNameControllerValidator;
+  // State field(s) for TFDescription widget.
+  TextEditingController? tFDescriptionController;
+  String? Function(BuildContext, String?)? tFDescriptionControllerValidator;
   // State field(s) for PlacePicker widget.
   var placePickerValue = FFPlace();
   // State field(s) for TFStreet widget.
@@ -98,9 +109,6 @@ class CreateEstablishmentModel extends FlutterFlowModel {
   // State field(s) for TFSunday widget.
   TextEditingController? tFSundayController;
   String? Function(BuildContext, String?)? tFSundayControllerValidator;
-  // State field(s) for TFImage widget.
-  TextEditingController? tFImageController;
-  String? Function(BuildContext, String?)? tFImageControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -112,6 +120,7 @@ class CreateEstablishmentModel extends FlutterFlowModel {
     unfocusNode.dispose();
     sideBarModel.dispose();
     tFNameController?.dispose();
+    tFDescriptionController?.dispose();
     tFStreetController?.dispose();
     tFzipCodeController?.dispose();
     tFcityController?.dispose();
@@ -129,7 +138,6 @@ class CreateEstablishmentModel extends FlutterFlowModel {
     tFFridayController?.dispose();
     tFSaturdayController?.dispose();
     tFSundayController?.dispose();
-    tFImageController?.dispose();
   }
 
   /// Action blocks are added here.

@@ -36,6 +36,9 @@ class FFAppState extends ChangeNotifier {
     await _safeInitAsync(() async {
       _Game = await secureStorage.getStringList('ff_Game') ?? _Game;
     });
+    await _safeInitAsync(() async {
+      _Artistes = await secureStorage.getStringList('ff_Artistes') ?? _Artistes;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -297,6 +300,46 @@ class FFAppState extends ChangeNotifier {
     DocumentReference Function(DocumentReference) updateFn,
   ) {
     _filterEvenResults[_index] = updateFn(_filterEvenResults[_index]);
+  }
+
+  bool _searchChange = false;
+  bool get searchChange => _searchChange;
+  set searchChange(bool _value) {
+    _searchChange = _value;
+  }
+
+  List<String> _Artistes = ['Example 1', 'Example 2'];
+  List<String> get Artistes => _Artistes;
+  set Artistes(List<String> _value) {
+    _Artistes = _value;
+    secureStorage.setStringList('ff_Artistes', _value);
+  }
+
+  void deleteArtistes() {
+    secureStorage.delete(key: 'ff_Artistes');
+  }
+
+  void addToArtistes(String _value) {
+    _Artistes.add(_value);
+    secureStorage.setStringList('ff_Artistes', _Artistes);
+  }
+
+  void removeFromArtistes(String _value) {
+    _Artistes.remove(_value);
+    secureStorage.setStringList('ff_Artistes', _Artistes);
+  }
+
+  void removeAtIndexFromArtistes(int _index) {
+    _Artistes.removeAt(_index);
+    secureStorage.setStringList('ff_Artistes', _Artistes);
+  }
+
+  void updateArtistesAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _Artistes[_index] = updateFn(_Artistes[_index]);
+    secureStorage.setStringList('ff_Artistes', _Artistes);
   }
 }
 

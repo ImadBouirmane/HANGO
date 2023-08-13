@@ -117,11 +117,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => FiltersEstablishmentWidget(),
         ),
         FFRoute(
-          name: 'FiltersEvent',
-          path: '/filtersEvent',
-          builder: (context, params) => FiltersEventWidget(),
-        ),
-        FFRoute(
           name: 'Maps',
           path: '/maps',
           builder: (context, params) => MapsWidget(),
@@ -192,6 +187,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'eventFilterResult',
           path: '/eventFilterResult',
           builder: (context, params) => EventFilterResultWidget(),
+        ),
+        FFRoute(
+          name: 'CreateEvents',
+          path: '/createEvents',
+          builder: (context, params) => CreateEventsWidget(),
+        ),
+        FFRoute(
+          name: 'UpdateEvents',
+          path: '/updateEvents',
+          builder: (context, params) => UpdateEventsWidget(
+            eventstDetails: params.getParam('eventstDetails',
+                ParamType.DocumentReference, false, ['events']),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -416,7 +424,11 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(
+        hasTransition: true,
+        transitionType: PageTransitionType.fade,
+        duration: Duration(milliseconds: 300),
+      );
 }
 
 class _RouteErrorBuilder extends StatefulWidget {

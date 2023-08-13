@@ -9,6 +9,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -63,8 +64,8 @@ class _ShowOfEstablishmentsWidgetState
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 30.0,
+                height: 30.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -184,22 +185,23 @@ class _ShowOfEstablishmentsWidgetState
                                                                   context)
                                                               .width *
                                                           1.0,
-                                                      height: 40.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
+                                                      decoration:
+                                                          BoxDecoration(),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     8.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                    8.0,
+                                                                    8.0),
                                                         child: Text(
-                                                          'Lorem ipsum dolor sit amet, consectetur adipiscing...',
+                                                          showOfEstablishmentsEstablishmentsRecord
+                                                              .description
+                                                              .maybeHandleOverflow(
+                                                            maxChars: 40,
+                                                            replacement: '…',
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -216,27 +218,37 @@ class _ShowOfEstablishmentsWidgetState
                                                         ),
                                                       ),
                                                     ),
-                                                    expanded: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          showOfEstablishmentsEstablishmentsRecord
-                                                              .description,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: Color(
-                                                                    0x8A000000),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w300,
-                                                              ),
-                                                        ),
-                                                      ],
+                                                    expanded: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Text(
+                                                              showOfEstablishmentsEstablishmentsRecord
+                                                                  .description,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0x8A000000),
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w300,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                     theme: ExpandableThemeData(
                                                       tapHeaderToExpand: true,
@@ -369,7 +381,13 @@ class _ShowOfEstablishmentsWidgetState
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleMedium,
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ],
@@ -519,7 +537,13 @@ class _ShowOfEstablishmentsWidgetState
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleMedium,
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ],
@@ -903,89 +927,93 @@ class _ShowOfEstablishmentsWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
-                                              Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.55,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  children: [
-                                                    Expanded(
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                1.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            showOfEstablishmentsEstablishmentsRecord
-                                                                .speciality,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent2,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w300,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  if (showOfEstablishmentsEstablishmentsRecord
-                                                              .speciality ==
-                                                          null ||
-                                                      showOfEstablishmentsEstablishmentsRecord
-                                                              .speciality ==
-                                                          '')
-                                                    Icon(
-                                                      Icons.close,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                  Container(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.55,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                showOfEstablishmentsEstablishmentsRecord
+                                                                    .speciality,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .accent2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w300,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if (showOfEstablishmentsEstablishmentsRecord
+                                                                  .speciality ==
+                                                              null ||
+                                                          showOfEstablishmentsEstablishmentsRecord
+                                                                  .speciality ==
+                                                              '')
+                                                        Icon(
+                                                          Icons.close,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .alternate,
-                                                      size: 27.0,
-                                                    ),
-                                                  if (showOfEstablishmentsEstablishmentsRecord
-                                                              .speciality !=
-                                                          null &&
-                                                      showOfEstablishmentsEstablishmentsRecord
-                                                              .speciality !=
-                                                          '')
-                                                    Icon(
-                                                      Icons.done_rounded,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                          size: 27.0,
+                                                        ),
+                                                      if (showOfEstablishmentsEstablishmentsRecord
+                                                                  .speciality !=
+                                                              null &&
+                                                          showOfEstablishmentsEstablishmentsRecord
+                                                                  .speciality !=
+                                                              '')
+                                                        Icon(
+                                                          Icons.done_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .primary,
-                                                      size: 27.0,
-                                                    ),
+                                                          size: 27.0,
+                                                        ),
+                                                    ],
+                                                  ),
                                                 ],
                                               ),
                                             ],
@@ -1037,41 +1065,45 @@ class _ShowOfEstablishmentsWidgetState
                                                               .toList()
                                                               .take(2)
                                                               .toList();
-                                                      return Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .end,
-                                                        children: List.generate(
-                                                            gamesList.length,
-                                                            (gamesListIndex) {
-                                                          final gamesListItem =
-                                                              gamesList[
-                                                                  gamesListIndex];
-                                                          return Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    1.0, 0.0),
-                                                            child: Text(
-                                                              gamesListItem,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent2,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w300,
-                                                                  ),
-                                                            ),
-                                                          );
-                                                        }).divide(SizedBox(
-                                                            width: 5.0)),
+                                                      return SingleChildScrollView(
+                                                        scrollDirection:
+                                                            Axis.horizontal,
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          children: List.generate(
+                                                              gamesList.length,
+                                                              (gamesListIndex) {
+                                                            final gamesListItem =
+                                                                gamesList[
+                                                                    gamesListIndex];
+                                                            return Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child: Text(
+                                                                gamesListItem,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .accent2,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w300,
+                                                                    ),
+                                                              ),
+                                                            );
+                                                          }).divide(SizedBox(
+                                                              width: 5.0)),
+                                                        ),
                                                       );
                                                     },
                                                   ),
@@ -1127,8 +1159,8 @@ class _ShowOfEstablishmentsWidgetState
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
+                                            width: 30.0,
+                                            height: 30.0,
                                             child: CircularProgressIndicator(
                                               valueColor:
                                                   AlwaysStoppedAnimation<Color>(
@@ -1235,9 +1267,9 @@ class _ShowOfEstablishmentsWidgetState
                                                                         child:
                                                                             SizedBox(
                                                                           width:
-                                                                              50.0,
+                                                                              30.0,
                                                                           height:
-                                                                              50.0,
+                                                                              30.0,
                                                                           child:
                                                                               CircularProgressIndicator(
                                                                             valueColor:
@@ -1248,7 +1280,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                         ),
                                                                       );
                                                                     }
-                                                                    final containerEventsRecord =
+                                                                    final cardEventEventsRecord =
                                                                         snapshot
                                                                             .data!;
                                                                     return InkWell(
@@ -1300,13 +1332,6 @@ class _ShowOfEstablishmentsWidgetState
                                                                               BoxDecoration(
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            boxShadow: [
-                                                                              BoxShadow(
-                                                                                blurRadius: 1.5,
-                                                                                color: Color(0x33000000),
-                                                                                offset: Offset(1.5, 1.5),
-                                                                              )
-                                                                            ],
                                                                             borderRadius:
                                                                                 BorderRadius.circular(8.0),
                                                                           ),
@@ -1324,7 +1349,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                                 ),
                                                                                 child: Image.network(
                                                                                   valueOrDefault<String>(
-                                                                                    containerEventsRecord.image,
+                                                                                    cardEventEventsRecord.image,
                                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                   ),
                                                                                   width: double.infinity,
@@ -1338,29 +1363,35 @@ class _ShowOfEstablishmentsWidgetState
                                                                                   height: 100.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    borderRadius: BorderRadius.only(
+                                                                                      bottomLeft: Radius.circular(8.0),
+                                                                                      bottomRight: Radius.circular(8.0),
+                                                                                      topLeft: Radius.circular(0.0),
+                                                                                      topRight: Radius.circular(0.0),
+                                                                                    ),
                                                                                   ),
                                                                                   child: Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 4.0),
                                                                                     child: Column(
                                                                                       mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                                                       children: [
                                                                                         AutoSizeText(
-                                                                                          containerEventsRecord.title,
+                                                                                          cardEventEventsRecord.title,
                                                                                           maxLines: 1,
-                                                                                          style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                          style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontWeight: FontWeight.w600,
+                                                                                              ),
                                                                                         ),
                                                                                         Text(
                                                                                           dateTimeFormat(
                                                                                             'd/M/y',
-                                                                                            containerEventsRecord.date!,
+                                                                                            cardEventEventsRecord.date!,
                                                                                             locale: FFLocalizations.of(context).languageCode,
                                                                                           ),
-                                                                                          style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                fontFamily: 'Poppins',
-                                                                                                color: Color(0xFFFEE026),
-                                                                                              ),
+                                                                                          style: FlutterFlowTheme.of(context).labelMedium,
                                                                                         ),
                                                                                         Row(
                                                                                           mainAxisSize: MainAxisSize.max,
@@ -1368,18 +1399,15 @@ class _ShowOfEstablishmentsWidgetState
                                                                                             Text(
                                                                                               '${dateTimeFormat(
                                                                                                 'Hm',
-                                                                                                containerEventsRecord.date,
+                                                                                                cardEventEventsRecord.date,
                                                                                                 locale: FFLocalizations.of(context).languageCode,
                                                                                               )} - ${dateTimeFormat(
                                                                                                 'Hm',
-                                                                                                containerEventsRecord.schedule,
+                                                                                                cardEventEventsRecord.schedule,
                                                                                                 locale: FFLocalizations.of(context).languageCode,
                                                                                               )}'
                                                                                                   .maybeHandleOverflow(maxChars: 6),
-                                                                                              style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    color: FlutterFlowTheme.of(context).accent2,
-                                                                                                  ),
+                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -1678,125 +1706,176 @@ class _ShowOfEstablishmentsWidgetState
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 8.0),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              'Adresse',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                              if (showOfEstablishmentsEstablishmentsRecord
+                                      .adresse.latiLong !=
+                                  null)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 8.0, 0.0, 8.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          4.0, 0.0, 4.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 8.0, 8.0, 8.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'Adresse',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .titleMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        height: 247.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 4.0,
-                                              color: Color(0x33000000),
-                                              offset: Offset(0.0, 2.0),
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Builder(builder: (context) {
-                                          final _googleMapMarker =
-                                              showOfEstablishmentsEstablishmentsRecord;
-                                          return FlutterFlowGoogleMap(
-                                            controller:
-                                                _model.googleMapsController,
-                                            onCameraIdle: (latLng) => _model
-                                                .googleMapsCenter = latLng,
-                                            initialLocation: _model
-                                                    .googleMapsCenter ??=
-                                                showOfEstablishmentsEstablishmentsRecord
-                                                    .location!,
-                                            markers: [
-                                              FlutterFlowMarker(
-                                                _googleMapMarker.reference.path,
-                                                _googleMapMarker.location!,
-                                                () async {
-                                                  await launchMap(
-                                                    location:
-                                                        showOfEstablishmentsEstablishmentsRecord
-                                                            .location,
-                                                    title:
-                                                        showOfEstablishmentsEstablishmentsRecord
-                                                            .adresse.latiLong!
-                                                            .toString(),
-                                                  );
-                                                },
-                                              ),
-                                            ],
-                                            markerColor:
-                                                GoogleMarkerColor.yellow,
-                                            mapType: MapType.normal,
-                                            style: GoogleMapStyle.standard,
-                                            initialZoom: 14.0,
-                                            allowInteraction: true,
-                                            allowZoom: true,
-                                            showZoomControls: true,
-                                            showLocation: true,
-                                            showCompass: false,
-                                            showMapToolbar: false,
-                                            showTraffic: false,
-                                            centerMapOnMarkerTap: true,
-                                          );
-                                        }),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 16.0, 8.0, 16.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            SelectionArea(
-                                                child: Text(
-                                              valueOrDefault<String>(
-                                                '${showOfEstablishmentsEstablishmentsRecord.adresse.street}, ${showOfEstablishmentsEstablishmentsRecord.adresse.zipCode}, ${showOfEstablishmentsEstablishmentsRecord.adresse.city}',
-                                                'Aucune adresse ',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 8.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                SelectionArea(
+                                                    child: Text(
+                                                  valueOrDefault<String>(
+                                                    '${showOfEstablishmentsEstablishmentsRecord.adresse.street}, ${showOfEstablishmentsEstablishmentsRecord.adresse.zipCode}, ${showOfEstablishmentsEstablishmentsRecord.adresse.city}',
+                                                    'Aucune adresse ',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium,
-                                            )),
-                                          ],
-                                        ),
+                                                )),
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    await Clipboard.setData(
+                                                        ClipboardData(
+                                                            text:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                      '${showOfEstablishmentsEstablishmentsRecord.adresse.street}, ${showOfEstablishmentsEstablishmentsRecord.adresse.zipCode}, ${showOfEstablishmentsEstablishmentsRecord.adresse.city}',
+                                                      'Aucune adresse ',
+                                                    )));
+                                                  },
+                                                  child: Icon(
+                                                    Icons.content_copy,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 24.0,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 0.0),
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 1.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Container(
+                                                height: 150.0,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                child:
+                                                    Builder(builder: (context) {
+                                                  final _googleMapMarker =
+                                                      showOfEstablishmentsEstablishmentsRecord;
+                                                  return FlutterFlowGoogleMap(
+                                                    controller: _model
+                                                        .googleMapsController,
+                                                    onCameraIdle: (latLng) =>
+                                                        _model.googleMapsCenter =
+                                                            latLng,
+                                                    initialLocation: _model
+                                                            .googleMapsCenter ??=
+                                                        showOfEstablishmentsEstablishmentsRecord
+                                                            .adresse.latiLong!,
+                                                    markers: [
+                                                      FlutterFlowMarker(
+                                                        _googleMapMarker
+                                                            .reference.path,
+                                                        _googleMapMarker
+                                                            .location!,
+                                                        () async {
+                                                          await launchMap(
+                                                            location:
+                                                                showOfEstablishmentsEstablishmentsRecord
+                                                                    .adresse
+                                                                    .latiLong,
+                                                            title:
+                                                                showOfEstablishmentsEstablishmentsRecord
+                                                                    .name,
+                                                          );
+                                                        },
+                                                      ),
+                                                    ],
+                                                    markerColor:
+                                                        GoogleMarkerColor
+                                                            .yellow,
+                                                    mapType: MapType.normal,
+                                                    style:
+                                                        GoogleMapStyle.standard,
+                                                    initialZoom: 14.0,
+                                                    allowInteraction: true,
+                                                    allowZoom: true,
+                                                    showZoomControls: true,
+                                                    showLocation: true,
+                                                    showCompass: false,
+                                                    showMapToolbar: false,
+                                                    showTraffic: false,
+                                                    centerMapOnMarkerTap: true,
+                                                  );
+                                                }),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
                                 ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 8.0),
@@ -2108,8 +2187,8 @@ class _ShowOfEstablishmentsWidgetState
                                               if (!snapshot.hasData) {
                                                 return Center(
                                                   child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
+                                                    width: 30.0,
+                                                    height: 30.0,
                                                     child:
                                                         CircularProgressIndicator(
                                                       valueColor:
@@ -2265,6 +2344,18 @@ class _ShowOfEstablishmentsWidgetState
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
+                                                                      borderRadius:
+                                                                          BorderRadius
+                                                                              .only(
+                                                                        bottomLeft:
+                                                                            Radius.circular(8.0),
+                                                                        bottomRight:
+                                                                            Radius.circular(8.0),
+                                                                        topLeft:
+                                                                            Radius.circular(0.0),
+                                                                        topRight:
+                                                                            Radius.circular(0.0),
+                                                                      ),
                                                                     ),
                                                                     child:
                                                                         Padding(
@@ -2278,28 +2369,28 @@ class _ShowOfEstablishmentsWidgetState
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
+                                                                            MainAxisAlignment.spaceAround,
                                                                         crossAxisAlignment:
                                                                             CrossAxisAlignment.start,
                                                                         children: [
-                                                                          Text(
-                                                                            otherEstablishmentsListEstablishmentsRecord.type.first,
-                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  color: Color(0xFFFEE026),
-                                                                                ),
-                                                                          ),
                                                                           AutoSizeText(
                                                                             otherEstablishmentsListEstablishmentsRecord.name,
                                                                             maxLines:
                                                                                 1,
+                                                                            style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                ),
+                                                                          ),
+                                                                          Text(
+                                                                            otherEstablishmentsListEstablishmentsRecord.type.first,
                                                                             style:
-                                                                                FlutterFlowTheme.of(context).titleMedium,
+                                                                                FlutterFlowTheme.of(context).labelMedium,
                                                                           ),
                                                                           Text(
                                                                             otherEstablishmentsListEstablishmentsRecord.musicStyle.first,
                                                                             style:
-                                                                                FlutterFlowTheme.of(context).bodySmall,
+                                                                                FlutterFlowTheme.of(context).labelMedium,
                                                                           ),
                                                                         ],
                                                                       ),

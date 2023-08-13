@@ -7,11 +7,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:text_search/text_search.dart';
 import 'list_of_events_model.dart';
 export 'list_of_events_model.dart';
 
@@ -44,6 +46,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
       });
     });
 
+    _model.eventSearchController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -72,8 +75,8 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 30.0,
+                height: 30.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -627,19 +630,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: 24.0,
                           ),
-                          onPressed: () async {
-                            context.pushNamed(
-                              'FiltersEvent',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.rightToLeft,
-                                  duration: Duration(milliseconds: 300),
-                                ),
-                              },
-                            );
-                          },
+                          onPressed: () async {},
                         ),
                       ),
                     ],
@@ -696,253 +687,608 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 16.0, 16.0, 80.0),
-                                  child: Builder(
-                                    builder: (context) {
-                                      final listEvents =
-                                          listOfEventsEventsRecordList
-                                              .map((e) => e)
-                                              .toList();
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        primary: false,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: listEvents.length,
-                                        itemBuilder:
-                                            (context, listEventsIndex) {
-                                          final listEventsItem =
-                                              listEvents[listEventsIndex];
-                                          return Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: StreamBuilder<
-                                                EstablishmentsRecord>(
-                                              stream: EstablishmentsRecord
-                                                  .getDocument(listEventsItem
-                                                      .establishmentId!),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                final cardEventsEstablishmentsRecord =
-                                                    snapshot.data!;
-                                                return InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'ShowOfEvents',
-                                                      queryParameters: {
-                                                        'showOfEvents':
-                                                            serializeParam(
-                                                          widget.eventDetails,
-                                                          ParamType
-                                                              .DocumentReference,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Card(
-                                                    clipBehavior: Clip
-                                                        .antiAliasWithSaveLayer,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    elevation: 10.0,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              listEventsItem
-                                                                  .image,
-                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/q5kvuygrpjr8/Logo_-_bleu_fonce%CC%81.svg',
-                                                            ),
-                                                            width:
-                                                                double.infinity,
-                                                            height: 180.0,
-                                                            fit: BoxFit.contain,
+                                      15.0, 15.0, 15.0, 15.0),
+                                  child: TextFormField(
+                                    controller: _model.eventSearchController,
+                                    onChanged: (_) => EasyDebounce.debounce(
+                                      '_model.eventSearchController',
+                                      Duration(milliseconds: 2000),
+                                      () async {
+                                        setState(() {
+                                          _model.simpleSearchResults =
+                                              TextSearch(
+                                            listOfEventsEventsRecordList
+                                                .map(
+                                                  (record) =>
+                                                      TextSearchItem(record, [
+                                                    record.promo!,
+                                                    record.siteWeb!,
+                                                    record.description!,
+                                                    record.title!,
+                                                    record.name!,
+                                                    record.eventId!
+                                                  ]),
+                                                )
+                                                .toList(),
+                                          )
+                                                  .search(_model
+                                                      .eventSearchController
+                                                      .text)
+                                                  .map((r) => r.object)
+                                                  .toList();
+                                          ;
+                                        });
+                                      },
+                                    ),
+                                    onFieldSubmitted: (_) async {
+                                      setState(() {
+                                        FFAppState().searchChange = true;
+                                      });
+                                      if (_model.eventSearchController.text ==
+                                              null ||
+                                          _model.eventSearchController.text ==
+                                              '') {
+                                        setState(() {
+                                          FFAppState().searchChange = true;
+                                        });
+                                      } else {
+                                        setState(() {
+                                          FFAppState().searchChange = true;
+                                        });
+                                      }
+
+                                      setState(() {
+                                        _model.eventSearchController?.clear();
+                                      });
+                                    },
+                                    autofocus: true,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      hintText: 'Trouvez votre événement',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelLarge,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .lineColor,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(40.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(40.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(40.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(40.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      prefixIcon: Icon(
+                                        Icons.search_sharp,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    cursorColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    validator: _model
+                                        .eventSearchControllerValidator
+                                        .asValidator(context),
+                                  ),
+                                ),
+                                if (valueOrDefault<bool>(
+                                  FFAppState().searchChange == false,
+                                  true,
+                                ))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 16.0, 16.0, 80.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final listEvents =
+                                            listOfEventsEventsRecordList
+                                                .map((e) => e)
+                                                .toList();
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: listEvents.length,
+                                          itemBuilder:
+                                              (context, listEventsIndex) {
+                                            final listEventsItem =
+                                                listEvents[listEventsIndex];
+                                            return Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: StreamBuilder<
+                                                  EstablishmentsRecord>(
+                                                stream: EstablishmentsRecord
+                                                    .getDocument(listEventsItem
+                                                        .establishmentId!),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 30.0,
+                                                        height: 30.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                           ),
                                                         ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      8.0,
-                                                                      8.0,
-                                                                      8.0),
-                                                          child: Container(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                1.0,
-                                                            height: 80.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
+                                                      ),
+                                                    );
+                                                  }
+                                                  final cardEventsEstablishmentsRecord =
+                                                      snapshot.data!;
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        'ShowOfEvents',
+                                                        queryParameters: {
+                                                          'showOfEvents':
+                                                              serializeParam(
+                                                            widget.eventDetails,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Card(
+                                                      clipBehavior: Clip
+                                                          .antiAliasWithSaveLayer,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      elevation: 1.0,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16.0),
+                                                      ),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child:
+                                                                Image.network(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                listEventsItem
+                                                                    .image,
+                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/q5kvuygrpjr8/Logo_-_bleu_fonce%CC%81.svg',
+                                                              ),
+                                                              width: double
+                                                                  .infinity,
+                                                              height: 180.0,
+                                                              fit: BoxFit
+                                                                  .contain,
                                                             ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceEvenly,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child: Text(
-                                                                      listEventsItem
-                                                                          .title,
-                                                                      style: FlutterFlowTheme.of(
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        8.0,
+                                                                        8.0,
+                                                                        8.0),
+                                                            child: Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
                                                                               context)
-                                                                          .headlineSmall,
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        '${dateTimeFormat(
-                                                                          'd/M/y',
-                                                                          listEventsItem
-                                                                              .date,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )} de ${dateTimeFormat(
-                                                                          'Hm',
-                                                                          listEventsItem
-                                                                              .date,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )} - ${dateTimeFormat(
-                                                                          'Hm',
-                                                                          listEventsItem
-                                                                              .schedule,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )}',
-                                                                        ' Aucun horaire pour le moment',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              30.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            listEventsItem.name,
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          cardEventsEstablishmentsRecord
-                                                                              .adresse
-                                                                              .city,
-                                                                          '*',
-                                                                        ),
+                                                                      .width *
+                                                                  1.0,
+                                                              height: 80.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceEvenly,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      child:
+                                                                          Text(
+                                                                        listEventsItem
+                                                                            .title,
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
+                                                                            .titleSmall
                                                                             .override(
                                                                               fontFamily: 'Poppins',
-                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
-                                                                    ],
-                                                                  ),
-                                                                ],
+                                                                    ),
+                                                                    Expanded(
+                                                                      child:
+                                                                          Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          '${dateTimeFormat(
+                                                                            'd/M/y',
+                                                                            listEventsItem.date,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )} de ${dateTimeFormat(
+                                                                            'Hm',
+                                                                            listEventsItem.date,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )} - ${dateTimeFormat(
+                                                                            'Hm',
+                                                                            listEventsItem.schedule,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )}',
+                                                                          ' Aucun horaire pour le moment',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelLarge,
+                                                                      ),
+                                                                    ),
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Expanded(
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                30.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              listEventsItem.name,
+                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            cardEventsEstablishmentsRecord.adresse.city,
+                                                                            '*',
+                                                                          ),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                );
-                                              },
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
+                                                  );
+                                                },
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
                                   ),
-                                ),
+                                if (valueOrDefault<bool>(
+                                  FFAppState().searchChange == true,
+                                  false,
+                                ))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 16.0, 16.0, 80.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final listEvents =
+                                            listOfEventsEventsRecordList
+                                                .map((e) => e)
+                                                .toList();
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: listEvents.length,
+                                          itemBuilder:
+                                              (context, listEventsIndex) {
+                                            final listEventsItem =
+                                                listEvents[listEventsIndex];
+                                            return Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: StreamBuilder<
+                                                  EstablishmentsRecord>(
+                                                stream: EstablishmentsRecord
+                                                    .getDocument(listEventsItem
+                                                        .establishmentId!),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 30.0,
+                                                        height: 30.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                  final cardEventsEstablishmentsRecord =
+                                                      snapshot.data!;
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        'ShowOfEvents',
+                                                        queryParameters: {
+                                                          'showOfEvents':
+                                                              serializeParam(
+                                                            widget.eventDetails,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Card(
+                                                      clipBehavior: Clip
+                                                          .antiAliasWithSaveLayer,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      elevation: 1.0,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16.0),
+                                                      ),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child:
+                                                                Image.network(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                listEventsItem
+                                                                    .image,
+                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/q5kvuygrpjr8/Logo_-_bleu_fonce%CC%81.svg',
+                                                              ),
+                                                              width: double
+                                                                  .infinity,
+                                                              height: 180.0,
+                                                              fit: BoxFit
+                                                                  .contain,
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        8.0,
+                                                                        8.0,
+                                                                        8.0),
+                                                            child: Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  1.0,
+                                                              height: 80.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceEvenly,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      child:
+                                                                          Text(
+                                                                        listEventsItem
+                                                                            .title,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      child:
+                                                                          Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          '${dateTimeFormat(
+                                                                            'd/M/y',
+                                                                            listEventsItem.date,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )} de ${dateTimeFormat(
+                                                                            'Hm',
+                                                                            listEventsItem.date,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )} - ${dateTimeFormat(
+                                                                            'Hm',
+                                                                            listEventsItem.schedule,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )}',
+                                                                          ' Aucun horaire pour le moment',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelLarge,
+                                                                      ),
+                                                                    ),
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Expanded(
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                30.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              listEventsItem.name,
+                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            cardEventsEstablishmentsRecord.adresse.city,
+                                                                            '*',
+                                                                          ),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
                               ],
                             ),
                           ),

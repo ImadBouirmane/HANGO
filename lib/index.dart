@@ -5,8 +5,6 @@ export '/pages/events/show_of_events/show_of_events_widget.dart'
     show ShowOfEventsWidget;
 export '/pages/establishments/filters_establishment/filters_establishment_widget.dart'
     show FiltersEstablishmentWidget;
-export '/pages/events/filters_event/filters_event_widget.dart'
-    show FiltersEventWidget;
 export '/pages/maps/maps_widget.dart' show MapsWidget;
 export '/auth/user_login/user_login_widget.dart' show UserLoginWidget;
 export '/pages/events/web_view_event/web_view_event_widget.dart'
@@ -18,12 +16,16 @@ export '/pages/establishments/list_of_establishments/list_of_establishments_widg
 export '/pages/events/list_of_events/list_of_events_widget.dart'
     show ListOfEventsWidget;
 export '/auth/user_sing_up/user_sing_up_widget.dart' show UserSingUpWidget;
-export '/dashboard/dashboard_widget.dart' show DashboardWidget;
-export '/update_establishment/update_establishment_widget.dart'
+export '/administrator/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/administrator/establishments/update_establishment/update_establishment_widget.dart'
     show UpdateEstablishmentWidget;
-export '/create_establishment/create_establishment_widget.dart'
+export '/administrator/establishments/create_establishment/create_establishment_widget.dart'
     show CreateEstablishmentWidget;
 export '/pages/establishments/web_view_establishment/web_view_establishment_widget.dart'
     show WebViewEstablishmentWidget;
 export '/pages/events/event_filter_result/event_filter_result_widget.dart'
     show EventFilterResultWidget;
+export '/administrator/events/create_events/create_events_widget.dart'
+    show CreateEventsWidget;
+export '/administrator/events/update_events/update_events_widget.dart'
+    show UpdateEventsWidget;

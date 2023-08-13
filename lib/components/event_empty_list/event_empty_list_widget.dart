@@ -50,13 +50,16 @@ class _EventEmptyListWidgetState extends State<EventEmptyListWidget> {
           color: FlutterFlowTheme.of(context).secondaryBackground,
         ),
         alignment: AlignmentDirectional(0.0, -0.5),
-        child: Text(
-          'Aucun  événement planifié',
-          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Poppins',
-                color: FlutterFlowTheme.of(context).accent2,
-                fontWeight: FontWeight.w300,
-              ),
+        child: Align(
+          alignment: AlignmentDirectional(0.0, 0.0),
+          child: Text(
+            'Aucun  événement planifié',
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Poppins',
+                  color: FlutterFlowTheme.of(context).accent2,
+                  fontWeight: FontWeight.w300,
+                ),
+          ),
         ),
       ),
     );

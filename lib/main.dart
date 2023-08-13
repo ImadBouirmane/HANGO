@@ -100,7 +100,23 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [
         Locale('fr'),
       ],
-      theme: ThemeData(brightness: Brightness.light),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        scrollbarTheme: ScrollbarThemeData(
+          thumbVisibility: MaterialStateProperty.all(false),
+          interactive: true,
+          radius: Radius.circular(15.0),
+          thumbColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.dragged)) {
+              return Color(4283944877);
+            }
+            if (states.contains(MaterialState.hovered)) {
+              return Color(1564070592);
+            }
+            return Color(4283944877);
+          }),
+        ),
+      ),
       themeMode: _themeMode,
       routerConfig: _router,
       builder: (_, child) => DynamicLinksHandler(

@@ -58,8 +58,8 @@ class _WebViewEstablishmentWidgetState
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 30.0,
+                height: 30.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,

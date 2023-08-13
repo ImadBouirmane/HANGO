@@ -547,33 +547,7 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),
                 ),
-                actions: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 15.0, 10.0),
-                    child: FlutterFlowIconButton(
-                      borderRadius: 20.0,
-                      borderWidth: 1.0,
-                      buttonSize: 40.0,
-                      icon: FaIcon(
-                        FontAwesomeIcons.filter,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
-                      ),
-                      onPressed: () async {
-                        context.pushNamed(
-                          'FiltersEvent',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.rightToLeft,
-                            ),
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                ],
+                actions: [],
                 bottom: PreferredSize(
                   preferredSize: Size.fromHeight(130.0),
                   child: FlutterFlowCalendar(

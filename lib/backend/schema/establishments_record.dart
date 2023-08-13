@@ -141,6 +141,11 @@ class EstablishmentsRecord extends FirestoreRecord {
   LatLng? get location => _location;
   bool hasLocation() => _location != null;
 
+  // "updatedAt" field.
+  DateTime? _updatedAt;
+  DateTime? get updatedAt => _updatedAt;
+  bool hasUpdatedAt() => _updatedAt != null;
+
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _name = snapshotData['name'] as String?;
@@ -167,6 +172,7 @@ class EstablishmentsRecord extends FirestoreRecord {
     _eventsReferences = getDataList(snapshotData['events_references']);
     _description = snapshotData['description'] as String?;
     _location = snapshotData['Location'] as LatLng?;
+    _updatedAt = snapshotData['updatedAt'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -223,6 +229,7 @@ Map<String, dynamic> createEstablishmentsRecordData({
   String? sunday,
   String? description,
   LatLng? location,
+  DateTime? updatedAt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -245,6 +252,7 @@ Map<String, dynamic> createEstablishmentsRecordData({
       'sunday': sunday,
       'description': description,
       'Location': location,
+      'updatedAt': updatedAt,
     }.withoutNulls,
   );
 
@@ -285,7 +293,8 @@ class EstablishmentsRecordDocumentEquality
         e1?.sunday == e2?.sunday &&
         listEquality.equals(e1?.eventsReferences, e2?.eventsReferences) &&
         e1?.description == e2?.description &&
-        e1?.location == e2?.location;
+        e1?.location == e2?.location &&
+        e1?.updatedAt == e2?.updatedAt;
   }
 
   @override
@@ -314,7 +323,8 @@ class EstablishmentsRecordDocumentEquality
         e?.sunday,
         e?.eventsReferences,
         e?.description,
-        e?.location
+        e?.location,
+        e?.updatedAt
       ]);
 
   @override
