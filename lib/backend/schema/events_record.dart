@@ -106,6 +106,26 @@ class EventsRecord extends FirestoreRecord {
   DateTime? get updatedAt => _updatedAt;
   bool hasUpdatedAt() => _updatedAt != null;
 
+  // "establishment_reference" field.
+  DocumentReference? _establishmentReference;
+  DocumentReference? get establishmentReference => _establishmentReference;
+  bool hasEstablishmentReference() => _establishmentReference != null;
+
+  // "videoPath" field.
+  String? _videoPath;
+  String get videoPath => _videoPath ?? '';
+  bool hasVideoPath() => _videoPath != null;
+
+  // "type" field.
+  String? _type;
+  String get type => _type ?? '';
+  bool hasType() => _type != null;
+
+  // "listImages" field.
+  List<String>? _listImages;
+  List<String> get listImages => _listImages ?? const [];
+  bool hasListImages() => _listImages != null;
+
   void _initializeFields() {
     _eventId = snapshotData['event_id'] as String?;
     _establishmentId = snapshotData['establishment_id'] as DocumentReference?;
@@ -125,6 +145,11 @@ class EventsRecord extends FirestoreRecord {
     _eventRef = snapshotData['eventRef'] as DocumentReference?;
     _entranceCheck = snapshotData['entranceCheck'] as bool?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
+    _establishmentReference =
+        snapshotData['establishment_reference'] as DocumentReference?;
+    _videoPath = snapshotData['videoPath'] as String?;
+    _type = snapshotData['type'] as String?;
+    _listImages = getDataList(snapshotData['listImages']);
   }
 
   static CollectionReference get collection =>
@@ -177,6 +202,9 @@ Map<String, dynamic> createEventsRecordData({
   DocumentReference? eventRef,
   bool? entranceCheck,
   DateTime? updatedAt,
+  DocumentReference? establishmentReference,
+  String? videoPath,
+  String? type,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -196,6 +224,9 @@ Map<String, dynamic> createEventsRecordData({
       'eventRef': eventRef,
       'entranceCheck': entranceCheck,
       'updatedAt': updatedAt,
+      'establishment_reference': establishmentReference,
+      'videoPath': videoPath,
+      'type': type,
     }.withoutNulls,
   );
 
@@ -225,7 +256,11 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.location == e2?.location &&
         e1?.eventRef == e2?.eventRef &&
         e1?.entranceCheck == e2?.entranceCheck &&
-        e1?.updatedAt == e2?.updatedAt;
+        e1?.updatedAt == e2?.updatedAt &&
+        e1?.establishmentReference == e2?.establishmentReference &&
+        e1?.videoPath == e2?.videoPath &&
+        e1?.type == e2?.type &&
+        listEquality.equals(e1?.listImages, e2?.listImages);
   }
 
   @override
@@ -247,7 +282,11 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.location,
         e?.eventRef,
         e?.entranceCheck,
-        e?.updatedAt
+        e?.updatedAt,
+        e?.establishmentReference,
+        e?.videoPath,
+        e?.type,
+        e?.listImages
       ]);
 
   @override

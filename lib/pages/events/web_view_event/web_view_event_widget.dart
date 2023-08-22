@@ -33,6 +33,8 @@ class _WebViewEventWidgetState extends State<WebViewEventWidget> {
     super.initState();
     _model = createModel(context, () => WebViewEventModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'WebViewEvent'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -91,6 +93,8 @@ class _WebViewEventWidgetState extends State<WebViewEventWidget> {
                       size: 30.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent('WEB_VIEW_EVENT_PAGE_close_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_navigate_back');
                       context.pop();
                     },
                   ),

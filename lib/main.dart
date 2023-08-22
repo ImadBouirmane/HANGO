@@ -14,6 +14,10 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'flutter_flow/firebase_app_check_util.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
@@ -30,6 +34,8 @@ void main() async {
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
+
+  await initializeFirebaseAppCheck();
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
@@ -104,16 +110,17 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.light,
         scrollbarTheme: ScrollbarThemeData(
           thumbVisibility: MaterialStateProperty.all(false),
+          trackVisibility: MaterialStateProperty.all(true),
           interactive: true,
           radius: Radius.circular(15.0),
           thumbColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.dragged)) {
-              return Color(4283944877);
+              return Color(1564070592);
             }
             if (states.contains(MaterialState.hovered)) {
               return Color(1564070592);
             }
-            return Color(4283944877);
+            return Color(1564070592);
           }),
         ),
       ),
@@ -122,6 +129,82 @@ class _MyAppState extends State<MyApp> {
       builder: (_, child) => DynamicLinksHandler(
         router: _router,
         child: child!,
+      ),
+    );
+  }
+}
+
+class NavBarPage extends StatefulWidget {
+  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+
+  final String? initialPage;
+  final Widget? page;
+
+  @override
+  _NavBarPageState createState() => _NavBarPageState();
+}
+
+/// This is the private State class that goes with NavBarPage.
+class _NavBarPageState extends State<NavBarPage> {
+  String _currentPageName = 'ListOfEvents';
+  late Widget? _currentPage;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentPageName = widget.initialPage ?? _currentPageName;
+    _currentPage = widget.page;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final tabs = {
+      'Maps': MapsWidget(),
+      'ListOfEstablishments': ListOfEstablishmentsWidget(),
+      'ListOfEvents': ListOfEventsWidget(),
+    };
+    final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
+
+    return Scaffold(
+      body: _currentPage ?? tabs[_currentPageName],
+      bottomNavigationBar: GNav(
+        selectedIndex: currentIndex,
+        onTabChange: (i) => setState(() {
+          _currentPage = null;
+          _currentPageName = tabs.keys.toList()[i];
+        }),
+        backgroundColor: Colors.white,
+        color: FlutterFlowTheme.of(context).accent1,
+        activeColor: FlutterFlowTheme.of(context).primaryBackground,
+        tabBackgroundColor: FlutterFlowTheme.of(context).primary,
+        tabBorderRadius: 100.0,
+        tabMargin: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+        padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+        gap: 10.0,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        duration: Duration(milliseconds: 500),
+        haptic: true,
+        tabs: [
+          GButton(
+            icon: currentIndex == 0
+                ? FontAwesomeIcons.mapMarkedAlt
+                : FontAwesomeIcons.mapMarkedAlt,
+            text: 'Map',
+            iconSize: 22.0,
+          ),
+          GButton(
+            icon: currentIndex == 1 ? Icons.home : FontAwesomeIcons.home,
+            text: 'Établissements',
+            iconSize: 22.0,
+          ),
+          GButton(
+            icon: currentIndex == 2
+                ? Icons.calendar_today_rounded
+                : Icons.calendar_today_rounded,
+            text: 'Événements',
+            iconSize: 22.0,
+          )
+        ],
       ),
     );
   }

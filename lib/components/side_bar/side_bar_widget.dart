@@ -192,6 +192,9 @@ class _SideBarWidgetState extends State<SideBarWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
+                  logFirebaseEvent('SIDE_BAR_COMP_Container_yqrrcdxn_ON_TAP');
+                  logFirebaseEvent('Container_navigate_to');
+
                   context.pushNamed('Dashboard');
                 },
                 child: Container(
@@ -303,6 +306,10 @@ class _SideBarWidgetState extends State<SideBarWidget>
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'SIDE_BAR_COMP_Button-Login_ON_TAP');
+                                logFirebaseEvent('Button-Login_navigate_to');
+
                                 context.pushNamed('ListOfEstablishments');
                               },
                               text: 'Retourner sur l\'app',

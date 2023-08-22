@@ -39,6 +39,46 @@ class FFAppState extends ChangeNotifier {
     await _safeInitAsync(() async {
       _Artistes = await secureStorage.getStringList('ff_Artistes') ?? _Artistes;
     });
+    await _safeInitAsync(() async {
+      _visibleStateScheduleMonday =
+          await secureStorage.getBool('ff_visibleStateScheduleMonday') ??
+              _visibleStateScheduleMonday;
+    });
+    await _safeInitAsync(() async {
+      _visibleStateScheduleTuesday =
+          await secureStorage.getBool('ff_visibleStateScheduleTuesday') ??
+              _visibleStateScheduleTuesday;
+    });
+    await _safeInitAsync(() async {
+      _visibleStateScheduleWednesday =
+          await secureStorage.getBool('ff_visibleStateScheduleWednesday') ??
+              _visibleStateScheduleWednesday;
+    });
+    await _safeInitAsync(() async {
+      _visibleStateScheduleThursday =
+          await secureStorage.getBool('ff_visibleStateScheduleThursday') ??
+              _visibleStateScheduleThursday;
+    });
+    await _safeInitAsync(() async {
+      _visibleStateScheduleFriday =
+          await secureStorage.getBool('ff_visibleStateScheduleFriday') ??
+              _visibleStateScheduleFriday;
+    });
+    await _safeInitAsync(() async {
+      _visibleStateScheduleSaturday =
+          await secureStorage.getBool('ff_visibleStateScheduleSaturday') ??
+              _visibleStateScheduleSaturday;
+    });
+    await _safeInitAsync(() async {
+      _visibleStateScheduleSunday =
+          await secureStorage.getBool('ff_visibleStateScheduleSunday') ??
+              _visibleStateScheduleSunday;
+    });
+    await _safeInitAsync(() async {
+      _uploadedNewEstImages =
+          (await secureStorage.getStringList('ff_uploadedNewEstImages')) ??
+              _uploadedNewEstImages;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -153,7 +193,9 @@ class FFAppState extends ChangeNotifier {
     'Concert',
     'DJ',
     'Blind test',
-    'Karaoké'
+    'Karaoké',
+    'Soirée à thème',
+    'Show case'
   ];
   List<String> get TypeOfEvent => _TypeOfEvent;
   set TypeOfEvent(List<String> _value) {
@@ -194,7 +236,8 @@ class FFAppState extends ChangeNotifier {
     'Finger food',
     'Sandwich',
     'Tapas',
-    'Fast food'
+    'Fast food',
+    'Pizza'
   ];
   List<String> get Food => _Food;
   set Food(List<String> _value) {
@@ -340,6 +383,200 @@ class FFAppState extends ChangeNotifier {
   ) {
     _Artistes[_index] = updateFn(_Artistes[_index]);
     secureStorage.setStringList('ff_Artistes', _Artistes);
+  }
+
+  String _clickState = '';
+  String get clickState => _clickState;
+  set clickState(String _value) {
+    _clickState = _value;
+  }
+
+  bool _isClose = true;
+  bool get isClose => _isClose;
+  set isClose(bool _value) {
+    _isClose = _value;
+  }
+
+  bool _visibleStateScheduleMonday = true;
+  bool get visibleStateScheduleMonday => _visibleStateScheduleMonday;
+  set visibleStateScheduleMonday(bool _value) {
+    _visibleStateScheduleMonday = _value;
+    secureStorage.setBool('ff_visibleStateScheduleMonday', _value);
+  }
+
+  void deleteVisibleStateScheduleMonday() {
+    secureStorage.delete(key: 'ff_visibleStateScheduleMonday');
+  }
+
+  bool _visibleStateScheduleTuesday = true;
+  bool get visibleStateScheduleTuesday => _visibleStateScheduleTuesday;
+  set visibleStateScheduleTuesday(bool _value) {
+    _visibleStateScheduleTuesday = _value;
+    secureStorage.setBool('ff_visibleStateScheduleTuesday', _value);
+  }
+
+  void deleteVisibleStateScheduleTuesday() {
+    secureStorage.delete(key: 'ff_visibleStateScheduleTuesday');
+  }
+
+  bool _visibleStateScheduleWednesday = true;
+  bool get visibleStateScheduleWednesday => _visibleStateScheduleWednesday;
+  set visibleStateScheduleWednesday(bool _value) {
+    _visibleStateScheduleWednesday = _value;
+    secureStorage.setBool('ff_visibleStateScheduleWednesday', _value);
+  }
+
+  void deleteVisibleStateScheduleWednesday() {
+    secureStorage.delete(key: 'ff_visibleStateScheduleWednesday');
+  }
+
+  bool _visibleStateScheduleThursday = true;
+  bool get visibleStateScheduleThursday => _visibleStateScheduleThursday;
+  set visibleStateScheduleThursday(bool _value) {
+    _visibleStateScheduleThursday = _value;
+    secureStorage.setBool('ff_visibleStateScheduleThursday', _value);
+  }
+
+  void deleteVisibleStateScheduleThursday() {
+    secureStorage.delete(key: 'ff_visibleStateScheduleThursday');
+  }
+
+  bool _visibleStateScheduleFriday = true;
+  bool get visibleStateScheduleFriday => _visibleStateScheduleFriday;
+  set visibleStateScheduleFriday(bool _value) {
+    _visibleStateScheduleFriday = _value;
+    secureStorage.setBool('ff_visibleStateScheduleFriday', _value);
+  }
+
+  void deleteVisibleStateScheduleFriday() {
+    secureStorage.delete(key: 'ff_visibleStateScheduleFriday');
+  }
+
+  bool _visibleStateScheduleSaturday = true;
+  bool get visibleStateScheduleSaturday => _visibleStateScheduleSaturday;
+  set visibleStateScheduleSaturday(bool _value) {
+    _visibleStateScheduleSaturday = _value;
+    secureStorage.setBool('ff_visibleStateScheduleSaturday', _value);
+  }
+
+  void deleteVisibleStateScheduleSaturday() {
+    secureStorage.delete(key: 'ff_visibleStateScheduleSaturday');
+  }
+
+  bool _visibleStateScheduleSunday = true;
+  bool get visibleStateScheduleSunday => _visibleStateScheduleSunday;
+  set visibleStateScheduleSunday(bool _value) {
+    _visibleStateScheduleSunday = _value;
+    secureStorage.setBool('ff_visibleStateScheduleSunday', _value);
+  }
+
+  void deleteVisibleStateScheduleSunday() {
+    secureStorage.delete(key: 'ff_visibleStateScheduleSunday');
+  }
+
+  String _themeEvent = '';
+  String get themeEvent => _themeEvent;
+  set themeEvent(String _value) {
+    _themeEvent = _value;
+  }
+
+  String _musicType = '';
+  String get musicType => _musicType;
+  set musicType(String _value) {
+    _musicType = _value;
+  }
+
+  bool _weekend = false;
+  bool get weekend => _weekend;
+  set weekend(bool _value) {
+    _weekend = _value;
+  }
+
+  bool _jeudredi = false;
+  bool get jeudredi => _jeudredi;
+  set jeudredi(bool _value) {
+    _jeudredi = _value;
+  }
+
+  bool _freeEnter = false;
+  bool get freeEnter => _freeEnter;
+  set freeEnter(bool _value) {
+    _freeEnter = _value;
+  }
+
+  bool _booked = false;
+  bool get booked => _booked;
+  set booked(bool _value) {
+    _booked = _value;
+  }
+
+  List<int> _clickCount = [];
+  List<int> get clickCount => _clickCount;
+  set clickCount(List<int> _value) {
+    _clickCount = _value;
+  }
+
+  void addToClickCount(int _value) {
+    _clickCount.add(_value);
+  }
+
+  void removeFromClickCount(int _value) {
+    _clickCount.remove(_value);
+  }
+
+  void removeAtIndexFromClickCount(int _index) {
+    _clickCount.removeAt(_index);
+  }
+
+  void updateClickCountAtIndex(
+    int _index,
+    int Function(int) updateFn,
+  ) {
+    _clickCount[_index] = updateFn(_clickCount[_index]);
+  }
+
+  bool _isUploaded = false;
+  bool get isUploaded => _isUploaded;
+  set isUploaded(bool _value) {
+    _isUploaded = _value;
+  }
+
+  List<String> _uploadedNewEstImages = [];
+  List<String> get uploadedNewEstImages => _uploadedNewEstImages;
+  set uploadedNewEstImages(List<String> _value) {
+    _uploadedNewEstImages = _value;
+    secureStorage.setStringList('ff_uploadedNewEstImages', _value);
+  }
+
+  void deleteUploadedNewEstImages() {
+    secureStorage.delete(key: 'ff_uploadedNewEstImages');
+  }
+
+  void addToUploadedNewEstImages(String _value) {
+    _uploadedNewEstImages.add(_value);
+    secureStorage.setStringList(
+        'ff_uploadedNewEstImages', _uploadedNewEstImages);
+  }
+
+  void removeFromUploadedNewEstImages(String _value) {
+    _uploadedNewEstImages.remove(_value);
+    secureStorage.setStringList(
+        'ff_uploadedNewEstImages', _uploadedNewEstImages);
+  }
+
+  void removeAtIndexFromUploadedNewEstImages(int _index) {
+    _uploadedNewEstImages.removeAt(_index);
+    secureStorage.setStringList(
+        'ff_uploadedNewEstImages', _uploadedNewEstImages);
+  }
+
+  void updateUploadedNewEstImagesAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _uploadedNewEstImages[_index] = updateFn(_uploadedNewEstImages[_index]);
+    secureStorage.setStringList(
+        'ff_uploadedNewEstImages', _uploadedNewEstImages);
   }
 }
 

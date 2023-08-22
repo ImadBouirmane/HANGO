@@ -147,7 +147,12 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                context.pushNamed('UserSingUp');
+                                logFirebaseEvent(
+                                    'DRAWE_LOGIN_Button-create-account_ON_TAP');
+                                logFirebaseEvent(
+                                    'Button-create-account_navigate_to');
+
+                                context.pushNamed('UserSignUp');
                               },
                               text: 'Créer un compte',
                               options: FFButtonOptions(
@@ -180,6 +185,10 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'DRAWE_LOGIN_COMP_Button-Login_ON_TAP');
+                                logFirebaseEvent('Button-Login_navigate_to');
+
                                 context.pushNamed('UserLogin');
                               },
                               text: 'Se connecter',

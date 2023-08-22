@@ -31,10 +31,22 @@ class FeedbackRecord extends FirestoreRecord {
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
 
+  // "isSuggestion" field.
+  bool? _isSuggestion;
+  bool get isSuggestion => _isSuggestion ?? false;
+  bool hasIsSuggestion() => _isSuggestion != null;
+
+  // "isReport" field.
+  bool? _isReport;
+  bool get isReport => _isReport ?? false;
+  bool hasIsReport() => _isReport != null;
+
   void _initializeFields() {
     _userRef = snapshotData['userRef'] as DocumentReference?;
     _message = snapshotData['message'] as String?;
     _createdTime = snapshotData['createdTime'] as DateTime?;
+    _isSuggestion = snapshotData['isSuggestion'] as bool?;
+    _isReport = snapshotData['isReport'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -75,12 +87,16 @@ Map<String, dynamic> createFeedbackRecordData({
   DocumentReference? userRef,
   String? message,
   DateTime? createdTime,
+  bool? isSuggestion,
+  bool? isReport,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'userRef': userRef,
       'message': message,
       'createdTime': createdTime,
+      'isSuggestion': isSuggestion,
+      'isReport': isReport,
     }.withoutNulls,
   );
 
@@ -94,12 +110,14 @@ class FeedbackRecordDocumentEquality implements Equality<FeedbackRecord> {
   bool equals(FeedbackRecord? e1, FeedbackRecord? e2) {
     return e1?.userRef == e2?.userRef &&
         e1?.message == e2?.message &&
-        e1?.createdTime == e2?.createdTime;
+        e1?.createdTime == e2?.createdTime &&
+        e1?.isSuggestion == e2?.isSuggestion &&
+        e1?.isReport == e2?.isReport;
   }
 
   @override
-  int hash(FeedbackRecord? e) =>
-      const ListEquality().hash([e?.userRef, e?.message, e?.createdTime]);
+  int hash(FeedbackRecord? e) => const ListEquality().hash(
+      [e?.userRef, e?.message, e?.createdTime, e?.isSuggestion, e?.isReport]);
 
   @override
   bool isValidKey(Object? o) => o is FeedbackRecord;

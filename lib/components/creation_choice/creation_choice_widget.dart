@@ -73,6 +73,9 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      logFirebaseEvent('CREATION_CHOICE_replaceWidget_ON_TAP');
+                      logFirebaseEvent('replaceWidget_navigate_to');
+
                       context.pushNamed(
                         'CreateEvents',
                         extra: <String, dynamic>{
@@ -134,6 +137,9 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    logFirebaseEvent('CREATION_CHOICE_COMP_wrapWidget_ON_TAP');
+                    logFirebaseEvent('wrapWidget_navigate_to');
+
                     context.pushNamed(
                       'CreateEstablishment',
                       extra: <String, dynamic>{

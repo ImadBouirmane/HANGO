@@ -57,3 +57,18 @@ bool? entranceAvailability(DateTime? dateTimeNow) {
   }
   return true;
 }
+
+String? timeCheck(DateTime? timeNow) {
+  // get a message based on current time for morning, evening and night
+  if (timeNow == null) return null;
+
+  final hour = timeNow.hour;
+
+  if (hour < 12) {
+    return 'Bonne journée';
+  } else if (hour < 18) {
+    return 'Bonne après-midi';
+  } else {
+    return 'Bonne soirée';
+  }
+}

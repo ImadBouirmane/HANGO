@@ -179,6 +179,10 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                   0.0, 16.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'DRAWER_LOGED_COMP_ENVOYER_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_backend_call');
+
                                   await FeedbackRecord.collection
                                       .doc()
                                       .set(createFeedbackRecordData(
@@ -186,6 +190,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                         message: _model.textController.text,
                                         createdTime: getCurrentTimestamp,
                                       ));
+                                  logFirebaseEvent('Button_show_snack_bar');
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
@@ -204,6 +209,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                           FlutterFlowTheme.of(context).primary,
                                     ),
                                   );
+                                  logFirebaseEvent('Button_navigate_to');
 
                                   context.pushNamed('Dashboard');
                                 },

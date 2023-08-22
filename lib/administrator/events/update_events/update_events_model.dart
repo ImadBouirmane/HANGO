@@ -1,13 +1,16 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/empty_image/empty_image_widget.dart';
 import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
@@ -28,6 +31,8 @@ class UpdateEventsModel extends FlutterFlowModel {
   final formKey = GlobalKey<FormState>();
   // Model for SideBar component.
   late SideBarModel sideBarModel;
+  // Model for emptyImage component.
+  late EmptyImageModel emptyImageModel;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -63,11 +68,13 @@ class UpdateEventsModel extends FlutterFlowModel {
 
   void initState(BuildContext context) {
     sideBarModel = createModel(context, () => SideBarModel());
+    emptyImageModel = createModel(context, () => EmptyImageModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     sideBarModel.dispose();
+    emptyImageModel.dispose();
     tFNameController?.dispose();
     tFTitleController?.dispose();
     tFDescriionController?.dispose();

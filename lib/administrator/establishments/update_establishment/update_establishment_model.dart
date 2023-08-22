@@ -5,16 +5,19 @@ import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,10 +30,14 @@ class UpdateEstablishmentModel extends FlutterFlowModel {
   final formKey = GlobalKey<FormState>();
   // Model for SideBar component.
   late SideBarModel sideBarModel;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading1 = false;
+  List<FFUploadedFile> uploadedLocalFiles1 = [];
+  List<String> uploadedFileUrls1 = [];
+
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl2 = '';
 
   // State field(s) for TFName widget.
   TextEditingController? tFNameController;
@@ -88,27 +95,62 @@ class UpdateEstablishmentModel extends FlutterFlowModel {
   // State field(s) for CheckBoxGames widget.
   List<String>? checkBoxGamesValues;
   FormFieldController<List<String>>? checkBoxGamesValueController;
-  // State field(s) for TFMonday widget.
-  TextEditingController? tFMondayController;
-  String? Function(BuildContext, String?)? tFMondayControllerValidator;
-  // State field(s) for TFtuesday widget.
-  TextEditingController? tFtuesdayController;
-  String? Function(BuildContext, String?)? tFtuesdayControllerValidator;
-  // State field(s) for TFWednesday widget.
-  TextEditingController? tFWednesdayController;
-  String? Function(BuildContext, String?)? tFWednesdayControllerValidator;
-  // State field(s) for TFThursday widget.
-  TextEditingController? tFThursdayController;
-  String? Function(BuildContext, String?)? tFThursdayControllerValidator;
-  // State field(s) for TFFriday widget.
-  TextEditingController? tFFridayController;
-  String? Function(BuildContext, String?)? tFFridayControllerValidator;
-  // State field(s) for TFSaturday widget.
-  TextEditingController? tFSaturdayController;
-  String? Function(BuildContext, String?)? tFSaturdayControllerValidator;
-  // State field(s) for TFSunday widget.
-  TextEditingController? tFSundayController;
-  String? Function(BuildContext, String?)? tFSundayControllerValidator;
+  // State field(s) for mondayOpening widget.
+  TextEditingController? mondayOpeningController;
+  String? Function(BuildContext, String?)? mondayOpeningControllerValidator;
+  // State field(s) for mondayClosing widget.
+  TextEditingController? mondayClosingController;
+  String? Function(BuildContext, String?)? mondayClosingControllerValidator;
+  // State field(s) for monday widget.
+  bool? mondayValue;
+  // State field(s) for thursdayOpening widget.
+  TextEditingController? thursdayOpeningController;
+  String? Function(BuildContext, String?)? thursdayOpeningControllerValidator;
+  // State field(s) for thursdayClosing widget.
+  TextEditingController? thursdayClosingController;
+  String? Function(BuildContext, String?)? thursdayClosingControllerValidator;
+  // State field(s) for tuesday widget.
+  bool? tuesdayValue;
+  // State field(s) for wednesdayOpening widget.
+  TextEditingController? wednesdayOpeningController;
+  String? Function(BuildContext, String?)? wednesdayOpeningControllerValidator;
+  // State field(s) for wednesdayClosing widget.
+  TextEditingController? wednesdayClosingController;
+  String? Function(BuildContext, String?)? wednesdayClosingControllerValidator;
+  // State field(s) for wednesday widget.
+  bool? wednesdayValue;
+  // State field(s) for tuesdayOpening widget.
+  TextEditingController? tuesdayOpeningController;
+  String? Function(BuildContext, String?)? tuesdayOpeningControllerValidator;
+  // State field(s) for tuesdayClosing widget.
+  TextEditingController? tuesdayClosingController;
+  String? Function(BuildContext, String?)? tuesdayClosingControllerValidator;
+  // State field(s) for thursday widget.
+  bool? thursdayValue;
+  // State field(s) for fridayOpening widget.
+  TextEditingController? fridayOpeningController;
+  String? Function(BuildContext, String?)? fridayOpeningControllerValidator;
+  // State field(s) for fridayClosing widget.
+  TextEditingController? fridayClosingController;
+  String? Function(BuildContext, String?)? fridayClosingControllerValidator;
+  // State field(s) for friday widget.
+  bool? fridayValue;
+  // State field(s) for saturdayOpening widget.
+  TextEditingController? saturdayOpeningController;
+  String? Function(BuildContext, String?)? saturdayOpeningControllerValidator;
+  // State field(s) for saturdayClosing widget.
+  TextEditingController? saturdayClosingController;
+  String? Function(BuildContext, String?)? saturdayClosingControllerValidator;
+  // State field(s) for saturday widget.
+  bool? saturdayValue;
+  // State field(s) for sundayOpening widget.
+  TextEditingController? sundayOpeningController;
+  String? Function(BuildContext, String?)? sundayOpeningControllerValidator;
+  // State field(s) for sundayClosing widget.
+  TextEditingController? sundayClosingController;
+  String? Function(BuildContext, String?)? sundayClosingControllerValidator;
+  // State field(s) for sunday widget.
+  bool? sundayValue;
 
   /// Initialization and disposal methods.
 
@@ -131,13 +173,20 @@ class UpdateEstablishmentModel extends FlutterFlowModel {
     tFphoneNumberController?.dispose();
     tFURLWebSiteController?.dispose();
     tFspecialityController?.dispose();
-    tFMondayController?.dispose();
-    tFtuesdayController?.dispose();
-    tFWednesdayController?.dispose();
-    tFThursdayController?.dispose();
-    tFFridayController?.dispose();
-    tFSaturdayController?.dispose();
-    tFSundayController?.dispose();
+    mondayOpeningController?.dispose();
+    mondayClosingController?.dispose();
+    thursdayOpeningController?.dispose();
+    thursdayClosingController?.dispose();
+    wednesdayOpeningController?.dispose();
+    wednesdayClosingController?.dispose();
+    tuesdayOpeningController?.dispose();
+    tuesdayClosingController?.dispose();
+    fridayOpeningController?.dispose();
+    fridayClosingController?.dispose();
+    saturdayOpeningController?.dispose();
+    saturdayClosingController?.dispose();
+    sundayOpeningController?.dispose();
+    sundayClosingController?.dispose();
   }
 
   /// Action blocks are added here.

@@ -8,7 +8,7 @@
     </array>
     <key>com.apple.developer.associated-domains</key>
     <array>
-      <string>applinks:hango.flutterflow.app</string>
+      <string>applinks:hango.app/accountDeletion</string>
     </array>
 </dict>
 </plist>

@@ -35,6 +35,8 @@ class _WebViewEstablishmentWidgetState
     super.initState();
     _model = createModel(context, () => WebViewEstablishmentModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'WebViewEstablishment'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -93,6 +95,9 @@ class _WebViewEstablishmentWidgetState
                       size: 30.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent(
+                          'WEB_VIEW_ESTABLISHMENT_close_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_navigate_back');
                       context.pop();
                     },
                   ),
@@ -111,19 +116,21 @@ class _WebViewEstablishmentWidgetState
                 ),
                 body: SafeArea(
                   top: true,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      FlutterFlowWebView(
-                        content:
-                            webViewEstablishmentEstablishmentsRecord.webSite,
-                        bypass: false,
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: MediaQuery.sizeOf(context).height * 1.0,
-                        verticalScroll: false,
-                        horizontalScroll: false,
-                      ),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FlutterFlowWebView(
+                          content:
+                              webViewEstablishmentEstablishmentsRecord.webSite,
+                          bypass: false,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: MediaQuery.sizeOf(context).height * 1.0,
+                          verticalScroll: false,
+                          horizontalScroll: false,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -91,41 +91,6 @@ class EstablishmentsRecord extends FirestoreRecord {
   List<String> get image => _image ?? const [];
   bool hasImage() => _image != null;
 
-  // "monday" field.
-  String? _monday;
-  String get monday => _monday ?? '';
-  bool hasMonday() => _monday != null;
-
-  // "tuesday" field.
-  String? _tuesday;
-  String get tuesday => _tuesday ?? '';
-  bool hasTuesday() => _tuesday != null;
-
-  // "wednesday" field.
-  String? _wednesday;
-  String get wednesday => _wednesday ?? '';
-  bool hasWednesday() => _wednesday != null;
-
-  // "thursday" field.
-  String? _thursday;
-  String get thursday => _thursday ?? '';
-  bool hasThursday() => _thursday != null;
-
-  // "friday" field.
-  String? _friday;
-  String get friday => _friday ?? '';
-  bool hasFriday() => _friday != null;
-
-  // "saturday" field.
-  String? _saturday;
-  String get saturday => _saturday ?? '';
-  bool hasSaturday() => _saturday != null;
-
-  // "sunday" field.
-  String? _sunday;
-  String get sunday => _sunday ?? '';
-  bool hasSunday() => _sunday != null;
-
   // "events_references" field.
   List<DocumentReference>? _eventsReferences;
   List<DocumentReference> get eventsReferences => _eventsReferences ?? const [];
@@ -146,6 +111,11 @@ class EstablishmentsRecord extends FirestoreRecord {
   DateTime? get updatedAt => _updatedAt;
   bool hasUpdatedAt() => _updatedAt != null;
 
+  // "videoPath" field.
+  String? _videoPath;
+  String get videoPath => _videoPath ?? '';
+  bool hasVideoPath() => _videoPath != null;
+
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _name = snapshotData['name'] as String?;
@@ -162,17 +132,11 @@ class EstablishmentsRecord extends FirestoreRecord {
     _cigaretteMachine = snapshotData['cigarette_machine'] as bool?;
     _game = getDataList(snapshotData['game']);
     _image = getDataList(snapshotData['image']);
-    _monday = snapshotData['monday'] as String?;
-    _tuesday = snapshotData['tuesday'] as String?;
-    _wednesday = snapshotData['wednesday'] as String?;
-    _thursday = snapshotData['thursday'] as String?;
-    _friday = snapshotData['friday'] as String?;
-    _saturday = snapshotData['saturday'] as String?;
-    _sunday = snapshotData['sunday'] as String?;
     _eventsReferences = getDataList(snapshotData['events_references']);
     _description = snapshotData['description'] as String?;
     _location = snapshotData['Location'] as LatLng?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
+    _videoPath = snapshotData['videoPath'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -220,16 +184,10 @@ Map<String, dynamic> createEstablishmentsRecordData({
   bool? terrasse,
   bool? reservation,
   bool? cigaretteMachine,
-  String? monday,
-  String? tuesday,
-  String? wednesday,
-  String? thursday,
-  String? friday,
-  String? saturday,
-  String? sunday,
   String? description,
   LatLng? location,
   DateTime? updatedAt,
+  String? videoPath,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -243,16 +201,10 @@ Map<String, dynamic> createEstablishmentsRecordData({
       'terrasse': terrasse,
       'reservation': reservation,
       'cigarette_machine': cigaretteMachine,
-      'monday': monday,
-      'tuesday': tuesday,
-      'wednesday': wednesday,
-      'thursday': thursday,
-      'friday': friday,
-      'saturday': saturday,
-      'sunday': sunday,
       'description': description,
       'Location': location,
       'updatedAt': updatedAt,
+      'videoPath': videoPath,
     }.withoutNulls,
   );
 
@@ -284,17 +236,11 @@ class EstablishmentsRecordDocumentEquality
         e1?.cigaretteMachine == e2?.cigaretteMachine &&
         listEquality.equals(e1?.game, e2?.game) &&
         listEquality.equals(e1?.image, e2?.image) &&
-        e1?.monday == e2?.monday &&
-        e1?.tuesday == e2?.tuesday &&
-        e1?.wednesday == e2?.wednesday &&
-        e1?.thursday == e2?.thursday &&
-        e1?.friday == e2?.friday &&
-        e1?.saturday == e2?.saturday &&
-        e1?.sunday == e2?.sunday &&
         listEquality.equals(e1?.eventsReferences, e2?.eventsReferences) &&
         e1?.description == e2?.description &&
         e1?.location == e2?.location &&
-        e1?.updatedAt == e2?.updatedAt;
+        e1?.updatedAt == e2?.updatedAt &&
+        e1?.videoPath == e2?.videoPath;
   }
 
   @override
@@ -314,17 +260,11 @@ class EstablishmentsRecordDocumentEquality
         e?.cigaretteMachine,
         e?.game,
         e?.image,
-        e?.monday,
-        e?.tuesday,
-        e?.wednesday,
-        e?.thursday,
-        e?.friday,
-        e?.saturday,
-        e?.sunday,
         e?.eventsReferences,
         e?.description,
         e?.location,
-        e?.updatedAt
+        e?.updatedAt,
+        e?.videoPath
       ]);
 
   @override

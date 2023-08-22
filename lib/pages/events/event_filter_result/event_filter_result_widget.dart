@@ -14,7 +14,22 @@ import 'event_filter_result_model.dart';
 export 'event_filter_result_model.dart';
 
 class EventFilterResultWidget extends StatefulWidget {
-  const EventFilterResultWidget({Key? key}) : super(key: key);
+  const EventFilterResultWidget({
+    Key? key,
+    required this.themeEvent,
+    required this.musicType,
+    required this.weekend,
+    required this.jeudredi,
+    required this.freeEnter,
+    required this.booked,
+  }) : super(key: key);
+
+  final String? themeEvent;
+  final String? musicType;
+  final bool? weekend;
+  final bool? jeudredi;
+  final bool? freeEnter;
+  final bool? booked;
 
   @override
   _EventFilterResultWidgetState createState() =>
@@ -31,8 +46,12 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
     super.initState();
     _model = createModel(context, () => EventFilterResultModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'eventFilterResult'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('EVENT_FILTER_RESULT_eventFilterResult_ON');
+      logFirebaseEvent('eventFilterResult_update_app_state');
       setState(() {
         FFAppState().selectedDate = _model.calendarSelectedDay?.start;
       });
@@ -219,6 +238,11 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    logFirebaseEvent(
+                                        'EVENT_FILTER_RESULT_LinkToUserLogin_ON_T');
+                                    logFirebaseEvent(
+                                        'LinkToUserLogin_navigate_to');
+
                                     context.pushNamed('UserLogin');
                                   },
                                   child: Column(
@@ -233,7 +257,12 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                                                   0.0, 0.0, 0.0, 16.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              context.pushNamed('UserSingUp');
+                                              logFirebaseEvent(
+                                                  'EVENT_FILTER_RESULT_Button-create-accoun');
+                                              logFirebaseEvent(
+                                                  'Button-create-account_navigate_to');
+
+                                              context.pushNamed('UserSignUp');
                                             },
                                             text: 'Créer un compte',
                                             options: FFButtonOptions(
@@ -281,6 +310,11 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                                             builder: (context) =>
                                                 FFButtonWidget(
                                               onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'EVENT_FILTER_RESULT_Button-NT-Dashboard_');
+                                                logFirebaseEvent(
+                                                    'Button-NT-Dashboard_navigate_to');
+
                                                 context.pushNamed('Dashboard');
                                               },
                                               text: 'Admin. Dashboard',
@@ -327,6 +361,11 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                                                   0.0, 0.0, 0.0, 16.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'EVENT_FILTER_RESULT_Button-Login_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Button-Login_navigate_to');
+
                                               context.pushNamed('UserLogin');
                                             },
                                             text: 'Se connecter',
@@ -369,6 +408,10 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                                                   0.0, 0.0, 0.0, 16.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'EVENT_FILTER_RESULT_Button-Logiout_ON_TA');
+                                              logFirebaseEvent(
+                                                  'Button-Logiout_auth');
                                               GoRouter.of(context)
                                                   .prepareAuthEvent();
                                               await authManager.signOut();
@@ -533,6 +576,9 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                     size: 30.0,
                   ),
                   onPressed: () async {
+                    logFirebaseEvent(
+                        'EVENT_FILTER_RESULT_menu_rounded_ICN_ON_');
+                    logFirebaseEvent('IconButton_drawer');
                     scaffoldKey.currentState!.openDrawer();
                   },
                 ),
@@ -557,6 +603,9 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                     initialDate: getCurrentTimestamp,
                     onChange: (DateTimeRange? newSelectedDate) async {
                       _model.calendarSelectedDay = newSelectedDate;
+                      logFirebaseEvent(
+                          'EVENT_FILTER_RESULT_Calendar_r3r8ku0p_ON');
+                      logFirebaseEvent('Calendar_update_app_state');
                       setState(() {
                         FFAppState().selectedDate =
                             _model.calendarSelectedDay?.start;
@@ -582,306 +631,6 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                 ),
                 centerTitle: false,
                 elevation: 2.0,
-              ),
-              body: SafeArea(
-                top: true,
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
-                        child: SingleChildScrollView(
-                          primary: false,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 0.0),
-                                child: ListView(
-                                  padding: EdgeInsets.zero,
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {},
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          elevation: 10.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  '',
-                                                  width: double.infinity,
-                                                  height: 180.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 8.0, 8.0, 8.0),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 80.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(4.0, 0.0,
-                                                                4.0, 0.0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          'Hello World',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .headlineSmall,
-                                                        ),
-                                                        Text(
-                                                          'Hello World',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                              ),
-                                                        ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Text(
-                                                              'Hello World',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                            Text(
-                                                              'Hello World',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .tertiary,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 8.0, 8.0),
-                          child: Material(
-                            color: Colors.transparent,
-                            elevation: 8.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(410.0),
-                            ),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: MediaQuery.sizeOf(context).height * 0.07,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(410.0),
-                              ),
-                              alignment: AlignmentDirectional(
-                                  0.050000000000000044, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'Maps',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.leftToRight,
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.mapMarkedAlt,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
-                                            size: 28.0,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'ListOfEstablishments',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.leftToRight,
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.home,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
-                                            size: 28.0,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('eventFilterResult');
-                                    },
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.calendar_today_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            size: 28.0,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
           ),

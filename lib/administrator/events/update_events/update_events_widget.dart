@@ -1,13 +1,16 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/empty_image/empty_image_widget.dart';
 import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
@@ -45,6 +48,8 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
     super.initState();
     _model = createModel(context, () => UpdateEventsModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'UpdateEvents'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -112,12 +117,17 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                             model: _model.sideBarModel,
                             updateCallback: () => setState(() {}),
                             child: SideBarWidget(
+                              oneBG: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
                               oneIcon: Icon(
                                 Icons.home_filled,
                               ),
+                              twoBG: FlutterFlowTheme.of(context).tertiary400,
                               twoIcon: Icon(
                                 Icons.event,
                               ),
+                              threeColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
                               threeIcon: Icon(
                                 Icons.house_outlined,
                               ),
@@ -150,6 +160,10 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                           size: 24.0,
                                         ),
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'UPDATE_EVENTS_chevron_left_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_navigate_back');
                                           context.safePop();
                                         },
                                       ),
@@ -223,79 +237,151 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Material(
-                                                            color: Colors
-                                                                .transparent,
-                                                            elevation: 1.0,
-                                                            shape:
-                                                                RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          16.0),
-                                                            ),
-                                                            child: Container(
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .width *
-                                                                  0.3,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.2,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            16.0),
-                                                              ),
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            16.0),
-                                                                child: Image
-                                                                    .network(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    _model.uploadedFileUrl !=
-                                                                                null &&
-                                                                            _model.uploadedFileUrl !=
-                                                                                ''
-                                                                        ? _model
-                                                                            .uploadedFileUrl
-                                                                        : updateEventsEventsRecord
-                                                                            .image,
-                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/ifikgobfnh5l/Typo_-_bleu_clair.png',
-                                                                  ),
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.3,
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      0.2,
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
-                                                              ),
-                                                            ),
+                                                          Builder(
+                                                            builder: (context) {
+                                                              if ((updateEventsEventsRecord
+                                                                              .image !=
+                                                                          null &&
+                                                                      updateEventsEventsRecord
+                                                                              .image !=
+                                                                          '') ||
+                                                                  (updateEventsEventsRecord
+                                                                              .videoPath !=
+                                                                          null &&
+                                                                      updateEventsEventsRecord
+                                                                              .videoPath !=
+                                                                          '')) {
+                                                                return Stack(
+                                                                  children: [
+                                                                    FlutterFlowMediaDisplay(
+                                                                      path: valueOrDefault<
+                                                                          String>(
+                                                                        updateEventsEventsRecord.image != null &&
+                                                                                updateEventsEventsRecord.image != ''
+                                                                            ? updateEventsEventsRecord.image
+                                                                            : updateEventsEventsRecord.videoPath,
+                                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                      ),
+                                                                      imageBuilder:
+                                                                          (path) =>
+                                                                              ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(15.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          path,
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.3,
+                                                                          height:
+                                                                              MediaQuery.sizeOf(context).height * 0.3,
+                                                                          fit: BoxFit
+                                                                              .contain,
+                                                                        ),
+                                                                      ),
+                                                                      videoPlayerBuilder:
+                                                                          (path) =>
+                                                                              FlutterFlowVideoPlayer(
+                                                                        path:
+                                                                            path,
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.3,
+                                                                        height: MediaQuery.sizeOf(context).height *
+                                                                            0.3,
+                                                                        autoPlay:
+                                                                            false,
+                                                                        looping:
+                                                                            true,
+                                                                        showControls:
+                                                                            true,
+                                                                        allowFullScreen:
+                                                                            true,
+                                                                        allowPlaybackSpeedMenu:
+                                                                            false,
+                                                                      ),
+                                                                    ),
+                                                                    Container(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.3,
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              0.3,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryTransparent,
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(15.0),
+                                                                      ),
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            FlutterFlowIconButton(
+                                                                          borderColor:
+                                                                              Colors.transparent,
+                                                                          borderRadius:
+                                                                              20.0,
+                                                                          borderWidth:
+                                                                              1.0,
+                                                                          buttonSize:
+                                                                              40.0,
+                                                                          fillColor:
+                                                                              FlutterFlowTheme.of(context).alternate,
+                                                                          icon:
+                                                                              Icon(
+                                                                            Icons.delete,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            size:
+                                                                                24.0,
+                                                                          ),
+                                                                          showLoadingIndicator:
+                                                                              true,
+                                                                          onPressed:
+                                                                              () async {
+                                                                            logFirebaseEvent('UPDATE_EVENTS_PAGE_delete_ICN_ON_TAP');
+                                                                            logFirebaseEvent('IconButton_clear_uploaded_data');
+                                                                            setState(() {
+                                                                              _model.isDataUploading = false;
+                                                                              _model.uploadedLocalFile = FFUploadedFile(bytes: Uint8List.fromList([]));
+                                                                              _model.uploadedFileUrl = '';
+                                                                            });
+                                                                          },
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                );
+                                                              } else {
+                                                                return wrapWithModel(
+                                                                  model: _model
+                                                                      .emptyImageModel,
+                                                                  updateCallback:
+                                                                      () => setState(
+                                                                          () {}),
+                                                                  child:
+                                                                      EmptyImageWidget(),
+                                                                );
+                                                              }
+                                                            },
                                                           ),
                                                           FFButtonWidget(
                                                             onPressed:
                                                                 () async {
+                                                              logFirebaseEvent(
+                                                                  'UPDATE_EVENTS_REMPLACEZ_LA_COUVERTURE_BT');
+                                                              logFirebaseEvent(
+                                                                  'Button_upload_media_to_firebase');
                                                               final selectedMedia =
                                                                   await selectMediaWithSourceBottomSheet(
                                                                 context:
                                                                     context,
                                                                 allowPhoto:
+                                                                    true,
+                                                                allowVideo:
                                                                     true,
                                                                 includeBlurHash:
                                                                     true,
@@ -766,33 +852,26 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                                                     .spaceBetween,
                                                             children: [
                                                               Text(
-                                                                () {
-                                                                  if (updateEventsEventsRecord
-                                                                          .date !=
-                                                                      null) {
-                                                                    return dateTimeFormat(
-                                                                      'd/M/y',
-                                                                      updateEventsEventsRecord
-                                                                          .date!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    );
-                                                                  } else if (_model
-                                                                          .datePicked1 !=
-                                                                      null) {
-                                                                    return dateTimeFormat(
-                                                                      'd/M/y',
-                                                                      _model
-                                                                          .datePicked1,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    );
-                                                                  } else {
-                                                                    return 'Il n\' y a pas une date !';
-                                                                  }
-                                                                }(),
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  _model.datePicked1 !=
+                                                                          null
+                                                                      ? dateTimeFormat(
+                                                                          'd/M/y',
+                                                                          _model
+                                                                              .datePicked1,
+                                                                          locale:
+                                                                              FFLocalizations.of(context).languageCode,
+                                                                        )
+                                                                      : dateTimeFormat(
+                                                                          'd/M/y',
+                                                                          updateEventsEventsRecord
+                                                                              .date,
+                                                                          locale:
+                                                                              FFLocalizations.of(context).languageCode,
+                                                                        ),
+                                                                  'Il n\'y a pas une date!',
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium,
@@ -818,7 +897,11 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                                                 ),
                                                                 onPressed:
                                                                     () async {
+                                                                  logFirebaseEvent(
+                                                                      'UPDATE_EVENTS_PAGE_eventDate_ON_TAP');
                                                                   // eventDate
+                                                                  logFirebaseEvent(
+                                                                      'eventDate_eventDate');
                                                                   final _datePicked1Date =
                                                                       await showDatePicker(
                                                                     context:
@@ -883,33 +966,26 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                                                     .spaceBetween,
                                                             children: [
                                                               Text(
-                                                                () {
-                                                                  if (updateEventsEventsRecord
-                                                                          .schedule !=
-                                                                      null) {
-                                                                    return dateTimeFormat(
-                                                                      'd/M/y',
-                                                                      updateEventsEventsRecord
-                                                                          .schedule!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    );
-                                                                  } else if (_model
-                                                                          .datePicked2 !=
-                                                                      null) {
-                                                                    return dateTimeFormat(
-                                                                      'd/M/y',
-                                                                      _model
-                                                                          .datePicked2,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    );
-                                                                  } else {
-                                                                    return 'Il n\' y a pas une planning !';
-                                                                  }
-                                                                }(),
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  _model.datePicked2 !=
+                                                                          null
+                                                                      ? dateTimeFormat(
+                                                                          'd/M/y',
+                                                                          _model
+                                                                              .datePicked2,
+                                                                          locale:
+                                                                              FFLocalizations.of(context).languageCode,
+                                                                        )
+                                                                      : dateTimeFormat(
+                                                                          'd/M/y',
+                                                                          updateEventsEventsRecord
+                                                                              .schedule,
+                                                                          locale:
+                                                                              FFLocalizations.of(context).languageCode,
+                                                                        ),
+                                                                  'Il n\'y a pas une date!',
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium,
@@ -935,7 +1011,11 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                                                 ),
                                                                 onPressed:
                                                                     () async {
+                                                                  logFirebaseEvent(
+                                                                      'UPDATE_EVENTS_PAGE_eventSchedule_ON_TAP');
                                                                   // schdule
+                                                                  logFirebaseEvent(
+                                                                      'eventSchedule_schdule');
                                                                   final _datePicked2Date =
                                                                       await showDatePicker(
                                                                     context:
@@ -1563,6 +1643,185 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                                           ),
                                                         ),
                                                       ),
+                                                      Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .accent2,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      4.0,
+                                                                      4.0,
+                                                                      4.0,
+                                                                      4.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Text(
+                                                                    'Définisez les artistes et l\'horaire de passage de chacun.e',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  FFButtonWidget(
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'AddArtistBTN pressed ...');
+                                                                    },
+                                                                    text:
+                                                                        'Ajouter des artistes',
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .add_circle,
+                                                                      size:
+                                                                          15.0,
+                                                                    ),
+                                                                    options:
+                                                                        FFButtonOptions(
+                                                                      height:
+                                                                          40.0,
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      textStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                Colors.white,
+                                                                          ),
+                                                                      elevation:
+                                                                          3.0,
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Colors
+                                                                            .transparent,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              16.0),
+                                                                    ),
+                                                                  ),
+                                                                  Container(
+                                                                    width:
+                                                                        600.0,
+                                                                    height:
+                                                                        100.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              16.0),
+                                                                      border:
+                                                                          Border
+                                                                              .all(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .accent2,
+                                                                      ),
+                                                                    ),
+                                                                    child:
+                                                                        ListView(
+                                                                      padding:
+                                                                          EdgeInsets
+                                                                              .zero,
+                                                                      scrollDirection:
+                                                                          Axis.vertical,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              26.0,
+                                                                              4.0,
+                                                                              26.0,
+                                                                              4.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceBetween,
+                                                                            children: [
+                                                                              Text(
+                                                                                'Nom de l\'artiste',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                              Text(
+                                                                                '00:00',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
                                                     ]
                                                         .divide(SizedBox(
                                                             height: 15.0))
@@ -1574,6 +1833,11 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                             ),
                                             FFButtonWidget(
                                               onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'UPDATE_EVENTS_BTNValidateFrom_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'BTNValidateFrom_backend_call');
+
                                                 await updateEventsEventsRecord
                                                     .reference
                                                     .update({
@@ -1697,6 +1961,14 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                                             .location,
                                                     updatedAt:
                                                         getCurrentTimestamp,
+                                                    videoPath: _model
+                                                                    .uploadedFileUrl !=
+                                                                null &&
+                                                            _model.uploadedFileUrl !=
+                                                                ''
+                                                        ? _model.uploadedFileUrl
+                                                        : updateEventsEventsRecord
+                                                            .videoPath,
                                                   ),
                                                   'music_sytle':
                                                       FieldValue.arrayUnion([
@@ -1725,6 +1997,8 @@ class _UpdateEventsWidgetState extends State<UpdateEventsWidget> {
                                                             .artist.first
                                                   ]),
                                                 });
+                                                logFirebaseEvent(
+                                                    'BTNValidateFrom_navigate_to');
 
                                                 context.pushNamed('Dashboard');
                                               },

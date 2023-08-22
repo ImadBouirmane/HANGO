@@ -9,6 +9,7 @@ import 'schema/establishments_record.dart';
 import 'schema/events_record.dart';
 import 'schema/users_record.dart';
 import 'schema/feedback_record.dart';
+import 'schema/schedule_record.dart';
 import 'dart:async';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
@@ -22,6 +23,7 @@ export 'schema/establishments_record.dart';
 export 'schema/events_record.dart';
 export 'schema/users_record.dart';
 export 'schema/feedback_record.dart';
+export 'schema/schedule_record.dart';
 
 /// Functions to query EstablishmentsRecords (as a Stream and as a Future).
 Future<int> queryEstablishmentsRecordCount({
@@ -316,6 +318,88 @@ Future<FFFirestorePage<FeedbackRecord>> queryFeedbackRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<FeedbackRecord> data) {
+          data.forEach((item) {
+            final itemIndexes = controller.itemList!
+                .asMap()
+                .map((k, v) => MapEntry(v.reference.id, k));
+            final index = itemIndexes[item.reference.id];
+            final items = controller.itemList!;
+            if (index != null) {
+              items.replaceRange(index, index + 1, [item]);
+              controller.itemList = {
+                for (var item in items) item.reference: item
+              }.values.toList();
+            }
+          });
+        });
+        streamSubscriptions?.add(streamSubscription);
+      }
+      return page;
+    });
+
+/// Functions to query ScheduleRecords (as a Stream and as a Future).
+Future<int> queryScheduleRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ScheduleRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ScheduleRecord>> queryScheduleRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ScheduleRecord.collection(parent),
+      ScheduleRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ScheduleRecord>> queryScheduleRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ScheduleRecord.collection(parent),
+      ScheduleRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+Future<FFFirestorePage<ScheduleRecord>> queryScheduleRecordPage({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+  required PagingController<DocumentSnapshot?, ScheduleRecord> controller,
+  List<StreamSubscription?>? streamSubscriptions,
+}) =>
+    queryCollectionPage(
+      ScheduleRecord.collection(parent),
+      ScheduleRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    ).then((page) {
+      controller.appendPage(
+        page.data,
+        page.nextPageMarker,
+      );
+      if (isStream) {
+        final streamSubscription =
+            (page.dataStream)?.listen((List<ScheduleRecord> data) {
           data.forEach((item) {
             final itemIndexes = controller.itemList!
                 .asMap()
