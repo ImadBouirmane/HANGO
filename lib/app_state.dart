@@ -79,6 +79,23 @@ class FFAppState extends ChangeNotifier {
           (await secureStorage.getStringList('ff_uploadedNewEstImages')) ??
               _uploadedNewEstImages;
     });
+    await _safeInitAsync(() async {
+      _isOpen = await secureStorage.getBool('ff_isOpen') ?? _isOpen;
+    });
+    await _safeInitAsync(() async {
+      _artistsInput = (await secureStorage.getStringList('ff_artistsInput'))
+              ?.map((x) {
+                try {
+                  return ArtistStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _artistsInput;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -106,7 +123,8 @@ class FFAppState extends ChangeNotifier {
     'Electro',
     'Métal',
     'Punk',
-    'Mix'
+    'Mix',
+    'RnB'
   ];
   List<String> get MusicStyle => _MusicStyle;
   set MusicStyle(List<String> _value) {
@@ -351,7 +369,7 @@ class FFAppState extends ChangeNotifier {
     _searchChange = _value;
   }
 
-  List<String> _Artistes = ['Example 1', 'Example 2'];
+  List<String> _Artistes = [];
   List<String> get Artistes => _Artistes;
   set Artistes(List<String> _value) {
     _Artistes = _value;
@@ -577,6 +595,56 @@ class FFAppState extends ChangeNotifier {
     _uploadedNewEstImages[_index] = updateFn(_uploadedNewEstImages[_index]);
     secureStorage.setStringList(
         'ff_uploadedNewEstImages', _uploadedNewEstImages);
+  }
+
+  bool _isOpen = false;
+  bool get isOpen => _isOpen;
+  set isOpen(bool _value) {
+    _isOpen = _value;
+    secureStorage.setBool('ff_isOpen', _value);
+  }
+
+  void deleteIsOpen() {
+    secureStorage.delete(key: 'ff_isOpen');
+  }
+
+  List<ArtistStruct> _artistsInput = [];
+  List<ArtistStruct> get artistsInput => _artistsInput;
+  set artistsInput(List<ArtistStruct> _value) {
+    _artistsInput = _value;
+    secureStorage.setStringList(
+        'ff_artistsInput', _value.map((x) => x.serialize()).toList());
+  }
+
+  void deleteArtistsInput() {
+    secureStorage.delete(key: 'ff_artistsInput');
+  }
+
+  void addToArtistsInput(ArtistStruct _value) {
+    _artistsInput.add(_value);
+    secureStorage.setStringList(
+        'ff_artistsInput', _artistsInput.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromArtistsInput(ArtistStruct _value) {
+    _artistsInput.remove(_value);
+    secureStorage.setStringList(
+        'ff_artistsInput', _artistsInput.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromArtistsInput(int _index) {
+    _artistsInput.removeAt(_index);
+    secureStorage.setStringList(
+        'ff_artistsInput', _artistsInput.map((x) => x.serialize()).toList());
+  }
+
+  void updateArtistsInputAtIndex(
+    int _index,
+    ArtistStruct Function(ArtistStruct) updateFn,
+  ) {
+    _artistsInput[_index] = updateFn(_artistsInput[_index]);
+    secureStorage.setStringList(
+        'ff_artistsInput', _artistsInput.map((x) => x.serialize()).toList());
   }
 }
 

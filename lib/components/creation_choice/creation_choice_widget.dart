@@ -67,95 +67,11 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
                 cursor: MouseCursor.defer ?? MouseCursor.defer,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      logFirebaseEvent('CREATION_CHOICE_replaceWidget_ON_TAP');
-                      logFirebaseEvent('replaceWidget_navigate_to');
-
-                      context.pushNamed(
-                        'CreateEvents',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.bottomToTop,
-                            duration: Duration(milliseconds: 300),
-                          ),
-                        },
-                      );
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: valueOrDefault<Color>(
-                          _model.mouseRegionHovered1 == true
-                              ? FlutterFlowTheme.of(context).gray200
-                              : null,
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                      ),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Événement',
-                                  textAlign: TextAlign.center,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                onEnter: ((event) async {
-                  setState(() => _model.mouseRegionHovered1 = true);
-                }),
-                onExit: ((event) async {
-                  setState(() => _model.mouseRegionHovered1 = false);
-                }),
-              ),
-              MouseRegion(
-                opaque: true,
-                cursor: MouseCursor.defer ?? MouseCursor.defer,
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    logFirebaseEvent('CREATION_CHOICE_COMP_wrapWidget_ON_TAP');
-                    logFirebaseEvent('wrapWidget_navigate_to');
-
-                    context.pushNamed(
-                      'CreateEstablishment',
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.bottomToTop,
-                          duration: Duration(milliseconds: 300),
-                        ),
-                      },
-                    );
-                  },
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: valueOrDefault<Color>(
-                        _model.mouseRegionHovered2 == true
+                        _model.mouseRegionHovered1 == true
                             ? FlutterFlowTheme.of(context).gray200
                             : null,
                         FlutterFlowTheme.of(context).secondaryBackground,
@@ -172,7 +88,7 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Établissement',
+                                'Événement',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
@@ -180,6 +96,46 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
                           ),
                         ],
                       ),
+                    ),
+                  ),
+                ),
+                onEnter: ((event) async {
+                  setState(() => _model.mouseRegionHovered1 = true);
+                }),
+                onExit: ((event) async {
+                  setState(() => _model.mouseRegionHovered1 = false);
+                }),
+              ),
+              MouseRegion(
+                opaque: true,
+                cursor: MouseCursor.defer ?? MouseCursor.defer,
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: valueOrDefault<Color>(
+                      _model.mouseRegionHovered2 == true
+                          ? FlutterFlowTheme.of(context).gray200
+                          : null,
+                      FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              'Établissement',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

@@ -86,11 +86,6 @@ class EstablishmentsRecord extends FirestoreRecord {
   List<String> get game => _game ?? const [];
   bool hasGame() => _game != null;
 
-  // "image" field.
-  List<String>? _image;
-  List<String> get image => _image ?? const [];
-  bool hasImage() => _image != null;
-
   // "events_references" field.
   List<DocumentReference>? _eventsReferences;
   List<DocumentReference> get eventsReferences => _eventsReferences ?? const [];
@@ -111,10 +106,10 @@ class EstablishmentsRecord extends FirestoreRecord {
   DateTime? get updatedAt => _updatedAt;
   bool hasUpdatedAt() => _updatedAt != null;
 
-  // "videoPath" field.
-  String? _videoPath;
-  String get videoPath => _videoPath ?? '';
-  bool hasVideoPath() => _videoPath != null;
+  // "eventRef" field.
+  DocumentReference? _eventRef;
+  DocumentReference? get eventRef => _eventRef;
+  bool hasEventRef() => _eventRef != null;
 
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
@@ -131,12 +126,11 @@ class EstablishmentsRecord extends FirestoreRecord {
     _food = getDataList(snapshotData['food']);
     _cigaretteMachine = snapshotData['cigarette_machine'] as bool?;
     _game = getDataList(snapshotData['game']);
-    _image = getDataList(snapshotData['image']);
     _eventsReferences = getDataList(snapshotData['events_references']);
     _description = snapshotData['description'] as String?;
     _location = snapshotData['Location'] as LatLng?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
-    _videoPath = snapshotData['videoPath'] as String?;
+    _eventRef = snapshotData['eventRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -187,7 +181,7 @@ Map<String, dynamic> createEstablishmentsRecordData({
   String? description,
   LatLng? location,
   DateTime? updatedAt,
-  String? videoPath,
+  DocumentReference? eventRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -204,7 +198,7 @@ Map<String, dynamic> createEstablishmentsRecordData({
       'description': description,
       'Location': location,
       'updatedAt': updatedAt,
-      'videoPath': videoPath,
+      'eventRef': eventRef,
     }.withoutNulls,
   );
 
@@ -235,12 +229,11 @@ class EstablishmentsRecordDocumentEquality
         listEquality.equals(e1?.food, e2?.food) &&
         e1?.cigaretteMachine == e2?.cigaretteMachine &&
         listEquality.equals(e1?.game, e2?.game) &&
-        listEquality.equals(e1?.image, e2?.image) &&
         listEquality.equals(e1?.eventsReferences, e2?.eventsReferences) &&
         e1?.description == e2?.description &&
         e1?.location == e2?.location &&
         e1?.updatedAt == e2?.updatedAt &&
-        e1?.videoPath == e2?.videoPath;
+        e1?.eventRef == e2?.eventRef;
   }
 
   @override
@@ -259,12 +252,11 @@ class EstablishmentsRecordDocumentEquality
         e?.food,
         e?.cigaretteMachine,
         e?.game,
-        e?.image,
         e?.eventsReferences,
         e?.description,
         e?.location,
         e?.updatedAt,
-        e?.videoPath
+        e?.eventRef
       ]);
 
   @override

@@ -86,8 +86,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
-                  child: StreamBuilder<List<EventsRecord>>(
-                    stream: queryEventsRecord(
+                  child: StreamBuilder<List<EstablishmentsRecord>>(
+                    stream: queryEstablishmentsRecord(
                       singleRecord: true,
                     ),
                     builder: (context, snapshot) {
@@ -105,11 +105,11 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                           ),
                         );
                       }
-                      List<EventsRecord> columnEventsRecordList =
-                          snapshot.data!;
-                      final columnEventsRecord =
-                          columnEventsRecordList.isNotEmpty
-                              ? columnEventsRecordList.first
+                      List<EstablishmentsRecord>
+                          columnEstablishmentsRecordList = snapshot.data!;
+                      final columnEstablishmentsRecord =
+                          columnEstablishmentsRecordList.isNotEmpty
+                              ? columnEstablishmentsRecordList.first
                               : null;
                       return Column(
                         mainAxisSize: MainAxisSize.max,
@@ -124,7 +124,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Text(
-                                    'Filtre un événement',
+                                    'Filtre un établissement',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall,
                                   ),
@@ -166,7 +166,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 initialExpanded: false,
                                 child: ExpandablePanel(
                                   header: Text(
-                                    'Thème d\'événement',
+                                    'Type d\'établissement',
                                     style:
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
@@ -174,26 +174,23 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                     decoration: BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: FlutterFlowChoiceChips(
-                                      options: [
-                                        ChipData('Football'),
-                                        ChipData('DJ'),
-                                        ChipData('Showcase'),
-                                        ChipData('Karaoke'),
-                                        ChipData('Music Live'),
-                                        ChipData('Sport')
-                                      ],
+                                      options: FFAppState()
+                                          .TypeOfEstablishment
+                                          .map((label) => ChipData(label))
+                                          .toList(),
                                       onChanged: (val) async {
-                                        setState(() => _model.themeEventValue =
-                                            val?.first);
+                                        setState(() =>
+                                            _model.typeEstablishmentValue =
+                                                val?.first);
                                         logFirebaseEvent(
-                                            'FILTER_ESTABLISHMENT_themeEvent_ON_FORM_');
+                                            'FILTER_ESTABLISHMENT_typeEstablishment_O');
                                         logFirebaseEvent(
-                                            'themeEvent_update_app_state');
+                                            'typeEstablishment_update_app_state');
                                         setState(() {
                                           FFAppState().themeEvent =
-                                              _model.themeEventValue!;
+                                              _model.typeEstablishmentValue!;
                                           FFAppState().updateClickCountAtIndex(
                                             1,
                                             (e) => e + 1,
@@ -244,9 +241,9 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                       rowSpacing: 15.0,
                                       multiselect: false,
                                       alignment: WrapAlignment.start,
-                                      controller:
-                                          _model.themeEventValueController ??=
-                                              FormFieldController<List<String>>(
+                                      controller: _model
+                                              .typeEstablishmentValueController ??=
+                                          FormFieldController<List<String>>(
                                         [],
                                       ),
                                     ),
@@ -289,14 +286,10 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   expanded: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FlutterFlowChoiceChips(
-                                      options: [
-                                        ChipData('Football'),
-                                        ChipData('DJ'),
-                                        ChipData('Showcase'),
-                                        ChipData('Karaoke'),
-                                        ChipData('Music Live'),
-                                        ChipData('Sport')
-                                      ],
+                                      options: FFAppState()
+                                          .MusicStyle
+                                          .map((label) => ChipData(label))
+                                          .toList(),
                                       onChanged: (val) async {
                                         setState(() =>
                                             _model.musicTypeValue = val?.first);
@@ -412,7 +405,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   }
                                 },
                                 title: Text(
-                                  'Weekend',
+                                  'Terrasse',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -455,7 +448,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   }
                                 },
                                 title: Text(
-                                  'Jeudredi',
+                                  'Réservation',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -494,7 +487,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   }
                                 },
                                 title: Text(
-                                  'Entrée gratuite',
+                                  'Machine à cigarette',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -533,7 +526,90 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   }
                                 },
                                 title: Text(
-                                  'Réservation',
+                                  'Nourriture',
+                                  style:
+                                      FlutterFlowTheme.of(context).titleSmall,
+                                ),
+                                tileColor: Color(0xFFF5F5F5),
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                dense: false,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
+                              ),
+                              SwitchListTile(
+                                value: _model.switchListTileValue5 ??= false,
+                                onChanged: (newValue) async {
+                                  setState(() =>
+                                      _model.switchListTileValue5 = newValue!);
+                                  if (newValue!) {
+                                    logFirebaseEvent(
+                                        'FILTER_ESTABLISHMENT_SwitchListTile_w6zz');
+                                    logFirebaseEvent(
+                                        'SwitchListTile_update_app_state');
+                                    setState(() {
+                                      FFAppState().booked = true;
+                                      FFAppState().updateClickCountAtIndex(
+                                        6,
+                                        (e) => e + 1,
+                                      );
+                                    });
+                                  } else {
+                                    logFirebaseEvent(
+                                        'FILTER_ESTABLISHMENT_SwitchListTile_w6zz');
+                                    logFirebaseEvent(
+                                        'SwitchListTile_update_app_state');
+                                    setState(() {
+                                      FFAppState().booked = false;
+                                    });
+                                  }
+                                },
+                                title: Text(
+                                  'Jeux',
+                                  style:
+                                      FlutterFlowTheme.of(context).titleSmall,
+                                ),
+                                subtitle: Text(
+                                  'Billard, fléchettes, bord, cartes,...',
+                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                ),
+                                tileColor: Color(0xFFF5F5F5),
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                dense: false,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
+                              ),
+                              SwitchListTile(
+                                value: _model.switchListTileValue6 ??=
+                                    FFAppState().isOpen,
+                                onChanged: (newValue) async {
+                                  setState(() =>
+                                      _model.switchListTileValue6 = newValue!);
+                                  if (newValue!) {
+                                    logFirebaseEvent(
+                                        'FILTER_ESTABLISHMENT_SwitchListTile_mk5a');
+                                    logFirebaseEvent(
+                                        'SwitchListTile_update_app_state');
+                                    setState(() {
+                                      FFAppState().booked = true;
+                                      FFAppState().updateClickCountAtIndex(
+                                        6,
+                                        (e) => e + 1,
+                                      );
+                                    });
+                                  } else {
+                                    logFirebaseEvent(
+                                        'FILTER_ESTABLISHMENT_SwitchListTile_mk5a');
+                                    logFirebaseEvent(
+                                        'SwitchListTile_update_app_state');
+                                    setState(() {
+                                      FFAppState().booked = false;
+                                    });
+                                  }
+                                },
+                                title: Text(
+                                  'Ouvert',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -576,8 +652,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).grayIcon,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiary400,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -603,33 +679,48 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                       logFirebaseEvent(
                                           'FILTER_ESTABLISHMENT_COMP__BTN_ON_TAP');
                                       logFirebaseEvent('Button_navigate_to');
-
+                                      if (Navigator.of(context).canPop()) {
+                                        context.pop();
+                                      }
                                       context.pushNamed(
                                         'establishmentFilterResults',
                                         queryParameters: {
                                           'type': serializeParam(
-                                            _model.themeEventValue,
+                                            _model.typeEstablishmentValue,
                                             ParamType.String,
                                           ),
                                           'artist': serializeParam(
                                             _model.musicTypeValue,
                                             ParamType.String,
                                           ),
-                                          'weekend': serializeParam(
+                                          'terrasse': serializeParam(
                                             _model.switchListTileValue1,
                                             ParamType.bool,
                                           ),
-                                          'jeudredi': serializeParam(
+                                          'reservation': serializeParam(
                                             _model.switchListTileValue2,
                                             ParamType.bool,
                                           ),
-                                          'freeEntrance': serializeParam(
+                                          'machineacigarette': serializeParam(
                                             _model.switchListTileValue3,
                                             ParamType.bool,
                                           ),
-                                          'booked': serializeParam(
-                                            false,
+                                          'nourriture': serializeParam(
+                                            _model.switchListTileValue4,
                                             ParamType.bool,
+                                          ),
+                                          'jeux': serializeParam(
+                                            _model.switchListTileValue5,
+                                            ParamType.bool,
+                                          ),
+                                          'ouvert': serializeParam(
+                                            _model.switchListTileValue6,
+                                            ParamType.bool,
+                                          ),
+                                          'estbRef': serializeParam(
+                                            columnEstablishmentsRecord
+                                                ?.reference,
+                                            ParamType.DocumentReference,
                                           ),
                                         }.withoutNulls,
                                       );
@@ -645,7 +736,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
-                                          .tertiary400,
+                                          .primaryBackground,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

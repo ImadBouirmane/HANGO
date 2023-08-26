@@ -115,80 +115,111 @@ class _MapEstablishmentPopUpWidgetState
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 0.25,
-                              height: MediaQuery.sizeOf(context).width * 0.25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  width: 2.0,
-                                ),
+                            StreamBuilder<List<ImagesRecord>>(
+                              stream: queryImagesRecord(
+                                parent: containerEstablishmentsRecord.reference,
+                                singleRecord: true,
                               ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    1.0, 1.0, 1.0, 1.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'MAP_ESTABLISHMENT_POP_UP_CircleImage_7fu');
-                                    logFirebaseEvent(
-                                        'CircleImage_expand_image');
-                                    await Navigator.push(
-                                      context,
-                                      PageTransition(
-                                        type: PageTransitionType.fade,
-                                        child: FlutterFlowExpandedImageView(
-                                          image: Image.network(
-                                            valueOrDefault<String>(
-                                              containerEstablishmentsRecord
-                                                  .image.first,
-                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                            ),
-                                            fit: BoxFit.contain,
-                                          ),
-                                          allowRotation: true,
-                                          tag: valueOrDefault<String>(
-                                            containerEstablishmentsRecord
-                                                .image.first,
-                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                          ),
-                                          useHeroAnimation: true,
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 30.0,
+                                      height: 30.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
                                         ),
                                       ),
-                                    );
-                                  },
-                                  child: Hero(
-                                    tag: valueOrDefault<String>(
-                                      containerEstablishmentsRecord.image.first,
-                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                     ),
-                                    transitionOnUserGestures: true,
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        valueOrDefault<String>(
-                                          containerEstablishmentsRecord
-                                              .image.first,
+                                  );
+                                }
+                                List<ImagesRecord> containerImagesRecordList =
+                                    snapshot.data!;
+                                final containerImagesRecord =
+                                    containerImagesRecordList.isNotEmpty
+                                        ? containerImagesRecordList.first
+                                        : null;
+                                return Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.25,
+                                  height:
+                                      MediaQuery.sizeOf(context).width * 0.25,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        1.0, 1.0, 1.0, 1.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'MAP_ESTABLISHMENT_POP_UP_CircleImage_7fu');
+                                        logFirebaseEvent(
+                                            'CircleImage_expand_image');
+                                        await Navigator.push(
+                                          context,
+                                          PageTransition(
+                                            type: PageTransitionType.fade,
+                                            child: FlutterFlowExpandedImageView(
+                                              image: Image.network(
+                                                valueOrDefault<String>(
+                                                  containerImagesRecord?.image1,
+                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                ),
+                                                fit: BoxFit.contain,
+                                              ),
+                                              allowRotation: true,
+                                              tag: valueOrDefault<String>(
+                                                containerImagesRecord?.image1,
+                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                              ),
+                                              useHeroAnimation: true,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: Hero(
+                                        tag: valueOrDefault<String>(
+                                          containerImagesRecord?.image1,
                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                         ),
-                                        fit: BoxFit.cover,
+                                        transitionOnUserGestures: true,
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.2,
+                                          height:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.2,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            valueOrDefault<String>(
+                                              containerImagesRecord?.image1,
+                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ),
+                                );
+                              },
                             ),
                             Row(
                               mainAxisSize: MainAxisSize.max,

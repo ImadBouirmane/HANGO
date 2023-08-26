@@ -46,11 +46,6 @@ class EventsRecord extends FirestoreRecord {
   DateTime? get date => _date;
   bool hasDate() => _date != null;
 
-  // "schedule" field.
-  DateTime? _schedule;
-  DateTime? get schedule => _schedule;
-  bool hasSchedule() => _schedule != null;
-
   // "site_web" field.
   String? _siteWeb;
   String get siteWeb => _siteWeb ?? '';
@@ -75,11 +70,6 @@ class EventsRecord extends FirestoreRecord {
   List<String>? _artist;
   List<String> get artist => _artist ?? const [];
   bool hasArtist() => _artist != null;
-
-  // "image" field.
-  String? _image;
-  String get image => _image ?? '';
-  bool hasImage() => _image != null;
 
   // "created_time" field.
   DateTime? _createdTime;
@@ -106,25 +96,20 @@ class EventsRecord extends FirestoreRecord {
   DateTime? get updatedAt => _updatedAt;
   bool hasUpdatedAt() => _updatedAt != null;
 
-  // "establishment_reference" field.
-  DocumentReference? _establishmentReference;
-  DocumentReference? get establishmentReference => _establishmentReference;
-  bool hasEstablishmentReference() => _establishmentReference != null;
-
-  // "videoPath" field.
-  String? _videoPath;
-  String get videoPath => _videoPath ?? '';
-  bool hasVideoPath() => _videoPath != null;
-
   // "type" field.
   String? _type;
   String get type => _type ?? '';
   bool hasType() => _type != null;
 
-  // "listImages" field.
-  List<String>? _listImages;
-  List<String> get listImages => _listImages ?? const [];
-  bool hasListImages() => _listImages != null;
+  // "schedule" field.
+  String? _schedule;
+  String get schedule => _schedule ?? '';
+  bool hasSchedule() => _schedule != null;
+
+  // "artistSchedule" field.
+  DateTime? _artistSchedule;
+  DateTime? get artistSchedule => _artistSchedule;
+  bool hasArtistSchedule() => _artistSchedule != null;
 
   void _initializeFields() {
     _eventId = snapshotData['event_id'] as String?;
@@ -133,23 +118,19 @@ class EventsRecord extends FirestoreRecord {
     _title = snapshotData['title'] as String?;
     _description = snapshotData['description'] as String?;
     _date = snapshotData['date'] as DateTime?;
-    _schedule = snapshotData['schedule'] as DateTime?;
     _siteWeb = snapshotData['site_web'] as String?;
     _musicSytle = getDataList(snapshotData['music_sytle']);
     _entrance = castToType<double>(snapshotData['entrance']);
     _promo = snapshotData['promo'] as String?;
     _artist = getDataList(snapshotData['artist']);
-    _image = snapshotData['image'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _location = snapshotData['Location'] as LatLng?;
     _eventRef = snapshotData['eventRef'] as DocumentReference?;
     _entranceCheck = snapshotData['entranceCheck'] as bool?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
-    _establishmentReference =
-        snapshotData['establishment_reference'] as DocumentReference?;
-    _videoPath = snapshotData['videoPath'] as String?;
     _type = snapshotData['type'] as String?;
-    _listImages = getDataList(snapshotData['listImages']);
+    _schedule = snapshotData['schedule'] as String?;
+    _artistSchedule = snapshotData['artistSchedule'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -192,19 +173,17 @@ Map<String, dynamic> createEventsRecordData({
   String? title,
   String? description,
   DateTime? date,
-  DateTime? schedule,
   String? siteWeb,
   double? entrance,
   String? promo,
-  String? image,
   DateTime? createdTime,
   LatLng? location,
   DocumentReference? eventRef,
   bool? entranceCheck,
   DateTime? updatedAt,
-  DocumentReference? establishmentReference,
-  String? videoPath,
   String? type,
+  String? schedule,
+  DateTime? artistSchedule,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -214,19 +193,17 @@ Map<String, dynamic> createEventsRecordData({
       'title': title,
       'description': description,
       'date': date,
-      'schedule': schedule,
       'site_web': siteWeb,
       'entrance': entrance,
       'promo': promo,
-      'image': image,
       'created_time': createdTime,
       'Location': location,
       'eventRef': eventRef,
       'entranceCheck': entranceCheck,
       'updatedAt': updatedAt,
-      'establishment_reference': establishmentReference,
-      'videoPath': videoPath,
       'type': type,
+      'schedule': schedule,
+      'artistSchedule': artistSchedule,
     }.withoutNulls,
   );
 
@@ -245,22 +222,19 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.title == e2?.title &&
         e1?.description == e2?.description &&
         e1?.date == e2?.date &&
-        e1?.schedule == e2?.schedule &&
         e1?.siteWeb == e2?.siteWeb &&
         listEquality.equals(e1?.musicSytle, e2?.musicSytle) &&
         e1?.entrance == e2?.entrance &&
         e1?.promo == e2?.promo &&
         listEquality.equals(e1?.artist, e2?.artist) &&
-        e1?.image == e2?.image &&
         e1?.createdTime == e2?.createdTime &&
         e1?.location == e2?.location &&
         e1?.eventRef == e2?.eventRef &&
         e1?.entranceCheck == e2?.entranceCheck &&
         e1?.updatedAt == e2?.updatedAt &&
-        e1?.establishmentReference == e2?.establishmentReference &&
-        e1?.videoPath == e2?.videoPath &&
         e1?.type == e2?.type &&
-        listEquality.equals(e1?.listImages, e2?.listImages);
+        e1?.schedule == e2?.schedule &&
+        e1?.artistSchedule == e2?.artistSchedule;
   }
 
   @override
@@ -271,22 +245,19 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.title,
         e?.description,
         e?.date,
-        e?.schedule,
         e?.siteWeb,
         e?.musicSytle,
         e?.entrance,
         e?.promo,
         e?.artist,
-        e?.image,
         e?.createdTime,
         e?.location,
         e?.eventRef,
         e?.entranceCheck,
         e?.updatedAt,
-        e?.establishmentReference,
-        e?.videoPath,
         e?.type,
-        e?.listImages
+        e?.schedule,
+        e?.artistSchedule
       ]);
 
   @override

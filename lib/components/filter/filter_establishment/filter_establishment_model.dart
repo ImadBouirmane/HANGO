@@ -13,9 +13,9 @@ import 'package:provider/provider.dart';
 class FilterEstablishmentModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for themeEvent widget.
-  String? themeEventValue;
-  FormFieldController<List<String>>? themeEventValueController;
+  // State field(s) for typeEstablishment widget.
+  String? typeEstablishmentValue;
+  FormFieldController<List<String>>? typeEstablishmentValueController;
   // State field(s) for musicType widget.
   String? musicTypeValue;
   FormFieldController<List<String>>? musicTypeValueController;
@@ -27,6 +27,10 @@ class FilterEstablishmentModel extends FlutterFlowModel {
   bool? switchListTileValue3;
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue4;
+  // State field(s) for SwitchListTile widget.
+  bool? switchListTileValue5;
+  // State field(s) for SwitchListTile widget.
+  bool? switchListTileValue6;
 
   /// Initialization and disposal methods.
 
