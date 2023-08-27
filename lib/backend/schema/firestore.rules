@@ -2,17 +2,17 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /establishments/{document} {
-      allow create: if request.auth != null;
+      allow create: if true;
       allow read: if true;
-      allow write: if request.auth != null;
-      allow delete: if request.auth != null;
+      allow write: if true;
+      allow delete: if true;
     }
 
     match /events/{document} {
-      allow create: if request.auth != null;
+      allow create: if true;
       allow read: if true;
-      allow write: if request.auth != null;
-      allow delete: if request.auth != null;
+      allow write: if true;
+      allow delete: if true;
     }
 
     match /users/{document} {
@@ -22,11 +22,18 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /establishments/{parent}/schedule/{document} {
-      allow create: if request.auth != null;
+    match /Feedback/{document} {
+      allow create: if true;
       allow read: if true;
-      allow write: if request.auth != null;
-      allow delete: if request.auth != null;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /establishments/{parent}/schedule/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
 
     match /{path=**}/schedule/{document} {
@@ -35,10 +42,10 @@ service cloud.firestore {
 
 
     match /events/{parent}/Artists/{document} {
-      allow create: if request.auth != null;
+      allow create: if true;
       allow read: if true;
-      allow write: if request.auth != null;
-      allow delete: if request.auth != null;
+      allow write: if true;
+      allow delete: if true;
     }
 
     match /{path=**}/Artists/{document} {
@@ -49,8 +56,8 @@ service cloud.firestore {
     match /establishments/{parent}/Images/{document} {
       allow create: if true;
       allow read: if true;
-      allow write: if request.auth != null;
-      allow delete: if request.auth != null;
+      allow write: if true;
+      allow delete: if true;
     }
 
     match /{path=**}/Images/{document} {
@@ -61,11 +68,23 @@ service cloud.firestore {
     match /events/{parent}/Media/{document} {
       allow create: if true;
       allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/Media/{document} {
+      allow read: if true;
+    }
+
+
+    match /events/{parent}/PromotionEvent/{document} {
+      allow create: if true;
+      allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
 
-    match /{path=**}/Media/{document} {
+    match /{path=**}/PromotionEvent/{document} {
       allow read: if true;
     }
 

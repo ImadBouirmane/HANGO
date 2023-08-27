@@ -1491,302 +1491,337 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                 ),
                                               ),
                                             ),
-                                            FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'CREATE_EVENTS_STEP1_BTNValidateFrom_ON_T');
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_backend_call');
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 15.0, 15.0, 15.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'CREATE_EVENTS_STEP1_BTNValidateFrom_ON_T');
+                                                  logFirebaseEvent(
+                                                      'BTNValidateFrom_backend_call');
 
-                                                var eventsRecordReference =
-                                                    EventsRecord.collection
-                                                        .doc();
-                                                await eventsRecordReference
-                                                    .set({
-                                                  ...createEventsRecordData(
-                                                    name:
-                                                        valueOrDefault<String>(
-                                                      _model.tFTitleController
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.tFTitleController
-                                                                      .text !=
-                                                                  ''
-                                                          ? _model
-                                                              .tFTitleController
-                                                              .text
-                                                          : 'Aucune',
-                                                      'Aucune',
-                                                    ),
-                                                    location:
-                                                        _model.placePickerValue !=
-                                                                null
+                                                  var eventsRecordReference =
+                                                      EventsRecord.collection
+                                                          .doc();
+                                                  await eventsRecordReference
+                                                      .set({
+                                                    ...createEventsRecordData(
+                                                      name: valueOrDefault<
+                                                          String>(
+                                                        _model.tFTitleController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.tFTitleController
+                                                                        .text !=
+                                                                    ''
                                                             ? _model
-                                                                .placePickerValue
-                                                                .latLng
-                                                            : null,
-                                                    title:
-                                                        valueOrDefault<String>(
-                                                      _model.tFTitleController
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.tFTitleController
-                                                                      .text !=
-                                                                  ''
+                                                                .tFTitleController
+                                                                .text
+                                                            : 'Aucune',
+                                                        'Aucune',
+                                                      ),
+                                                      location: _model
+                                                                  .placePickerValue !=
+                                                              null
                                                           ? _model
-                                                              .tFTitleController
-                                                              .text
+                                                              .placePickerValue
+                                                              .latLng
                                                           : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                                    description: _model
-                                                        .tFDescriionController
-                                                        .text,
-                                                    date: _model.datePicked1 !=
-                                                            null
-                                                        ? _model.datePicked1
-                                                        : null,
-                                                    schedule:
-                                                        '${valueOrDefault<String>(
-                                                      (_model.datePicked2 !=
-                                                                  null
-                                                              ? _model
-                                                                  .datePicked2
-                                                              : null)
-                                                          ?.toString(),
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    )} - ${valueOrDefault<String>(
-                                                      (_model.datePicked3 !=
-                                                                  null
-                                                              ? _model
-                                                                  .datePicked3
-                                                              : null)
-                                                          ?.toString(),
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    )}',
-                                                    siteWeb:
-                                                        valueOrDefault<String>(
-                                                      _model.tFURLWebSiteController
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.tFURLWebSiteController
-                                                                      .text !=
-                                                                  ''
-                                                          ? _model
-                                                              .tFURLWebSiteController
-                                                              .text
-                                                          : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                                    promo:
-                                                        valueOrDefault<String>(
-                                                      _model.eventPromoController1
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.eventPromoController1
-                                                                      .text !=
-                                                                  ''
-                                                          ? _model
-                                                              .eventPromoController1
-                                                              .text
-                                                          : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                                    establishmentId:
-                                                        createEventsStep1EstablishmentsRecord
-                                                            .reference,
-                                                    type:
-                                                        valueOrDefault<String>(
-                                                      _model.checkBoxMusicStyleValues2
-                                                                      ?.first !=
-                                                                  null &&
-                                                              _model.checkBoxMusicStyleValues2
-                                                                      ?.first !=
-                                                                  ''
-                                                          ? _model
-                                                              .checkBoxMusicStyleValues2
-                                                              ?.first
-                                                          : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                                  ),
-                                                  'created_time': FieldValue
-                                                      .serverTimestamp(),
-                                                  'music_sytle': [
-                                                    _model
-                                                        .checkBoxMusicStyleValues1
-                                                        ?.first
-                                                  ],
-                                                });
-                                                _model.eventCreation =
-                                                    EventsRecord
-                                                        .getDocumentFromData({
-                                                  ...createEventsRecordData(
-                                                    name:
-                                                        valueOrDefault<String>(
-                                                      _model.tFTitleController
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.tFTitleController
-                                                                      .text !=
-                                                                  ''
-                                                          ? _model
-                                                              .tFTitleController
-                                                              .text
-                                                          : 'Aucune',
-                                                      'Aucune',
-                                                    ),
-                                                    location:
-                                                        _model.placePickerValue !=
-                                                                null
+                                                      title: valueOrDefault<
+                                                          String>(
+                                                        _model.tFTitleController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.tFTitleController
+                                                                        .text !=
+                                                                    ''
                                                             ? _model
-                                                                .placePickerValue
-                                                                .latLng
+                                                                .tFTitleController
+                                                                .text
                                                             : null,
-                                                    title:
-                                                        valueOrDefault<String>(
-                                                      _model.tFTitleController
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.tFTitleController
-                                                                      .text !=
-                                                                  ''
-                                                          ? _model
-                                                              .tFTitleController
-                                                              .text
-                                                          : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                                    description: _model
-                                                        .tFDescriionController
-                                                        .text,
-                                                    date: _model.datePicked1 !=
-                                                            null
-                                                        ? _model.datePicked1
-                                                        : null,
-                                                    schedule:
-                                                        '${valueOrDefault<String>(
-                                                      (_model.datePicked2 !=
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      description: _model
+                                                          .tFDescriionController
+                                                          .text,
+                                                      date:
+                                                          _model.datePicked1 !=
                                                                   null
                                                               ? _model
-                                                                  .datePicked2
-                                                              : null)
-                                                          ?.toString(),
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    )} - ${valueOrDefault<String>(
-                                                      (_model.datePicked3 !=
+                                                                  .datePicked1
+                                                              : null,
+                                                      schedule:
+                                                          '${valueOrDefault<String>(
+                                                        (_model.datePicked2 !=
+                                                                    null
+                                                                ? _model
+                                                                    .datePicked2
+                                                                : null)
+                                                            ?.toString(),
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      )} - ${valueOrDefault<String>(
+                                                        (_model.datePicked3 !=
+                                                                    null
+                                                                ? _model
+                                                                    .datePicked3
+                                                                : null)
+                                                            ?.toString(),
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      )}',
+                                                      siteWeb: valueOrDefault<
+                                                          String>(
+                                                        _model.tFURLWebSiteController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.tFURLWebSiteController
+                                                                        .text !=
+                                                                    ''
+                                                            ? _model
+                                                                .tFURLWebSiteController
+                                                                .text
+                                                            : null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      promo: valueOrDefault<
+                                                          String>(
+                                                        _model.eventPromoController1
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.eventPromoController1
+                                                                        .text !=
+                                                                    ''
+                                                            ? _model
+                                                                .eventPromoController1
+                                                                .text
+                                                            : null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      establishmentId:
+                                                          createEventsStep1EstablishmentsRecord
+                                                              .reference,
+                                                      type: valueOrDefault<
+                                                          String>(
+                                                        _model.checkBoxMusicStyleValues2
+                                                                        ?.first !=
+                                                                    null &&
+                                                                _model.checkBoxMusicStyleValues2
+                                                                        ?.first !=
+                                                                    ''
+                                                            ? _model
+                                                                .checkBoxMusicStyleValues2
+                                                                ?.first
+                                                            : null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      entrance: _model.eventPromoController2
+                                                                      .text !=
+                                                                  null &&
+                                                              _model.eventPromoController2
+                                                                      .text !=
+                                                                  ''
+                                                          ? double.tryParse(_model
+                                                              .eventPromoController2
+                                                              .text)
+                                                          : null,
+                                                    ),
+                                                    'created_time': FieldValue
+                                                        .serverTimestamp(),
+                                                    'music_sytle': [
+                                                      _model
+                                                          .checkBoxMusicStyleValues1
+                                                          ?.first
+                                                    ],
+                                                  });
+                                                  _model.eventCreation =
+                                                      EventsRecord
+                                                          .getDocumentFromData({
+                                                    ...createEventsRecordData(
+                                                      name: valueOrDefault<
+                                                          String>(
+                                                        _model.tFTitleController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.tFTitleController
+                                                                        .text !=
+                                                                    ''
+                                                            ? _model
+                                                                .tFTitleController
+                                                                .text
+                                                            : 'Aucune',
+                                                        'Aucune',
+                                                      ),
+                                                      location: _model
+                                                                  .placePickerValue !=
+                                                              null
+                                                          ? _model
+                                                              .placePickerValue
+                                                              .latLng
+                                                          : null,
+                                                      title: valueOrDefault<
+                                                          String>(
+                                                        _model.tFTitleController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.tFTitleController
+                                                                        .text !=
+                                                                    ''
+                                                            ? _model
+                                                                .tFTitleController
+                                                                .text
+                                                            : null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      description: _model
+                                                          .tFDescriionController
+                                                          .text,
+                                                      date:
+                                                          _model.datePicked1 !=
                                                                   null
                                                               ? _model
-                                                                  .datePicked3
-                                                              : null)
-                                                          ?.toString(),
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    )}',
-                                                    siteWeb:
-                                                        valueOrDefault<String>(
-                                                      _model.tFURLWebSiteController
+                                                                  .datePicked1
+                                                              : null,
+                                                      schedule:
+                                                          '${valueOrDefault<String>(
+                                                        (_model.datePicked2 !=
+                                                                    null
+                                                                ? _model
+                                                                    .datePicked2
+                                                                : null)
+                                                            ?.toString(),
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      )} - ${valueOrDefault<String>(
+                                                        (_model.datePicked3 !=
+                                                                    null
+                                                                ? _model
+                                                                    .datePicked3
+                                                                : null)
+                                                            ?.toString(),
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      )}',
+                                                      siteWeb: valueOrDefault<
+                                                          String>(
+                                                        _model.tFURLWebSiteController
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.tFURLWebSiteController
+                                                                        .text !=
+                                                                    ''
+                                                            ? _model
+                                                                .tFURLWebSiteController
+                                                                .text
+                                                            : null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      promo: valueOrDefault<
+                                                          String>(
+                                                        _model.eventPromoController1
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.eventPromoController1
+                                                                        .text !=
+                                                                    ''
+                                                            ? _model
+                                                                .eventPromoController1
+                                                                .text
+                                                            : null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      establishmentId:
+                                                          createEventsStep1EstablishmentsRecord
+                                                              .reference,
+                                                      type: valueOrDefault<
+                                                          String>(
+                                                        _model.checkBoxMusicStyleValues2
+                                                                        ?.first !=
+                                                                    null &&
+                                                                _model.checkBoxMusicStyleValues2
+                                                                        ?.first !=
+                                                                    ''
+                                                            ? _model
+                                                                .checkBoxMusicStyleValues2
+                                                                ?.first
+                                                            : null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      entrance: _model.eventPromoController2
                                                                       .text !=
                                                                   null &&
-                                                              _model.tFURLWebSiteController
+                                                              _model.eventPromoController2
                                                                       .text !=
                                                                   ''
-                                                          ? _model
-                                                              .tFURLWebSiteController
-                                                              .text
+                                                          ? double.tryParse(_model
+                                                              .eventPromoController2
+                                                              .text)
                                                           : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                     ),
-                                                    promo:
-                                                        valueOrDefault<String>(
-                                                      _model.eventPromoController1
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.eventPromoController1
-                                                                      .text !=
-                                                                  ''
-                                                          ? _model
-                                                              .eventPromoController1
-                                                              .text
-                                                          : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                                    establishmentId:
-                                                        createEventsStep1EstablishmentsRecord
-                                                            .reference,
-                                                    type:
-                                                        valueOrDefault<String>(
-                                                      _model.checkBoxMusicStyleValues2
-                                                                      ?.first !=
-                                                                  null &&
-                                                              _model.checkBoxMusicStyleValues2
-                                                                      ?.first !=
-                                                                  ''
-                                                          ? _model
-                                                              .checkBoxMusicStyleValues2
-                                                              ?.first
-                                                          : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
+                                                    'created_time':
+                                                        DateTime.now(),
+                                                    'music_sytle': [
+                                                      _model
+                                                          .checkBoxMusicStyleValues1
+                                                          ?.first
+                                                    ],
+                                                  }, eventsRecordReference);
+                                                  logFirebaseEvent(
+                                                      'BTNValidateFrom_navigate_to');
+
+                                                  context.pushNamed(
+                                                    'CreateEventStep2',
+                                                    queryParameters: {
+                                                      'establishmentRef':
+                                                          serializeParam(
+                                                        widget.establishmentRef,
+                                                        ParamType
+                                                            .DocumentReference,
+                                                      ),
+                                                      'eventRef':
+                                                          serializeParam(
+                                                        _model.eventCreation
+                                                            ?.reference,
+                                                        ParamType
+                                                            .DocumentReference,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+
+                                                  setState(() {});
+                                                },
+                                                text:
+                                                    'Enregistrer et continuer',
+                                                options: FFButtonOptions(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 50.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                      ),
+                                                  elevation: 3.0,
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
                                                   ),
-                                                  'created_time':
-                                                      DateTime.now(),
-                                                  'music_sytle': [
-                                                    _model
-                                                        .checkBoxMusicStyleValues1
-                                                        ?.first
-                                                  ],
-                                                }, eventsRecordReference);
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_navigate_to');
-
-                                                context.pushNamed(
-                                                  'CreateEventStep2',
-                                                  queryParameters: {
-                                                    'establishmentRef':
-                                                        serializeParam(
-                                                      widget.establishmentRef,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                    'eventRef': serializeParam(
-                                                      _model.eventCreation
-                                                          ?.reference,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-
-                                                setState(() {});
-                                              },
-                                              text: 'Enregistrer et continuer',
-                                              options: FFButtonOptions(
-                                                width: 300.0,
-                                                height: 40.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
                                               ),
                                             ),
                                           ]

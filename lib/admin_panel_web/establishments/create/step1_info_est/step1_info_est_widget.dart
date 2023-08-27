@@ -2336,8 +2336,18 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
                                             await establishmentsRecordReference
                                                 .set({
                                               ...createEstablishmentsRecordData(
-                                                name: _model
-                                                    .tFNameController.text,
+                                                name: valueOrDefault<String>(
+                                                  _model.tFNameController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFNameController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFNameController.text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
                                                 adresse: createAddressStruct(
                                                   street: _model
                                                       .tFStreetController.text,
@@ -2354,15 +2364,46 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
                                                   clearUnsetFields: false,
                                                   create: true,
                                                 ),
-                                                email: _model
-                                                    .tFemailAddressController
-                                                    .text,
-                                                phoneNumber: _model
-                                                    .tFphoneNumberController
-                                                    .text,
-                                                webSite: _model
-                                                    .tFURLWebSiteController
-                                                    .text,
+                                                email: valueOrDefault<String>(
+                                                  _model.tFemailAddressController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFemailAddressController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFemailAddressController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
+                                                phoneNumber:
+                                                    valueOrDefault<String>(
+                                                  _model.tFphoneNumberController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFphoneNumberController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFphoneNumberController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
+                                                webSite: valueOrDefault<String>(
+                                                  _model.tFURLWebSiteController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFURLWebSiteController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFURLWebSiteController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
                                                 terrasse:
                                                     _model.rBTNTerrasseValue ==
                                                         'Oui',
@@ -2372,14 +2413,41 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
                                                 cigaretteMachine: _model
                                                         .rBTNCigaretteMAchineValue ==
                                                     'Oui',
-                                                speciality: _model
-                                                    .tFspecialityController
-                                                    .text,
+                                                speciality:
+                                                    valueOrDefault<String>(
+                                                  _model.tFspecialityController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFspecialityController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFspecialityController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
                                                 location: _model
-                                                    .placePickerValue.latLng,
-                                                description: _model
-                                                    .tFDescriptionController
-                                                    .text,
+                                                            .placePickerValue
+                                                            .latLng !=
+                                                        null
+                                                    ? _model
+                                                        .placePickerValue.latLng
+                                                    : null,
+                                                description:
+                                                    valueOrDefault<String>(
+                                                  _model.tFDescriptionController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFDescriptionController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFDescriptionController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
                                               ),
                                               'created_time':
                                                   FieldValue.serverTimestamp(),
@@ -2394,8 +2462,18 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
                                                 EstablishmentsRecord
                                                     .getDocumentFromData({
                                               ...createEstablishmentsRecordData(
-                                                name: _model
-                                                    .tFNameController.text,
+                                                name: valueOrDefault<String>(
+                                                  _model.tFNameController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFNameController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFNameController.text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
                                                 adresse: createAddressStruct(
                                                   street: _model
                                                       .tFStreetController.text,
@@ -2412,15 +2490,46 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
                                                   clearUnsetFields: false,
                                                   create: true,
                                                 ),
-                                                email: _model
-                                                    .tFemailAddressController
-                                                    .text,
-                                                phoneNumber: _model
-                                                    .tFphoneNumberController
-                                                    .text,
-                                                webSite: _model
-                                                    .tFURLWebSiteController
-                                                    .text,
+                                                email: valueOrDefault<String>(
+                                                  _model.tFemailAddressController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFemailAddressController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFemailAddressController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
+                                                phoneNumber:
+                                                    valueOrDefault<String>(
+                                                  _model.tFphoneNumberController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFphoneNumberController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFphoneNumberController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
+                                                webSite: valueOrDefault<String>(
+                                                  _model.tFURLWebSiteController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFURLWebSiteController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFURLWebSiteController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
                                                 terrasse:
                                                     _model.rBTNTerrasseValue ==
                                                         'Oui',
@@ -2430,14 +2539,41 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
                                                 cigaretteMachine: _model
                                                         .rBTNCigaretteMAchineValue ==
                                                     'Oui',
-                                                speciality: _model
-                                                    .tFspecialityController
-                                                    .text,
+                                                speciality:
+                                                    valueOrDefault<String>(
+                                                  _model.tFspecialityController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFspecialityController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFspecialityController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
                                                 location: _model
-                                                    .placePickerValue.latLng,
-                                                description: _model
-                                                    .tFDescriptionController
-                                                    .text,
+                                                            .placePickerValue
+                                                            .latLng !=
+                                                        null
+                                                    ? _model
+                                                        .placePickerValue.latLng
+                                                    : null,
+                                                description:
+                                                    valueOrDefault<String>(
+                                                  _model.tFDescriptionController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tFDescriptionController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tFDescriptionController
+                                                          .text
+                                                      : '',
+                                                  'Aucune',
+                                                ),
                                               ),
                                               'created_time': DateTime.now(),
                                               'type': _model.choiceChipsValues,

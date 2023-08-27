@@ -2068,6 +2068,8 @@ class _Step2ScheduleEstWidgetState extends State<Step2ScheduleEstWidget> {
                                                     .text,
                                                 'Aucune',
                                               ),
+                                              estblishmentRef: widget.estRef,
+                                              createdTime: getCurrentTimestamp,
                                             ));
                                             _model.estScheduleInput =
                                                 ScheduleRecord
@@ -2199,6 +2201,10 @@ class _Step2ScheduleEstWidgetState extends State<Step2ScheduleEstWidget> {
                                                                 .text,
                                                             'Aucune',
                                                           ),
+                                                          estblishmentRef:
+                                                              widget.estRef,
+                                                          createdTime:
+                                                              getCurrentTimestamp,
                                                         ),
                                                         scheduleRecordReference);
                                             logFirebaseEvent(

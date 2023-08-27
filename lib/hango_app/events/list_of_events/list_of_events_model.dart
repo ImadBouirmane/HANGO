@@ -11,7 +11,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +31,6 @@ class ListOfEventsModel extends FlutterFlowModel {
   TextEditingController? eventSearchController;
   String? Function(BuildContext, String?)? eventSearchControllerValidator;
   List<EventsRecord> simpleSearchResults = [];
-  Completer<EstablishmentsRecord>? documentRequestCompleter;
 
   /// Initialization and disposal methods.
 
@@ -51,19 +49,4 @@ class ListOfEventsModel extends FlutterFlowModel {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
-
-  Future waitForDocumentRequestCompleted({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = documentRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
 }

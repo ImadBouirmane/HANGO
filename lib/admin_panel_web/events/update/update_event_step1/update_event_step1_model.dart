@@ -43,11 +43,14 @@ class UpdateEventStep1Model extends FlutterFlowModel {
   // State field(s) for CheckBoxMusicStyle widget.
   List<String>? checkBoxMusicStyleValues;
   FormFieldController<List<String>>? checkBoxMusicStyleValueController;
-  // State field(s) for eventPromo widget.
-  TextEditingController? eventPromoController;
-  String? Function(BuildContext, String?)? eventPromoControllerValidator;
   // State field(s) for PlacePicker widget.
   var placePickerValue = FFPlace();
+  // State field(s) for eventPromo widget.
+  TextEditingController? eventPromoController1;
+  String? Function(BuildContext, String?)? eventPromoController1Validator;
+  // State field(s) for eventPromo widget.
+  TextEditingController? eventPromoController2;
+  String? Function(BuildContext, String?)? eventPromoController2Validator;
   // State field(s) for artists widget.
   List<String>? artistsValues;
   FormFieldController<List<String>>? artistsValueController;
@@ -65,7 +68,8 @@ class UpdateEventStep1Model extends FlutterFlowModel {
     tFTitleController?.dispose();
     tFDescriionController?.dispose();
     tFURLWebSiteController?.dispose();
-    eventPromoController?.dispose();
+    eventPromoController1?.dispose();
+    eventPromoController2?.dispose();
   }
 
   /// Action blocks are added here.

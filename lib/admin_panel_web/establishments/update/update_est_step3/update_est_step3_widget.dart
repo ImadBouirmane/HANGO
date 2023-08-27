@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -184,6 +185,42 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                           ),
                                         ),
                                       ),
+                                      FlutterFlowIconButton(
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        borderRadius: 20.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 40.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        icon: Icon(
+                                          Icons.home,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 12.0,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'UPDATE_EST_STEP3_PAGE_home_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_navigate_to');
+
+                                          context.pushNamed(
+                                            'Dashboard',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                              ),
+                                            },
+                                          );
+                                        },
+                                      ),
                                     ],
                                   ),
                                   Expanded(
@@ -312,10 +349,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                   children: [
                                                                     Stack(
                                                                       children: [
-                                                                        if (_model.uploadedFileUrl1 !=
-                                                                                null &&
-                                                                            _model.uploadedFileUrl1 !=
-                                                                                '')
+                                                                        if ((updateEstStep3ImagesRecord?.image1 == null || updateEstStep3ImagesRecord?.image1 == '') &&
+                                                                            (_model.uploadedFileUrl1 != null &&
+                                                                                _model.uploadedFileUrl1 != ''))
                                                                           Stack(
                                                                             children: [
                                                                               FlutterFlowMediaDisplay(
@@ -354,14 +390,14 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   alignment: AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
-                                                                                    borderRadius: 20.0,
+                                                                                    borderRadius: 40.0,
                                                                                     borderWidth: 1.0,
-                                                                                    buttonSize: 40.0,
+                                                                                    buttonSize: 60.0,
                                                                                     fillColor: FlutterFlowTheme.of(context).alternate,
                                                                                     icon: Icon(
                                                                                       Icons.delete,
                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                      size: 20.0,
+                                                                                      size: 35.0,
                                                                                     ),
                                                                                     showLoadingIndicator: true,
                                                                                     onPressed: () async {
@@ -378,10 +414,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        if (updateEstStep3ImagesRecord?.image1 ==
-                                                                                null ||
-                                                                            updateEstStep3ImagesRecord?.image1 ==
-                                                                                '')
+                                                                        if ((updateEstStep3ImagesRecord?.image1 == null || updateEstStep3ImagesRecord?.image1 == '') &&
+                                                                            (_model.uploadedFileUrl1 == null ||
+                                                                                _model.uploadedFileUrl1 == ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -472,10 +507,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ].divide(SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
-                                                                        if (updateEstStep3ImagesRecord?.image1 !=
-                                                                                null &&
-                                                                            updateEstStep3ImagesRecord?.image1 !=
-                                                                                '')
+                                                                        if ((updateEstStep3ImagesRecord?.image1 != null && updateEstStep3ImagesRecord?.image1 != '') &&
+                                                                            (_model.uploadedFileUrl1 == null ||
+                                                                                _model.uploadedFileUrl1 == ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -494,6 +528,12 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.3,
                                                                                     height: MediaQuery.sizeOf(context).height * 0.3,
                                                                                     fit: BoxFit.cover,
+                                                                                    errorBuilder: (context, error, stackTrace) => Image.asset(
+                                                                                      'assets/images/error_image.png',
+                                                                                      width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                      height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                                 Container(
@@ -523,14 +563,23 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                           showLoadingIndicator: true,
                                                                                           onPressed: () async {
                                                                                             logFirebaseEvent('UPDATE_EST_STEP3_PAGE_delete_ICN_ON_TAP');
-                                                                                            // establishmentVideoUpload
-                                                                                            logFirebaseEvent('IconButton_establishmentVideoUpload');
-                                                                                            await FirebaseStorage.instance
-                                                                                                .refFromURL(valueOrDefault<String>(
-                                                                                                  updateEstStep3ImagesRecord?.image1,
-                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                                ))
-                                                                                                .delete();
+                                                                                            // deleteImageEst
+                                                                                            logFirebaseEvent('IconButton_deleteImageEst');
+                                                                                            await FirebaseStorage.instance.refFromURL(updateEstStep3ImagesRecord!.image1).delete();
+                                                                                            logFirebaseEvent('IconButton_show_snack_bar');
+                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                              SnackBar(
+                                                                                                content: Text(
+                                                                                                  'L\'image a été supprimée',
+                                                                                                  style: FlutterFlowTheme.of(context).headlineLarge.override(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                      ),
+                                                                                                ),
+                                                                                                duration: Duration(milliseconds: 1950),
+                                                                                                backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                            );
                                                                                           },
                                                                                         ),
                                                                                       ),
@@ -544,12 +593,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                     ),
                                                                     Stack(
                                                                       children: [
-                                                                        if (valueOrDefault<
-                                                                            bool>(
-                                                                          _model.uploadedFileUrl2 != null &&
-                                                                              _model.uploadedFileUrl2 != '',
-                                                                          true,
-                                                                        ))
+                                                                        if ((_model.uploadedFileUrl2 != null && _model.uploadedFileUrl2 != '') &&
+                                                                            (updateEstStep3ImagesRecord?.image2 == null ||
+                                                                                updateEstStep3ImagesRecord?.image2 == ''))
                                                                           Stack(
                                                                             children: [
                                                                               FlutterFlowMediaDisplay(
@@ -612,10 +658,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        if (updateEstStep3ImagesRecord?.image2 ==
-                                                                                null ||
-                                                                            updateEstStep3ImagesRecord?.image2 ==
-                                                                                '')
+                                                                        if ((_model.uploadedFileUrl2 == null || _model.uploadedFileUrl2 == '') &&
+                                                                            (updateEstStep3ImagesRecord?.image2 == null ||
+                                                                                updateEstStep3ImagesRecord?.image2 == ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -706,10 +751,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ].divide(SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
-                                                                        if (updateEstStep3ImagesRecord?.image2 !=
-                                                                                null &&
-                                                                            updateEstStep3ImagesRecord?.image2 !=
-                                                                                '')
+                                                                        if ((_model.uploadedFileUrl2 == null || _model.uploadedFileUrl2 == '') &&
+                                                                            (updateEstStep3ImagesRecord?.image2 != null &&
+                                                                                updateEstStep3ImagesRecord?.image2 != ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -765,6 +809,20 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                                 ))
                                                                                                 .delete();
+                                                                                            logFirebaseEvent('IconButton_show_snack_bar');
+                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                              SnackBar(
+                                                                                                content: Text(
+                                                                                                  'L\'image a été supprimée',
+                                                                                                  style: FlutterFlowTheme.of(context).headlineLarge.override(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                      ),
+                                                                                                ),
+                                                                                                duration: Duration(milliseconds: 1950),
+                                                                                                backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                            );
                                                                                           },
                                                                                         ),
                                                                                       ),
@@ -778,17 +836,13 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                     ),
                                                                     Stack(
                                                                       children: [
-                                                                        if (_model.uploadedFileUrl3 !=
-                                                                                null &&
-                                                                            _model.uploadedFileUrl3 !=
-                                                                                '')
+                                                                        if ((_model.uploadedFileUrl3 != null && _model.uploadedFileUrl3 != '') &&
+                                                                            (updateEstStep3ImagesRecord?.image3 != null &&
+                                                                                updateEstStep3ImagesRecord?.image3 != ''))
                                                                           Stack(
                                                                             children: [
                                                                               FlutterFlowMediaDisplay(
-                                                                                path: valueOrDefault<String>(
-                                                                                  _model.uploadedFileUrl3,
-                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                ),
+                                                                                path: _model.uploadedFileUrl3,
                                                                                 imageBuilder: (path) => ClipRRect(
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                   child: Image.network(
@@ -844,10 +898,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        if (updateEstStep3ImagesRecord?.image3 ==
-                                                                                null ||
-                                                                            updateEstStep3ImagesRecord?.image3 ==
-                                                                                '')
+                                                                        if ((_model.uploadedFileUrl3 == null || _model.uploadedFileUrl3 == '') &&
+                                                                            (updateEstStep3ImagesRecord?.image3 == null ||
+                                                                                updateEstStep3ImagesRecord?.image3 == ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -938,10 +991,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ].divide(SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
-                                                                        if (updateEstStep3ImagesRecord?.image3 !=
-                                                                                null &&
-                                                                            updateEstStep3ImagesRecord?.image3 !=
-                                                                                '')
+                                                                        if ((_model.uploadedFileUrl3 == null || _model.uploadedFileUrl3 == '') &&
+                                                                            (updateEstStep3ImagesRecord?.image3 != null &&
+                                                                                updateEstStep3ImagesRecord?.image3 != ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -997,6 +1049,20 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                                 ))
                                                                                                 .delete();
+                                                                                            logFirebaseEvent('IconButton_show_snack_bar');
+                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                              SnackBar(
+                                                                                                content: Text(
+                                                                                                  'L\'image a été supprimée',
+                                                                                                  style: FlutterFlowTheme.of(context).headlineLarge.override(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                      ),
+                                                                                                ),
+                                                                                                duration: Duration(milliseconds: 1950),
+                                                                                                backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                            );
                                                                                           },
                                                                                         ),
                                                                                       ),
@@ -1010,10 +1076,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                     ),
                                                                     Stack(
                                                                       children: [
-                                                                        if (_model.uploadedFileUrl4 !=
-                                                                                null &&
-                                                                            _model.uploadedFileUrl4 !=
-                                                                                '')
+                                                                        if ((_model.uploadedFileUrl4 != null && _model.uploadedFileUrl4 != '') &&
+                                                                            (updateEstStep3ImagesRecord?.image4 == null ||
+                                                                                updateEstStep3ImagesRecord?.image4 == ''))
                                                                           Stack(
                                                                             children: [
                                                                               FlutterFlowMediaDisplay(
@@ -1076,10 +1141,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        if (updateEstStep3ImagesRecord?.image4 ==
-                                                                                null ||
-                                                                            updateEstStep3ImagesRecord?.image4 ==
-                                                                                '')
+                                                                        if ((_model.uploadedFileUrl4 == null || _model.uploadedFileUrl4 == '') &&
+                                                                            (updateEstStep3ImagesRecord?.image4 == null ||
+                                                                                updateEstStep3ImagesRecord?.image4 == ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -1170,10 +1234,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ].divide(SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
-                                                                        if (updateEstStep3ImagesRecord?.image4 !=
-                                                                                null &&
-                                                                            updateEstStep3ImagesRecord?.image4 !=
-                                                                                '')
+                                                                        if ((_model.uploadedFileUrl4 == null || _model.uploadedFileUrl4 == '') &&
+                                                                            (updateEstStep3ImagesRecord?.image4 != null &&
+                                                                                updateEstStep3ImagesRecord?.image4 != ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -1229,6 +1292,20 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                                 ))
                                                                                                 .delete();
+                                                                                            logFirebaseEvent('IconButton_show_snack_bar');
+                                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                                              SnackBar(
+                                                                                                content: Text(
+                                                                                                  'L\'image a été supprimée',
+                                                                                                  style: FlutterFlowTheme.of(context).headlineLarge.override(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                      ),
+                                                                                                ),
+                                                                                                duration: Duration(milliseconds: 1950),
+                                                                                                backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                            );
                                                                                           },
                                                                                         ),
                                                                                       ),
@@ -1268,12 +1345,14 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                 0.3,
                                                             child: Stack(
                                                               children: [
-                                                                if (updateEstStep3ImagesRecord
-                                                                            ?.video !=
-                                                                        null &&
-                                                                    updateEstStep3ImagesRecord
-                                                                            ?.video !=
-                                                                        '')
+                                                                if ((updateEstStep3ImagesRecord?.video !=
+                                                                            null &&
+                                                                        updateEstStep3ImagesRecord?.video !=
+                                                                            '') &&
+                                                                    (_model.uploadedFileUrl5 ==
+                                                                            null ||
+                                                                        _model.uploadedFileUrl5 ==
+                                                                            ''))
                                                                   Container(
                                                                     width: MediaQuery.sizeOf(context)
                                                                             .width *
@@ -1295,8 +1374,10 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                             borderRadius:
                                                                                 BorderRadius.circular(15.0),
                                                                             child:
-                                                                                Image.network(
-                                                                              path,
+                                                                                CachedNetworkImage(
+                                                                              fadeInDuration: Duration(milliseconds: 500),
+                                                                              fadeOutDuration: Duration(milliseconds: 500),
+                                                                              imageUrl: path,
                                                                               width: MediaQuery.sizeOf(context).width * 0.3,
                                                                               height: MediaQuery.sizeOf(context).height * 0.3,
                                                                               fit: BoxFit.contain,
@@ -1354,12 +1435,21 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               onPressed: () async {
                                                                                 logFirebaseEvent('UPDATE_EST_STEP3_PAGE_delete_ICN_ON_TAP');
                                                                                 logFirebaseEvent('IconButton_delete_data');
-                                                                                await FirebaseStorage.instance
-                                                                                    .refFromURL(valueOrDefault<String>(
-                                                                                      updateEstStep3ImagesRecord?.video,
-                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                    ))
-                                                                                    .delete();
+                                                                                await FirebaseStorage.instance.refFromURL(updateEstStep3ImagesRecord!.video).delete();
+                                                                                logFirebaseEvent('IconButton_show_snack_bar');
+                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                  SnackBar(
+                                                                                    content: Text(
+                                                                                      'La video a été supprimée',
+                                                                                      style: FlutterFlowTheme.of(context).headlineLarge.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          ),
+                                                                                    ),
+                                                                                    duration: Duration(milliseconds: 1950),
+                                                                                    backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                  ),
+                                                                                );
                                                                               },
                                                                             ),
                                                                           ),
@@ -1367,12 +1457,14 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                       ],
                                                                     ),
                                                                   ),
-                                                                if (updateEstStep3ImagesRecord
-                                                                            ?.video ==
-                                                                        null ||
-                                                                    updateEstStep3ImagesRecord
-                                                                            ?.video ==
-                                                                        '')
+                                                                if ((updateEstStep3ImagesRecord?.video ==
+                                                                            null ||
+                                                                        updateEstStep3ImagesRecord?.video ==
+                                                                            '') &&
+                                                                    (_model.uploadedFileUrl5 !=
+                                                                            null &&
+                                                                        _model.uploadedFileUrl5 !=
+                                                                            ''))
                                                                   Container(
                                                                     width: MediaQuery.sizeOf(context)
                                                                             .width *
@@ -1486,10 +1578,14 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               height: 10.0)),
                                                                     ),
                                                                   ),
-                                                                if (_model.uploadedFileUrl5 !=
-                                                                        null &&
-                                                                    _model.uploadedFileUrl5 !=
-                                                                        '')
+                                                                if ((updateEstStep3ImagesRecord?.video ==
+                                                                            null ||
+                                                                        updateEstStep3ImagesRecord?.video ==
+                                                                            '') &&
+                                                                    (_model.uploadedFileUrl5 !=
+                                                                            null &&
+                                                                        _model.uploadedFileUrl5 !=
+                                                                            ''))
                                                                   Container(
                                                                     width: MediaQuery.sizeOf(context)
                                                                             .width *
@@ -1599,114 +1695,151 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                             ),
 
                                             // still some calls for schedule I will complete next two hours
-                                            FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'UPDATE_EST_STEP3_BTNValidateFrom_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_backend_call');
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 15.0, 15.0, 15.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'UPDATE_EST_STEP3_BTNValidateFrom_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'BTNValidateFrom_backend_call');
 
-                                                await updateEstStep3ImagesRecord!
-                                                    .reference
-                                                    .update(
-                                                        createImagesRecordData(
-                                                  image1:
-                                                      valueOrDefault<String>(
-                                                    _model.uploadedFileUrl1 !=
-                                                                null &&
-                                                            _model.uploadedFileUrl1 !=
-                                                                ''
-                                                        ? _model
-                                                            .uploadedFileUrl1
-                                                        : updateEstStep3ImagesRecord
-                                                            ?.image1,
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                  ),
-                                                  image2:
-                                                      valueOrDefault<String>(
-                                                    _model.uploadedFileUrl2 !=
-                                                                null &&
-                                                            _model.uploadedFileUrl2 !=
-                                                                ''
-                                                        ? _model
-                                                            .uploadedFileUrl2
-                                                        : updateEstStep3ImagesRecord
-                                                            ?.image2,
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                  ),
-                                                  image3:
-                                                      valueOrDefault<String>(
-                                                    _model.uploadedFileUrl3 !=
-                                                                null &&
-                                                            _model.uploadedFileUrl3 !=
-                                                                ''
-                                                        ? _model
-                                                            .uploadedFileUrl3
-                                                        : updateEstStep3ImagesRecord
-                                                            ?.image3,
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                  ),
-                                                  image4:
-                                                      valueOrDefault<String>(
-                                                    _model.uploadedFileUrl4 !=
-                                                                null &&
-                                                            _model.uploadedFileUrl4 !=
-                                                                ''
-                                                        ? _model
-                                                            .uploadedFileUrl4
-                                                        : updateEstStep3ImagesRecord
-                                                            ?.image4,
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                  ),
-                                                  video: valueOrDefault<String>(
-                                                    _model.uploadedFileUrl5 !=
-                                                                null &&
-                                                            _model.uploadedFileUrl5 !=
-                                                                ''
-                                                        ? _model
-                                                            .uploadedFileUrl5
-                                                        : updateEstStep3ImagesRecord
-                                                            ?.video,
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                  ),
-                                                  establishmentRef: widget
-                                                      .establishmentDetails,
-                                                  updatedTime:
-                                                      getCurrentTimestamp,
-                                                ));
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_navigate_to');
+                                                  await updateEstStep3ImagesRecord!
+                                                      .reference
+                                                      .update(
+                                                          createImagesRecordData(
+                                                    image1: () {
+                                                      if (_model.uploadedFileUrl1 !=
+                                                              null &&
+                                                          _model.uploadedFileUrl1 !=
+                                                              '') {
+                                                        return _model
+                                                            .uploadedFileUrl1;
+                                                      } else if (updateEstStep3ImagesRecord
+                                                              ?.image1 ==
+                                                          updateEstStep3ImagesRecord
+                                                              ?.image1) {
+                                                        return updateEstStep3ImagesRecord
+                                                            ?.image1;
+                                                      } else {
+                                                        return null;
+                                                      }
+                                                    }(),
+                                                    image2: () {
+                                                      if (_model.uploadedFileUrl2 !=
+                                                              null &&
+                                                          _model.uploadedFileUrl2 !=
+                                                              '') {
+                                                        return _model
+                                                            .uploadedFileUrl2;
+                                                      } else if (updateEstStep3ImagesRecord
+                                                              ?.image2 ==
+                                                          updateEstStep3ImagesRecord
+                                                              ?.image2) {
+                                                        return updateEstStep3ImagesRecord
+                                                            ?.image2;
+                                                      } else {
+                                                        return null;
+                                                      }
+                                                    }(),
+                                                    image3: () {
+                                                      if (_model.uploadedFileUrl3 !=
+                                                              null &&
+                                                          _model.uploadedFileUrl3 !=
+                                                              '') {
+                                                        return _model
+                                                            .uploadedFileUrl3;
+                                                      } else if (updateEstStep3ImagesRecord
+                                                              ?.image3 ==
+                                                          updateEstStep3ImagesRecord
+                                                              ?.image3) {
+                                                        return updateEstStep3ImagesRecord
+                                                            ?.image3;
+                                                      } else {
+                                                        return null;
+                                                      }
+                                                    }(),
+                                                    image4: () {
+                                                      if (_model.uploadedFileUrl4 !=
+                                                              null &&
+                                                          _model.uploadedFileUrl4 !=
+                                                              '') {
+                                                        return _model
+                                                            .uploadedFileUrl4;
+                                                      } else if (updateEstStep3ImagesRecord
+                                                              ?.image4 ==
+                                                          updateEstStep3ImagesRecord
+                                                              ?.image4) {
+                                                        return updateEstStep3ImagesRecord
+                                                            ?.image4;
+                                                      } else {
+                                                        return null;
+                                                      }
+                                                    }(),
+                                                    video: () {
+                                                      if (_model.uploadedFileUrl5 !=
+                                                              null &&
+                                                          _model.uploadedFileUrl5 !=
+                                                              '') {
+                                                        return _model
+                                                            .uploadedFileUrl5;
+                                                      } else if (updateEstStep3ImagesRecord
+                                                              ?.video ==
+                                                          updateEstStep3ImagesRecord
+                                                              ?.video) {
+                                                        return updateEstStep3ImagesRecord
+                                                            ?.video;
+                                                      } else {
+                                                        return null;
+                                                      }
+                                                    }(),
+                                                    establishmentRef: widget
+                                                        .establishmentDetails,
+                                                    updatedTime:
+                                                        getCurrentTimestamp,
+                                                  ));
+                                                  logFirebaseEvent(
+                                                      'BTNValidateFrom_navigate_to');
 
-                                                context.pushNamed('Dashboard');
-                                              },
-                                              text:
-                                                  'Enregistrer les modifications',
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
+                                                  context
+                                                      .pushNamed('Dashboard');
+                                                },
+                                                text:
+                                                    'Enregistrer les modifications',
+                                                options: FFButtonOptions(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 50.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                      ),
+                                                  elevation: 3.0,
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
                                               ),
                                             ),
                                           ].addToEnd(SizedBox(height: 20.0)),

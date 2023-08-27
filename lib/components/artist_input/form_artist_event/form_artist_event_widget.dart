@@ -98,55 +98,51 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                      child: TextFormField(
-                        controller: _model.artistNameTextFieldController,
-                        autofocus: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Nom de l\'artiste',
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                          hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).accent2,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(16.0),
+                    child: TextFormField(
+                      controller: _model.artistNameTextFieldController,
+                      autofocus: true,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Nom de l\'artiste',
+                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                        hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).accent2,
+                            width: 1.0,
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 1.0, 1.0, 1.0),
+                          borderRadius: BorderRadius.circular(16.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
-                              fontSize: 14.0,
-                            ),
-                        validator: _model.artistNameTextFieldControllerValidator
-                            .asValidator(context),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(16.0, 1.0, 1.0, 1.0),
                       ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            fontSize: 14.0,
+                          ),
+                      validator: _model.artistNameTextFieldControllerValidator
+                          .asValidator(context),
                     ),
                   ),
                   Container(
@@ -245,6 +241,8 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                           'Aucune',
                         ),
                         scheduleStart: _model.datePicked,
+                        eventRef: widget.eventRef,
+                        createdTime: getCurrentTimestamp,
                       ));
                       _model.artistInput = ArtistsRecord.getDocumentFromData(
                           createArtistsRecordData(
@@ -253,6 +251,8 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                               'Aucune',
                             ),
                             scheduleStart: _model.datePicked,
+                            eventRef: widget.eventRef,
+                            createdTime: getCurrentTimestamp,
                           ),
                           artistsRecordReference);
 
@@ -271,8 +271,6 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                 child: StreamBuilder<List<ArtistsRecord>>(
                   stream: queryArtistsRecord(
                     parent: widget.eventRef,
-                    queryBuilder: (artistsRecord) =>
-                        artistsRecord.orderBy('createdTime'),
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.

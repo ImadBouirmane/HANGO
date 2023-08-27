@@ -2389,214 +2389,302 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                 ),
 
                                                 // still some calls for schedule I will complete next two hours
-                                                StreamBuilder<
-                                                    List<ScheduleRecord>>(
-                                                  stream: queryScheduleRecord(
-                                                    parent:
-                                                        updateEstStep1EstablishmentsRecord
-                                                            .reference,
-                                                    singleRecord: true,
-                                                  ),
-                                                  builder: (context, snapshot) {
-                                                    // Customize what your widget looks like when it's loading.
-                                                    if (!snapshot.hasData) {
-                                                      return Center(
-                                                        child: SizedBox(
-                                                          width: 30.0,
-                                                          height: 30.0,
-                                                          child:
-                                                              CircularProgressIndicator(
-                                                            valueColor:
-                                                                AlwaysStoppedAnimation<
-                                                                    Color>(
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(15.0, 15.0,
+                                                          15.0, 15.0),
+                                                  child: StreamBuilder<
+                                                      List<ScheduleRecord>>(
+                                                    stream: queryScheduleRecord(
+                                                      parent:
+                                                          updateEstStep1EstablishmentsRecord
+                                                              .reference,
+                                                      singleRecord: true,
+                                                    ),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 30.0,
+                                                            height: 30.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      List<ScheduleRecord>
+                                                          bTNValidateFromScheduleRecordList =
+                                                          snapshot.data!;
+                                                      final bTNValidateFromScheduleRecord =
+                                                          bTNValidateFromScheduleRecordList
+                                                                  .isNotEmpty
+                                                              ? bTNValidateFromScheduleRecordList
+                                                                  .first
+                                                              : null;
+                                                      return FFButtonWidget(
+                                                        onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'UPDATE_EST_STEP1_BTNValidateFrom_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'BTNValidateFrom_backend_call');
+
+                                                          await widget
+                                                              .establishmentDetails!
+                                                              .update({
+                                                            ...createEstablishmentsRecordData(
+                                                              name: _model.tFNameController
+                                                                              .text !=
+                                                                          null &&
+                                                                      _model.tFNameController
+                                                                              .text !=
+                                                                          ''
+                                                                  ? _model
+                                                                      .tFNameController
+                                                                      .text
+                                                                  : _model
+                                                                      .tFNameController
+                                                                      .text,
+                                                              adresse:
+                                                                  createAddressStruct(
+                                                                street: _model.tFStreetController
+                                                                                .text !=
+                                                                            null &&
+                                                                        _model.tFStreetController
+                                                                                .text !=
+                                                                            ''
+                                                                    ? _model
+                                                                        .tFstateController
+                                                                        .text
+                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .adresse
+                                                                        .street,
+                                                                zipCode: _model.tFzipCodeController
+                                                                                .text !=
+                                                                            null &&
+                                                                        _model.tFzipCodeController
+                                                                                .text !=
+                                                                            ''
+                                                                    ? _model
+                                                                        .tFzipCodeController
+                                                                        .text
+                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .adresse
+                                                                        .hasZipCode()
+                                                                        .toString(),
+                                                                city: _model.tFcityController
+                                                                                .text !=
+                                                                            null &&
+                                                                        _model
+                                                                                .tFcityController.text !=
+                                                                            ''
+                                                                    ? _model
+                                                                        .tFcityController
+                                                                        .text
+                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .adresse
+                                                                        .hasCity()
+                                                                        .toString(),
+                                                                state: _model.tFstateController
+                                                                                .text !=
+                                                                            null &&
+                                                                        _model.tFstateController
+                                                                                .text !=
+                                                                            ''
+                                                                    ? _model
+                                                                        .tFstateController
+                                                                        .text
+                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .adresse
+                                                                        .hasState()
+                                                                        .toString(),
+                                                                country: _model.tFcountryController
+                                                                                .text !=
+                                                                            null &&
+                                                                        _model.tFcountryController
+                                                                                .text !=
+                                                                            ''
+                                                                    ? _model
+                                                                        .tFcountryController
+                                                                        .text
+                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .adresse
+                                                                        .hasCountry()
+                                                                        .toString(),
+                                                                latiLong: _model
+                                                                            .placePickerValue
+                                                                            .latLng !=
+                                                                        null
+                                                                    ? _model
+                                                                        .placePickerValue
+                                                                        .latLng
+                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .adresse
+                                                                        .latiLong,
+                                                                clearUnsetFields:
+                                                                    true,
+                                                              ),
+                                                              email: updateEstStep1EstablishmentsRecord.email ==
+                                                                      _model
+                                                                          .tFemailAddressController
+                                                                          .text
+                                                                  ? updateEstStep1EstablishmentsRecord
+                                                                      .email
+                                                                  : _model
+                                                                      .tFemailAddressController
+                                                                      .text,
+                                                              phoneNumber: updateEstStep1EstablishmentsRecord
+                                                                          .phoneNumber ==
+                                                                      _model
+                                                                          .tFphoneNumberController
+                                                                          .text
+                                                                  ? updateEstStep1EstablishmentsRecord
+                                                                      .phoneNumber
+                                                                  : _model
+                                                                      .tFphoneNumberController
+                                                                      .text,
+                                                              webSite: updateEstStep1EstablishmentsRecord
+                                                                          .webSite ==
+                                                                      _model.tFURLWebSiteController
+                                                                          .text
+                                                                  ? updateEstStep1EstablishmentsRecord
+                                                                      .webSite
+                                                                  : _model
+                                                                      .tFURLWebSiteController
+                                                                      .text,
+                                                              speciality: updateEstStep1EstablishmentsRecord
+                                                                          .speciality ==
+                                                                      _model
+                                                                          .tFspecialityController
+                                                                          .text
+                                                                  ? updateEstStep1EstablishmentsRecord
+                                                                      .speciality
+                                                                  : _model
+                                                                      .tFspecialityController
+                                                                      .text,
+                                                              terrasse: _model
+                                                                      .rBTNTerrasseValue ==
+                                                                  'Oui',
+                                                              reservation: _model
+                                                                      .rBTNRservationValue ==
+                                                                  'Oui',
+                                                              cigaretteMachine:
+                                                                  _model.rBTNCigaretteMAchineValue ==
+                                                                      'Oui',
+                                                              description: updateEstStep1EstablishmentsRecord
+                                                                          .description ==
+                                                                      _model
+                                                                          .tFDescriptionController
+                                                                          .text
+                                                                  ? updateEstStep1EstablishmentsRecord
+                                                                      .description
+                                                                  : _model
+                                                                      .tFDescriptionController
+                                                                      .text,
+                                                              location: _model
+                                                                          .placePickerValue
+                                                                          .latLng !=
+                                                                      null
+                                                                  ? _model
+                                                                      .placePickerValue
+                                                                      .latLng
+                                                                  : _model
+                                                                      .placePickerValue
+                                                                      .latLng,
+                                                              updatedAt:
+                                                                  getCurrentTimestamp,
+                                                            ),
+                                                            'type': _model
+                                                                .choiceChipsValues,
+                                                            'music_style': _model
+                                                                        .checkBoxMusicStyleValues
+                                                                        ?.length !=
+                                                                    null
+                                                                ? _model
+                                                                    .checkBoxMusicStyleValues
+                                                                : updateEstStep1EstablishmentsRecord
+                                                                    .musicStyle,
+                                                            'food': _model
+                                                                .checkBoxFoodValues,
+                                                            'game': _model
+                                                                .checkBoxGamesValues,
+                                                          });
+                                                          logFirebaseEvent(
+                                                              'BTNValidateFrom_navigate_to');
+
+                                                          context.pushNamed(
+                                                            'UpdateEstStep2',
+                                                            queryParameters: {
+                                                              'establishmentDetails':
+                                                                  serializeParam(
+                                                                updateEstStep1EstablishmentsRecord
+                                                                    .reference,
+                                                                ParamType
+                                                                    .DocumentReference,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        },
+                                                        text: 'Continuer',
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          height: 50.0,
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      24.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .primary,
-                                                            ),
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Colors
+                                                                        .white,
+                                                                  ),
+                                                          elevation: 3.0,
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Colors
+                                                                .transparent,
+                                                            width: 1.0,
                                                           ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
                                                         ),
                                                       );
-                                                    }
-                                                    List<ScheduleRecord>
-                                                        bTNValidateFromScheduleRecordList =
-                                                        snapshot.data!;
-                                                    final bTNValidateFromScheduleRecord =
-                                                        bTNValidateFromScheduleRecordList
-                                                                .isNotEmpty
-                                                            ? bTNValidateFromScheduleRecordList
-                                                                .first
-                                                            : null;
-                                                    return FFButtonWidget(
-                                                      onPressed: () async {
-                                                        logFirebaseEvent(
-                                                            'UPDATE_EST_STEP1_BTNValidateFrom_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'BTNValidateFrom_backend_call');
-
-                                                        await widget
-                                                            .establishmentDetails!
-                                                            .update({
-                                                          ...createEstablishmentsRecordData(
-                                                            name: _model
-                                                                .tFNameController
-                                                                .text,
-                                                            adresse:
-                                                                createAddressStruct(
-                                                              street: _model
-                                                                  .tFStreetController
-                                                                  .text,
-                                                              zipCode: _model
-                                                                  .tFzipCodeController
-                                                                  .text,
-                                                              city: _model
-                                                                  .tFcityController
-                                                                  .text,
-                                                              state: _model
-                                                                  .tFstateController
-                                                                  .text,
-                                                              country: _model
-                                                                  .tFcountryController
-                                                                  .text,
-                                                              latiLong: _model
-                                                                  .placePickerValue
-                                                                  .latLng,
-                                                              clearUnsetFields:
-                                                                  true,
-                                                            ),
-                                                            email: updateEstStep1EstablishmentsRecord
-                                                                        .email ==
-                                                                    _model
-                                                                        .tFemailAddressController
-                                                                        .text
-                                                                ? updateEstStep1EstablishmentsRecord
-                                                                    .email
-                                                                : _model
-                                                                    .tFemailAddressController
-                                                                    .text,
-                                                            phoneNumber: updateEstStep1EstablishmentsRecord
-                                                                        .phoneNumber ==
-                                                                    _model
-                                                                        .tFphoneNumberController
-                                                                        .text
-                                                                ? updateEstStep1EstablishmentsRecord
-                                                                    .phoneNumber
-                                                                : _model
-                                                                    .tFphoneNumberController
-                                                                    .text,
-                                                            webSite: updateEstStep1EstablishmentsRecord.webSite ==
-                                                                    _model
-                                                                        .tFURLWebSiteController
-                                                                        .text
-                                                                ? updateEstStep1EstablishmentsRecord
-                                                                    .webSite
-                                                                : _model
-                                                                    .tFURLWebSiteController
-                                                                    .text,
-                                                            speciality: updateEstStep1EstablishmentsRecord
-                                                                        .speciality ==
-                                                                    _model
-                                                                        .tFspecialityController
-                                                                        .text
-                                                                ? updateEstStep1EstablishmentsRecord
-                                                                    .speciality
-                                                                : _model
-                                                                    .tFspecialityController
-                                                                    .text,
-                                                            terrasse: _model
-                                                                    .rBTNTerrasseValue ==
-                                                                'Oui',
-                                                            reservation: _model
-                                                                    .rBTNRservationValue ==
-                                                                'Oui',
-                                                            cigaretteMachine:
-                                                                _model.rBTNCigaretteMAchineValue ==
-                                                                    'Oui',
-                                                            description: updateEstStep1EstablishmentsRecord
-                                                                        .description ==
-                                                                    _model
-                                                                        .tFDescriptionController
-                                                                        .text
-                                                                ? updateEstStep1EstablishmentsRecord
-                                                                    .description
-                                                                : _model
-                                                                    .tFDescriptionController
-                                                                    .text,
-                                                            location: _model
-                                                                .placePickerValue
-                                                                .latLng,
-                                                            updatedAt:
-                                                                getCurrentTimestamp,
-                                                          ),
-                                                          'type': _model
-                                                              .choiceChipsValues,
-                                                          'music_style': _model
-                                                              .checkBoxMusicStyleValues,
-                                                          'food': _model
-                                                              .checkBoxFoodValues,
-                                                          'game': _model
-                                                              .checkBoxGamesValues,
-                                                        });
-                                                        logFirebaseEvent(
-                                                            'BTNValidateFrom_backend_call');
-                                                        logFirebaseEvent(
-                                                            'BTNValidateFrom_navigate_to');
-
-                                                        context.pushNamed(
-                                                          'UpdateEstStep2',
-                                                          queryParameters: {
-                                                            'establishmentDetails':
-                                                                serializeParam(
-                                                              updateEstStep1EstablishmentsRecord
-                                                                  .reference,
-                                                              ParamType
-                                                                  .DocumentReference,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      text: 'Continuer',
-                                                      options: FFButtonOptions(
-                                                        height: 40.0,
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    24.0,
-                                                                    0.0,
-                                                                    24.0,
-                                                                    0.0),
-                                                        iconPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: Colors
-                                                                      .white,
-                                                                ),
-                                                        elevation: 3.0,
-                                                        borderSide: BorderSide(
-                                                          color: Colors
-                                                              .transparent,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(16.0),
-                                                      ),
-                                                    );
-                                                  },
+                                                    },
+                                                  ),
                                                 ),
                                               ].addToEnd(
                                                   SizedBox(height: 20.0)),

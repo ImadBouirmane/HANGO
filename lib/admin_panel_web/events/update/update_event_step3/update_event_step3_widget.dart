@@ -141,6 +141,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       FlutterFlowIconButton(
                                         borderColor:
@@ -181,6 +183,42 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                 ),
                                           ),
                                         ),
+                                      ),
+                                      FlutterFlowIconButton(
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        borderRadius: 20.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 40.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        icon: Icon(
+                                          Icons.home,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 12.0,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'UPDATE_EVENT_STEP3_PAGE_home_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_navigate_to');
+
+                                          context.pushNamed(
+                                            'Dashboard',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                              ),
+                                            },
+                                          );
+                                        },
                                       ),
                                     ],
                                   ),
@@ -236,57 +274,51 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                       children: [
                                                         Stack(
                                                           children: [
-                                                            if (_model.uploadedFileUrl1 !=
-                                                                    null &&
-                                                                _model.uploadedFileUrl1 !=
-                                                                    '')
+                                                            if ((_model.uploadedFileUrl1 !=
+                                                                        null &&
+                                                                    _model.uploadedFileUrl1 !=
+                                                                        '') &&
+                                                                (updateEventStep3MediaRecord
+                                                                            ?.image ==
+                                                                        null ||
+                                                                    updateEventStep3MediaRecord
+                                                                            ?.image ==
+                                                                        ''))
                                                               Stack(
                                                                 children: [
-                                                                  FlutterFlowMediaDisplay(
-                                                                    path: valueOrDefault<
-                                                                        String>(
-                                                                      _model
-                                                                          .uploadedFileUrl1,
-                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                    ),
-                                                                    imageBuilder:
-                                                                        (path) =>
-                                                                            ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              15.0),
-                                                                      child: Image
-                                                                          .network(
-                                                                        path,
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            0.3,
-                                                                        height: MediaQuery.sizeOf(context).height *
-                                                                            0.3,
-                                                                        fit: BoxFit
-                                                                            .contain,
-                                                                      ),
-                                                                    ),
-                                                                    videoPlayerBuilder:
-                                                                        (path) =>
-                                                                            FlutterFlowVideoPlayer(
-                                                                      path:
-                                                                          path,
+                                                                  ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            15.0),
+                                                                    child: Image
+                                                                        .network(
+                                                                      _model.uploadedFileUrl1 != null &&
+                                                                              _model.uploadedFileUrl1 !=
+                                                                                  ''
+                                                                          ? _model
+                                                                              .uploadedFileUrl1
+                                                                          : null!,
                                                                       width: MediaQuery.sizeOf(context)
                                                                               .width *
                                                                           0.3,
                                                                       height:
                                                                           MediaQuery.sizeOf(context).height *
                                                                               0.3,
-                                                                      autoPlay:
-                                                                          false,
-                                                                      looping:
-                                                                          true,
-                                                                      showControls:
-                                                                          true,
-                                                                      allowFullScreen:
-                                                                          true,
-                                                                      allowPlaybackSpeedMenu:
-                                                                          false,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                      errorBuilder: (context,
+                                                                              error,
+                                                                              stackTrace) =>
+                                                                          Image
+                                                                              .asset(
+                                                                        'assets/images/error_image.png',
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.3,
+                                                                        height: MediaQuery.sizeOf(context).height *
+                                                                            0.3,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Container(
@@ -355,12 +387,16 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                   ),
                                                                 ],
                                                               ),
-                                                            if (updateEventStep3MediaRecord
-                                                                        ?.image ==
-                                                                    null ||
-                                                                updateEventStep3MediaRecord
-                                                                        ?.image ==
-                                                                    '')
+                                                            if ((updateEventStep3MediaRecord
+                                                                            ?.image ==
+                                                                        null ||
+                                                                    updateEventStep3MediaRecord
+                                                                            ?.image ==
+                                                                        '') &&
+                                                                (_model.uploadedFileUrl1 !=
+                                                                        null &&
+                                                                    _model.uploadedFileUrl1 !=
+                                                                        ''))
                                                               Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
@@ -498,12 +534,16 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                           10.0)),
                                                                 ),
                                                               ),
-                                                            if (updateEventStep3MediaRecord
-                                                                        ?.image !=
-                                                                    null &&
-                                                                updateEventStep3MediaRecord
-                                                                        ?.image !=
-                                                                    '')
+                                                            if ((updateEventStep3MediaRecord
+                                                                            ?.image !=
+                                                                        null &&
+                                                                    updateEventStep3MediaRecord
+                                                                            ?.image !=
+                                                                        '') &&
+                                                                (_model.uploadedFileUrl1 ==
+                                                                        null ||
+                                                                    _model.uploadedFileUrl1 ==
+                                                                        ''))
                                                               Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
@@ -521,18 +561,36 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                               15.0),
                                                                       child: Image
                                                                           .network(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          updateEventStep3MediaRecord
-                                                                              ?.image,
-                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                        ),
+                                                                        valueOrDefault<String>(
+                                                                                      updateEventStep3MediaRecord?.image,
+                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                    ) !=
+                                                                                    null &&
+                                                                                valueOrDefault<String>(
+                                                                                      updateEventStep3MediaRecord?.image,
+                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                    ) !=
+                                                                                    ''
+                                                                            ? updateEventStep3MediaRecord!.image
+                                                                            : null!,
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.3,
                                                                         height: MediaQuery.sizeOf(context).height *
                                                                             0.3,
                                                                         fit: BoxFit
                                                                             .cover,
+                                                                        errorBuilder: (context,
+                                                                                error,
+                                                                                stackTrace) =>
+                                                                            Image.asset(
+                                                                          'assets/images/error_image.png',
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.3,
+                                                                          height:
+                                                                              MediaQuery.sizeOf(context).height * 0.3,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                     Container(
@@ -625,12 +683,16 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                   0.3,
                                                           child: Stack(
                                                             children: [
-                                                              if (updateEventStep3MediaRecord
-                                                                          ?.video !=
-                                                                      null &&
-                                                                  updateEventStep3MediaRecord
-                                                                          ?.video !=
-                                                                      '')
+                                                              if ((updateEventStep3MediaRecord
+                                                                              ?.video !=
+                                                                          null &&
+                                                                      updateEventStep3MediaRecord
+                                                                              ?.video !=
+                                                                          '') &&
+                                                                  (_model.uploadedFileUrl2 ==
+                                                                          null ||
+                                                                      _model.uploadedFileUrl2 ==
+                                                                          ''))
                                                                 Container(
                                                                   width: MediaQuery.sizeOf(
                                                                               context)
@@ -643,12 +705,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                   child: Stack(
                                                                     children: [
                                                                       FlutterFlowMediaDisplay(
-                                                                        path: valueOrDefault<
-                                                                            String>(
-                                                                          updateEventStep3MediaRecord
-                                                                              ?.video,
-                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                        ),
+                                                                        path: updateEventStep3MediaRecord!
+                                                                            .video,
                                                                         imageBuilder:
                                                                             (path) =>
                                                                                 ClipRRect(
@@ -733,6 +791,20 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                   ))
                                                                                   .delete();
+                                                                              logFirebaseEvent('IconButton_show_snack_bar');
+                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                SnackBar(
+                                                                                  content: Text(
+                                                                                    'La video a été supprimée',
+                                                                                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                                                                                          fontFamily: 'Poppins',
+                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                        ),
+                                                                                  ),
+                                                                                  duration: Duration(milliseconds: 1950),
+                                                                                  backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                ),
+                                                                              );
                                                                             },
                                                                           ),
                                                                         ),
@@ -740,12 +812,16 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                     ],
                                                                   ),
                                                                 ),
-                                                              if (updateEventStep3MediaRecord
-                                                                          ?.video ==
-                                                                      null ||
-                                                                  updateEventStep3MediaRecord
-                                                                          ?.video ==
-                                                                      '')
+                                                              if ((updateEventStep3MediaRecord
+                                                                              ?.video ==
+                                                                          null ||
+                                                                      updateEventStep3MediaRecord
+                                                                              ?.video ==
+                                                                          '') &&
+                                                                  (_model.uploadedFileUrl2 ==
+                                                                          null ||
+                                                                      _model.uploadedFileUrl2 ==
+                                                                          ''))
                                                                 Container(
                                                                   width: MediaQuery.sizeOf(
                                                                               context)
@@ -864,10 +940,16 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             10.0)),
                                                                   ),
                                                                 ),
-                                                              if (_model.uploadedFileUrl2 !=
-                                                                      null &&
-                                                                  _model.uploadedFileUrl2 !=
-                                                                      '')
+                                                              if ((_model.uploadedFileUrl2 !=
+                                                                          null &&
+                                                                      _model.uploadedFileUrl2 !=
+                                                                          '') &&
+                                                                  (updateEventStep3MediaRecord
+                                                                              ?.video ==
+                                                                          null ||
+                                                                      updateEventStep3MediaRecord
+                                                                              ?.video ==
+                                                                          ''))
                                                                 Container(
                                                                   width: MediaQuery.sizeOf(
                                                                               context)
@@ -986,71 +1068,98 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                               ),
                                             ),
                                           ),
-                                          FFButtonWidget(
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'UPDATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
-                                              logFirebaseEvent(
-                                                  'BTNValidateFrom_backend_call');
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 15.0, 15.0, 15.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'UPDATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
+                                                logFirebaseEvent(
+                                                    'BTNValidateFrom_backend_call');
 
-                                              await updateEventStep3MediaRecord!
-                                                  .reference
-                                                  .update(createMediaRecordData(
-                                                image: valueOrDefault<String>(
-                                                  _model.uploadedFileUrl1 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl1 !=
-                                                              ''
-                                                      ? _model.uploadedFileUrl1
-                                                      : updateEventStep3MediaRecord
-                                                          ?.image,
-                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                ),
-                                                video: valueOrDefault<String>(
-                                                  _model.uploadedFileUrl2 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl2 !=
-                                                              ''
-                                                      ? _model.uploadedFileUrl2
-                                                      : updateEventStep3MediaRecord
-                                                          ?.video,
-                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                ),
-                                                updatedTime:
-                                                    getCurrentTimestamp,
-                                                eventRef: widget.eventstDetails,
-                                              ));
-                                              logFirebaseEvent(
-                                                  'BTNValidateFrom_navigate_to');
+                                                await updateEventStep3MediaRecord!
+                                                    .reference
+                                                    .update(
+                                                        createMediaRecordData(
+                                                  image: () {
+                                                    if (_model.uploadedFileUrl1 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl1 !=
+                                                            '') {
+                                                      return _model
+                                                          .uploadedFileUrl1;
+                                                    } else if (updateEventStep3MediaRecord
+                                                            ?.image ==
+                                                        updateEventStep3MediaRecord
+                                                            ?.image) {
+                                                      return updateEventStep3MediaRecord
+                                                          ?.image;
+                                                    } else {
+                                                      return null;
+                                                    }
+                                                  }(),
+                                                  video: () {
+                                                    if (_model.uploadedFileUrl2 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl2 !=
+                                                            '') {
+                                                      return _model
+                                                          .uploadedFileUrl2;
+                                                    } else if (updateEventStep3MediaRecord
+                                                            ?.video ==
+                                                        updateEventStep3MediaRecord
+                                                            ?.video) {
+                                                      return updateEventStep3MediaRecord
+                                                          ?.video;
+                                                    } else {
+                                                      return null;
+                                                    }
+                                                  }(),
+                                                  updatedTime:
+                                                      getCurrentTimestamp,
+                                                  eventRef:
+                                                      widget.eventstDetails,
+                                                ));
+                                                logFirebaseEvent(
+                                                    'BTNValidateFrom_navigate_to');
 
-                                              context.pushNamed('Dashboard');
-                                            },
-                                            text:
-                                                'Enregistrer les modifications',
-                                            options: FFButtonOptions(
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                      ),
-                                              elevation: 3.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
+                                                context.pushNamed('Dashboard');
+                                              },
+                                              text:
+                                                  'Enregistrer les modifications',
+                                              options: FFButtonOptions(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 50.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
                                             ),
                                           ),
                                         ]

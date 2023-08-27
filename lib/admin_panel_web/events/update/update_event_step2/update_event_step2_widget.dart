@@ -132,6 +132,8 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       FlutterFlowIconButton(
                                         borderColor:
@@ -172,6 +174,42 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                 ),
                                           ),
                                         ),
+                                      ),
+                                      FlutterFlowIconButton(
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        borderRadius: 20.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 40.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        icon: Icon(
+                                          Icons.home,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 12.0,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'UPDATE_EVENT_STEP2_PAGE_home_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_navigate_to');
+
+                                          context.pushNamed(
+                                            'Dashboard',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                              ),
+                                            },
+                                          );
+                                        },
                                       ),
                                     ],
                                   ),
@@ -444,49 +482,61 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                               ),
                                             ),
                                           ),
-                                          FFButtonWidget(
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'UPDATE_EVENT_STEP2_BTNValidateFrom_ON_TA');
-                                              logFirebaseEvent(
-                                                  'BTNValidateFrom_navigate_to');
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 15.0, 15.0, 15.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'UPDATE_EVENT_STEP2_BTNValidateFrom_ON_TA');
+                                                logFirebaseEvent(
+                                                    'BTNValidateFrom_navigate_to');
 
-                                              context.pushNamed(
-                                                'UpdateEventStep3',
-                                                queryParameters: {
-                                                  'eventstDetails':
-                                                      serializeParam(
-                                                    widget.eventstDetails,
-                                                    ParamType.DocumentReference,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            text: 'Enregistrer et continuer',
-                                            options: FFButtonOptions(
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                      ),
-                                              elevation: 3.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
+                                                context.pushNamed(
+                                                  'UpdateEventStep3',
+                                                  queryParameters: {
+                                                    'eventstDetails':
+                                                        serializeParam(
+                                                      widget.eventstDetails,
+                                                      ParamType
+                                                          .DocumentReference,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              text: 'Enregistrer et continuer',
+                                              options: FFButtonOptions(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 50.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
                                             ),
                                           ),
                                         ]

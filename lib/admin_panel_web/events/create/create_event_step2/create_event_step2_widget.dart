@@ -240,289 +240,270 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
 
                                                     setState(() {});
                                                   },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent2,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16.0),
                                                       ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          Row(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    15.0,
+                                                                    15.0,
+                                                                    15.0,
+                                                                    15.0),
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
+                                                                    .min,
                                                             children: [
-                                                              Expanded(
-                                                                child: Text(
-                                                                  'Définisez les artistes et l\'horaire de passage de chacune.',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              FFButtonWidget(
-                                                                onPressed:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'CREATE_EVENT_STEP2_AddArtistBTN_ON_TAP');
-                                                                  logFirebaseEvent(
-                                                                      'AddArtistBTN_bottom_sheet');
-                                                                  await showModalBottomSheet(
-                                                                    isScrollControlled:
-                                                                        true,
-                                                                    backgroundColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    enableDrag:
-                                                                        false,
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (context) {
-                                                                      return GestureDetector(
-                                                                        onTap: () =>
-                                                                            FocusScope.of(context).requestFocus(_model.unfocusNode),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
-                                                                          child:
-                                                                              FormArtistEventWidget(
-                                                                            eventRef:
-                                                                                widget.eventRef!,
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child: Text(
+                                                                      'Définisez les artistes et l\'horaire de passage de chacune.',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
                                                                           ),
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                  ).then((value) =>
-                                                                      setState(
-                                                                          () {}));
-                                                                },
-                                                                text:
-                                                                    'Ajouter des artistes',
-                                                                icon: Icon(
-                                                                  Icons
-                                                                      .add_circle,
-                                                                  size: 15.0,
-                                                                ),
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  height: 40.0,
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          24.0,
-                                                                          0.0,
-                                                                          24.0,
-                                                                          0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: Colors
-                                                                            .white,
-                                                                      ),
-                                                                  elevation:
-                                                                      3.0,
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: Colors
-                                                                        .transparent,
-                                                                    width: 1.0,
+                                                                    ),
                                                                   ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              16.0),
-                                                                ),
+                                                                ],
                                                               ),
-                                                              Container(
-                                                                width: 600.0,
-                                                                height: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .height *
-                                                                    0.6,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              16.0),
-                                                                  border: Border
-                                                                      .all(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent2,
-                                                                  ),
-                                                                ),
-                                                                child: StreamBuilder<
-                                                                    List<
-                                                                        ArtistsRecord>>(
-                                                                  stream:
-                                                                      queryArtistsRecord(
-                                                                    parent: widget
-                                                                        .eventRef,
-                                                                  ),
-                                                                  builder: (context,
-                                                                      snapshot) {
-                                                                    // Customize what your widget looks like when it's loading.
-                                                                    if (!snapshot
-                                                                        .hasData) {
-                                                                      return Center(
-                                                                        child:
-                                                                            SizedBox(
-                                                                          width:
-                                                                              30.0,
-                                                                          height:
-                                                                              30.0,
-                                                                          child:
-                                                                              CircularProgressIndicator(
-                                                                            valueColor:
-                                                                                AlwaysStoppedAnimation<Color>(
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  FFButtonWidget(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      logFirebaseEvent(
+                                                                          'CREATE_EVENT_STEP2_AddArtistBTN_ON_TAP');
+                                                                      logFirebaseEvent(
+                                                                          'AddArtistBTN_bottom_sheet');
+                                                                      await showModalBottomSheet(
+                                                                        isScrollControlled:
+                                                                            true,
+                                                                        backgroundColor:
+                                                                            Colors.transparent,
+                                                                        enableDrag:
+                                                                            false,
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (context) {
+                                                                          return GestureDetector(
+                                                                            onTap: () =>
+                                                                                FocusScope.of(context).requestFocus(_model.unfocusNode),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                              child: FormArtistEventWidget(
+                                                                                eventRef: widget.eventRef!,
+                                                                              ),
                                                                             ),
+                                                                          );
+                                                                        },
+                                                                      ).then((value) =>
+                                                                          setState(
+                                                                              () {}));
+                                                                    },
+                                                                    text:
+                                                                        'Ajouter des artistes',
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .add_circle,
+                                                                      size:
+                                                                          15.0,
+                                                                    ),
+                                                                    options:
+                                                                        FFButtonOptions(
+                                                                      height:
+                                                                          40.0,
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      textStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                Colors.white,
                                                                           ),
-                                                                        ),
-                                                                      );
-                                                                    }
-                                                                    List<ArtistsRecord>
-                                                                        listArtistSetArtistsRecordList =
-                                                                        snapshot
-                                                                            .data!;
-                                                                    if (listArtistSetArtistsRecordList
-                                                                        .isEmpty) {
-                                                                      return EmptyListWidget(
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .music_note,
+                                                                      elevation:
+                                                                          3.0,
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Colors
+                                                                            .transparent,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              16.0),
+                                                                    ),
+                                                                  ),
+                                                                  ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            16.0),
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          600.0,
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              0.6,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(16.0),
+                                                                        border:
+                                                                            Border.all(
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          size:
-                                                                              30.0,
+                                                                              FlutterFlowTheme.of(context).accent2,
                                                                         ),
-                                                                        title:
-                                                                            'La liste est vide !',
-                                                                        description:
-                                                                            ' ',
-                                                                      );
-                                                                    }
-                                                                    return ListView
-                                                                        .builder(
-                                                                      padding:
-                                                                          EdgeInsets
-                                                                              .zero,
-                                                                      scrollDirection:
-                                                                          Axis.vertical,
-                                                                      itemCount:
-                                                                          listArtistSetArtistsRecordList
-                                                                              .length,
-                                                                      itemBuilder:
-                                                                          (context,
-                                                                              listArtistSetIndex) {
-                                                                        final listArtistSetArtistsRecord =
-                                                                            listArtistSetArtistsRecordList[listArtistSetIndex];
-                                                                        return Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              26.0,
-                                                                              4.0,
-                                                                              26.0,
-                                                                              4.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceBetween,
-                                                                            children: [
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  listArtistSetArtistsRecord.name,
-                                                                                  'Aucune',
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                              ),
-                                                                              Text(
-                                                                                valueOrDefault<String>(
-                                                                                  dateTimeFormat(
-                                                                                    'd/M H:mm',
-                                                                                    listArtistSetArtistsRecord.scheduleStart,
-                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      child: StreamBuilder<
+                                                                          List<
+                                                                              ArtistsRecord>>(
+                                                                        stream:
+                                                                            queryArtistsRecord(
+                                                                          parent:
+                                                                              widget.eventRef,
+                                                                        ),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 30.0,
+                                                                                height: 30.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                    FlutterFlowTheme.of(context).primary,
                                                                                   ),
-                                                                                  'Aucune',
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               ),
-                                                                            ],
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                ),
+                                                                            );
+                                                                          }
+                                                                          List<ArtistsRecord>
+                                                                              listArtistSetArtistsRecordList =
+                                                                              snapshot.data!;
+                                                                          if (listArtistSetArtistsRecordList
+                                                                              .isEmpty) {
+                                                                            return EmptyListWidget(
+                                                                              icon: Icon(
+                                                                                Icons.music_note,
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                size: 30.0,
+                                                                              ),
+                                                                              title: 'La liste est vide !',
+                                                                              description: ' ',
+                                                                            );
+                                                                          }
+                                                                          return ListView
+                                                                              .builder(
+                                                                            padding:
+                                                                                EdgeInsets.fromLTRB(
+                                                                              0,
+                                                                              15.0,
+                                                                              0,
+                                                                              0,
+                                                                            ),
+                                                                            scrollDirection:
+                                                                                Axis.vertical,
+                                                                            itemCount:
+                                                                                listArtistSetArtistsRecordList.length,
+                                                                            itemBuilder:
+                                                                                (context, listArtistSetIndex) {
+                                                                              final listArtistSetArtistsRecord = listArtistSetArtistsRecordList[listArtistSetIndex];
+                                                                              return Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(26.0, 4.0, 26.0, 4.0),
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  children: [
+                                                                                    Text(
+                                                                                      valueOrDefault<String>(
+                                                                                        listArtistSetArtistsRecord.name,
+                                                                                        'Aucune',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                    ),
+                                                                                    Text(
+                                                                                      valueOrDefault<String>(
+                                                                                        dateTimeFormat(
+                                                                                          'd/M H:mm',
+                                                                                          listArtistSetArtistsRecord.scheduleStart,
+                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                        ),
+                                                                                        'Aucune',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
-                                                            ],
+                                                            ].divide(SizedBox(
+                                                                height: 15.0)),
                                                           ),
-                                                        ].divide(SizedBox(
-                                                            height: 15.0)),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -530,53 +511,63 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                               ),
                                             ),
                                           ),
-                                          FFButtonWidget(
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'CREATE_EVENT_STEP2_BTNValidateFrom_ON_TA');
-                                              logFirebaseEvent(
-                                                  'BTNValidateFrom_navigate_to');
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 15.0, 15.0, 15.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'CREATE_EVENT_STEP2_BTNValidateFrom_ON_TA');
+                                                logFirebaseEvent(
+                                                    'BTNValidateFrom_navigate_to');
 
-                                              context.pushNamed(
-                                                'CreateEventStep3',
-                                                queryParameters: {
-                                                  'eventRef': serializeParam(
-                                                    widget.eventRef,
-                                                    ParamType.DocumentReference,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            text: 'Enregistrer',
-                                            options: FFButtonOptions(
-                                              width: 300.0,
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                      ),
-                                              elevation: 3.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
+                                                context.pushNamed(
+                                                  'CreateEventStep3',
+                                                  queryParameters: {
+                                                    'eventRef': serializeParam(
+                                                      widget.eventRef,
+                                                      ParamType
+                                                          .DocumentReference,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              text: 'Enregistrer',
+                                              options: FFButtonOptions(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 50.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
                                             ),
                                           ),
-                                        ]
-                                            .divide(SizedBox(height: 50.0))
-                                            .addToEnd(SizedBox(height: 20.0)),
+                                        ].addToEnd(SizedBox(height: 20.0)),
                                       ),
                                     ),
                                   ),

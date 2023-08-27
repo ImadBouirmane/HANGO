@@ -83,18 +83,11 @@ class FFAppState extends ChangeNotifier {
       _isOpen = await secureStorage.getBool('ff_isOpen') ?? _isOpen;
     });
     await _safeInitAsync(() async {
-      _artistsInput = (await secureStorage.getStringList('ff_artistsInput'))
-              ?.map((x) {
-                try {
-                  return ArtistStruct.fromSerializableMap(jsonDecode(x));
-                } catch (e) {
-                  print("Can't decode persisted data type. Error: $e.");
-                  return null;
-                }
-              })
-              .withoutNulls
-              .toList() ??
-          _artistsInput;
+      _artistScheduleStart =
+          await secureStorage.read(key: 'ff_artistScheduleStart') != null
+              ? DateTime.fromMillisecondsSinceEpoch(
+                  (await secureStorage.getInt('ff_artistScheduleStart'))!)
+              : _artistScheduleStart;
     });
   }
 
@@ -608,43 +601,24 @@ class FFAppState extends ChangeNotifier {
     secureStorage.delete(key: 'ff_isOpen');
   }
 
-  List<ArtistStruct> _artistsInput = [];
-  List<ArtistStruct> get artistsInput => _artistsInput;
-  set artistsInput(List<ArtistStruct> _value) {
-    _artistsInput = _value;
-    secureStorage.setStringList(
-        'ff_artistsInput', _value.map((x) => x.serialize()).toList());
+  String _artistName = '';
+  String get artistName => _artistName;
+  set artistName(String _value) {
+    _artistName = _value;
   }
 
-  void deleteArtistsInput() {
-    secureStorage.delete(key: 'ff_artistsInput');
+  DateTime? _artistScheduleStart;
+  DateTime? get artistScheduleStart => _artistScheduleStart;
+  set artistScheduleStart(DateTime? _value) {
+    _artistScheduleStart = _value;
+    _value != null
+        ? secureStorage.setInt(
+            'ff_artistScheduleStart', _value.millisecondsSinceEpoch)
+        : secureStorage.remove('ff_artistScheduleStart');
   }
 
-  void addToArtistsInput(ArtistStruct _value) {
-    _artistsInput.add(_value);
-    secureStorage.setStringList(
-        'ff_artistsInput', _artistsInput.map((x) => x.serialize()).toList());
-  }
-
-  void removeFromArtistsInput(ArtistStruct _value) {
-    _artistsInput.remove(_value);
-    secureStorage.setStringList(
-        'ff_artistsInput', _artistsInput.map((x) => x.serialize()).toList());
-  }
-
-  void removeAtIndexFromArtistsInput(int _index) {
-    _artistsInput.removeAt(_index);
-    secureStorage.setStringList(
-        'ff_artistsInput', _artistsInput.map((x) => x.serialize()).toList());
-  }
-
-  void updateArtistsInputAtIndex(
-    int _index,
-    ArtistStruct Function(ArtistStruct) updateFn,
-  ) {
-    _artistsInput[_index] = updateFn(_artistsInput[_index]);
-    secureStorage.setStringList(
-        'ff_artistsInput', _artistsInput.map((x) => x.serialize()).toList());
+  void deleteArtistScheduleStart() {
+    secureStorage.delete(key: 'ff_artistScheduleStart');
   }
 }
 

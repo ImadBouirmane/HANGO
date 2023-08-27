@@ -100,38 +100,41 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                wrapWithModel(
-                                  model: _model.sideBarModel,
-                                  updateCallback: () => setState(() {}),
-                                  updateOnChange: true,
-                                  child: SideBarWidget(
-                                    oneBG: FlutterFlowTheme.of(context)
-                                        .tertiary400,
-                                    oneIcon: Icon(
-                                      Icons.home_filled,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                    twoBG: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    twoIcon: Icon(
-                                      Icons.event,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                    threeColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    threeIcon: Icon(
-                                      Icons.house_outlined,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
+                                Expanded(
+                                  child: wrapWithModel(
+                                    model: _model.sideBarModel,
+                                    updateCallback: () => setState(() {}),
+                                    updateOnChange: true,
+                                    child: SideBarWidget(
+                                      oneBG: FlutterFlowTheme.of(context)
+                                          .tertiary400,
+                                      oneIcon: Icon(
+                                        Icons.home_filled,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 25.0,
+                                      ),
+                                      twoBG: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      twoIcon: Icon(
+                                        Icons.event,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 25.0,
+                                      ),
+                                      threeColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      threeIcon: Icon(
+                                        Icons.house_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 25.0,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Expanded(
+                                  flex: 3,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -457,22 +460,32 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                               children: [
-                                                                                ClipRRect(
-                                                                                  borderRadius: BorderRadius.circular(8.0),
-                                                                                  child: Image.network(
-                                                                                    valueOrDefault<String>(
-                                                                                      containerImagesRecord?.image1 != null && containerImagesRecord?.image1 != ''
-                                                                                          ? valueOrDefault<String>(
-                                                                                              containerImagesRecord?.image1,
-                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                            )
-                                                                                          : null,
-                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                Stack(
+                                                                                  children: [
+                                                                                    ClipRRect(
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                      child: Image.network(
+                                                                                        valueOrDefault<String>(
+                                                                                          containerImagesRecord?.image1 != null && containerImagesRecord?.image1 != ''
+                                                                                              ? valueOrDefault<String>(
+                                                                                                  containerImagesRecord?.image1,
+                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                                )
+                                                                                              : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                        ),
+                                                                                        width: 100.0,
+                                                                                        height: 100.0,
+                                                                                        fit: BoxFit.cover,
+                                                                                        errorBuilder: (context, error, stackTrace) => Image.asset(
+                                                                                          'assets/images/error_image.png',
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
+                                                                                          fit: BoxFit.cover,
+                                                                                        ),
+                                                                                      ),
                                                                                     ),
-                                                                                    width: 100.0,
-                                                                                    height: 100.0,
-                                                                                    fit: BoxFit.cover,
-                                                                                  ),
+                                                                                  ],
                                                                                 ),
                                                                                 Expanded(
                                                                                   child: Row(

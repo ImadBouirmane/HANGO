@@ -148,6 +148,40 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                       ),
                                     ),
                                   ),
+                                  FlutterFlowIconButton(
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 40.0,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    icon: Icon(
+                                      Icons.home,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 12.0,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'UPDATE_EST_STEP2_PAGE_home_ICN_ON_TAP');
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_to');
+
+                                      context.pushNamed(
+                                        'Dashboard',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                          ),
+                                        },
+                                      );
+                                    },
+                                  ),
                                 ],
                               ),
                               Expanded(
@@ -171,19 +205,18 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                           FlutterFlowTheme.of(context).accent3,
                                     ),
                                   ),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Form(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Form(
                                           key: _model.formKey,
                                           autovalidateMode:
                                               AutovalidateMode.always,
                                           child: Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                            alignment: AlignmentDirectional(
+                                                -1.0, -1.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -2358,9 +2391,14 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                             ),
                                           ),
                                         ),
+                                      ),
 
-                                        // still some calls for schedule I will complete next two hours
-                                        StreamBuilder<List<ScheduleRecord>>(
+                                      // still some calls for schedule I will complete next two hours
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 15.0, 15.0, 15.0),
+                                        child:
+                                            StreamBuilder<List<ScheduleRecord>>(
                                           stream: queryScheduleRecord(
                                             parent: widget.establishmentDetails,
                                             singleRecord: true,
@@ -2634,7 +2672,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                               },
                                               text: 'Continuer',
                                               options: FFButtonOptions(
-                                                height: 40.0,
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 50.0,
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
@@ -2663,8 +2705,8 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                             );
                                           },
                                         ),
-                                      ].addToEnd(SizedBox(height: 20.0)),
-                                    ),
+                                      ),
+                                    ].addToEnd(SizedBox(height: 20.0)),
                                   ),
                                 ),
                               ),

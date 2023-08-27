@@ -56,6 +56,11 @@ class ImagesRecord extends FirestoreRecord {
   DateTime? get updatedTime => _updatedTime;
   bool hasUpdatedTime() => _updatedTime != null;
 
+  // "creaatedTime" field.
+  DateTime? _creaatedTime;
+  DateTime? get creaatedTime => _creaatedTime;
+  bool hasCreaatedTime() => _creaatedTime != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -67,6 +72,7 @@ class ImagesRecord extends FirestoreRecord {
     _video = snapshotData['Video'] as String?;
     _establishmentRef = snapshotData['establishmentRef'] as DocumentReference?;
     _updatedTime = snapshotData['UpdatedTime'] as DateTime?;
+    _creaatedTime = snapshotData['creaatedTime'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -116,6 +122,7 @@ Map<String, dynamic> createImagesRecordData({
   String? video,
   DocumentReference? establishmentRef,
   DateTime? updatedTime,
+  DateTime? creaatedTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -127,6 +134,7 @@ Map<String, dynamic> createImagesRecordData({
       'Video': video,
       'establishmentRef': establishmentRef,
       'UpdatedTime': updatedTime,
+      'creaatedTime': creaatedTime,
     }.withoutNulls,
   );
 
@@ -145,7 +153,8 @@ class ImagesRecordDocumentEquality implements Equality<ImagesRecord> {
         e1?.image5 == e2?.image5 &&
         e1?.video == e2?.video &&
         e1?.establishmentRef == e2?.establishmentRef &&
-        e1?.updatedTime == e2?.updatedTime;
+        e1?.updatedTime == e2?.updatedTime &&
+        e1?.creaatedTime == e2?.creaatedTime;
   }
 
   @override
@@ -157,7 +166,8 @@ class ImagesRecordDocumentEquality implements Equality<ImagesRecord> {
         e?.image5,
         e?.video,
         e?.establishmentRef,
-        e?.updatedTime
+        e?.updatedTime,
+        e?.creaatedTime
       ]);
 
   @override

@@ -1519,7 +1519,8 @@ class _ShowOfEstablishmentsWidgetState
                                                                       {
                                                                     'showOfEvents':
                                                                         serializeParam(
-                                                                      eventItemsItem,
+                                                                      cardEventEventsRecord
+                                                                          .reference,
                                                                       ParamType
                                                                           .DocumentReference,
                                                                     ),

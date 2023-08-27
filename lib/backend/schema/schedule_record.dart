@@ -131,6 +131,11 @@ class ScheduleRecord extends FirestoreRecord {
   DateTime? get updatedAt => _updatedAt;
   bool hasUpdatedAt() => _updatedAt != null;
 
+  // "createdTime" field.
+  DateTime? _createdTime;
+  DateTime? get createdTime => _createdTime;
+  bool hasCreatedTime() => _createdTime != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -157,6 +162,7 @@ class ScheduleRecord extends FirestoreRecord {
     _sundayClosing = snapshotData['sundayClosing'] as String?;
     _estblishmentRef = snapshotData['estblishmentRef'] as DocumentReference?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
+    _createdTime = snapshotData['createdTime'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -222,6 +228,7 @@ Map<String, dynamic> createScheduleRecordData({
   String? sundayClosing,
   DocumentReference? estblishmentRef,
   DateTime? updatedAt,
+  DateTime? createdTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -248,6 +255,7 @@ Map<String, dynamic> createScheduleRecordData({
       'sundayClosing': sundayClosing,
       'estblishmentRef': estblishmentRef,
       'updatedAt': updatedAt,
+      'createdTime': createdTime,
     }.withoutNulls,
   );
 
@@ -281,7 +289,8 @@ class ScheduleRecordDocumentEquality implements Equality<ScheduleRecord> {
         e1?.sundayOpening == e2?.sundayOpening &&
         e1?.sundayClosing == e2?.sundayClosing &&
         e1?.estblishmentRef == e2?.estblishmentRef &&
-        e1?.updatedAt == e2?.updatedAt;
+        e1?.updatedAt == e2?.updatedAt &&
+        e1?.createdTime == e2?.createdTime;
   }
 
   @override
@@ -308,7 +317,8 @@ class ScheduleRecordDocumentEquality implements Equality<ScheduleRecord> {
         e?.sundayOpening,
         e?.sundayClosing,
         e?.estblishmentRef,
-        e?.updatedAt
+        e?.updatedAt,
+        e?.createdTime
       ]);
 
   @override

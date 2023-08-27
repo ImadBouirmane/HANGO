@@ -36,6 +36,11 @@ class MediaRecord extends FirestoreRecord {
   DocumentReference? get eventRef => _eventRef;
   bool hasEventRef() => _eventRef != null;
 
+  // "createdTime" field.
+  DateTime? _createdTime;
+  DateTime? get createdTime => _createdTime;
+  bool hasCreatedTime() => _createdTime != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -43,6 +48,7 @@ class MediaRecord extends FirestoreRecord {
     _video = snapshotData['Video'] as String?;
     _updatedTime = snapshotData['updatedTime'] as DateTime?;
     _eventRef = snapshotData['eventRef'] as DocumentReference?;
+    _createdTime = snapshotData['createdTime'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -88,6 +94,7 @@ Map<String, dynamic> createMediaRecordData({
   String? video,
   DateTime? updatedTime,
   DocumentReference? eventRef,
+  DateTime? createdTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -95,6 +102,7 @@ Map<String, dynamic> createMediaRecordData({
       'Video': video,
       'updatedTime': updatedTime,
       'eventRef': eventRef,
+      'createdTime': createdTime,
     }.withoutNulls,
   );
 
@@ -109,12 +117,13 @@ class MediaRecordDocumentEquality implements Equality<MediaRecord> {
     return e1?.image == e2?.image &&
         e1?.video == e2?.video &&
         e1?.updatedTime == e2?.updatedTime &&
-        e1?.eventRef == e2?.eventRef;
+        e1?.eventRef == e2?.eventRef &&
+        e1?.createdTime == e2?.createdTime;
   }
 
   @override
   int hash(MediaRecord? e) => const ListEquality()
-      .hash([e?.image, e?.video, e?.updatedTime, e?.eventRef]);
+      .hash([e?.image, e?.video, e?.updatedTime, e?.eventRef, e?.createdTime]);
 
   @override
   bool isValidKey(Object? o) => o is MediaRecord;

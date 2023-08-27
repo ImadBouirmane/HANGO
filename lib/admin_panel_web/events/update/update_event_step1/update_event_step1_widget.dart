@@ -1014,104 +1014,6 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      TextFormField(
-                                                        controller: _model
-                                                                .eventPromoController ??=
-                                                            TextEditingController(
-                                                          text:
-                                                              updateEventStep1EventsRecord
-                                                                  .promo,
-                                                        ),
-                                                        autofocus: true,
-                                                        obscureText: false,
-                                                        decoration:
-                                                            InputDecoration(
-                                                          labelText: 'PROMO',
-                                                          labelStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                  ),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .accent2,
-                                                              width: 1.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        16.0),
-                                                          ),
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Color(
-                                                                  0x00000000),
-                                                              width: 1.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        16.0),
-                                                          ),
-                                                          errorBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .alternate,
-                                                              width: 1.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        16.0),
-                                                          ),
-                                                          focusedErrorBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .alternate,
-                                                              width: 1.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        16.0),
-                                                          ),
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                        validator: _model
-                                                            .eventPromoControllerValidator
-                                                            .asValidator(
-                                                                context),
-                                                      ),
                                                       Container(
                                                         decoration:
                                                             BoxDecoration(),
@@ -1199,6 +1101,259 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                               height: 10.0)),
                                                         ),
                                                       ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Flexible(
+                                                            child:
+                                                                TextFormField(
+                                                              controller: _model
+                                                                      .eventPromoController1 ??=
+                                                                  TextEditingController(
+                                                                text:
+                                                                    updateEventStep1EventsRecord
+                                                                        .promo,
+                                                              ),
+                                                              autofocus: true,
+                                                              obscureText:
+                                                                  false,
+                                                              decoration:
+                                                                  InputDecoration(
+                                                                labelText:
+                                                                    'PROMO',
+                                                                labelStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
+                                                                enabledBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent2,
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                ),
+                                                                focusedBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0x00000000),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                ),
+                                                                errorBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                ),
+                                                                focusedErrorBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                ),
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                              validator: _model
+                                                                  .eventPromoController1Validator
+                                                                  .asValidator(
+                                                                      context),
+                                                            ),
+                                                          ),
+                                                          Flexible(
+                                                            child: Container(
+                                                              height: 100.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                              ),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .min,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Text(
+                                                                          'Prix de l\'entée en CHF',
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                        ),
+                                                                        Text(
+                                                                          '*Si gratuit laissé vide',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelSmall
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontWeight: FontWeight.w300,
+                                                                              ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Flexible(
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          130.0,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            _model.eventPromoController2 ??=
+                                                                                TextEditingController(
+                                                                          text:
+                                                                              formatNumber(
+                                                                            updateEventStep1EventsRecord.entrance,
+                                                                            formatType:
+                                                                                FormatType.decimal,
+                                                                            decimalType:
+                                                                                DecimalType.automatic,
+                                                                          ),
+                                                                        ),
+                                                                        autofocus:
+                                                                            true,
+                                                                        obscureText:
+                                                                            false,
+                                                                        decoration:
+                                                                            InputDecoration(
+                                                                          labelText:
+                                                                              'Prix de l\'entrée',
+                                                                          labelStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontSize: 14.0,
+                                                                                fontWeight: FontWeight.w500,
+                                                                              ),
+                                                                          enabledBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).accent2,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(16.0),
+                                                                          ),
+                                                                          focusedBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x00000000),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(16.0),
+                                                                          ),
+                                                                          errorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).alternate,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(16.0),
+                                                                          ),
+                                                                          focusedErrorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: FlutterFlowTheme.of(context).alternate,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(16.0),
+                                                                          ),
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontWeight: FontWeight.w500,
+                                                                            ),
+                                                                        textAlign:
+                                                                            TextAlign.end,
+                                                                        validator: _model
+                                                                            .eventPromoController2Validator
+                                                                            .asValidator(context),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ].divide(SizedBox(
+                                                                    width:
+                                                                        16.0)),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 50.0)),
+                                                      ),
                                                       Container(
                                                         width:
                                                             MediaQuery.sizeOf(
@@ -1277,76 +1432,105 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                             8.0,
                                                                             0.0,
                                                                             8.0),
-                                                                child:
-                                                                    FlutterFlowChoiceChips(
-                                                                  options: FFAppState()
-                                                                      .Artistes
-                                                                      .map((label) =>
-                                                                          ChipData(
-                                                                              label))
-                                                                      .toList(),
-                                                                  onChanged: (val) =>
-                                                                      setState(() =>
-                                                                          _model.artistsValues =
-                                                                              val),
-                                                                  selectedChipStyle:
-                                                                      ChipStyle(
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBtnText,
+                                                                child: StreamBuilder<
+                                                                    List<
+                                                                        ArtistsRecord>>(
+                                                                  stream:
+                                                                      queryArtistsRecord(
+                                                                    parent: updateEventStep1EventsRecord
+                                                                        .reference,
+                                                                  ),
+                                                                  builder: (context,
+                                                                      snapshot) {
+                                                                    // Customize what your widget looks like when it's loading.
+                                                                    if (!snapshot
+                                                                        .hasData) {
+                                                                      return Center(
+                                                                        child:
+                                                                            SizedBox(
+                                                                          width:
+                                                                              30.0,
+                                                                          height:
+                                                                              30.0,
+                                                                          child:
+                                                                              CircularProgressIndicator(
+                                                                            valueColor:
+                                                                                AlwaysStoppedAnimation<Color>(
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                            ),
+                                                                          ),
                                                                         ),
-                                                                    iconColor: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBtnText,
-                                                                    iconSize:
-                                                                        18.0,
-                                                                    elevation:
-                                                                        4.0,
-                                                                  ),
-                                                                  unselectedChipStyle:
-                                                                      ChipStyle(
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primaryBtnText,
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall,
-                                                                    iconColor: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    iconSize:
-                                                                        18.0,
-                                                                    elevation:
-                                                                        4.0,
-                                                                  ),
-                                                                  chipSpacing:
-                                                                      20.0,
-                                                                  rowSpacing:
-                                                                      12.0,
-                                                                  multiselect:
-                                                                      true,
-                                                                  initialized:
-                                                                      _model.artistsValues !=
-                                                                          null,
-                                                                  alignment:
-                                                                      WrapAlignment
-                                                                          .start,
-                                                                  controller: _model
-                                                                          .artistsValueController ??=
-                                                                      FormFieldController<
-                                                                          List<
-                                                                              String>>(
-                                                                    updateEventStep1EventsRecord
-                                                                        .artist,
-                                                                  ),
+                                                                      );
+                                                                    }
+                                                                    List<ArtistsRecord>
+                                                                        artistsArtistsRecordList =
+                                                                        snapshot
+                                                                            .data!;
+                                                                    return FlutterFlowChoiceChips(
+                                                                      options: artistsArtistsRecordList
+                                                                          .map((e) => valueOrDefault<String>(
+                                                                                e.name,
+                                                                                'Aucune',
+                                                                              ))
+                                                                          .toList()
+                                                                          .map((label) => ChipData(label))
+                                                                          .toList(),
+                                                                      onChanged:
+                                                                          (val) =>
+                                                                              setState(() => _model.artistsValues = val),
+                                                                      selectedChipStyle:
+                                                                          ChipStyle(
+                                                                        backgroundColor:
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                        textStyle: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                            ),
+                                                                        iconColor:
+                                                                            FlutterFlowTheme.of(context).primaryBtnText,
+                                                                        iconSize:
+                                                                            18.0,
+                                                                        elevation:
+                                                                            4.0,
+                                                                      ),
+                                                                      unselectedChipStyle:
+                                                                          ChipStyle(
+                                                                        backgroundColor:
+                                                                            FlutterFlowTheme.of(context).primaryBtnText,
+                                                                        textStyle:
+                                                                            FlutterFlowTheme.of(context).titleSmall,
+                                                                        iconColor:
+                                                                            FlutterFlowTheme.of(context).primaryText,
+                                                                        iconSize:
+                                                                            18.0,
+                                                                        elevation:
+                                                                            4.0,
+                                                                      ),
+                                                                      chipSpacing:
+                                                                          20.0,
+                                                                      rowSpacing:
+                                                                          12.0,
+                                                                      multiselect:
+                                                                          true,
+                                                                      initialized:
+                                                                          _model.artistsValues !=
+                                                                              null,
+                                                                      alignment:
+                                                                          WrapAlignment
+                                                                              .start,
+                                                                      controller: _model
+                                                                              .artistsValueController ??=
+                                                                          FormFieldController<
+                                                                              List<String>>(
+                                                                        artistsArtistsRecordList
+                                                                            .map((e) =>
+                                                                                e.name)
+                                                                            .toList(),
+                                                                      ),
+                                                                    );
+                                                                  },
                                                                 ),
                                                               ),
                                                             ],
@@ -1359,199 +1543,203 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                 ),
                                               ),
                                             ),
-                                            FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'UPDATE_EVENT_STEP1_BTNValidateFrom_ON_TA');
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_backend_call');
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 15.0, 15.0, 15.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'UPDATE_EVENT_STEP1_BTNValidateFrom_ON_TA');
+                                                  logFirebaseEvent(
+                                                      'BTNValidateFrom_backend_call');
 
-                                                await updateEventStep1EventsRecord
-                                                    .reference
-                                                    .update({
-                                                  ...createEventsRecordData(
-                                                    name: _model.tFNameController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.tFNameController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .tFNameController
-                                                            .text
-                                                        : updateEventStep1EventsRecord
-                                                            .name,
-                                                    title: _model.tFTitleController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.tFTitleController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .tFTitleController
-                                                            .text
-                                                        : updateEventStep1EventsRecord
-                                                            .title,
-                                                    description: _model
-                                                                    .tFDescriionController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.tFDescriionController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .tFDescriionController
-                                                            .text
-                                                        : updateEventStep1EventsRecord
-                                                            .description,
-                                                    date: dateTimeFormat(
-                                                                  'd/M/y',
-                                                                  _model
-                                                                      .datePicked1,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ) !=
-                                                                null &&
-                                                            dateTimeFormat(
-                                                                  'd/M/y',
-                                                                  _model
-                                                                      .datePicked1,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ) !=
-                                                                ''
-                                                        ? _model.datePicked1
-                                                        : null,
-                                                    schedule: dateTimeFormat(
-                                                                  'd/M/y',
-                                                                  _model
-                                                                      .datePicked2,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ) !=
-                                                                null &&
-                                                            dateTimeFormat(
-                                                                  'd/M/y',
-                                                                  _model
-                                                                      .datePicked2,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ) !=
-                                                                ''
-                                                        ? _model.datePicked2
-                                                            ?.toString()
-                                                        : updateEventStep1EventsRecord
-                                                            .schedule,
-                                                    siteWeb: _model.tFURLWebSiteController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.tFURLWebSiteController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .tFURLWebSiteController
-                                                            .text
-                                                        : updateEventStep1EventsRecord
-                                                            .siteWeb,
-                                                    entranceCheck: functions
-                                                        .entranceAvailability(
-                                                            getCurrentTimestamp),
-                                                    promo: _model.eventPromoController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.eventPromoController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .eventPromoController
-                                                            .text
-                                                        : updateEventStep1EventsRecord
-                                                            .promo,
-                                                    location: _model
-                                                                .placePickerValue
-                                                                .latLng !=
-                                                            null
-                                                        ? _model
-                                                            .placePickerValue
-                                                            .latLng
-                                                        : updateEventStep1EventsRecord
-                                                            .location,
-                                                    updatedAt:
-                                                        getCurrentTimestamp,
-                                                  ),
-                                                  'music_sytle':
-                                                      FieldValue.arrayUnion([
-                                                    _model.checkBoxMusicStyleValues
-                                                                    ?.first !=
-                                                                null &&
-                                                            _model.checkBoxMusicStyleValues
-                                                                    ?.first !=
-                                                                ''
-                                                        ? _model
-                                                            .checkBoxMusicStyleValues
-                                                            ?.first
-                                                        : updateEventStep1EventsRecord
-                                                            .musicSytle.first
-                                                  ]),
-                                                  'artist':
-                                                      FieldValue.arrayUnion([
-                                                    _model.artistsValues?.first !=
-                                                                null &&
-                                                            _model.artistsValues
-                                                                    ?.first !=
-                                                                ''
-                                                        ? _model.artistsValues
-                                                            ?.first
-                                                        : updateEventStep1EventsRecord
-                                                            .artist.first
-                                                  ]),
-                                                });
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_navigate_to');
-
-                                                context.pushNamed(
-                                                  'UpdateEventStep2',
-                                                  queryParameters: {
-                                                    'eventstDetails':
-                                                        serializeParam(
-                                                      widget.eventstDetails,
-                                                      ParamType
-                                                          .DocumentReference,
+                                                  await updateEventStep1EventsRecord
+                                                      .reference
+                                                      .update({
+                                                    ...createEventsRecordData(
+                                                      name: _model.tFNameController
+                                                                      .text !=
+                                                                  null &&
+                                                              _model
+                                                                      .tFNameController
+                                                                      .text !=
+                                                                  ''
+                                                          ? _model
+                                                              .tFNameController
+                                                              .text
+                                                          : updateEventStep1EventsRecord
+                                                              .name,
+                                                      title: _model.tFTitleController
+                                                                      .text !=
+                                                                  null &&
+                                                              _model.tFTitleController
+                                                                      .text !=
+                                                                  ''
+                                                          ? _model
+                                                              .tFTitleController
+                                                              .text
+                                                          : updateEventStep1EventsRecord
+                                                              .title,
+                                                      description: _model
+                                                                      .tFDescriionController
+                                                                      .text !=
+                                                                  null &&
+                                                              _model.tFDescriionController
+                                                                      .text !=
+                                                                  ''
+                                                          ? _model
+                                                              .tFDescriionController
+                                                              .text
+                                                          : updateEventStep1EventsRecord
+                                                              .description,
+                                                      date: dateTimeFormat(
+                                                                    'd/M/y',
+                                                                    _model
+                                                                        .datePicked1,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  ) !=
+                                                                  null &&
+                                                              dateTimeFormat(
+                                                                    'd/M/y',
+                                                                    _model
+                                                                        .datePicked1,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  ) !=
+                                                                  ''
+                                                          ? _model.datePicked1
+                                                          : null,
+                                                      schedule: dateTimeFormat(
+                                                                    'd/M/y',
+                                                                    _model
+                                                                        .datePicked2,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  ) !=
+                                                                  null &&
+                                                              dateTimeFormat(
+                                                                    'd/M/y',
+                                                                    _model
+                                                                        .datePicked2,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  ) !=
+                                                                  ''
+                                                          ? _model.datePicked2
+                                                              ?.toString()
+                                                          : updateEventStep1EventsRecord
+                                                              .schedule,
+                                                      siteWeb: _model.tFURLWebSiteController
+                                                                      .text !=
+                                                                  null &&
+                                                              _model.tFURLWebSiteController
+                                                                      .text !=
+                                                                  ''
+                                                          ? _model
+                                                              .tFURLWebSiteController
+                                                              .text
+                                                          : updateEventStep1EventsRecord
+                                                              .siteWeb,
+                                                      entranceCheck: functions
+                                                          .entranceAvailability(
+                                                              getCurrentTimestamp),
+                                                      promo: valueOrDefault<
+                                                          String>(
+                                                        _model.eventPromoController1
+                                                                        .text !=
+                                                                    null &&
+                                                                _model.eventPromoController1
+                                                                        .text !=
+                                                                    ''
+                                                            ? _model
+                                                                .eventPromoController1
+                                                                .text
+                                                            : updateEventStep1EventsRecord
+                                                                .promo,
+                                                        'Aucune',
+                                                      ),
+                                                      location: _model
+                                                                  .placePickerValue
+                                                                  .latLng !=
+                                                              null
+                                                          ? _model
+                                                              .placePickerValue
+                                                              .latLng
+                                                          : updateEventStep1EventsRecord
+                                                              .location,
+                                                      updatedAt:
+                                                          getCurrentTimestamp,
                                                     ),
-                                                  }.withoutNulls,
-                                                );
-                                              },
-                                              text: 'Enregistrer et continuer',
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
+                                                    'music_sytle':
+                                                        FieldValue.arrayUnion([
+                                                      _model.checkBoxMusicStyleValues
+                                                                      ?.first !=
+                                                                  null &&
+                                                              _model.checkBoxMusicStyleValues
+                                                                      ?.first !=
+                                                                  ''
+                                                          ? _model
+                                                              .checkBoxMusicStyleValues
+                                                              ?.first
+                                                          : updateEventStep1EventsRecord
+                                                              .musicSytle.first
+                                                    ]),
+                                                  });
+                                                  logFirebaseEvent(
+                                                      'BTNValidateFrom_navigate_to');
+
+                                                  context.pushNamed(
+                                                    'UpdateEventStep2',
+                                                    queryParameters: {
+                                                      'eventstDetails':
+                                                          serializeParam(
+                                                        widget.eventstDetails,
+                                                        ParamType
+                                                            .DocumentReference,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                },
+                                                text:
+                                                    'Enregistrer et continuer',
+                                                options: FFButtonOptions(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 50.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                      ),
+                                                  elevation: 3.0,
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
                                               ),
                                             ),
                                           ]

@@ -11,7 +11,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -908,299 +907,223 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                     description: '',
                                   );
                                 }
-                                return RefreshIndicator(
-                                  onRefresh: () async {
-                                    logFirebaseEvent(
-                                        'LIST_OF_EVENTS_ListEvents_ON_PULL_TO_REF');
-                                    logFirebaseEvent(
-                                        'ListEvents_refresh_database_request');
-                                    setState(() =>
-                                        _model.documentRequestCompleter = null);
-                                    await _model
-                                        .waitForDocumentRequestCompleted();
-                                  },
-                                  child: ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    primary: false,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: listEvents.length,
-                                    itemBuilder: (context, listEventsIndex) {
-                                      final listEventsItem =
-                                          listEvents[listEventsIndex];
-                                      return Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child:
-                                            FutureBuilder<EstablishmentsRecord>(
-                                          future: (_model
-                                                      .documentRequestCompleter ??=
-                                                  Completer<
-                                                      EstablishmentsRecord>()
-                                                    ..complete(EstablishmentsRecord
-                                                        .getDocumentOnce(
-                                                            listEventsItem
-                                                                .establishmentId!)))
-                                              .future,
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 30.0,
-                                                  height: 30.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                    ),
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: listEvents.length,
+                                  itemBuilder: (context, listEventsIndex) {
+                                    final listEventsItem =
+                                        listEvents[listEventsIndex];
+                                    return Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child:
+                                          FutureBuilder<EstablishmentsRecord>(
+                                        future: EstablishmentsRecord
+                                            .getDocumentOnce(listEventsItem
+                                                .establishmentId!),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 30.0,
+                                                height: 30.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                   ),
                                                 ),
-                                              );
-                                            }
-                                            final cardEventsEstablishmentsRecord =
-                                                snapshot.data!;
-                                            return InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                logFirebaseEvent(
-                                                    'LIST_OF_EVENTS_PAGE_CardEvents_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'CardEvents_navigate_to');
+                                              ),
+                                            );
+                                          }
+                                          final cardEventsEstablishmentsRecord =
+                                              snapshot.data!;
+                                          return InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              logFirebaseEvent(
+                                                  'LIST_OF_EVENTS_PAGE_CardEvents_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'CardEvents_navigate_to');
 
-                                                context.pushNamed(
-                                                  'ShowOfEvents',
-                                                  queryParameters: {
-                                                    'showOfEvents':
-                                                        serializeParam(
-                                                      listEventsItem.reference,
-                                                      ParamType
-                                                          .DocumentReference,
+                                              context.pushNamed(
+                                                'ShowOfEvents',
+                                                queryParameters: {
+                                                  'showOfEvents':
+                                                      serializeParam(
+                                                    listEventsItem.reference,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            },
+                                            child: Card(
+                                              clipBehavior:
+                                                  Clip.antiAliasWithSaveLayer,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              elevation: 1.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  StreamBuilder<
+                                                      List<MediaRecord>>(
+                                                    stream: queryMediaRecord(
+                                                      parent: listEventsItem
+                                                          .eventRef,
+                                                      singleRecord: true,
                                                     ),
-                                                  }.withoutNulls,
-                                                );
-                                              },
-                                              child: Card(
-                                                clipBehavior:
-                                                    Clip.antiAliasWithSaveLayer,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                elevation: 1.0,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    StreamBuilder<
-                                                        List<MediaRecord>>(
-                                                      stream: queryMediaRecord(
-                                                        parent: listEventsItem
-                                                            .eventRef,
-                                                        singleRecord: true,
-                                                      ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 30.0,
-                                                              height: 30.0,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                valueColor:
-                                                                    AlwaysStoppedAnimation<
-                                                                        Color>(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                ),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 30.0,
+                                                            height: 30.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
                                                               ),
                                                             ),
-                                                          );
-                                                        }
-                                                        List<MediaRecord>
-                                                            containerMediaRecordList =
-                                                            snapshot.data!;
-                                                        final containerMediaRecord =
-                                                            containerMediaRecordList
-                                                                    .isNotEmpty
-                                                                ? containerMediaRecordList
-                                                                    .first
-                                                                : null;
-                                                        return Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          height: 180.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      16.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      16.0),
-                                                            ),
                                                           ),
-                                                          child: Builder(
-                                                            builder: (context) {
-                                                              if (valueOrDefault<
-                                                                  bool>(
-                                                                containerMediaRecord
-                                                                            ?.image !=
-                                                                        null &&
-                                                                    containerMediaRecord
-                                                                            ?.image !=
-                                                                        '',
-                                                                true,
-                                                              )) {
-                                                                return InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'LIST_OF_EVENTS_EstablishmentImage_ON_TAP');
-                                                                    logFirebaseEvent(
-                                                                        'EstablishmentImage_expand_image');
-                                                                    await Navigator
-                                                                        .push(
-                                                                      context,
-                                                                      PageTransition(
-                                                                        type: PageTransitionType
-                                                                            .fade,
-                                                                        child:
-                                                                            FlutterFlowExpandedImageView(
-                                                                          image:
-                                                                              Image.network(
-                                                                            valueOrDefault<String>(
-                                                                              containerMediaRecord?.image,
-                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                            ),
-                                                                            fit:
-                                                                                BoxFit.contain,
-                                                                            errorBuilder: (context, error, stackTrace) =>
-                                                                                Image.asset(
-                                                                              'assets/images/error_image.png',
-                                                                              fit: BoxFit.contain,
-                                                                            ),
-                                                                          ),
-                                                                          allowRotation:
-                                                                              true,
-                                                                          tag: valueOrDefault<
+                                                        );
+                                                      }
+                                                      List<MediaRecord>
+                                                          containerMediaRecordList =
+                                                          snapshot.data!;
+                                                      final containerMediaRecord =
+                                                          containerMediaRecordList
+                                                                  .isNotEmpty
+                                                              ? containerMediaRecordList
+                                                                  .first
+                                                              : null;
+                                                      return Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        height: 180.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    0.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    0.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    16.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    16.0),
+                                                          ),
+                                                        ),
+                                                        child: Builder(
+                                                          builder: (context) {
+                                                            if (valueOrDefault<
+                                                                bool>(
+                                                              containerMediaRecord
+                                                                          ?.image !=
+                                                                      null &&
+                                                                  containerMediaRecord
+                                                                          ?.image !=
+                                                                      '',
+                                                              true,
+                                                            )) {
+                                                              return InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'LIST_OF_EVENTS_EstablishmentImage_ON_TAP');
+                                                                  logFirebaseEvent(
+                                                                      'EstablishmentImage_expand_image');
+                                                                  await Navigator
+                                                                      .push(
+                                                                    context,
+                                                                    PageTransition(
+                                                                      type: PageTransitionType
+                                                                          .fade,
+                                                                      child:
+                                                                          FlutterFlowExpandedImageView(
+                                                                        image: Image
+                                                                            .network(
+                                                                          valueOrDefault<
                                                                               String>(
                                                                             containerMediaRecord?.image,
-                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png' +
-                                                                                '$listEventsIndex',
+                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                           ),
-                                                                          useHeroAnimation:
-                                                                              true,
+                                                                          fit: BoxFit
+                                                                              .contain,
+                                                                          errorBuilder: (context, error, stackTrace) =>
+                                                                              Image.asset(
+                                                                            'assets/images/error_image.png',
+                                                                            fit:
+                                                                                BoxFit.contain,
+                                                                          ),
                                                                         ),
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                  child: Hero(
-                                                                    tag: valueOrDefault<
-                                                                        String>(
-                                                                      containerMediaRecord
-                                                                          ?.image,
-                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png' +
-                                                                          '$listEventsIndex',
-                                                                    ),
-                                                                    transitionOnUserGestures:
-                                                                        true,
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius
-                                                                              .only(
-                                                                        bottomLeft:
-                                                                            Radius.circular(0.0),
-                                                                        bottomRight:
-                                                                            Radius.circular(0.0),
-                                                                        topLeft:
-                                                                            Radius.circular(16.0),
-                                                                        topRight:
-                                                                            Radius.circular(16.0),
-                                                                      ),
-                                                                      child: Image
-                                                                          .network(
-                                                                        valueOrDefault<
+                                                                        allowRotation:
+                                                                            true,
+                                                                        tag: valueOrDefault<
                                                                             String>(
                                                                           containerMediaRecord
                                                                               ?.image,
-                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png' +
+                                                                              '$listEventsIndex',
                                                                         ),
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            1.0,
-                                                                        height:
-                                                                            180.0,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                        errorBuilder: (context,
-                                                                                error,
-                                                                                stackTrace) =>
-                                                                            Image.asset(
-                                                                          'assets/images/error_image.png',
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 1.0,
-                                                                          height:
-                                                                              180.0,
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                        ),
+                                                                        useHeroAnimation:
+                                                                            true,
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                );
-                                                              } else {
-                                                                return FlutterFlowMediaDisplay(
-                                                                  path: valueOrDefault<
+                                                                  );
+                                                                },
+                                                                child: Hero(
+                                                                  tag: valueOrDefault<
                                                                       String>(
                                                                     containerMediaRecord
-                                                                        ?.video,
-                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                        ?.image,
+                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png' +
+                                                                        '$listEventsIndex',
                                                                   ),
-                                                                  imageBuilder:
-                                                                      (path) =>
-                                                                          ClipRRect(
+                                                                  transitionOnUserGestures:
+                                                                      true,
+                                                                  child:
+                                                                      ClipRRect(
                                                                     borderRadius:
                                                                         BorderRadius
                                                                             .only(
@@ -1219,176 +1142,230 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                     ),
                                                                     child: Image
                                                                         .network(
-                                                                      path,
-                                                                      width:
-                                                                          300.0,
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        containerMediaRecord
+                                                                            ?.image,
+                                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                      ),
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          1.0,
                                                                       height:
-                                                                          300.0,
+                                                                          180.0,
                                                                       fit: BoxFit
                                                                           .cover,
-                                                                    ),
-                                                                  ),
-                                                                  videoPlayerBuilder:
-                                                                      (path) =>
-                                                                          FlutterFlowVideoPlayer(
-                                                                    path: path,
-                                                                    width: MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        1.0,
-                                                                    height:
-                                                                        180.0,
-                                                                    autoPlay:
-                                                                        true,
-                                                                    looping:
-                                                                        true,
-                                                                    showControls:
-                                                                        true,
-                                                                    allowFullScreen:
-                                                                        true,
-                                                                    allowPlaybackSpeedMenu:
-                                                                        false,
-                                                                  ),
-                                                                );
-                                                              }
-                                                            },
-                                                          ),
-                                                        );
-                                                      },
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0),
-                                                      child: Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.0,
-                                                        height: 80.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      4.0,
-                                                                      0.0,
-                                                                      4.0,
-                                                                      0.0),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceEvenly,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Expanded(
-                                                                child: Text(
-                                                                  listEventsItem
-                                                                      .title,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Expanded(
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    '${dateTimeFormat(
-                                                                      'd/M/y',
-                                                                      listEventsItem
-                                                                          .date,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    )} de ${dateTimeFormat(
-                                                                      'Hm',
-                                                                      listEventsItem
-                                                                          .date,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    )} - ${listEventsItem.schedule}',
-                                                                    ' Aucun horaire pour le moment',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge,
-                                                                ),
-                                                              ),
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          30.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        listEventsItem
-                                                                            .name,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium,
+                                                                      errorBuilder: (context,
+                                                                              error,
+                                                                              stackTrace) =>
+                                                                          Image
+                                                                              .asset(
+                                                                        'assets/images/error_image.png',
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            1.0,
+                                                                        height:
+                                                                            180.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  Text(
+                                                                ),
+                                                              );
+                                                            } else {
+                                                              return FlutterFlowMediaDisplay(
+                                                                path:
                                                                     valueOrDefault<
                                                                         String>(
-                                                                      cardEventsEstablishmentsRecord
-                                                                          .adresse
-                                                                          .city,
-                                                                      '*',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium,
+                                                                  containerMediaRecord
+                                                                      ?.video,
+                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                ),
+                                                                imageBuilder:
+                                                                    (path) =>
+                                                                        ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            16.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            16.0),
                                                                   ),
-                                                                ],
+                                                                  child: Image
+                                                                      .network(
+                                                                    path,
+                                                                    width:
+                                                                        300.0,
+                                                                    height:
+                                                                        300.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
+                                                                videoPlayerBuilder:
+                                                                    (path) =>
+                                                                        FlutterFlowVideoPlayer(
+                                                                  path: path,
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      1.0,
+                                                                  height: 180.0,
+                                                                  autoPlay:
+                                                                      true,
+                                                                  looping: true,
+                                                                  showControls:
+                                                                      true,
+                                                                  allowFullScreen:
+                                                                      true,
+                                                                  allowPlaybackSpeedMenu:
+                                                                      false,
+                                                                ),
+                                                              );
+                                                            }
+                                                          },
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 80.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    4.0,
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceEvenly,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Expanded(
+                                                              child: Text(
+                                                                listEventsItem
+                                                                    .title,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                            Expanded(
+                                                              child: Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  '${dateTimeFormat(
+                                                                    'd/M/y',
+                                                                    listEventsItem
+                                                                        .date,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  )} de ${dateTimeFormat(
+                                                                    'Hm',
+                                                                    listEventsItem
+                                                                        .date,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  )} - ${listEventsItem.schedule}',
+                                                                  ' Aucun horaire pour le moment',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge,
+                                                              ),
+                                                            ),
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            30.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      listEventsItem
+                                                                          .name,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    cardEventsEstablishmentsRecord
+                                                                        .adresse
+                                                                        .city,
+                                                                    '*',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium,
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
-                                            );
-                                          },
-                                        ),
-                                      );
-                                    },
-                                  ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    );
+                                  },
                                 );
                               },
                             ),
@@ -1453,17 +1430,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                   'LIST_OF_EVENTS_PAGE_CardEvents_ON_TAP');
                                               logFirebaseEvent(
                                                   'CardEvents_navigate_to');
-
-                                              context.pushNamed(
-                                                'ShowOfEvents',
-                                                queryParameters: {
-                                                  'showOfEvents':
-                                                      serializeParam(
-                                                    widget.eventDetails,
-                                                    ParamType.DocumentReference,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
                                             },
                                             child: Card(
                                               clipBehavior:

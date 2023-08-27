@@ -1249,6 +1249,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                               video: _model.uploadedFileUrl5,
                                               establishmentRef: widget.estRef,
                                               updatedTime: getCurrentTimestamp,
+                                              creaatedTime: getCurrentTimestamp,
                                             ));
                                             _model.imageEstUpload = ImagesRecord
                                                 .getDocumentFromData(
@@ -1266,6 +1267,8 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                       establishmentRef:
                                                           widget.estRef,
                                                       updatedTime:
+                                                          getCurrentTimestamp,
+                                                      creaatedTime:
                                                           getCurrentTimestamp,
                                                     ),
                                                     imagesRecordReference);

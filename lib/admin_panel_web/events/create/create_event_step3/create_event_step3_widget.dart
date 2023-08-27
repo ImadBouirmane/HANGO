@@ -791,104 +791,115 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                           ),
                                         ),
                                       ),
-                                      FFButtonWidget(
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'CREATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
-                                          logFirebaseEvent(
-                                              'BTNValidateFrom_backend_call');
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 15.0, 15.0, 15.0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'CREATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
+                                            logFirebaseEvent(
+                                                'BTNValidateFrom_backend_call');
 
-                                          var mediaRecordReference =
-                                              MediaRecord.createDoc(
-                                                  widget.eventRef!);
-                                          await mediaRecordReference
-                                              .set(createMediaRecordData(
-                                            image: valueOrDefault<String>(
-                                              _model.uploadedFileUrl1 != null &&
-                                                      _model.uploadedFileUrl1 !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl1
-                                                  : null,
-                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                            var mediaRecordReference =
+                                                MediaRecord.createDoc(
+                                                    widget.eventRef!);
+                                            await mediaRecordReference
+                                                .set(createMediaRecordData(
+                                              image: valueOrDefault<String>(
+                                                _model.uploadedFileUrl1 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl1 !=
+                                                            ''
+                                                    ? _model.uploadedFileUrl1
+                                                    : null,
+                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                              ),
+                                              eventRef: widget.eventRef,
+                                              video: valueOrDefault<String>(
+                                                _model.uploadedFileUrl2 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl2 !=
+                                                            ''
+                                                    ? _model.uploadedFileUrl2
+                                                    : valueOrDefault<String>(
+                                                        null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                              ),
+                                              createdTime: getCurrentTimestamp,
+                                            ));
+                                            _model.mediaEventUpload =
+                                                MediaRecord.getDocumentFromData(
+                                                    createMediaRecordData(
+                                                      image: valueOrDefault<
+                                                          String>(
+                                                        _model.uploadedFileUrl1 !=
+                                                                    null &&
+                                                                _model.uploadedFileUrl1 !=
+                                                                    ''
+                                                            ? _model
+                                                                .uploadedFileUrl1
+                                                            : null,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      eventRef: widget.eventRef,
+                                                      video: valueOrDefault<
+                                                          String>(
+                                                        _model.uploadedFileUrl2 !=
+                                                                    null &&
+                                                                _model.uploadedFileUrl2 !=
+                                                                    ''
+                                                            ? _model
+                                                                .uploadedFileUrl2
+                                                            : valueOrDefault<
+                                                                String>(
+                                                                null,
+                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                              ),
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                      ),
+                                                      createdTime:
+                                                          getCurrentTimestamp,
+                                                    ),
+                                                    mediaRecordReference);
+                                            logFirebaseEvent(
+                                                'BTNValidateFrom_navigate_to');
+
+                                            context.pushNamed('Dashboard');
+
+                                            setState(() {});
+                                          },
+                                          text: 'Enregistrer',
+                                          options: FFButtonOptions(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 50.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.white,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
                                             ),
-                                            eventRef: widget.eventRef,
-                                            video: valueOrDefault<String>(
-                                              _model.uploadedFileUrl2 != null &&
-                                                      _model.uploadedFileUrl2 !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl2
-                                                  : valueOrDefault<String>(
-                                                      null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                            ),
-                                          ));
-                                          _model.mediaEventUpload =
-                                              MediaRecord.getDocumentFromData(
-                                                  createMediaRecordData(
-                                                    image:
-                                                        valueOrDefault<String>(
-                                                      _model.uploadedFileUrl1 !=
-                                                                  null &&
-                                                              _model.uploadedFileUrl1 !=
-                                                                  ''
-                                                          ? _model
-                                                              .uploadedFileUrl1
-                                                          : null,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                                    eventRef: widget.eventRef,
-                                                    video:
-                                                        valueOrDefault<String>(
-                                                      _model.uploadedFileUrl2 !=
-                                                                  null &&
-                                                              _model.uploadedFileUrl2 !=
-                                                                  ''
-                                                          ? _model
-                                                              .uploadedFileUrl2
-                                                          : valueOrDefault<
-                                                              String>(
-                                                              null,
-                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                            ),
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                    ),
-                                                  ),
-                                                  mediaRecordReference);
-                                          logFirebaseEvent(
-                                              'BTNValidateFrom_navigate_to');
-
-                                          context.pushNamed('Dashboard');
-
-                                          setState(() {});
-                                        },
-                                        text: 'Enregistrer',
-                                        options: FFButtonOptions(
-                                          width: 300.0,
-                                          height: 40.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
-                                                  ),
-                                          elevation: 3.0,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
+                                            borderRadius:
+                                                BorderRadius.circular(16.0),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
                                         ),
                                       ),
                                     ]
