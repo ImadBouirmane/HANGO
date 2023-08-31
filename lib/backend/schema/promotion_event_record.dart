@@ -46,6 +46,41 @@ class PromotionEventRecord extends FirestoreRecord {
   DocumentReference? get eventRef => _eventRef;
   bool hasEventRef() => _eventRef != null;
 
+  // "Title" field.
+  String? _title;
+  String get title => _title ?? '';
+  bool hasTitle() => _title != null;
+
+  // "subTitle" field.
+  String? _subTitle;
+  String get subTitle => _subTitle ?? '';
+  bool hasSubTitle() => _subTitle != null;
+
+  // "usersJoined" field.
+  List<DocumentReference>? _usersJoined;
+  List<DocumentReference> get usersJoined => _usersJoined ?? const [];
+  bool hasUsersJoined() => _usersJoined != null;
+
+  // "startTrack" field.
+  DateTime? _startTrack;
+  DateTime? get startTrack => _startTrack;
+  bool hasStartTrack() => _startTrack != null;
+
+  // "endTrack" field.
+  DateTime? _endTrack;
+  DateTime? get endTrack => _endTrack;
+  bool hasEndTrack() => _endTrack != null;
+
+  // "createdTime" field.
+  DateTime? _createdTime;
+  DateTime? get createdTime => _createdTime;
+  bool hasCreatedTime() => _createdTime != null;
+
+  // "updatedTime" field.
+  DateTime? _updatedTime;
+  DateTime? get updatedTime => _updatedTime;
+  bool hasUpdatedTime() => _updatedTime != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -55,6 +90,13 @@ class PromotionEventRecord extends FirestoreRecord {
     _entranceCheck = snapshotData['entranceCheck'] as bool?;
     _trackTime = snapshotData['trackTime'] as DateTime?;
     _eventRef = snapshotData['eventRef'] as DocumentReference?;
+    _title = snapshotData['Title'] as String?;
+    _subTitle = snapshotData['subTitle'] as String?;
+    _usersJoined = getDataList(snapshotData['usersJoined']);
+    _startTrack = snapshotData['startTrack'] as DateTime?;
+    _endTrack = snapshotData['endTrack'] as DateTime?;
+    _createdTime = snapshotData['createdTime'] as DateTime?;
+    _updatedTime = snapshotData['updatedTime'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -103,6 +145,12 @@ Map<String, dynamic> createPromotionEventRecordData({
   bool? entranceCheck,
   DateTime? trackTime,
   DocumentReference? eventRef,
+  String? title,
+  String? subTitle,
+  DateTime? startTrack,
+  DateTime? endTrack,
+  DateTime? createdTime,
+  DateTime? updatedTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -112,6 +160,12 @@ Map<String, dynamic> createPromotionEventRecordData({
       'entranceCheck': entranceCheck,
       'trackTime': trackTime,
       'eventRef': eventRef,
+      'Title': title,
+      'subTitle': subTitle,
+      'startTrack': startTrack,
+      'endTrack': endTrack,
+      'createdTime': createdTime,
+      'updatedTime': updatedTime,
     }.withoutNulls,
   );
 
@@ -124,12 +178,20 @@ class PromotionEventRecordDocumentEquality
 
   @override
   bool equals(PromotionEventRecord? e1, PromotionEventRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.userRef == e2?.userRef &&
         e1?.message == e2?.message &&
         e1?.entranceValue == e2?.entranceValue &&
         e1?.entranceCheck == e2?.entranceCheck &&
         e1?.trackTime == e2?.trackTime &&
-        e1?.eventRef == e2?.eventRef;
+        e1?.eventRef == e2?.eventRef &&
+        e1?.title == e2?.title &&
+        e1?.subTitle == e2?.subTitle &&
+        listEquality.equals(e1?.usersJoined, e2?.usersJoined) &&
+        e1?.startTrack == e2?.startTrack &&
+        e1?.endTrack == e2?.endTrack &&
+        e1?.createdTime == e2?.createdTime &&
+        e1?.updatedTime == e2?.updatedTime;
   }
 
   @override
@@ -139,7 +201,14 @@ class PromotionEventRecordDocumentEquality
         e?.entranceValue,
         e?.entranceCheck,
         e?.trackTime,
-        e?.eventRef
+        e?.eventRef,
+        e?.title,
+        e?.subTitle,
+        e?.usersJoined,
+        e?.startTrack,
+        e?.endTrack,
+        e?.createdTime,
+        e?.updatedTime
       ]);
 
   @override

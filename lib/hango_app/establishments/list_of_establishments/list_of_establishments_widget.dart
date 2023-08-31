@@ -62,7 +62,7 @@ class _ListOfEstablishmentsWidgetState
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Center(
               child: SizedBox(
                 width: 30.0,
@@ -89,7 +89,7 @@ class _ListOfEstablishmentsWidgetState
                 child: Scaffold(
                   key: scaffoldKey,
                   backgroundColor:
-                      FlutterFlowTheme.of(context).primaryBackground,
+                      FlutterFlowTheme.of(context).secondaryBackground,
                   drawer: Drawer(
                     elevation: 16.0,
                     child: Container(
@@ -638,7 +638,9 @@ class _ListOfEstablishmentsWidgetState
                   body: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 1.0,
-                    decoration: BoxDecoration(),
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
@@ -946,7 +948,7 @@ class _ListOfEstablishmentsWidgetState
                                                       'CardEstablishment_navigate_to');
 
                                                   context.pushNamed(
-                                                    'ShowOfEstablishments',
+                                                    'ShowOfEstablishment',
                                                     queryParameters: {
                                                       'establishmentDetails':
                                                           serializeParam(
@@ -1041,6 +1043,70 @@ class _ListOfEstablishmentsWidgetState
                                                                       null ||
                                                                   cardEstablishmentImagesRecord
                                                                           ?.image1 ==
+                                                                      '') &&
+                                                              (cardEstablishmentImagesRecord
+                                                                          ?.video !=
+                                                                      null &&
+                                                                  cardEstablishmentImagesRecord
+                                                                          ?.video !=
+                                                                      ''))
+                                                            FlutterFlowMediaDisplay(
+                                                              path:
+                                                                  cardEstablishmentImagesRecord!
+                                                                      .video,
+                                                              imageBuilder:
+                                                                  (path) =>
+                                                                      ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                ),
+                                                                child: Image
+                                                                    .network(
+                                                                  path,
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 220.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                              videoPlayerBuilder:
+                                                                  (path) =>
+                                                                      FlutterFlowVideoPlayer(
+                                                                path: path,
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    1.0,
+                                                                height: 220.0,
+                                                                autoPlay: true,
+                                                                looping: true,
+                                                                showControls:
+                                                                    true,
+                                                                allowFullScreen:
+                                                                    true,
+                                                                allowPlaybackSpeedMenu:
+                                                                    false,
+                                                              ),
+                                                            ),
+                                                          if ((cardEstablishmentImagesRecord
+                                                                          ?.image1 !=
+                                                                      null &&
+                                                                  cardEstablishmentImagesRecord
+                                                                          ?.image1 !=
                                                                       '') &&
                                                               (cardEstablishmentImagesRecord
                                                                           ?.video !=
@@ -1329,7 +1395,7 @@ class _ListOfEstablishmentsWidgetState
                                                   'CardEstablishment_navigate_to');
 
                                               context.pushNamed(
-                                                'ShowOfEstablishments',
+                                                'ShowOfEstablishment',
                                                 queryParameters: {
                                                   'establishmentDetails':
                                                       serializeParam(

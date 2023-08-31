@@ -3,8 +3,10 @@ import '/components/empty_lists/event_empty_list/event_empty_list_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:map_launcher/map_launcher.dart' as $ml;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -13,17 +15,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'show_of_establishments_model.dart';
-export 'show_of_establishments_model.dart';
+import 'show_of_establishment_model.dart';
+export 'show_of_establishment_model.dart';
 
-class ShowOfEstablishmentsWidget extends StatefulWidget {
-  const ShowOfEstablishmentsWidget({
+class ShowOfEstablishmentWidget extends StatefulWidget {
+  const ShowOfEstablishmentWidget({
     Key? key,
     required this.establishmentDetails,
   }) : super(key: key);
@@ -31,23 +32,22 @@ class ShowOfEstablishmentsWidget extends StatefulWidget {
   final DocumentReference? establishmentDetails;
 
   @override
-  _ShowOfEstablishmentsWidgetState createState() =>
-      _ShowOfEstablishmentsWidgetState();
+  _ShowOfEstablishmentWidgetState createState() =>
+      _ShowOfEstablishmentWidgetState();
 }
 
-class _ShowOfEstablishmentsWidgetState
-    extends State<ShowOfEstablishmentsWidget> {
-  late ShowOfEstablishmentsModel _model;
+class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
+  late ShowOfEstablishmentModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ShowOfEstablishmentsModel());
+    _model = createModel(context, () => ShowOfEstablishmentModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'ShowOfEstablishments'});
+        parameters: {'screen_name': 'ShowOfEstablishment'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -68,7 +68,7 @@ class _ShowOfEstablishmentsWidgetState
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Center(
               child: SizedBox(
                 width: 30.0,
@@ -82,9 +82,9 @@ class _ShowOfEstablishmentsWidgetState
             ),
           );
         }
-        final showOfEstablishmentsEstablishmentsRecord = snapshot.data!;
+        final showOfEstablishmentEstablishmentsRecord = snapshot.data!;
         return Title(
-            title: 'ShowOfEstablishments',
+            title: 'ShowOfEstablishment',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
               onTap: () =>
@@ -92,7 +92,8 @@ class _ShowOfEstablishmentsWidgetState
               child: Scaffold(
                 key: scaffoldKey,
                 resizeToAvoidBottomInset: false,
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
                 body: Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: MediaQuery.sizeOf(context).height * 1.069,
@@ -162,56 +163,84 @@ class _ShowOfEstablishmentsWidgetState
                                                 : null;
                                         return Stack(
                                           children: [
-                                            Container(
-                                              width: double.infinity,
-                                              height: 300.0,
-                                              child: Stack(
-                                                children: [
-                                                  PageView(
-                                                    controller: _model
-                                                            .pageViewController ??=
-                                                        PageController(
-                                                            initialPage: 0),
-                                                    onPageChanged: (_) =>
-                                                        setState(() {}),
-                                                    scrollDirection:
-                                                        Axis.horizontal,
-                                                    children: [
-                                                      InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          logFirebaseEvent(
-                                                              'SHOW_OF_ESTABLISHMENTS_EstablishmentImag');
-                                                          logFirebaseEvent(
-                                                              'EstablishmentImage_expand_image');
-                                                          await Navigator.push(
-                                                            context,
-                                                            PageTransition(
-                                                              type:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              child:
-                                                                  FlutterFlowExpandedImageView(
-                                                                image: Image
-                                                                    .network(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    stackImagesRecord
-                                                                        ?.image1,
-                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                            Builder(
+                                              builder: (context) {
+                                                if ((stackImagesRecord
+                                                                ?.image1 !=
+                                                            null &&
+                                                        stackImagesRecord
+                                                                ?.image1 !=
+                                                            '') &&
+                                                    (stackImagesRecord?.video !=
+                                                            null &&
+                                                        stackImagesRecord
+                                                                ?.video !=
+                                                            '')) {
+                                                  return Container(
+                                                    width: double.infinity,
+                                                    height: 300.0,
+                                                    child: Stack(
+                                                      children: [
+                                                        PageView(
+                                                          controller: _model
+                                                                  .pageViewController ??=
+                                                              PageController(
+                                                                  initialPage:
+                                                                      0),
+                                                          onPageChanged: (_) =>
+                                                              setState(() {}),
+                                                          scrollDirection:
+                                                              Axis.horizontal,
+                                                          children: [
+                                                            InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                logFirebaseEvent(
+                                                                    'SHOW_OF_ESTABLISHMENT_EstablishmentImage');
+                                                                logFirebaseEvent(
+                                                                    'EstablishmentImage_expand_image');
+                                                                await Navigator
+                                                                    .push(
+                                                                  context,
+                                                                  PageTransition(
+                                                                    type: PageTransitionType
+                                                                        .fade,
+                                                                    child:
+                                                                        FlutterFlowExpandedImageView(
+                                                                      image: Image
+                                                                          .network(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          stackImagesRecord
+                                                                              ?.image1,
+                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                        ),
+                                                                        fit: BoxFit
+                                                                            .contain,
+                                                                      ),
+                                                                      allowRotation:
+                                                                          false,
+                                                                      tag: valueOrDefault<
+                                                                          String>(
+                                                                        stackImagesRecord
+                                                                            ?.image1,
+                                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                      ),
+                                                                      useHeroAnimation:
+                                                                          true,
+                                                                    ),
                                                                   ),
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
-                                                                allowRotation:
-                                                                    false,
+                                                                );
+                                                              },
+                                                              child: Hero(
                                                                 tag:
                                                                     valueOrDefault<
                                                                         String>(
@@ -219,27 +248,168 @@ class _ShowOfEstablishmentsWidgetState
                                                                       ?.image1,
                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                 ),
-                                                                useHeroAnimation:
+                                                                transitionOnUserGestures:
                                                                     true,
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                  child: Image
+                                                                      .network(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      stackImagesRecord
+                                                                          ?.image1,
+                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                    ),
+                                                                    width: MediaQuery.sizeOf(context)
+                                                                            .width *
+                                                                        1.0,
+                                                                    height:
+                                                                        300.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
                                                               ),
                                                             ),
-                                                          );
-                                                        },
-                                                        child: Hero(
-                                                          tag: valueOrDefault<
-                                                              String>(
-                                                            stackImagesRecord
-                                                                ?.image1,
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                            FlutterFlowMediaDisplay(
+                                                              path:
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                stackImagesRecord
+                                                                    ?.video,
+                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                              ),
+                                                              imageBuilder:
+                                                                  (path) =>
+                                                                      ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  path,
+                                                                  width: 300.0,
+                                                                  height: 200.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                              videoPlayerBuilder:
+                                                                  (path) =>
+                                                                      FlutterFlowVideoPlayer(
+                                                                path: path,
+                                                                width: 300.0,
+                                                                autoPlay: true,
+                                                                looping: true,
+                                                                showControls:
+                                                                    true,
+                                                                allowFullScreen:
+                                                                    true,
+                                                                allowPlaybackSpeedMenu:
+                                                                    false,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1.0, 1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        16.0),
+                                                            child: smooth_page_indicator
+                                                                .SmoothPageIndicator(
+                                                              controller: _model
+                                                                      .pageViewController ??=
+                                                                  PageController(
+                                                                      initialPage:
+                                                                          0),
+                                                              count: 2,
+                                                              axisDirection: Axis
+                                                                  .horizontal,
+                                                              onDotClicked:
+                                                                  (i) async {
+                                                                await _model
+                                                                    .pageViewController!
+                                                                    .animateToPage(
+                                                                  i,
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          500),
+                                                                  curve: Curves
+                                                                      .ease,
+                                                                );
+                                                              },
+                                                              effect: smooth_page_indicator
+                                                                  .ExpandingDotsEffect(
+                                                                expansionFactor:
+                                                                    3.0,
+                                                                spacing: 8.0,
+                                                                radius: 16.0,
+                                                                dotWidth: 16.0,
+                                                                dotHeight: 8.0,
+                                                                dotColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryTransparent,
+                                                                activeDotColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                paintStyle:
+                                                                    PaintingStyle
+                                                                        .fill,
+                                                              ),
+                                                            ),
                                                           ),
-                                                          transitionOnUserGestures:
-                                                              true,
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                } else if ((stackImagesRecord
+                                                                ?.image1 !=
+                                                            null &&
+                                                        stackImagesRecord
+                                                                ?.image1 !=
+                                                            '') &&
+                                                    (stackImagesRecord?.video ==
+                                                            null ||
+                                                        stackImagesRecord
+                                                                ?.video ==
+                                                            '')) {
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'SHOW_OF_ESTABLISHMENT_EstablishmentImage');
+                                                      logFirebaseEvent(
+                                                          'EstablishmentImage_expand_image');
+                                                      await Navigator.push(
+                                                        context,
+                                                        PageTransition(
+                                                          type:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          child:
+                                                              FlutterFlowExpandedImageView(
+                                                            image:
                                                                 Image.network(
                                                               valueOrDefault<
                                                                   String>(
@@ -247,75 +417,91 @@ class _ShowOfEstablishmentsWidgetState
                                                                     ?.image1,
                                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                               ),
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .width *
-                                                                  1.0,
-                                                              height: 300.0,
-                                                              fit: BoxFit.cover,
+                                                              fit: BoxFit
+                                                                  .contain,
                                                             ),
+                                                            allowRotation:
+                                                                false,
+                                                            tag: valueOrDefault<
+                                                                String>(
+                                                              stackImagesRecord
+                                                                  ?.image1,
+                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                            ),
+                                                            useHeroAnimation:
+                                                                true,
                                                           ),
                                                         ),
+                                                      );
+                                                    },
+                                                    child: Hero(
+                                                      tag: valueOrDefault<
+                                                          String>(
+                                                        stackImagesRecord
+                                                            ?.image1,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                       ),
-                                                    ],
-                                                  ),
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            -1.0, 1.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  16.0),
-                                                      child: smooth_page_indicator
-                                                          .SmoothPageIndicator(
-                                                        controller: _model
-                                                                .pageViewController ??=
-                                                            PageController(
-                                                                initialPage: 0),
-                                                        count: 1,
-                                                        axisDirection:
-                                                            Axis.horizontal,
-                                                        onDotClicked:
-                                                            (i) async {
-                                                          await _model
-                                                              .pageViewController!
-                                                              .animateToPage(
-                                                            i,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    500),
-                                                            curve: Curves.ease,
-                                                          );
-                                                        },
-                                                        effect: smooth_page_indicator
-                                                            .ExpandingDotsEffect(
-                                                          expansionFactor: 3.0,
-                                                          spacing: 8.0,
-                                                          radius: 16.0,
-                                                          dotWidth: 16.0,
-                                                          dotHeight: 8.0,
-                                                          dotColor: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryTransparent,
-                                                          activeDotColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primary,
-                                                          paintStyle:
-                                                              PaintingStyle
-                                                                  .fill,
+                                                      transitionOnUserGestures:
+                                                          true,
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            stackImagesRecord
+                                                                ?.image1,
+                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                          ),
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          height: 300.0,
+                                                          fit: BoxFit.cover,
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
+                                                  );
+                                                } else {
+                                                  return FlutterFlowMediaDisplay(
+                                                    path:
+                                                        valueOrDefault<String>(
+                                                      stackImagesRecord?.video,
+                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                    ),
+                                                    imageBuilder: (path) =>
+                                                        ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      child: Image.network(
+                                                        path,
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        height: 300.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                    videoPlayerBuilder: (path) =>
+                                                        FlutterFlowVideoPlayer(
+                                                      path: path,
+                                                      width: 300.0,
+                                                      autoPlay: true,
+                                                      looping: true,
+                                                      showControls: true,
+                                                      allowFullScreen: true,
+                                                      allowPlaybackSpeedMenu:
+                                                          false,
+                                                    ),
+                                                  );
+                                                }
+                                              },
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
@@ -377,7 +563,7 @@ class _ShowOfEstablishmentsWidgetState
                                                 ),
                                                 onPressed: () async {
                                                   logFirebaseEvent(
-                                                      'SHOW_OF_ESTABLISHMENTS_arrow_back_rounde');
+                                                      'SHOW_OF_ESTABLISHMENT_arrow_back_rounded');
                                                   logFirebaseEvent(
                                                       'IconButton_navigate_back');
                                                   context.safePop();
@@ -410,14 +596,14 @@ class _ShowOfEstablishmentsWidgetState
                                                   ),
                                                   onPressed: () async {
                                                     logFirebaseEvent(
-                                                        'SHOW_OF_ESTABLISHMENTS_share_sharp_ICN_O');
+                                                        'SHOW_OF_ESTABLISHMENT_share_sharp_ICN_ON');
                                                     logFirebaseEvent(
                                                         'IconButton_generate_current_page_link');
                                                     _model.currentPageLink =
                                                         await generateCurrentPageLink(
                                                       context,
                                                       title:
-                                                          showOfEstablishmentsEstablishmentsRecord
+                                                          showOfEstablishmentEstablishmentsRecord
                                                               .name,
                                                       imageUrl: valueOrDefault<
                                                           String>(
@@ -426,7 +612,7 @@ class _ShowOfEstablishmentsWidgetState
                                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                       ),
                                                       description:
-                                                          showOfEstablishmentsEstablishmentsRecord
+                                                          showOfEstablishmentEstablishmentsRecord
                                                               .description,
                                                     );
 
@@ -478,7 +664,7 @@ class _ShowOfEstablishmentsWidgetState
                                                 initialExpanded: false,
                                                 child: ExpandablePanel(
                                                   header: Text(
-                                                    showOfEstablishmentsEstablishmentsRecord
+                                                    showOfEstablishmentEstablishmentsRecord
                                                         .name,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -499,7 +685,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                   8.0,
                                                                   8.0),
                                                       child: Text(
-                                                        showOfEstablishmentsEstablishmentsRecord
+                                                        showOfEstablishmentEstablishmentsRecord
                                                             .description
                                                             .maybeHandleOverflow(
                                                           maxChars: 40,
@@ -534,7 +720,7 @@ class _ShowOfEstablishmentsWidgetState
                                                       children: [
                                                         Expanded(
                                                           child: Text(
-                                                            showOfEstablishmentsEstablishmentsRecord
+                                                            showOfEstablishmentEstablishmentsRecord
                                                                 .description,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -668,7 +854,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                    showOfEstablishmentsEstablishmentsRecord
+                                                                    showOfEstablishmentEstablishmentsRecord
                                                                         .type
                                                                         .first,
                                                                     '*',
@@ -705,7 +891,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                    showOfEstablishmentsEstablishmentsRecord
+                                                                    showOfEstablishmentEstablishmentsRecord
                                                                         .type
                                                                         .last,
                                                                     '*',
@@ -809,7 +995,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                    showOfEstablishmentsEstablishmentsRecord
+                                                                    showOfEstablishmentEstablishmentsRecord
                                                                         .musicStyle
                                                                         .first,
                                                                     '*',
@@ -846,7 +1032,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                    showOfEstablishmentsEstablishmentsRecord
+                                                                    showOfEstablishmentEstablishmentsRecord
                                                                         .musicStyle
                                                                         .last,
                                                                     '*',
@@ -921,7 +1107,7 @@ class _ShowOfEstablishmentsWidgetState
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                if (showOfEstablishmentsEstablishmentsRecord
+                                                if (showOfEstablishmentEstablishmentsRecord
                                                         .reservation ==
                                                     false)
                                                   Padding(
@@ -938,7 +1124,7 @@ class _ShowOfEstablishmentsWidgetState
                                                       size: 27.0,
                                                     ),
                                                   ),
-                                                if (showOfEstablishmentsEstablishmentsRecord
+                                                if (showOfEstablishmentEstablishmentsRecord
                                                         .reservation ==
                                                     true)
                                                   Icon(
@@ -971,7 +1157,7 @@ class _ShowOfEstablishmentsWidgetState
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                if (showOfEstablishmentsEstablishmentsRecord
+                                                if (showOfEstablishmentEstablishmentsRecord
                                                         .terrasse ==
                                                     false)
                                                   Icon(
@@ -981,7 +1167,7 @@ class _ShowOfEstablishmentsWidgetState
                                                         .alternate,
                                                     size: 27.0,
                                                   ),
-                                                if (showOfEstablishmentsEstablishmentsRecord
+                                                if (showOfEstablishmentEstablishmentsRecord
                                                         .terrasse ==
                                                     true)
                                                   Icon(
@@ -1014,7 +1200,7 @@ class _ShowOfEstablishmentsWidgetState
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                if (showOfEstablishmentsEstablishmentsRecord
+                                                if (showOfEstablishmentEstablishmentsRecord
                                                         .cigaretteMachine ==
                                                     false)
                                                   Icon(
@@ -1024,7 +1210,7 @@ class _ShowOfEstablishmentsWidgetState
                                                         .alternate,
                                                     size: 27.0,
                                                   ),
-                                                if (showOfEstablishmentsEstablishmentsRecord
+                                                if (showOfEstablishmentEstablishmentsRecord
                                                         .cigaretteMachine ==
                                                     true)
                                                   Icon(
@@ -1077,7 +1263,7 @@ class _ShowOfEstablishmentsWidgetState
                                                         child: Builder(
                                                           builder: (context) {
                                                             final foodList =
-                                                                showOfEstablishmentsEstablishmentsRecord
+                                                                showOfEstablishmentEstablishmentsRecord
                                                                     .food
                                                                     .toList()
                                                                     .take(2)
@@ -1128,7 +1314,7 @@ class _ShowOfEstablishmentsWidgetState
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if (showOfEstablishmentsEstablishmentsRecord
+                                                    if (showOfEstablishmentEstablishmentsRecord
                                                             .food.length ==
                                                         0)
                                                       Icon(
@@ -1139,7 +1325,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                 .alternate,
                                                         size: 27.0,
                                                       ),
-                                                    if (showOfEstablishmentsEstablishmentsRecord
+                                                    if (showOfEstablishmentEstablishmentsRecord
                                                             .food.length >
                                                         0)
                                                       Icon(
@@ -1207,7 +1393,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                         8.0,
                                                                         0.0),
                                                             child: Text(
-                                                              showOfEstablishmentsEstablishmentsRecord
+                                                              showOfEstablishmentEstablishmentsRecord
                                                                   .speciality,
                                                               textAlign:
                                                                   TextAlign.end,
@@ -1235,10 +1421,10 @@ class _ShowOfEstablishmentsWidgetState
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if (showOfEstablishmentsEstablishmentsRecord
+                                                    if (showOfEstablishmentEstablishmentsRecord
                                                                 .speciality ==
                                                             null ||
-                                                        showOfEstablishmentsEstablishmentsRecord
+                                                        showOfEstablishmentEstablishmentsRecord
                                                                 .speciality ==
                                                             '')
                                                       Icon(
@@ -1249,10 +1435,10 @@ class _ShowOfEstablishmentsWidgetState
                                                                 .alternate,
                                                         size: 27.0,
                                                       ),
-                                                    if (showOfEstablishmentsEstablishmentsRecord
+                                                    if (showOfEstablishmentEstablishmentsRecord
                                                                 .speciality !=
                                                             null &&
-                                                        showOfEstablishmentsEstablishmentsRecord
+                                                        showOfEstablishmentEstablishmentsRecord
                                                                 .speciality !=
                                                             '')
                                                       Icon(
@@ -1305,7 +1491,7 @@ class _ShowOfEstablishmentsWidgetState
                                                     child: Builder(
                                                       builder: (context) {
                                                         final gamesList =
-                                                            showOfEstablishmentsEstablishmentsRecord
+                                                            showOfEstablishmentEstablishmentsRecord
                                                                 .game
                                                                 .toList()
                                                                 .take(2)
@@ -1362,7 +1548,7 @@ class _ShowOfEstablishmentsWidgetState
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if (showOfEstablishmentsEstablishmentsRecord
+                                                    if (showOfEstablishmentEstablishmentsRecord
                                                             .game.length ==
                                                         0)
                                                       Icon(
@@ -1373,7 +1559,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                 .alternate,
                                                         size: 27.0,
                                                       ),
-                                                    if (showOfEstablishmentsEstablishmentsRecord
+                                                    if (showOfEstablishmentEstablishmentsRecord
                                                             .game.length >
                                                         0)
                                                       Icon(
@@ -1395,7 +1581,7 @@ class _ShowOfEstablishmentsWidgetState
                                   ),
                                 ),
                               ),
-                              if (showOfEstablishmentsEstablishmentsRecord
+                              if (showOfEstablishmentEstablishmentsRecord
                                       .eventsReferences.length >=
                                   1)
                                 Padding(
@@ -1430,7 +1616,7 @@ class _ShowOfEstablishmentsWidgetState
                                             Builder(
                                               builder: (context) {
                                                 final eventItems =
-                                                    showOfEstablishmentsEstablishmentsRecord
+                                                    showOfEstablishmentEstablishmentsRecord
                                                         .eventsReferences
                                                         .map((e) => e)
                                                         .toList();
@@ -1508,7 +1694,7 @@ class _ShowOfEstablishmentsWidgetState
                                                                       .transparent,
                                                               onTap: () async {
                                                                 logFirebaseEvent(
-                                                                    'SHOW_OF_ESTABLISHMENTS_CardEvent_ON_TAP');
+                                                                    'SHOW_OF_ESTABLISHMENT_CardEvent_ON_TAP');
                                                                 logFirebaseEvent(
                                                                     'CardEvent_navigate_to');
 
@@ -1641,42 +1827,77 @@ class _ShowOfEstablishmentsWidgetState
                                                                                 8.0,
                                                                                 4.0),
                                                                             child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                AutoSizeText(
-                                                                                  cardEventEventsRecord.title,
-                                                                                  maxLines: 2,
-                                                                                  style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        fontFamily: 'Poppins',
-                                                                                        fontWeight: FontWeight.w600,
+                                                                                StreamBuilder<List<ScheduleEventRecord>>(
+                                                                              stream: queryScheduleEventRecord(
+                                                                                parent: eventItemsItem,
+                                                                                singleRecord: true,
+                                                                              ),
+                                                                              builder: (context, snapshot) {
+                                                                                // Customize what your widget looks like when it's loading.
+                                                                                if (!snapshot.hasData) {
+                                                                                  return Center(
+                                                                                    child: SizedBox(
+                                                                                      width: 30.0,
+                                                                                      height: 30.0,
+                                                                                      child: CircularProgressIndicator(
+                                                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                          FlutterFlowTheme.of(context).primary,
+                                                                                        ),
                                                                                       ),
-                                                                                ),
-                                                                                Text(
-                                                                                  dateTimeFormat(
-                                                                                    'd/M/y',
-                                                                                    cardEventEventsRecord.date!,
-                                                                                    locale: FFLocalizations.of(context).languageCode,
-                                                                                  ),
-                                                                                  style: FlutterFlowTheme.of(context).labelMedium,
-                                                                                ),
-                                                                                Row(
+                                                                                    ),
+                                                                                  );
+                                                                                }
+                                                                                List<ScheduleEventRecord> detailsScheduleEventRecordList = snapshot.data!;
+                                                                                final detailsScheduleEventRecord = detailsScheduleEventRecordList.isNotEmpty ? detailsScheduleEventRecordList.first : null;
+                                                                                return Column(
                                                                                   mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
+                                                                                    AutoSizeText(
+                                                                                      cardEventEventsRecord.title,
+                                                                                      maxLines: 2,
+                                                                                      style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                    ),
                                                                                     Text(
-                                                                                      '${dateTimeFormat(
-                                                                                        'Hm',
-                                                                                        cardEventEventsRecord.date,
-                                                                                        locale: FFLocalizations.of(context).languageCode,
-                                                                                      )} - ${cardEventEventsRecord.schedule}'
-                                                                                          .maybeHandleOverflow(maxChars: 6),
+                                                                                      valueOrDefault<String>(
+                                                                                        dateTimeFormat(
+                                                                                          'd/M/y',
+                                                                                          detailsScheduleEventRecord?.date,
+                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                        ),
+                                                                                        'Aucun date !',
+                                                                                      ),
                                                                                       style: FlutterFlowTheme.of(context).labelMedium,
                                                                                     ),
+                                                                                    Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Expanded(
+                                                                                          child: Text(
+                                                                                            valueOrDefault<String>(
+                                                                                              '${dateTimeFormat(
+                                                                                                'Hm',
+                                                                                                detailsScheduleEventRecord?.scheduleStart,
+                                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                                              )} - ${dateTimeFormat(
+                                                                                                'Hm',
+                                                                                                detailsScheduleEventRecord?.scheduleEnd,
+                                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                                              )}',
+                                                                                              'Aucun planing maintenant !',
+                                                                                            ).maybeHandleOverflow(maxChars: 6),
+                                                                                            style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
                                                                                   ],
-                                                                                ),
-                                                                              ],
+                                                                                );
+                                                                              },
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1706,7 +1927,7 @@ class _ShowOfEstablishmentsWidgetState
                                 child: StreamBuilder<List<ScheduleRecord>>(
                                   stream: queryScheduleRecord(
                                     parent:
-                                        showOfEstablishmentsEstablishmentsRecord
+                                        showOfEstablishmentEstablishmentsRecord
                                             .reference,
                                     singleRecord: true,
                                   ),
@@ -2004,7 +2225,7 @@ class _ShowOfEstablishmentsWidgetState
                                   },
                                 ),
                               ),
-                              if (showOfEstablishmentsEstablishmentsRecord
+                              if (showOfEstablishmentEstablishmentsRecord
                                       .adresse.latiLong !=
                                   null)
                                 Padding(
@@ -2062,7 +2283,7 @@ class _ShowOfEstablishmentsWidgetState
                                                   child: SelectionArea(
                                                       child: Text(
                                                     valueOrDefault<String>(
-                                                      '${showOfEstablishmentsEstablishmentsRecord.adresse.street}, ${showOfEstablishmentsEstablishmentsRecord.adresse.zipCode}, ${showOfEstablishmentsEstablishmentsRecord.adresse.city}',
+                                                      '${showOfEstablishmentEstablishmentsRecord.adresse.street}, ${showOfEstablishmentEstablishmentsRecord.adresse.zipCode}, ${showOfEstablishmentEstablishmentsRecord.adresse.city}',
                                                       'Aucune adresse ',
                                                     ),
                                                     textAlign: TextAlign.start,
@@ -2080,14 +2301,14 @@ class _ShowOfEstablishmentsWidgetState
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   logFirebaseEvent(
-                                                      'SHOW_OF_ESTABLISHMENTS_Icon_4cchjsrt_ON_');
+                                                      'SHOW_OF_ESTABLISHMENT_Icon_4cchjsrt_ON_T');
                                                   logFirebaseEvent(
                                                       'Icon_copy_to_clipboard');
                                                   await Clipboard.setData(
                                                       ClipboardData(
                                                           text: valueOrDefault<
                                                               String>(
-                                                    '${showOfEstablishmentsEstablishmentsRecord.adresse.street}, ${showOfEstablishmentsEstablishmentsRecord.adresse.zipCode}, ${showOfEstablishmentsEstablishmentsRecord.adresse.city}',
+                                                    '${showOfEstablishmentEstablishmentsRecord.adresse.street}, ${showOfEstablishmentEstablishmentsRecord.adresse.zipCode}, ${showOfEstablishmentEstablishmentsRecord.adresse.city}',
                                                     'Aucune adresse ',
                                                   )));
                                                 },
@@ -2102,7 +2323,7 @@ class _ShowOfEstablishmentsWidgetState
                                             ].divide(SizedBox(width: 15.0)),
                                           ),
                                         ),
-                                        if (showOfEstablishmentsEstablishmentsRecord
+                                        if (showOfEstablishmentEstablishmentsRecord
                                                 .location !=
                                             null)
                                           Material(
@@ -2121,7 +2342,7 @@ class _ShowOfEstablishmentsWidgetState
                                               child:
                                                   Builder(builder: (context) {
                                                 final _googleMapMarker =
-                                                    showOfEstablishmentsEstablishmentsRecord;
+                                                    showOfEstablishmentEstablishmentsRecord;
                                                 return FlutterFlowGoogleMap(
                                                   controller: _model
                                                       .googleMapsController,
@@ -2130,7 +2351,7 @@ class _ShowOfEstablishmentsWidgetState
                                                           latLng,
                                                   initialLocation: _model
                                                           .googleMapsCenter ??=
-                                                      showOfEstablishmentsEstablishmentsRecord
+                                                      showOfEstablishmentEstablishmentsRecord
                                                           .location!,
                                                   markers: [
                                                     FlutterFlowMarker(
@@ -2140,16 +2361,16 @@ class _ShowOfEstablishmentsWidgetState
                                                           .location!,
                                                       () async {
                                                         logFirebaseEvent(
-                                                            'SHOW_OF_ESTABLISHMENTS_GoogleMap_ssjy9g5');
+                                                            'SHOW_OF_ESTABLISHMENT_GoogleMap_ssjy9g5x');
                                                         logFirebaseEvent(
                                                             'GoogleMap_launch_map');
                                                         await launchMap(
                                                           location:
-                                                              showOfEstablishmentsEstablishmentsRecord
+                                                              showOfEstablishmentEstablishmentsRecord
                                                                   .adresse
                                                                   .latiLong,
                                                           title:
-                                                              showOfEstablishmentsEstablishmentsRecord
+                                                              showOfEstablishmentEstablishmentsRecord
                                                                   .name,
                                                         );
                                                       },
@@ -2216,10 +2437,10 @@ class _ShowOfEstablishmentsWidgetState
                                             ],
                                           ),
                                         ),
-                                        if (showOfEstablishmentsEstablishmentsRecord
+                                        if (showOfEstablishmentEstablishmentsRecord
                                                     .email !=
                                                 null &&
-                                            showOfEstablishmentsEstablishmentsRecord
+                                            showOfEstablishmentEstablishmentsRecord
                                                     .email !=
                                                 '')
                                           Row(
@@ -2243,7 +2464,7 @@ class _ShowOfEstablishmentsWidgetState
                                                   ),
                                                   SelectionArea(
                                                       child: Text(
-                                                    showOfEstablishmentsEstablishmentsRecord
+                                                    showOfEstablishmentEstablishmentsRecord
                                                         .email,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -2263,20 +2484,20 @@ class _ShowOfEstablishmentsWidgetState
                                                 ),
                                                 onPressed: () async {
                                                   logFirebaseEvent(
-                                                      'SHOW_OF_ESTABLISHMENTS_email_ICN_ON_TAP');
+                                                      'SHOW_OF_ESTABLISHMENT_email_ICN_ON_TAP');
                                                   logFirebaseEvent(
                                                       'IconButton_send_email');
                                                   await launchUrl(Uri(
                                                       scheme: 'mailto',
                                                       path:
-                                                          showOfEstablishmentsEstablishmentsRecord
+                                                          showOfEstablishmentEstablishmentsRecord
                                                               .email,
                                                       query: {
                                                         'subject':
                                                             'Hango - réservation ',
                                                         'body':
                                                             'L\'équipe Hango et  l\'équipe ${valueOrDefault<String>(
-                                                          showOfEstablishmentsEstablishmentsRecord
+                                                          showOfEstablishmentEstablishmentsRecord
                                                               .name,
                                                           'notre établissement',
                                                         )} te remercient de procéder à une réservation de table via email. Tu peux également nous faire parvenir un retour constructif si ta soirée c\'est bien passée ou peut-être suite à un problème !',
@@ -2291,10 +2512,10 @@ class _ShowOfEstablishmentsWidgetState
                                               ),
                                             ],
                                           ),
-                                        if (showOfEstablishmentsEstablishmentsRecord
+                                        if (showOfEstablishmentEstablishmentsRecord
                                                     .phoneNumber !=
                                                 null &&
-                                            showOfEstablishmentsEstablishmentsRecord
+                                            showOfEstablishmentEstablishmentsRecord
                                                     .phoneNumber !=
                                                 '')
                                           Row(
@@ -2318,7 +2539,7 @@ class _ShowOfEstablishmentsWidgetState
                                                   ),
                                                   SelectionArea(
                                                       child: Text(
-                                                    showOfEstablishmentsEstablishmentsRecord
+                                                    showOfEstablishmentEstablishmentsRecord
                                                         .phoneNumber,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -2338,23 +2559,23 @@ class _ShowOfEstablishmentsWidgetState
                                                 ),
                                                 onPressed: () async {
                                                   logFirebaseEvent(
-                                                      'SHOW_OF_ESTABLISHMENTS_phone_sharp_ICN_O');
+                                                      'SHOW_OF_ESTABLISHMENT_phone_sharp_ICN_ON');
                                                   logFirebaseEvent(
                                                       'IconButton_call_number');
                                                   await launchUrl(Uri(
                                                     scheme: 'tel',
                                                     path:
-                                                        showOfEstablishmentsEstablishmentsRecord
+                                                        showOfEstablishmentEstablishmentsRecord
                                                             .phoneNumber,
                                                   ));
                                                 },
                                               ),
                                             ],
                                           ),
-                                        if (showOfEstablishmentsEstablishmentsRecord
+                                        if (showOfEstablishmentEstablishmentsRecord
                                                     .webSite !=
                                                 null &&
-                                            showOfEstablishmentsEstablishmentsRecord
+                                            showOfEstablishmentEstablishmentsRecord
                                                     .webSite !=
                                                 '')
                                           Row(
@@ -2381,7 +2602,7 @@ class _ShowOfEstablishmentsWidgetState
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
-                                                      showOfEstablishmentsEstablishmentsRecord
+                                                      showOfEstablishmentEstablishmentsRecord
                                                           .webSite,
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -2403,7 +2624,7 @@ class _ShowOfEstablishmentsWidgetState
                                                 ),
                                                 onPressed: () async {
                                                   logFirebaseEvent(
-                                                      'SHOW_OF_ESTABLISHMENTS_insert_link_sharp');
+                                                      'SHOW_OF_ESTABLISHMENT_insert_link_sharp_');
                                                   logFirebaseEvent(
                                                       'IconButton_navigate_to');
 
@@ -2516,12 +2737,12 @@ class _ShowOfEstablishmentsWidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'SHOW_OF_ESTABLISHMENTS_CardEstablishment');
+                                                          'SHOW_OF_ESTABLISHMENT_CardEstablishment_');
                                                       logFirebaseEvent(
                                                           'CardEstablishment_navigate_to');
 
                                                       context.pushNamed(
-                                                        'ShowOfEstablishments',
+                                                        'ShowOfEstablishment',
                                                         queryParameters: {
                                                           'establishmentDetails':
                                                               serializeParam(
@@ -2789,196 +3010,6 @@ class _ShowOfEstablishmentsWidgetState
                                 ),
                               ),
                             ].addToEnd(SizedBox(height: 100.0)),
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 0.0, 0.0),
-                          child: Material(
-                            color: Colors.transparent,
-                            elevation: 3.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(0.0),
-                                bottomRight: Radius.circular(0.0),
-                                topLeft: Radius.circular(16.0),
-                                topRight: Radius.circular(16.0),
-                              ),
-                            ),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: MediaQuery.sizeOf(context).height * 0.08,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(0.0),
-                                  topLeft: Radius.circular(16.0),
-                                  topRight: Radius.circular(16.0),
-                                ),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).accent4,
-                                  width: 1.0,
-                                ),
-                              ),
-                              alignment: AlignmentDirectional(
-                                  0.050000000000000044, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'SHOW_OF_ESTABLISHMENTS_MapPage_ON_TAP');
-                                        logFirebaseEvent('MapPage_navigate_to');
-
-                                        context.pushNamed(
-                                          'Maps',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType: PageTransitionType
-                                                  .leftToRight,
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      child: Container(
-                                        width: 100.0,
-                                        height: 100.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            FaIcon(
-                                              FontAwesomeIcons.mapMarkedAlt,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              size: 28.0,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'SHOW_OF_ESTABLISHMENTS_HomePage_ON_TAP');
-                                        logFirebaseEvent(
-                                            'HomePage_navigate_to');
-
-                                        context.pushNamed(
-                                          'ListOfEstablishments',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType: PageTransitionType
-                                                  .leftToRight,
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      child: Container(
-                                        width: 100.0,
-                                        height: 100.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            FaIcon(
-                                              FontAwesomeIcons.home,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              size: 28.0,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'SHOW_OF_ESTABLISHMENTS_EventPage_ON_TAP');
-                                        logFirebaseEvent(
-                                            'EventPage_navigate_to');
-
-                                        context.pushNamed(
-                                          'ListOfEvents',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType: PageTransitionType
-                                                  .leftToRight,
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      child: Container(
-                                        width: 100.0,
-                                        height: 100.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.calendar_today_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              size: 28.0,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
                           ),
                         ),
                       ),

@@ -55,7 +55,7 @@ class _WebViewEventWidgetState extends State<WebViewEventWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Center(
               child: SizedBox(
                 width: 30.0,
@@ -78,7 +78,8 @@ class _WebViewEventWidgetState extends State<WebViewEventWidget> {
                   FocusScope.of(context).requestFocus(_model.unfocusNode),
               child: Scaffold(
                 key: scaffoldKey,
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
                 appBar: AppBar(
                   backgroundColor: FlutterFlowTheme.of(context).primary,
                   automaticallyImplyLeading: false,

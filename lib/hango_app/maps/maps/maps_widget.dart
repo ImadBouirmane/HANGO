@@ -101,7 +101,9 @@ class _MapsWidgetState extends State<MapsWidget> {
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      decoration: BoxDecoration(),
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
                       child: FlutterFlowGoogleMap(
                         controller: _model.googleMapsController,
                         onCameraIdle: (latLng) =>
@@ -307,7 +309,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                             'listItems_navigate_to');
 
                                         context.pushNamed(
-                                          'ShowOfEstablishments',
+                                          'ShowOfEstablishment',
                                           queryParameters: {
                                             'establishmentDetails':
                                                 serializeParam(

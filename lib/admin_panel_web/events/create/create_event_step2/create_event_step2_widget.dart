@@ -395,7 +395,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                           600.0,
                                                                       height:
                                                                           MediaQuery.sizeOf(context).height *
-                                                                              0.6,
+                                                                              0.3,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
@@ -523,7 +523,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                     'BTNValidateFrom_navigate_to');
 
                                                 context.pushNamed(
-                                                  'CreateEventStep3',
+                                                  'CreateEventStep4',
                                                   queryParameters: {
                                                     'eventRef': serializeParam(
                                                       widget.eventRef,

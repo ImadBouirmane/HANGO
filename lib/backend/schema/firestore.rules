@@ -88,5 +88,17 @@ service cloud.firestore {
       allow read: if true;
     }
 
+
+    match /events/{parent}/scheduleEvent/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /{path=**}/scheduleEvent/{document} {
+      allow read: if true;
+    }
+
   }
 }

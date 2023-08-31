@@ -245,7 +245,7 @@ class _MapEstablishmentPopUpWidgetState
                             logFirebaseEvent('Button_navigate_to');
 
                             context.pushNamed(
-                              'ShowOfEstablishments',
+                              'ShowOfEstablishment',
                               queryParameters: {
                                 'establishmentDetails': serializeParam(
                                   containerEstablishmentsRecord.reference,

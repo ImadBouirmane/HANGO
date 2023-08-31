@@ -15,11 +15,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'step3_media_est_model.dart';
-export 'step3_media_est_model.dart';
+import 'create_est_step3_model.dart';
+export 'create_est_step3_model.dart';
 
-class Step3MediaEstWidget extends StatefulWidget {
-  const Step3MediaEstWidget({
+class CreateEstStep3Widget extends StatefulWidget {
+  const CreateEstStep3Widget({
     Key? key,
     required this.estRef,
   }) : super(key: key);
@@ -27,21 +27,21 @@ class Step3MediaEstWidget extends StatefulWidget {
   final DocumentReference? estRef;
 
   @override
-  _Step3MediaEstWidgetState createState() => _Step3MediaEstWidgetState();
+  _CreateEstStep3WidgetState createState() => _CreateEstStep3WidgetState();
 }
 
-class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
-  late Step3MediaEstModel _model;
+class _CreateEstStep3WidgetState extends State<CreateEstStep3Widget> {
+  late CreateEstStep3Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Step3MediaEstModel());
+    _model = createModel(context, () => CreateEstStep3Model());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'step3MediaEst'});
+        parameters: {'screen_name': 'CreateEstStep3'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -57,7 +57,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'step3MediaEst',
+        title: 'CreateEstStep3',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
@@ -130,7 +130,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                     ),
                                     onPressed: () async {
                                       logFirebaseEvent(
-                                          'STEP3_MEDIA_EST_chevron_left_ICN_ON_TAP');
+                                          'CREATE_EST_STEP3_chevron_left_ICN_ON_TAP');
                                       logFirebaseEvent(
                                           'IconButton_navigate_back');
                                       context.safePop();
@@ -317,8 +317,8 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                       children: [
                                                                         Stack(
                                                                           children: [
-                                                                            if (_model.uploadedFileUrl1 == null ||
-                                                                                _model.uploadedFileUrl1 == '')
+                                                                            if (_model.uploadedFileUrl1 != null &&
+                                                                                _model.uploadedFileUrl1 != '')
                                                                               Stack(
                                                                                 children: [
                                                                                   FlutterFlowMediaDisplay(
@@ -368,7 +368,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                         ),
                                                                                         showLoadingIndicator: true,
                                                                                         onPressed: () async {
-                                                                                          logFirebaseEvent('STEP3_MEDIA_EST_PAGE_delete_ICN_ON_TAP');
+                                                                                          logFirebaseEvent('CREATE_EST_STEP3_PAGE_delete_ICN_ON_TAP');
                                                                                           logFirebaseEvent('IconButton_clear_uploaded_data');
                                                                                           setState(() {
                                                                                             _model.isDataUploading1 = false;
@@ -410,7 +410,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                           ),
                                                                                           showLoadingIndicator: true,
                                                                                           onPressed: () async {
-                                                                                            logFirebaseEvent('STEP3_MEDIA_EST_add_circle_ICN_ON_TAP');
+                                                                                            logFirebaseEvent('CREATE_EST_STEP3_add_circle_ICN_ON_TAP');
                                                                                             logFirebaseEvent('IconButton_alert_dialog');
                                                                                             await showAlignedDialog(
                                                                                               context: context,
@@ -544,7 +544,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                         ),
                                                                                         showLoadingIndicator: true,
                                                                                         onPressed: () async {
-                                                                                          logFirebaseEvent('STEP3_MEDIA_EST_PAGE_delete_ICN_ON_TAP');
+                                                                                          logFirebaseEvent('CREATE_EST_STEP3_PAGE_delete_ICN_ON_TAP');
                                                                                           logFirebaseEvent('IconButton_clear_uploaded_data');
                                                                                           setState(() {
                                                                                             _model.isDataUploading2 = false;
@@ -585,7 +585,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                         ),
                                                                                         showLoadingIndicator: true,
                                                                                         onPressed: () async {
-                                                                                          logFirebaseEvent('STEP3_MEDIA_EST_add_circle_ICN_ON_TAP');
+                                                                                          logFirebaseEvent('CREATE_EST_STEP3_add_circle_ICN_ON_TAP');
                                                                                           // establishmentVideoUpload
                                                                                           logFirebaseEvent('IconButton_establishmentVideoUpload');
                                                                                           final selectedMedia = await selectMediaWithSourceBottomSheet(
@@ -700,7 +700,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                         ),
                                                                                         showLoadingIndicator: true,
                                                                                         onPressed: () async {
-                                                                                          logFirebaseEvent('STEP3_MEDIA_EST_PAGE_delete_ICN_ON_TAP');
+                                                                                          logFirebaseEvent('CREATE_EST_STEP3_PAGE_delete_ICN_ON_TAP');
                                                                                           logFirebaseEvent('IconButton_clear_uploaded_data');
                                                                                           setState(() {
                                                                                             _model.isDataUploading3 = false;
@@ -741,7 +741,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                         ),
                                                                                         showLoadingIndicator: true,
                                                                                         onPressed: () async {
-                                                                                          logFirebaseEvent('STEP3_MEDIA_EST_add_circle_ICN_ON_TAP');
+                                                                                          logFirebaseEvent('CREATE_EST_STEP3_add_circle_ICN_ON_TAP');
                                                                                           // establishmentVideoUpload
                                                                                           logFirebaseEvent('IconButton_establishmentVideoUpload');
                                                                                           final selectedMedia = await selectMediaWithSourceBottomSheet(
@@ -856,7 +856,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                         ),
                                                                                         showLoadingIndicator: true,
                                                                                         onPressed: () async {
-                                                                                          logFirebaseEvent('STEP3_MEDIA_EST_PAGE_delete_ICN_ON_TAP');
+                                                                                          logFirebaseEvent('CREATE_EST_STEP3_PAGE_delete_ICN_ON_TAP');
                                                                                           logFirebaseEvent('IconButton_clear_uploaded_data');
                                                                                           setState(() {
                                                                                             _model.isDataUploading4 = false;
@@ -897,7 +897,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                         ),
                                                                                         showLoadingIndicator: true,
                                                                                         onPressed: () async {
-                                                                                          logFirebaseEvent('STEP3_MEDIA_EST_add_circle_ICN_ON_TAP');
+                                                                                          logFirebaseEvent('CREATE_EST_STEP3_add_circle_ICN_ON_TAP');
                                                                                           // establishmentVideoUpload
                                                                                           logFirebaseEvent('IconButton_establishmentVideoUpload');
                                                                                           final selectedMedia = await selectMediaWithSourceBottomSheet(
@@ -1080,7 +1080,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                                 true,
                                                                             onPressed:
                                                                                 () async {
-                                                                              logFirebaseEvent('STEP3_MEDIA_EST_PAGE_delete_ICN_ON_TAP');
+                                                                              logFirebaseEvent('CREATE_EST_STEP3_PAGE_delete_ICN_ON_TAP');
                                                                               logFirebaseEvent('IconButton_clear_uploaded_data');
                                                                               setState(() {
                                                                                 _model.isDataUploading5 = false;
@@ -1149,7 +1149,7 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                                                               true,
                                                                           onPressed:
                                                                               () async {
-                                                                            logFirebaseEvent('STEP3_MEDIA_EST_add_circle_ICN_ON_TAP');
+                                                                            logFirebaseEvent('CREATE_EST_STEP3_add_circle_ICN_ON_TAP');
                                                                             // establishmentVideoUpload
                                                                             logFirebaseEvent('IconButton_establishmentVideoUpload');
                                                                             final selectedMedia =
@@ -1230,81 +1230,89 @@ class _Step3MediaEstWidgetState extends State<Step3MediaEstWidget> {
                                             ],
                                           ),
                                         ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            logFirebaseEvent(
-                                                'STEP3_MEDIA_EST_BTNValidateFrom_ON_TAP');
-                                            logFirebaseEvent(
-                                                'BTNValidateFrom_backend_call');
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 15.0, 15.0, 15.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'CREATE_EST_STEP3_BTNValidateFrom_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'BTNValidateFrom_backend_call');
 
-                                            var imagesRecordReference =
-                                                ImagesRecord.createDoc(
-                                                    widget.estRef!);
-                                            await imagesRecordReference
-                                                .set(createImagesRecordData(
-                                              image1: _model.uploadedFileUrl1,
-                                              image2: _model.uploadedFileUrl2,
-                                              image3: _model.uploadedFileUrl3,
-                                              image4: _model.uploadedFileUrl4,
-                                              video: _model.uploadedFileUrl5,
-                                              establishmentRef: widget.estRef,
-                                              updatedTime: getCurrentTimestamp,
-                                              creaatedTime: getCurrentTimestamp,
-                                            ));
-                                            _model.imageEstUpload = ImagesRecord
-                                                .getDocumentFromData(
-                                                    createImagesRecordData(
-                                                      image1: _model
-                                                          .uploadedFileUrl1,
-                                                      image2: _model
-                                                          .uploadedFileUrl2,
-                                                      image3: _model
-                                                          .uploadedFileUrl3,
-                                                      image4: _model
-                                                          .uploadedFileUrl4,
-                                                      video: _model
-                                                          .uploadedFileUrl5,
-                                                      establishmentRef:
-                                                          widget.estRef,
-                                                      updatedTime:
-                                                          getCurrentTimestamp,
-                                                      creaatedTime:
-                                                          getCurrentTimestamp,
-                                                    ),
-                                                    imagesRecordReference);
-                                            logFirebaseEvent(
-                                                'BTNValidateFrom_navigate_to');
+                                              var imagesRecordReference =
+                                                  ImagesRecord.createDoc(
+                                                      widget.estRef!);
+                                              await imagesRecordReference
+                                                  .set(createImagesRecordData(
+                                                image1: _model.uploadedFileUrl1,
+                                                image2: _model.uploadedFileUrl2,
+                                                image3: _model.uploadedFileUrl3,
+                                                image4: _model.uploadedFileUrl4,
+                                                video: _model.uploadedFileUrl5,
+                                                establishmentRef: widget.estRef,
+                                                updatedTime:
+                                                    getCurrentTimestamp,
+                                                creaatedTime:
+                                                    getCurrentTimestamp,
+                                              ));
+                                              _model.imageEstUpload = ImagesRecord
+                                                  .getDocumentFromData(
+                                                      createImagesRecordData(
+                                                        image1: _model
+                                                            .uploadedFileUrl1,
+                                                        image2: _model
+                                                            .uploadedFileUrl2,
+                                                        image3: _model
+                                                            .uploadedFileUrl3,
+                                                        image4: _model
+                                                            .uploadedFileUrl4,
+                                                        video: _model
+                                                            .uploadedFileUrl5,
+                                                        establishmentRef:
+                                                            widget.estRef,
+                                                        updatedTime:
+                                                            getCurrentTimestamp,
+                                                        creaatedTime:
+                                                            getCurrentTimestamp,
+                                                      ),
+                                                      imagesRecordReference);
+                                              logFirebaseEvent(
+                                                  'BTNValidateFrom_navigate_to');
 
-                                            context.pushNamed('Dashboard');
+                                              context.pushNamed('Dashboard');
 
-                                            setState(() {});
-                                          },
-                                          text: 'Confirmer',
-                                          options: FFButtonOptions(
-                                            width: 300.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.white,
-                                                    ),
-                                            elevation: 3.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
+                                              setState(() {});
+                                            },
+                                            text: 'Confirmer',
+                                            options: FFButtonOptions(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: 50.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
                                           ),
                                         ),
                                       ].addToEnd(SizedBox(height: 20.0)),

@@ -494,7 +494,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                     'BTNValidateFrom_navigate_to');
 
                                                 context.pushNamed(
-                                                  'UpdateEventStep3',
+                                                  'UpdateEventStep4',
                                                   queryParameters: {
                                                     'eventstDetails':
                                                         serializeParam(

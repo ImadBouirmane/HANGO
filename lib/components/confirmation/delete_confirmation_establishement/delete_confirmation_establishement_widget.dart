@@ -6,25 +6,29 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'confirmation_establishement_model.dart';
-export 'confirmation_establishement_model.dart';
+import 'delete_confirmation_establishement_model.dart';
+export 'delete_confirmation_establishement_model.dart';
 
-class ConfirmationEstablishementWidget extends StatefulWidget {
-  const ConfirmationEstablishementWidget({
+class DeleteConfirmationEstablishementWidget extends StatefulWidget {
+  const DeleteConfirmationEstablishementWidget({
     Key? key,
     required this.establishementRef,
+    required this.mediaEst,
+    required this.scheduleEst,
   }) : super(key: key);
 
   final DocumentReference? establishementRef;
+  final DocumentReference? mediaEst;
+  final DocumentReference? scheduleEst;
 
   @override
-  _ConfirmationEstablishementWidgetState createState() =>
-      _ConfirmationEstablishementWidgetState();
+  _DeleteConfirmationEstablishementWidgetState createState() =>
+      _DeleteConfirmationEstablishementWidgetState();
 }
 
-class _ConfirmationEstablishementWidgetState
-    extends State<ConfirmationEstablishementWidget> {
-  late ConfirmationEstablishementModel _model;
+class _DeleteConfirmationEstablishementWidgetState
+    extends State<DeleteConfirmationEstablishementWidget> {
+  late DeleteConfirmationEstablishementModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,7 +39,8 @@ class _ConfirmationEstablishementWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ConfirmationEstablishementModel());
+    _model =
+        createModel(context, () => DeleteConfirmationEstablishementModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -84,7 +89,7 @@ class _ConfirmationEstablishementWidgetState
                 FFButtonWidget(
                   onPressed: () async {
                     logFirebaseEvent(
-                        'CONFIRMATION_ESTABLISHEMENT_ANNULER_BTN_');
+                        'DELETE_CONFIRMATION_ESTABLISHEMENT_ANNUL');
                     logFirebaseEvent('Button_bottom_sheet');
                     Navigator.pop(context);
                   },
@@ -111,11 +116,20 @@ class _ConfirmationEstablishementWidgetState
                 FFButtonWidget(
                   onPressed: () async {
                     logFirebaseEvent(
-                        'CONFIRMATION_ESTABLISHEMENT_SUPPRIMER_BT');
-                    logFirebaseEvent('Button_backend_call');
-                    await widget.establishementRef!.delete();
-                    logFirebaseEvent('Button_navigate_back');
-                    context.safePop();
+                        'DELETE_CONFIRMATION_ESTABLISHEMENT_SUPPR');
+                    final firestoreBatch = FirebaseFirestore.instance.batch();
+                    try {
+                      logFirebaseEvent('Button_backend_call');
+                      firestoreBatch.delete(widget.establishementRef!);
+                      logFirebaseEvent('Button_backend_call');
+                      firestoreBatch.delete(widget.mediaEst!);
+                      logFirebaseEvent('Button_backend_call');
+                      firestoreBatch.delete(widget.scheduleEst!);
+                      logFirebaseEvent('Button_navigate_back');
+                      context.safePop();
+                    } finally {
+                      await firestoreBatch.commit();
+                    }
                   },
                   text: 'Supprimer',
                   options: FFButtonOptions(

@@ -124,7 +124,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Text(
-                                    'Filtre un établissement',
+                                    'Filtrez les établissements',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall,
                                   ),
@@ -716,11 +716,6 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                           'ouvert': serializeParam(
                                             _model.switchListTileValue6,
                                             ParamType.bool,
-                                          ),
-                                          'estbRef': serializeParam(
-                                            columnEstablishmentsRecord
-                                                ?.reference,
-                                            ParamType.DocumentReference,
                                           ),
                                         }.withoutNulls,
                                       );

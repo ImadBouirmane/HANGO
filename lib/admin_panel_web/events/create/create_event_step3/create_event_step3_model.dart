@@ -1,16 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,11 +15,11 @@ import 'package:provider/provider.dart';
 class CreateEventStep3Model extends FlutterFlowModel {
   ///  Local state fields for this page.
 
-  List<ArtistStruct> artistInput = [];
-  void addToArtistInput(ArtistStruct item) => artistInput.add(item);
-  void removeFromArtistInput(ArtistStruct item) => artistInput.remove(item);
+  List<String> artistInput = [];
+  void addToArtistInput(String item) => artistInput.add(item);
+  void removeFromArtistInput(String item) => artistInput.remove(item);
   void removeAtIndexFromArtistInput(int index) => artistInput.removeAt(index);
-  void updateArtistInputAtIndex(int index, Function(ArtistStruct) updateFn) =>
+  void updateArtistInputAtIndex(int index, Function(String) updateFn) =>
       artistInput[index] = updateFn(artistInput[index]);
 
   ///  State fields for stateful widgets in this page.
@@ -31,18 +28,22 @@ class CreateEventStep3Model extends FlutterFlowModel {
   final formKey = GlobalKey<FormState>();
   // Model for SideBar component.
   late SideBarModel sideBarModel;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
-
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
-
+  // State field(s) for promorTitle widget.
+  TextEditingController? promorTitleController;
+  String? Function(BuildContext, String?)? promorTitleControllerValidator;
+  // State field(s) for promorSousTitle widget.
+  TextEditingController? promorSousTitleController;
+  String? Function(BuildContext, String?)? promorSousTitleControllerValidator;
+  // State field(s) for description widget.
+  TextEditingController? descriptionController;
+  String? Function(BuildContext, String?)? descriptionControllerValidator;
+  // State field(s) for nbrEntrance widget.
+  TextEditingController? nbrEntranceController;
+  String? Function(BuildContext, String?)? nbrEntranceControllerValidator;
+  DateTime? datePicked1;
+  DateTime? datePicked2;
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
-  MediaRecord? mediaEventUpload;
+  PromotionEventRecord? promotionEventCreation;
 
   /// Initialization and disposal methods.
 
@@ -53,6 +54,10 @@ class CreateEventStep3Model extends FlutterFlowModel {
   void dispose() {
     unfocusNode.dispose();
     sideBarModel.dispose();
+    promorTitleController?.dispose();
+    promorSousTitleController?.dispose();
+    descriptionController?.dispose();
+    nbrEntranceController?.dispose();
   }
 
   /// Action blocks are added here.

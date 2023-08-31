@@ -50,16 +50,12 @@ class CreateEventsStep1Model extends FlutterFlowModel {
   // State field(s) for CheckBoxMusicStyle widget.
   List<String>? checkBoxMusicStyleValues2;
   FormFieldController<List<String>>? checkBoxMusicStyleValueController2;
-  // State field(s) for eventPromo widget.
-  TextEditingController? eventPromoController1;
-  String? Function(BuildContext, String?)? eventPromoController1Validator;
-  // State field(s) for eventPromo widget.
-  TextEditingController? eventPromoController2;
-  String? Function(BuildContext, String?)? eventPromoController2Validator;
   // State field(s) for PlacePicker widget.
   var placePickerValue = FFPlace();
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
   EventsRecord? eventCreation;
+  // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
+  ScheduleEventRecord? eventScheduleInput;
 
   /// Initialization and disposal methods.
 
@@ -74,8 +70,6 @@ class CreateEventsStep1Model extends FlutterFlowModel {
     tFTitleController?.dispose();
     tFDescriionController?.dispose();
     tFURLWebSiteController?.dispose();
-    eventPromoController1?.dispose();
-    eventPromoController2?.dispose();
   }
 
   /// Action blocks are added here.

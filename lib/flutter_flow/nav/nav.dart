@@ -96,11 +96,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : ListOfEstablishmentsWidget(),
         ),
         FFRoute(
-          name: 'ShowOfEstablishments',
-          path: '/showOfEstablishments',
-          builder: (context, params) => ShowOfEstablishmentsWidget(
-            establishmentDetails: params.getParam('establishmentDetails',
-                ParamType.DocumentReference, false, ['establishments']),
+          name: 'ShowOfEstablishment',
+          path: '/showOfEstablishment',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: ShowOfEstablishmentWidget(
+              establishmentDetails: params.getParam('establishmentDetails',
+                  ParamType.DocumentReference, false, ['establishments']),
+            ),
           ),
         ),
         FFRoute(
@@ -173,9 +176,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'step1InfoEst',
+          name: 'CreateEstStep1',
           path: '/step1Info',
-          builder: (context, params) => Step1InfoEstWidget(),
+          builder: (context, params) => CreateEstStep1Widget(),
         ),
         FFRoute(
           name: 'WebViewEstablishment',
@@ -211,14 +214,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => UpdateEventStep1Widget(
             eventstDetails: params.getParam('eventstDetails',
                 ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'ShowOfEvents',
-          path: '/EventDetails',
-          builder: (context, params) => ShowOfEventsWidget(
-            showOfEvents: params.getParam(
-                'showOfEvents', ParamType.DocumentReference, false, ['events']),
           ),
         ),
         FFRoute(
@@ -275,18 +270,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'establishmentFilterResults',
           path: '/establishmentFilterResults',
-          builder: (context, params) => EstablishmentFilterResultsWidget(
-            type: params.getParam('type', ParamType.String),
-            artist: params.getParam('artist', ParamType.String),
-            terrasse: params.getParam('terrasse', ParamType.bool),
-            reservation: params.getParam('reservation', ParamType.bool),
-            machineacigarette:
-                params.getParam('machineacigarette', ParamType.bool),
-            nourriture: params.getParam('nourriture', ParamType.bool),
-            jeux: params.getParam('jeux', ParamType.bool),
-            ouvert: params.getParam('ouvert', ParamType.bool),
-            estbRef: params.getParam('estbRef', ParamType.DocumentReference,
-                false, ['establishments']),
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: EstablishmentFilterResultsWidget(
+              type: params.getParam('type', ParamType.String),
+              artist: params.getParam('artist', ParamType.String),
+              terrasse: params.getParam('terrasse', ParamType.bool),
+              reservation: params.getParam('reservation', ParamType.bool),
+              machineacigarette:
+                  params.getParam('machineacigarette', ParamType.bool),
+              nourriture: params.getParam('nourriture', ParamType.bool),
+              jeux: params.getParam('jeux', ParamType.bool),
+              ouvert: params.getParam('ouvert', ParamType.bool),
+            ),
           ),
         ),
         FFRoute(
@@ -295,17 +291,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => FeedbackWidget(),
         ),
         FFRoute(
-          name: 'step2ScheduleEst',
-          path: '/step2ScheduleEst',
-          builder: (context, params) => Step2ScheduleEstWidget(
+          name: 'CreateEstStep2',
+          path: '/createEstStep2',
+          builder: (context, params) => CreateEstStep2Widget(
             estRef: params.getParam('estRef', ParamType.DocumentReference,
                 false, ['establishments']),
           ),
         ),
         FFRoute(
-          name: 'step3MediaEst',
-          path: '/step3MediaEst',
-          builder: (context, params) => Step3MediaEstWidget(
+          name: 'CreateEstStep3',
+          path: '/createEstStep3',
+          builder: (context, params) => CreateEstStep3Widget(
             estRef: params.getParam('estRef', ParamType.DocumentReference,
                 false, ['establishments']),
           ),
@@ -327,9 +323,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CreateEventStep3',
-          path: '/createEventStep3',
-          builder: (context, params) => CreateEventStep3Widget(
+          name: 'CreateEventStep4',
+          path: '/createEventStep4',
+          builder: (context, params) => CreateEventStep4Widget(
             eventRef: params.getParam(
                 'eventRef', ParamType.DocumentReference, false, ['events']),
           ),
@@ -345,9 +341,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'UpdateEventStep3',
-          path: '/updateEventStep3',
-          builder: (context, params) => UpdateEventStep3Widget(
+          name: 'UpdateEventStep4',
+          path: '/updateEventStep4',
+          builder: (context, params) => UpdateEventStep4Widget(
             eventstDetails: params.getParam('eventstDetails',
                 ParamType.DocumentReference, false, ['events']),
           ),
@@ -356,6 +352,35 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'UpdateEventStep2',
           path: '/updateEventStep2',
           builder: (context, params) => UpdateEventStep2Widget(
+            eventstDetails: params.getParam('eventstDetails',
+                ParamType.DocumentReference, false, ['events']),
+          ),
+        ),
+        FFRoute(
+          name: 'ShowOfEvents',
+          path: '/showOfEvents',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: ShowOfEventsWidget(
+              showOfEvents: params.getParam('showOfEvents',
+                  ParamType.DocumentReference, false, ['events']),
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'CreateEventStep3',
+          path: '/createEventStep3',
+          builder: (context, params) => CreateEventStep3Widget(
+            establishmentRef: params.getParam('establishmentRef',
+                ParamType.DocumentReference, false, ['establishments']),
+            eventRef: params.getParam(
+                'eventRef', ParamType.DocumentReference, false, ['events']),
+          ),
+        ),
+        FFRoute(
+          name: 'UpdateEventStep3',
+          path: '/updateEventStep3',
+          builder: (context, params) => UpdateEventStep3Widget(
             eventstDetails: params.getParam('eventstDetails',
                 ParamType.DocumentReference, false, ['events']),
           ),

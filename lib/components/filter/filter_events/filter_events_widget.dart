@@ -119,7 +119,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Filtres',
+                                'Filtrer les événements',
                                 style:
                                     FlutterFlowTheme.of(context).headlineSmall,
                               ),
@@ -373,7 +373,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                       _model.switchListTileValue2 = newValue!);
                                 },
                                 title: Text(
-                                  'Jeudredi',
+                                  'Jeudi',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -440,8 +440,8 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).grayIcon,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiary400,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -509,7 +509,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
-                                          .tertiary400,
+                                          .primaryBackground,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

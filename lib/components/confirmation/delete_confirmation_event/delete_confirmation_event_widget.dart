@@ -6,11 +6,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'confirmation_event_model.dart';
-export 'confirmation_event_model.dart';
+import 'delete_confirmation_event_model.dart';
+export 'delete_confirmation_event_model.dart';
 
-class ConfirmationEventWidget extends StatefulWidget {
-  const ConfirmationEventWidget({
+class DeleteConfirmationEventWidget extends StatefulWidget {
+  const DeleteConfirmationEventWidget({
     Key? key,
     required this.eventRef,
   }) : super(key: key);
@@ -18,12 +18,13 @@ class ConfirmationEventWidget extends StatefulWidget {
   final DocumentReference? eventRef;
 
   @override
-  _ConfirmationEventWidgetState createState() =>
-      _ConfirmationEventWidgetState();
+  _DeleteConfirmationEventWidgetState createState() =>
+      _DeleteConfirmationEventWidgetState();
 }
 
-class _ConfirmationEventWidgetState extends State<ConfirmationEventWidget> {
-  late ConfirmationEventModel _model;
+class _DeleteConfirmationEventWidgetState
+    extends State<DeleteConfirmationEventWidget> {
+  late DeleteConfirmationEventModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -34,7 +35,7 @@ class _ConfirmationEventWidgetState extends State<ConfirmationEventWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ConfirmationEventModel());
+    _model = createModel(context, () => DeleteConfirmationEventModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -82,7 +83,8 @@ class _ConfirmationEventWidgetState extends State<ConfirmationEventWidget> {
               children: [
                 FFButtonWidget(
                   onPressed: () async {
-                    logFirebaseEvent('CONFIRMATION_EVENT_ANNULER_BTN_ON_TAP');
+                    logFirebaseEvent(
+                        'DELETE_CONFIRMATION_EVENT_ANNULER_BTN_ON');
                     logFirebaseEvent('Button_bottom_sheet');
                     Navigator.pop(context);
                   },
@@ -108,7 +110,8 @@ class _ConfirmationEventWidgetState extends State<ConfirmationEventWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    logFirebaseEvent('CONFIRMATION_EVENT_SUPPRIMER_BTN_ON_TAP');
+                    logFirebaseEvent(
+                        'DELETE_CONFIRMATION_EVENT_SUPPRIMER_BTN_');
                     logFirebaseEvent('Button_backend_call');
                     await widget.eventRef!.delete();
                     logFirebaseEvent('Button_navigate_back');

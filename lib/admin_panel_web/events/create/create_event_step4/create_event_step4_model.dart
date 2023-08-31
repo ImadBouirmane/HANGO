@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/components/images_delete_problem_admin_pop_up/images_delete_problem_admin_pop_up_widget.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
@@ -10,13 +10,21 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class Step3MediaEstModel extends FlutterFlowModel {
+class CreateEventStep4Model extends FlutterFlowModel {
+  ///  Local state fields for this page.
+
+  List<ArtistStruct> artistInput = [];
+  void addToArtistInput(ArtistStruct item) => artistInput.add(item);
+  void removeFromArtistInput(ArtistStruct item) => artistInput.remove(item);
+  void removeAtIndexFromArtistInput(int index) => artistInput.removeAt(index);
+  void updateArtistInputAtIndex(int index, Function(ArtistStruct) updateFn) =>
+      artistInput[index] = updateFn(artistInput[index]);
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -33,23 +41,8 @@ class Step3MediaEstModel extends FlutterFlowModel {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
-
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
-
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl5 = '';
-
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
-  ImagesRecord? imageEstUpload;
+  MediaRecord? mediaEventUpload;
 
   /// Initialization and disposal methods.
 

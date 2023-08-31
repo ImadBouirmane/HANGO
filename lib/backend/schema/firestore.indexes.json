@@ -1,3 +1,40 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "events",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "type",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "music_sytle",
+          "arrayConfig": "CONTAINS"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "establishments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "terrasse",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "reservation",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "cigarette_machine",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "food",
+          "arrayConfig": "CONTAINS"
+        }
+      ]
+    }
+  ]
 }

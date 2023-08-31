@@ -47,13 +47,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
     _model.tFTitleController ??= TextEditingController();
     _model.tFDescriionController ??= TextEditingController();
     _model.tFURLWebSiteController ??= TextEditingController();
-    _model.eventPromoController1 ??= TextEditingController();
-    _model.eventPromoController2 ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.eventPromoController1?.text =
-              'Titre de la promotion EX: \"Entrée gratuite pour les filles avant 00:00\"';
-          _model.eventPromoController2?.text = '50.00';
-        }));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -448,7 +442,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                     .max,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
-                                                                    .spaceBetween,
+                                                                    .start,
                                                             children: [
                                                               Text(
                                                                 valueOrDefault<
@@ -536,7 +530,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   }
                                                                 },
                                                               ),
-                                                            ],
+                                                            ].divide(SizedBox(
+                                                                width: 30.0)),
                                                           ),
                                                         ].divide(SizedBox(
                                                             height: 5.0)),
@@ -1166,234 +1161,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   .of(context)
                                                               .secondaryBackground,
                                                         ),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Flexible(
-                                                              child:
-                                                                  TextFormField(
-                                                                controller: _model
-                                                                    .eventPromoController1,
-                                                                autofocus: true,
-                                                                obscureText:
-                                                                    false,
-                                                                decoration:
-                                                                    InputDecoration(
-                                                                  labelText:
-                                                                      'PROMO',
-                                                                  labelStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .accent2,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                  ),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Color(
-                                                                          0x00000000),
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                  ),
-                                                                  errorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                  ),
-                                                                  focusedErrorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                  ),
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
-                                                                validator: _model
-                                                                    .eventPromoController1Validator
-                                                                    .asValidator(
-                                                                        context),
-                                                              ),
-                                                            ),
-                                                            Flexible(
-                                                              child: Container(
-                                                                height: 100.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .end,
-                                                                  children: [
-                                                                    Expanded(
-                                                                      child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.min,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
-                                                                        children: [
-                                                                          Text(
-                                                                            'Prix de l\'entée en CHF',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                          Text(
-                                                                            '*Si gratuit laissé vide',
-                                                                            style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  fontWeight: FontWeight.w300,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Flexible(
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            130.0,
-                                                                        child:
-                                                                            TextFormField(
-                                                                          controller:
-                                                                              _model.eventPromoController2,
-                                                                          autofocus:
-                                                                              true,
-                                                                          obscureText:
-                                                                              false,
-                                                                          decoration:
-                                                                              InputDecoration(
-                                                                            labelText:
-                                                                                'Prix de l\'entrée',
-                                                                            labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  fontSize: 14.0,
-                                                                                  fontWeight: FontWeight.w500,
-                                                                                ),
-                                                                            enabledBorder:
-                                                                                OutlineInputBorder(
-                                                                              borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).accent2,
-                                                                                width: 1.0,
-                                                                              ),
-                                                                              borderRadius: BorderRadius.circular(16.0),
-                                                                            ),
-                                                                            focusedBorder:
-                                                                                OutlineInputBorder(
-                                                                              borderSide: BorderSide(
-                                                                                color: Color(0x00000000),
-                                                                                width: 1.0,
-                                                                              ),
-                                                                              borderRadius: BorderRadius.circular(16.0),
-                                                                            ),
-                                                                            errorBorder:
-                                                                                OutlineInputBorder(
-                                                                              borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).alternate,
-                                                                                width: 1.0,
-                                                                              ),
-                                                                              borderRadius: BorderRadius.circular(16.0),
-                                                                            ),
-                                                                            focusedErrorBorder:
-                                                                                OutlineInputBorder(
-                                                                              borderSide: BorderSide(
-                                                                                color: FlutterFlowTheme.of(context).alternate,
-                                                                                width: 1.0,
-                                                                              ),
-                                                                              borderRadius: BorderRadius.circular(16.0),
-                                                                            ),
-                                                                          ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                fontWeight: FontWeight.w500,
-                                                                              ),
-                                                                          textAlign:
-                                                                              TextAlign.end,
-                                                                          validator: _model
-                                                                              .eventPromoController2Validator
-                                                                              .asValidator(context),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Text(
-                                                                      '.-',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium,
-                                                                    ),
-                                                                  ].divide(SizedBox(
-                                                                      width:
-                                                                          16.0)),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ].divide(SizedBox(
-                                                              width: 50.0)),
-                                                        ),
                                                       ),
                                                       Container(
                                                         decoration:
@@ -1499,292 +1266,267 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                 onPressed: () async {
                                                   logFirebaseEvent(
                                                       'CREATE_EVENTS_STEP1_BTNValidateFrom_ON_T');
-                                                  logFirebaseEvent(
-                                                      'BTNValidateFrom_backend_call');
+                                                  final firestoreBatch =
+                                                      FirebaseFirestore.instance
+                                                          .batch();
+                                                  try {
+                                                    logFirebaseEvent(
+                                                        'BTNValidateFrom_backend_call');
 
-                                                  var eventsRecordReference =
-                                                      EventsRecord.collection
-                                                          .doc();
-                                                  await eventsRecordReference
-                                                      .set({
-                                                    ...createEventsRecordData(
-                                                      name: valueOrDefault<
-                                                          String>(
-                                                        _model.tFTitleController
-                                                                        .text !=
-                                                                    null &&
-                                                                _model.tFTitleController
-                                                                        .text !=
-                                                                    ''
+                                                    var eventsRecordReference =
+                                                        EventsRecord.collection
+                                                            .doc();
+                                                    firestoreBatch.set(
+                                                        eventsRecordReference, {
+                                                      ...createEventsRecordData(
+                                                        location: _model
+                                                                    .placePickerValue !=
+                                                                null
                                                             ? _model
-                                                                .tFTitleController
-                                                                .text
-                                                            : 'Aucune',
-                                                        'Aucune',
-                                                      ),
-                                                      location: _model
-                                                                  .placePickerValue !=
-                                                              null
-                                                          ? _model
-                                                              .placePickerValue
-                                                              .latLng
-                                                          : null,
-                                                      title: valueOrDefault<
-                                                          String>(
-                                                        _model.tFTitleController
-                                                                        .text !=
-                                                                    null &&
-                                                                _model.tFTitleController
-                                                                        .text !=
-                                                                    ''
-                                                            ? _model
-                                                                .tFTitleController
-                                                                .text
+                                                                .placePickerValue
+                                                                .latLng
                                                             : null,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                        title: valueOrDefault<
+                                                            String>(
+                                                          _model.tFTitleController
+                                                                          .text !=
+                                                                      null &&
+                                                                  _model.tFTitleController
+                                                                          .text !=
+                                                                      ''
+                                                              ? _model
+                                                                  .tFTitleController
+                                                                  .text
+                                                              : null,
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                        ),
+                                                        description: _model
+                                                            .tFDescriionController
+                                                            .text,
+                                                        siteWeb: valueOrDefault<
+                                                            String>(
+                                                          _model.tFURLWebSiteController
+                                                                          .text !=
+                                                                      null &&
+                                                                  _model.tFURLWebSiteController
+                                                                          .text !=
+                                                                      ''
+                                                              ? _model
+                                                                  .tFURLWebSiteController
+                                                                  .text
+                                                              : null,
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                        ),
+                                                        establishmentId:
+                                                            createEventsStep1EstablishmentsRecord
+                                                                .reference,
+                                                        type: valueOrDefault<
+                                                            String>(
+                                                          _model.checkBoxMusicStyleValues2
+                                                                          ?.first !=
+                                                                      null &&
+                                                                  _model.checkBoxMusicStyleValues2
+                                                                          ?.first !=
+                                                                      ''
+                                                              ? _model
+                                                                  .checkBoxMusicStyleValues2
+                                                                  ?.first
+                                                              : null,
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                        ),
                                                       ),
-                                                      description: _model
-                                                          .tFDescriionController
-                                                          .text,
-                                                      date:
-                                                          _model.datePicked1 !=
+                                                      'created_time': FieldValue
+                                                          .serverTimestamp(),
+                                                      'music_sytle': [
+                                                        _model
+                                                            .checkBoxMusicStyleValues1
+                                                            ?.first
+                                                      ],
+                                                    });
+                                                    _model.eventCreation =
+                                                        EventsRecord
+                                                            .getDocumentFromData({
+                                                      ...createEventsRecordData(
+                                                        location: _model
+                                                                    .placePickerValue !=
+                                                                null
+                                                            ? _model
+                                                                .placePickerValue
+                                                                .latLng
+                                                            : null,
+                                                        title: valueOrDefault<
+                                                            String>(
+                                                          _model.tFTitleController
+                                                                          .text !=
+                                                                      null &&
+                                                                  _model.tFTitleController
+                                                                          .text !=
+                                                                      ''
+                                                              ? _model
+                                                                  .tFTitleController
+                                                                  .text
+                                                              : null,
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                        ),
+                                                        description: _model
+                                                            .tFDescriionController
+                                                            .text,
+                                                        siteWeb: valueOrDefault<
+                                                            String>(
+                                                          _model.tFURLWebSiteController
+                                                                          .text !=
+                                                                      null &&
+                                                                  _model.tFURLWebSiteController
+                                                                          .text !=
+                                                                      ''
+                                                              ? _model
+                                                                  .tFURLWebSiteController
+                                                                  .text
+                                                              : null,
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                        ),
+                                                        establishmentId:
+                                                            createEventsStep1EstablishmentsRecord
+                                                                .reference,
+                                                        type: valueOrDefault<
+                                                            String>(
+                                                          _model.checkBoxMusicStyleValues2
+                                                                          ?.first !=
+                                                                      null &&
+                                                                  _model.checkBoxMusicStyleValues2
+                                                                          ?.first !=
+                                                                      ''
+                                                              ? _model
+                                                                  .checkBoxMusicStyleValues2
+                                                                  ?.first
+                                                              : null,
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                        ),
+                                                      ),
+                                                      'created_time':
+                                                          DateTime.now(),
+                                                      'music_sytle': [
+                                                        _model
+                                                            .checkBoxMusicStyleValues1
+                                                            ?.first
+                                                      ],
+                                                    }, eventsRecordReference);
+                                                    logFirebaseEvent(
+                                                        'BTNValidateFrom_backend_call');
+
+                                                    firestoreBatch.update(
+                                                        _model.eventCreation!
+                                                            .reference,
+                                                        createEventsRecordData(
+                                                          dateEvent:
+                                                              _model.datePicked1 !=
+                                                                      null
+                                                                  ? _model
+                                                                      .datePicked1
+                                                                  : null,
+                                                        ));
+                                                    logFirebaseEvent(
+                                                        'BTNValidateFrom_backend_call');
+
+                                                    var scheduleEventRecordReference =
+                                                        ScheduleEventRecord
+                                                            .createDoc(_model
+                                                                .eventCreation!
+                                                                .reference);
+                                                    firestoreBatch.set(
+                                                        scheduleEventRecordReference,
+                                                        createScheduleEventRecordData(
+                                                          date: _model.datePicked1 !=
                                                                   null
                                                               ? _model
                                                                   .datePicked1
                                                               : null,
-                                                      schedule:
-                                                          '${valueOrDefault<String>(
-                                                        (_model.datePicked2 !=
-                                                                    null
-                                                                ? _model
-                                                                    .datePicked2
-                                                                : null)
-                                                            ?.toString(),
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      )} - ${valueOrDefault<String>(
-                                                        (_model.datePicked3 !=
-                                                                    null
-                                                                ? _model
-                                                                    .datePicked3
-                                                                : null)
-                                                            ?.toString(),
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      )}',
-                                                      siteWeb: valueOrDefault<
-                                                          String>(
-                                                        _model.tFURLWebSiteController
-                                                                        .text !=
-                                                                    null &&
-                                                                _model.tFURLWebSiteController
-                                                                        .text !=
-                                                                    ''
-                                                            ? _model
-                                                                .tFURLWebSiteController
-                                                                .text
-                                                            : null,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      ),
-                                                      promo: valueOrDefault<
-                                                          String>(
-                                                        _model.eventPromoController1
-                                                                        .text !=
-                                                                    null &&
-                                                                _model.eventPromoController1
-                                                                        .text !=
-                                                                    ''
-                                                            ? _model
-                                                                .eventPromoController1
-                                                                .text
-                                                            : null,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      ),
-                                                      establishmentId:
-                                                          createEventsStep1EstablishmentsRecord
-                                                              .reference,
-                                                      type: valueOrDefault<
-                                                          String>(
-                                                        _model.checkBoxMusicStyleValues2
-                                                                        ?.first !=
-                                                                    null &&
-                                                                _model.checkBoxMusicStyleValues2
-                                                                        ?.first !=
-                                                                    ''
-                                                            ? _model
-                                                                .checkBoxMusicStyleValues2
-                                                                ?.first
-                                                            : null,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      ),
-                                                      entrance: _model.eventPromoController2
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.eventPromoController2
-                                                                      .text !=
-                                                                  ''
-                                                          ? double.tryParse(_model
-                                                              .eventPromoController2
-                                                              .text)
-                                                          : null,
-                                                    ),
-                                                    'created_time': FieldValue
-                                                        .serverTimestamp(),
-                                                    'music_sytle': [
-                                                      _model
-                                                          .checkBoxMusicStyleValues1
-                                                          ?.first
-                                                    ],
-                                                  });
-                                                  _model.eventCreation =
-                                                      EventsRecord
-                                                          .getDocumentFromData({
-                                                    ...createEventsRecordData(
-                                                      name: valueOrDefault<
-                                                          String>(
-                                                        _model.tFTitleController
-                                                                        .text !=
-                                                                    null &&
-                                                                _model.tFTitleController
-                                                                        .text !=
-                                                                    ''
-                                                            ? _model
-                                                                .tFTitleController
-                                                                .text
-                                                            : 'Aucune',
-                                                        'Aucune',
-                                                      ),
-                                                      location: _model
-                                                                  .placePickerValue !=
-                                                              null
-                                                          ? _model
-                                                              .placePickerValue
-                                                              .latLng
-                                                          : null,
-                                                      title: valueOrDefault<
-                                                          String>(
-                                                        _model.tFTitleController
-                                                                        .text !=
-                                                                    null &&
-                                                                _model.tFTitleController
-                                                                        .text !=
-                                                                    ''
-                                                            ? _model
-                                                                .tFTitleController
-                                                                .text
-                                                            : null,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      ),
-                                                      description: _model
-                                                          .tFDescriionController
-                                                          .text,
-                                                      date:
-                                                          _model.datePicked1 !=
-                                                                  null
-                                                              ? _model
-                                                                  .datePicked1
-                                                              : null,
-                                                      schedule:
-                                                          '${valueOrDefault<String>(
-                                                        (_model.datePicked2 !=
-                                                                    null
-                                                                ? _model
-                                                                    .datePicked2
-                                                                : null)
-                                                            ?.toString(),
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      )} - ${valueOrDefault<String>(
-                                                        (_model.datePicked3 !=
-                                                                    null
-                                                                ? _model
-                                                                    .datePicked3
-                                                                : null)
-                                                            ?.toString(),
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      )}',
-                                                      siteWeb: valueOrDefault<
-                                                          String>(
-                                                        _model.tFURLWebSiteController
-                                                                        .text !=
-                                                                    null &&
-                                                                _model.tFURLWebSiteController
-                                                                        .text !=
-                                                                    ''
-                                                            ? _model
-                                                                .tFURLWebSiteController
-                                                                .text
-                                                            : null,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      ),
-                                                      promo: valueOrDefault<
-                                                          String>(
-                                                        _model.eventPromoController1
-                                                                        .text !=
-                                                                    null &&
-                                                                _model.eventPromoController1
-                                                                        .text !=
-                                                                    ''
-                                                            ? _model
-                                                                .eventPromoController1
-                                                                .text
-                                                            : null,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      ),
-                                                      establishmentId:
-                                                          createEventsStep1EstablishmentsRecord
-                                                              .reference,
-                                                      type: valueOrDefault<
-                                                          String>(
-                                                        _model.checkBoxMusicStyleValues2
-                                                                        ?.first !=
-                                                                    null &&
-                                                                _model.checkBoxMusicStyleValues2
-                                                                        ?.first !=
-                                                                    ''
-                                                            ? _model
-                                                                .checkBoxMusicStyleValues2
-                                                                ?.first
-                                                            : null,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                      ),
-                                                      entrance: _model.eventPromoController2
-                                                                      .text !=
-                                                                  null &&
-                                                              _model.eventPromoController2
-                                                                      .text !=
-                                                                  ''
-                                                          ? double.tryParse(_model
-                                                              .eventPromoController2
-                                                              .text)
-                                                          : null,
-                                                    ),
-                                                    'created_time':
-                                                        DateTime.now(),
-                                                    'music_sytle': [
-                                                      _model
-                                                          .checkBoxMusicStyleValues1
-                                                          ?.first
-                                                    ],
-                                                  }, eventsRecordReference);
-                                                  logFirebaseEvent(
-                                                      'BTNValidateFrom_navigate_to');
+                                                          scheduleStart:
+                                                              _model.datePicked2 !=
+                                                                      null
+                                                                  ? _model
+                                                                      .datePicked2
+                                                                  : null,
+                                                          scheduleEnd:
+                                                              _model.datePicked3 !=
+                                                                      null
+                                                                  ? _model
+                                                                      .datePicked3
+                                                                  : null,
+                                                          eventRef: _model
+                                                              .eventCreation
+                                                              ?.reference,
+                                                          createdTime:
+                                                              getCurrentTimestamp,
+                                                        ));
+                                                    _model.eventScheduleInput =
+                                                        ScheduleEventRecord
+                                                            .getDocumentFromData(
+                                                                createScheduleEventRecordData(
+                                                                  date: _model.datePicked1 !=
+                                                                          null
+                                                                      ? _model
+                                                                          .datePicked1
+                                                                      : null,
+                                                                  scheduleStart:
+                                                                      _model.datePicked2 !=
+                                                                              null
+                                                                          ? _model
+                                                                              .datePicked2
+                                                                          : null,
+                                                                  scheduleEnd: _model
+                                                                              .datePicked3 !=
+                                                                          null
+                                                                      ? _model
+                                                                          .datePicked3
+                                                                      : null,
+                                                                  eventRef: _model
+                                                                      .eventCreation
+                                                                      ?.reference,
+                                                                  createdTime:
+                                                                      getCurrentTimestamp,
+                                                                ),
+                                                                scheduleEventRecordReference);
+                                                    logFirebaseEvent(
+                                                        'BTNValidateFrom_backend_call');
 
-                                                  context.pushNamed(
-                                                    'CreateEventStep2',
-                                                    queryParameters: {
-                                                      'establishmentRef':
-                                                          serializeParam(
-                                                        widget.establishmentRef,
-                                                        ParamType
-                                                            .DocumentReference,
-                                                      ),
-                                                      'eventRef':
-                                                          serializeParam(
-                                                        _model.eventCreation
-                                                            ?.reference,
-                                                        ParamType
-                                                            .DocumentReference,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
+                                                    firestoreBatch.update(
+                                                        createEventsStep1EstablishmentsRecord
+                                                            .reference,
+                                                        {
+                                                          'events_references':
+                                                              FieldValue
+                                                                  .arrayUnion([
+                                                            _model.eventCreation
+                                                                ?.reference
+                                                          ]),
+                                                        });
+                                                    logFirebaseEvent(
+                                                        'BTNValidateFrom_navigate_to');
+
+                                                    context.pushNamed(
+                                                      'CreateEventStep2',
+                                                      queryParameters: {
+                                                        'establishmentRef':
+                                                            serializeParam(
+                                                          widget
+                                                              .establishmentRef,
+                                                          ParamType
+                                                              .DocumentReference,
+                                                        ),
+                                                        'eventRef':
+                                                            serializeParam(
+                                                          _model.eventCreation
+                                                              ?.reference,
+                                                          ParamType
+                                                              .DocumentReference,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  } finally {
+                                                    await firestoreBatch
+                                                        .commit();
+                                                  }
 
                                                   setState(() {});
                                                 },

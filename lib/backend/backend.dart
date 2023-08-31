@@ -14,6 +14,7 @@ import 'schema/artists_record.dart';
 import 'schema/images_record.dart';
 import 'schema/media_record.dart';
 import 'schema/promotion_event_record.dart';
+import 'schema/schedule_event_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -30,6 +31,7 @@ export 'schema/artists_record.dart';
 export 'schema/images_record.dart';
 export 'schema/media_record.dart';
 export 'schema/promotion_event_record.dart';
+export 'schema/schedule_event_record.dart';
 
 /// Functions to query EstablishmentsRecords (as a Stream and as a Future).
 Future<int> queryEstablishmentsRecordCount({
@@ -374,6 +376,46 @@ Future<List<PromotionEventRecord>> queryPromotionEventRecordOnce({
     queryCollectionOnce(
       PromotionEventRecord.collection(parent),
       PromotionEventRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ScheduleEventRecords (as a Stream and as a Future).
+Future<int> queryScheduleEventRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ScheduleEventRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ScheduleEventRecord>> queryScheduleEventRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ScheduleEventRecord.collection(parent),
+      ScheduleEventRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ScheduleEventRecord>> queryScheduleEventRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ScheduleEventRecord.collection(parent),
+      ScheduleEventRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

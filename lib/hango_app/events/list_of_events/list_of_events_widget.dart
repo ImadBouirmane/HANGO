@@ -73,16 +73,15 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
 
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(
-        queryBuilder: (eventsRecord) => eventsRecord
-            .where('date', isGreaterThanOrEqualTo: FFAppState().selectedDate)
-            .orderBy('date'),
+        queryBuilder: (eventsRecord) => eventsRecord.where('dateEvent',
+            isGreaterThanOrEqualTo: FFAppState().selectedDate),
         limit: 15,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Center(
               child: SizedBox(
                 width: 30.0,
@@ -108,7 +107,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                 child: Scaffold(
                   key: scaffoldKey,
                   backgroundColor:
-                      FlutterFlowTheme.of(context).primaryBackground,
+                      FlutterFlowTheme.of(context).secondaryBackground,
                   drawer: Drawer(
                     elevation: 16.0,
                     child: Container(
@@ -721,13 +720,11 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                               TextSearch(
                                             listOfEventsEventsRecordList
                                                 .map(
-                                                  (record) =>
-                                                      TextSearchItem(record, [
-                                                    record.promo!,
+                                                  (record) => TextSearchItem(
+                                                      record, [
                                                     record.siteWeb!,
                                                     record.description!,
                                                     record.title!,
-                                                    record.name!,
                                                     record.eventId!
                                                   ]),
                                                 )
@@ -919,10 +916,11 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                     return Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child:
-                                          FutureBuilder<EstablishmentsRecord>(
-                                        future: EstablishmentsRecord
-                                            .getDocumentOnce(listEventsItem
-                                                .establishmentId!),
+                                          StreamBuilder<EstablishmentsRecord>(
+                                        stream:
+                                            EstablishmentsRecord.getDocument(
+                                                listEventsItem
+                                                    .establishmentId!),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {
@@ -984,7 +982,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                       List<MediaRecord>>(
                                                     stream: queryMediaRecord(
                                                       parent: listEventsItem
-                                                          .eventRef,
+                                                          .reference,
                                                       singleRecord: true,
                                                     ),
                                                     builder:
@@ -1272,45 +1270,101 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                   .start,
                                                           children: [
                                                             Expanded(
-                                                              child: Text(
-                                                                listEventsItem
-                                                                    .title,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Text(
+                                                                    listEventsItem
+                                                                        .title,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
                                                             Expanded(
-                                                              child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  '${dateTimeFormat(
-                                                                    'd/M/y',
-                                                                    listEventsItem
-                                                                        .date,
-                                                                    locale: FFLocalizations.of(
-                                                                            context)
-                                                                        .languageCode,
-                                                                  )} de ${dateTimeFormat(
-                                                                    'Hm',
-                                                                    listEventsItem
-                                                                        .date,
-                                                                    locale: FFLocalizations.of(
-                                                                            context)
-                                                                        .languageCode,
-                                                                  )} - ${listEventsItem.schedule}',
-                                                                  ' Aucun horaire pour le moment',
+                                                              child: StreamBuilder<
+                                                                  List<
+                                                                      ScheduleEventRecord>>(
+                                                                stream:
+                                                                    queryScheduleEventRecord(
+                                                                  parent: listEventsItem
+                                                                      .reference,
+                                                                  singleRecord:
+                                                                      true,
                                                                 ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge,
+                                                                builder: (context,
+                                                                    snapshot) {
+                                                                  // Customize what your widget looks like when it's loading.
+                                                                  if (!snapshot
+                                                                      .hasData) {
+                                                                    return Center(
+                                                                      child:
+                                                                          SizedBox(
+                                                                        width:
+                                                                            30.0,
+                                                                        height:
+                                                                            30.0,
+                                                                        child:
+                                                                            CircularProgressIndicator(
+                                                                          valueColor:
+                                                                              AlwaysStoppedAnimation<Color>(
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  }
+                                                                  List<ScheduleEventRecord>
+                                                                      rowScheduleEventRecordList =
+                                                                      snapshot
+                                                                          .data!;
+                                                                  final rowScheduleEventRecord = rowScheduleEventRecordList
+                                                                          .isNotEmpty
+                                                                      ? rowScheduleEventRecordList
+                                                                          .first
+                                                                      : null;
+                                                                  return Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          '${dateTimeFormat(
+                                                                            'd/M/y',
+                                                                            rowScheduleEventRecord?.date,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )} de ${dateTimeFormat(
+                                                                            'Hm',
+                                                                            rowScheduleEventRecord?.scheduleStart,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )} - ${dateTimeFormat(
+                                                                            'Hm',
+                                                                            rowScheduleEventRecord?.scheduleEnd,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )}',
+                                                                          ' Aucun horaire pour le moment',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelLarge,
+                                                                      ),
+                                                                    ],
+                                                                  );
+                                                                },
                                                               ),
                                                             ),
                                                             Row(
@@ -1331,7 +1385,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                             30.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      listEventsItem
+                                                                      cardEventsEstablishmentsRecord
                                                                           .name,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -1540,42 +1594,99 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                       .start,
                                                               children: [
                                                                 Expanded(
-                                                                  child: Text(
-                                                                    listEventsItem
-                                                                        .title,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                        ),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        listEventsItem
+                                                                            .title,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ),
                                                                 Expanded(
-                                                                  child: Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      '${dateTimeFormat(
-                                                                        'd/M/y',
-                                                                        listEventsItem
-                                                                            .date,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      )} de ${dateTimeFormat(
-                                                                        'Hm',
-                                                                        listEventsItem
-                                                                            .date,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      )} - ${listEventsItem.schedule}',
-                                                                      ' Aucun horaire pour le moment',
+                                                                  child: StreamBuilder<
+                                                                      List<
+                                                                          ScheduleEventRecord>>(
+                                                                    stream:
+                                                                        queryScheduleEventRecord(
+                                                                      parent: listEventsItem
+                                                                          .reference,
+                                                                      singleRecord:
+                                                                          true,
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge,
+                                                                    builder:
+                                                                        (context,
+                                                                            snapshot) {
+                                                                      // Customize what your widget looks like when it's loading.
+                                                                      if (!snapshot
+                                                                          .hasData) {
+                                                                        return Center(
+                                                                          child:
+                                                                              SizedBox(
+                                                                            width:
+                                                                                30.0,
+                                                                            height:
+                                                                                30.0,
+                                                                            child:
+                                                                                CircularProgressIndicator(
+                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      }
+                                                                      List<ScheduleEventRecord>
+                                                                          rowScheduleEventRecordList =
+                                                                          snapshot
+                                                                              .data!;
+                                                                      // Return an empty Container when the item does not exist.
+                                                                      if (snapshot
+                                                                          .data!
+                                                                          .isEmpty) {
+                                                                        return Container();
+                                                                      }
+                                                                      final rowScheduleEventRecord = rowScheduleEventRecordList
+                                                                              .isNotEmpty
+                                                                          ? rowScheduleEventRecordList
+                                                                              .first
+                                                                          : null;
+                                                                      return Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              '${dateTimeFormat(
+                                                                                'd/M/y',
+                                                                                rowScheduleEventRecord?.date,
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              )} de ${dateTimeFormat(
+                                                                                'Hm',
+                                                                                rowScheduleEventRecord?.scheduleStart,
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              )} - ${dateTimeFormat(
+                                                                                'Hm',
+                                                                                rowScheduleEventRecord?.scheduleEnd,
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              )}',
+                                                                              ' Aucun horaire pour le moment',
+                                                                            ),
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).labelLarge,
+                                                                          ),
+                                                                        ],
+                                                                      );
+                                                                    },
                                                                   ),
                                                                 ),
                                                                 Row(
@@ -1596,7 +1707,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          listEventsItem
+                                                                          cardEventsEstablishmentsRecord
                                                                               .name,
                                                                           style:
                                                                               FlutterFlowTheme.of(context).labelMedium,

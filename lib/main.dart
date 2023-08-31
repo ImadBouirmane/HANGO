@@ -171,9 +171,13 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: Colors.white,
-        color: FlutterFlowTheme.of(context).accent1,
+        color: FlutterFlowTheme.of(context).primaryText,
         activeColor: FlutterFlowTheme.of(context).primaryBackground,
         tabBackgroundColor: FlutterFlowTheme.of(context).primary,
+        tabActiveBorder: Border.all(
+          color: FlutterFlowTheme.of(context).accent4,
+          width: 1.0,
+        ),
         tabBorderRadius: 100.0,
         tabMargin: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
         padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),

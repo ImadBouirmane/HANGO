@@ -17,28 +17,28 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'step1_info_est_model.dart';
-export 'step1_info_est_model.dart';
+import 'create_est_step1_model.dart';
+export 'create_est_step1_model.dart';
 
-class Step1InfoEstWidget extends StatefulWidget {
-  const Step1InfoEstWidget({Key? key}) : super(key: key);
+class CreateEstStep1Widget extends StatefulWidget {
+  const CreateEstStep1Widget({Key? key}) : super(key: key);
 
   @override
-  _Step1InfoEstWidgetState createState() => _Step1InfoEstWidgetState();
+  _CreateEstStep1WidgetState createState() => _CreateEstStep1WidgetState();
 }
 
-class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
-  late Step1InfoEstModel _model;
+class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
+  late CreateEstStep1Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Step1InfoEstModel());
+    _model = createModel(context, () => CreateEstStep1Model());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'step1InfoEst'});
+        parameters: {'screen_name': 'CreateEstStep1'});
     _model.tFNameController ??= TextEditingController();
     _model.tFDescriptionController ??= TextEditingController();
     _model.tFStreetController ??= TextEditingController(
@@ -80,7 +80,7 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'step1InfoEst',
+        title: 'CreateEstStep1',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
@@ -153,7 +153,7 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
                                     ),
                                     onPressed: () async {
                                       logFirebaseEvent(
-                                          'STEP1_INFO_EST_chevron_left_ICN_ON_TAP');
+                                          'CREATE_EST_STEP1_chevron_left_ICN_ON_TAP');
                                       logFirebaseEvent(
                                           'IconButton_navigate_back');
                                       context.safePop();
@@ -2323,308 +2323,331 @@ class _Step1InfoEstWidgetState extends State<Step1InfoEstWidget> {
                                             ],
                                           ),
                                         ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            logFirebaseEvent(
-                                                'STEP1_INFO_EST_BTNValidateFrom_ON_TAP');
-                                            logFirebaseEvent(
-                                                'BTNValidateFrom_backend_call');
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 15.0, 15.0, 15.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'CREATE_EST_STEP1_BTNValidateFrom_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'BTNValidateFrom_backend_call');
 
-                                            var establishmentsRecordReference =
-                                                EstablishmentsRecord.collection
-                                                    .doc();
-                                            await establishmentsRecordReference
-                                                .set({
-                                              ...createEstablishmentsRecordData(
-                                                name: valueOrDefault<String>(
-                                                  _model.tFNameController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFNameController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFNameController.text
-                                                      : '',
-                                                  'Aucune',
+                                              var establishmentsRecordReference =
+                                                  EstablishmentsRecord
+                                                      .collection
+                                                      .doc();
+                                              await establishmentsRecordReference
+                                                  .set({
+                                                ...createEstablishmentsRecordData(
+                                                  name: valueOrDefault<String>(
+                                                    _model.tFNameController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFNameController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFNameController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  adresse: createAddressStruct(
+                                                    street: _model
+                                                        .tFStreetController
+                                                        .text,
+                                                    zipCode: _model
+                                                        .tFzipCodeController
+                                                        .text,
+                                                    city: _model
+                                                        .tFcityController.text,
+                                                    state: _model
+                                                        .tFstateController.text,
+                                                    country: _model
+                                                        .tFcountryController
+                                                        .text,
+                                                    latiLong: _model
+                                                        .placePickerValue
+                                                        .latLng,
+                                                    clearUnsetFields: false,
+                                                    create: true,
+                                                  ),
+                                                  email: valueOrDefault<String>(
+                                                    _model.tFemailAddressController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFemailAddressController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFemailAddressController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  phoneNumber:
+                                                      valueOrDefault<String>(
+                                                    _model.tFphoneNumberController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFphoneNumberController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFphoneNumberController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  webSite:
+                                                      valueOrDefault<String>(
+                                                    _model.tFURLWebSiteController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFURLWebSiteController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFURLWebSiteController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  terrasse: _model
+                                                          .rBTNTerrasseValue ==
+                                                      'Oui',
+                                                  reservation: _model
+                                                          .rBTNRservationValue ==
+                                                      'Oui',
+                                                  cigaretteMachine: _model
+                                                          .rBTNCigaretteMAchineValue ==
+                                                      'Oui',
+                                                  speciality:
+                                                      valueOrDefault<String>(
+                                                    _model.tFspecialityController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFspecialityController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFspecialityController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  location: _model
+                                                              .placePickerValue
+                                                              .latLng !=
+                                                          null
+                                                      ? _model.placePickerValue
+                                                          .latLng
+                                                      : null,
+                                                  description:
+                                                      valueOrDefault<String>(
+                                                    _model.tFDescriptionController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFDescriptionController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFDescriptionController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
                                                 ),
-                                                adresse: createAddressStruct(
-                                                  street: _model
-                                                      .tFStreetController.text,
-                                                  zipCode: _model
-                                                      .tFzipCodeController.text,
-                                                  city: _model
-                                                      .tFcityController.text,
-                                                  state: _model
-                                                      .tFstateController.text,
-                                                  country: _model
-                                                      .tFcountryController.text,
-                                                  latiLong: _model
-                                                      .placePickerValue.latLng,
-                                                  clearUnsetFields: false,
-                                                  create: true,
+                                                'created_time': FieldValue
+                                                    .serverTimestamp(),
+                                                'type':
+                                                    _model.choiceChipsValues,
+                                                'music_style': _model
+                                                    .checkBoxMusicStyleValues,
+                                                'food':
+                                                    _model.checkBoxFoodValues,
+                                                'game':
+                                                    _model.checkBoxGamesValues,
+                                              });
+                                              _model.createEstablishment =
+                                                  EstablishmentsRecord
+                                                      .getDocumentFromData({
+                                                ...createEstablishmentsRecordData(
+                                                  name: valueOrDefault<String>(
+                                                    _model.tFNameController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFNameController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFNameController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  adresse: createAddressStruct(
+                                                    street: _model
+                                                        .tFStreetController
+                                                        .text,
+                                                    zipCode: _model
+                                                        .tFzipCodeController
+                                                        .text,
+                                                    city: _model
+                                                        .tFcityController.text,
+                                                    state: _model
+                                                        .tFstateController.text,
+                                                    country: _model
+                                                        .tFcountryController
+                                                        .text,
+                                                    latiLong: _model
+                                                        .placePickerValue
+                                                        .latLng,
+                                                    clearUnsetFields: false,
+                                                    create: true,
+                                                  ),
+                                                  email: valueOrDefault<String>(
+                                                    _model.tFemailAddressController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFemailAddressController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFemailAddressController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  phoneNumber:
+                                                      valueOrDefault<String>(
+                                                    _model.tFphoneNumberController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFphoneNumberController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFphoneNumberController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  webSite:
+                                                      valueOrDefault<String>(
+                                                    _model.tFURLWebSiteController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFURLWebSiteController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFURLWebSiteController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  terrasse: _model
+                                                          .rBTNTerrasseValue ==
+                                                      'Oui',
+                                                  reservation: _model
+                                                          .rBTNRservationValue ==
+                                                      'Oui',
+                                                  cigaretteMachine: _model
+                                                          .rBTNCigaretteMAchineValue ==
+                                                      'Oui',
+                                                  speciality:
+                                                      valueOrDefault<String>(
+                                                    _model.tFspecialityController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFspecialityController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFspecialityController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
+                                                  location: _model
+                                                              .placePickerValue
+                                                              .latLng !=
+                                                          null
+                                                      ? _model.placePickerValue
+                                                          .latLng
+                                                      : null,
+                                                  description:
+                                                      valueOrDefault<String>(
+                                                    _model.tFDescriptionController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.tFDescriptionController
+                                                                    .text !=
+                                                                ''
+                                                        ? _model
+                                                            .tFDescriptionController
+                                                            .text
+                                                        : '',
+                                                    'Aucune',
+                                                  ),
                                                 ),
-                                                email: valueOrDefault<String>(
-                                                  _model.tFemailAddressController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFemailAddressController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFemailAddressController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                phoneNumber:
-                                                    valueOrDefault<String>(
-                                                  _model.tFphoneNumberController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFphoneNumberController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFphoneNumberController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                webSite: valueOrDefault<String>(
-                                                  _model.tFURLWebSiteController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFURLWebSiteController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFURLWebSiteController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                terrasse:
-                                                    _model.rBTNTerrasseValue ==
-                                                        'Oui',
-                                                reservation: _model
-                                                        .rBTNRservationValue ==
-                                                    'Oui',
-                                                cigaretteMachine: _model
-                                                        .rBTNCigaretteMAchineValue ==
-                                                    'Oui',
-                                                speciality:
-                                                    valueOrDefault<String>(
-                                                  _model.tFspecialityController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFspecialityController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFspecialityController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                location: _model
-                                                            .placePickerValue
-                                                            .latLng !=
-                                                        null
-                                                    ? _model
-                                                        .placePickerValue.latLng
-                                                    : null,
-                                                description:
-                                                    valueOrDefault<String>(
-                                                  _model.tFDescriptionController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFDescriptionController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFDescriptionController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
+                                                'created_time': DateTime.now(),
+                                                'type':
+                                                    _model.choiceChipsValues,
+                                                'music_style': _model
+                                                    .checkBoxMusicStyleValues,
+                                                'food':
+                                                    _model.checkBoxFoodValues,
+                                                'game':
+                                                    _model.checkBoxGamesValues,
+                                              }, establishmentsRecordReference);
+                                              logFirebaseEvent(
+                                                  'BTNValidateFrom_navigate_to');
+
+                                              context.pushNamed(
+                                                'CreateEstStep2',
+                                                queryParameters: {
+                                                  'estRef': serializeParam(
+                                                    _model.createEstablishment
+                                                        ?.reference,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              setState(() {});
+                                            },
+                                            text: 'Continuer',
+                                            options: FFButtonOptions(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: 50.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
                                               ),
-                                              'created_time':
-                                                  FieldValue.serverTimestamp(),
-                                              'type': _model.choiceChipsValues,
-                                              'music_style': _model
-                                                  .checkBoxMusicStyleValues,
-                                              'food': _model.checkBoxFoodValues,
-                                              'game':
-                                                  _model.checkBoxGamesValues,
-                                            });
-                                            _model.createEstablishment =
-                                                EstablishmentsRecord
-                                                    .getDocumentFromData({
-                                              ...createEstablishmentsRecordData(
-                                                name: valueOrDefault<String>(
-                                                  _model.tFNameController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFNameController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFNameController.text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                adresse: createAddressStruct(
-                                                  street: _model
-                                                      .tFStreetController.text,
-                                                  zipCode: _model
-                                                      .tFzipCodeController.text,
-                                                  city: _model
-                                                      .tFcityController.text,
-                                                  state: _model
-                                                      .tFstateController.text,
-                                                  country: _model
-                                                      .tFcountryController.text,
-                                                  latiLong: _model
-                                                      .placePickerValue.latLng,
-                                                  clearUnsetFields: false,
-                                                  create: true,
-                                                ),
-                                                email: valueOrDefault<String>(
-                                                  _model.tFemailAddressController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFemailAddressController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFemailAddressController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                phoneNumber:
-                                                    valueOrDefault<String>(
-                                                  _model.tFphoneNumberController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFphoneNumberController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFphoneNumberController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                webSite: valueOrDefault<String>(
-                                                  _model.tFURLWebSiteController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFURLWebSiteController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFURLWebSiteController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                terrasse:
-                                                    _model.rBTNTerrasseValue ==
-                                                        'Oui',
-                                                reservation: _model
-                                                        .rBTNRservationValue ==
-                                                    'Oui',
-                                                cigaretteMachine: _model
-                                                        .rBTNCigaretteMAchineValue ==
-                                                    'Oui',
-                                                speciality:
-                                                    valueOrDefault<String>(
-                                                  _model.tFspecialityController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFspecialityController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFspecialityController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                                location: _model
-                                                            .placePickerValue
-                                                            .latLng !=
-                                                        null
-                                                    ? _model
-                                                        .placePickerValue.latLng
-                                                    : null,
-                                                description:
-                                                    valueOrDefault<String>(
-                                                  _model.tFDescriptionController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tFDescriptionController
-                                                                  .text !=
-                                                              ''
-                                                      ? _model
-                                                          .tFDescriptionController
-                                                          .text
-                                                      : '',
-                                                  'Aucune',
-                                                ),
-                                              ),
-                                              'created_time': DateTime.now(),
-                                              'type': _model.choiceChipsValues,
-                                              'music_style': _model
-                                                  .checkBoxMusicStyleValues,
-                                              'food': _model.checkBoxFoodValues,
-                                              'game':
-                                                  _model.checkBoxGamesValues,
-                                            }, establishmentsRecordReference);
-                                            logFirebaseEvent(
-                                                'BTNValidateFrom_navigate_to');
-
-                                            context.pushNamed(
-                                              'step2ScheduleEst',
-                                              queryParameters: {
-                                                'estRef': serializeParam(
-                                                  _model.createEstablishment
-                                                      ?.reference,
-                                                  ParamType.DocumentReference,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-
-                                            setState(() {});
-                                          },
-                                          text: 'Continuer',
-                                          options: FFButtonOptions(
-                                            width: 300.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.white,
-                                                    ),
-                                            elevation: 3.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
                                           ),
                                         ),
                                       ].addToEnd(SizedBox(height: 20.0)),

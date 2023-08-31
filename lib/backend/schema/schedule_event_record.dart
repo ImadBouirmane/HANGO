@@ -8,23 +8,28 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ArtistsRecord extends FirestoreRecord {
-  ArtistsRecord._(
+class ScheduleEventRecord extends FirestoreRecord {
+  ScheduleEventRecord._(
     DocumentReference reference,
     Map<String, dynamic> data,
   ) : super(reference, data) {
     _initializeFields();
   }
 
-  // "Name" field.
-  String? _name;
-  String get name => _name ?? '';
-  bool hasName() => _name != null;
+  // "date" field.
+  DateTime? _date;
+  DateTime? get date => _date;
+  bool hasDate() => _date != null;
 
   // "scheduleStart" field.
   DateTime? _scheduleStart;
   DateTime? get scheduleStart => _scheduleStart;
   bool hasScheduleStart() => _scheduleStart != null;
+
+  // "scheduleEnd" field.
+  DateTime? _scheduleEnd;
+  DateTime? get scheduleEnd => _scheduleEnd;
+  bool hasScheduleEnd() => _scheduleEnd != null;
 
   // "eventRef" field.
   DocumentReference? _eventRef;
@@ -41,106 +46,102 @@ class ArtistsRecord extends FirestoreRecord {
   DateTime? get updatedTime => _updatedTime;
   bool hasUpdatedTime() => _updatedTime != null;
 
-  // "scheduleEnd" field.
-  DateTime? _scheduleEnd;
-  DateTime? get scheduleEnd => _scheduleEnd;
-  bool hasScheduleEnd() => _scheduleEnd != null;
-
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
-    _name = snapshotData['Name'] as String?;
+    _date = snapshotData['date'] as DateTime?;
     _scheduleStart = snapshotData['scheduleStart'] as DateTime?;
+    _scheduleEnd = snapshotData['scheduleEnd'] as DateTime?;
     _eventRef = snapshotData['eventRef'] as DocumentReference?;
     _createdTime = snapshotData['createdTime'] as DateTime?;
     _updatedTime = snapshotData['updatedTime'] as DateTime?;
-    _scheduleEnd = snapshotData['scheduleEnd'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
       parent != null
-          ? parent.collection('Artists')
-          : FirebaseFirestore.instance.collectionGroup('Artists');
+          ? parent.collection('scheduleEvent')
+          : FirebaseFirestore.instance.collectionGroup('scheduleEvent');
 
   static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('Artists').doc();
+      parent.collection('scheduleEvent').doc();
 
-  static Stream<ArtistsRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map((s) => ArtistsRecord.fromSnapshot(s));
+  static Stream<ScheduleEventRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => ScheduleEventRecord.fromSnapshot(s));
 
-  static Future<ArtistsRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then((s) => ArtistsRecord.fromSnapshot(s));
+  static Future<ScheduleEventRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => ScheduleEventRecord.fromSnapshot(s));
 
-  static ArtistsRecord fromSnapshot(DocumentSnapshot snapshot) =>
-      ArtistsRecord._(
+  static ScheduleEventRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      ScheduleEventRecord._(
         snapshot.reference,
         mapFromFirestore(snapshot.data() as Map<String, dynamic>),
       );
 
-  static ArtistsRecord getDocumentFromData(
+  static ScheduleEventRecord getDocumentFromData(
     Map<String, dynamic> data,
     DocumentReference reference,
   ) =>
-      ArtistsRecord._(reference, mapFromFirestore(data));
+      ScheduleEventRecord._(reference, mapFromFirestore(data));
 
   @override
   String toString() =>
-      'ArtistsRecord(reference: ${reference.path}, data: $snapshotData)';
+      'ScheduleEventRecord(reference: ${reference.path}, data: $snapshotData)';
 
   @override
   int get hashCode => reference.path.hashCode;
 
   @override
   bool operator ==(other) =>
-      other is ArtistsRecord &&
+      other is ScheduleEventRecord &&
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createArtistsRecordData({
-  String? name,
+Map<String, dynamic> createScheduleEventRecordData({
+  DateTime? date,
   DateTime? scheduleStart,
+  DateTime? scheduleEnd,
   DocumentReference? eventRef,
   DateTime? createdTime,
   DateTime? updatedTime,
-  DateTime? scheduleEnd,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'Name': name,
+      'date': date,
       'scheduleStart': scheduleStart,
+      'scheduleEnd': scheduleEnd,
       'eventRef': eventRef,
       'createdTime': createdTime,
       'updatedTime': updatedTime,
-      'scheduleEnd': scheduleEnd,
     }.withoutNulls,
   );
 
   return firestoreData;
 }
 
-class ArtistsRecordDocumentEquality implements Equality<ArtistsRecord> {
-  const ArtistsRecordDocumentEquality();
+class ScheduleEventRecordDocumentEquality
+    implements Equality<ScheduleEventRecord> {
+  const ScheduleEventRecordDocumentEquality();
 
   @override
-  bool equals(ArtistsRecord? e1, ArtistsRecord? e2) {
-    return e1?.name == e2?.name &&
+  bool equals(ScheduleEventRecord? e1, ScheduleEventRecord? e2) {
+    return e1?.date == e2?.date &&
         e1?.scheduleStart == e2?.scheduleStart &&
+        e1?.scheduleEnd == e2?.scheduleEnd &&
         e1?.eventRef == e2?.eventRef &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.updatedTime == e2?.updatedTime &&
-        e1?.scheduleEnd == e2?.scheduleEnd;
+        e1?.updatedTime == e2?.updatedTime;
   }
 
   @override
-  int hash(ArtistsRecord? e) => const ListEquality().hash([
-        e?.name,
+  int hash(ScheduleEventRecord? e) => const ListEquality().hash([
+        e?.date,
         e?.scheduleStart,
+        e?.scheduleEnd,
         e?.eventRef,
         e?.createdTime,
-        e?.updatedTime,
-        e?.scheduleEnd
+        e?.updatedTime
       ]);
 
   @override
-  bool isValidKey(Object? o) => o is ArtistsRecord;
+  bool isValidKey(Object? o) => o is ScheduleEventRecord;
 }
