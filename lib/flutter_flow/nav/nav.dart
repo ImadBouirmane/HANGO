@@ -109,12 +109,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Maps',
           path: '/maps',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Maps')
-              : NavBarPage(
-                  initialPage: 'Maps',
-                  page: MapsWidget(),
-                ),
+          builder: (context, params) => MapsWidget(),
         ),
         FFRoute(
           name: 'UserLogin',
@@ -230,7 +225,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Profile',
           path: '/profile',
           requireAuth: true,
-          builder: (context, params) => ProfileWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Profile')
+              : NavBarPage(
+                  initialPage: 'Profile',
+                  page: ProfileWidget(),
+                ),
         ),
         FFRoute(
           name: 'Account',
@@ -282,6 +282,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               nourriture: params.getParam('nourriture', ParamType.bool),
               jeux: params.getParam('jeux', ParamType.bool),
               ouvert: params.getParam('ouvert', ParamType.bool),
+              estRef: params.getParam('estRef', ParamType.DocumentReference,
+                  false, ['establishments']),
             ),
           ),
         ),
@@ -565,7 +567,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
+                  color: FlutterFlowTheme.of(context).primaryBtnText,
                   child: Center(
                     child: Image.asset(
                       'assets/images/Typo_-_bleu_fonce.png',

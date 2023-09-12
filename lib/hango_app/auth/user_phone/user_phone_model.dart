@@ -13,8 +13,11 @@ class UserPhoneModel extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   // State field(s) for phone widget.
-  TextEditingController? phoneController;
-  String? Function(BuildContext, String?)? phoneControllerValidator;
+  TextEditingController? phoneController1;
+  String? Function(BuildContext, String?)? phoneController1Validator;
+  // State field(s) for phone widget.
+  TextEditingController? phoneController2;
+  String? Function(BuildContext, String?)? phoneController2Validator;
 
   /// Initialization and disposal methods.
 
@@ -22,7 +25,8 @@ class UserPhoneModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
-    phoneController?.dispose();
+    phoneController1?.dispose();
+    phoneController2?.dispose();
   }
 
   /// Action blocks are added here.

@@ -44,7 +44,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.00, 0.00),
       child: Container(
         width: 600.0,
         height: 400.0,

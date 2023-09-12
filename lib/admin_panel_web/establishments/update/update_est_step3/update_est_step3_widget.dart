@@ -171,7 +171,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Text(
                                             'Modification du l\'établissement',
                                             style: FlutterFlowTheme.of(context)
@@ -325,8 +325,8 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0.00,
+                                                                        0.00),
                                                                 child: GridView(
                                                                   padding:
                                                                       EdgeInsets
@@ -387,7 +387,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 40.0,
@@ -433,7 +433,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 30.0,
@@ -548,7 +548,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -631,7 +631,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 20.0,
@@ -677,7 +677,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 30.0,
@@ -786,7 +786,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -871,7 +871,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 20.0,
@@ -917,7 +917,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 30.0,
@@ -1026,7 +1026,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -1114,7 +1114,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 20.0,
@@ -1160,7 +1160,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 30.0,
@@ -1269,7 +1269,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -1418,7 +1418,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                           child:
                                                                               Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                                AlignmentDirectional(0.00, 0.00),
                                                                             child:
                                                                                 FlutterFlowIconButton(
                                                                               borderColor: Colors.transparent,
@@ -1461,9 +1461,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                             null ||
                                                                         updateEstStep3ImagesRecord?.video ==
                                                                             '') &&
-                                                                    (_model.uploadedFileUrl5 !=
-                                                                            null &&
-                                                                        _model.uploadedFileUrl5 !=
+                                                                    (_model.uploadedFileUrl5 ==
+                                                                            null ||
+                                                                        _model.uploadedFileUrl5 ==
                                                                             ''))
                                                                   Container(
                                                                     width: MediaQuery.sizeOf(context)
@@ -1493,8 +1493,8 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                           [
                                                                         Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                              0.00,
+                                                                              0.00),
                                                                           child:
                                                                               FlutterFlowIconButton(
                                                                             borderColor:
@@ -1649,7 +1649,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                           child:
                                                                               Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                                AlignmentDirectional(0.00, 0.00),
                                                                             child:
                                                                                 FlutterFlowIconButton(
                                                                               borderColor: Colors.transparent,
@@ -1842,7 +1842,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                 ),
                                               ),
                                             ),
-                                          ].addToEnd(SizedBox(height: 20.0)),
+                                          ],
                                         ),
                                       ),
                                     ),

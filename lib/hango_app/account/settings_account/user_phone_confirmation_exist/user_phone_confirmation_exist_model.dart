@@ -12,18 +12,23 @@ class UserPhoneConfirmationExistModel extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   // State field(s) for PinCode widget.
-  TextEditingController? pinCodeController;
-  String? Function(BuildContext, String?)? pinCodeControllerValidator;
+  TextEditingController? pinCodeController1;
+  String? Function(BuildContext, String?)? pinCodeController1Validator;
+  // State field(s) for PinCode widget.
+  TextEditingController? pinCodeController2;
+  String? Function(BuildContext, String?)? pinCodeController2Validator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    pinCodeController = TextEditingController();
+    pinCodeController1 = TextEditingController();
+    pinCodeController2 = TextEditingController();
   }
 
   void dispose() {
     unfocusNode.dispose();
-    pinCodeController?.dispose();
+    pinCodeController1?.dispose();
+    pinCodeController2?.dispose();
   }
 
   /// Action blocks are added here.

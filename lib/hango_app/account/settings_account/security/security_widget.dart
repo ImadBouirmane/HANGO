@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,6 +32,8 @@ class _SecurityWidgetState extends State<SecurityWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Security'});
     _model.textController1 ??= TextEditingController(text: currentUserEmail);
     _model.textController2 ??= TextEditingController(text: currentPhoneNumber);
+    _model.textController3 ??= TextEditingController(text: currentUserEmail);
+    _model.textController4 ??= TextEditingController(text: currentPhoneNumber);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -90,146 +93,62 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  'Authentication',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                      ),
-                                ),
-                              ],
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Column(
+                    if (responsiveVisibility(
+                      context: context,
+                      desktop: false,
+                    ))
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 10.0, 10.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Container(
-                                    decoration: BoxDecoration(),
-                                    child: TextFormField(
-                                      controller: _model.textController1,
-                                      onFieldSubmitted: (_) async {
-                                        logFirebaseEvent(
-                                            'SECURITY_TextField_vq21c1pd_ON_TEXTFIELD');
-                                        logFirebaseEvent(
-                                            'TextField_backend_call');
-
-                                        await currentUserReference!
-                                            .update(createUsersRecordData(
-                                          email: _model.textController1.text,
-                                        ));
-                                      },
-                                      autofocus: true,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelText: 'Addresse Email',
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        hintText:
-                                            'Entrer votre nouvelle addresse email ici...',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(40.0),
+                                  Text(
+                                    'Authentication',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
                                         ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(40.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(40.0),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(40.0),
-                                        ),
-                                        filled: true,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                16.0, 24.0, 0.0, 24.0),
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                      maxLines: null,
-                                      keyboardType: TextInputType.emailAddress,
-                                      cursorColor:
-                                          FlutterFlowTheme.of(context).primary,
-                                      validator: _model.textController1Validator
-                                          .asValidator(context),
-                                    ),
                                   ),
-                                  Container(
-                                    decoration: BoxDecoration(),
-                                    child: AuthUserStreamWidget(
-                                      builder: (context) => TextFormField(
-                                        controller: _model.textController2,
+                                ],
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(),
+                                      child: TextFormField(
+                                        controller: _model.textController1,
                                         onFieldSubmitted: (_) async {
                                           logFirebaseEvent(
-                                              'SECURITY_TextField_6871ubev_ON_TEXTFIELD');
+                                              'SECURITY_TextField_vq21c1pd_ON_TEXTFIELD');
                                           logFirebaseEvent(
                                               'TextField_backend_call');
 
                                           await currentUserReference!
                                               .update(createUsersRecordData(
-                                            phoneNumber:
-                                                _model.textController2.text,
+                                            email: _model.textController1.text,
                                           ));
                                         },
                                         autofocus: true,
-                                        textInputAction: TextInputAction.done,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Numéro de téléphone',
+                                          labelText: 'Addresse Email',
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
                                               .bodySmall
@@ -241,7 +160,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           hintText:
-                                              'Entrer votre nouvelle Numéro de téléphone ici...',
+                                              'Entrer votre nouvelle addresse email ici...',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -296,26 +215,374 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         maxLines: null,
-                                        keyboardType: TextInputType.phone,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         cursorColor:
                                             FlutterFlowTheme.of(context)
                                                 .primary,
                                         validator: _model
-                                            .textController2Validator
+                                            .textController1Validator
                                             .asValidator(context),
-                                        inputFormatters: [
-                                          _model.textFieldMask2
-                                        ],
                                       ),
                                     ),
-                                  ),
-                                ].divide(SizedBox(height: 15.0)),
+                                    Container(
+                                      decoration: BoxDecoration(),
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) => TextFormField(
+                                          controller: _model.textController2,
+                                          onFieldSubmitted: (_) async {
+                                            logFirebaseEvent(
+                                                'SECURITY_TextField_6871ubev_ON_TEXTFIELD');
+                                            logFirebaseEvent(
+                                                'TextField_backend_call');
+
+                                            await currentUserReference!
+                                                .update(createUsersRecordData(
+                                              phoneNumber:
+                                                  _model.textController2.text,
+                                            ));
+                                          },
+                                          autofocus: true,
+                                          textInputAction: TextInputAction.done,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelText: 'Numéro de téléphone',
+                                            labelStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                            hintText:
+                                                'Entrer votre nouvelle Numéro de téléphone ici...',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            filled: true,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 24.0, 0.0, 24.0),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          maxLines: null,
+                                          keyboardType: TextInputType.phone,
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          validator: _model
+                                              .textController2Validator
+                                              .asValidator(context),
+                                          inputFormatters: [
+                                            _model.textFieldMask2
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ].divide(SizedBox(height: 15.0)),
+                                ),
                               ),
-                            ),
-                          ].divide(SizedBox(height: 30.0)),
+                            ].divide(SizedBox(height: 30.0)),
+                          ),
                         ),
                       ),
-                    ),
+                    if (responsiveVisibility(
+                      context: context,
+                      phone: false,
+                      tablet: false,
+                      tabletLandscape: false,
+                    ))
+                      Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.5,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 10.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'Authentication',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(),
+                                        child: TextFormField(
+                                          controller: _model.textController3,
+                                          onFieldSubmitted: (_) async {
+                                            logFirebaseEvent(
+                                                'SECURITY_TextField_1bhbi5a5_ON_TEXTFIELD');
+                                            logFirebaseEvent(
+                                                'TextField_backend_call');
+
+                                            await currentUserReference!
+                                                .update(createUsersRecordData(
+                                              email:
+                                                  _model.textController3.text,
+                                            ));
+                                          },
+                                          autofocus: true,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelText: 'Addresse Email',
+                                            labelStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                            hintText:
+                                                'Entrer votre nouvelle addresse email ici...',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            filled: true,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 24.0, 0.0, 24.0),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          maxLines: null,
+                                          keyboardType:
+                                              TextInputType.emailAddress,
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          validator: _model
+                                              .textController3Validator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(),
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => TextFormField(
+                                            controller: _model.textController4,
+                                            onFieldSubmitted: (_) async {
+                                              logFirebaseEvent(
+                                                  'SECURITY_TextField_70gyhnph_ON_TEXTFIELD');
+                                              logFirebaseEvent(
+                                                  'TextField_backend_call');
+
+                                              await currentUserReference!
+                                                  .update(createUsersRecordData(
+                                                phoneNumber:
+                                                    _model.textController4.text,
+                                              ));
+                                            },
+                                            autofocus: true,
+                                            textInputAction:
+                                                TextInputAction.done,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelText: 'Numéro de téléphone',
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                              hintText:
+                                                  'Entrer votre nouvelle Numéro de téléphone ici...',
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(40.0),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(40.0),
+                                              ),
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(40.0),
+                                              ),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(40.0),
+                                              ),
+                                              filled: true,
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              contentPadding:
+                                                  EdgeInsetsDirectional
+                                                      .fromSTEB(16.0, 24.0, 0.0,
+                                                          24.0),
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            maxLines: null,
+                                            keyboardType: TextInputType.phone,
+                                            cursorColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            validator: _model
+                                                .textController4Validator
+                                                .asValidator(context),
+                                            inputFormatters: [
+                                              _model.textFieldMask4
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ].divide(SizedBox(height: 15.0)),
+                                  ),
+                                ),
+                              ].divide(SizedBox(height: 30.0)),
+                            ),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),

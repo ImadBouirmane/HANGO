@@ -32,6 +32,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Feedback'});
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
+    _model.textController3 ??= TextEditingController();
+    _model.textController4 ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -86,426 +88,1127 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
             ),
             body: SafeArea(
               top: true,
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+              child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: BoxDecoration(),
-                      child: Container(
-                        width: double.infinity,
-                        color: Color(0x00000000),
-                        child: ExpandableNotifier(
-                          initialExpanded: false,
-                          child: ExpandablePanel(
-                            header: Text(
-                              'Suggestion',
-                              style: FlutterFlowTheme.of(context).titleSmall,
-                            ),
-                            collapsed: Container(
-                              decoration: BoxDecoration(),
-                            ),
-                            expanded: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              child: Form(
-                                key: _model.formKey1,
-                                autovalidateMode: AutovalidateMode.disabled,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      child: TextFormField(
-                                        controller: _model.textController1,
-                                        autofocus: true,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelText:
-                                              'Décrire votre nouvelle proposition...',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryTransparent,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
+                    if (responsiveVisibility(
+                      context: context,
+                      desktop: false,
+                    ))
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            15.0, 15.0, 15.0, 15.0),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 15.0, 15.0, 15.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(),
+                                  child: Container(
+                                    width: double.infinity,
+                                    color: Color(0x00000000),
+                                    child: ExpandableNotifier(
+                                      initialExpanded: false,
+                                      child: ExpandablePanel(
+                                        header: Text(
+                                          'Suggestion',
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleSmall,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        maxLines: 8,
-                                        validator: _model
-                                            .textController1Validator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'FEEDBACK_PAGE_ENVOYER_BTN_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Button_backend_call');
-
-                                          var feedbackRecordReference =
-                                              FeedbackRecord.collection.doc();
-                                          await feedbackRecordReference
-                                              .set(createFeedbackRecordData(
-                                            userRef: currentUserReference,
-                                            message:
-                                                _model.textController1.text,
-                                            createdTime: getCurrentTimestamp,
-                                            isSuggestion: true,
-                                            isReport: false,
-                                          ));
-                                          _model.newSuggestion = FeedbackRecord
-                                              .getDocumentFromData(
-                                                  createFeedbackRecordData(
-                                                    userRef:
-                                                        currentUserReference,
-                                                    message: _model
-                                                        .textController1.text,
-                                                    createdTime:
-                                                        getCurrentTimestamp,
-                                                    isSuggestion: true,
-                                                    isReport: false,
-                                                  ),
-                                                  feedbackRecordReference);
-                                          logFirebaseEvent(
-                                              'Button_wait__delay');
-                                          await Future.delayed(const Duration(
-                                              milliseconds: 1000));
-                                          logFirebaseEvent(
-                                              'Button_show_snack_bar');
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'votre feedback a été envoyé!',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          fontFamily: 'Poppins',
+                                        collapsed: Container(
+                                          decoration: BoxDecoration(),
+                                        ),
+                                        expanded: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          child: Form(
+                                            key: _model.formKey3,
+                                            autovalidateMode:
+                                                AutovalidateMode.disabled,
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  child: TextFormField(
+                                                    controller:
+                                                        _model.textController1,
+                                                    autofocus: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelText:
+                                                          'Décrire votre nouvelle proposition...',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium,
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryBackground,
+                                                              .primaryTransparent,
+                                                          width: 2.0,
                                                         ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 2000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                            ),
-                                          );
-                                          logFirebaseEvent(
-                                              'Button_navigate_back');
-                                          context.safePop();
-
-                                          setState(() {});
-                                        },
-                                        text: 'Envoyer',
-                                        options: FFButtonOptions(
-                                          height: 40.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                    maxLines: 8,
+                                                    validator: _model
+                                                        .textController1Validator
+                                                        .asValidator(context),
                                                   ),
-                                          elevation: 3.0,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.00, 0.00),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'FEEDBACK_PAGE_ENVOYER_BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+
+                                                      var feedbackRecordReference =
+                                                          FeedbackRecord
+                                                              .collection
+                                                              .doc();
+                                                      await feedbackRecordReference
+                                                          .set(
+                                                              createFeedbackRecordData(
+                                                        userRef:
+                                                            currentUserReference,
+                                                        message: _model
+                                                            .textController1
+                                                            .text,
+                                                        createdTime:
+                                                            getCurrentTimestamp,
+                                                        isSuggestion: true,
+                                                        isReport: false,
+                                                      ));
+                                                      _model.newSuggestionMobile =
+                                                          FeedbackRecord
+                                                              .getDocumentFromData(
+                                                                  createFeedbackRecordData(
+                                                                    userRef:
+                                                                        currentUserReference,
+                                                                    message: _model
+                                                                        .textController1
+                                                                        .text,
+                                                                    createdTime:
+                                                                        getCurrentTimestamp,
+                                                                    isSuggestion:
+                                                                        true,
+                                                                    isReport:
+                                                                        false,
+                                                                  ),
+                                                                  feedbackRecordReference);
+                                                      logFirebaseEvent(
+                                                          'Button_wait__delay');
+                                                      await Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  1000));
+                                                      logFirebaseEvent(
+                                                          'Button_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'votre feedback a été envoyé!',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  2000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                        ),
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_back');
+                                                      context.safePop();
+
+                                                      setState(() {});
+                                                    },
+                                                    text: 'Envoyer',
+                                                    options: FFButtonOptions(
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ]
+                                                  .divide(
+                                                      SizedBox(height: 30.0))
+                                                  .addToEnd(
+                                                      SizedBox(height: 10.0)),
+                                            ),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(15.0),
+                                        ),
+                                        theme: ExpandableThemeData(
+                                          tapHeaderToExpand: true,
+                                          tapBodyToExpand: true,
+                                          tapBodyToCollapse: true,
+                                          headerAlignment:
+                                              ExpandablePanelHeaderAlignment
+                                                  .center,
+                                          hasIcon: true,
+                                          iconSize: 30.0,
+                                          iconColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                         ),
                                       ),
                                     ),
-                                  ]
-                                      .divide(SizedBox(height: 30.0))
-                                      .addToEnd(SizedBox(height: 10.0)),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            theme: ExpandableThemeData(
-                              tapHeaderToExpand: true,
-                              tapBodyToExpand: true,
-                              tapBodyToCollapse: true,
-                              headerAlignment:
-                                  ExpandablePanelHeaderAlignment.center,
-                              hasIcon: true,
-                              iconSize: 30.0,
-                              iconColor:
-                                  FlutterFlowTheme.of(context).primaryText,
+                                Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(),
+                                  child: Container(
+                                    width: double.infinity,
+                                    color: Color(0x00000000),
+                                    child: ExpandableNotifier(
+                                      initialExpanded: false,
+                                      child: ExpandablePanel(
+                                        header: Text(
+                                          'Rapport',
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleSmall,
+                                        ),
+                                        collapsed: Container(
+                                          decoration: BoxDecoration(),
+                                        ),
+                                        expanded: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          child: Form(
+                                            key: _model.formKey4,
+                                            autovalidateMode:
+                                                AutovalidateMode.disabled,
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  child: TextFormField(
+                                                    controller:
+                                                        _model.textController2,
+                                                    autofocus: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelText:
+                                                          'Décrire votre nouvelle proposition...',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium,
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryTransparent,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                    maxLines: 8,
+                                                    validator: _model
+                                                        .textController2Validator
+                                                        .asValidator(context),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.00, 0.00),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'FEEDBACK_PAGE_ENVOYER_BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+
+                                                      var feedbackRecordReference =
+                                                          FeedbackRecord
+                                                              .collection
+                                                              .doc();
+                                                      await feedbackRecordReference
+                                                          .set(
+                                                              createFeedbackRecordData(
+                                                        message: _model
+                                                            .textController2
+                                                            .text,
+                                                        createdTime:
+                                                            getCurrentTimestamp,
+                                                        isSuggestion: false,
+                                                        isReport: true,
+                                                        userRef:
+                                                            currentUserReference,
+                                                      ));
+                                                      _model.newReportMobile =
+                                                          FeedbackRecord
+                                                              .getDocumentFromData(
+                                                                  createFeedbackRecordData(
+                                                                    message: _model
+                                                                        .textController2
+                                                                        .text,
+                                                                    createdTime:
+                                                                        getCurrentTimestamp,
+                                                                    isSuggestion:
+                                                                        false,
+                                                                    isReport:
+                                                                        true,
+                                                                    userRef:
+                                                                        currentUserReference,
+                                                                  ),
+                                                                  feedbackRecordReference);
+                                                      logFirebaseEvent(
+                                                          'Button_wait__delay');
+                                                      await Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  1000));
+                                                      logFirebaseEvent(
+                                                          'Button_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'votre rapport a été envoyé!',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  2000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                        ),
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_back');
+                                                      context.safePop();
+
+                                                      setState(() {});
+                                                    },
+                                                    text: 'Envoyer',
+                                                    options: FFButtonOptions(
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ]
+                                                  .divide(
+                                                      SizedBox(height: 30.0))
+                                                  .addToEnd(
+                                                      SizedBox(height: 10.0)),
+                                            ),
+                                          ),
+                                        ),
+                                        theme: ExpandableThemeData(
+                                          tapHeaderToExpand: true,
+                                          tapBodyToExpand: true,
+                                          tapBodyToCollapse: true,
+                                          headerAlignment:
+                                              ExpandablePanelHeaderAlignment
+                                                  .center,
+                                          hasIcon: true,
+                                          iconSize: 30.0,
+                                          iconColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ].divide(SizedBox(height: 20.0)),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: BoxDecoration(),
-                      child: Container(
-                        width: double.infinity,
-                        color: Color(0x00000000),
-                        child: ExpandableNotifier(
-                          initialExpanded: false,
-                          child: ExpandablePanel(
-                            header: Text(
-                              'Rapport',
-                              style: FlutterFlowTheme.of(context).titleSmall,
+                    if (responsiveVisibility(
+                      context: context,
+                      phone: false,
+                      tablet: false,
+                      tabletLandscape: false,
+                    ))
+                      Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 15.0, 15.0, 15.0),
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.5,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(15.0),
                             ),
-                            collapsed: Container(
-                              decoration: BoxDecoration(),
-                            ),
-                            expanded: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              child: Form(
-                                key: _model.formKey2,
-                                autovalidateMode: AutovalidateMode.disabled,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      child: TextFormField(
-                                        controller: _model.textController2,
-                                        autofocus: true,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelText:
-                                              'Décrire votre nouvelle proposition...',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryTransparent,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 15.0, 15.0, 15.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(),
+                                    child: Container(
+                                      width: double.infinity,
+                                      color: Color(0x00000000),
+                                      child: ExpandableNotifier(
+                                        initialExpanded: false,
+                                        child: ExpandablePanel(
+                                          header: Text(
+                                            'Suggestion',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall,
                                           ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
+                                          collapsed: Container(
+                                            decoration: BoxDecoration(),
                                           ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        maxLines: 8,
-                                        validator: _model
-                                            .textController2Validator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'FEEDBACK_PAGE_ENVOYER_BTN_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Button_backend_call');
-
-                                          var feedbackRecordReference =
-                                              FeedbackRecord.collection.doc();
-                                          await feedbackRecordReference
-                                              .set(createFeedbackRecordData(
-                                            message:
-                                                _model.textController2.text,
-                                            createdTime: getCurrentTimestamp,
-                                            isSuggestion: false,
-                                            isReport: true,
-                                            userRef: currentUserReference,
-                                          ));
-                                          _model.newReport = FeedbackRecord
-                                              .getDocumentFromData(
-                                                  createFeedbackRecordData(
-                                                    message: _model
-                                                        .textController2.text,
-                                                    createdTime:
-                                                        getCurrentTimestamp,
-                                                    isSuggestion: false,
-                                                    isReport: true,
-                                                    userRef:
-                                                        currentUserReference,
-                                                  ),
-                                                  feedbackRecordReference);
-                                          logFirebaseEvent(
-                                              'Button_wait__delay');
-                                          await Future.delayed(const Duration(
-                                              milliseconds: 1000));
-                                          logFirebaseEvent(
-                                              'Button_show_snack_bar');
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'votre rapport a été envoyé!',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
+                                          expanded: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            child: Form(
+                                              key: _model.formKey2,
+                                              autovalidateMode:
+                                                  AutovalidateMode.disabled,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Container(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .textController3,
+                                                      autofocus: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelText:
+                                                            'Décrire votre nouvelle proposition...',
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium,
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium,
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryTransparent,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      15.0),
                                                         ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 2000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                            ),
-                                          );
-                                          logFirebaseEvent(
-                                              'Button_navigate_back');
-                                          context.safePop();
-
-                                          setState(() {});
-                                        },
-                                        text: 'Envoyer',
-                                        options: FFButtonOptions(
-                                          height: 40.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      15.0),
+                                                        ),
+                                                        errorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      15.0),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      15.0),
+                                                        ),
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                      maxLines: 8,
+                                                      validator: _model
+                                                          .textController3Validator
+                                                          .asValidator(context),
+                                                    ),
                                                   ),
-                                          elevation: 3.0,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.00, 0.00),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        logFirebaseEvent(
+                                                            'FEEDBACK_PAGE_ENVOYER_BTN_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Button_backend_call');
+
+                                                        var feedbackRecordReference =
+                                                            FeedbackRecord
+                                                                .collection
+                                                                .doc();
+                                                        await feedbackRecordReference
+                                                            .set(
+                                                                createFeedbackRecordData(
+                                                          userRef:
+                                                              currentUserReference,
+                                                          message: _model
+                                                              .textController3
+                                                              .text,
+                                                          createdTime:
+                                                              getCurrentTimestamp,
+                                                          isSuggestion: true,
+                                                          isReport: false,
+                                                        ));
+                                                        _model.newSuggestionWeb =
+                                                            FeedbackRecord
+                                                                .getDocumentFromData(
+                                                                    createFeedbackRecordData(
+                                                                      userRef:
+                                                                          currentUserReference,
+                                                                      message: _model
+                                                                          .textController3
+                                                                          .text,
+                                                                      createdTime:
+                                                                          getCurrentTimestamp,
+                                                                      isSuggestion:
+                                                                          true,
+                                                                      isReport:
+                                                                          false,
+                                                                    ),
+                                                                    feedbackRecordReference);
+                                                        logFirebaseEvent(
+                                                            'Button_wait__delay');
+                                                        await Future.delayed(
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    1000));
+                                                        logFirebaseEvent(
+                                                            'Button_show_snack_bar');
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'votre feedback a été envoyé!',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                  ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                          ),
+                                                        );
+                                                        logFirebaseEvent(
+                                                            'Button_navigate_back');
+                                                        context.safePop();
+
+                                                        setState(() {});
+                                                      },
+                                                      text: 'Envoyer',
+                                                      options: FFButtonOptions(
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                        elevation: 3.0,
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ]
+                                                    .divide(
+                                                        SizedBox(height: 30.0))
+                                                    .addToEnd(
+                                                        SizedBox(height: 10.0)),
+                                              ),
+                                            ),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(15.0),
+                                          theme: ExpandableThemeData(
+                                            tapHeaderToExpand: true,
+                                            tapBodyToExpand: true,
+                                            tapBodyToCollapse: true,
+                                            headerAlignment:
+                                                ExpandablePanelHeaderAlignment
+                                                    .center,
+                                            hasIcon: true,
+                                            iconSize: 30.0,
+                                            iconColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ]
-                                      .divide(SizedBox(height: 30.0))
-                                      .addToEnd(SizedBox(height: 10.0)),
-                                ),
+                                  ),
+                                  Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(),
+                                    child: Container(
+                                      width: double.infinity,
+                                      color: Color(0x00000000),
+                                      child: ExpandableNotifier(
+                                        initialExpanded: false,
+                                        child: ExpandablePanel(
+                                          header: Text(
+                                            'Rapport',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall,
+                                          ),
+                                          collapsed: Container(
+                                            decoration: BoxDecoration(),
+                                          ),
+                                          expanded: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            child: Form(
+                                              key: _model.formKey1,
+                                              autovalidateMode:
+                                                  AutovalidateMode.disabled,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Container(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .textController4,
+                                                      autofocus: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelText:
+                                                            'Décrire votre nouvelle proposition...',
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium,
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium,
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryTransparent,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      15.0),
+                                                        ),
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      15.0),
+                                                        ),
+                                                        errorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      15.0),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      15.0),
+                                                        ),
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                      maxLines: 8,
+                                                      validator: _model
+                                                          .textController4Validator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.00, 0.00),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        logFirebaseEvent(
+                                                            'FEEDBACK_PAGE_ENVOYER_BTN_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Button_backend_call');
+
+                                                        var feedbackRecordReference =
+                                                            FeedbackRecord
+                                                                .collection
+                                                                .doc();
+                                                        await feedbackRecordReference
+                                                            .set(
+                                                                createFeedbackRecordData(
+                                                          message: _model
+                                                              .textController4
+                                                              .text,
+                                                          createdTime:
+                                                              getCurrentTimestamp,
+                                                          isSuggestion: false,
+                                                          isReport: true,
+                                                          userRef:
+                                                              currentUserReference,
+                                                        ));
+                                                        _model.newReportWeb = FeedbackRecord
+                                                            .getDocumentFromData(
+                                                                createFeedbackRecordData(
+                                                                  message: _model
+                                                                      .textController4
+                                                                      .text,
+                                                                  createdTime:
+                                                                      getCurrentTimestamp,
+                                                                  isSuggestion:
+                                                                      false,
+                                                                  isReport:
+                                                                      true,
+                                                                  userRef:
+                                                                      currentUserReference,
+                                                                ),
+                                                                feedbackRecordReference);
+                                                        logFirebaseEvent(
+                                                            'Button_wait__delay');
+                                                        await Future.delayed(
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    1000));
+                                                        logFirebaseEvent(
+                                                            'Button_show_snack_bar');
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'votre rapport a été envoyé!',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                  ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                          ),
+                                                        );
+                                                        logFirebaseEvent(
+                                                            'Button_navigate_back');
+                                                        context.safePop();
+
+                                                        setState(() {});
+                                                      },
+                                                      text: 'Envoyer',
+                                                      options: FFButtonOptions(
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                        elevation: 3.0,
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ]
+                                                    .divide(
+                                                        SizedBox(height: 30.0))
+                                                    .addToEnd(
+                                                        SizedBox(height: 10.0)),
+                                              ),
+                                            ),
+                                          ),
+                                          theme: ExpandableThemeData(
+                                            tapHeaderToExpand: true,
+                                            tapBodyToExpand: true,
+                                            tapBodyToCollapse: true,
+                                            headerAlignment:
+                                                ExpandablePanelHeaderAlignment
+                                                    .center,
+                                            hasIcon: true,
+                                            iconSize: 30.0,
+                                            iconColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(height: 20.0)),
                               ),
-                            ),
-                            theme: ExpandableThemeData(
-                              tapHeaderToExpand: true,
-                              tapBodyToExpand: true,
-                              tapBodyToCollapse: true,
-                              headerAlignment:
-                                  ExpandablePanelHeaderAlignment.center,
-                              hasIcon: true,
-                              iconSize: 30.0,
-                              iconColor:
-                                  FlutterFlowTheme.of(context).primaryText,
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ].divide(SizedBox(height: 20.0)),
+                  ],
                 ),
               ),
             ),

@@ -136,7 +136,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Text(
                                         'Modification du l\'événement',
                                         style: FlutterFlowTheme.of(context)
@@ -295,8 +296,12 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                     .promorTitleController ??=
                                                                 TextEditingController(
                                                               text:
-                                                                  columnPromotionEventRecord
-                                                                      ?.title,
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                columnPromotionEventRecord
+                                                                    ?.title,
+                                                                'Aucune',
+                                                              ),
                                                             ),
                                                             autofocus: true,
                                                             obscureText: false,
@@ -396,8 +401,12 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                     .promorSousTitleController ??=
                                                                 TextEditingController(
                                                               text:
-                                                                  columnPromotionEventRecord
-                                                                      ?.subTitle,
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                columnPromotionEventRecord
+                                                                    ?.subTitle,
+                                                                'Aucune',
+                                                              ),
                                                             ),
                                                             autofocus: true,
                                                             obscureText: false,
@@ -497,8 +506,12 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                     .descriptionController ??=
                                                                 TextEditingController(
                                                               text:
-                                                                  columnPromotionEventRecord
-                                                                      ?.message,
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                columnPromotionEventRecord
+                                                                    ?.message,
+                                                                'Aucune',
+                                                              ),
                                                             ),
                                                             autofocus: true,
                                                             obscureText: false,
@@ -584,6 +597,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                            maxLines: 3,
                                                             validator: _model
                                                                 .descriptionControllerValidator
                                                                 .asValidator(
@@ -597,11 +611,19 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                             controller: _model
                                                                     .nbrEntranceController ??=
                                                                 TextEditingController(
-                                                              text: columnPromotionEventRecord
-                                                                  ?.entranceValue
-                                                                  ?.toString(),
+                                                              text:
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                columnPromotionEventRecord
+                                                                    ?.entranceValue
+                                                                    .toString(),
+                                                                '0',
+                                                              ),
                                                             ),
                                                             autofocus: true,
+                                                            textInputAction:
+                                                                TextInputAction
+                                                                    .done,
                                                             obscureText: false,
                                                             decoration:
                                                                 InputDecoration(
@@ -685,6 +707,9 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .number,
                                                             validator: _model
                                                                 .nbrEntranceControllerValidator
                                                                 .asValidator(
@@ -760,24 +785,43 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                         // ouvertureHoraire
                                                                         logFirebaseEvent(
                                                                             'ouvertureHoraire_ouvertureHoraire');
-
-                                                                        final _datePicked1Time =
-                                                                            await showTimePicker(
+                                                                        final _datePicked1Date =
+                                                                            await showDatePicker(
                                                                           context:
                                                                               context,
-                                                                          initialTime:
-                                                                              TimeOfDay.fromDateTime(getCurrentTimestamp),
+                                                                          initialDate:
+                                                                              getCurrentTimestamp,
+                                                                          firstDate:
+                                                                              getCurrentTimestamp,
+                                                                          lastDate:
+                                                                              DateTime(2050),
                                                                         );
-                                                                        if (_datePicked1Time !=
+
+                                                                        TimeOfDay?
+                                                                            _datePicked1Time;
+                                                                        if (_datePicked1Date !=
                                                                             null) {
+                                                                          _datePicked1Time =
+                                                                              await showTimePicker(
+                                                                            context:
+                                                                                context,
+                                                                            initialTime:
+                                                                                TimeOfDay.fromDateTime(getCurrentTimestamp),
+                                                                          );
+                                                                        }
+
+                                                                        if (_datePicked1Date !=
+                                                                                null &&
+                                                                            _datePicked1Time !=
+                                                                                null) {
                                                                           setState(
                                                                               () {
                                                                             _model.datePicked1 =
                                                                                 DateTime(
-                                                                              getCurrentTimestamp.year,
-                                                                              getCurrentTimestamp.month,
-                                                                              getCurrentTimestamp.day,
-                                                                              _datePicked1Time.hour,
+                                                                              _datePicked1Date.year,
+                                                                              _datePicked1Date.month,
+                                                                              _datePicked1Date.day,
+                                                                              _datePicked1Time!.hour,
                                                                               _datePicked1Time.minute,
                                                                             );
                                                                           });
@@ -885,24 +929,43 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                         // fermetureHoraire
                                                                         logFirebaseEvent(
                                                                             'fermetureHoraire_fermetureHoraire');
-
-                                                                        final _datePicked2Time =
-                                                                            await showTimePicker(
+                                                                        final _datePicked2Date =
+                                                                            await showDatePicker(
                                                                           context:
                                                                               context,
-                                                                          initialTime:
-                                                                              TimeOfDay.fromDateTime(getCurrentTimestamp),
+                                                                          initialDate:
+                                                                              getCurrentTimestamp,
+                                                                          firstDate:
+                                                                              getCurrentTimestamp,
+                                                                          lastDate:
+                                                                              DateTime(2050),
                                                                         );
-                                                                        if (_datePicked2Time !=
+
+                                                                        TimeOfDay?
+                                                                            _datePicked2Time;
+                                                                        if (_datePicked2Date !=
                                                                             null) {
+                                                                          _datePicked2Time =
+                                                                              await showTimePicker(
+                                                                            context:
+                                                                                context,
+                                                                            initialTime:
+                                                                                TimeOfDay.fromDateTime(getCurrentTimestamp),
+                                                                          );
+                                                                        }
+
+                                                                        if (_datePicked2Date !=
+                                                                                null &&
+                                                                            _datePicked2Time !=
+                                                                                null) {
                                                                           setState(
                                                                               () {
                                                                             _model.datePicked2 =
                                                                                 DateTime(
-                                                                              getCurrentTimestamp.year,
-                                                                              getCurrentTimestamp.month,
-                                                                              getCurrentTimestamp.day,
-                                                                              _datePicked2Time.hour,
+                                                                              _datePicked2Date.year,
+                                                                              _datePicked2Date.month,
+                                                                              _datePicked2Date.day,
+                                                                              _datePicked2Time!.hour,
                                                                               _datePicked2Time.minute,
                                                                             );
                                                                           });
@@ -963,85 +1026,211 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 15.0, 15.0, 15.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'UPDATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_backend_call');
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Expanded(
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'UPDATE_EVENT_STEP3_ignoreStep_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'ignoreStep_navigate_to');
 
-                                                await columnPromotionEventRecord!
-                                                    .reference
-                                                    .update(
-                                                        createPromotionEventRecordData(
-                                                  trackTime: (_model
-                                                                  .datePicked1 !=
-                                                              null) ||
-                                                          (_model.datePicked2 !=
-                                                              null)
-                                                      ? functions
-                                                          .getTimeDuration(
-                                                              _model
-                                                                  .datePicked1,
-                                                              _model
-                                                                  .datePicked2)
-                                                      : columnPromotionEventRecord
-                                                          ?.trackTime,
-                                                ));
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_not_defined');
-                                                logFirebaseEvent(
-                                                    'BTNValidateFrom_navigate_to');
-
-                                                context.pushNamed(
-                                                  'UpdateEventStep4',
-                                                  queryParameters: {
-                                                    'eventstDetails':
-                                                        serializeParam(
-                                                      widget.eventstDetails,
-                                                      ParamType
-                                                          .DocumentReference,
+                                                      context.pushNamed(
+                                                        'UpdateEventStep4',
+                                                        queryParameters: {
+                                                          'eventstDetails':
+                                                              serializeParam(
+                                                            widget
+                                                                .eventstDetails,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    text: 'Ignorez ',
+                                                    options: FFButtonOptions(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        width: 3.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
                                                     ),
-                                                  }.withoutNulls,
-                                                );
-                                              },
-                                              text: 'Enregistrer et continuer',
-                                              options: FFButtonOptions(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 50.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
+                                                  ),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
+                                                Expanded(
+                                                  flex: 4,
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'UPDATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
+                                                      logFirebaseEvent(
+                                                          'BTNValidateFrom_backend_call');
+
+                                                      await columnPromotionEventRecord!
+                                                          .reference
+                                                          .update(
+                                                              createPromotionEventRecordData(
+                                                        message: valueOrDefault<
+                                                            String>(
+                                                          _model
+                                                              .descriptionController
+                                                              .text,
+                                                          'Aucune',
+                                                        ),
+                                                        title: valueOrDefault<
+                                                            String>(
+                                                          _model
+                                                              .promorTitleController
+                                                              .text,
+                                                          'Aucune',
+                                                        ),
+                                                        subTitle:
+                                                            valueOrDefault<
+                                                                String>(
+                                                          _model
+                                                              .promorSousTitleController
+                                                              .text,
+                                                          'Aucune',
+                                                        ),
+                                                        startTrack: _model
+                                                                    .datePicked1 !=
+                                                                null
+                                                            ? _model.datePicked1
+                                                            : columnPromotionEventRecord
+                                                                ?.startTrack,
+                                                        endTrack: _model
+                                                                    .datePicked2 !=
+                                                                null
+                                                            ? _model.datePicked2
+                                                            : columnPromotionEventRecord
+                                                                ?.endTrack,
+                                                        updatedTime:
+                                                            getCurrentTimestamp,
+                                                        entranceValue:
+                                                            valueOrDefault<
+                                                                double>(
+                                                          double.tryParse(_model
+                                                              .nbrEntranceController
+                                                              .text),
+                                                          0.0,
+                                                        ),
+                                                        trackTime: functions
+                                                            .getTimeDuration(
+                                                                _model
+                                                                    .datePicked1,
+                                                                _model
+                                                                    .datePicked2),
+                                                      ));
+                                                      logFirebaseEvent(
+                                                          'BTNValidateFrom_navigate_to');
+
+                                                      context.pushNamed(
+                                                        'UpdateEventStep4',
+                                                        queryParameters: {
+                                                          'eventstDetails':
+                                                              serializeParam(
+                                                            widget
+                                                                .eventstDetails,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    text:
+                                                        'Enregistrer et continuer',
+                                                    options: FFButtonOptions(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ].divide(SizedBox(width: 10.0)),
                                             ),
                                           ),
-                                        ]
-                                            .divide(SizedBox(height: 30.0))
-                                            .addToEnd(SizedBox(height: 20.0)),
+                                        ].divide(SizedBox(height: 30.0)),
                                       );
                                     },
                                   ),

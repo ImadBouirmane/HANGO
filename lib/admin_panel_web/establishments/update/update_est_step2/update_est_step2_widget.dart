@@ -103,90 +103,90 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 15.0, 15.0, 15.0),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor:
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 40.0,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    icon: Icon(
+                                      Icons.chevron_left,
+                                      color:
                                           FlutterFlowTheme.of(context).primary,
-                                      borderRadius: 20.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 40.0,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      icon: Icon(
-                                        Icons.chevron_left,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'UPDATE_EST_STEP2_chevron_left_ICN_ON_TAP');
-                                        logFirebaseEvent(
-                                            'IconButton_navigate_back');
-                                        context.safePop();
-                                      },
+                                      size: 24.0,
                                     ),
-                                    Expanded(
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Text(
-                                          'Modification du l\'établissement',
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleLarge
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    FlutterFlowIconButton(
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).primary,
-                                      borderRadius: 20.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 40.0,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      icon: Icon(
-                                        Icons.home,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 12.0,
-                                      ),
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'UPDATE_EST_STEP2_PAGE_home_ICN_ON_TAP');
-                                        logFirebaseEvent(
-                                            'IconButton_navigate_to');
-
-                                        context.pushNamed(
-                                          'Dashboard',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 300),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'UPDATE_EST_STEP2_chevron_left_ICN_ON_TAP');
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_back');
+                                      context.safePop();
+                                    },
+                                  ),
+                                  Expanded(
+                                    child: Align(
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
+                                      child: Text(
+                                        'Modification du l\'établissement',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                             ),
-                                          },
-                                        );
-                                      },
+                                      ),
                                     ),
-                                  ],
-                                ),
-                                Container(
+                                  ),
+                                  FlutterFlowIconButton(
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 40.0,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    icon: Icon(
+                                      Icons.home,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 12.0,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'UPDATE_EST_STEP2_PAGE_home_ICN_ON_TAP');
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_to');
+
+                                      context.pushNamed(
+                                        'Dashboard',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                          ),
+                                        },
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Expanded(
+                                child: Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
@@ -204,19 +204,18 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                           FlutterFlowTheme.of(context).accent3,
                                     ),
                                   ),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Form(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Form(
                                           key: _model.formKey,
                                           autovalidateMode:
                                               AutovalidateMode.always,
                                           child: Align(
                                             alignment: AlignmentDirectional(
-                                                -1.0, -1.0),
+                                                -1.00, -1.00),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -607,14 +606,14 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: _model.thursdayOpeningController ??= TextEditingController(
+                                                                              controller: _model.tuesdayOpeningController ??= TextEditingController(
                                                                                 text: valueOrDefault<String>(
                                                                                   wrapScheduleRecord?.tuesdayOpening != null && wrapScheduleRecord?.tuesdayOpening != '' ? wrapScheduleRecord?.tuesdayOpening : '',
                                                                                   'Mardi ouverture',
                                                                                 ),
                                                                               ),
                                                                               onChanged: (_) => EasyDebounce.debounce(
-                                                                                '_model.thursdayOpeningController',
+                                                                                '_model.tuesdayOpeningController',
                                                                                 Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
@@ -654,10 +653,10 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   ),
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
-                                                                                suffixIcon: _model.thursdayOpeningController!.text.isNotEmpty
+                                                                                suffixIcon: _model.tuesdayOpeningController!.text.isNotEmpty
                                                                                     ? InkWell(
                                                                                         onTap: () async {
-                                                                                          _model.thursdayOpeningController?.clear();
+                                                                                          _model.tuesdayOpeningController?.clear();
                                                                                           setState(() {});
                                                                                         },
                                                                                         child: Icon(
@@ -670,7 +669,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               keyboardType: TextInputType.datetime,
-                                                                              validator: _model.thursdayOpeningControllerValidator.asValidator(context),
+                                                                              validator: _model.tuesdayOpeningControllerValidator.asValidator(context),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -688,14 +687,14 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: _model.thursdayClosingController ??= TextEditingController(
+                                                                              controller: _model.tuesdayClosingController ??= TextEditingController(
                                                                                 text: valueOrDefault<String>(
                                                                                   wrapScheduleRecord?.tuesdayClosing != null && wrapScheduleRecord?.tuesdayClosing != '' ? wrapScheduleRecord?.tuesdayClosing : '',
                                                                                   'Mardi fermeture',
                                                                                 ),
                                                                               ),
                                                                               onChanged: (_) => EasyDebounce.debounce(
-                                                                                '_model.thursdayClosingController',
+                                                                                '_model.tuesdayClosingController',
                                                                                 Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
@@ -735,10 +734,10 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   ),
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
-                                                                                suffixIcon: _model.thursdayClosingController!.text.isNotEmpty
+                                                                                suffixIcon: _model.tuesdayClosingController!.text.isNotEmpty
                                                                                     ? InkWell(
                                                                                         onTap: () async {
-                                                                                          _model.thursdayClosingController?.clear();
+                                                                                          _model.tuesdayClosingController?.clear();
                                                                                           setState(() {});
                                                                                         },
                                                                                         child: Icon(
@@ -751,7 +750,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               keyboardType: TextInputType.datetime,
-                                                                              validator: _model.thursdayClosingControllerValidator.asValidator(context),
+                                                                              validator: _model.tuesdayClosingControllerValidator.asValidator(context),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1173,14 +1172,14 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: _model.tuesdayOpeningController ??= TextEditingController(
+                                                                              controller: _model.thursdayOpeningController ??= TextEditingController(
                                                                                 text: valueOrDefault<String>(
                                                                                   wrapScheduleRecord?.thursdayOpening != null && wrapScheduleRecord?.thursdayOpening != '' ? wrapScheduleRecord?.thursdayOpening : '',
                                                                                   'Jeudi ouverture',
                                                                                 ),
                                                                               ),
                                                                               onChanged: (_) => EasyDebounce.debounce(
-                                                                                '_model.tuesdayOpeningController',
+                                                                                '_model.thursdayOpeningController',
                                                                                 Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
@@ -1220,10 +1219,10 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   ),
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
-                                                                                suffixIcon: _model.tuesdayOpeningController!.text.isNotEmpty
+                                                                                suffixIcon: _model.thursdayOpeningController!.text.isNotEmpty
                                                                                     ? InkWell(
                                                                                         onTap: () async {
-                                                                                          _model.tuesdayOpeningController?.clear();
+                                                                                          _model.thursdayOpeningController?.clear();
                                                                                           setState(() {});
                                                                                         },
                                                                                         child: Icon(
@@ -1236,7 +1235,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               keyboardType: TextInputType.datetime,
-                                                                              validator: _model.tuesdayOpeningControllerValidator.asValidator(context),
+                                                                              validator: _model.thursdayOpeningControllerValidator.asValidator(context),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1254,14 +1253,14 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
                                                                                 TextFormField(
-                                                                              controller: _model.tuesdayClosingController ??= TextEditingController(
+                                                                              controller: _model.thursdayClosingController ??= TextEditingController(
                                                                                 text: valueOrDefault<String>(
                                                                                   wrapScheduleRecord?.thursdayClosing != null && wrapScheduleRecord?.thursdayClosing != '' ? wrapScheduleRecord?.thursdayClosing : '',
                                                                                   'Jeudi fermeture',
                                                                                 ),
                                                                               ),
                                                                               onChanged: (_) => EasyDebounce.debounce(
-                                                                                '_model.tuesdayClosingController',
+                                                                                '_model.thursdayClosingController',
                                                                                 Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
@@ -1301,10 +1300,10 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   ),
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
-                                                                                suffixIcon: _model.tuesdayClosingController!.text.isNotEmpty
+                                                                                suffixIcon: _model.thursdayClosingController!.text.isNotEmpty
                                                                                     ? InkWell(
                                                                                         onTap: () async {
-                                                                                          _model.tuesdayClosingController?.clear();
+                                                                                          _model.thursdayClosingController?.clear();
                                                                                           setState(() {});
                                                                                         },
                                                                                         child: Icon(
@@ -1317,7 +1316,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               keyboardType: TextInputType.datetime,
-                                                                              validator: _model.tuesdayClosingControllerValidator.asValidator(context),
+                                                                              validator: _model.thursdayClosingControllerValidator.asValidator(context),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -2274,331 +2273,332 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                             ),
                                           ),
                                         ),
+                                      ),
 
-                                        // still some calls for schedule I will complete next two hours
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 15.0, 15.0, 15.0),
-                                          child: StreamBuilder<
-                                              List<ScheduleRecord>>(
-                                            stream: queryScheduleRecord(
-                                              parent:
-                                                  widget.establishmentDetails,
-                                              singleRecord: true,
-                                            ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 30.0,
-                                                    height: 30.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                      ),
+                                      // still some calls for schedule I will complete next two hours
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 15.0, 15.0, 15.0),
+                                        child:
+                                            StreamBuilder<List<ScheduleRecord>>(
+                                          stream: queryScheduleRecord(
+                                            parent: widget.establishmentDetails,
+                                            singleRecord: true,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 30.0,
+                                                  height: 30.0,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    valueColor:
+                                                        AlwaysStoppedAnimation<
+                                                            Color>(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
                                                     ),
                                                   ),
-                                                );
-                                              }
-                                              List<ScheduleRecord>
-                                                  bTNValidateFromScheduleRecordList =
-                                                  snapshot.data!;
-                                              final bTNValidateFromScheduleRecord =
-                                                  bTNValidateFromScheduleRecordList
-                                                          .isNotEmpty
-                                                      ? bTNValidateFromScheduleRecordList
-                                                          .first
-                                                      : null;
-                                              return FFButtonWidget(
-                                                onPressed: () async {
-                                                  logFirebaseEvent(
-                                                      'UPDATE_EST_STEP2_BTNValidateFrom_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'BTNValidateFrom_backend_call');
-
-                                                  await bTNValidateFromScheduleRecord!
-                                                      .reference
-                                                      .update(
-                                                          createScheduleRecordData(
-                                                    mondayIsClose: _model
-                                                                .mondayValue !=
-                                                            null
-                                                        ? _model.mondayValue
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.mondayIsClose,
-                                                    tuesdayIsClose: _model
-                                                                .tuesdayValue !=
-                                                            null
-                                                        ? _model.tuesdayValue
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.tuesdayIsClose,
-                                                    wednesdayIsClose: _model
-                                                                .wednesdayValue !=
-                                                            null
-                                                        ? _model.wednesdayValue
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.wednesdayIsClose,
-                                                    thursdayIsClose: _model
-                                                                .thursdayValue !=
-                                                            null
-                                                        ? _model.thursdayValue
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.thursdayIsClose,
-                                                    fridayIsClose: _model
-                                                                .fridayValue !=
-                                                            null
-                                                        ? _model.fridayValue
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.fridayIsClose,
-                                                    saturdayIsClose: _model
-                                                                .saturdayValue !=
-                                                            null
-                                                        ? _model.saturdayValue
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.saturdayIsClose,
-                                                    sundayIsClose: _model
-                                                                .sundayValue !=
-                                                            null
-                                                        ? _model.sundayValue
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.sundayIsClose,
-                                                    mondayOpening: _model
-                                                                    .mondayOpeningController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.mondayOpeningController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .mondayOpeningController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.mondayOpening,
-                                                    mondayClosing: _model
-                                                                    .mondayClosingController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.mondayClosingController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .mondayClosingController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.mondayClosing,
-                                                    tuesdayOpening: _model
-                                                                    .tuesdayOpeningController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.tuesdayOpeningController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .tuesdayOpeningController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.tuesdayOpening,
-                                                    tuesdayClosing: _model
-                                                                    .tuesdayClosingController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.tuesdayClosingController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .tuesdayClosingController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.tuesdayClosing,
-                                                    wednesdayOpening: _model
-                                                                    .wednesdayOpeningController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.wednesdayOpeningController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .wednesdayOpeningController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.wednesdayOpening,
-                                                    wednesdayClosing: _model
-                                                                    .wednesdayClosingController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.wednesdayClosingController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .wednesdayClosingController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.wednesdayClosing,
-                                                    thursdayOpening: _model
-                                                                    .thursdayOpeningController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.thursdayOpeningController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .thursdayOpeningController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.thursdayOpening,
-                                                    thursdayClosing: _model
-                                                                    .thursdayClosingController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.thursdayClosingController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .thursdayClosingController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.thursdayClosing,
-                                                    fridayOpening: _model
-                                                                    .fridayOpeningController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.fridayOpeningController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .fridayOpeningController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.fridayOpening,
-                                                    fridayClosing: _model
-                                                                    .fridayClosingController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.fridayClosingController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .fridayClosingController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.fridayClosing,
-                                                    saturdayOpening: _model
-                                                                    .saturdayOpeningController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.saturdayOpeningController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .saturdayOpeningController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.saturdayOpening,
-                                                    saturdayClosing: _model
-                                                                    .saturdayClosingController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.saturdayClosingController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .saturdayClosingController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.saturdayClosing,
-                                                    sundayOpening: bTNValidateFromScheduleRecord
-                                                                ?.hasSundayOpening() !=
-                                                            null
-                                                        ? _model
-                                                            .sundayOpeningController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.sundayOpening,
-                                                    sundayClosing: _model
-                                                                    .sundayClosingController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.sundayClosingController
-                                                                    .text !=
-                                                                ''
-                                                        ? _model
-                                                            .sundayClosingController
-                                                            .text
-                                                        : bTNValidateFromScheduleRecord
-                                                            ?.sundayClosing,
-                                                    estblishmentRef: widget
-                                                        .establishmentDetails,
-                                                    updatedAt:
-                                                        getCurrentTimestamp,
-                                                  ));
-                                                  logFirebaseEvent(
-                                                      'BTNValidateFrom_navigate_to');
-
-                                                  context.pushNamed(
-                                                    'UpdateEstStep3',
-                                                    queryParameters: {
-                                                      'establishmentDetails':
-                                                          serializeParam(
-                                                        widget
-                                                            .establishmentDetails,
-                                                        ParamType
-                                                            .DocumentReference,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                },
-                                                text: 'Continuer',
-                                                options: FFButtonOptions(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 50.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          24.0, 0.0, 24.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                      ),
-                                                  elevation: 3.0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
                                                 ),
                                               );
-                                            },
-                                          ),
+                                            }
+                                            List<ScheduleRecord>
+                                                bTNValidateFromScheduleRecordList =
+                                                snapshot.data!;
+                                            final bTNValidateFromScheduleRecord =
+                                                bTNValidateFromScheduleRecordList
+                                                        .isNotEmpty
+                                                    ? bTNValidateFromScheduleRecordList
+                                                        .first
+                                                    : null;
+                                            return FFButtonWidget(
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'UPDATE_EST_STEP2_BTNValidateFrom_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'BTNValidateFrom_backend_call');
+
+                                                await bTNValidateFromScheduleRecord!
+                                                    .reference
+                                                    .update(
+                                                        createScheduleRecordData(
+                                                  mondayIsClose: _model
+                                                              .mondayValue !=
+                                                          null
+                                                      ? _model.mondayValue
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.mondayIsClose,
+                                                  tuesdayIsClose: _model
+                                                              .tuesdayValue !=
+                                                          null
+                                                      ? _model.tuesdayValue
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.tuesdayIsClose,
+                                                  wednesdayIsClose: _model
+                                                              .wednesdayValue !=
+                                                          null
+                                                      ? _model.wednesdayValue
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.wednesdayIsClose,
+                                                  thursdayIsClose: _model
+                                                              .thursdayValue !=
+                                                          null
+                                                      ? _model.thursdayValue
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.thursdayIsClose,
+                                                  fridayIsClose: _model
+                                                              .fridayValue !=
+                                                          null
+                                                      ? _model.fridayValue
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.fridayIsClose,
+                                                  saturdayIsClose: _model
+                                                              .saturdayValue !=
+                                                          null
+                                                      ? _model.saturdayValue
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.saturdayIsClose,
+                                                  sundayIsClose: _model
+                                                              .sundayValue !=
+                                                          null
+                                                      ? _model.sundayValue
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.sundayIsClose,
+                                                  mondayOpening: _model
+                                                                  .mondayOpeningController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.mondayOpeningController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .mondayOpeningController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.mondayOpening,
+                                                  mondayClosing: _model
+                                                                  .mondayClosingController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.mondayClosingController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .mondayClosingController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.mondayClosing,
+                                                  tuesdayOpening: _model
+                                                                  .tuesdayOpeningController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tuesdayOpeningController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tuesdayOpeningController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.tuesdayOpening,
+                                                  tuesdayClosing: _model
+                                                                  .tuesdayClosingController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.tuesdayClosingController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .tuesdayClosingController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.tuesdayClosing,
+                                                  wednesdayOpening: _model
+                                                                  .wednesdayOpeningController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.wednesdayOpeningController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .wednesdayOpeningController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.wednesdayOpening,
+                                                  wednesdayClosing: _model
+                                                                  .wednesdayClosingController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.wednesdayClosingController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .wednesdayClosingController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.wednesdayClosing,
+                                                  thursdayOpening: _model
+                                                                  .thursdayOpeningController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.thursdayOpeningController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .thursdayOpeningController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.thursdayOpening,
+                                                  thursdayClosing: _model
+                                                                  .thursdayClosingController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.thursdayClosingController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .thursdayClosingController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.thursdayClosing,
+                                                  fridayOpening: _model
+                                                                  .fridayOpeningController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.fridayOpeningController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .fridayOpeningController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.fridayOpening,
+                                                  fridayClosing: _model
+                                                                  .fridayClosingController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.fridayClosingController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .fridayClosingController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.fridayClosing,
+                                                  saturdayOpening: _model
+                                                                  .saturdayOpeningController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.saturdayOpeningController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .saturdayOpeningController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.saturdayOpening,
+                                                  saturdayClosing: _model
+                                                                  .saturdayClosingController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.saturdayClosingController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .saturdayClosingController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.saturdayClosing,
+                                                  sundayOpening: _model
+                                                                  .sundayOpeningController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.sundayOpeningController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .sundayOpeningController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.sundayOpening,
+                                                  sundayClosing: _model
+                                                                  .sundayClosingController
+                                                                  .text !=
+                                                              null &&
+                                                          _model.sundayClosingController
+                                                                  .text !=
+                                                              ''
+                                                      ? _model
+                                                          .sundayClosingController
+                                                          .text
+                                                      : bTNValidateFromScheduleRecord
+                                                          ?.sundayClosing,
+                                                  estblishmentRef: widget
+                                                      .establishmentDetails,
+                                                  updatedAt:
+                                                      getCurrentTimestamp,
+                                                ));
+                                                logFirebaseEvent(
+                                                    'BTNValidateFrom_navigate_to');
+
+                                                context.pushNamed(
+                                                  'UpdateEstStep3',
+                                                  queryParameters: {
+                                                    'establishmentDetails':
+                                                        serializeParam(
+                                                      widget
+                                                          .establishmentDetails,
+                                                      ParamType
+                                                          .DocumentReference,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              text: 'Continuer',
+                                              options: FFButtonOptions(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 50.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                              ),
+                                            );
+                                          },
                                         ),
-                                      ].addToEnd(SizedBox(height: 20.0)),
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ]
-                                  .divide(SizedBox(height: 20.0))
-                                  .around(SizedBox(height: 20.0)),
-                            ),
+                              ),
+                            ]
+                                .divide(SizedBox(height: 20.0))
+                                .around(SizedBox(height: 20.0)),
                           ),
                         ),
                       ),

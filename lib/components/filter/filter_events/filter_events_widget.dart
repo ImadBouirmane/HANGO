@@ -48,7 +48,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: AlignmentDirectional(0.00, 1.00),
       child: Material(
         color: Colors.transparent,
         elevation: 10.0,
@@ -62,7 +62,6 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
         ),
         child: Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
-          height: MediaQuery.sizeOf(context).height * 0.9,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: BorderRadius.only(
@@ -167,16 +166,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                     decoration: BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: FlutterFlowChoiceChips(
-                                      options: [
-                                        ChipData('Football'),
-                                        ChipData('DJ'),
-                                        ChipData('Showcase'),
-                                        ChipData('Karaoke'),
-                                        ChipData('Music Live'),
-                                        ChipData('Sport')
-                                      ],
+                                      options: FFAppState()
+                                          .TypeOfEvent
+                                          .map((label) => ChipData(label))
+                                          .toList(),
                                       onChanged: (val) => setState(
                                           () => _model.typeValue = val?.first),
                                       selectedChipStyle: ChipStyle(
@@ -227,6 +222,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                           FormFieldController<List<String>>(
                                         [],
                                       ),
+                                      wrapped: true,
                                     ),
                                   ),
                                   theme: ExpandableThemeData(
@@ -265,16 +261,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                     decoration: BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: FlutterFlowChoiceChips(
-                                      options: [
-                                        ChipData('Football'),
-                                        ChipData('DJ'),
-                                        ChipData('Showcase'),
-                                        ChipData('Karaoke'),
-                                        ChipData('Music Live'),
-                                        ChipData('Sport')
-                                      ],
+                                      options: FFAppState()
+                                          .MusicStyle
+                                          .map((label) => ChipData(label))
+                                          .toList(),
                                       onChanged: (val) => setState(
                                           () => _model.musicValue = val?.first),
                                       selectedChipStyle: ChipStyle(
@@ -326,6 +318,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                               FormFieldController<List<String>>(
                                         [],
                                       ),
+                                      wrapped: true,
                                     ),
                                   ),
                                   theme: ExpandableThemeData(
@@ -343,10 +336,8 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                               ),
                             ),
                           ),
-                          ListView(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
                             children: [
                               SwitchListTile(
                                 value: _model.switchListTileValue1 ??= false,
@@ -498,10 +489,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                         }.withoutNulls,
                                       );
                                     },
-                                    text: valueOrDefault<String>(
-                                      'Voir les résultats ${(FFAppState().clickCount.contains(FFAppState().clickCount.length) != null).toString()}${FFAppState().clickCount.contains(FFAppState().clickCount.length) != null ? FFAppState().clickCount.length.toString() : null}${(FFAppState().clickCount.contains(FFAppState().clickCount.length) != null).toString()}',
-                                      'Voir les résultats ',
-                                    ),
+                                    text: 'Voir les résultats ',
                                     options: FFButtonOptions(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 20.0, 20.0, 20.0),
@@ -529,7 +517,9 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                               ),
                             ].divide(SizedBox(height: 5.0)),
                           ),
-                        ].divide(SizedBox(height: 30.0)),
+                        ]
+                            .divide(SizedBox(height: 30.0))
+                            .around(SizedBox(height: 30.0)),
                       );
                     },
                   ),

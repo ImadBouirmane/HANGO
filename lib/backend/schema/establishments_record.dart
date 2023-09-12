@@ -111,6 +111,11 @@ class EstablishmentsRecord extends FirestoreRecord {
   DocumentReference? get eventRef => _eventRef;
   bool hasEventRef() => _eventRef != null;
 
+  // "scheduleEstablishment" field.
+  DocumentReference? _scheduleEstablishment;
+  DocumentReference? get scheduleEstablishment => _scheduleEstablishment;
+  bool hasScheduleEstablishment() => _scheduleEstablishment != null;
+
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _name = snapshotData['name'] as String?;
@@ -131,6 +136,8 @@ class EstablishmentsRecord extends FirestoreRecord {
     _location = snapshotData['Location'] as LatLng?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
     _eventRef = snapshotData['eventRef'] as DocumentReference?;
+    _scheduleEstablishment =
+        snapshotData['scheduleEstablishment'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -182,6 +189,7 @@ Map<String, dynamic> createEstablishmentsRecordData({
   LatLng? location,
   DateTime? updatedAt,
   DocumentReference? eventRef,
+  DocumentReference? scheduleEstablishment,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -199,6 +207,7 @@ Map<String, dynamic> createEstablishmentsRecordData({
       'Location': location,
       'updatedAt': updatedAt,
       'eventRef': eventRef,
+      'scheduleEstablishment': scheduleEstablishment,
     }.withoutNulls,
   );
 
@@ -233,7 +242,8 @@ class EstablishmentsRecordDocumentEquality
         e1?.description == e2?.description &&
         e1?.location == e2?.location &&
         e1?.updatedAt == e2?.updatedAt &&
-        e1?.eventRef == e2?.eventRef;
+        e1?.eventRef == e2?.eventRef &&
+        e1?.scheduleEstablishment == e2?.scheduleEstablishment;
   }
 
   @override
@@ -256,7 +266,8 @@ class EstablishmentsRecordDocumentEquality
         e?.description,
         e?.location,
         e?.updatedAt,
-        e?.eventRef
+        e?.eventRef,
+        e?.scheduleEstablishment
       ]);
 
   @override

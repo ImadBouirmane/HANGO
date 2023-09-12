@@ -42,16 +42,16 @@ class _EventEmptyListWidgetState extends State<EventEmptyListWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.00, 0.00),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 1.0,
         height: 50.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
         ),
-        alignment: AlignmentDirectional(0.0, -0.5),
+        alignment: AlignmentDirectional(0.00, -0.50),
         child: Align(
-          alignment: AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.00, 0.00),
           child: Text(
             'Aucun  événement planifié',
             style: FlutterFlowTheme.of(context).bodyMedium.override(

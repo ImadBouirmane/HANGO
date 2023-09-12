@@ -63,6 +63,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
     userStream = hangoFirebaseUserStream()
@@ -156,7 +157,7 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Maps': MapsWidget(),
+      'Profile': ProfileWidget(),
       'ListOfEstablishments': ListOfEstablishmentsWidget(),
       'ListOfEvents': ListOfEventsWidget(),
     };
@@ -164,48 +165,52 @@ class _NavBarPageState extends State<NavBarPage> {
 
     return Scaffold(
       body: _currentPage ?? tabs[_currentPageName],
-      bottomNavigationBar: GNav(
-        selectedIndex: currentIndex,
-        onTabChange: (i) => setState(() {
-          _currentPage = null;
-          _currentPageName = tabs.keys.toList()[i];
-        }),
-        backgroundColor: Colors.white,
-        color: FlutterFlowTheme.of(context).primaryText,
-        activeColor: FlutterFlowTheme.of(context).primaryBackground,
-        tabBackgroundColor: FlutterFlowTheme.of(context).primary,
-        tabActiveBorder: Border.all(
-          color: FlutterFlowTheme.of(context).accent4,
-          width: 1.0,
+      bottomNavigationBar: Visibility(
+        visible: responsiveVisibility(
+          context: context,
+          desktop: false,
         ),
-        tabBorderRadius: 100.0,
-        tabMargin: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-        padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-        gap: 10.0,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        duration: Duration(milliseconds: 500),
-        haptic: true,
-        tabs: [
-          GButton(
-            icon: currentIndex == 0
-                ? FontAwesomeIcons.mapMarkedAlt
-                : FontAwesomeIcons.mapMarkedAlt,
-            text: 'Map',
-            iconSize: 22.0,
+        child: GNav(
+          selectedIndex: currentIndex,
+          onTabChange: (i) => setState(() {
+            _currentPage = null;
+            _currentPageName = tabs.keys.toList()[i];
+          }),
+          backgroundColor: Colors.white,
+          color: FlutterFlowTheme.of(context).primaryText,
+          activeColor: FlutterFlowTheme.of(context).primaryBackground,
+          tabBackgroundColor: FlutterFlowTheme.of(context).primary,
+          tabActiveBorder: Border.all(
+            color: FlutterFlowTheme.of(context).accent4,
+            width: 1.0,
           ),
-          GButton(
-            icon: currentIndex == 1 ? Icons.home : FontAwesomeIcons.home,
-            text: 'Établissements',
-            iconSize: 22.0,
-          ),
-          GButton(
-            icon: currentIndex == 2
-                ? Icons.calendar_today_rounded
-                : Icons.calendar_today_rounded,
-            text: 'Événements',
-            iconSize: 22.0,
-          )
-        ],
+          tabBorderRadius: 100.0,
+          tabMargin: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+          padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+          gap: 10.0,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          duration: Duration(milliseconds: 500),
+          haptic: true,
+          tabs: [
+            GButton(
+              icon: currentIndex == 0 ? Icons.person : Icons.person,
+              text: 'Profile',
+              iconSize: 30.0,
+            ),
+            GButton(
+              icon: currentIndex == 1 ? Icons.home : FontAwesomeIcons.home,
+              text: 'Établissements',
+              iconSize: 22.0,
+            ),
+            GButton(
+              icon: currentIndex == 2
+                  ? Icons.calendar_today_rounded
+                  : Icons.calendar_today_rounded,
+              text: 'Événements',
+              iconSize: 22.0,
+            )
+          ],
+        ),
       ),
     );
   }

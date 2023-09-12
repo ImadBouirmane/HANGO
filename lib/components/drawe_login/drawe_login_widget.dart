@@ -61,7 +61,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
@@ -129,7 +129,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.00, 0.00),
                 child: Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
@@ -248,7 +248,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: FaIcon(
                                 FontAwesomeIcons.instagram,
                                 color: FlutterFlowTheme.of(context)
@@ -270,7 +270,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: FaIcon(
                                 FontAwesomeIcons.tiktok,
                                 color: FlutterFlowTheme.of(context)
@@ -292,7 +292,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: FaIcon(
                                 FontAwesomeIcons.facebookF,
                                 color: FlutterFlowTheme.of(context)

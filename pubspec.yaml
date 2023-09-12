@@ -36,6 +36,7 @@ dependencies:
   csv: 5.0.1
   dropdown_button2: 2.0.0
   easy_debounce: 2.0.1
+  equatable: 2.0.5
   expandable: 5.0.1
   file_picker: 5.2.6
   firebase_analytics: 10.4.2
@@ -51,6 +52,9 @@ dependencies:
   firebase_crashlytics_platform_interface: 3.6.2
   firebase_dynamic_links: 5.3.2
   firebase_dynamic_links_platform_interface: 0.2.6+2
+  firebase_performance: 0.9.2+2
+  firebase_performance_platform_interface: 0.1.4+2
+  firebase_performance_web: 0.1.4+2
   firebase_storage: 11.2.2
   firebase_storage_platform_interface: 4.4.2
   firebase_storage_web: 3.6.2
@@ -87,6 +91,10 @@ dependencies:
   image_picker_for_web: 2.1.10
   image_picker_ios: 0.8.6+1
   image_picker_platform_interface: 2.6.2
+  infinite_scroll_pagination: 
+    git:
+      url: https://github.com/FlutterFlow/infinite_scroll_pagination.git
+      ref: develop
   intl: 0.18.0
   json_path: 0.6.2
   map_launcher: 2.5.0+1

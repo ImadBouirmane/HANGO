@@ -13,6 +13,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +37,12 @@ class UpdateEventStep1Model extends FlutterFlowModel {
   // State field(s) for TFURLWebSite widget.
   TextEditingController? tFURLWebSiteController;
   String? Function(BuildContext, String?)? tFURLWebSiteControllerValidator;
+  // State field(s) for entrancePrice widget.
+  TextEditingController? entrancePriceController;
+  String? Function(BuildContext, String?)? entrancePriceControllerValidator;
+  // State field(s) for typeEvent widget.
+  List<String>? typeEventValues;
+  FormFieldController<List<String>>? typeEventValueController;
   // State field(s) for CheckBoxMusicStyle widget.
   List<String>? checkBoxMusicStyleValues;
   FormFieldController<List<String>>? checkBoxMusicStyleValueController;
@@ -54,6 +61,7 @@ class UpdateEventStep1Model extends FlutterFlowModel {
     tFTitleController?.dispose();
     tFDescriionController?.dispose();
     tFURLWebSiteController?.dispose();
+    entrancePriceController?.dispose();
   }
 
   /// Action blocks are added here.

@@ -46,7 +46,7 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.00, 0.00),
       child: Material(
         color: Colors.transparent,
         elevation: 5.0,
@@ -71,6 +71,8 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
                     children: [
                       Expanded(
                         child: RichText(
+                          textScaleFactor:
+                              MediaQuery.of(context).textScaleFactor,
                           text: TextSpan(
                             children: [
                               TextSpan(
@@ -98,7 +100,7 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, -1.0),
+                            alignment: AlignmentDirectional(0.00, -1.00),
                             child: FlutterFlowIconButton(
                               borderColor: FlutterFlowTheme.of(context).primary,
                               borderRadius: 20.0,

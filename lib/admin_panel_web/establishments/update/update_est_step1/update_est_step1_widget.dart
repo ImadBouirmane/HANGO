@@ -197,7 +197,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                           Expanded(
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                                  0.00, 0.00),
                                               child: Text(
                                                 'Modification du l\'établissement',
                                                 style:
@@ -211,6 +211,44 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                         ),
                                               ),
                                             ),
+                                          ),
+                                          FlutterFlowIconButton(
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            borderRadius: 20.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                            icon: Icon(
+                                              Icons.home,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 12.0,
+                                            ),
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'UPDATE_EST_STEP1_PAGE_home_ICN_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'IconButton_navigate_to');
+
+                                              context.pushNamed(
+                                                'Dashboard',
+                                                extra: <String, dynamic>{
+                                                  kTransitionInfoKey:
+                                                      TransitionInfo(
+                                                    hasTransition: true,
+                                                    transitionType:
+                                                        PageTransitionType.fade,
+                                                    duration: Duration(
+                                                        milliseconds: 300),
+                                                  ),
+                                                },
+                                              );
+                                            },
                                           ),
                                         ],
                                       ),
@@ -1568,6 +1606,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                         updateEstStep1EstablishmentsRecord
                                                                             .type,
                                                                       ),
+                                                                      wrapped:
+                                                                          true,
                                                                     ),
                                                                   ),
                                                                 ],
@@ -1907,10 +1947,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                       ),
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                      alignment: AlignmentDirectional(
+                                                                          0.00,
+                                                                          0.00),
                                                                       child:
                                                                           Text(
                                                                         '* Sélectionne 2 styles musicales maximum',
@@ -2050,10 +2089,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                       ),
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                      alignment: AlignmentDirectional(
+                                                                          0.00,
+                                                                          0.00),
                                                                       child:
                                                                           Text(
                                                                         '* Sélectionne 2 styles musicales maximum',
@@ -2303,10 +2341,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                       ),
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                      alignment: AlignmentDirectional(
+                                                                          0.00,
+                                                                          0.00),
                                                                       child:
                                                                           Text(
                                                                         '* Sélectionne 2 styles musicales maximum',
@@ -2456,80 +2493,161 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       .text,
                                                               adresse:
                                                                   createAddressStruct(
-                                                                street: _model.tFStreetController
-                                                                                .text !=
-                                                                            null &&
-                                                                        _model.tFStreetController
-                                                                                .text !=
-                                                                            ''
-                                                                    ? _model
-                                                                        .tFstateController
-                                                                        .text
-                                                                    : updateEstStep1EstablishmentsRecord
+                                                                street: () {
+                                                                  if (_model.tFStreetController
+                                                                              .text !=
+                                                                          null &&
+                                                                      _model.tFStreetController
+                                                                              .text !=
+                                                                          '') {
+                                                                    return _model
+                                                                        .tFStreetController
+                                                                        .text;
+                                                                  } else if (_model
+                                                                              .placePickerValue
+                                                                              .address !=
+                                                                          null &&
+                                                                      _model.placePickerValue
+                                                                              .address !=
+                                                                          '') {
+                                                                    return _model
+                                                                        .placePickerValue
+                                                                        .address;
+                                                                  } else {
+                                                                    return updateEstStep1EstablishmentsRecord
                                                                         .adresse
-                                                                        .street,
-                                                                zipCode: _model.tFzipCodeController
-                                                                                .text !=
-                                                                            null &&
-                                                                        _model.tFzipCodeController
-                                                                                .text !=
-                                                                            ''
-                                                                    ? _model
+                                                                        .street;
+                                                                  }
+                                                                }(),
+                                                                zipCode: () {
+                                                                  if (_model.tFzipCodeController
+                                                                              .text !=
+                                                                          null &&
+                                                                      _model.tFzipCodeController
+                                                                              .text !=
+                                                                          '') {
+                                                                    return _model
                                                                         .tFzipCodeController
-                                                                        .text
-                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .text;
+                                                                  } else if (_model
+                                                                              .placePickerValue
+                                                                              .zipCode !=
+                                                                          null &&
+                                                                      _model.placePickerValue
+                                                                              .zipCode !=
+                                                                          '') {
+                                                                    return _model
+                                                                        .placePickerValue
+                                                                        .zipCode;
+                                                                  } else {
+                                                                    return updateEstStep1EstablishmentsRecord
                                                                         .adresse
                                                                         .hasZipCode()
-                                                                        .toString(),
-                                                                city: _model.tFcityController
-                                                                                .text !=
-                                                                            null &&
-                                                                        _model
-                                                                                .tFcityController.text !=
-                                                                            ''
-                                                                    ? _model
+                                                                        .toString();
+                                                                  }
+                                                                }(),
+                                                                city: () {
+                                                                  if (_model.tFcityController
+                                                                              .text !=
+                                                                          null &&
+                                                                      _model.tFcityController
+                                                                              .text !=
+                                                                          '') {
+                                                                    return _model
                                                                         .tFcityController
-                                                                        .text
-                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .text;
+                                                                  } else if (_model
+                                                                              .placePickerValue
+                                                                              .city !=
+                                                                          null &&
+                                                                      _model.placePickerValue
+                                                                              .city !=
+                                                                          '') {
+                                                                    return _model
+                                                                        .placePickerValue
+                                                                        .city;
+                                                                  } else {
+                                                                    return updateEstStep1EstablishmentsRecord
                                                                         .adresse
                                                                         .hasCity()
-                                                                        .toString(),
-                                                                state: _model.tFstateController
-                                                                                .text !=
-                                                                            null &&
-                                                                        _model.tFstateController
-                                                                                .text !=
-                                                                            ''
-                                                                    ? _model
+                                                                        .toString();
+                                                                  }
+                                                                }(),
+                                                                state: () {
+                                                                  if (_model.tFstateController
+                                                                              .text !=
+                                                                          null &&
+                                                                      _model.tFstateController
+                                                                              .text !=
+                                                                          '') {
+                                                                    return _model
                                                                         .tFstateController
-                                                                        .text
-                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .text;
+                                                                  } else if (_model
+                                                                              .placePickerValue
+                                                                              .state !=
+                                                                          null &&
+                                                                      _model.placePickerValue
+                                                                              .state !=
+                                                                          '') {
+                                                                    return _model
+                                                                        .placePickerValue
+                                                                        .state;
+                                                                  } else {
+                                                                    return updateEstStep1EstablishmentsRecord
                                                                         .adresse
                                                                         .hasState()
-                                                                        .toString(),
-                                                                country: _model.tFcountryController
-                                                                                .text !=
-                                                                            null &&
-                                                                        _model.tFcountryController
-                                                                                .text !=
-                                                                            ''
-                                                                    ? _model
+                                                                        .toString();
+                                                                  }
+                                                                }(),
+                                                                country: () {
+                                                                  if (_model.tFcountryController
+                                                                              .text !=
+                                                                          null &&
+                                                                      _model.tFcountryController
+                                                                              .text !=
+                                                                          '') {
+                                                                    return _model
                                                                         .tFcountryController
-                                                                        .text
-                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .text;
+                                                                  } else if (_model
+                                                                              .placePickerValue
+                                                                              .country !=
+                                                                          null &&
+                                                                      _model.placePickerValue
+                                                                              .country !=
+                                                                          '') {
+                                                                    return _model
+                                                                        .placePickerValue
+                                                                        .country;
+                                                                  } else {
+                                                                    return updateEstStep1EstablishmentsRecord
                                                                         .adresse
                                                                         .hasCountry()
-                                                                        .toString(),
-                                                                latiLong: _model
-                                                                            .placePickerValue
-                                                                            .latLng !=
-                                                                        null
-                                                                    ? _model
+                                                                        .toString();
+                                                                  }
+                                                                }(),
+                                                                latiLong: () {
+                                                                  if (_model
+                                                                          .placePickerValue
+                                                                          .latLng !=
+                                                                      null) {
+                                                                    return _model
                                                                         .placePickerValue
-                                                                        .latLng
-                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .latLng;
+                                                                  } else if (_model
+                                                                          .placePickerValue
+                                                                          .latLng ==
+                                                                      null) {
+                                                                    return updateEstStep1EstablishmentsRecord
                                                                         .adresse
-                                                                        .latiLong,
+                                                                        .latiLong;
+                                                                  } else {
+                                                                    return updateEstStep1EstablishmentsRecord
+                                                                        .adresse
+                                                                        .latiLong;
+                                                                  }
+                                                                }(),
                                                                 clearUnsetFields:
                                                                     true,
                                                               ),
@@ -2590,16 +2708,26 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   : _model
                                                                       .tFDescriptionController
                                                                       .text,
-                                                              location: _model
-                                                                          .placePickerValue
-                                                                          .latLng !=
-                                                                      null
-                                                                  ? _model
+                                                              location: () {
+                                                                if (_model
+                                                                        .placePickerValue
+                                                                        .latLng !=
+                                                                    null) {
+                                                                  return _model
                                                                       .placePickerValue
-                                                                      .latLng
-                                                                  : _model
-                                                                      .placePickerValue
-                                                                      .latLng,
+                                                                      .latLng;
+                                                                } else if (_model
+                                                                        .placePickerValue
+                                                                        .latLng ==
+                                                                    null) {
+                                                                  return updateEstStep1EstablishmentsRecord
+                                                                      .adresse
+                                                                      .latiLong;
+                                                                } else {
+                                                                  return updateEstStep1EstablishmentsRecord
+                                                                      .location;
+                                                                }
+                                                              }(),
                                                               updatedAt:
                                                                   getCurrentTimestamp,
                                                             ),
@@ -2686,8 +2814,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                     },
                                                   ),
                                                 ),
-                                              ].addToEnd(
-                                                  SizedBox(height: 20.0)),
+                                              ],
                                             ),
                                           ),
                                         ),

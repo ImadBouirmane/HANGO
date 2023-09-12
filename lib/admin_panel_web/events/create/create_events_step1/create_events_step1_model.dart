@@ -13,6 +13,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -24,10 +25,10 @@ class CreateEventsStep1Model extends FlutterFlowModel {
   final formKey = GlobalKey<FormState>();
   // Model for SideBar component.
   late SideBarModel sideBarModel;
-  // State field(s) for TFTitle widget.
-  TextEditingController? tFTitleController;
-  String? Function(BuildContext, String?)? tFTitleControllerValidator;
-  String? _tFTitleControllerValidator(BuildContext context, String? val) {
+  // State field(s) for eventTitle widget.
+  TextEditingController? eventTitleController;
+  String? Function(BuildContext, String?)? eventTitleControllerValidator;
+  String? _eventTitleControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -44,12 +45,15 @@ class CreateEventsStep1Model extends FlutterFlowModel {
   // State field(s) for TFURLWebSite widget.
   TextEditingController? tFURLWebSiteController;
   String? Function(BuildContext, String?)? tFURLWebSiteControllerValidator;
+  // State field(s) for entrancePrice widget.
+  TextEditingController? entrancePriceController;
+  String? Function(BuildContext, String?)? entrancePriceControllerValidator;
+  // State field(s) for typeEvent widget.
+  List<String>? typeEventValues;
+  FormFieldController<List<String>>? typeEventValueController;
   // State field(s) for CheckBoxMusicStyle widget.
-  List<String>? checkBoxMusicStyleValues1;
-  FormFieldController<List<String>>? checkBoxMusicStyleValueController1;
-  // State field(s) for CheckBoxMusicStyle widget.
-  List<String>? checkBoxMusicStyleValues2;
-  FormFieldController<List<String>>? checkBoxMusicStyleValueController2;
+  List<String>? checkBoxMusicStyleValues;
+  FormFieldController<List<String>>? checkBoxMusicStyleValueController;
   // State field(s) for PlacePicker widget.
   var placePickerValue = FFPlace();
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
@@ -61,15 +65,16 @@ class CreateEventsStep1Model extends FlutterFlowModel {
 
   void initState(BuildContext context) {
     sideBarModel = createModel(context, () => SideBarModel());
-    tFTitleControllerValidator = _tFTitleControllerValidator;
+    eventTitleControllerValidator = _eventTitleControllerValidator;
   }
 
   void dispose() {
     unfocusNode.dispose();
     sideBarModel.dispose();
-    tFTitleController?.dispose();
+    eventTitleController?.dispose();
     tFDescriionController?.dispose();
     tFURLWebSiteController?.dispose();
+    entrancePriceController?.dispose();
   }
 
   /// Action blocks are added here.

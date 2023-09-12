@@ -1,9 +1,11 @@
 import '/backend/backend.dart';
 import '/components/list_items/list_items_widget.dart';
-import '/components/map_establishment_pop_up/map_establishment_pop_up_widget.dart';
+import '/components/map_side/map_establishment_pop_up/map_establishment_pop_up_widget.dart';
+import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,25 +16,41 @@ import 'package:text_search/text_search.dart';
 class MapsModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  // Model for SideNavWeb component.
+  late SideNavWebModel sideNavWebModel;
   // State field(s) for GoogleMap widget.
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
+  LatLng? googleMapsCenter1;
+  final googleMapsController1 = Completer<GoogleMapController>();
   // State field(s) for TextField widget.
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
-  List<EstablishmentsRecord> simpleSearchResults = [];
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
+  List<EstablishmentsRecord> simpleSearchResults1 = [];
   // Models for listItems dynamic component.
-  late FlutterFlowDynamicModels<ListItemsModel> listItemsModels;
+  late FlutterFlowDynamicModels<ListItemsModel> listItemsModels1;
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter2;
+  final googleMapsController2 = Completer<GoogleMapController>();
+  // State field(s) for TextField widget.
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
+  List<EstablishmentsRecord> simpleSearchResults2 = [];
+  // Models for listItems dynamic component.
+  late FlutterFlowDynamicModels<ListItemsModel> listItemsModels2;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    listItemsModels = FlutterFlowDynamicModels(() => ListItemsModel());
+    sideNavWebModel = createModel(context, () => SideNavWebModel());
+    listItemsModels1 = FlutterFlowDynamicModels(() => ListItemsModel());
+    listItemsModels2 = FlutterFlowDynamicModels(() => ListItemsModel());
   }
 
   void dispose() {
-    textController?.dispose();
-    listItemsModels.dispose();
+    sideNavWebModel.dispose();
+    textController1?.dispose();
+    listItemsModels1.dispose();
+    textController2?.dispose();
+    listItemsModels2.dispose();
   }
 
   /// Action blocks are added here.

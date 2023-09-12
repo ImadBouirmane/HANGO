@@ -67,7 +67,7 @@ class _UserPhoneConfirmationExistWidgetState
                           children: [
                             Expanded(
                               child: Text(
-                                'Confrimation du compte',
+                                'Confirmation du compte',
                                 style:
                                     FlutterFlowTheme.of(context).displaySmall,
                               ),
@@ -98,114 +98,242 @@ class _UserPhoneConfirmationExistWidgetState
                         ),
                       ],
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: PinCodeTextField(
-                            autoDisposeControllers: false,
-                            appContext: context,
-                            length: 6,
-                            textStyle: FlutterFlowTheme.of(context).bodyLarge,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            enableActiveFill: true,
-                            autoFocus: true,
-                            enablePinAutofill: false,
-                            errorTextSpace: 16.0,
-                            showCursor: true,
-                            cursorColor: FlutterFlowTheme.of(context).primary,
-                            obscureText: false,
-                            hintCharacter: '-',
-                            keyboardType: TextInputType.number,
-                            pinTheme: PinTheme(
-                              fieldHeight: 44.0,
-                              fieldWidth: 44.0,
-                              borderWidth: 2.0,
-                              borderRadius: BorderRadius.circular(12.0),
-                              shape: PinCodeFieldShape.box,
-                              activeColor:
-                                  FlutterFlowTheme.of(context).primaryText,
-                              inactiveColor:
-                                  FlutterFlowTheme.of(context).lineColor,
-                              selectedColor:
-                                  FlutterFlowTheme.of(context).primary,
-                              activeFillColor:
-                                  FlutterFlowTheme.of(context).primaryText,
-                              inactiveFillColor:
-                                  FlutterFlowTheme.of(context).lineColor,
-                              selectedFillColor:
-                                  FlutterFlowTheme.of(context).primary,
+                    if (responsiveVisibility(
+                      context: context,
+                      desktop: false,
+                    ))
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.00, 0.00),
+                            child: PinCodeTextField(
+                              autoDisposeControllers: false,
+                              appContext: context,
+                              length: 6,
+                              textStyle: FlutterFlowTheme.of(context).bodyLarge,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              enableActiveFill: true,
+                              autoFocus: true,
+                              enablePinAutofill: false,
+                              errorTextSpace: 16.0,
+                              showCursor: true,
+                              cursorColor: FlutterFlowTheme.of(context).primary,
+                              obscureText: false,
+                              hintCharacter: '-',
+                              keyboardType: TextInputType.number,
+                              pinTheme: PinTheme(
+                                fieldHeight: 44.0,
+                                fieldWidth: 44.0,
+                                borderWidth: 2.0,
+                                borderRadius: BorderRadius.circular(12.0),
+                                shape: PinCodeFieldShape.box,
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).lineColor,
+                                selectedColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                activeFillColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                inactiveFillColor:
+                                    FlutterFlowTheme.of(context).lineColor,
+                                selectedFillColor:
+                                    FlutterFlowTheme.of(context).primary,
+                              ),
+                              controller: _model.pinCodeController1,
+                              onChanged: (_) {},
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: _model.pinCodeController1Validator
+                                  .asValidator(context),
                             ),
-                            controller: _model.pinCodeController,
-                            onChanged: (_) {},
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            validator: _model.pinCodeControllerValidator
-                                .asValidator(context),
                           ),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'USER_PHONE_CONFIRMATION_EXIST_Button-Log');
-                                logFirebaseEvent('Button-Login_auth');
-                                GoRouter.of(context).prepareAuthEvent();
-                                final smsCodeVal =
-                                    _model.pinCodeController!.text;
-                                if (smsCodeVal == null || smsCodeVal.isEmpty) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content:
-                                          Text('Enter SMS verification code.'),
-                                    ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'USER_PHONE_CONFIRMATION_EXIST_Button-Log');
+                                  logFirebaseEvent('Button-Login_auth');
+                                  GoRouter.of(context).prepareAuthEvent();
+                                  final smsCodeVal =
+                                      _model.pinCodeController1!.text;
+                                  if (smsCodeVal == null ||
+                                      smsCodeVal.isEmpty) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                            'Enter SMS verification code.'),
+                                      ),
+                                    );
+                                    return;
+                                  }
+                                  final phoneVerifiedUser =
+                                      await authManager.verifySmsCode(
+                                    context: context,
+                                    smsCode: smsCodeVal,
                                   );
-                                  return;
-                                }
-                                final phoneVerifiedUser =
-                                    await authManager.verifySmsCode(
-                                  context: context,
-                                  smsCode: smsCodeVal,
-                                );
-                                if (phoneVerifiedUser == null) {
-                                  return;
-                                }
+                                  if (phoneVerifiedUser == null) {
+                                    return;
+                                  }
 
-                                context.goNamedAuth(
-                                    'ListOfEvents', context.mounted);
-                              },
-                              text: 'Confirmer',
-                              options: FFButtonOptions(
-                                width: 240.0,
-                                height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                elevation: 3.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                                  context.goNamedAuth(
+                                      'ListOfEvents', context.mounted);
+                                },
+                                text: 'Confirmer',
+                                options: FFButtonOptions(
+                                  width: 240.0,
+                                  height: 50.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(100.0),
                                 ),
-                                borderRadius: BorderRadius.circular(100.0),
+                              ),
+                            ],
+                          ),
+                        ].divide(SizedBox(height: 30.0)),
+                      ),
+                    if (responsiveVisibility(
+                      context: context,
+                      phone: false,
+                      tablet: false,
+                      tabletLandscape: false,
+                    ))
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.5,
+                        decoration: BoxDecoration(),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: PinCodeTextField(
+                                autoDisposeControllers: false,
+                                appContext: context,
+                                length: 6,
+                                textStyle:
+                                    FlutterFlowTheme.of(context).bodyLarge,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                enableActiveFill: true,
+                                autoFocus: true,
+                                enablePinAutofill: false,
+                                errorTextSpace: 16.0,
+                                showCursor: true,
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                obscureText: false,
+                                hintCharacter: '-',
+                                keyboardType: TextInputType.number,
+                                pinTheme: PinTheme(
+                                  fieldHeight: 44.0,
+                                  fieldWidth: 44.0,
+                                  borderWidth: 2.0,
+                                  borderRadius: BorderRadius.circular(12.0),
+                                  shape: PinCodeFieldShape.box,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  inactiveColor:
+                                      FlutterFlowTheme.of(context).lineColor,
+                                  selectedColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  activeFillColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  inactiveFillColor:
+                                      FlutterFlowTheme.of(context).lineColor,
+                                  selectedFillColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                ),
+                                controller: _model.pinCodeController2,
+                                onChanged: (_) {},
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                validator: _model.pinCodeController2Validator
+                                    .asValidator(context),
                               ),
                             ),
-                          ],
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'USER_PHONE_CONFIRMATION_EXIST_Button-Log');
+                                    logFirebaseEvent('Button-Login_auth');
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    final smsCodeVal =
+                                        _model.pinCodeController2!.text;
+                                    if (smsCodeVal == null ||
+                                        smsCodeVal.isEmpty) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                              'Enter SMS verification code.'),
+                                        ),
+                                      );
+                                      return;
+                                    }
+                                    final phoneVerifiedUser =
+                                        await authManager.verifySmsCode(
+                                      context: context,
+                                      smsCode: smsCodeVal,
+                                    );
+                                    if (phoneVerifiedUser == null) {
+                                      return;
+                                    }
+
+                                    context.goNamedAuth(
+                                        'ListOfEvents', context.mounted);
+                                  },
+                                  text: 'Confirmer',
+                                  options: FFButtonOptions(
+                                    width: 240.0,
+                                    height: 50.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(100.0),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ].divide(SizedBox(height: 30.0)),
                         ),
-                      ].divide(SizedBox(height: 30.0)),
-                    ),
+                      ),
                   ]
                       .divide(SizedBox(height: 50.0))
                       .addToStart(SizedBox(height: 40.0)),

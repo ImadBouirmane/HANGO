@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
-  static final FFAppState _instance = FFAppState._internal();
+  static FFAppState _instance = FFAppState._internal();
 
   factory FFAppState() {
     return _instance;
   }
 
   FFAppState._internal();
+
+  static void reset() {
+    _instance = FFAppState._internal();
+  }
 
   Future initializePersistedState() async {
     secureStorage = FlutterSecureStorage();
@@ -99,25 +104,28 @@ class FFAppState extends ChangeNotifier {
   late FlutterSecureStorage secureStorage;
 
   List<String> _MusicStyle = [
-    'DJ',
-    'Music live',
+    'Hip Hop',
+    'Urban',
     'Commercial',
     'Latino',
-    'Techno',
-    'Urban',
-    'Rock',
-    'Hip Hop',
-    'Lounge',
+    'Reggaeton',
+    'Reggae',
+    'Rnb',
+    'Afro',
     'Année 90',
     'Année 80',
     'Année 70',
     'Jazz',
-    'Reggae',
+    'Blues',
+    'Chill',
+    'Metal',
+    'Rock',
     'Electro',
-    'Métal',
-    'Punk',
-    'Mix',
-    'RnB'
+    'Techno',
+    'DJ',
+    'Musique live',
+    'Pas de musique',
+    'Varié'
   ];
   List<String> get MusicStyle => _MusicStyle;
   set MusicStyle(List<String> _value) {
@@ -152,6 +160,11 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList('ff_MusicStyle', _MusicStyle);
   }
 
+  void insertAtIndexInMusicStyle(int _index, String _value) {
+    _MusicStyle.insert(_index, _value);
+    secureStorage.setStringList('ff_MusicStyle', _MusicStyle);
+  }
+
   List<String> _TypeOfEstablishment = [
     'Bar',
     'Pub',
@@ -159,7 +172,9 @@ class FFAppState extends ChangeNotifier {
     'Lounge',
     'Bar restaurant',
     'Buvette',
-    'Salle de concert'
+    'Salle de concert',
+    'Rooftop',
+    'Terrasse'
   ];
   List<String> get TypeOfEstablishment => _TypeOfEstablishment;
   set TypeOfEstablishment(List<String> _value) {
@@ -194,13 +209,18 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList('ff_TypeOfEstablishment', _TypeOfEstablishment);
   }
 
+  void insertAtIndexInTypeOfEstablishment(int _index, String _value) {
+    _TypeOfEstablishment.insert(_index, _value);
+    secureStorage.setStringList('ff_TypeOfEstablishment', _TypeOfEstablishment);
+  }
+
   List<String> _TypeOfEvent = [
-    'Music Live',
+    'Sport',
     'Football',
     'Hockey',
-    'Sport',
-    'Rugby',
     'Basket',
+    'Rugby',
+    'Music Live',
     'Concert',
     'DJ',
     'Blind test',
@@ -241,14 +261,20 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList('ff_TypeOfEvent', _TypeOfEvent);
   }
 
+  void insertAtIndexInTypeOfEvent(int _index, String _value) {
+    _TypeOfEvent.insert(_index, _value);
+    secureStorage.setStringList('ff_TypeOfEvent', _TypeOfEvent);
+  }
+
   List<String> _Food = [
     'Snack',
     'Burger',
-    'Finger food',
     'Sandwich',
     'Tapas',
-    'Fast food',
-    'Pizza'
+    'Pizza',
+    'Divers',
+    'Planchette',
+    'Restauration'
   ];
   List<String> get Food => _Food;
   set Food(List<String> _value) {
@@ -280,6 +306,11 @@ class FFAppState extends ChangeNotifier {
     String Function(String) updateFn,
   ) {
     _Food[_index] = updateFn(_Food[_index]);
+    secureStorage.setStringList('ff_Food', _Food);
+  }
+
+  void insertAtIndexInFood(int _index, String _value) {
+    _Food.insert(_index, _value);
     secureStorage.setStringList('ff_Food', _Food);
   }
 
@@ -325,6 +356,11 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList('ff_Game', _Game);
   }
 
+  void insertAtIndexInGame(int _index, String _value) {
+    _Game.insert(_index, _value);
+    secureStorage.setStringList('ff_Game', _Game);
+  }
+
   DateTime? _selectedDate = DateTime.fromMillisecondsSinceEpoch(1684949400000);
   DateTime? get selectedDate => _selectedDate;
   set selectedDate(DateTime? _value) {
@@ -354,6 +390,10 @@ class FFAppState extends ChangeNotifier {
     DocumentReference Function(DocumentReference) updateFn,
   ) {
     _filterEvenResults[_index] = updateFn(_filterEvenResults[_index]);
+  }
+
+  void insertAtIndexInFilterEvenResults(int _index, DocumentReference _value) {
+    _filterEvenResults.insert(_index, _value);
   }
 
   bool _searchChange = false;
@@ -393,6 +433,11 @@ class FFAppState extends ChangeNotifier {
     String Function(String) updateFn,
   ) {
     _Artistes[_index] = updateFn(_Artistes[_index]);
+    secureStorage.setStringList('ff_Artistes', _Artistes);
+  }
+
+  void insertAtIndexInArtistes(int _index, String _value) {
+    _Artistes.insert(_index, _value);
     secureStorage.setStringList('ff_Artistes', _Artistes);
   }
 
@@ -546,6 +591,10 @@ class FFAppState extends ChangeNotifier {
     _clickCount[_index] = updateFn(_clickCount[_index]);
   }
 
+  void insertAtIndexInClickCount(int _index, int _value) {
+    _clickCount.insert(_index, _value);
+  }
+
   bool _isUploaded = false;
   bool get isUploaded => _isUploaded;
   set isUploaded(bool _value) {
@@ -586,6 +635,12 @@ class FFAppState extends ChangeNotifier {
     String Function(String) updateFn,
   ) {
     _uploadedNewEstImages[_index] = updateFn(_uploadedNewEstImages[_index]);
+    secureStorage.setStringList(
+        'ff_uploadedNewEstImages', _uploadedNewEstImages);
+  }
+
+  void insertAtIndexInUploadedNewEstImages(int _index, String _value) {
+    _uploadedNewEstImages.insert(_index, _value);
     secureStorage.setStringList(
         'ff_uploadedNewEstImages', _uploadedNewEstImages);
   }

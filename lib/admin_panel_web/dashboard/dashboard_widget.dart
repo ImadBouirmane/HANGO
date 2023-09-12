@@ -7,6 +7,7 @@ import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -141,7 +142,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -165,8 +166,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(16.0),
                                             ),
-                                            alignment:
-                                                AlignmentDirectional(0.0, -1.0),
+                                            alignment: AlignmentDirectional(
+                                                0.00, -1.00),
                                             child: SingleChildScrollView(
                                               primary: false,
                                               child: Column(
@@ -344,7 +345,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       List<
                                                           EstablishmentsRecord>>(
                                                     stream:
-                                                        queryEstablishmentsRecord(),
+                                                        queryEstablishmentsRecord(
+                                                      queryBuilder:
+                                                          (establishmentsRecord) =>
+                                                              establishmentsRecord
+                                                                  .orderBy(
+                                                                      'created_time'),
+                                                    ),
                                                     builder:
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
@@ -604,8 +611,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                       expanded:
                                                                           Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0.00,
+                                                                            0.00),
                                                                         child:
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -713,187 +720,217 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       separatorBuilder: (_, __) => SizedBox(height: 10.0),
                                                                                       itemBuilder: (context, listViewIndex) {
                                                                                         final listViewEventsRecord = listViewEventsRecordList[listViewIndex];
-                                                                                        return Container(
-                                                                                          width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                          decoration: BoxDecoration(),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                                child: StreamBuilder<List<MediaRecord>>(
-                                                                                                  stream: queryMediaRecord(
-                                                                                                    parent: listViewEventsRecord.reference,
-                                                                                                    singleRecord: true,
+                                                                                        return StreamBuilder<EventsRecord>(
+                                                                                          stream: EventsRecord.getDocument(listViewEventsRecord.reference),
+                                                                                          builder: (context, snapshot) {
+                                                                                            // Customize what your widget looks like when it's loading.
+                                                                                            if (!snapshot.hasData) {
+                                                                                              return Center(
+                                                                                                child: SizedBox(
+                                                                                                  width: 30.0,
+                                                                                                  height: 30.0,
+                                                                                                  child: CircularProgressIndicator(
+                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                                    ),
                                                                                                   ),
-                                                                                                  builder: (context, snapshot) {
-                                                                                                    // Customize what your widget looks like when it's loading.
-                                                                                                    if (!snapshot.hasData) {
-                                                                                                      return Center(
-                                                                                                        child: SizedBox(
-                                                                                                          width: 30.0,
-                                                                                                          height: 30.0,
-                                                                                                          child: CircularProgressIndicator(
-                                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                                              FlutterFlowTheme.of(context).primary,
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    }
-                                                                                                    List<MediaRecord> rowMediaRecordList = snapshot.data!;
-                                                                                                    final rowMediaRecord = rowMediaRecordList.isNotEmpty ? rowMediaRecordList.first : null;
-                                                                                                    return Row(
-                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                      children: [
-                                                                                                        ClipRRect(
-                                                                                                          borderRadius: BorderRadius.circular(8.0),
-                                                                                                          child: Image.network(
-                                                                                                            valueOrDefault<String>(
-                                                                                                              rowMediaRecord?.image != null && rowMediaRecord?.image != '' ? rowMediaRecord?.image : null,
-                                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                                            ),
-                                                                                                            width: 100.0,
-                                                                                                            height: 100.0,
-                                                                                                            fit: BoxFit.cover,
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        Expanded(
-                                                                                                          child: Row(
-                                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                            children: [
-                                                                                                              Expanded(
-                                                                                                                child: Text(
-                                                                                                                  valueOrDefault<String>(
-                                                                                                                    listViewEventsRecord.title != null && listViewEventsRecord.title != '' ? listViewEventsRecord.title : '',
-                                                                                                                    'Aucune',
-                                                                                                                  ),
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                ),
+                                                                                              );
+                                                                                            }
+                                                                                            final containerEventsRecord = snapshot.data!;
+                                                                                            return Container(
+                                                                                              width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                              decoration: BoxDecoration(),
+                                                                                              child: Column(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                children: [
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                    child: StreamBuilder<List<MediaRecord>>(
+                                                                                                      stream: queryMediaRecord(
+                                                                                                        parent: listViewEventsRecord.reference,
+                                                                                                        singleRecord: true,
+                                                                                                      ),
+                                                                                                      builder: (context, snapshot) {
+                                                                                                        // Customize what your widget looks like when it's loading.
+                                                                                                        if (!snapshot.hasData) {
+                                                                                                          return Center(
+                                                                                                            child: SizedBox(
+                                                                                                              width: 30.0,
+                                                                                                              height: 30.0,
+                                                                                                              child: CircularProgressIndicator(
+                                                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                  FlutterFlowTheme.of(context).primary,
                                                                                                                 ),
                                                                                                               ),
-                                                                                                              StreamBuilder<List<ScheduleEventRecord>>(
-                                                                                                                stream: queryScheduleEventRecord(
-                                                                                                                  parent: listViewEventsRecord.reference,
-                                                                                                                  singleRecord: true,
+                                                                                                            ),
+                                                                                                          );
+                                                                                                        }
+                                                                                                        List<MediaRecord> rowMediaRecordList = snapshot.data!;
+                                                                                                        final rowMediaRecord = rowMediaRecordList.isNotEmpty ? rowMediaRecordList.first : null;
+                                                                                                        return Row(
+                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                          children: [
+                                                                                                            ClipRRect(
+                                                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                                                              child: Image.network(
+                                                                                                                valueOrDefault<String>(
+                                                                                                                  rowMediaRecord?.image != null && rowMediaRecord?.image != '' ? rowMediaRecord?.image : null,
+                                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                                                 ),
-                                                                                                                builder: (context, snapshot) {
-                                                                                                                  // Customize what your widget looks like when it's loading.
-                                                                                                                  if (!snapshot.hasData) {
-                                                                                                                    return Center(
-                                                                                                                      child: SizedBox(
-                                                                                                                        width: 30.0,
-                                                                                                                        height: 30.0,
-                                                                                                                        child: CircularProgressIndicator(
-                                                                                                                          valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                                                            FlutterFlowTheme.of(context).primary,
-                                                                                                                          ),
-                                                                                                                        ),
+                                                                                                                width: 100.0,
+                                                                                                                height: 100.0,
+                                                                                                                fit: BoxFit.cover,
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                            Expanded(
+                                                                                                              child: Row(
+                                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                children: [
+                                                                                                                  Expanded(
+                                                                                                                    child: Text(
+                                                                                                                      valueOrDefault<String>(
+                                                                                                                        listViewEventsRecord.title != null && listViewEventsRecord.title != '' ? listViewEventsRecord.title : '',
+                                                                                                                        'Aucune',
                                                                                                                       ),
-                                                                                                                    );
-                                                                                                                  }
-                                                                                                                  List<ScheduleEventRecord> dateEventScheduleEventRecordList = snapshot.data!;
-                                                                                                                  final dateEventScheduleEventRecord = dateEventScheduleEventRecordList.isNotEmpty ? dateEventScheduleEventRecordList.first : null;
-                                                                                                                  return Text(
-                                                                                                                    valueOrDefault<String>(
-                                                                                                                      dateTimeFormat(
-                                                                                                                                    'd/M/y',
-                                                                                                                                    dateEventScheduleEventRecord?.date,
-                                                                                                                                    locale: FFLocalizations.of(context).languageCode,
-                                                                                                                                  ) !=
-                                                                                                                                  null &&
-                                                                                                                              dateTimeFormat(
-                                                                                                                                    'd/M/y',
-                                                                                                                                    dateEventScheduleEventRecord?.date,
-                                                                                                                                    locale: FFLocalizations.of(context).languageCode,
-                                                                                                                                  ) !=
-                                                                                                                                  ''
-                                                                                                                          ? dateTimeFormat(
-                                                                                                                              'd/M/y',
-                                                                                                                              dateEventScheduleEventRecord?.date,
-                                                                                                                              locale: FFLocalizations.of(context).languageCode,
-                                                                                                                            )
-                                                                                                                          : '',
-                                                                                                                      'Aucune',
-                                                                                                                    ),
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                                                  );
-                                                                                                                },
-                                                                                                              ),
-                                                                                                            ].divide(SizedBox(width: 15.0)),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        FlutterFlowIconButton(
-                                                                                                          borderColor: FlutterFlowTheme.of(context).primary,
-                                                                                                          borderRadius: 20.0,
-                                                                                                          borderWidth: 1.0,
-                                                                                                          buttonSize: 40.0,
-                                                                                                          icon: Icon(
-                                                                                                            Icons.mode_edit,
-                                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                                            size: 24.0,
-                                                                                                          ),
-                                                                                                          onPressed: () async {
-                                                                                                            logFirebaseEvent('DASHBOARD_PAGE_mode_edit_ICN_ON_TAP');
-                                                                                                            logFirebaseEvent('IconButton_navigate_to');
-
-                                                                                                            context.pushNamed(
-                                                                                                              'UpdateEventStep1',
-                                                                                                              queryParameters: {
-                                                                                                                'eventstDetails': serializeParam(
-                                                                                                                  listViewEventsRecord.reference,
-                                                                                                                  ParamType.DocumentReference,
-                                                                                                                ),
-                                                                                                              }.withoutNulls,
-                                                                                                            );
-                                                                                                          },
-                                                                                                        ),
-                                                                                                        FlutterFlowIconButton(
-                                                                                                          borderColor: Colors.transparent,
-                                                                                                          borderRadius: 20.0,
-                                                                                                          borderWidth: 1.0,
-                                                                                                          buttonSize: 40.0,
-                                                                                                          fillColor: FlutterFlowTheme.of(context).alternate,
-                                                                                                          icon: Icon(
-                                                                                                            Icons.delete,
-                                                                                                            color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                            size: 20.0,
-                                                                                                          ),
-                                                                                                          onPressed: () async {
-                                                                                                            logFirebaseEvent('DASHBOARD_PAGE_delete_ICN_ON_TAP');
-                                                                                                            logFirebaseEvent('IconButton_bottom_sheet');
-                                                                                                            await showModalBottomSheet(
-                                                                                                              isScrollControlled: true,
-                                                                                                              backgroundColor: Colors.transparent,
-                                                                                                              enableDrag: false,
-                                                                                                              context: context,
-                                                                                                              builder: (context) {
-                                                                                                                return GestureDetector(
-                                                                                                                  onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
-                                                                                                                  child: Padding(
-                                                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                                                    child: DeleteConfirmationEventWidget(
-                                                                                                                      eventRef: listViewEventsRecord.reference,
+                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                                     ),
                                                                                                                   ),
+                                                                                                                  StreamBuilder<List<ScheduleEventRecord>>(
+                                                                                                                    stream: queryScheduleEventRecord(
+                                                                                                                      parent: listViewEventsRecord.reference,
+                                                                                                                      singleRecord: true,
+                                                                                                                    ),
+                                                                                                                    builder: (context, snapshot) {
+                                                                                                                      // Customize what your widget looks like when it's loading.
+                                                                                                                      if (!snapshot.hasData) {
+                                                                                                                        return Center(
+                                                                                                                          child: SizedBox(
+                                                                                                                            width: 30.0,
+                                                                                                                            height: 30.0,
+                                                                                                                            child: CircularProgressIndicator(
+                                                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                                                              ),
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                        );
+                                                                                                                      }
+                                                                                                                      List<ScheduleEventRecord> dateEventScheduleEventRecordList = snapshot.data!;
+                                                                                                                      final dateEventScheduleEventRecord = dateEventScheduleEventRecordList.isNotEmpty ? dateEventScheduleEventRecordList.first : null;
+                                                                                                                      return Text(
+                                                                                                                        valueOrDefault<String>(
+                                                                                                                          dateTimeFormat(
+                                                                                                                                        'd/M/y',
+                                                                                                                                        dateEventScheduleEventRecord?.date,
+                                                                                                                                        locale: FFLocalizations.of(context).languageCode,
+                                                                                                                                      ) !=
+                                                                                                                                      null &&
+                                                                                                                                  dateTimeFormat(
+                                                                                                                                        'd/M/y',
+                                                                                                                                        dateEventScheduleEventRecord?.date,
+                                                                                                                                        locale: FFLocalizations.of(context).languageCode,
+                                                                                                                                      ) !=
+                                                                                                                                      ''
+                                                                                                                              ? dateTimeFormat(
+                                                                                                                                  'd/M/y',
+                                                                                                                                  dateEventScheduleEventRecord?.date,
+                                                                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                                                                )
+                                                                                                                              : '',
+                                                                                                                          'Aucune',
+                                                                                                                        ),
+                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                      );
+                                                                                                                    },
+                                                                                                                  ),
+                                                                                                                ].divide(SizedBox(width: 15.0)),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                            FlutterFlowIconButton(
+                                                                                                              borderColor: FlutterFlowTheme.of(context).primary,
+                                                                                                              borderRadius: 20.0,
+                                                                                                              borderWidth: 1.0,
+                                                                                                              buttonSize: 40.0,
+                                                                                                              icon: Icon(
+                                                                                                                Icons.mode_edit,
+                                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                                size: 24.0,
+                                                                                                              ),
+                                                                                                              onPressed: () async {
+                                                                                                                logFirebaseEvent('DASHBOARD_PAGE_mode_edit_ICN_ON_TAP');
+                                                                                                                logFirebaseEvent('IconButton_navigate_to');
+
+                                                                                                                context.pushNamed(
+                                                                                                                  'UpdateEventStep1',
+                                                                                                                  queryParameters: {
+                                                                                                                    'eventstDetails': serializeParam(
+                                                                                                                      listViewEventsRecord.reference,
+                                                                                                                      ParamType.DocumentReference,
+                                                                                                                    ),
+                                                                                                                  }.withoutNulls,
                                                                                                                 );
                                                                                                               },
-                                                                                                            ).then((value) => setState(() {}));
-                                                                                                          },
-                                                                                                        ),
-                                                                                                      ].divide(SizedBox(width: 15.0)).around(SizedBox(width: 15.0)),
-                                                                                                    );
-                                                                                                  },
-                                                                                                ),
+                                                                                                            ),
+                                                                                                            FlutterFlowIconButton(
+                                                                                                              borderColor: Colors.transparent,
+                                                                                                              borderRadius: 20.0,
+                                                                                                              borderWidth: 1.0,
+                                                                                                              buttonSize: 40.0,
+                                                                                                              fillColor: FlutterFlowTheme.of(context).alternate,
+                                                                                                              icon: Icon(
+                                                                                                                Icons.delete,
+                                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                size: 20.0,
+                                                                                                              ),
+                                                                                                              onPressed: () async {
+                                                                                                                logFirebaseEvent('DASHBOARD_PAGE_delete_ICN_ON_TAP');
+                                                                                                                final firestoreBatch = FirebaseFirestore.instance.batch();
+                                                                                                                try {
+                                                                                                                  logFirebaseEvent('IconButton_bottom_sheet');
+                                                                                                                  await showModalBottomSheet(
+                                                                                                                    isScrollControlled: true,
+                                                                                                                    backgroundColor: Colors.transparent,
+                                                                                                                    enableDrag: false,
+                                                                                                                    context: context,
+                                                                                                                    builder: (context) {
+                                                                                                                      return GestureDetector(
+                                                                                                                        onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+                                                                                                                        child: Padding(
+                                                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                                                          child: DeleteConfirmationEventWidget(
+                                                                                                                            eventRef: listViewEventsRecord.reference,
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                      );
+                                                                                                                    },
+                                                                                                                  ).then((value) => setState(() {}));
+
+                                                                                                                  logFirebaseEvent('IconButton_backend_call');
+                                                                                                                  firestoreBatch.delete(listViewEstablishmentsRecord.eventRef!);
+                                                                                                                  logFirebaseEvent('IconButton_backend_call');
+                                                                                                                  firestoreBatch.delete(listViewEstablishmentsRecord.eventsReferences.first);
+                                                                                                                } finally {
+                                                                                                                  await firestoreBatch.commit();
+                                                                                                                }
+                                                                                                              },
+                                                                                                            ),
+                                                                                                          ].divide(SizedBox(width: 15.0)).around(SizedBox(width: 15.0)),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  Divider(
+                                                                                                    height: 1.0,
+                                                                                                    thickness: 1.0,
+                                                                                                    indent: 30.0,
+                                                                                                    color: FlutterFlowTheme.of(context).lineColor,
+                                                                                                  ),
+                                                                                                ].divide(SizedBox(height: 5.0)),
                                                                                               ),
-                                                                                              Divider(
-                                                                                                height: 1.0,
-                                                                                                thickness: 1.0,
-                                                                                                indent: 30.0,
-                                                                                                color: FlutterFlowTheme.of(context).lineColor,
-                                                                                              ),
-                                                                                            ].divide(SizedBox(height: 5.0)),
-                                                                                          ),
+                                                                                            );
+                                                                                          },
                                                                                         );
                                                                                       },
                                                                                     );
@@ -950,7 +987,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 desktop: false,
                               ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.00, 0.00),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,

@@ -76,6 +76,21 @@ class UsersRecord extends FirestoreRecord {
   String get gender => _gender ?? '';
   bool hasGender() => _gender != null;
 
+  // "first_name" field.
+  String? _firstName;
+  String get firstName => _firstName ?? '';
+  bool hasFirstName() => _firstName != null;
+
+  // "updatedTime" field.
+  DateTime? _updatedTime;
+  DateTime? get updatedTime => _updatedTime;
+  bool hasUpdatedTime() => _updatedTime != null;
+
+  // "promotionEvents" field.
+  List<DocumentReference>? _promotionEvents;
+  List<DocumentReference> get promotionEvents => _promotionEvents ?? const [];
+  bool hasPromotionEvents() => _promotionEvents != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -89,6 +104,9 @@ class UsersRecord extends FirestoreRecord {
     _age = castToType<int>(snapshotData['age']);
     _birthday = snapshotData['birthday'] as DateTime?;
     _gender = snapshotData['gender'] as String?;
+    _firstName = snapshotData['first_name'] as String?;
+    _updatedTime = snapshotData['updatedTime'] as DateTime?;
+    _promotionEvents = getDataList(snapshotData['promotionEvents']);
   }
 
   static CollectionReference get collection =>
@@ -137,6 +155,8 @@ Map<String, dynamic> createUsersRecordData({
   int? age,
   DateTime? birthday,
   String? gender,
+  String? firstName,
+  DateTime? updatedTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -152,6 +172,8 @@ Map<String, dynamic> createUsersRecordData({
       'age': age,
       'birthday': birthday,
       'gender': gender,
+      'first_name': firstName,
+      'updatedTime': updatedTime,
     }.withoutNulls,
   );
 
@@ -163,6 +185,7 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
 
   @override
   bool equals(UsersRecord? e1, UsersRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.email == e2?.email &&
         e1?.displayName == e2?.displayName &&
         e1?.photoUrl == e2?.photoUrl &&
@@ -174,7 +197,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.userRole == e2?.userRole &&
         e1?.age == e2?.age &&
         e1?.birthday == e2?.birthday &&
-        e1?.gender == e2?.gender;
+        e1?.gender == e2?.gender &&
+        e1?.firstName == e2?.firstName &&
+        e1?.updatedTime == e2?.updatedTime &&
+        listEquality.equals(e1?.promotionEvents, e2?.promotionEvents);
   }
 
   @override
@@ -190,7 +216,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.userRole,
         e?.age,
         e?.birthday,
-        e?.gender
+        e?.gender,
+        e?.firstName,
+        e?.updatedTime,
+        e?.promotionEvents
       ]);
 
   @override

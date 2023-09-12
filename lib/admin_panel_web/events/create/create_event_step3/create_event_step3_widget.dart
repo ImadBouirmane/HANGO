@@ -168,7 +168,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Text(
                                             'Création d\'un événement',
                                             style: FlutterFlowTheme.of(context)
@@ -181,6 +181,42 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                 ),
                                           ),
                                         ),
+                                      ),
+                                      FlutterFlowIconButton(
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        borderRadius: 20.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 40.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        icon: Icon(
+                                          Icons.home,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 12.0,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'CREATE_EVENT_STEP3_PAGE_home_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_navigate_to');
+
+                                          context.pushNamed(
+                                            'Dashboard',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                              ),
+                                            },
+                                          );
+                                        },
                                       ),
                                     ],
                                   ),
@@ -580,6 +616,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
+                                                                    maxLines: 3,
                                                                     validator: _model
                                                                         .descriptionControllerValidator
                                                                         .asValidator(
@@ -731,18 +768,28 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                                 logFirebaseEvent('CREATE_EVENT_STEP3_ouvertureHoraire_ON_T');
                                                                                 // ouvertureHoraire
                                                                                 logFirebaseEvent('ouvertureHoraire_ouvertureHoraire');
-
-                                                                                final _datePicked1Time = await showTimePicker(
+                                                                                final _datePicked1Date = await showDatePicker(
                                                                                   context: context,
-                                                                                  initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
+                                                                                  initialDate: getCurrentTimestamp,
+                                                                                  firstDate: getCurrentTimestamp,
+                                                                                  lastDate: DateTime(2050),
                                                                                 );
-                                                                                if (_datePicked1Time != null) {
+
+                                                                                TimeOfDay? _datePicked1Time;
+                                                                                if (_datePicked1Date != null) {
+                                                                                  _datePicked1Time = await showTimePicker(
+                                                                                    context: context,
+                                                                                    initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
+                                                                                  );
+                                                                                }
+
+                                                                                if (_datePicked1Date != null && _datePicked1Time != null) {
                                                                                   setState(() {
                                                                                     _model.datePicked1 = DateTime(
-                                                                                      getCurrentTimestamp.year,
-                                                                                      getCurrentTimestamp.month,
-                                                                                      getCurrentTimestamp.day,
-                                                                                      _datePicked1Time.hour,
+                                                                                      _datePicked1Date.year,
+                                                                                      _datePicked1Date.month,
+                                                                                      _datePicked1Date.day,
+                                                                                      _datePicked1Time!.hour,
                                                                                       _datePicked1Time.minute,
                                                                                     );
                                                                                   });
@@ -815,18 +862,28 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                                 logFirebaseEvent('CREATE_EVENT_STEP3_fermetureHoraire_ON_T');
                                                                                 // fermetureHoraire
                                                                                 logFirebaseEvent('fermetureHoraire_fermetureHoraire');
-
-                                                                                final _datePicked2Time = await showTimePicker(
+                                                                                final _datePicked2Date = await showDatePicker(
                                                                                   context: context,
-                                                                                  initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
+                                                                                  initialDate: getCurrentTimestamp,
+                                                                                  firstDate: getCurrentTimestamp,
+                                                                                  lastDate: DateTime(2050),
                                                                                 );
-                                                                                if (_datePicked2Time != null) {
+
+                                                                                TimeOfDay? _datePicked2Time;
+                                                                                if (_datePicked2Date != null) {
+                                                                                  _datePicked2Time = await showTimePicker(
+                                                                                    context: context,
+                                                                                    initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
+                                                                                  );
+                                                                                }
+
+                                                                                if (_datePicked2Date != null && _datePicked2Time != null) {
                                                                                   setState(() {
                                                                                     _model.datePicked2 = DateTime(
-                                                                                      getCurrentTimestamp.year,
-                                                                                      getCurrentTimestamp.month,
-                                                                                      getCurrentTimestamp.day,
-                                                                                      _datePicked2Time.hour,
+                                                                                      _datePicked2Date.year,
+                                                                                      _datePicked2Date.month,
+                                                                                      _datePicked2Date.day,
+                                                                                      _datePicked2Time!.hour,
                                                                                       _datePicked2Time.minute,
                                                                                     );
                                                                                   });
@@ -872,235 +929,283 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         15.0, 15.0, 15.0, 15.0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'CREATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
-                                                    final firestoreBatch =
-                                                        FirebaseFirestore
-                                                            .instance
-                                                            .batch();
-                                                    try {
-                                                      logFirebaseEvent(
-                                                          'BTNValidateFrom_backend_call');
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Expanded(
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'CREATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
+                                                          logFirebaseEvent(
+                                                              'BTNValidateFrom_navigate_to');
 
-                                                      var promotionEventRecordReference =
-                                                          PromotionEventRecord
-                                                              .createDoc(
-                                                                  columnPromotionEventRecord!
-                                                                      .parentReference);
-                                                      firestoreBatch.set(
-                                                          promotionEventRecordReference,
-                                                          {
+                                                          context.pushNamed(
+                                                            'CreateEventStep4',
+                                                            queryParameters: {
+                                                              'eventRef':
+                                                                  serializeParam(
+                                                                widget.eventRef,
+                                                                ParamType
+                                                                    .DocumentReference,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        },
+                                                        text: 'Ignorez',
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          height: 50.0,
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
+                                                          elevation: 3.0,
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            width: 3.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      flex: 4,
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'CREATE_EVENT_STEP3_BTNValidateFrom_ON_TA');
+                                                          logFirebaseEvent(
+                                                              'BTNValidateFrom_backend_call');
+
+                                                          var promotionEventRecordReference =
+                                                              PromotionEventRecord
+                                                                  .createDoc(widget
+                                                                      .eventRef!);
+                                                          await promotionEventRecordReference
+                                                              .set({
                                                             ...createPromotionEventRecordData(
                                                               userRef:
                                                                   currentUserReference,
-                                                              message: _model.descriptionController
-                                                                              .text !=
-                                                                          null &&
-                                                                      _model.descriptionController
-                                                                              .text !=
-                                                                          ''
-                                                                  ? _model
-                                                                      .descriptionController
-                                                                      .text
-                                                                  : null,
-                                                              entranceValue: _model
-                                                                              .nbrEntranceController
-                                                                              .text !=
-                                                                          null &&
-                                                                      _model.nbrEntranceController
-                                                                              .text !=
-                                                                          ''
-                                                                  ? double.tryParse(
-                                                                      _model
-                                                                          .nbrEntranceController
-                                                                          .text)
-                                                                  : null,
+                                                              message:
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                _model
+                                                                    .descriptionController
+                                                                    .text,
+                                                                ' Aucune',
+                                                              ),
+                                                              entranceValue:
+                                                                  valueOrDefault<
+                                                                      double>(
+                                                                double.tryParse(
+                                                                    _model
+                                                                        .nbrEntranceController
+                                                                        .text),
+                                                                0.0,
+                                                              ),
                                                               eventRef: widget
                                                                   .eventRef,
-                                                              title: _model.promorTitleController
-                                                                              .text !=
-                                                                          null &&
-                                                                      _model.promorTitleController
-                                                                              .text !=
-                                                                          ''
-                                                                  ? _model
-                                                                      .promorTitleController
-                                                                      .text
-                                                                  : null,
-                                                              subTitle: _model.promorSousTitleController
-                                                                              .text !=
-                                                                          null &&
-                                                                      _model.promorSousTitleController
-                                                                              .text !=
-                                                                          ''
-                                                                  ? _model
-                                                                      .promorSousTitleController
-                                                                      .text
-                                                                  : null,
+                                                              title:
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                _model
+                                                                    .promorTitleController
+                                                                    .text,
+                                                                ' Aucune',
+                                                              ),
+                                                              subTitle:
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                _model
+                                                                    .promorSousTitleController
+                                                                    .text,
+                                                                ' Aucune',
+                                                              ),
                                                               startTrack: _model
-                                                                          .datePicked1 !=
-                                                                      null
-                                                                  ? _model
-                                                                      .datePicked1
-                                                                  : null,
+                                                                  .datePicked1,
                                                               endTrack: _model
-                                                                          .datePicked2 !=
-                                                                      null
-                                                                  ? _model
-                                                                      .datePicked2
-                                                                  : null,
+                                                                  .datePicked2,
                                                               createdTime:
                                                                   getCurrentTimestamp,
+                                                              trackTime: functions
+                                                                  .getTimeDuration(
+                                                                      _model
+                                                                          .datePicked1,
+                                                                      _model
+                                                                          .datePicked2),
                                                             ),
                                                             'usersJoined': [
                                                               currentUserReference
                                                             ],
                                                           });
-                                                      _model.promotionEventCreation =
-                                                          PromotionEventRecord
-                                                              .getDocumentFromData({
-                                                        ...createPromotionEventRecordData(
-                                                          userRef:
-                                                              currentUserReference,
-                                                          message: _model.descriptionController
-                                                                          .text !=
-                                                                      null &&
-                                                                  _model.descriptionController
-                                                                          .text !=
-                                                                      ''
-                                                              ? _model
-                                                                  .descriptionController
-                                                                  .text
-                                                              : null,
-                                                          entranceValue: _model
-                                                                          .nbrEntranceController
-                                                                          .text !=
-                                                                      null &&
-                                                                  _model.nbrEntranceController
-                                                                          .text !=
-                                                                      ''
-                                                              ? double.tryParse(
-                                                                  _model
-                                                                      .nbrEntranceController
-                                                                      .text)
-                                                              : null,
-                                                          eventRef:
-                                                              widget.eventRef,
-                                                          title: _model.promorTitleController
-                                                                          .text !=
-                                                                      null &&
-                                                                  _model.promorTitleController
-                                                                          .text !=
-                                                                      ''
-                                                              ? _model
-                                                                  .promorTitleController
-                                                                  .text
-                                                              : null,
-                                                          subTitle: _model.promorSousTitleController
-                                                                          .text !=
-                                                                      null &&
-                                                                  _model.promorSousTitleController
-                                                                          .text !=
-                                                                      ''
-                                                              ? _model
-                                                                  .promorSousTitleController
-                                                                  .text
-                                                              : null,
-                                                          startTrack:
-                                                              _model.datePicked1 !=
-                                                                      null
-                                                                  ? _model
-                                                                      .datePicked1
-                                                                  : null,
-                                                          endTrack:
-                                                              _model.datePicked2 !=
-                                                                      null
-                                                                  ? _model
-                                                                      .datePicked2
-                                                                  : null,
-                                                          createdTime:
-                                                              getCurrentTimestamp,
-                                                        ),
-                                                        'usersJoined': [
-                                                          currentUserReference
-                                                        ],
-                                                      }, promotionEventRecordReference);
-                                                      logFirebaseEvent(
-                                                          'BTNValidateFrom_backend_call');
-
-                                                      firestoreBatch.update(
-                                                          _model
-                                                              .promotionEventCreation!
-                                                              .reference,
-                                                          createPromotionEventRecordData(
-                                                            trackTime: functions.getTimeDuration(
+                                                          _model.promotionEventCreation =
+                                                              PromotionEventRecord
+                                                                  .getDocumentFromData({
+                                                            ...createPromotionEventRecordData(
+                                                              userRef:
+                                                                  currentUserReference,
+                                                              message:
+                                                                  valueOrDefault<
+                                                                      String>(
                                                                 _model
-                                                                    .promotionEventCreation
-                                                                    ?.startTrack,
+                                                                    .descriptionController
+                                                                    .text,
+                                                                ' Aucune',
+                                                              ),
+                                                              entranceValue:
+                                                                  valueOrDefault<
+                                                                      double>(
+                                                                double.tryParse(
+                                                                    _model
+                                                                        .nbrEntranceController
+                                                                        .text),
+                                                                0.0,
+                                                              ),
+                                                              eventRef: widget
+                                                                  .eventRef,
+                                                              title:
+                                                                  valueOrDefault<
+                                                                      String>(
                                                                 _model
-                                                                    .promotionEventCreation
-                                                                    ?.endTrack),
-                                                          ));
-                                                      logFirebaseEvent(
-                                                          'BTNValidateFrom_navigate_to');
+                                                                    .promorTitleController
+                                                                    .text,
+                                                                ' Aucune',
+                                                              ),
+                                                              subTitle:
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                _model
+                                                                    .promorSousTitleController
+                                                                    .text,
+                                                                ' Aucune',
+                                                              ),
+                                                              startTrack: _model
+                                                                  .datePicked1,
+                                                              endTrack: _model
+                                                                  .datePicked2,
+                                                              createdTime:
+                                                                  getCurrentTimestamp,
+                                                              trackTime: functions
+                                                                  .getTimeDuration(
+                                                                      _model
+                                                                          .datePicked1,
+                                                                      _model
+                                                                          .datePicked2),
+                                                            ),
+                                                            'usersJoined': [
+                                                              currentUserReference
+                                                            ],
+                                                          }, promotionEventRecordReference);
+                                                          logFirebaseEvent(
+                                                              'BTNValidateFrom_navigate_to');
 
-                                                      context.pushNamed(
-                                                        'CreateEventStep4',
-                                                        queryParameters: {
-                                                          'eventRef':
-                                                              serializeParam(
-                                                            widget.eventRef,
-                                                            ParamType
-                                                                .DocumentReference,
+                                                          context.pushNamed(
+                                                            'CreateEventStep4',
+                                                            queryParameters: {
+                                                              'eventRef':
+                                                                  serializeParam(
+                                                                widget.eventRef,
+                                                                ParamType
+                                                                    .DocumentReference,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+
+                                                          setState(() {});
+                                                        },
+                                                        text:
+                                                            'Enregistrer et continuer ',
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          height: 50.0,
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Colors
+                                                                        .white,
+                                                                  ),
+                                                          elevation: 3.0,
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Colors
+                                                                .transparent,
+                                                            width: 1.0,
                                                           ),
-                                                        }.withoutNulls,
-                                                      );
-                                                    } finally {
-                                                      await firestoreBatch
-                                                          .commit();
-                                                    }
-
-                                                    setState(() {});
-                                                  },
-                                                  text: 'Enregistrer',
-                                                  options: FFButtonOptions(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 50.0,
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
                                                         ),
-                                                    elevation: 3.0,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
+                                                      ),
                                                     ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            16.0),
-                                                  ),
+                                                  ].divide(
+                                                      SizedBox(width: 10.0)),
                                                 ),
                                               ),
-                                            ].addToEnd(SizedBox(height: 20.0)),
+                                            ],
                                           );
                                         },
                                       ),

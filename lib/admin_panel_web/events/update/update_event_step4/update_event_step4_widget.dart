@@ -170,7 +170,7 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Text(
                                             'Modification du l\'événement',
                                             style: FlutterFlowTheme.of(context)
@@ -254,702 +254,379 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                               key: _model.formKey,
                                               autovalidateMode:
                                                   AutovalidateMode.always,
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                15.0,
-                                                                15.0,
-                                                                15.0,
-                                                                15.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Stack(
-                                                          children: [
-                                                            if ((_model.uploadedFileUrl1 !=
-                                                                        null &&
-                                                                    _model.uploadedFileUrl1 !=
-                                                                        '') &&
-                                                                (updateEventStep4MediaRecord
-                                                                            ?.image ==
-                                                                        null ||
-                                                                    updateEventStep4MediaRecord
-                                                                            ?.image ==
-                                                                        ''))
-                                                              Stack(
-                                                                children: [
-                                                                  ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            15.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      _model.uploadedFileUrl1 != null &&
-                                                                              _model.uploadedFileUrl1 !=
-                                                                                  ''
-                                                                          ? _model
-                                                                              .uploadedFileUrl1
-                                                                          : null!,
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.3,
-                                                                      height:
-                                                                          MediaQuery.sizeOf(context).height *
-                                                                              0.3,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                      errorBuilder: (context,
-                                                                              error,
-                                                                              stackTrace) =>
-                                                                          Image
-                                                                              .asset(
-                                                                        'assets/images/error_image.png',
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            0.3,
-                                                                        height: MediaQuery.sizeOf(context).height *
-                                                                            0.3,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Container(
-                                                                    width: MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.3,
-                                                                    height:
-                                                                        MediaQuery.sizeOf(context).height *
-                                                                            0.3,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryTransparent,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              15.0),
-                                                                    ),
-                                                                    child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          FlutterFlowIconButton(
-                                                                        borderColor:
-                                                                            Colors.transparent,
-                                                                        borderRadius:
-                                                                            40.0,
-                                                                        borderWidth:
-                                                                            1.0,
-                                                                        buttonSize:
-                                                                            60.0,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).alternate,
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .delete,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          size:
-                                                                              35.0,
-                                                                        ),
-                                                                        showLoadingIndicator:
-                                                                            true,
-                                                                        onPressed:
-                                                                            () async {
-                                                                          logFirebaseEvent(
-                                                                              'UPDATE_EVENT_STEP4_delete_ICN_ON_TAP');
-                                                                          logFirebaseEvent(
-                                                                              'IconButton_clear_uploaded_data');
-                                                                          setState(
-                                                                              () {
-                                                                            _model.isDataUploading1 =
-                                                                                false;
-                                                                            _model.uploadedLocalFile1 =
-                                                                                FFUploadedFile(bytes: Uint8List.fromList([]));
-                                                                            _model.uploadedFileUrl1 =
-                                                                                '';
-                                                                          });
-                                                                        },
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            if ((updateEventStep4MediaRecord
-                                                                            ?.image ==
-                                                                        null ||
-                                                                    updateEventStep4MediaRecord
-                                                                            ?.image ==
-                                                                        '') &&
-                                                                (_model.uploadedFileUrl1 !=
-                                                                        null &&
-                                                                    _model.uploadedFileUrl1 !=
-                                                                        ''))
-                                                              Container(
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    0.3,
-                                                                height: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .height *
-                                                                    0.3,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryTransparent,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              15.0),
-                                                                ),
-                                                                child: Column(
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  15.0,
+                                                                  15.0,
+                                                                  15.0,
+                                                                  15.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
                                                                   children: [
-                                                                    Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          FlutterFlowIconButton(
-                                                                        borderColor:
-                                                                            Colors.transparent,
-                                                                        borderRadius:
-                                                                            30.0,
-                                                                        borderWidth:
-                                                                            1.0,
-                                                                        buttonSize:
-                                                                            60.0,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).primary,
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .add_circle,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          size:
-                                                                              40.0,
-                                                                        ),
-                                                                        showLoadingIndicator:
-                                                                            true,
-                                                                        onPressed:
-                                                                            () async {
-                                                                          logFirebaseEvent(
-                                                                              'UPDATE_EVENT_STEP4_add_circle_ICN_ON_TAP');
-                                                                          // establishmentVideoUpload
-                                                                          logFirebaseEvent(
-                                                                              'IconButton_establishmentVideoUpload');
-                                                                          final selectedMedia =
-                                                                              await selectMediaWithSourceBottomSheet(
-                                                                            context:
-                                                                                context,
-                                                                            imageQuality:
-                                                                                99,
-                                                                            allowPhoto:
-                                                                                true,
-                                                                            backgroundColor:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            textColor:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                          );
-                                                                          if (selectedMedia != null &&
-                                                                              selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                            setState(() =>
-                                                                                _model.isDataUploading1 = true);
-                                                                            var selectedUploadedFiles =
-                                                                                <FFUploadedFile>[];
-
-                                                                            var downloadUrls =
-                                                                                <String>[];
-                                                                            try {
-                                                                              selectedUploadedFiles = selectedMedia
-                                                                                  .map((m) => FFUploadedFile(
-                                                                                        name: m.storagePath.split('/').last,
-                                                                                        bytes: m.bytes,
-                                                                                        height: m.dimensions?.height,
-                                                                                        width: m.dimensions?.width,
-                                                                                        blurHash: m.blurHash,
-                                                                                      ))
-                                                                                  .toList();
-
-                                                                              downloadUrls = (await Future.wait(
-                                                                                selectedMedia.map(
-                                                                                  (m) async => await uploadData(m.storagePath, m.bytes),
-                                                                                ),
-                                                                              ))
-                                                                                  .where((u) => u != null)
-                                                                                  .map((u) => u!)
-                                                                                  .toList();
-                                                                            } finally {
-                                                                              _model.isDataUploading1 = false;
-                                                                            }
-                                                                            if (selectedUploadedFiles.length == selectedMedia.length &&
-                                                                                downloadUrls.length == selectedMedia.length) {
-                                                                              setState(() {
-                                                                                _model.uploadedLocalFile1 = selectedUploadedFiles.first;
-                                                                                _model.uploadedFileUrl1 = downloadUrls.first;
-                                                                              });
-                                                                            } else {
-                                                                              setState(() {});
-                                                                              return;
-                                                                            }
-                                                                          }
-                                                                        },
-                                                                      ),
-                                                                    ),
                                                                     Text(
-                                                                      'Inserez votre image',
+                                                                      'Images',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleMedium
+                                                                          .titleLarge
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                                FlutterFlowTheme.of(context).primary,
                                                                           ),
-                                                                    ),
-                                                                  ].divide(SizedBox(
-                                                                      height:
-                                                                          10.0)),
-                                                                ),
-                                                              ),
-                                                            if ((updateEventStep4MediaRecord
-                                                                            ?.image !=
-                                                                        null &&
-                                                                    updateEventStep4MediaRecord
-                                                                            ?.image !=
-                                                                        '') &&
-                                                                (_model.uploadedFileUrl1 ==
-                                                                        null ||
-                                                                    _model.uploadedFileUrl1 ==
-                                                                        ''))
-                                                              Container(
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    0.3,
-                                                                height: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .height *
-                                                                    0.3,
-                                                                child: Stack(
-                                                                  children: [
-                                                                    ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              15.0),
-                                                                      child: Image
-                                                                          .network(
-                                                                        valueOrDefault<String>(
-                                                                                      updateEventStep4MediaRecord?.image,
-                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                    ) !=
-                                                                                    null &&
-                                                                                valueOrDefault<String>(
-                                                                                      updateEventStep4MediaRecord?.image,
-                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                    ) !=
-                                                                                    ''
-                                                                            ? updateEventStep4MediaRecord!.image
-                                                                            : null!,
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            0.3,
-                                                                        height: MediaQuery.sizeOf(context).height *
-                                                                            0.3,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                        errorBuilder: (context,
-                                                                                error,
-                                                                                stackTrace) =>
-                                                                            Image.asset(
-                                                                          'assets/images/error_image.png',
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.3,
-                                                                          height:
-                                                                              MediaQuery.sizeOf(context).height * 0.3,
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.3,
-                                                                      height:
-                                                                          MediaQuery.sizeOf(context).height *
-                                                                              0.3,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryTransparent,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(15.0),
-                                                                      ),
-                                                                      child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        children:
-                                                                            [
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                FlutterFlowIconButton(
-                                                                              borderColor: Colors.transparent,
-                                                                              borderRadius: 30.0,
-                                                                              borderWidth: 1.0,
-                                                                              buttonSize: 60.0,
-                                                                              fillColor: FlutterFlowTheme.of(context).alternate,
-                                                                              icon: Icon(
-                                                                                Icons.delete,
-                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                size: 35.0,
-                                                                              ),
-                                                                              showLoadingIndicator: true,
-                                                                              onPressed: () async {
-                                                                                logFirebaseEvent('UPDATE_EVENT_STEP4_delete_ICN_ON_TAP');
-                                                                                // establishmentVideoUpload
-                                                                                logFirebaseEvent('IconButton_establishmentVideoUpload');
-                                                                                await FirebaseStorage.instance
-                                                                                    .refFromURL(valueOrDefault<String>(
-                                                                                      updateEventStep4MediaRecord?.image,
-                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                    ))
-                                                                                    .delete();
-                                                                              },
-                                                                            ),
-                                                                          ),
-                                                                        ].divide(SizedBox(height: 10.0)),
-                                                                      ),
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                15.0,
-                                                                15.0,
-                                                                15.0,
-                                                                15.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.3,
-                                                          height:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .height *
-                                                                  0.3,
-                                                          child: Stack(
-                                                            children: [
-                                                              if ((updateEventStep4MediaRecord
-                                                                              ?.video !=
-                                                                          null &&
-                                                                      updateEventStep4MediaRecord
-                                                                              ?.video !=
-                                                                          '') &&
-                                                                  (_model.uploadedFileUrl2 ==
-                                                                          null ||
-                                                                      _model.uploadedFileUrl2 ==
-                                                                          ''))
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.3,
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      0.3,
-                                                                  child: Stack(
-                                                                    children: [
-                                                                      FlutterFlowMediaDisplay(
-                                                                        path: updateEventStep4MediaRecord!
-                                                                            .video,
-                                                                        imageBuilder:
-                                                                            (path) =>
-                                                                                ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15.0),
-                                                                          child:
-                                                                              Image.network(
-                                                                            path,
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 0.3,
-                                                                            height:
-                                                                                MediaQuery.sizeOf(context).height * 0.3,
-                                                                            fit:
-                                                                                BoxFit.contain,
-                                                                          ),
-                                                                        ),
-                                                                        videoPlayerBuilder:
-                                                                            (path) =>
-                                                                                FlutterFlowVideoPlayer(
-                                                                          path:
-                                                                              path,
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.3,
-                                                                          height:
-                                                                              MediaQuery.sizeOf(context).height * 0.3,
-                                                                          autoPlay:
-                                                                              false,
-                                                                          looping:
-                                                                              true,
-                                                                          showControls:
-                                                                              true,
-                                                                          allowFullScreen:
-                                                                              true,
-                                                                          allowPlaybackSpeedMenu:
-                                                                              false,
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            0.3,
-                                                                        height: MediaQuery.sizeOf(context).height *
-                                                                            0.3,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryTransparent,
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15.0),
-                                                                        ),
-                                                                        child:
-                                                                            Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderColor:
-                                                                                Colors.transparent,
-                                                                            borderRadius:
-                                                                                40.0,
-                                                                            borderWidth:
-                                                                                1.0,
-                                                                            buttonSize:
-                                                                                60.0,
-                                                                            fillColor:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.delete,
-                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              size: 35.0,
-                                                                            ),
-                                                                            showLoadingIndicator:
-                                                                                true,
-                                                                            onPressed:
-                                                                                () async {
-                                                                              logFirebaseEvent('UPDATE_EVENT_STEP4_delete_ICN_ON_TAP');
-                                                                              logFirebaseEvent('IconButton_delete_data');
-                                                                              await FirebaseStorage.instance
-                                                                                  .refFromURL(valueOrDefault<String>(
-                                                                                    updateEventStep4MediaRecord?.video,
-                                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                  ))
-                                                                                  .delete();
-                                                                              logFirebaseEvent('IconButton_show_snack_bar');
-                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                SnackBar(
-                                                                                  content: Text(
-                                                                                    'La video a été supprimée',
-                                                                                    style: FlutterFlowTheme.of(context).headlineLarge.override(
-                                                                                          fontFamily: 'Poppins',
-                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                        ),
-                                                                                  ),
-                                                                                  duration: Duration(milliseconds: 1950),
-                                                                                  backgroundColor: FlutterFlowTheme.of(context).primary,
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              if ((updateEventStep4MediaRecord
-                                                                              ?.video ==
-                                                                          null ||
-                                                                      updateEventStep4MediaRecord
-                                                                              ?.video ==
-                                                                          '') &&
-                                                                  (_model.uploadedFileUrl2 ==
-                                                                          null ||
-                                                                      _model.uploadedFileUrl2 ==
-                                                                          ''))
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.3,
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      0.3,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryTransparent,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            15.0),
-                                                                  ),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
+                                                                Stack(
+                                                                  children: [
+                                                                    if ((_model.uploadedFileUrl1 !=
+                                                                                null &&
+                                                                            _model.uploadedFileUrl1 !=
+                                                                                '') &&
+                                                                        (updateEventStep4MediaRecord?.image ==
+                                                                                null ||
+                                                                            updateEventStep4MediaRecord?.image ==
+                                                                                ''))
                                                                       Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            -1.00,
+                                                                            0.00),
                                                                         child:
-                                                                            FlutterFlowIconButton(
-                                                                          borderColor:
-                                                                              Colors.transparent,
-                                                                          borderRadius:
-                                                                              30.0,
-                                                                          borderWidth:
-                                                                              1.0,
-                                                                          buttonSize:
-                                                                              60.0,
-                                                                          fillColor:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          icon:
-                                                                              Icon(
-                                                                            Icons.add_circle,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            size:
-                                                                                40.0,
-                                                                          ),
-                                                                          showLoadingIndicator:
-                                                                              true,
-                                                                          onPressed:
-                                                                              () async {
-                                                                            logFirebaseEvent('UPDATE_EVENT_STEP4_add_circle_ICN_ON_TAP');
-                                                                            // establishmentVideoUpload
-                                                                            logFirebaseEvent('IconButton_establishmentVideoUpload');
-                                                                            final selectedMedia =
-                                                                                await selectMediaWithSourceBottomSheet(
-                                                                              context: context,
-                                                                              allowPhoto: false,
-                                                                              allowVideo: true,
-                                                                            );
-                                                                            if (selectedMedia != null &&
-                                                                                selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                              setState(() => _model.isDataUploading2 = true);
-                                                                              var selectedUploadedFiles = <FFUploadedFile>[];
-
-                                                                              var downloadUrls = <String>[];
-                                                                              try {
-                                                                                selectedUploadedFiles = selectedMedia
-                                                                                    .map((m) => FFUploadedFile(
-                                                                                          name: m.storagePath.split('/').last,
-                                                                                          bytes: m.bytes,
-                                                                                          height: m.dimensions?.height,
-                                                                                          width: m.dimensions?.width,
-                                                                                          blurHash: m.blurHash,
-                                                                                        ))
-                                                                                    .toList();
-
-                                                                                downloadUrls = (await Future.wait(
-                                                                                  selectedMedia.map(
-                                                                                    (m) async => await uploadData(m.storagePath, m.bytes),
+                                                                            Stack(
+                                                                          children: [
+                                                                            ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(15.0),
+                                                                              child: Image.network(
+                                                                                valueOrDefault<String>(
+                                                                                  _model.uploadedFileUrl1 != null && _model.uploadedFileUrl1 != '' ? _model.uploadedFileUrl1 : null,
+                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                ),
+                                                                                width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                fit: BoxFit.cover,
+                                                                                errorBuilder: (context, error, stackTrace) => Image.asset(
+                                                                                  'assets/images/error_image.png',
+                                                                                  width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                  height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                              height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                              decoration: BoxDecoration(
+                                                                                color: FlutterFlowTheme.of(context).primaryTransparent,
+                                                                                borderRadius: BorderRadius.circular(15.0),
+                                                                              ),
+                                                                              child: Align(
+                                                                                alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                child: FlutterFlowIconButton(
+                                                                                  borderColor: Colors.transparent,
+                                                                                  borderRadius: 40.0,
+                                                                                  borderWidth: 1.0,
+                                                                                  buttonSize: 60.0,
+                                                                                  fillColor: FlutterFlowTheme.of(context).alternate,
+                                                                                  icon: Icon(
+                                                                                    Icons.delete,
+                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                    size: 35.0,
                                                                                   ),
-                                                                                ))
-                                                                                    .where((u) => u != null)
-                                                                                    .map((u) => u!)
-                                                                                    .toList();
-                                                                              } finally {
-                                                                                _model.isDataUploading2 = false;
-                                                                              }
-                                                                              if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
-                                                                                setState(() {
-                                                                                  _model.uploadedLocalFile2 = selectedUploadedFiles.first;
-                                                                                  _model.uploadedFileUrl2 = downloadUrls.first;
-                                                                                });
-                                                                              } else {
-                                                                                setState(() {});
-                                                                                return;
-                                                                              }
-                                                                            }
-                                                                          },
+                                                                                  showLoadingIndicator: true,
+                                                                                  onPressed: () async {
+                                                                                    logFirebaseEvent('UPDATE_EVENT_STEP4_delete_ICN_ON_TAP');
+                                                                                    logFirebaseEvent('IconButton_clear_uploaded_data');
+                                                                                    setState(() {
+                                                                                      _model.isDataUploading1 = false;
+                                                                                      _model.uploadedLocalFile1 = FFUploadedFile(bytes: Uint8List.fromList([]));
+                                                                                      _model.uploadedFileUrl1 = '';
+                                                                                    });
+                                                                                  },
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
                                                                         ),
                                                                       ),
-                                                                      Text(
-                                                                        'Inserez votre video',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                            ),
+                                                                    if ((updateEventStep4MediaRecord?.image ==
+                                                                                null ||
+                                                                            updateEventStep4MediaRecord?.image ==
+                                                                                '') &&
+                                                                        (_model.uploadedFileUrl1 ==
+                                                                                null ||
+                                                                            _model.uploadedFileUrl1 ==
+                                                                                ''))
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            -1.00,
+                                                                            0.00),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.3,
+                                                                          height:
+                                                                              MediaQuery.sizeOf(context).height * 0.3,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryTransparent,
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(15.0),
+                                                                          ),
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children:
+                                                                                [
+                                                                              Align(
+                                                                                alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                child: FlutterFlowIconButton(
+                                                                                  borderColor: Colors.transparent,
+                                                                                  borderRadius: 30.0,
+                                                                                  borderWidth: 1.0,
+                                                                                  buttonSize: 60.0,
+                                                                                  fillColor: FlutterFlowTheme.of(context).primary,
+                                                                                  icon: Icon(
+                                                                                    Icons.add_circle,
+                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                    size: 40.0,
+                                                                                  ),
+                                                                                  showLoadingIndicator: true,
+                                                                                  onPressed: () async {
+                                                                                    logFirebaseEvent('UPDATE_EVENT_STEP4_add_circle_ICN_ON_TAP');
+                                                                                    // establishmentVideoUpload
+                                                                                    logFirebaseEvent('IconButton_establishmentVideoUpload');
+                                                                                    final selectedMedia = await selectMediaWithSourceBottomSheet(
+                                                                                      context: context,
+                                                                                      imageQuality: 99,
+                                                                                      allowPhoto: true,
+                                                                                      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                      textColor: FlutterFlowTheme.of(context).primary,
+                                                                                    );
+                                                                                    if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
+                                                                                      setState(() => _model.isDataUploading1 = true);
+                                                                                      var selectedUploadedFiles = <FFUploadedFile>[];
+
+                                                                                      var downloadUrls = <String>[];
+                                                                                      try {
+                                                                                        selectedUploadedFiles = selectedMedia
+                                                                                            .map((m) => FFUploadedFile(
+                                                                                                  name: m.storagePath.split('/').last,
+                                                                                                  bytes: m.bytes,
+                                                                                                  height: m.dimensions?.height,
+                                                                                                  width: m.dimensions?.width,
+                                                                                                  blurHash: m.blurHash,
+                                                                                                ))
+                                                                                            .toList();
+
+                                                                                        downloadUrls = (await Future.wait(
+                                                                                          selectedMedia.map(
+                                                                                            (m) async => await uploadData(m.storagePath, m.bytes),
+                                                                                          ),
+                                                                                        ))
+                                                                                            .where((u) => u != null)
+                                                                                            .map((u) => u!)
+                                                                                            .toList();
+                                                                                      } finally {
+                                                                                        _model.isDataUploading1 = false;
+                                                                                      }
+                                                                                      if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
+                                                                                        setState(() {
+                                                                                          _model.uploadedLocalFile1 = selectedUploadedFiles.first;
+                                                                                          _model.uploadedFileUrl1 = downloadUrls.first;
+                                                                                        });
+                                                                                      } else {
+                                                                                        setState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                ),
+                                                                              ),
+                                                                              Text(
+                                                                                'Inserez votre image',
+                                                                                style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    ),
+                                                                              ),
+                                                                            ].divide(SizedBox(height: 10.0)),
+                                                                          ),
+                                                                        ),
                                                                       ),
-                                                                    ].divide(SizedBox(
-                                                                        height:
-                                                                            10.0)),
-                                                                  ),
+                                                                    if ((updateEventStep4MediaRecord?.image !=
+                                                                                null &&
+                                                                            updateEventStep4MediaRecord?.image !=
+                                                                                '') &&
+                                                                        (_model.uploadedFileUrl1 ==
+                                                                                null ||
+                                                                            _model.uploadedFileUrl1 ==
+                                                                                ''))
+                                                                      Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.3,
+                                                                        height: MediaQuery.sizeOf(context).height *
+                                                                            0.3,
+                                                                        child:
+                                                                            Stack(
+                                                                          children: [
+                                                                            ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(15.0),
+                                                                              child: Image.network(
+                                                                                valueOrDefault<String>(
+                                                                                  valueOrDefault<String>(
+                                                                                                updateEventStep4MediaRecord?.image,
+                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                              ) !=
+                                                                                              null &&
+                                                                                          valueOrDefault<String>(
+                                                                                                updateEventStep4MediaRecord?.image,
+                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                              ) !=
+                                                                                              ''
+                                                                                      ? valueOrDefault<String>(
+                                                                                          updateEventStep4MediaRecord?.image,
+                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                        )
+                                                                                      : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                ),
+                                                                                width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                fit: BoxFit.cover,
+                                                                                errorBuilder: (context, error, stackTrace) => Image.asset(
+                                                                                  'assets/images/error_image.png',
+                                                                                  width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                  height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                              height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                              decoration: BoxDecoration(
+                                                                                color: FlutterFlowTheme.of(context).primaryTransparent,
+                                                                                borderRadius: BorderRadius.circular(15.0),
+                                                                              ),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                children: [
+                                                                                  Align(
+                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                    child: FlutterFlowIconButton(
+                                                                                      borderColor: Colors.transparent,
+                                                                                      borderRadius: 30.0,
+                                                                                      borderWidth: 1.0,
+                                                                                      buttonSize: 60.0,
+                                                                                      fillColor: FlutterFlowTheme.of(context).alternate,
+                                                                                      icon: Icon(
+                                                                                        Icons.delete,
+                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                        size: 35.0,
+                                                                                      ),
+                                                                                      showLoadingIndicator: true,
+                                                                                      onPressed: () async {
+                                                                                        logFirebaseEvent('UPDATE_EVENT_STEP4_delete_ICN_ON_TAP');
+                                                                                        // establishmentVideoUpload
+                                                                                        logFirebaseEvent('IconButton_establishmentVideoUpload');
+                                                                                        await FirebaseStorage.instance
+                                                                                            .refFromURL(valueOrDefault<String>(
+                                                                                              updateEventStep4MediaRecord?.image,
+                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                            ))
+                                                                                            .delete();
+                                                                                      },
+                                                                                    ),
+                                                                                  ),
+                                                                                ].divide(SizedBox(height: 10.0)),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                  ],
                                                                 ),
-                                                              if ((_model.uploadedFileUrl2 !=
-                                                                          null &&
-                                                                      _model.uploadedFileUrl2 !=
-                                                                          '') &&
-                                                                  (updateEventStep4MediaRecord
-                                                                              ?.video ==
-                                                                          null ||
-                                                                      updateEventStep4MediaRecord
-                                                                              ?.video ==
-                                                                          ''))
+                                                              ].divide(SizedBox(
+                                                                  height:
+                                                                      15.0)),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  15.0,
+                                                                  15.0,
+                                                                  15.0,
+                                                                  15.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Text(
+                                                                      'Vidéo',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                          ),
+                                                                    ),
+                                                                  ],
+                                                                ),
                                                                 Container(
                                                                   width: MediaQuery.sizeOf(
                                                                               context)
@@ -961,110 +638,298 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                                       0.3,
                                                                   child: Stack(
                                                                     children: [
-                                                                      FlutterFlowMediaDisplay(
-                                                                        path: valueOrDefault<
-                                                                            String>(
-                                                                          _model
-                                                                              .uploadedFileUrl2,
-                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                        ),
-                                                                        imageBuilder:
-                                                                            (path) =>
-                                                                                ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15.0),
-                                                                          child:
-                                                                              Image.network(
-                                                                            path,
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 0.3,
-                                                                            height:
-                                                                                MediaQuery.sizeOf(context).height * 0.3,
-                                                                            fit:
-                                                                                BoxFit.contain,
-                                                                          ),
-                                                                        ),
-                                                                        videoPlayerBuilder:
-                                                                            (path) =>
-                                                                                FlutterFlowVideoPlayer(
-                                                                          path:
-                                                                              path,
+                                                                      if ((updateEventStep4MediaRecord?.video != null &&
+                                                                              updateEventStep4MediaRecord?.video !=
+                                                                                  '') &&
+                                                                          (_model.uploadedFileUrl2 == null ||
+                                                                              _model.uploadedFileUrl2 == ''))
+                                                                        Container(
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.3,
                                                                           height:
                                                                               MediaQuery.sizeOf(context).height * 0.3,
-                                                                          autoPlay:
-                                                                              false,
-                                                                          looping:
-                                                                              true,
-                                                                          showControls:
-                                                                              true,
-                                                                          allowFullScreen:
-                                                                              true,
-                                                                          allowPlaybackSpeedMenu:
-                                                                              false,
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            0.3,
-                                                                        height: MediaQuery.sizeOf(context).height *
-                                                                            0.3,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryTransparent,
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15.0),
-                                                                        ),
-                                                                        child:
-                                                                            Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
                                                                           child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderColor:
-                                                                                Colors.transparent,
-                                                                            borderRadius:
-                                                                                40.0,
-                                                                            borderWidth:
-                                                                                1.0,
-                                                                            buttonSize:
-                                                                                60.0,
-                                                                            fillColor:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.delete,
-                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              size: 35.0,
-                                                                            ),
-                                                                            showLoadingIndicator:
-                                                                                true,
-                                                                            onPressed:
-                                                                                () async {
-                                                                              logFirebaseEvent('UPDATE_EVENT_STEP4_delete_ICN_ON_TAP');
-                                                                              logFirebaseEvent('IconButton_clear_uploaded_data');
-                                                                              setState(() {
-                                                                                _model.isDataUploading2 = false;
-                                                                                _model.uploadedLocalFile2 = FFUploadedFile(bytes: Uint8List.fromList([]));
-                                                                                _model.uploadedFileUrl2 = '';
-                                                                              });
-                                                                            },
+                                                                              Stack(
+                                                                            children: [
+                                                                              FlutterFlowMediaDisplay(
+                                                                                path: valueOrDefault<String>(
+                                                                                  valueOrDefault<String>(
+                                                                                                updateEventStep4MediaRecord?.video,
+                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                              ) !=
+                                                                                              null &&
+                                                                                          valueOrDefault<String>(
+                                                                                                updateEventStep4MediaRecord?.video,
+                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                              ) !=
+                                                                                              ''
+                                                                                      ? valueOrDefault<String>(
+                                                                                          updateEventStep4MediaRecord?.video,
+                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                        )
+                                                                                      : valueOrDefault<String>(
+                                                                                          null,
+                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                        ),
+                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                ),
+                                                                                imageBuilder: (path) => ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                  child: Image.network(
+                                                                                    path,
+                                                                                    width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                    height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                    fit: BoxFit.contain,
+                                                                                  ),
+                                                                                ),
+                                                                                videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
+                                                                                  path: path,
+                                                                                  width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                  height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                  autoPlay: false,
+                                                                                  looping: true,
+                                                                                  showControls: true,
+                                                                                  allowFullScreen: true,
+                                                                                  allowPlaybackSpeedMenu: false,
+                                                                                ),
+                                                                              ),
+                                                                              Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                decoration: BoxDecoration(
+                                                                                  color: FlutterFlowTheme.of(context).primaryTransparent,
+                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                ),
+                                                                                child: Align(
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  child: FlutterFlowIconButton(
+                                                                                    borderColor: Colors.transparent,
+                                                                                    borderRadius: 40.0,
+                                                                                    borderWidth: 1.0,
+                                                                                    buttonSize: 60.0,
+                                                                                    fillColor: FlutterFlowTheme.of(context).alternate,
+                                                                                    icon: Icon(
+                                                                                      Icons.delete,
+                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                      size: 35.0,
+                                                                                    ),
+                                                                                    showLoadingIndicator: true,
+                                                                                    onPressed: () async {
+                                                                                      logFirebaseEvent('UPDATE_EVENT_STEP4_delete_ICN_ON_TAP');
+                                                                                      logFirebaseEvent('IconButton_delete_data');
+                                                                                      await FirebaseStorage.instance
+                                                                                          .refFromURL(valueOrDefault<String>(
+                                                                                            updateEventStep4MediaRecord?.video,
+                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                          ))
+                                                                                          .delete();
+                                                                                      logFirebaseEvent('IconButton_show_snack_bar');
+                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                        SnackBar(
+                                                                                          content: Text(
+                                                                                            'La video a été supprimée',
+                                                                                            style: FlutterFlowTheme.of(context).headlineLarge.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                ),
+                                                                                          ),
+                                                                                          duration: Duration(milliseconds: 1950),
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).primary,
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ),
-                                                                      ),
+                                                                      if ((updateEventStep4MediaRecord?.video == null ||
+                                                                              updateEventStep4MediaRecord?.video ==
+                                                                                  '') &&
+                                                                          (_model.uploadedFileUrl2 == null ||
+                                                                              _model.uploadedFileUrl2 == ''))
+                                                                        Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.3,
+                                                                          height:
+                                                                              MediaQuery.sizeOf(context).height * 0.3,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryTransparent,
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(15.0),
+                                                                          ),
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children:
+                                                                                [
+                                                                              Align(
+                                                                                alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                child: FlutterFlowIconButton(
+                                                                                  borderColor: Colors.transparent,
+                                                                                  borderRadius: 30.0,
+                                                                                  borderWidth: 1.0,
+                                                                                  buttonSize: 60.0,
+                                                                                  fillColor: FlutterFlowTheme.of(context).primary,
+                                                                                  icon: Icon(
+                                                                                    Icons.add_circle,
+                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                    size: 40.0,
+                                                                                  ),
+                                                                                  showLoadingIndicator: true,
+                                                                                  onPressed: () async {
+                                                                                    logFirebaseEvent('UPDATE_EVENT_STEP4_add_circle_ICN_ON_TAP');
+                                                                                    // establishmentVideoUpload
+                                                                                    logFirebaseEvent('IconButton_establishmentVideoUpload');
+                                                                                    final selectedMedia = await selectMediaWithSourceBottomSheet(
+                                                                                      context: context,
+                                                                                      allowPhoto: false,
+                                                                                      allowVideo: true,
+                                                                                    );
+                                                                                    if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
+                                                                                      setState(() => _model.isDataUploading2 = true);
+                                                                                      var selectedUploadedFiles = <FFUploadedFile>[];
+
+                                                                                      var downloadUrls = <String>[];
+                                                                                      try {
+                                                                                        selectedUploadedFiles = selectedMedia
+                                                                                            .map((m) => FFUploadedFile(
+                                                                                                  name: m.storagePath.split('/').last,
+                                                                                                  bytes: m.bytes,
+                                                                                                  height: m.dimensions?.height,
+                                                                                                  width: m.dimensions?.width,
+                                                                                                  blurHash: m.blurHash,
+                                                                                                ))
+                                                                                            .toList();
+
+                                                                                        downloadUrls = (await Future.wait(
+                                                                                          selectedMedia.map(
+                                                                                            (m) async => await uploadData(m.storagePath, m.bytes),
+                                                                                          ),
+                                                                                        ))
+                                                                                            .where((u) => u != null)
+                                                                                            .map((u) => u!)
+                                                                                            .toList();
+                                                                                      } finally {
+                                                                                        _model.isDataUploading2 = false;
+                                                                                      }
+                                                                                      if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
+                                                                                        setState(() {
+                                                                                          _model.uploadedLocalFile2 = selectedUploadedFiles.first;
+                                                                                          _model.uploadedFileUrl2 = downloadUrls.first;
+                                                                                        });
+                                                                                      } else {
+                                                                                        setState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                ),
+                                                                              ),
+                                                                              Text(
+                                                                                'Inserez votre video',
+                                                                                style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    ),
+                                                                              ),
+                                                                            ].divide(SizedBox(height: 10.0)),
+                                                                          ),
+                                                                        ),
+                                                                      if ((_model.uploadedFileUrl2 != null &&
+                                                                              _model.uploadedFileUrl2 !=
+                                                                                  '') &&
+                                                                          (updateEventStep4MediaRecord?.video == null ||
+                                                                              updateEventStep4MediaRecord?.video == ''))
+                                                                        Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.3,
+                                                                          height:
+                                                                              MediaQuery.sizeOf(context).height * 0.3,
+                                                                          child:
+                                                                              Stack(
+                                                                            children: [
+                                                                              FlutterFlowMediaDisplay(
+                                                                                path: valueOrDefault<String>(
+                                                                                  _model.uploadedFileUrl2,
+                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                ),
+                                                                                imageBuilder: (path) => ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                  child: Image.network(
+                                                                                    path,
+                                                                                    width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                    height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                    fit: BoxFit.contain,
+                                                                                  ),
+                                                                                ),
+                                                                                videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
+                                                                                  path: path,
+                                                                                  width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                  height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                  autoPlay: false,
+                                                                                  looping: true,
+                                                                                  showControls: true,
+                                                                                  allowFullScreen: true,
+                                                                                  allowPlaybackSpeedMenu: false,
+                                                                                ),
+                                                                              ),
+                                                                              Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.3,
+                                                                                height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                decoration: BoxDecoration(
+                                                                                  color: FlutterFlowTheme.of(context).primaryTransparent,
+                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                ),
+                                                                                child: Align(
+                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  child: FlutterFlowIconButton(
+                                                                                    borderColor: Colors.transparent,
+                                                                                    borderRadius: 40.0,
+                                                                                    borderWidth: 1.0,
+                                                                                    buttonSize: 60.0,
+                                                                                    fillColor: FlutterFlowTheme.of(context).alternate,
+                                                                                    icon: Icon(
+                                                                                      Icons.delete,
+                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                      size: 35.0,
+                                                                                    ),
+                                                                                    showLoadingIndicator: true,
+                                                                                    onPressed: () async {
+                                                                                      logFirebaseEvent('UPDATE_EVENT_STEP4_delete_ICN_ON_TAP');
+                                                                                      logFirebaseEvent('IconButton_clear_uploaded_data');
+                                                                                      setState(() {
+                                                                                        _model.isDataUploading2 = false;
+                                                                                        _model.uploadedLocalFile2 = FFUploadedFile(bytes: Uint8List.fromList([]));
+                                                                                        _model.uploadedFileUrl2 = '';
+                                                                                      });
+                                                                                    },
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
                                                                     ],
                                                                   ),
                                                                 ),
-                                                            ],
+                                                              ].divide(SizedBox(
+                                                                  height:
+                                                                      15.0)),
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ].addToEnd(
+                                                      SizedBox(height: 10.0)),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -1083,40 +948,28 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                     .reference
                                                     .update(
                                                         createMediaRecordData(
-                                                  image: () {
-                                                    if (_model.uploadedFileUrl1 !=
-                                                            null &&
-                                                        _model.uploadedFileUrl1 !=
-                                                            '') {
-                                                      return _model
-                                                          .uploadedFileUrl1;
-                                                    } else if (updateEventStep4MediaRecord
-                                                            ?.image ==
-                                                        updateEventStep4MediaRecord
-                                                            ?.image) {
-                                                      return updateEventStep4MediaRecord
-                                                          ?.image;
-                                                    } else {
-                                                      return null;
-                                                    }
-                                                  }(),
-                                                  video: () {
-                                                    if (_model.uploadedFileUrl2 !=
-                                                            null &&
-                                                        _model.uploadedFileUrl2 !=
-                                                            '') {
-                                                      return _model
-                                                          .uploadedFileUrl2;
-                                                    } else if (updateEventStep4MediaRecord
-                                                            ?.video ==
-                                                        updateEventStep4MediaRecord
-                                                            ?.video) {
-                                                      return updateEventStep4MediaRecord
-                                                          ?.video;
-                                                    } else {
-                                                      return null;
-                                                    }
-                                                  }(),
+                                                  image: valueOrDefault<String>(
+                                                    _model.uploadedFileUrl1 !=
+                                                                null &&
+                                                            _model.uploadedFileUrl1 !=
+                                                                ''
+                                                        ? _model
+                                                            .uploadedFileUrl1
+                                                        : updateEventStep4MediaRecord
+                                                            ?.image,
+                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                  ),
+                                                  video: valueOrDefault<String>(
+                                                    _model.uploadedFileUrl2 !=
+                                                                null &&
+                                                            _model.uploadedFileUrl2 !=
+                                                                ''
+                                                        ? _model
+                                                            .uploadedFileUrl2
+                                                        : updateEventStep4MediaRecord
+                                                            ?.video,
+                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                  ),
                                                   updatedTime:
                                                       getCurrentTimestamp,
                                                   eventRef:
@@ -1162,9 +1015,7 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                               ),
                                             ),
                                           ),
-                                        ]
-                                            .divide(SizedBox(height: 30.0))
-                                            .addToEnd(SizedBox(height: 20.0)),
+                                        ].divide(SizedBox(height: 30.0)),
                                       ),
                                     ),
                                   ),

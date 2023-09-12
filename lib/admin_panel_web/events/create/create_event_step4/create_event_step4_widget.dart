@@ -138,7 +138,8 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Text(
                                         'Création d\'un événement',
                                         style: FlutterFlowTheme.of(context)
@@ -151,6 +152,40 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                             ),
                                       ),
                                     ),
+                                  ),
+                                  FlutterFlowIconButton(
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 40.0,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    icon: Icon(
+                                      Icons.home,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 12.0,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'CREATE_EVENT_STEP4_PAGE_home_ICN_ON_TAP');
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_to');
+
+                                      context.pushNamed(
+                                        'Dashboard',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                          ),
+                                        },
+                                      );
+                                    },
                                   ),
                                 ],
                               ),
@@ -309,10 +344,9 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                     ),
                                                                     child:
                                                                         Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                      alignment: AlignmentDirectional(
+                                                                          0.00,
+                                                                          0.00),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -389,10 +423,9 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                           .center,
                                                                   children: [
                                                                     Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                      alignment: AlignmentDirectional(
+                                                                          0.00,
+                                                                          0.00),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -591,10 +624,9 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                     ),
                                                                     child:
                                                                         Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                      alignment: AlignmentDirectional(
+                                                                          0.00,
+                                                                          0.00),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -671,10 +703,9 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                           .center,
                                                                   children: [
                                                                     Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                      alignment: AlignmentDirectional(
+                                                                          0.00,
+                                                                          0.00),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -902,9 +933,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                           ),
                                         ),
                                       ),
-                                    ]
-                                        .divide(SizedBox(height: 30.0))
-                                        .addToEnd(SizedBox(height: 20.0)),
+                                    ].divide(SizedBox(height: 30.0)),
                                   ),
                                 ),
                               ),

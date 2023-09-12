@@ -49,7 +49,7 @@ class _EmptyImageWidgetState extends State<EmptyImageWidget> {
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Align(
-        alignment: AlignmentDirectional(0.0, 0.0),
+        alignment: AlignmentDirectional(0.00, 0.00),
         child: Text(
           'Aucune Image inséré',
           style: FlutterFlowTheme.of(context).titleMedium,

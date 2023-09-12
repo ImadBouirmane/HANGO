@@ -60,7 +60,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.00, 0.00),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.8,
         height: MediaQuery.sizeOf(context).height * 0.7,
@@ -342,6 +342,9 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             RichText(
+                                              textScaleFactor:
+                                                  MediaQuery.of(context)
+                                                      .textScaleFactor,
                                               text: TextSpan(
                                                 children: [
                                                   TextSpan(
@@ -382,6 +385,9 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                               ),
                                             ),
                                             RichText(
+                                              textScaleFactor:
+                                                  MediaQuery.of(context)
+                                                      .textScaleFactor,
                                               text: TextSpan(
                                                 children: [
                                                   TextSpan(

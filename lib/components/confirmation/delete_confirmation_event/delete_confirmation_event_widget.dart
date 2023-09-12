@@ -52,7 +52,7 @@ class _DeleteConfirmationEventWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.00, 0.00),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.35,
         height: MediaQuery.sizeOf(context).height * 0.2,

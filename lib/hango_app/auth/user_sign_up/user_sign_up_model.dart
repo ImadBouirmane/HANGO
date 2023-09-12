@@ -19,43 +19,72 @@ class UserSignUpModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  final formKey = GlobalKey<FormState>();
-  // State field(s) for nameUser widget.
-  TextEditingController? nameUserController;
-  String? Function(BuildContext, String?)? nameUserControllerValidator;
+  final formKey2 = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
   // State field(s) for lastName widget.
-  TextEditingController? lastNameController;
-  String? Function(BuildContext, String?)? lastNameControllerValidator;
+  TextEditingController? lastNameController1;
+  String? Function(BuildContext, String?)? lastNameController1Validator;
+  // State field(s) for firstName widget.
+  TextEditingController? firstNameController1;
+  String? Function(BuildContext, String?)? firstNameController1Validator;
   // State field(s) for genre widget.
-  String? genreValue;
-  FormFieldController<String>? genreValueController;
-  DateTime? datePicked;
+  String? genreValue1;
+  FormFieldController<String>? genreValueController1;
+  DateTime? datePicked1;
   // State field(s) for emailAddress widget.
-  TextEditingController? emailAddressController;
-  String? Function(BuildContext, String?)? emailAddressControllerValidator;
+  TextEditingController? emailAddressController1;
+  String? Function(BuildContext, String?)? emailAddressController1Validator;
   // State field(s) for password widget.
-  TextEditingController? passwordController;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordControllerValidator;
+  TextEditingController? passwordController1;
+  late bool passwordVisibility1;
+  String? Function(BuildContext, String?)? passwordController1Validator;
   // State field(s) for confirmPassword widget.
-  TextEditingController? confirmPasswordController;
-  late bool confirmPasswordVisibility;
-  String? Function(BuildContext, String?)? confirmPasswordControllerValidator;
+  TextEditingController? confirmPasswordController1;
+  late bool confirmPasswordVisibility1;
+  String? Function(BuildContext, String?)? confirmPasswordController1Validator;
+  // State field(s) for lastName widget.
+  TextEditingController? lastNameController2;
+  String? Function(BuildContext, String?)? lastNameController2Validator;
+  // State field(s) for firstName widget.
+  TextEditingController? firstNameController2;
+  String? Function(BuildContext, String?)? firstNameController2Validator;
+  // State field(s) for genre widget.
+  String? genreValue2;
+  FormFieldController<String>? genreValueController2;
+  DateTime? datePicked2;
+  // State field(s) for emailAddress widget.
+  TextEditingController? emailAddressController2;
+  String? Function(BuildContext, String?)? emailAddressController2Validator;
+  // State field(s) for password widget.
+  TextEditingController? passwordController2;
+  late bool passwordVisibility2;
+  String? Function(BuildContext, String?)? passwordController2Validator;
+  // State field(s) for confirmPassword widget.
+  TextEditingController? confirmPasswordController2;
+  late bool confirmPasswordVisibility2;
+  String? Function(BuildContext, String?)? confirmPasswordController2Validator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    passwordVisibility = false;
-    confirmPasswordVisibility = false;
+    passwordVisibility1 = false;
+    confirmPasswordVisibility1 = false;
+    passwordVisibility2 = false;
+    confirmPasswordVisibility2 = false;
   }
 
   void dispose() {
     unfocusNode.dispose();
-    nameUserController?.dispose();
-    lastNameController?.dispose();
-    emailAddressController?.dispose();
-    passwordController?.dispose();
-    confirmPasswordController?.dispose();
+    lastNameController1?.dispose();
+    firstNameController1?.dispose();
+    emailAddressController1?.dispose();
+    passwordController1?.dispose();
+    confirmPasswordController1?.dispose();
+    lastNameController2?.dispose();
+    firstNameController2?.dispose();
+    emailAddressController2?.dispose();
+    passwordController2?.dispose();
+    confirmPasswordController2?.dispose();
   }
 
   /// Action blocks are added here.

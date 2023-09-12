@@ -69,7 +69,7 @@ class _ListItemsWidgetState extends State<ListItemsWidget> {
             children: [
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: SelectionArea(
                       child: AutoSizeText(
                     widget.parameter1!.maybeHandleOverflow(

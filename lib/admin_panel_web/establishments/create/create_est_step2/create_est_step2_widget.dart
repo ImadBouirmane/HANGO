@@ -147,7 +147,8 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Text(
                                         'Créer un nouvelle établissement',
                                         style: FlutterFlowTheme.of(context)
@@ -160,6 +161,40 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                             ),
                                       ),
                                     ),
+                                  ),
+                                  FlutterFlowIconButton(
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 40.0,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    icon: Icon(
+                                      Icons.home,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 12.0,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'CREATE_EST_STEP2_PAGE_home_ICN_ON_TAP');
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_to');
+
+                                      context.pushNamed(
+                                        'Dashboard',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                          ),
+                                        },
+                                      );
+                                    },
                                   ),
                                 ],
                               ),
@@ -238,7 +273,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1.00, 0.00),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -250,7 +285,8 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1.00,
+                                                                    0.00),
                                                             child: Wrap(
                                                               spacing: 50.0,
                                                               runSpacing: 15.0,

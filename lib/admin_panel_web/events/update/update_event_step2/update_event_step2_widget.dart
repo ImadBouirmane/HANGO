@@ -161,7 +161,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Text(
                                             'Modification du l\'événement',
                                             style: FlutterFlowTheme.of(context)
@@ -249,235 +249,251 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                 key: _model.formKey,
                                                 autovalidateMode:
                                                     AutovalidateMode.always,
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    FFButtonWidget(
-                                                      onPressed: () async {
-                                                        logFirebaseEvent(
-                                                            'UPDATE_EVENT_STEP2_AddArtistBTN_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'AddArtistBTN_bottom_sheet');
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          enableDrag: false,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return GestureDetector(
-                                                              onTap: () => FocusScope
-                                                                      .of(
-                                                                          context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    FormArtistEventWidget(
-                                                                  eventRef: widget
-                                                                      .eventstDetails!,
-                                                                ),
-                                                              ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            setState(() {}));
-                                                      },
-                                                      text:
-                                                          'Ajouter des artistes',
-                                                      icon: Icon(
-                                                        Icons.add_circle,
-                                                        size: 15.0,
-                                                      ),
-                                                      options: FFButtonOptions(
-                                                        height: 40.0,
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    24.0,
-                                                                    0.0,
-                                                                    24.0,
-                                                                    0.0),
-                                                        iconPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: Colors
-                                                                      .white,
-                                                                ),
-                                                        elevation: 3.0,
-                                                        borderSide: BorderSide(
-                                                          color: Colors
-                                                              .transparent,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(16.0),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      width: 600.0,
-                                                      height: MediaQuery.sizeOf(
-                                                                  context)
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
                                                               .height *
                                                           0.6,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(16.0),
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .accent2,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                15.0,
+                                                                15.0,
+                                                                15.0,
+                                                                15.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        15.0,
+                                                                        15.0,
+                                                                        15.0,
+                                                                        15.0),
+                                                            child: Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  1.0,
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Builder(
+                                                                builder:
+                                                                    (context) {
+                                                                  final aristsList =
+                                                                      updateEventStep2ArtistsRecordList
+                                                                          .toList();
+                                                                  if (aristsList
+                                                                      .isEmpty) {
+                                                                    return EmptyListWidget(
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .music_note,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        size:
+                                                                            50.0,
+                                                                      ),
+                                                                      title:
+                                                                          'Liste est vide !',
+                                                                      description:
+                                                                          ' ',
+                                                                    );
+                                                                  }
+                                                                  return Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: List.generate(
+                                                                        aristsList
+                                                                            .length,
+                                                                        (aristsListIndex) {
+                                                                      final aristsListItem =
+                                                                          aristsList[
+                                                                              aristsListIndex];
+                                                                      return Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            26.0,
+                                                                            4.0,
+                                                                            26.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Text(
+                                                                              valueOrDefault<String>(
+                                                                                valueOrDefault<String>(
+                                                                                              aristsListItem.name,
+                                                                                              'Aucune',
+                                                                                            ) !=
+                                                                                            null &&
+                                                                                        valueOrDefault<String>(
+                                                                                              aristsListItem.name,
+                                                                                              'Aucune',
+                                                                                            ) !=
+                                                                                            ''
+                                                                                    ? valueOrDefault<String>(
+                                                                                        aristsListItem.name,
+                                                                                        'Aucune',
+                                                                                      )
+                                                                                    : valueOrDefault<String>(
+                                                                                        '',
+                                                                                        'Aucune',
+                                                                                      ),
+                                                                                'Aucune',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                            ),
+                                                                            Text(
+                                                                              valueOrDefault<String>(
+                                                                                valueOrDefault<String>(
+                                                                                              dateTimeFormat(
+                                                                                                'Hm',
+                                                                                                aristsListItem.scheduleStart,
+                                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                                              ),
+                                                                                              'Aucune',
+                                                                                            ) !=
+                                                                                            null &&
+                                                                                        valueOrDefault<String>(
+                                                                                              dateTimeFormat(
+                                                                                                'Hm',
+                                                                                                aristsListItem.scheduleStart,
+                                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                                              ),
+                                                                                              'Aucune',
+                                                                                            ) !=
+                                                                                            ''
+                                                                                    ? valueOrDefault<String>(
+                                                                                        dateTimeFormat(
+                                                                                          'Hm',
+                                                                                          aristsListItem.scheduleStart,
+                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                        ),
+                                                                                        'Aucune',
+                                                                                      )
+                                                                                    : valueOrDefault<String>(
+                                                                                        '',
+                                                                                        'Aucune',
+                                                                                      ),
+                                                                                'Aucune',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    }),
+                                                                  );
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
                                                         ),
-                                                      ),
-                                                      child: Builder(
-                                                        builder: (context) {
-                                                          final aristsList =
-                                                              updateEventStep2ArtistsRecordList
-                                                                  .toList();
-                                                          if (aristsList
-                                                              .isEmpty) {
-                                                            return EmptyListWidget(
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          children: [
+                                                            FlutterFlowIconButton(
+                                                              borderColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                              borderRadius:
+                                                                  20.0,
+                                                              borderWidth: 1.0,
+                                                              buttonSize: 40.0,
+                                                              fillColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                               icon: Icon(
-                                                                Icons
-                                                                    .music_note,
+                                                                Icons.add,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primary,
-                                                                size: 50.0,
+                                                                    .primaryBackground,
+                                                                size: 24.0,
                                                               ),
-                                                              title:
-                                                                  'Liste est vide !',
-                                                              description: ' ',
-                                                            );
-                                                          }
-                                                          return ListView
-                                                              .builder(
-                                                            padding:
-                                                                EdgeInsets.zero,
-                                                            scrollDirection:
-                                                                Axis.vertical,
-                                                            itemCount:
-                                                                aristsList
-                                                                    .length,
-                                                            itemBuilder: (context,
-                                                                aristsListIndex) {
-                                                              final aristsListItem =
-                                                                  aristsList[
-                                                                      aristsListIndex];
-                                                              return Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        26.0,
-                                                                        4.0,
-                                                                        26.0,
-                                                                        4.0),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
-                                                                  children: [
-                                                                    Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        valueOrDefault<String>(
-                                                                                      aristsListItem.name,
-                                                                                      'Aucune',
-                                                                                    ) !=
-                                                                                    null &&
-                                                                                valueOrDefault<String>(
-                                                                                      aristsListItem.name,
-                                                                                      'Aucune',
-                                                                                    ) !=
-                                                                                    ''
-                                                                            ? valueOrDefault<String>(
-                                                                                aristsListItem.name,
-                                                                                'Aucune',
-                                                                              )
-                                                                            : '',
-                                                                        'Aucune',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
+                                                              showLoadingIndicator:
+                                                                  true,
+                                                              onPressed:
+                                                                  () async {
+                                                                logFirebaseEvent(
+                                                                    'UPDATE_EVENT_STEP2_PAGE_add_ICN_ON_TAP');
+                                                                logFirebaseEvent(
+                                                                    'IconButton_bottom_sheet');
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  enableDrag:
+                                                                      false,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return GestureDetector(
+                                                                      onTap: () => FocusScope.of(
                                                                               context)
-                                                                          .bodyMedium,
-                                                                    ),
-                                                                    Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        valueOrDefault<String>(
-                                                                                      dateTimeFormat(
-                                                                                        'Hm',
-                                                                                        aristsListItem.scheduleStart,
-                                                                                        locale: FFLocalizations.of(context).languageCode,
-                                                                                      ),
-                                                                                      'Aucune',
-                                                                                    ) !=
-                                                                                    null &&
-                                                                                valueOrDefault<String>(
-                                                                                      dateTimeFormat(
-                                                                                        'Hm',
-                                                                                        aristsListItem.scheduleStart,
-                                                                                        locale: FFLocalizations.of(context).languageCode,
-                                                                                      ),
-                                                                                      'Aucune',
-                                                                                    ) !=
-                                                                                    ''
-                                                                            ? valueOrDefault<String>(
-                                                                                dateTimeFormat(
-                                                                                  'Hm',
-                                                                                  aristsListItem.scheduleStart,
-                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                ),
-                                                                                'Aucune',
-                                                                              )
-                                                                            : '',
-                                                                        'Aucune',
+                                                                          .requestFocus(
+                                                                              _model.unfocusNode),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            FormArtistEventWidget(
+                                                                          eventRef:
+                                                                              widget.eventstDetails!,
+                                                                        ),
                                                                       ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium,
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              );
-                                                            },
-                                                          );
-                                                        },
-                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    setState(
+                                                                        () {}));
+                                                              },
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ].divide(SizedBox(
+                                                          height: 30.0)),
                                                     ),
-                                                  ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -494,7 +510,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                     'BTNValidateFrom_navigate_to');
 
                                                 context.pushNamed(
-                                                  'UpdateEventStep4',
+                                                  'UpdateEventStep3',
                                                   queryParameters: {
                                                     'eventstDetails':
                                                         serializeParam(
@@ -539,9 +555,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                               ),
                                             ),
                                           ),
-                                        ]
-                                            .divide(SizedBox(height: 30.0))
-                                            .addToEnd(SizedBox(height: 20.0)),
+                                        ].divide(SizedBox(height: 30.0)),
                                       ),
                                     ),
                                   ),

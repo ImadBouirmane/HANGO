@@ -74,12 +74,12 @@ String? timeCheck(DateTime? timeNow) {
 }
 
 String? getPourcentageValue(double? entranceValue) {
-  // get the percentage value
+  // get the percentage value for rest
   if (entranceValue == null) {
     return null;
   }
-  final percentage = entranceValue * 100;
-  return '${percentage.toStringAsFixed(2)}%';
+  double rest = 100 - entranceValue;
+  return '${rest.toStringAsFixed(2)}%';
 }
 
 int? timeEnd(DateTime? trackTime) {
@@ -103,17 +103,22 @@ DateTime? getTimeDuration(
   DateTime? startTrack,
   DateTime? endTrack,
 ) {
-  // calculate the average date time
+  // get the date time between from the two values as timer
   if (startTrack == null || endTrack == null) {
     return null;
   }
 
-  final averageMilliseconds =
-      (endTrack.millisecondsSinceEpoch - startTrack.millisecondsSinceEpoch) ~/
-          2;
-  final averageDateTime =
-      startTrack.add(Duration(milliseconds: averageMilliseconds));
-  return averageDateTime;
+  final duration = endTrack.difference(startTrack);
+
+  // Calculate hours, minutes, and seconds
+  //final hours = duration.inHours;
+  final minutes = duration.inMinutes % 60;
+  final seconds = duration.inSeconds % 60;
+
+  // Create a new DateTime object with just the time components
+  final timer = DateTime(0, 0, minutes, seconds);
+
+  return timer;
 }
 
 String? textFormat(
@@ -160,4 +165,21 @@ La Belle Nuit
 $establishmentName
 
 ''';
+}
+
+double? sumEntrancePromotionValue(double? value) {
+  // sum value by 0.01
+  if (value == null) {
+    return null;
+  }
+  return (value * 100 + 1) / 100;
+}
+
+int? getDecimalNumber(double? entranceValue) {
+  if (entranceValue == null) {
+    return null; // Handle the case where entranceValue is null
+  }
+
+  int decimalNumber = (entranceValue * 100).toInt();
+  return decimalNumber;
 }

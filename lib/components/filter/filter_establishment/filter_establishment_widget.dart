@@ -49,7 +49,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: AlignmentDirectional(0.00, 1.00),
       child: Material(
         color: Colors.transparent,
         elevation: 10.0,
@@ -63,7 +63,6 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
         ),
         child: Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
-          height: MediaQuery.sizeOf(context).height * 0.9,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: BorderRadius.only(
@@ -174,7 +173,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                     decoration: BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-1.00, 0.00),
                                     child: FlutterFlowChoiceChips(
                                       options: FFAppState()
                                           .TypeOfEstablishment
@@ -246,6 +246,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                           FormFieldController<List<String>>(
                                         [],
                                       ),
+                                      wrapped: true,
                                     ),
                                   ),
                                   theme: ExpandableThemeData(
@@ -284,7 +285,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                     decoration: BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: FlutterFlowChoiceChips(
                                       options: FFAppState()
                                           .MusicStyle
@@ -355,6 +356,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                               FormFieldController<List<String>>(
                                         [],
                                       ),
+                                      wrapped: true,
                                     ),
                                   ),
                                   theme: ExpandableThemeData(
@@ -372,10 +374,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                               ),
                             ),
                           ),
-                          ListView(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
                             children: [
                               SwitchListTile(
                                 value: _model.switchListTileValue1 ??= false,
@@ -677,7 +677,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   FFButtonWidget(
                                     onPressed: () async {
                                       logFirebaseEvent(
-                                          'FILTER_ESTABLISHMENT_COMP__BTN_ON_TAP');
+                                          'FILTER_ESTABLISHMENT_VOIR_LES_RÉSULTATS_');
                                       logFirebaseEvent('Button_navigate_to');
                                       if (Navigator.of(context).canPop()) {
                                         context.pop();
@@ -717,13 +717,15 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                             _model.switchListTileValue6,
                                             ParamType.bool,
                                           ),
+                                          'estRef': serializeParam(
+                                            columnEstablishmentsRecord
+                                                ?.reference,
+                                            ParamType.DocumentReference,
+                                          ),
                                         }.withoutNulls,
                                       );
                                     },
-                                    text: valueOrDefault<String>(
-                                      'Voir les résultats ${(FFAppState().clickCount.contains(FFAppState().clickCount.length) != null).toString()}${FFAppState().clickCount.contains(FFAppState().clickCount.length) != null ? FFAppState().clickCount.length.toString() : null}${(FFAppState().clickCount.contains(FFAppState().clickCount.length) != null).toString()}',
-                                      'Voir les résultats ',
-                                    ),
+                                    text: 'Voir les résultats ',
                                     options: FFButtonOptions(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 20.0, 20.0, 20.0),
@@ -751,7 +753,9 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                               ),
                             ].divide(SizedBox(height: 5.0)),
                           ),
-                        ].divide(SizedBox(height: 30.0)),
+                        ]
+                            .divide(SizedBox(height: 30.0))
+                            .around(SizedBox(height: 30.0)),
                       );
                     },
                   ),

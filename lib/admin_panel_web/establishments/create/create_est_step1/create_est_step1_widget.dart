@@ -161,7 +161,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Text(
                                         'Créer un nouvelle établissement',
                                         style: FlutterFlowTheme.of(context)
@@ -174,6 +175,40 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                             ),
                                       ),
                                     ),
+                                  ),
+                                  FlutterFlowIconButton(
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 40.0,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    icon: Icon(
+                                      Icons.home,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 12.0,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'CREATE_EST_STEP1_PAGE_home_ICN_ON_TAP');
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_to');
+
+                                      context.pushNamed(
+                                        'Dashboard',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                          ),
+                                        },
+                                      );
+                                    },
                                   ),
                                 ],
                               ),
@@ -1449,6 +1484,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                               String>>(
                                                                     [],
                                                                   ),
+                                                                  wrapped: true,
                                                                 ),
                                                               ),
                                                             ],
@@ -1812,8 +1848,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                   ),
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0.00,
+                                                                          0.00),
                                                                   child: Text(
                                                                     '* Sélectionne 2 styles musicales maximum',
                                                                     style: FlutterFlowTheme.of(
@@ -1964,8 +2000,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                   ),
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0.00,
+                                                                          0.00),
                                                                   child: Text(
                                                                     '* Sélectionne 2 styles musicales maximum',
                                                                     style: FlutterFlowTheme.of(
@@ -2234,8 +2270,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                     ),
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0.00,
+                                                                            0.00),
                                                                     child: Text(
                                                                       '* Sélectionne 2 styles musicales maximum',
                                                                       style: FlutterFlowTheme.of(

@@ -5,8 +5,11 @@ import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'establishment_filter_results_model.dart';
 export 'establishment_filter_results_model.dart';
@@ -22,6 +25,7 @@ class EstablishmentFilterResultsWidget extends StatefulWidget {
     required this.nourriture,
     required this.jeux,
     required this.ouvert,
+    required this.estRef,
   }) : super(key: key);
 
   final String? type;
@@ -32,6 +36,7 @@ class EstablishmentFilterResultsWidget extends StatefulWidget {
   final bool? nourriture;
   final bool? jeux;
   final bool? ouvert;
+  final DocumentReference? estRef;
 
   @override
   _EstablishmentFilterResultsWidgetState createState() =>
@@ -65,14 +70,8 @@ class _EstablishmentFilterResultsWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return StreamBuilder<List<EstablishmentsRecord>>(
-      stream: queryEstablishmentsRecord(
-        queryBuilder: (establishmentsRecord) => establishmentsRecord
-            .where('terrasse', isEqualTo: widget.terrasse)
-            .where('reservation', isEqualTo: widget.reservation)
-            .where('cigarette_machine', isEqualTo: widget.machineacigarette)
-            .where('food', arrayContains: widget.nourriture?.toString()),
-      ),
+    return StreamBuilder<EstablishmentsRecord>(
+      stream: EstablishmentsRecord.getDocument(widget.estRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -91,8 +90,7 @@ class _EstablishmentFilterResultsWidgetState
             ),
           );
         }
-        List<EstablishmentsRecord>
-            establishmentFilterResultsEstablishmentsRecordList = snapshot.data!;
+        final establishmentFilterResultsEstablishmentsRecord = snapshot.data!;
         return Title(
             title: 'establishmentFilterResults',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -130,548 +128,544 @@ class _EstablishmentFilterResultsWidgetState
                     centerTitle: false,
                     elevation: 0.0,
                   ),
-                  body: Builder(
-                    builder: (context) {
-                      if (establishmentFilterResultsEstablishmentsRecordList
-                              .length !=
-                          null) {
-                        return Builder(
-                          builder: (context) {
-                            final establishmentsList =
-                                establishmentFilterResultsEstablishmentsRecordList
-                                    .toList();
-                            if (establishmentsList.isEmpty) {
-                              return Center(
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.8,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 1.0,
-                                  child: EmptyListWidget(
-                                    icon: Icon(
-                                      Icons.business,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 30.0,
-                                    ),
-                                    title: 'Aucun filtrage trouvé !',
-                                    description: '',
-                                  ),
-                                ),
-                              );
-                            }
-                            return ListView.builder(
-                              padding: EdgeInsets.zero,
-                              primary: false,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: establishmentsList.length,
-                              itemBuilder: (context, establishmentsListIndex) {
-                                final establishmentsListItem =
-                                    establishmentsList[establishmentsListIndex];
-                                return Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 5.0),
-                                    child: StreamBuilder<List<ImagesRecord>>(
-                                      stream: queryImagesRecord(
-                                        parent:
-                                            establishmentsListItem.reference,
-                                        singleRecord: true,
+                  body: PagedListView<DocumentSnapshot<Object?>?,
+                      EstablishmentsRecord>(
+                    pagingController: _model.setListEstablishmentsController(
+                      EstablishmentsRecord.collection
+                          .where('type', arrayContains: widget.type)
+                          .where('terrasse', isEqualTo: widget.terrasse)
+                          .where('reservation', isEqualTo: widget.reservation)
+                          .where('cigarette_machine',
+                              isEqualTo: widget.machineacigarette),
+                    ),
+                    padding: EdgeInsets.zero,
+                    primary: false,
+                    shrinkWrap: true,
+                    reverse: false,
+                    scrollDirection: Axis.vertical,
+                    builderDelegate:
+                        PagedChildBuilderDelegate<EstablishmentsRecord>(
+                      // Customize what your widget looks like when it's loading the first page.
+                      firstPageProgressIndicatorBuilder: (_) => Center(
+                        child: SizedBox(
+                          width: 30.0,
+                          height: 30.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
+                        ),
+                      ),
+                      // Customize what your widget looks like when it's loading another page.
+                      newPageProgressIndicatorBuilder: (_) => Center(
+                        child: SizedBox(
+                          width: 30.0,
+                          height: 30.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
+                        ),
+                      ),
+                      noItemsFoundIndicatorBuilder: (_) => Center(
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.8,
+                          height: MediaQuery.sizeOf(context).height * 1.0,
+                          child: EmptyListWidget(
+                            icon: Icon(
+                              Icons.business,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 30.0,
+                            ),
+                            title: 'Aucun filtrage trouvé !',
+                            description: '',
+                          ),
+                        ),
+                      ),
+                      itemBuilder: (context, _, listEstablishmentsIndex) {
+                        final listEstablishmentsEstablishmentsRecord = _model
+                            .listEstablishmentsPagingController!
+                            .itemList![listEstablishmentsIndex];
+                        return Align(
+                          alignment: AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 5.0),
+                            child: StreamBuilder<List<ImagesRecord>>(
+                              stream: queryImagesRecord(
+                                parent: listEstablishmentsEstablishmentsRecord
+                                    .reference,
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 30.0,
+                                      height: 30.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
                                       ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 30.0,
-                                              height: 30.0,
-                                              child: CircularProgressIndicator(
-                                                valueColor:
-                                                    AlwaysStoppedAnimation<
-                                                        Color>(
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                    ),
+                                  );
+                                }
+                                List<ImagesRecord>
+                                    cardEstablishmentImagesRecordList =
+                                    snapshot.data!;
+                                final cardEstablishmentImagesRecord =
+                                    cardEstablishmentImagesRecordList.isNotEmpty
+                                        ? cardEstablishmentImagesRecordList
+                                            .first
+                                        : null;
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'ESTABLISHMENT_FILTER_RESULTS_CardEstabli');
+                                    logFirebaseEvent(
+                                        'CardEstablishment_navigate_to');
+
+                                    context.pushNamed(
+                                      'ShowOfEstablishment',
+                                      queryParameters: {
+                                        'establishmentDetails': serializeParam(
+                                          listEstablishmentsEstablishmentsRecord
+                                              .reference,
+                                          ParamType.DocumentReference,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Card(
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 1.0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Stack(
+                                          children: [
+                                            if ((cardEstablishmentImagesRecord
+                                                            ?.image1 !=
+                                                        null &&
+                                                    cardEstablishmentImagesRecord
+                                                            ?.image1 !=
+                                                        '') &&
+                                                (cardEstablishmentImagesRecord
+                                                            ?.video ==
+                                                        null ||
+                                                    cardEstablishmentImagesRecord
+                                                            ?.video ==
+                                                        ''))
+                                              FlutterFlowMediaDisplay(
+                                                path:
+                                                    cardEstablishmentImagesRecord!
+                                                        .image1,
+                                                imageBuilder: (path) =>
+                                                    ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(0.0),
+                                                    bottomRight:
+                                                        Radius.circular(0.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
+                                                  ),
+                                                  child: Image.network(
+                                                    path,
+                                                    width: double.infinity,
+                                                    height: 220.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                videoPlayerBuilder: (path) =>
+                                                    FlutterFlowVideoPlayer(
+                                                  path: path,
+                                                  width: 300.0,
+                                                  autoPlay: false,
+                                                  looping: true,
+                                                  showControls: true,
+                                                  allowFullScreen: true,
+                                                  allowPlaybackSpeedMenu: false,
                                                 ),
                                               ),
-                                            ),
-                                          );
-                                        }
-                                        List<ImagesRecord>
-                                            cardEstablishmentImagesRecordList =
-                                            snapshot.data!;
-                                        final cardEstablishmentImagesRecord =
-                                            cardEstablishmentImagesRecordList
-                                                    .isNotEmpty
-                                                ? cardEstablishmentImagesRecordList
-                                                    .first
-                                                : null;
-                                        return InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'ESTABLISHMENT_FILTER_RESULTS_CardEstabli');
-                                            logFirebaseEvent(
-                                                'CardEstablishment_navigate_to');
-
-                                            context.pushNamed(
-                                              'ShowOfEstablishment',
-                                              queryParameters: {
-                                                'establishmentDetails':
-                                                    serializeParam(
-                                                  establishmentsListItem
-                                                      .reference,
-                                                  ParamType.DocumentReference,
+                                            if ((cardEstablishmentImagesRecord
+                                                            ?.image1 ==
+                                                        null ||
+                                                    cardEstablishmentImagesRecord
+                                                            ?.image1 ==
+                                                        '') &&
+                                                (cardEstablishmentImagesRecord
+                                                            ?.video !=
+                                                        null &&
+                                                    cardEstablishmentImagesRecord
+                                                            ?.video !=
+                                                        ''))
+                                              FlutterFlowMediaDisplay(
+                                                path:
+                                                    cardEstablishmentImagesRecord!
+                                                        .video,
+                                                imageBuilder: (path) =>
+                                                    ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(0.0),
+                                                    bottomRight:
+                                                        Radius.circular(0.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
+                                                  ),
+                                                  child: Image.network(
+                                                    path,
+                                                    width: double.infinity,
+                                                    height: 220.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
-                                              }.withoutNulls,
-                                            );
-                                          },
-                                          child: Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
+                                                videoPlayerBuilder: (path) =>
+                                                    FlutterFlowVideoPlayer(
+                                                  path: path,
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 220.0,
+                                                  autoPlay: true,
+                                                  looping: true,
+                                                  showControls: true,
+                                                  allowFullScreen: true,
+                                                  allowPlaybackSpeedMenu: false,
+                                                ),
+                                              ),
+                                            if ((cardEstablishmentImagesRecord
+                                                            ?.image1 !=
+                                                        null &&
+                                                    cardEstablishmentImagesRecord
+                                                            ?.image1 !=
+                                                        '') &&
+                                                (cardEstablishmentImagesRecord
+                                                            ?.video !=
+                                                        null &&
+                                                    cardEstablishmentImagesRecord
+                                                            ?.video !=
+                                                        ''))
+                                              FlutterFlowMediaDisplay(
+                                                path:
+                                                    cardEstablishmentImagesRecord!
+                                                        .video,
+                                                imageBuilder: (path) =>
+                                                    ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(0.0),
+                                                    bottomRight:
+                                                        Radius.circular(0.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
+                                                  ),
+                                                  child: Image.network(
+                                                    path,
+                                                    width: double.infinity,
+                                                    height: 220.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                videoPlayerBuilder: (path) =>
+                                                    FlutterFlowVideoPlayer(
+                                                  path: path,
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 220.0,
+                                                  autoPlay: true,
+                                                  looping: true,
+                                                  showControls: true,
+                                                  allowFullScreen: true,
+                                                  allowPlaybackSpeedMenu: false,
+                                                ),
+                                              ),
+                                          ],
+                                        ),
+                                        Container(
+                                          width: double.infinity,
+                                          height: 80.0,
+                                          decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                            elevation: 1.0,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    if ((cardEstablishmentImagesRecord
-                                                                    ?.image1 !=
-                                                                null &&
-                                                            cardEstablishmentImagesRecord
-                                                                    ?.image1 !=
-                                                                '') &&
-                                                        (cardEstablishmentImagesRecord
-                                                                    ?.video ==
-                                                                null ||
-                                                            cardEstablishmentImagesRecord
-                                                                    ?.video ==
-                                                                ''))
-                                                      FlutterFlowMediaDisplay(
-                                                        path:
-                                                            cardEstablishmentImagesRecord!
-                                                                .image1,
-                                                        imageBuilder: (path) =>
-                                                            ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                          ),
-                                                          child: Image.network(
-                                                            path,
-                                                            width:
-                                                                double.infinity,
-                                                            height: 220.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                        videoPlayerBuilder:
-                                                            (path) =>
-                                                                FlutterFlowVideoPlayer(
-                                                          path: path,
-                                                          width: 300.0,
-                                                          autoPlay: false,
-                                                          looping: true,
-                                                          showControls: true,
-                                                          allowFullScreen: true,
-                                                          allowPlaybackSpeedMenu:
-                                                              false,
-                                                        ),
-                                                      ),
-                                                    if ((cardEstablishmentImagesRecord
-                                                                    ?.image1 ==
-                                                                null ||
-                                                            cardEstablishmentImagesRecord
-                                                                    ?.image1 ==
-                                                                '') &&
-                                                        (cardEstablishmentImagesRecord
-                                                                    ?.video !=
-                                                                null &&
-                                                            cardEstablishmentImagesRecord
-                                                                    ?.video !=
-                                                                ''))
-                                                      FlutterFlowMediaDisplay(
-                                                        path:
-                                                            cardEstablishmentImagesRecord!
-                                                                .video,
-                                                        imageBuilder: (path) =>
-                                                            ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                          ),
-                                                          child: Image.network(
-                                                            path,
-                                                            width:
-                                                                double.infinity,
-                                                            height: 220.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                        videoPlayerBuilder:
-                                                            (path) =>
-                                                                FlutterFlowVideoPlayer(
-                                                          path: path,
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          height: 220.0,
-                                                          autoPlay: true,
-                                                          looping: true,
-                                                          showControls: true,
-                                                          allowFullScreen: true,
-                                                          allowPlaybackSpeedMenu:
-                                                              false,
-                                                        ),
-                                                      ),
-                                                    if ((cardEstablishmentImagesRecord
-                                                                    ?.image1 !=
-                                                                null &&
-                                                            cardEstablishmentImagesRecord
-                                                                    ?.image1 !=
-                                                                '') &&
-                                                        (cardEstablishmentImagesRecord
-                                                                    ?.video !=
-                                                                null &&
-                                                            cardEstablishmentImagesRecord
-                                                                    ?.video !=
-                                                                ''))
-                                                      FlutterFlowMediaDisplay(
-                                                        path:
-                                                            cardEstablishmentImagesRecord!
-                                                                .video,
-                                                        imageBuilder: (path) =>
-                                                            ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                          ),
-                                                          child: Image.network(
-                                                            path,
-                                                            width:
-                                                                double.infinity,
-                                                            height: 220.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                        videoPlayerBuilder:
-                                                            (path) =>
-                                                                FlutterFlowVideoPlayer(
-                                                          path: path,
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          height: 220.0,
-                                                          autoPlay: true,
-                                                          looping: true,
-                                                          showControls: true,
-                                                          allowFullScreen: true,
-                                                          allowPlaybackSpeedMenu:
-                                                              false,
-                                                        ),
-                                                      ),
-                                                  ],
-                                                ),
-                                                Container(
-                                                  width: double.infinity,
-                                                  height: 80.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  child: Row(
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
+                                                  child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .spaceBetween,
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           6.0),
-                                                                      child:
-                                                                          Text(
-                                                                        establishmentsListItem
-                                                                            .name,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleSmall
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontWeight: FontWeight.w600,
-                                                                            ),
-                                                                      ),
+                                                              child: Text(
+                                                                listEstablishmentsEstablishmentsRecord
+                                                                    .name,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
                                                                     ),
-                                                                  ),
-                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    4.0),
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          scrollDirection:
+                                                              Axis.horizontal,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Style musical',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
                                                               ),
                                                               Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0),
-                                                                child:
-                                                                    SingleChildScrollView(
-                                                                  scrollDirection:
-                                                                      Axis.horizontal,
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Text(
-                                                                        'Style musical',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontSize: 14.0,
-                                                                            ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             4.0,
                                                                             0.0,
                                                                             4.0,
                                                                             0.0),
-                                                                        child:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .circle_rounded,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          size:
-                                                                              6.0,
-                                                                        ),
-                                                                      ),
-                                                                      Text(
-                                                                        establishmentsListItem
-                                                                            .musicStyle
-                                                                            .first,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontSize: 14.0,
-                                                                            ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .circle_rounded,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          size:
-                                                                              6.0,
-                                                                        ),
-                                                                      ),
-                                                                      Text(
-                                                                        establishmentsListItem
-                                                                            .musicStyle
-                                                                            .last,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontSize: 14.0,
-                                                                            ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .circle_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  size: 6.0,
                                                                 ),
                                                               ),
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Text(
-                                                                        'Type',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontSize: 14.0,
-                                                                            ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                              Text(
+                                                                listEstablishmentsEstablishmentsRecord.musicStyle.first !=
+                                                                            null &&
+                                                                        listEstablishmentsEstablishmentsRecord.musicStyle.first !=
+                                                                            ''
+                                                                    ? listEstablishmentsEstablishmentsRecord
+                                                                        .musicStyle
+                                                                        .first
+                                                                    : '',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             4.0,
                                                                             0.0,
                                                                             4.0,
                                                                             0.0),
-                                                                        child:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .circle_rounded,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          size:
-                                                                              6.0,
-                                                                        ),
-                                                                      ),
-                                                                      Text(
-                                                                        establishmentsListItem
-                                                                            .type
-                                                                            .first,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontSize: 14.0,
-                                                                            ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Text(
-                                                                    establishmentsListItem
-                                                                        .adresse
-                                                                        .city,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                        ),
-                                                                  ),
-                                                                ],
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .circle_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  size: 6.0,
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                listEstablishmentsEstablishmentsRecord.musicStyle.last !=
+                                                                            null &&
+                                                                        listEstablishmentsEstablishmentsRecord.musicStyle.last !=
+                                                                            ''
+                                                                    ? listEstablishmentsEstablishmentsRecord
+                                                                        .musicStyle
+                                                                        .last
+                                                                    : '',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
                                                               ),
                                                             ],
                                                           ),
                                                         ),
                                                       ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Type',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .circle_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  size: 6.0,
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                listEstablishmentsEstablishmentsRecord
+                                                                    .type.first,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Text(
+                                                            listEstablishmentsEstablishmentsRecord
+                                                                .adresse.city,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ],
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
-                                        );
-                                      },
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 );
                               },
-                            );
-                          },
-                        );
-                      } else {
-                        return Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Aucun filtrage trouvé!',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ],
+                            ),
                           ),
                         );
-                      }
-                    },
+                      },
+                    ),
                   ),
                 ),
               ),

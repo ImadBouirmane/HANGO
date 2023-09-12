@@ -71,15 +71,25 @@ class EventsRecord extends FirestoreRecord {
   DateTime? get updatedAt => _updatedAt;
   bool hasUpdatedAt() => _updatedAt != null;
 
-  // "type" field.
-  String? _type;
-  String get type => _type ?? '';
-  bool hasType() => _type != null;
-
   // "dateEvent" field.
   DateTime? _dateEvent;
   DateTime? get dateEvent => _dateEvent;
   bool hasDateEvent() => _dateEvent != null;
+
+  // "typeEvent" field.
+  List<String>? _typeEvent;
+  List<String> get typeEvent => _typeEvent ?? const [];
+  bool hasTypeEvent() => _typeEvent != null;
+
+  // "eventEntrancePrice" field.
+  String? _eventEntrancePrice;
+  String get eventEntrancePrice => _eventEntrancePrice ?? '';
+  bool hasEventEntrancePrice() => _eventEntrancePrice != null;
+
+  // "entrancePrice" field.
+  String? _entrancePrice;
+  String get entrancePrice => _entrancePrice ?? '';
+  bool hasEntrancePrice() => _entrancePrice != null;
 
   void _initializeFields() {
     _eventId = snapshotData['event_id'] as String?;
@@ -93,8 +103,10 @@ class EventsRecord extends FirestoreRecord {
     _location = snapshotData['Location'] as LatLng?;
     _eventRef = snapshotData['eventRef'] as DocumentReference?;
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
-    _type = snapshotData['type'] as String?;
     _dateEvent = snapshotData['dateEvent'] as DateTime?;
+    _typeEvent = getDataList(snapshotData['typeEvent']);
+    _eventEntrancePrice = snapshotData['eventEntrancePrice'] as String?;
+    _entrancePrice = snapshotData['entrancePrice'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -140,8 +152,9 @@ Map<String, dynamic> createEventsRecordData({
   LatLng? location,
   DocumentReference? eventRef,
   DateTime? updatedAt,
-  String? type,
   DateTime? dateEvent,
+  String? eventEntrancePrice,
+  String? entrancePrice,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -154,8 +167,9 @@ Map<String, dynamic> createEventsRecordData({
       'Location': location,
       'eventRef': eventRef,
       'updatedAt': updatedAt,
-      'type': type,
       'dateEvent': dateEvent,
+      'eventEntrancePrice': eventEntrancePrice,
+      'entrancePrice': entrancePrice,
     }.withoutNulls,
   );
 
@@ -179,8 +193,10 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.location == e2?.location &&
         e1?.eventRef == e2?.eventRef &&
         e1?.updatedAt == e2?.updatedAt &&
-        e1?.type == e2?.type &&
-        e1?.dateEvent == e2?.dateEvent;
+        e1?.dateEvent == e2?.dateEvent &&
+        listEquality.equals(e1?.typeEvent, e2?.typeEvent) &&
+        e1?.eventEntrancePrice == e2?.eventEntrancePrice &&
+        e1?.entrancePrice == e2?.entrancePrice;
   }
 
   @override
@@ -196,8 +212,10 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.location,
         e?.eventRef,
         e?.updatedAt,
-        e?.type,
-        e?.dateEvent
+        e?.dateEvent,
+        e?.typeEvent,
+        e?.eventEntrancePrice,
+        e?.entrancePrice
       ]);
 
   @override

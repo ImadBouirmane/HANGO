@@ -26,12 +26,12 @@ class UpdateEstStep2Model extends FlutterFlowModel {
   String? Function(BuildContext, String?)? mondayClosingControllerValidator;
   // State field(s) for monday widget.
   bool? mondayValue;
-  // State field(s) for thursdayOpening widget.
-  TextEditingController? thursdayOpeningController;
-  String? Function(BuildContext, String?)? thursdayOpeningControllerValidator;
-  // State field(s) for thursdayClosing widget.
-  TextEditingController? thursdayClosingController;
-  String? Function(BuildContext, String?)? thursdayClosingControllerValidator;
+  // State field(s) for tuesdayOpening widget.
+  TextEditingController? tuesdayOpeningController;
+  String? Function(BuildContext, String?)? tuesdayOpeningControllerValidator;
+  // State field(s) for tuesdayClosing widget.
+  TextEditingController? tuesdayClosingController;
+  String? Function(BuildContext, String?)? tuesdayClosingControllerValidator;
   // State field(s) for tuesday widget.
   bool? tuesdayValue;
   // State field(s) for wednesdayOpening widget.
@@ -42,12 +42,12 @@ class UpdateEstStep2Model extends FlutterFlowModel {
   String? Function(BuildContext, String?)? wednesdayClosingControllerValidator;
   // State field(s) for wednesday widget.
   bool? wednesdayValue;
-  // State field(s) for tuesdayOpening widget.
-  TextEditingController? tuesdayOpeningController;
-  String? Function(BuildContext, String?)? tuesdayOpeningControllerValidator;
-  // State field(s) for tuesdayClosing widget.
-  TextEditingController? tuesdayClosingController;
-  String? Function(BuildContext, String?)? tuesdayClosingControllerValidator;
+  // State field(s) for thursdayOpening widget.
+  TextEditingController? thursdayOpeningController;
+  String? Function(BuildContext, String?)? thursdayOpeningControllerValidator;
+  // State field(s) for thursdayClosing widget.
+  TextEditingController? thursdayClosingController;
+  String? Function(BuildContext, String?)? thursdayClosingControllerValidator;
   // State field(s) for thursday widget.
   bool? thursdayValue;
   // State field(s) for fridayOpening widget.
@@ -86,12 +86,12 @@ class UpdateEstStep2Model extends FlutterFlowModel {
     sideBarModel.dispose();
     mondayOpeningController?.dispose();
     mondayClosingController?.dispose();
-    thursdayOpeningController?.dispose();
-    thursdayClosingController?.dispose();
-    wednesdayOpeningController?.dispose();
-    wednesdayClosingController?.dispose();
     tuesdayOpeningController?.dispose();
     tuesdayClosingController?.dispose();
+    wednesdayOpeningController?.dispose();
+    wednesdayClosingController?.dispose();
+    thursdayOpeningController?.dispose();
+    thursdayClosingController?.dispose();
     fridayOpeningController?.dispose();
     fridayClosingController?.dispose();
     saturdayOpeningController?.dispose();

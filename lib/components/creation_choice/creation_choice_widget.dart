@@ -42,7 +42,7 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.9, -0.8),
+      alignment: AlignmentDirectional(0.90, -0.80),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.15,
         decoration: BoxDecoration(
