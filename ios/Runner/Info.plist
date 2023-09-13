@@ -54,14 +54,15 @@
 	<true/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>In order to search nearby, this app requires access to your current location.</string>
+    <string>Notre application sera detectez votre localization est(ce que vous aurez l&#39;acceptez? Votre localization aura utiliser si vous seriez partagez votre emplacement dans une nouvelle poste et meme dans votre profile. </string>
 	<key>NSCameraUsageDescription</key>
-    <string>Nous avons besoin d&#39;accéder à la caméra pour prendre un selfie de votre photo de profil</string>
+    <string>Notre application nécessite l&#39;accès à votre appareil photo afin de vous permettre de prendre des photos et de les télécharger directement dans l&#39;application. Par exemple, vous pouvez prendre une photo d&#39;un document et l&#39;utiliser pour votre travail ou la partager avec d&#39;autres.</string>
 	<key>NSMicrophoneUsageDescription</key>
     <string>In order to record audio for video, this app requires permission to access the microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>Nous avons besoin d&#39;accéder à la bibliothèque pour prendre un selfie de votre photo de profil</string>
-
+    <string>Notre application nécessite l&#39;accès à votre bibliothèque de photos pour vous permettre de sélectionner et télécharger des photos ou des vidéos existantes depuis votre appareil. Cela vous permet de partager des photos ou des vidéos avec d&#39;autres, de les utiliser dans des présentations, ou de les attacher à votre travail au sein de l&#39;application.</string>
+	<key>NSCalendarsUsageDescription</key>
+    <string>L'application pourra avoir inserez une date specifique dans le remplissage du votre profile et autre chose convienent.</string>
 
     <key>LSApplicationQueriesSchemes</key>
     <array>
