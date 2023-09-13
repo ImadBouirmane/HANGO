@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>376408084302-fd5rf4luh761hhvem9tf3l84o6cs68q4.apps.googleusercontent.com</string>
+	<string>376408084302-30036rf205p86smuac1s6vlhujd5vfo9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.376408084302-fd5rf4luh761hhvem9tf3l84o6cs68q4</string>
+	<string>com.googleusercontent.apps.376408084302-30036rf205p86smuac1s6vlhujd5vfo9</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>376408084302-f8l6qlqp1jj1n87s2f2v6vkriesob5fu.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAu1xRj92baC1e6doE7Dh_7Drh0Wn7KO90</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.hango</string>
+	<string>com.company.hango</string>
 	<key>PROJECT_ID</key>
 	<string>hango-bfc6b</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:376408084302:ios:74fb54d4b5c14cccbf581f</string>
+	<string>1:376408084302:ios:48c0c830f6045f54bf581f</string>
 </dict>
 </plist>

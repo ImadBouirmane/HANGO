@@ -10,8 +10,8 @@ Future initFirebase() async {
             projectId: "hango-bfc6b",
             storageBucket: "hango-bfc6b.appspot.com",
             messagingSenderId: "376408084302",
-            appId: "1:376408084302:web:80bb069278ee1520bf581f",
-            measurementId: "G-PWCBZ3CC81"));
+            appId: "1:376408084302:web:b59e2da05b5450d3bf581f",
+            measurementId: "G-TB7ZQDL447"));
   } else {
     await Firebase.initializeApp();
   }

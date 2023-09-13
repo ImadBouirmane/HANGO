@@ -7,12 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:376408084302:android:958db7a0a0496361bf581f",
+        "mobilesdk_app_id": "1:376408084302:android:5ad655cb18220a5bbf581f",
         "android_client_info": {
-          "package_name": "com.hango"
+          "package_name": "com.company.hango"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "376408084302-gdkft0u4v8vquu2lmgabdcfklpv1hpfq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.company.hango",
+            "certificate_hash": "c36f4c4d46e61e7a7145f3a2931b71f613456349"
+          }
+        },
+        {
+          "client_id": "376408084302-hrk0n25i3h9duhgnm9hcrh0nu1i7ves0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.company.hango",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
         {
           "client_id": "376408084302-arive3n4ivl0fgqkv3cfselu8r9f57ti.apps.googleusercontent.com",
           "client_type": 3
@@ -31,10 +47,11 @@
               "client_type": 3
             },
             {
-              "client_id": "376408084302-fd5rf4luh761hhvem9tf3l84o6cs68q4.apps.googleusercontent.com",
+              "client_id": "376408084302-30036rf205p86smuac1s6vlhujd5vfo9.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.hango"
+                "bundle_id": "com.company.hango",
+                "app_store_id": "6464125326"
               }
             }
           ]

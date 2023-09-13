@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.376408084302-fd5rf4luh761hhvem9tf3l84o6cs68q4</string>
+                <string>com.googleusercontent.apps.376408084302-30036rf205p86smuac1s6vlhujd5vfo9</string>
                 
             </array>
         </dict>
@@ -40,7 +40,7 @@
         <string>hango</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>com.hango</string>
+        <string>com.company.hango</string>
         </array>
         </dict>
     </array>

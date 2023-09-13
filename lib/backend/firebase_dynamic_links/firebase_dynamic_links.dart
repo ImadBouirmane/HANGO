@@ -5,7 +5,8 @@ import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 
 const _kDynamicLinksUrl = 'https://hango.app/accountDeletion';
-const _kAppBundleId = 'com.hango';
+const _kAppBundleId = 'com.company.hango';
+const _kIosAppId = '6464125326';
 
 Future<String> generateCurrentPageLink(
   BuildContext context, {
@@ -21,6 +22,7 @@ Future<String> generateCurrentPageLink(
     androidParameters: const AndroidParameters(packageName: _kAppBundleId),
     iosParameters: const IOSParameters(
       bundleId: _kAppBundleId,
+      appStoreId: _kIosAppId,
     ),
     socialMetaTagParameters: SocialMetaTagParameters(
       title: title,
