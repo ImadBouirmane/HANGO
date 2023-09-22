@@ -67,7 +67,7 @@ class _UserPhoneConfirmationNewWidgetState
                           children: [
                             Expanded(
                               child: Text(
-                                'Confirmation du compte',
+                                'Code SMS',
                                 style:
                                     FlutterFlowTheme.of(context).displaySmall,
                               ),
@@ -82,7 +82,7 @@ class _UserPhoneConfirmationNewWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
-                                  'Veuillez nous donnerons votre numero de telephone pour securiser et confirmer votre compte.',
+                                  'Veuillez saisir le code que vous avez reçu par SMS',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -181,7 +181,7 @@ class _UserPhoneConfirmationNewWidgetState
                                   }
 
                                   context.goNamedAuth(
-                                      'ListOfEvents', context.mounted);
+                                      'ListOfEstablishments', context.mounted);
                                 },
                                 text: 'Confirmer',
                                 options: FFButtonOptions(
@@ -306,7 +306,8 @@ class _UserPhoneConfirmationNewWidgetState
                                       }
 
                                       context.goNamedAuth(
-                                          'ListOfEvents', context.mounted);
+                                          'ListOfEstablishments',
+                                          context.mounted);
                                     },
                                     text: 'Confirmer',
                                     options: FFButtonOptions(

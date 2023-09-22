@@ -31,6 +31,7 @@ class UserSignUpModel extends FlutterFlowModel {
   String? genreValue1;
   FormFieldController<String>? genreValueController1;
   DateTime? datePicked1;
+  DateTime? datePicked2;
   // State field(s) for emailAddress widget.
   TextEditingController? emailAddressController1;
   String? Function(BuildContext, String?)? emailAddressController1Validator;
@@ -51,7 +52,8 @@ class UserSignUpModel extends FlutterFlowModel {
   // State field(s) for genre widget.
   String? genreValue2;
   FormFieldController<String>? genreValueController2;
-  DateTime? datePicked2;
+  DateTime? datePicked3;
+  DateTime? datePicked4;
   // State field(s) for emailAddress widget.
   TextEditingController? emailAddressController2;
   String? Function(BuildContext, String?)? emailAddressController2Validator;

@@ -8,11 +8,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'side_bar_model.dart';
-export 'side_bar_model.dart';
+import 'admin_side_bar_model.dart';
+export 'admin_side_bar_model.dart';
 
-class SideBarWidget extends StatefulWidget {
-  const SideBarWidget({
+class AdminSideBarWidget extends StatefulWidget {
+  const AdminSideBarWidget({
     Key? key,
     this.oneBG,
     this.oneIcon,
@@ -30,12 +30,12 @@ class SideBarWidget extends StatefulWidget {
   final Widget? threeIcon;
 
   @override
-  _SideBarWidgetState createState() => _SideBarWidgetState();
+  _AdminSideBarWidgetState createState() => _AdminSideBarWidgetState();
 }
 
-class _SideBarWidgetState extends State<SideBarWidget>
+class _AdminSideBarWidgetState extends State<AdminSideBarWidget>
     with TickerProviderStateMixin {
-  late SideBarModel _model;
+  late AdminSideBarModel _model;
 
   final animationsMap = {
     'containerOnPageLoadAnimation1': AnimationInfo(
@@ -128,7 +128,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SideBarModel());
+    _model = createModel(context, () => AdminSideBarModel());
 
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -192,7 +192,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  logFirebaseEvent('SIDE_BAR_COMP_Container_yqrrcdxn_ON_TAP');
+                  logFirebaseEvent('ADMIN_SIDE_BAR_Container_yqrrcdxn_ON_TAP');
                   logFirebaseEvent('Container_navigate_to');
 
                   context.pushNamed('Dashboard');
@@ -215,7 +215,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                           child: widget.oneIcon!,
                         ),
                         Text(
-                          'Dashboard',
+                          'Tableau de bord',
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -249,7 +249,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                         ),
                       ),
                       Text(
-                        'Evenements',
+                        'Événements',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ],
@@ -282,7 +282,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                         ),
                       ),
                       Text(
-                        'Etablissements',
+                        'Établissements',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ],
@@ -307,7 +307,7 @@ class _SideBarWidgetState extends State<SideBarWidget>
                             child: FFButtonWidget(
                               onPressed: () async {
                                 logFirebaseEvent(
-                                    'SIDE_BAR_COMP_Button-Login_ON_TAP');
+                                    'ADMIN_SIDE_BAR_COMP_Button-Login_ON_TAP');
                                 logFirebaseEvent('Button-Login_navigate_to');
 
                                 context.pushNamed('ListOfEstablishments');

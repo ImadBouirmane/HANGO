@@ -66,6 +66,15 @@ class ListOfEstablishmentsModel extends FlutterFlowModel {
   PagingController<DocumentSnapshot?, EstablishmentsRecord>?
       listEstablishmentsQueryPagingController1;
   Query? listEstablishmentsQueryPagingQuery1;
+  List<StreamSubscription?> listEstablishmentsQueryStreamSubscriptions1 = [];
+
+  // State field(s) for ListEstablishmentsQueryMusicFilter widget.
+
+  PagingController<DocumentSnapshot?, EstablishmentsRecord>?
+      listEstablishmentsQueryMusicFilterPagingController1;
+  Query? listEstablishmentsQueryMusicFilterPagingQuery1;
+  List<StreamSubscription?>
+      listEstablishmentsQueryMusicFilterStreamSubscriptions1 = [];
 
   // State field(s) for estblishmentSearch widget.
   TextEditingController? estblishmentSearchController2;
@@ -84,6 +93,15 @@ class ListOfEstablishmentsModel extends FlutterFlowModel {
   PagingController<DocumentSnapshot?, EstablishmentsRecord>?
       listEstablishmentsQueryPagingController2;
   Query? listEstablishmentsQueryPagingQuery2;
+  List<StreamSubscription?> listEstablishmentsQueryStreamSubscriptions2 = [];
+
+  // State field(s) for ListEstablishmentsQueryMusicFilter widget.
+
+  PagingController<DocumentSnapshot?, EstablishmentsRecord>?
+      listEstablishmentsQueryMusicFilterPagingController2;
+  Query? listEstablishmentsQueryMusicFilterPagingQuery2;
+  List<StreamSubscription?>
+      listEstablishmentsQueryMusicFilterStreamSubscriptions2 = [];
 
   /// Initialization and disposal methods.
 
@@ -95,12 +113,20 @@ class ListOfEstablishmentsModel extends FlutterFlowModel {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
     estblishmentSearchController1?.dispose();
-
+    listEstablishmentsQueryStreamSubscriptions1.forEach((s) => s?.cancel());
     listEstablishmentsQueryPagingController1?.dispose();
 
-    estblishmentSearchController2?.dispose();
+    listEstablishmentsQueryMusicFilterStreamSubscriptions1
+        .forEach((s) => s?.cancel());
+    listEstablishmentsQueryMusicFilterPagingController1?.dispose();
 
+    estblishmentSearchController2?.dispose();
+    listEstablishmentsQueryStreamSubscriptions2.forEach((s) => s?.cancel());
     listEstablishmentsQueryPagingController2?.dispose();
+
+    listEstablishmentsQueryMusicFilterStreamSubscriptions2
+        .forEach((s) => s?.cancel());
+    listEstablishmentsQueryMusicFilterPagingController2?.dispose();
   }
 
   /// Action blocks are added here.
@@ -136,9 +162,47 @@ class ListOfEstablishmentsModel extends FlutterFlowModel {
         (nextPageMarker) => queryEstablishmentsRecordPage(
           queryBuilder: (_) => listEstablishmentsQueryPagingQuery1 ??= query,
           nextPageMarker: nextPageMarker,
+          streamSubscriptions: listEstablishmentsQueryStreamSubscriptions1,
           controller: controller,
           pageSize: 10,
-          isStream: false,
+          isStream: true,
+        ),
+      );
+  }
+
+  PagingController<DocumentSnapshot?, EstablishmentsRecord>
+      setListEstablishmentsQueryMusicFilterController1(
+    Query query, {
+    DocumentReference<Object?>? parent,
+  }) {
+    listEstablishmentsQueryMusicFilterPagingController1 ??=
+        _createListEstablishmentsQueryMusicFilterController1(query, parent);
+    if (listEstablishmentsQueryMusicFilterPagingQuery1 != query) {
+      listEstablishmentsQueryMusicFilterPagingQuery1 = query;
+      listEstablishmentsQueryMusicFilterPagingController1?.refresh();
+    }
+    return listEstablishmentsQueryMusicFilterPagingController1!;
+  }
+
+  PagingController<DocumentSnapshot?, EstablishmentsRecord>
+      _createListEstablishmentsQueryMusicFilterController1(
+    Query query,
+    DocumentReference<Object?>? parent,
+  ) {
+    final controller =
+        PagingController<DocumentSnapshot?, EstablishmentsRecord>(
+            firstPageKey: null);
+    return controller
+      ..addPageRequestListener(
+        (nextPageMarker) => queryEstablishmentsRecordPage(
+          queryBuilder: (_) =>
+              listEstablishmentsQueryMusicFilterPagingQuery1 ??= query,
+          nextPageMarker: nextPageMarker,
+          streamSubscriptions:
+              listEstablishmentsQueryMusicFilterStreamSubscriptions1,
+          controller: controller,
+          pageSize: 10,
+          isStream: true,
         ),
       );
   }
@@ -170,9 +234,47 @@ class ListOfEstablishmentsModel extends FlutterFlowModel {
         (nextPageMarker) => queryEstablishmentsRecordPage(
           queryBuilder: (_) => listEstablishmentsQueryPagingQuery2 ??= query,
           nextPageMarker: nextPageMarker,
+          streamSubscriptions: listEstablishmentsQueryStreamSubscriptions2,
           controller: controller,
           pageSize: 10,
-          isStream: false,
+          isStream: true,
+        ),
+      );
+  }
+
+  PagingController<DocumentSnapshot?, EstablishmentsRecord>
+      setListEstablishmentsQueryMusicFilterController2(
+    Query query, {
+    DocumentReference<Object?>? parent,
+  }) {
+    listEstablishmentsQueryMusicFilterPagingController2 ??=
+        _createListEstablishmentsQueryMusicFilterController2(query, parent);
+    if (listEstablishmentsQueryMusicFilterPagingQuery2 != query) {
+      listEstablishmentsQueryMusicFilterPagingQuery2 = query;
+      listEstablishmentsQueryMusicFilterPagingController2?.refresh();
+    }
+    return listEstablishmentsQueryMusicFilterPagingController2!;
+  }
+
+  PagingController<DocumentSnapshot?, EstablishmentsRecord>
+      _createListEstablishmentsQueryMusicFilterController2(
+    Query query,
+    DocumentReference<Object?>? parent,
+  ) {
+    final controller =
+        PagingController<DocumentSnapshot?, EstablishmentsRecord>(
+            firstPageKey: null);
+    return controller
+      ..addPageRequestListener(
+        (nextPageMarker) => queryEstablishmentsRecordPage(
+          queryBuilder: (_) =>
+              listEstablishmentsQueryMusicFilterPagingQuery2 ??= query,
+          nextPageMarker: nextPageMarker,
+          streamSubscriptions:
+              listEstablishmentsQueryMusicFilterStreamSubscriptions2,
+          controller: controller,
+          pageSize: 10,
+          isStream: true,
         ),
       );
   }

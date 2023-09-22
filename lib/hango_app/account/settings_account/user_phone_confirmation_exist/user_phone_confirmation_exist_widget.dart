@@ -181,7 +181,7 @@ class _UserPhoneConfirmationExistWidgetState
                                   }
 
                                   context.goNamedAuth(
-                                      'ListOfEvents', context.mounted);
+                                      'ListOfEstablishments', context.mounted);
                                 },
                                 text: 'Confirmer',
                                 options: FFButtonOptions(
@@ -302,8 +302,8 @@ class _UserPhoneConfirmationExistWidgetState
                                       return;
                                     }
 
-                                    context.goNamedAuth(
-                                        'ListOfEvents', context.mounted);
+                                    context.goNamedAuth('ListOfEstablishments',
+                                        context.mounted);
                                   },
                                   text: 'Confirmer',
                                   options: FFButtonOptions(

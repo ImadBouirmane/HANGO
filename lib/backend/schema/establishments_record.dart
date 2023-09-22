@@ -116,6 +116,16 @@ class EstablishmentsRecord extends FirestoreRecord {
   DocumentReference? get scheduleEstablishment => _scheduleEstablishment;
   bool hasScheduleEstablishment() => _scheduleEstablishment != null;
 
+  // "isManager" field.
+  bool? _isManager;
+  bool get isManager => _isManager ?? false;
+  bool hasIsManager() => _isManager != null;
+
+  // "isAdmin" field.
+  bool? _isAdmin;
+  bool get isAdmin => _isAdmin ?? false;
+  bool hasIsAdmin() => _isAdmin != null;
+
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _name = snapshotData['name'] as String?;
@@ -138,6 +148,8 @@ class EstablishmentsRecord extends FirestoreRecord {
     _eventRef = snapshotData['eventRef'] as DocumentReference?;
     _scheduleEstablishment =
         snapshotData['scheduleEstablishment'] as DocumentReference?;
+    _isManager = snapshotData['isManager'] as bool?;
+    _isAdmin = snapshotData['isAdmin'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -190,6 +202,8 @@ Map<String, dynamic> createEstablishmentsRecordData({
   DateTime? updatedAt,
   DocumentReference? eventRef,
   DocumentReference? scheduleEstablishment,
+  bool? isManager,
+  bool? isAdmin,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -208,6 +222,8 @@ Map<String, dynamic> createEstablishmentsRecordData({
       'updatedAt': updatedAt,
       'eventRef': eventRef,
       'scheduleEstablishment': scheduleEstablishment,
+      'isManager': isManager,
+      'isAdmin': isAdmin,
     }.withoutNulls,
   );
 
@@ -243,7 +259,9 @@ class EstablishmentsRecordDocumentEquality
         e1?.location == e2?.location &&
         e1?.updatedAt == e2?.updatedAt &&
         e1?.eventRef == e2?.eventRef &&
-        e1?.scheduleEstablishment == e2?.scheduleEstablishment;
+        e1?.scheduleEstablishment == e2?.scheduleEstablishment &&
+        e1?.isManager == e2?.isManager &&
+        e1?.isAdmin == e2?.isAdmin;
   }
 
   @override
@@ -267,7 +285,9 @@ class EstablishmentsRecordDocumentEquality
         e?.location,
         e?.updatedAt,
         e?.eventRef,
-        e?.scheduleEstablishment
+        e?.scheduleEstablishment,
+        e?.isManager,
+        e?.isAdmin
       ]);
 
   @override

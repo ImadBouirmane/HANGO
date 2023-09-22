@@ -154,7 +154,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                           getCurrentTimestamp),
                                     );
                                     if (_datePicked1Time != null) {
-                                      setState(() {
+                                      safeSetState(() {
                                         _model.datePicked1 = DateTime(
                                           getCurrentTimestamp.year,
                                           getCurrentTimestamp.month,
@@ -228,7 +228,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                           getCurrentTimestamp),
                                     );
                                     if (_datePicked2Time != null) {
-                                      setState(() {
+                                      safeSetState(() {
                                         _model.datePicked2 = DateTime(
                                           getCurrentTimestamp.year,
                                           getCurrentTimestamp.month,

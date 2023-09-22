@@ -1,7 +1,7 @@
 import '/backend/backend.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/components/artist_input/form_artist_event/form_artist_event_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
-import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -106,10 +106,10 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           wrapWithModel(
-                            model: _model.sideBarModel,
+                            model: _model.adminSideBarModel,
                             updateCallback: () => setState(() {}),
                             updateOnChange: true,
-                            child: SideBarWidget(
+                            child: AdminSideBarWidget(
                               oneBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               oneIcon: Icon(
@@ -511,7 +511,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                       );
                                                                     },
                                                                   ).then((value) =>
-                                                                      setState(
+                                                                      safeSetState(
                                                                           () {}));
                                                                 },
                                                               ),

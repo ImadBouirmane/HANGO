@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/side_bar/side_bar_widget.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -17,8 +17,8 @@ class UpdateEventStep3Model extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-  // Model for SideBar component.
-  late SideBarModel sideBarModel;
+  // Model for AdminSideBar component.
+  late AdminSideBarModel adminSideBarModel;
   // State field(s) for promorTitle widget.
   TextEditingController? promorTitleController;
   String? Function(BuildContext, String?)? promorTitleControllerValidator;
@@ -37,12 +37,12 @@ class UpdateEventStep3Model extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    sideBarModel = createModel(context, () => SideBarModel());
+    adminSideBarModel = createModel(context, () => AdminSideBarModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    sideBarModel.dispose();
+    adminSideBarModel.dispose();
     promorTitleController?.dispose();
     promorSousTitleController?.dispose();
     descriptionController?.dispose();

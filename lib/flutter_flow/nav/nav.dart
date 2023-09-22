@@ -83,17 +83,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => _RouteErrorBuilder(
         state: state,
-        child: appStateNotifier.loggedIn
-            ? NavBarPage()
-            : ListOfEstablishmentsWidget(),
+        child: appStateNotifier.loggedIn ? NavBarPage() : UserLoginWidget(),
       ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? NavBarPage()
-              : ListOfEstablishmentsWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? NavBarPage() : UserLoginWidget(),
         ),
         FFRoute(
           name: 'ShowOfEstablishment',
@@ -386,6 +383,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             eventstDetails: params.getParam('eventstDetails',
                 ParamType.DocumentReference, false, ['events']),
           ),
+        ),
+        FFRoute(
+          name: 'ManagerDashboard',
+          path: '/managerDashboard',
+          builder: (context, params) => ManagerDashboardWidget(),
+        ),
+        FFRoute(
+          name: 'managerSignUp',
+          path: '/managerSignUp',
+          builder: (context, params) => ManagerSignUpWidget(),
+        ),
+        FFRoute(
+          name: 'managerWaitList',
+          path: '/managerWaitList',
+          builder: (context, params) => ManagerWaitListWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -553,7 +565,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/listOfEstablishments';
+            return '/userLogin';
           }
           return null;
         },

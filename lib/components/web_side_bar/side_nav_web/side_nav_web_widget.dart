@@ -133,18 +133,28 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                         width: 2.0,
                                       ),
                                     ),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.05,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.05,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/282/600',
-                                        fit: BoxFit.cover,
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.05,
+                                        height:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.05,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.network(
+                                          currentUserPhoto,
+                                          fit: BoxFit.cover,
+                                          errorBuilder:
+                                              (context, error, stackTrace) =>
+                                                  Image.asset(
+                                            'assets/images/error_image.png',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -269,11 +279,18 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                           height: 50.0,
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
-                              (_model.mouseRegion1Hovered == true) &&
-                                      (widget.nav1 == true)
-                                  ? FlutterFlowTheme.of(context).primary
-                                  : FlutterFlowTheme.of(context)
-                                      .primaryBackground,
+                              () {
+                                if ((_model.mouseRegion1Hovered == true) ==
+                                    true) {
+                                  return FlutterFlowTheme.of(context)
+                                      .primaryTransparent;
+                                } else if (widget.nav1 == true) {
+                                  return FlutterFlowTheme.of(context).primary;
+                                } else {
+                                  return FlutterFlowTheme.of(context)
+                                      .primaryBackground;
+                                }
+                              }(),
                               FlutterFlowTheme.of(context).primaryBackground,
                             ),
                             borderRadius: BorderRadius.circular(12.0),
@@ -288,12 +305,20 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                 Icon(
                                   Icons.business,
                                   color: valueOrDefault<Color>(
-                                    (_model.mouseRegion1Hovered == true) &&
-                                            (widget.nav1 == true)
-                                        ? FlutterFlowTheme.of(context)
-                                            .primaryBackground
-                                        : FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                    () {
+                                      if ((_model.mouseRegion1Hovered ==
+                                              true) ==
+                                          true) {
+                                        return FlutterFlowTheme.of(context)
+                                            .primaryText;
+                                      } else if (widget.nav1 == true) {
+                                        return FlutterFlowTheme.of(context)
+                                            .primaryBackground;
+                                      } else {
+                                        return FlutterFlowTheme.of(context)
+                                            .primaryText;
+                                      }
+                                    }(),
                                     FlutterFlowTheme.of(context).primaryText,
                                   ),
                                   size: 28.0,
@@ -308,13 +333,23 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: valueOrDefault<Color>(
-                                            (_model.mouseRegion1Hovered ==
-                                                        true) &&
-                                                    (widget.nav1 == true)
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryBackground
-                                                : FlutterFlowTheme.of(context)
-                                                    .primaryText,
+                                            () {
+                                              if ((_model.mouseRegion1Hovered ==
+                                                      true) ==
+                                                  true) {
+                                                return FlutterFlowTheme.of(
+                                                        context)
+                                                    .primaryText;
+                                              } else if (widget.nav1 == true) {
+                                                return FlutterFlowTheme.of(
+                                                        context)
+                                                    .primaryBackground;
+                                              } else {
+                                                return FlutterFlowTheme.of(
+                                                        context)
+                                                    .primaryText;
+                                              }
+                                            }(),
                                             FlutterFlowTheme.of(context)
                                                 .primaryText,
                                           ),
@@ -356,11 +391,18 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                           height: 50.0,
                           decoration: BoxDecoration(
                             color: valueOrDefault<Color>(
-                              (_model.mouseRegion2Hovered == true) &&
-                                      (widget.nav2 == true)
-                                  ? FlutterFlowTheme.of(context).primary
-                                  : FlutterFlowTheme.of(context)
-                                      .primaryBackground,
+                              () {
+                                if ((_model.mouseRegion2Hovered == true) ==
+                                    true) {
+                                  return FlutterFlowTheme.of(context)
+                                      .primaryTransparent;
+                                } else if (widget.nav2 == true) {
+                                  return FlutterFlowTheme.of(context).primary;
+                                } else {
+                                  return FlutterFlowTheme.of(context)
+                                      .primaryBackground;
+                                }
+                              }(),
                               FlutterFlowTheme.of(context).primaryBackground,
                             ),
                             borderRadius: BorderRadius.circular(12.0),
@@ -375,12 +417,20 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                 Icon(
                                   Icons.event,
                                   color: valueOrDefault<Color>(
-                                    (_model.mouseRegion2Hovered == true) &&
-                                            (widget.nav2 == true)
-                                        ? FlutterFlowTheme.of(context)
-                                            .primaryBackground
-                                        : FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                    () {
+                                      if ((_model.mouseRegion2Hovered ==
+                                              true) ==
+                                          true) {
+                                        return FlutterFlowTheme.of(context)
+                                            .primaryText;
+                                      } else if (widget.nav2 == true) {
+                                        return FlutterFlowTheme.of(context)
+                                            .primaryBackground;
+                                      } else {
+                                        return FlutterFlowTheme.of(context)
+                                            .primaryText;
+                                      }
+                                    }(),
                                     FlutterFlowTheme.of(context).primaryText,
                                   ),
                                   size: 28.0,
@@ -395,13 +445,23 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: valueOrDefault<Color>(
-                                            (_model.mouseRegion2Hovered ==
-                                                        true) &&
-                                                    (widget.nav2 == true)
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryBackground
-                                                : FlutterFlowTheme.of(context)
-                                                    .primaryText,
+                                            () {
+                                              if ((_model.mouseRegion2Hovered ==
+                                                      true) ==
+                                                  true) {
+                                                return FlutterFlowTheme.of(
+                                                        context)
+                                                    .primaryText;
+                                              } else if (widget.nav2 == true) {
+                                                return FlutterFlowTheme.of(
+                                                        context)
+                                                    .primaryBackground;
+                                              } else {
+                                                return FlutterFlowTheme.of(
+                                                        context)
+                                                    .primaryText;
+                                              }
+                                            }(),
                                             FlutterFlowTheme.of(context)
                                                 .primaryText,
                                           ),
@@ -444,11 +504,18 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                             height: 50.0,
                             decoration: BoxDecoration(
                               color: valueOrDefault<Color>(
-                                (_model.mouseRegion3Hovered == true) &&
-                                        (widget.nav3 == true)
-                                    ? FlutterFlowTheme.of(context).primary
-                                    : FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                                () {
+                                  if ((_model.mouseRegion3Hovered == true) ==
+                                      true) {
+                                    return FlutterFlowTheme.of(context)
+                                        .primaryTransparent;
+                                  } else if (widget.nav3 == true) {
+                                    return FlutterFlowTheme.of(context).primary;
+                                  } else {
+                                    return FlutterFlowTheme.of(context)
+                                        .primaryBackground;
+                                  }
+                                }(),
                                 FlutterFlowTheme.of(context).primaryBackground,
                               ),
                               borderRadius: BorderRadius.circular(12.0),
@@ -463,12 +530,20 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                   Icon(
                                     Icons.person,
                                     color: valueOrDefault<Color>(
-                                      (_model.mouseRegion3Hovered == true) &&
-                                              (widget.nav3 == true)
-                                          ? FlutterFlowTheme.of(context)
-                                              .primaryBackground
-                                          : FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                      () {
+                                        if ((_model.mouseRegion3Hovered ==
+                                                true) ==
+                                            true) {
+                                          return FlutterFlowTheme.of(context)
+                                              .primaryText;
+                                        } else if (widget.nav3 == true) {
+                                          return FlutterFlowTheme.of(context)
+                                              .primaryBackground;
+                                        } else {
+                                          return FlutterFlowTheme.of(context)
+                                              .primaryText;
+                                        }
+                                      }(),
                                       FlutterFlowTheme.of(context).primaryText,
                                     ),
                                     size: 28.0,
@@ -477,19 +552,30 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'Profile',
+                                      'Profil',
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: valueOrDefault<Color>(
-                                              (_model.mouseRegion3Hovered ==
-                                                          true) &&
-                                                      (widget.nav3 == true)
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .primaryBackground
-                                                  : FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              () {
+                                                if ((_model.mouseRegion3Hovered ==
+                                                        true) ==
+                                                    true) {
+                                                  return FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText;
+                                                } else if (widget.nav3 ==
+                                                    true) {
+                                                  return FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground;
+                                                } else {
+                                                  return FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText;
+                                                }
+                                              }(),
                                               FlutterFlowTheme.of(context)
                                                   .primaryText,
                                             ),
@@ -512,65 +598,130 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                 ].divide(SizedBox(height: 10.0)),
               ),
               Spacer(),
-              if (valueOrDefault<bool>(
-                loggedIn &&
-                    (valueOrDefault<bool>(
-                            currentUserDocument?.administratorRole, false) ==
-                        true),
-                false,
-              ))
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                    child: AuthUserStreamWidget(
-                      builder: (context) => FFButtonWidget(
-                        onPressed: () async {
-                          logFirebaseEvent(
-                              'SIDE_NAV_WEB_COMP_ACCÈS_ADMIN_BTN_ON_TAP');
-                          logFirebaseEvent('Button_navigate_to');
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    if (valueOrDefault<bool>(
+                      loggedIn &&
+                          (valueOrDefault<bool>(
+                                  currentUserDocument?.administratorRole,
+                                  false) ==
+                              true),
+                      false,
+                    ))
+                      Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
+                        child: AuthUserStreamWidget(
+                          builder: (context) => FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'SIDE_NAV_WEB_COMP_ACCÈS_ADMIN_BTN_ON_TAP');
+                              logFirebaseEvent('Button_navigate_to');
 
-                          context.pushNamed(
-                            'Dashboard',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.leftToRight,
-                                duration: Duration(milliseconds: 300),
-                              ),
+                              context.pushNamed(
+                                'Dashboard',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.leftToRight,
+                                    duration: Duration(milliseconds: 300),
+                                  ),
+                                },
+                              );
                             },
-                          );
-                        },
-                        text: 'Accès admin',
-                        icon: Icon(
-                          Icons.chevron_right,
-                          size: 15.0,
-                        ),
-                        options: FFButtonOptions(
-                          width: MediaQuery.sizeOf(context).width * 0.2,
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
+                            text: 'Accès Admin',
+                            icon: Icon(
+                              Icons.chevron_right,
+                              size: 15.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: MediaQuery.sizeOf(context).width * 0.2,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                   ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(15.0),
                         ),
                       ),
-                    ),
-                  ),
+                    if (valueOrDefault<bool>(
+                      loggedIn &&
+                          (valueOrDefault<bool>(
+                                  currentUserDocument?.managerRole, false) ==
+                              true),
+                      false,
+                    ))
+                      Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
+                        child: AuthUserStreamWidget(
+                          builder: (context) => FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'SIDE_NAV_WEB_ACCÈS_MANAGER_BTN_ON_TAP');
+                              logFirebaseEvent('Button_navigate_to');
+
+                              context.pushNamed(
+                                'Dashboard',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.leftToRight,
+                                    duration: Duration(milliseconds: 300),
+                                  ),
+                                },
+                              );
+                            },
+                            text: 'Accès Manager',
+                            icon: Icon(
+                              Icons.chevron_right,
+                              size: 15.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: MediaQuery.sizeOf(context).width * 0.2,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).tertiary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ].divide(SizedBox(height: 10.0)),
                 ),
+              ),
             ],
           ),
         ),

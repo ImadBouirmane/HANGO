@@ -215,7 +215,8 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                               );
                                                             },
                                                           ).then((value) =>
-                                                              setState(() {}));
+                                                              safeSetState(
+                                                                  () {}));
                                                         },
                                                       ),
                                                     )
@@ -255,7 +256,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                   'MAPS_TextField_ctuf8mb6_ON_TEXTFIELD_CHA');
                                               logFirebaseEvent(
                                                   'TextField_simple_search');
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.simpleSearchResults1 =
                                                     TextSearch(
                                                   mapsEstablishmentsRecordList
@@ -595,7 +596,8 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                               );
                                                             },
                                                           ).then((value) =>
-                                                              setState(() {}));
+                                                              safeSetState(
+                                                                  () {}));
                                                         },
                                                       ),
                                                     )
@@ -643,7 +645,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                       'MAPS_TextField_m80xvrq2_ON_TEXTFIELD_CHA');
                                                   logFirebaseEvent(
                                                       'TextField_simple_search');
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.simpleSearchResults2 =
                                                         TextSearch(
                                                       mapsEstablishmentsRecordList

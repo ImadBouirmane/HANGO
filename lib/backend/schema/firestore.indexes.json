@@ -10,7 +10,21 @@
         },
         {
           "fieldPath": "created_time",
-          "order": "DESCENDING"
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "establishments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "music_style",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "created_time",
+          "order": "ASCENDING"
         }
       ]
     },

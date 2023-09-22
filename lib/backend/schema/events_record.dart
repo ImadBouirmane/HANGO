@@ -91,6 +91,16 @@ class EventsRecord extends FirestoreRecord {
   String get entrancePrice => _entrancePrice ?? '';
   bool hasEntrancePrice() => _entrancePrice != null;
 
+  // "isManager" field.
+  bool? _isManager;
+  bool get isManager => _isManager ?? false;
+  bool hasIsManager() => _isManager != null;
+
+  // "isAdmin" field.
+  bool? _isAdmin;
+  bool get isAdmin => _isAdmin ?? false;
+  bool hasIsAdmin() => _isAdmin != null;
+
   void _initializeFields() {
     _eventId = snapshotData['event_id'] as String?;
     _establishmentId = snapshotData['establishment_id'] as DocumentReference?;
@@ -107,6 +117,8 @@ class EventsRecord extends FirestoreRecord {
     _typeEvent = getDataList(snapshotData['typeEvent']);
     _eventEntrancePrice = snapshotData['eventEntrancePrice'] as String?;
     _entrancePrice = snapshotData['entrancePrice'] as String?;
+    _isManager = snapshotData['isManager'] as bool?;
+    _isAdmin = snapshotData['isAdmin'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -155,6 +167,8 @@ Map<String, dynamic> createEventsRecordData({
   DateTime? dateEvent,
   String? eventEntrancePrice,
   String? entrancePrice,
+  bool? isManager,
+  bool? isAdmin,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -170,6 +184,8 @@ Map<String, dynamic> createEventsRecordData({
       'dateEvent': dateEvent,
       'eventEntrancePrice': eventEntrancePrice,
       'entrancePrice': entrancePrice,
+      'isManager': isManager,
+      'isAdmin': isAdmin,
     }.withoutNulls,
   );
 
@@ -196,7 +212,9 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.dateEvent == e2?.dateEvent &&
         listEquality.equals(e1?.typeEvent, e2?.typeEvent) &&
         e1?.eventEntrancePrice == e2?.eventEntrancePrice &&
-        e1?.entrancePrice == e2?.entrancePrice;
+        e1?.entrancePrice == e2?.entrancePrice &&
+        e1?.isManager == e2?.isManager &&
+        e1?.isAdmin == e2?.isAdmin;
   }
 
   @override
@@ -215,7 +233,9 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.dateEvent,
         e?.typeEvent,
         e?.eventEntrancePrice,
-        e?.entrancePrice
+        e?.entrancePrice,
+        e?.isManager,
+        e?.isAdmin
       ]);
 
   @override

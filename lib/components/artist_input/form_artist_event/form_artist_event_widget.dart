@@ -180,7 +180,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                     TimeOfDay.fromDateTime(getCurrentTimestamp),
                               );
                               if (_datePickedTime != null) {
-                                setState(() {
+                                safeSetState(() {
                                   _model.datePicked = DateTime(
                                     getCurrentTimestamp.year,
                                     getCurrentTimestamp.month,

@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/components/images_delete_problem_admin_pop_up/images_delete_problem_admin_pop_up_widget.dart';
-import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -84,9 +84,9 @@ class _CreateEstStep3WidgetState extends State<CreateEstStep3Widget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       wrapWithModel(
-                        model: _model.sideBarModel,
+                        model: _model.adminSideBarModel,
                         updateCallback: () => setState(() {}),
-                        child: SideBarWidget(
+                        child: AdminSideBarWidget(
                           oneBG:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           oneIcon: Icon(

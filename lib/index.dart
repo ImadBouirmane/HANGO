@@ -66,3 +66,9 @@ export '/admin_panel_web/events/create/create_event_step3/create_event_step3_wid
     show CreateEventStep3Widget;
 export '/admin_panel_web/events/update/update_event_step3/update_event_step3_widget.dart'
     show UpdateEventStep3Widget;
+export '/manage_panel_web/manager_dashboard/manager_dashboard_widget.dart'
+    show ManagerDashboardWidget;
+export '/manage_panel_web/manager_sign_up/manager_sign_up_widget.dart'
+    show ManagerSignUpWidget;
+export '/manage_panel_web/manager_wait_list/manager_wait_list_widget.dart'
+    show ManagerWaitListWidget;

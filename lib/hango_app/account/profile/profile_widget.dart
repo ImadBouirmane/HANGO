@@ -415,8 +415,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                   .clearRedirectLocation();
 
                                               context.goNamedAuth(
-                                                  'ListOfEstablishments',
-                                                  context.mounted);
+                                                  'UserLogin', context.mounted);
                                             },
                                             text: 'Se  déconnecter',
                                             options: FFButtonOptions(
@@ -1522,7 +1521,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
                                                                             if (_datePicked1Date !=
                                                                                 null) {
-                                                                              setState(() {
+                                                                              safeSetState(() {
                                                                                 _model.datePicked1 = DateTime(
                                                                                   _datePicked1Date.year,
                                                                                   _datePicked1Date.month,
@@ -1755,9 +1754,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           logFirebaseEvent(
-                                                              'PROFILE_PAGE_Row_k6seh96h_ON_TAP');
+                                                              'PROFILE_PAGE_Container_z615qzz8_ON_TAP');
                                                           logFirebaseEvent(
-                                                              'Row_navigate_to');
+                                                              'Container_navigate_to');
 
                                                           context.pushNamed(
                                                             'Settings',
@@ -1774,27 +1773,50 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             },
                                                           );
                                                         },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Text(
-                                                                'Parametres',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              ),
+                                                        child: Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Expanded(
+                                                                  child: Text(
+                                                                    'Parametres',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
+                                                                  ),
+                                                                ),
+                                                                Icon(
+                                                                  Icons
+                                                                      .chevron_right,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  size: 24.0,
+                                                                ),
+                                                              ],
                                                             ),
-                                                            Icon(
-                                                              Icons
-                                                                  .chevron_right,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              size: 24.0,
-                                                            ),
-                                                          ],
+                                                          ),
                                                         ),
                                                       ),
                                                       InkWell(
@@ -1808,9 +1830,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           logFirebaseEvent(
-                                                              'PROFILE_PAGE_Row_pej8yb8j_ON_TAP');
+                                                              'PROFILE_PAGE_Container_svfrbxqt_ON_TAP');
                                                           logFirebaseEvent(
-                                                              'Row_auth');
+                                                              'Container_auth');
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
                                                           await authManager
@@ -1819,37 +1841,59 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                               .clearRedirectLocation();
 
                                                           context.goNamedAuth(
-                                                              'ListOfEstablishments',
+                                                              'UserLogin',
                                                               context.mounted);
                                                         },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Text(
-                                                                'Deconnexion',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                    ),
-                                                              ),
+                                                        child: Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Expanded(
+                                                                  child: Text(
+                                                                    'Deconnexion',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).alternate,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                Icon(
+                                                                  Icons
+                                                                      .chevron_right,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                                  size: 24.0,
+                                                                ),
+                                                              ],
                                                             ),
-                                                            Icon(
-                                                              Icons
-                                                                  .chevron_right,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .alternate,
-                                                              size: 24.0,
-                                                            ),
-                                                          ],
+                                                          ),
                                                         ),
                                                       ),
                                                       InkWell(
@@ -1863,9 +1907,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           logFirebaseEvent(
-                                                              'PROFILE_PAGE_Row_yre0dvjz_ON_TAP');
+                                                              'PROFILE_PAGE_Container_z9u2kzoe_ON_TAP');
                                                           logFirebaseEvent(
-                                                              'Row_navigate_to');
+                                                              'Container_navigate_to');
 
                                                           context.pushNamed(
                                                             'Feedback',
@@ -1882,34 +1926,56 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             },
                                                           );
                                                         },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Text(
-                                                                'Feedback',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                    ),
-                                                              ),
+                                                        child: Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Expanded(
+                                                                  child: Text(
+                                                                    'Feedback',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                Icon(
+                                                                  Icons
+                                                                      .chevron_right,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  size: 24.0,
+                                                                ),
+                                                              ],
                                                             ),
-                                                            Icon(
-                                                              Icons
-                                                                  .chevron_right,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              size: 24.0,
-                                                            ),
-                                                          ],
+                                                          ),
                                                         ),
                                                       ),
                                                     ].divide(
@@ -2833,7 +2899,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               );
 
                                                                               if (_datePicked2Date != null) {
-                                                                                setState(() {
+                                                                                safeSetState(() {
                                                                                   _model.datePicked2 = DateTime(
                                                                                     _datePicked2Date.year,
                                                                                     _datePicked2Date.month,
@@ -3126,7 +3192,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                 .clearRedirectLocation();
 
                                                             context.goNamedAuth(
-                                                                'ListOfEstablishments',
+                                                                'UserLogin',
                                                                 context
                                                                     .mounted);
                                                           },

@@ -15,6 +15,7 @@ import 'schema/images_record.dart';
 import 'schema/media_record.dart';
 import 'schema/promotion_event_record.dart';
 import 'schema/schedule_event_record.dart';
+import 'schema/manager_record.dart';
 import 'dart:async';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
@@ -34,6 +35,7 @@ export 'schema/images_record.dart';
 export 'schema/media_record.dart';
 export 'schema/promotion_event_record.dart';
 export 'schema/schedule_event_record.dart';
+export 'schema/manager_record.dart';
 
 /// Functions to query EstablishmentsRecords (as a Stream and as a Future).
 Future<int> queryEstablishmentsRecordCount({
@@ -820,6 +822,84 @@ Future<FFFirestorePage<ScheduleEventRecord>> queryScheduleEventRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<ScheduleEventRecord> data) {
+          data.forEach((item) {
+            final itemIndexes = controller.itemList!
+                .asMap()
+                .map((k, v) => MapEntry(v.reference.id, k));
+            final index = itemIndexes[item.reference.id];
+            final items = controller.itemList!;
+            if (index != null) {
+              items.replaceRange(index, index + 1, [item]);
+              controller.itemList = {
+                for (var item in items) item.reference: item
+              }.values.toList();
+            }
+          });
+        });
+        streamSubscriptions?.add(streamSubscription);
+      }
+      return page;
+    });
+
+/// Functions to query ManagerRecords (as a Stream and as a Future).
+Future<int> queryManagerRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ManagerRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ManagerRecord>> queryManagerRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ManagerRecord.collection,
+      ManagerRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ManagerRecord>> queryManagerRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ManagerRecord.collection,
+      ManagerRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+Future<FFFirestorePage<ManagerRecord>> queryManagerRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+  required PagingController<DocumentSnapshot?, ManagerRecord> controller,
+  List<StreamSubscription?>? streamSubscriptions,
+}) =>
+    queryCollectionPage(
+      ManagerRecord.collection,
+      ManagerRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    ).then((page) {
+      controller.appendPage(
+        page.data,
+        page.nextPageMarker,
+      );
+      if (isStream) {
+        final streamSubscription =
+            (page.dataStream)?.listen((List<ManagerRecord> data) {
           data.forEach((item) {
             final itemIndexes = controller.itemList!
                 .asMap()

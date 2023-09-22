@@ -359,13 +359,6 @@ class _MapEstablishmentPopUpWidgetState
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: <Widget>[]
-                                    .addToStart(SizedBox(width: 30.0))
-                                    .addToEnd(SizedBox(width: 30.0)),
-                              ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [

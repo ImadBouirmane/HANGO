@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/side_bar/side_bar_widget.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
@@ -113,10 +113,10 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           wrapWithModel(
-                            model: _model.sideBarModel,
+                            model: _model.adminSideBarModel,
                             updateCallback: () => setState(() {}),
                             updateOnChange: true,
-                            child: SideBarWidget(
+                            child: AdminSideBarWidget(
                               oneBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               oneIcon: Icon(
@@ -553,7 +553,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
 
                                                                   if (_datePicked1Date !=
                                                                       null) {
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {
                                                                       _model.datePicked1 =
                                                                           DateTime(
@@ -678,7 +678,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 }
 
                                                                                 if (_datePicked2Date != null && _datePicked2Time != null) {
-                                                                                  setState(() {
+                                                                                  safeSetState(() {
                                                                                     _model.datePicked2 = DateTime(
                                                                                       _datePicked2Date.year,
                                                                                       _datePicked2Date.month,
@@ -772,7 +772,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 }
 
                                                                                 if (_datePicked3Date != null && _datePicked3Time != null) {
-                                                                                  setState(() {
+                                                                                  safeSetState(() {
                                                                                     _model.datePicked3 = DateTime(
                                                                                       _datePicked3Date.year,
                                                                                       _datePicked3Date.month,

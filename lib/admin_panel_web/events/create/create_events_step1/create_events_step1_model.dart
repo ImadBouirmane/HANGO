@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/side_bar/side_bar_widget.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
@@ -23,8 +23,8 @@ class CreateEventsStep1Model extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-  // Model for SideBar component.
-  late SideBarModel sideBarModel;
+  // Model for AdminSideBar component.
+  late AdminSideBarModel adminSideBarModel;
   // State field(s) for eventTitle widget.
   TextEditingController? eventTitleController;
   String? Function(BuildContext, String?)? eventTitleControllerValidator;
@@ -64,13 +64,13 @@ class CreateEventsStep1Model extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    sideBarModel = createModel(context, () => SideBarModel());
+    adminSideBarModel = createModel(context, () => AdminSideBarModel());
     eventTitleControllerValidator = _eventTitleControllerValidator;
   }
 
   void dispose() {
     unfocusNode.dispose();
-    sideBarModel.dispose();
+    adminSideBarModel.dispose();
     eventTitleController?.dispose();
     tFDescriionController?.dispose();
     tFURLWebSiteController?.dispose();

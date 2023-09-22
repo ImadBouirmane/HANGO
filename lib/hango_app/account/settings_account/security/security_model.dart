@@ -14,20 +14,20 @@ class SecurityModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  // State field(s) for emailOnMobile widget.
+  TextEditingController? emailOnMobileController;
+  String? Function(BuildContext, String?)? emailOnMobileControllerValidator;
+  // State field(s) for phoneOnMobile widget.
+  TextEditingController? phoneOnMobileController;
+  final phoneOnMobileMask = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
+  String? Function(BuildContext, String?)? phoneOnMobileControllerValidator;
   // State field(s) for TextField widget.
   TextEditingController? textController2;
-  final textFieldMask2 = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController3;
+  final textFieldMask2 = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
   String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  TextEditingController? textController4;
-  final textFieldMask4 = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
-  String? Function(BuildContext, String?)? textController4Validator;
 
   /// Initialization and disposal methods.
 
@@ -35,10 +35,10 @@ class SecurityModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
-    textController1?.dispose();
+    emailOnMobileController?.dispose();
+    phoneOnMobileController?.dispose();
     textController2?.dispose();
     textController3?.dispose();
-    textController4?.dispose();
   }
 
   /// Action blocks are added here.

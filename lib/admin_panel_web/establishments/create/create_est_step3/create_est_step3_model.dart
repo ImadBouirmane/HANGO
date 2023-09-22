@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/components/images_delete_problem_admin_pop_up/images_delete_problem_admin_pop_up_widget.dart';
-import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -21,8 +21,8 @@ class CreateEstStep3Model extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-  // Model for SideBar component.
-  late SideBarModel sideBarModel;
+  // Model for AdminSideBar component.
+  late AdminSideBarModel adminSideBarModel;
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -54,12 +54,12 @@ class CreateEstStep3Model extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    sideBarModel = createModel(context, () => SideBarModel());
+    adminSideBarModel = createModel(context, () => AdminSideBarModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    sideBarModel.dispose();
+    adminSideBarModel.dispose();
   }
 
   /// Action blocks are added here.

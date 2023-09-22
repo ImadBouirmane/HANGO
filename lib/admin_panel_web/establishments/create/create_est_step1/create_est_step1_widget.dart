@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/side_bar/side_bar_widget.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -107,9 +107,9 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       wrapWithModel(
-                        model: _model.sideBarModel,
+                        model: _model.adminSideBarModel,
                         updateCallback: () => setState(() {}),
-                        child: SideBarWidget(
+                        child: AdminSideBarWidget(
                           oneBG:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           oneIcon: Icon(

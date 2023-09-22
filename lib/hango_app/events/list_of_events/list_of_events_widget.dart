@@ -77,7 +77,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(
         queryBuilder: (eventsRecord) => eventsRecord.where('dateEvent',
-            isGreaterThanOrEqualTo: FFAppState().selectedDate),
+            isGreaterThanOrEqualTo: getCurrentTimestamp),
         limit: 15,
       ),
       builder: (context, snapshot) {
@@ -480,7 +480,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                         .clearRedirectLocation();
 
                                                     context.goNamedAuth(
-                                                        'ListOfEstablishments',
+                                                        'UserLogin',
                                                         context.mounted);
                                                   },
                                                   text: 'Se  déconnecter',
@@ -768,7 +768,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 15.0, 0.0),
+                                                    15.0, 15.0, 15.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -796,7 +796,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                         // MobileEventSearch
                                                         logFirebaseEvent(
                                                             'eventSearch_MobileEventSearch');
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.simpleSearchResults1 =
                                                               TextSearch(
                                                             listOfEventsEventsRecordList
@@ -1024,8 +1024,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                         onPressed: () async {
                                                           logFirebaseEvent(
                                                               'LIST_OF_EVENTS_PAGE_clear_ICN_ON_TAP');
-                                                          logFirebaseEvent(
-                                                              'IconButton_bottom_sheet');
                                                           logFirebaseEvent(
                                                               'IconButton_update_widget_state');
                                                           setState(() {
@@ -1720,8 +1718,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                           Container(
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             1.0,
-                                                                        height:
-                                                                            80.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -1742,7 +1738,8 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                 MainAxisAlignment.spaceEvenly,
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.start,
-                                                                            children: [
+                                                                            children:
+                                                                                [
                                                                               Expanded(
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
@@ -1829,7 +1826,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                            ],
+                                                                            ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1858,7 +1855,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      16.0, 16.0, 16.0, 80.0),
+                                                      10.0, 10.0, 10.0, 10.0),
                                               child: PagedListView<
                                                   DocumentSnapshot<Object?>?,
                                                   EventsRecord>(
@@ -2058,8 +2055,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                             Container(
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 1.0,
-                                                                          height:
-                                                                              80.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
@@ -2168,7 +2163,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                     ),
                                                                                   ],
                                                                                 ),
-                                                                              ],
+                                                                              ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -2198,7 +2193,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      16.0, 16.0, 16.0, 80.0),
+                                                      10.0, 10.0, 10.0, 10.0),
                                               child: PagedListView<
                                                   DocumentSnapshot<Object?>?,
                                                   EventsRecord>(
@@ -2398,8 +2393,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                             Container(
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 1.0,
-                                                                          height:
-                                                                              80.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
@@ -2508,7 +2501,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                     ),
                                                                                   ],
                                                                                 ),
-                                                                              ],
+                                                                              ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -2539,7 +2532,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      16.0, 16.0, 16.0, 80.0),
+                                                      10.0, 10.0, 10.0, 10.0),
                                               child: Builder(
                                                 builder: (context) {
                                                   final listEvents =
@@ -2696,8 +2689,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                               Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 1.0,
-                                                                            height:
-                                                                                80.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -2800,7 +2791,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                       ),
                                                                                     ],
                                                                                   ),
-                                                                                ],
+                                                                                ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                               ),
                                                                             ),
                                                                           ),
@@ -2995,7 +2986,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                               'LIST_OF_EVENTS_eventSearch_ON_TEXTFIELD_');
                                                           logFirebaseEvent(
                                                               'eventSearch_simple_search');
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.simpleSearchResults2 =
                                                                 TextSearch(
                                                               listOfEventsEventsRecordList
@@ -3248,30 +3239,30 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                 ].divide(SizedBox(width: 10.0)),
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      15.0, 15.0, 15.0, 0.0),
-                                              child: Wrap(
-                                                spacing: 10.0,
-                                                runSpacing: 10.0,
-                                                alignment: WrapAlignment.start,
-                                                crossAxisAlignment:
-                                                    WrapCrossAlignment.start,
-                                                direction: Axis.horizontal,
-                                                runAlignment:
-                                                    WrapAlignment.start,
-                                                verticalDirection:
-                                                    VerticalDirection.down,
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  if (valueOrDefault<bool>(
-                                                    _model.filterOnEventMobile ==
-                                                            true
-                                                        ? true
-                                                        : false,
-                                                    false,
-                                                  ))
+                                            if (valueOrDefault<bool>(
+                                              _model.filterOnEventMobile == true
+                                                  ? true
+                                                  : false,
+                                              false,
+                                            ))
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        15.0, 15.0, 15.0, 0.0),
+                                                child: Wrap(
+                                                  spacing: 10.0,
+                                                  runSpacing: 10.0,
+                                                  alignment:
+                                                      WrapAlignment.start,
+                                                  crossAxisAlignment:
+                                                      WrapCrossAlignment.start,
+                                                  direction: Axis.horizontal,
+                                                  runAlignment:
+                                                      WrapAlignment.start,
+                                                  verticalDirection:
+                                                      VerticalDirection.down,
+                                                  clipBehavior: Clip.none,
+                                                  children: [
                                                     Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -3458,13 +3449,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                         ),
                                                       ),
                                                     ),
-                                                  if (valueOrDefault<bool>(
-                                                    _model.filterOnEventMobile ==
-                                                            true
-                                                        ? true
-                                                        : false,
-                                                    false,
-                                                  ))
                                                     Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -3651,9 +3635,9 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                         ),
                                                       ),
                                                     ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
-                                            ),
                                             Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3900,7 +3884,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                                                                                     child: Container(
                                                                                       width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                      height: 80.0,
                                                                                       decoration: BoxDecoration(
                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       ),
@@ -3997,7 +3980,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                                 ),
                                                                                               ],
                                                                                             ),
-                                                                                          ],
+                                                                                          ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -4027,10 +4010,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      16.0,
-                                                                      16.0,
-                                                                      16.0,
-                                                                      80.0),
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0),
                                                           child: Builder(
                                                             builder: (context) {
                                                               final listEvents =
@@ -4154,7 +4137,6 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                                                                                         child: Container(
                                                                                           width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                          height: 80.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
@@ -4255,7 +4237,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                                     ),
                                                                                                   ],
                                                                                                 ),
-                                                                                              ],
+                                                                                              ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                                             ),
                                                                                           ),
                                                                                         ),
@@ -4292,10 +4274,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      16.0,
-                                                                      16.0,
-                                                                      16.0,
-                                                                      80.0),
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0),
                                                           child: PagedListView<
                                                               DocumentSnapshot<
                                                                   Object?>?,
@@ -4573,7 +4555,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                                 ),
                                                                                               ],
                                                                                             ),
-                                                                                          ],
+                                                                                          ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -4605,10 +4587,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      16.0,
-                                                                      16.0,
-                                                                      16.0,
-                                                                      80.0),
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0),
                                                           child: PagedListView<
                                                               DocumentSnapshot<
                                                                   Object?>?,
@@ -4884,7 +4866,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                                 ),
                                                                                               ],
                                                                                             ),
-                                                                                          ],
+                                                                                          ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -4907,15 +4889,13 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                 ),
                                               ],
                                             ),
-                                          ],
+                                          ].addToStart(SizedBox(height: 10.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                            ]
-                                .addToStart(SizedBox(height: 30.0))
-                                .addToEnd(SizedBox(height: 15.0)),
+                            ],
                           ),
                         ),
                       ),

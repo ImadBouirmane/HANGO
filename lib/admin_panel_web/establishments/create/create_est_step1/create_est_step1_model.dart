@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/side_bar/side_bar_widget.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -23,8 +23,8 @@ class CreateEstStep1Model extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-  // Model for SideBar component.
-  late SideBarModel sideBarModel;
+  // Model for AdminSideBar component.
+  late AdminSideBarModel adminSideBarModel;
   // State field(s) for TFName widget.
   TextEditingController? tFNameController;
   String? Function(BuildContext, String?)? tFNameControllerValidator;
@@ -84,12 +84,12 @@ class CreateEstStep1Model extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    sideBarModel = createModel(context, () => SideBarModel());
+    adminSideBarModel = createModel(context, () => AdminSideBarModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    sideBarModel.dispose();
+    adminSideBarModel.dispose();
     tFNameController?.dispose();
     tFDescriptionController?.dispose();
     tFStreetController?.dispose();

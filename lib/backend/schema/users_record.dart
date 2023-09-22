@@ -91,6 +91,11 @@ class UsersRecord extends FirestoreRecord {
   List<DocumentReference> get promotionEvents => _promotionEvents ?? const [];
   bool hasPromotionEvents() => _promotionEvents != null;
 
+  // "managerRole" field.
+  bool? _managerRole;
+  bool get managerRole => _managerRole ?? false;
+  bool hasManagerRole() => _managerRole != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -107,6 +112,7 @@ class UsersRecord extends FirestoreRecord {
     _firstName = snapshotData['first_name'] as String?;
     _updatedTime = snapshotData['updatedTime'] as DateTime?;
     _promotionEvents = getDataList(snapshotData['promotionEvents']);
+    _managerRole = snapshotData['managerRole'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -157,6 +163,7 @@ Map<String, dynamic> createUsersRecordData({
   String? gender,
   String? firstName,
   DateTime? updatedTime,
+  bool? managerRole,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -174,6 +181,7 @@ Map<String, dynamic> createUsersRecordData({
       'gender': gender,
       'first_name': firstName,
       'updatedTime': updatedTime,
+      'managerRole': managerRole,
     }.withoutNulls,
   );
 
@@ -200,7 +208,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.gender == e2?.gender &&
         e1?.firstName == e2?.firstName &&
         e1?.updatedTime == e2?.updatedTime &&
-        listEquality.equals(e1?.promotionEvents, e2?.promotionEvents);
+        listEquality.equals(e1?.promotionEvents, e2?.promotionEvents) &&
+        e1?.managerRole == e2?.managerRole;
   }
 
   @override
@@ -219,7 +228,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.gender,
         e?.firstName,
         e?.updatedTime,
-        e?.promotionEvents
+        e?.promotionEvents,
+        e?.managerRole
       ]);
 
   @override

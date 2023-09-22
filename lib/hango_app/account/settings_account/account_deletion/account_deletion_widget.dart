@@ -204,7 +204,8 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                           await authManager.deleteUser(context);
 
                                           context.goNamedAuth(
-                                              'ListOfEvents', context.mounted);
+                                              'ListOfEstablishments',
+                                              context.mounted);
                                         },
                                         text: 'Confirmer',
                                         options: FFButtonOptions(
@@ -369,7 +370,8 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                             await authManager
                                                 .deleteUser(context);
 
-                                            context.goNamedAuth('ListOfEvents',
+                                            context.goNamedAuth(
+                                                'ListOfEstablishments',
                                                 context.mounted);
                                           },
                                           text: 'Confirmer',

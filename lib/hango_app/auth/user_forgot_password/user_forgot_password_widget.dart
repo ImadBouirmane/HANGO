@@ -158,7 +158,7 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                               _model.emailAddressController,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelText: 'Addresse Email',
+                                            labelText: 'Adresse Email',
                                             labelStyle: FlutterFlowTheme.of(
                                                     context)
                                                 .bodySmall
@@ -170,7 +170,7 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             hintText:
-                                                'Entrer votre addresse email ici...',
+                                                'Entrez votre adresse email ...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmall

@@ -30,10 +30,12 @@ class _SecurityWidgetState extends State<SecurityWidget> {
     _model = createModel(context, () => SecurityModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Security'});
-    _model.textController1 ??= TextEditingController(text: currentUserEmail);
-    _model.textController2 ??= TextEditingController(text: currentPhoneNumber);
-    _model.textController3 ??= TextEditingController(text: currentUserEmail);
-    _model.textController4 ??= TextEditingController(text: currentPhoneNumber);
+    _model.emailOnMobileController ??=
+        TextEditingController(text: currentUserEmail);
+    _model.phoneOnMobileController ??=
+        TextEditingController(text: currentPhoneNumber);
+    _model.textController2 ??= TextEditingController(text: currentUserEmail);
+    _model.textController3 ??= TextEditingController(text: currentPhoneNumber);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -133,17 +135,40 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                     Container(
                                       decoration: BoxDecoration(),
                                       child: TextFormField(
-                                        controller: _model.textController1,
+                                        controller:
+                                            _model.emailOnMobileController,
                                         onFieldSubmitted: (_) async {
                                           logFirebaseEvent(
-                                              'SECURITY_TextField_vq21c1pd_ON_TEXTFIELD');
+                                              'SECURITY_emailOnMobile_ON_TEXTFIELD_SUBM');
                                           logFirebaseEvent(
-                                              'TextField_backend_call');
+                                              'emailOnMobile_backend_call');
 
                                           await currentUserReference!
                                               .update(createUsersRecordData(
-                                            email: _model.textController1.text,
+                                            email: _model
+                                                .emailOnMobileController.text,
                                           ));
+                                          logFirebaseEvent(
+                                              'emailOnMobile_auth');
+                                          if (_model.emailOnMobileController
+                                              .text.isEmpty) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Email required!',
+                                                ),
+                                              ),
+                                            );
+                                            return;
+                                          }
+
+                                          await authManager.updateEmail(
+                                            email: _model
+                                                .emailOnMobileController.text,
+                                            context: context,
+                                          );
+                                          setState(() {});
                                         },
                                         autofocus: true,
                                         obscureText: false,
@@ -221,7 +246,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                             FlutterFlowTheme.of(context)
                                                 .primary,
                                         validator: _model
-                                            .textController1Validator
+                                            .emailOnMobileControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -229,17 +254,18 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       decoration: BoxDecoration(),
                                       child: AuthUserStreamWidget(
                                         builder: (context) => TextFormField(
-                                          controller: _model.textController2,
+                                          controller:
+                                              _model.phoneOnMobileController,
                                           onFieldSubmitted: (_) async {
                                             logFirebaseEvent(
-                                                'SECURITY_TextField_6871ubev_ON_TEXTFIELD');
+                                                'SECURITY_phoneOnMobile_ON_TEXTFIELD_SUBM');
                                             logFirebaseEvent(
-                                                'TextField_backend_call');
+                                                'phoneOnMobile_backend_call');
 
                                             await currentUserReference!
                                                 .update(createUsersRecordData(
-                                              phoneNumber:
-                                                  _model.textController2.text,
+                                              phoneNumber: _model
+                                                  .phoneOnMobileController.text,
                                             ));
                                           },
                                           autofocus: true,
@@ -318,10 +344,10 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .primary,
                                           validator: _model
-                                              .textController2Validator
+                                              .phoneOnMobileControllerValidator
                                               .asValidator(context),
                                           inputFormatters: [
-                                            _model.textFieldMask2
+                                            _model.phoneOnMobileMask
                                           ],
                                         ),
                                       ),
@@ -377,7 +403,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       Container(
                                         decoration: BoxDecoration(),
                                         child: TextFormField(
-                                          controller: _model.textController3,
+                                          controller: _model.textController2,
                                           onFieldSubmitted: (_) async {
                                             logFirebaseEvent(
                                                 'SECURITY_TextField_1bhbi5a5_ON_TEXTFIELD');
@@ -387,7 +413,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                             await currentUserReference!
                                                 .update(createUsersRecordData(
                                               email:
-                                                  _model.textController3.text,
+                                                  _model.textController2.text,
                                             ));
                                           },
                                           autofocus: true,
@@ -466,7 +492,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .primary,
                                           validator: _model
-                                              .textController3Validator
+                                              .textController2Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -474,7 +500,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         decoration: BoxDecoration(),
                                         child: AuthUserStreamWidget(
                                           builder: (context) => TextFormField(
-                                            controller: _model.textController4,
+                                            controller: _model.textController3,
                                             onFieldSubmitted: (_) async {
                                               logFirebaseEvent(
                                                   'SECURITY_TextField_70gyhnph_ON_TEXTFIELD');
@@ -484,7 +510,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                               await currentUserReference!
                                                   .update(createUsersRecordData(
                                                 phoneNumber:
-                                                    _model.textController4.text,
+                                                    _model.textController3.text,
                                               ));
                                             },
                                             autofocus: true,
@@ -567,10 +593,10 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .primary,
                                             validator: _model
-                                                .textController4Validator
+                                                .textController3Validator
                                                 .asValidator(context),
                                             inputFormatters: [
-                                              _model.textFieldMask4
+                                              _model.textFieldMask2
                                             ],
                                           ),
                                         ),

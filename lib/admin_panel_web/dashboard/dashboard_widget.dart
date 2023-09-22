@@ -1,9 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/components/confirmation/delete_confirmation_establishement/delete_confirmation_establishement_widget.dart';
 import '/components/confirmation/delete_confirmation_event/delete_confirmation_event_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
-import '/components/side_bar/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -103,10 +103,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                               children: [
                                 Expanded(
                                   child: wrapWithModel(
-                                    model: _model.sideBarModel,
+                                    model: _model.adminSideBarModel,
                                     updateCallback: () => setState(() {}),
                                     updateOnChange: true,
-                                    child: SideBarWidget(
+                                    child: AdminSideBarWidget(
                                       oneBG: FlutterFlowTheme.of(context)
                                           .tertiary400,
                                       oneIcon: Icon(
@@ -586,7 +586,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                               ),
                                                                                             );
                                                                                           },
-                                                                                        ).then((value) => setState(() {}));
+                                                                                        ).then((value) => safeSetState(() {}));
                                                                                       },
                                                                                     ),
                                                                                   ].divide(SizedBox(width: 15.0)).around(SizedBox(width: 15.0)),
@@ -905,7 +905,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                         ),
                                                                                                                       );
                                                                                                                     },
-                                                                                                                  ).then((value) => setState(() {}));
+                                                                                                                  ).then((value) => safeSetState(() {}));
 
                                                                                                                   logFirebaseEvent('IconButton_backend_call');
                                                                                                                   firestoreBatch.delete(listViewEstablishmentsRecord.eventRef!);
