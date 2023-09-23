@@ -83,8 +83,11 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                         color: FlutterFlowTheme.of(context).primary,
                         size: 30.0,
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'USER_LOGIN_keyboard_return_ICN_ON_TAP');
+                        logFirebaseEvent('IconButton_navigate_back');
+                        context.safePop();
                       },
                     ),
                     actions: [],

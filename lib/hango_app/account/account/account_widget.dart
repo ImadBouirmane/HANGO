@@ -374,9 +374,6 @@ class _AccountWidgetState extends State<AccountWidget> {
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   1.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.05,
                                               decoration: BoxDecoration(),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,

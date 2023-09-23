@@ -204,6 +204,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         FFButtonWidget(
+                                          key: ValueKey('Button-Login_vef7'),
                                           onPressed: () async {
                                             logFirebaseEvent(
                                                 'USER_PHONE_PAGE_Button-Login_ON_TAP');

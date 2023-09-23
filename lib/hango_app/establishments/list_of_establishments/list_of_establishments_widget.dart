@@ -1749,7 +1749,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                   ),
                                                                                   videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
                                                                                     path: path,
-                                                                                    width: double.infinity,
+                                                                                    width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                     height: 220.0,
                                                                                     autoPlay: true,
                                                                                     looping: true,
@@ -1972,33 +1972,7 @@ class _ListOfEstablishmentsWidgetState
                                                         ),
                                                       ),
                                                     ),
-                                                    noItemsFoundIndicatorBuilder:
-                                                        (_) => Center(
-                                                      child: Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.8,
-                                                        height:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .height *
-                                                                0.2,
-                                                        child: EmptyListWidget(
-                                                          icon: Icon(
-                                                            Icons.business,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            size: 30.0,
-                                                          ),
-                                                          title:
-                                                              'Aucun établissement trouvé !',
-                                                          description: '',
-                                                        ),
-                                                      ),
-                                                    ),
+
                                                     itemBuilder: (context, _,
                                                         listEstablishmentsQueryMusicFilterIndex) {
                                                       final listEstablishmentsQueryMusicFilterEstablishmentsRecord =
@@ -2194,7 +2168,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                       path,
                                                                                       width: double.infinity,
                                                                                       height: 220.0,
-                                                                                      fit: BoxFit.fitWidth,
+                                                                                      fit: BoxFit.fill,
                                                                                     ),
                                                                                   ),
                                                                                   videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
@@ -2204,9 +2178,8 @@ class _ListOfEstablishmentsWidgetState
                                                                                     autoPlay: true,
                                                                                     looping: true,
                                                                                     showControls: false,
-                                                                                    allowFullScreen: true,
+                                                                                    allowFullScreen: false,
                                                                                     allowPlaybackSpeedMenu: false,
-                                                                                    pauseOnNavigate: false,
                                                                                   ),
                                                                                 ),
                                                                                 Text(
@@ -2250,7 +2223,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                       path,
                                                                                       width: double.infinity,
                                                                                       height: 220.0,
-                                                                                      fit: BoxFit.fitWidth,
+                                                                                      fit: BoxFit.fill,
                                                                                     ),
                                                                                   ),
                                                                                   videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
@@ -2259,10 +2232,9 @@ class _ListOfEstablishmentsWidgetState
                                                                                     height: 220.0,
                                                                                     autoPlay: true,
                                                                                     looping: true,
-                                                                                    showControls: true,
+                                                                                    showControls: false,
                                                                                     allowFullScreen: true,
                                                                                     allowPlaybackSpeedMenu: false,
-                                                                                    pauseOnNavigate: false,
                                                                                   ),
                                                                                 ),
                                                                                 Text(
@@ -2279,8 +2251,6 @@ class _ListOfEstablishmentsWidgetState
                                                                       Container(
                                                                         width: double
                                                                             .infinity,
-                                                                        height:
-                                                                            80.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -2414,7 +2384,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                         ),
                                                                                       ],
                                                                                     ),
-                                                                                  ],
+                                                                                  ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -2741,7 +2711,7 @@ class _ListOfEstablishmentsWidgetState
                                                   },
                                                 ),
                                             ]
-                                                .divide(SizedBox(height: 10.0))
+                                                .divide(SizedBox(height: 5.0))
                                                 .addToStart(
                                                     SizedBox(height: 15.0)),
                                           ),
