@@ -398,6 +398,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'managerWaitList',
           path: '/managerWaitList',
           builder: (context, params) => ManagerWaitListWidget(),
+        ),
+        FFRoute(
+          name: 'MapsEstDetails',
+          path: '/mapsEstDetails',
+          asyncParams: {
+            'estRef':
+                getDoc(['establishments'], EstablishmentsRecord.fromSnapshot),
+          },
+          builder: (context, params) => MapsEstDetailsWidget(
+            estRef: params.getParam('estRef', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

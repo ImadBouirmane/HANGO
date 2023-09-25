@@ -69,7 +69,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'Profile',
+        title: 'Profil',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
@@ -589,7 +589,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       },
                     ),
                     title: Text(
-                      'Profile',
+                      'Profil',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Poppins',

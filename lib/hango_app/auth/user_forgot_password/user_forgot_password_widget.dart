@@ -131,7 +131,7 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
-                                  'Nous vous enverrons un e-mail contenant un lien pour réinitialiser votre mot de passe. Veuillez saisir l\'e-mail associé à votre compte ci-dessous.',
+                                  'Notre partenaire google vous enverra un e-mail contenant un lien pour réinitialiser votre mot de passe.\n\n Veuillez saisir l\'e-mail associé à votre compte ci-dessous.',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(

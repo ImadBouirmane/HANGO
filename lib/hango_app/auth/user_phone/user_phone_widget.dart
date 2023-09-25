@@ -101,7 +101,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Text(
-                                              'Vous aurez recevoir un SMS Code, merci de le remplir ici.',
+                                              'Vous receverez un SMS afin de valider votre compte.',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall

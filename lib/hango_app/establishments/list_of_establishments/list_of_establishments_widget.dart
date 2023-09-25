@@ -676,7 +676,7 @@ class _ListOfEstablishmentsWidgetState
                             },
                           ),
                           title: Text(
-                            'Etablissements',
+                            'Établissements',
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
@@ -831,7 +831,7 @@ class _ListOfEstablishmentsWidgetState
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .lineColor,
-                                                              width: 2.0,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
@@ -845,7 +845,7 @@ class _ListOfEstablishmentsWidgetState
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primary,
-                                                              width: 2.0,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
@@ -859,7 +859,7 @@ class _ListOfEstablishmentsWidgetState
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 2.0,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
@@ -873,7 +873,7 @@ class _ListOfEstablishmentsWidgetState
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 2.0,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
@@ -1014,393 +1014,387 @@ class _ListOfEstablishmentsWidgetState
                                                       true
                                                   ? true
                                                   : false)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(15.0, 15.0,
-                                                          15.0, 0.0),
-                                                  child: Wrap(
-                                                    spacing: 10.0,
-                                                    runSpacing: 10.0,
-                                                    alignment:
-                                                        WrapAlignment.start,
-                                                    crossAxisAlignment:
-                                                        WrapCrossAlignment
-                                                            .start,
-                                                    direction: Axis.horizontal,
-                                                    runAlignment:
-                                                        WrapAlignment.start,
-                                                    verticalDirection:
-                                                        VerticalDirection.down,
-                                                    clipBehavior: Clip.none,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.0,
-                                                        decoration:
-                                                            BoxDecoration(
+                                                Wrap(
+                                                  spacing: 5.0,
+                                                  runSpacing: 5.0,
+                                                  alignment:
+                                                      WrapAlignment.start,
+                                                  crossAxisAlignment:
+                                                      WrapCrossAlignment.start,
+                                                  direction: Axis.horizontal,
+                                                  runAlignment:
+                                                      WrapAlignment.start,
+                                                  verticalDirection:
+                                                      VerticalDirection.down,
+                                                  clipBehavior: Clip.none,
+                                                  children: [
+                                                    Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                        border: Border.all(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      15.0),
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .lineColor,
-                                                          ),
+                                                              .lineColor,
+                                                          width: 1.0,
                                                         ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0),
-                                                          child: Container(
-                                                            width:
-                                                                double.infinity,
-                                                            color: Colors.white,
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    1.0,
+                                                                    10.0,
+                                                                    1.0),
+                                                        child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          color: Colors.white,
+                                                          child:
+                                                              ExpandableNotifier(
+                                                            initialExpanded:
+                                                                false,
                                                             child:
-                                                                ExpandableNotifier(
-                                                              initialExpanded:
-                                                                  false,
-                                                              child:
-                                                                  ExpandablePanel(
-                                                                header: Text(
-                                                                  'Type ',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall,
-                                                                ),
-                                                                collapsed:
-                                                                    Container(
-                                                                  decoration:
-                                                                      BoxDecoration(),
-                                                                ),
-                                                                expanded: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
-                                                                  child:
-                                                                      FlutterFlowChoiceChips(
-                                                                    options: FFAppState()
-                                                                        .TypeOfEstablishment
-                                                                        .map((label) =>
-                                                                            ChipData(label))
-                                                                        .toList(),
-                                                                    onChanged:
-                                                                        (val) async {
-                                                                      setState(() =>
-                                                                          _model.typeEstablishmentChoicesValue1 =
-                                                                              val?.first);
-                                                                      logFirebaseEvent(
-                                                                          'LIST_OF_ESTABLISHMENTS_typeEstablishment');
-                                                                      logFirebaseEvent(
-                                                                          'typeEstablishmentChoices_update_widget_s');
-                                                                      setState(
-                                                                          () {
-                                                                        _model.searchStateMobile =
-                                                                            false;
-                                                                        _model.typeFilterMobile =
-                                                                            true;
-                                                                        _model.musicFilterMobile =
-                                                                            false;
-                                                                      });
-                                                                    },
-                                                                    selectedChipStyle:
-                                                                        ChipStyle(
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .primary,
-                                                                      textStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                          ),
-                                                                      iconColor:
-                                                                          Color(
-                                                                              0x00000000),
-                                                                      iconSize:
-                                                                          18.0,
-                                                                      labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                          20.0,
-                                                                          7.0,
-                                                                          20.0,
-                                                                          7.0),
-                                                                      elevation:
-                                                                          2.0,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                    ),
-                                                                    unselectedChipStyle:
-                                                                        ChipStyle(
-                                                                      backgroundColor:
-                                                                          Color(
-                                                                              0x00000000),
-                                                                      textStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                          ),
-                                                                      iconColor:
-                                                                          Color(
-                                                                              0x00000000),
-                                                                      iconSize:
-                                                                          18.0,
-                                                                      labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                          20.0,
-                                                                          7.0,
-                                                                          20.0,
-                                                                          7.0),
-                                                                      elevation:
-                                                                          0.0,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                    ),
-                                                                    chipSpacing:
-                                                                        25.0,
-                                                                    rowSpacing:
-                                                                        15.0,
-                                                                    multiselect:
-                                                                        false,
-                                                                    alignment:
-                                                                        WrapAlignment
-                                                                            .start,
-                                                                    controller: _model
-                                                                            .typeEstablishmentChoicesValueController1 ??=
-                                                                        FormFieldController<
-                                                                            List<String>>(
-                                                                      [],
-                                                                    ),
-                                                                    wrapped:
-                                                                        true,
+                                                                ExpandablePanel(
+                                                              header: Text(
+                                                                'Type ',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall,
+                                                              ),
+                                                              collapsed:
+                                                                  Container(
+                                                                decoration:
+                                                                    BoxDecoration(),
+                                                              ),
+                                                              expanded: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.00,
+                                                                        0.00),
+                                                                child:
+                                                                    FlutterFlowChoiceChips(
+                                                                  options: FFAppState()
+                                                                      .TypeOfEstablishment
+                                                                      .map((label) =>
+                                                                          ChipData(
+                                                                              label))
+                                                                      .toList(),
+                                                                  onChanged:
+                                                                      (val) async {
+                                                                    setState(() =>
+                                                                        _model.typeEstablishmentChoicesValue1 =
+                                                                            val?.first);
+                                                                    logFirebaseEvent(
+                                                                        'LIST_OF_ESTABLISHMENTS_typeEstablishment');
+                                                                    logFirebaseEvent(
+                                                                        'typeEstablishmentChoices_update_widget_s');
+                                                                    setState(
+                                                                        () {
+                                                                      _model.searchStateMobile =
+                                                                          false;
+                                                                      _model.typeFilterMobile =
+                                                                          true;
+                                                                      _model.musicFilterMobile =
+                                                                          false;
+                                                                    });
+                                                                  },
+                                                                  selectedChipStyle:
+                                                                      ChipStyle(
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryBackground,
+                                                                        ),
+                                                                    iconColor:
+                                                                        Color(
+                                                                            0x00000000),
+                                                                    iconSize:
+                                                                        18.0,
+                                                                    labelPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            20.0,
+                                                                            7.0,
+                                                                            20.0,
+                                                                            7.0),
+                                                                    elevation:
+                                                                        2.0,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
                                                                   ),
+                                                                  unselectedChipStyle:
+                                                                      ChipStyle(
+                                                                    backgroundColor:
+                                                                        Color(
+                                                                            0x00000000),
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                    iconColor:
+                                                                        Color(
+                                                                            0x00000000),
+                                                                    iconSize:
+                                                                        18.0,
+                                                                    labelPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            20.0,
+                                                                            7.0,
+                                                                            20.0,
+                                                                            7.0),
+                                                                    elevation:
+                                                                        0.0,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  chipSpacing:
+                                                                      25.0,
+                                                                  rowSpacing:
+                                                                      15.0,
+                                                                  multiselect:
+                                                                      false,
+                                                                  alignment:
+                                                                      WrapAlignment
+                                                                          .start,
+                                                                  controller: _model
+                                                                          .typeEstablishmentChoicesValueController1 ??=
+                                                                      FormFieldController<
+                                                                          List<
+                                                                              String>>(
+                                                                    [],
+                                                                  ),
+                                                                  wrapped: true,
                                                                 ),
-                                                                theme:
-                                                                    ExpandableThemeData(
-                                                                  tapHeaderToExpand:
-                                                                      true,
-                                                                  tapBodyToExpand:
-                                                                      true,
-                                                                  tapBodyToCollapse:
-                                                                      true,
-                                                                  headerAlignment:
-                                                                      ExpandablePanelHeaderAlignment
-                                                                          .center,
-                                                                  hasIcon: true,
-                                                                  iconSize:
-                                                                      30.0,
-                                                                  iconColor: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
+                                                              ),
+                                                              theme:
+                                                                  ExpandableThemeData(
+                                                                tapHeaderToExpand:
+                                                                    true,
+                                                                tapBodyToExpand:
+                                                                    true,
+                                                                tapBodyToCollapse:
+                                                                    true,
+                                                                headerAlignment:
+                                                                    ExpandablePanelHeaderAlignment
+                                                                        .center,
+                                                                hasIcon: true,
+                                                                iconSize: 30.0,
+                                                                iconColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.0,
-                                                        decoration:
-                                                            BoxDecoration(
+                                                    ),
+                                                    Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                        border: Border.all(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      15.0),
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .lineColor,
-                                                          ),
+                                                              .lineColor,
+                                                          width: 1.0,
                                                         ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0),
-                                                          child: Container(
-                                                            width:
-                                                                double.infinity,
-                                                            color: Colors.white,
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    1.0,
+                                                                    10.0,
+                                                                    1.0),
+                                                        child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          color: Colors.white,
+                                                          child:
+                                                              ExpandableNotifier(
+                                                            initialExpanded:
+                                                                false,
                                                             child:
-                                                                ExpandableNotifier(
-                                                              initialExpanded:
-                                                                  false,
-                                                              child:
-                                                                  ExpandablePanel(
-                                                                header: Text(
-                                                                  'Musique Style ',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall,
-                                                                ),
-                                                                collapsed:
-                                                                    Container(
-                                                                  decoration:
-                                                                      BoxDecoration(),
-                                                                ),
-                                                                expanded: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
-                                                                  child:
-                                                                      FlutterFlowChoiceChips(
-                                                                    options: FFAppState()
-                                                                        .MusicStyle
-                                                                        .map((label) =>
-                                                                            ChipData(label))
-                                                                        .toList(),
-                                                                    onChanged:
-                                                                        (val) async {
-                                                                      setState(() =>
-                                                                          _model.musicStyleEstablishmentChoicesValue1 =
-                                                                              val?.first);
-                                                                      logFirebaseEvent(
-                                                                          'LIST_OF_ESTABLISHMENTS_musicStyleEstabli');
-                                                                      logFirebaseEvent(
-                                                                          'musicStyleEstablishmentChoices_update_wi');
-                                                                      setState(
-                                                                          () {
-                                                                        _model.searchStateMobile =
-                                                                            false;
-                                                                        _model.typeFilterMobile =
-                                                                            false;
-                                                                        _model.musicFilterMobile =
-                                                                            true;
-                                                                      });
-                                                                    },
-                                                                    selectedChipStyle:
-                                                                        ChipStyle(
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .primary,
-                                                                      textStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                          ),
-                                                                      iconColor:
-                                                                          Color(
-                                                                              0x00000000),
-                                                                      iconSize:
-                                                                          18.0,
-                                                                      labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                          20.0,
-                                                                          7.0,
-                                                                          20.0,
-                                                                          7.0),
-                                                                      elevation:
-                                                                          2.0,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                    ),
-                                                                    unselectedChipStyle:
-                                                                        ChipStyle(
-                                                                      backgroundColor:
-                                                                          Color(
-                                                                              0x00000000),
-                                                                      textStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                          ),
-                                                                      iconColor:
-                                                                          Color(
-                                                                              0x00000000),
-                                                                      iconSize:
-                                                                          18.0,
-                                                                      labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                          20.0,
-                                                                          7.0,
-                                                                          20.0,
-                                                                          7.0),
-                                                                      elevation:
-                                                                          0.0,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                    ),
-                                                                    chipSpacing:
-                                                                        25.0,
-                                                                    rowSpacing:
-                                                                        15.0,
-                                                                    multiselect:
-                                                                        false,
-                                                                    alignment:
-                                                                        WrapAlignment
-                                                                            .start,
-                                                                    controller: _model
-                                                                            .musicStyleEstablishmentChoicesValueController1 ??=
-                                                                        FormFieldController<
-                                                                            List<String>>(
-                                                                      [],
-                                                                    ),
-                                                                    wrapped:
-                                                                        true,
+                                                                ExpandablePanel(
+                                                              header: Text(
+                                                                'Musique Style ',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall,
+                                                              ),
+                                                              collapsed:
+                                                                  Container(
+                                                                decoration:
+                                                                    BoxDecoration(),
+                                                              ),
+                                                              expanded: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.00,
+                                                                        0.00),
+                                                                child:
+                                                                    FlutterFlowChoiceChips(
+                                                                  options: FFAppState()
+                                                                      .MusicStyle
+                                                                      .map((label) =>
+                                                                          ChipData(
+                                                                              label))
+                                                                      .toList(),
+                                                                  onChanged:
+                                                                      (val) async {
+                                                                    setState(() =>
+                                                                        _model.musicStyleEstablishmentChoicesValue1 =
+                                                                            val?.first);
+                                                                    logFirebaseEvent(
+                                                                        'LIST_OF_ESTABLISHMENTS_musicStyleEstabli');
+                                                                    logFirebaseEvent(
+                                                                        'musicStyleEstablishmentChoices_update_wi');
+                                                                    setState(
+                                                                        () {
+                                                                      _model.searchStateMobile =
+                                                                          false;
+                                                                      _model.typeFilterMobile =
+                                                                          false;
+                                                                      _model.musicFilterMobile =
+                                                                          true;
+                                                                    });
+                                                                  },
+                                                                  selectedChipStyle:
+                                                                      ChipStyle(
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryBackground,
+                                                                        ),
+                                                                    iconColor:
+                                                                        Color(
+                                                                            0x00000000),
+                                                                    iconSize:
+                                                                        18.0,
+                                                                    labelPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            20.0,
+                                                                            7.0,
+                                                                            20.0,
+                                                                            7.0),
+                                                                    elevation:
+                                                                        2.0,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
                                                                   ),
+                                                                  unselectedChipStyle:
+                                                                      ChipStyle(
+                                                                    backgroundColor:
+                                                                        Color(
+                                                                            0x00000000),
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                    iconColor:
+                                                                        Color(
+                                                                            0x00000000),
+                                                                    iconSize:
+                                                                        18.0,
+                                                                    labelPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            20.0,
+                                                                            7.0,
+                                                                            20.0,
+                                                                            7.0),
+                                                                    elevation:
+                                                                        0.0,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  chipSpacing:
+                                                                      25.0,
+                                                                  rowSpacing:
+                                                                      15.0,
+                                                                  multiselect:
+                                                                      false,
+                                                                  alignment:
+                                                                      WrapAlignment
+                                                                          .start,
+                                                                  controller: _model
+                                                                          .musicStyleEstablishmentChoicesValueController1 ??=
+                                                                      FormFieldController<
+                                                                          List<
+                                                                              String>>(
+                                                                    [],
+                                                                  ),
+                                                                  wrapped: true,
                                                                 ),
-                                                                theme:
-                                                                    ExpandableThemeData(
-                                                                  tapHeaderToExpand:
-                                                                      true,
-                                                                  tapBodyToExpand:
-                                                                      true,
-                                                                  tapBodyToCollapse:
-                                                                      true,
-                                                                  headerAlignment:
-                                                                      ExpandablePanelHeaderAlignment
-                                                                          .center,
-                                                                  hasIcon: true,
-                                                                  iconSize:
-                                                                      30.0,
-                                                                  iconColor: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
+                                                              ),
+                                                              theme:
+                                                                  ExpandableThemeData(
+                                                                tapHeaderToExpand:
+                                                                    true,
+                                                                tapBodyToExpand:
+                                                                    true,
+                                                                tapBodyToCollapse:
+                                                                    true,
+                                                                headerAlignment:
+                                                                    ExpandablePanelHeaderAlignment
+                                                                        .center,
+                                                                hasIcon: true,
+                                                                iconSize: 30.0,
+                                                                iconColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
                                               if ((_model.searchStateMobile ==
                                                           false) &&
@@ -2322,22 +2316,6 @@ class _ListOfEstablishmentsWidgetState
                                                                                                     fontSize: 14.0,
                                                                                                   ),
                                                                                             ),
-                                                                                            if ((listEstablishmentsQueryMusicFilterEstablishmentsRecord.musicStyle.first != null && listEstablishmentsQueryMusicFilterEstablishmentsRecord.musicStyle.first != '') && (listEstablishmentsQueryMusicFilterEstablishmentsRecord.musicStyle.last != null && listEstablishmentsQueryMusicFilterEstablishmentsRecord.musicStyle.last != ''))
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                                                child: Icon(
-                                                                                                  Icons.circle_rounded,
-                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                  size: 6.0,
-                                                                                                ),
-                                                                                              ),
-                                                                                            Text(
-                                                                                              listEstablishmentsQueryMusicFilterEstablishmentsRecord.musicStyle.last,
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    fontSize: 14.0,
-                                                                                                  ),
-                                                                                            ),
                                                                                           ],
                                                                                         ),
                                                                                       ),
@@ -2711,9 +2689,11 @@ class _ListOfEstablishmentsWidgetState
                                                   },
                                                 ),
                                             ]
-                                                .divide(SizedBox(height: 5.0))
+                                                .divide(SizedBox(height: 8.0))
                                                 .addToStart(
-                                                    SizedBox(height: 15.0)),
+                                                    SizedBox(height: 8.0))
+                                                .addToEnd(
+                                                    SizedBox(height: 50.0)),
                                           ),
                                         ),
                                       ),
@@ -3657,12 +3637,13 @@ class _ListOfEstablishmentsWidgetState
                                                                                     path,
                                                                                     width: double.infinity,
                                                                                     height: 220.0,
-                                                                                    fit: BoxFit.cover,
+                                                                                    fit: BoxFit.fitWidth,
                                                                                   ),
                                                                                 ),
                                                                                 videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
                                                                                   path: path,
-                                                                                  width: 300.0,
+                                                                                  width: double.infinity,
+                                                                                  height: 220.0,
                                                                                   autoPlay: false,
                                                                                   looping: true,
                                                                                   showControls: true,

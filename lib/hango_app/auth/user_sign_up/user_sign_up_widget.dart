@@ -672,7 +672,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                             context)
                                                                         .languageCode,
                                                                   )
-                                                                : '--/--/--',
+                                                                : 'Date de naissance *',
                                                             '--/--/--',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -875,7 +875,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       decoration:
                                                           InputDecoration(
                                                         labelText:
-                                                            'Mot de passe ',
+                                                            'Mot de passe *',
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1013,7 +1013,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       decoration:
                                                           InputDecoration(
                                                         labelText:
-                                                            'Confirmation mot de passe ',
+                                                            'Confirmation mot de passe *',
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1319,7 +1319,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     ),
                                                   ),
                                                   AutoSizeText(
-                                                    'Ou inscrie toi avec',
+                                                    'Ou',
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1608,6 +1608,46 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                           ),
                                         ),
                                       ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'USER_SIGN_UP_PAGE_Text_g0xcejmh_ON_TAP');
+                                          logFirebaseEvent('Text_navigate_to');
+
+                                          context.pushNamed(
+                                            'ListOfEstablishments',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.scale,
+                                                alignment:
+                                                    Alignment.bottomCenter,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Text(
+                                          'Continuer sans compte',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.normal,
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              ),
+                                        ),
+                                      ),
                                     ),
                                   ]
                                       .divide(SizedBox(height: 15.0))

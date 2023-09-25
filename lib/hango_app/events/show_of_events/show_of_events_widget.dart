@@ -5117,335 +5117,326 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                   ),
                                                 ),
                                               ),
-                                              Container(
-                                                width: double.infinity,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.end,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    8.0,
-                                                                    0.0,
-                                                                    8.0),
-                                                        child: Text(
-                                                          'Autre Evenement ce soir ou à venir',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium,
+                                              if (showOfEventsEventsRecord
+                                                      .dateEvent! >=
+                                                  getCurrentTimestamp)
+                                                Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0,
+                                                                      8.0),
+                                                          child: Text(
+                                                            'Autre Evenement ce soir ou à venir',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleMedium,
+                                                          ),
                                                         ),
-                                                      ),
-                                                      StreamBuilder<
-                                                          List<EventsRecord>>(
-                                                        stream:
-                                                            queryEventsRecord(
-                                                          queryBuilder: (eventsRecord) =>
-                                                              eventsRecord.where(
-                                                                  'dateEvent',
-                                                                  isGreaterThanOrEqualTo:
-                                                                      getCurrentTimestamp),
-                                                          limit: 5,
-                                                        ),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                              child: SizedBox(
-                                                                width: 30.0,
-                                                                height: 30.0,
-                                                                child:
-                                                                    CircularProgressIndicator(
-                                                                  valueColor:
-                                                                      AlwaysStoppedAnimation<
-                                                                          Color>(
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
+                                                        StreamBuilder<
+                                                            List<EventsRecord>>(
+                                                          stream:
+                                                              queryEventsRecord(
+                                                            queryBuilder: (eventsRecord) =>
+                                                                eventsRecord.where(
+                                                                    'dateEvent',
+                                                                    isGreaterThanOrEqualTo:
+                                                                        getCurrentTimestamp),
+                                                            limit: 5,
+                                                          ),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  child:
+                                                                      CircularProgressIndicator(
+                                                                    valueColor:
+                                                                        AlwaysStoppedAnimation<
+                                                                            Color>(
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
-                                                            );
-                                                          }
-                                                          List<EventsRecord>
-                                                              otherEventsListEventsRecordList =
-                                                              snapshot.data!;
-                                                          return SingleChildScrollView(
-                                                            scrollDirection:
-                                                                Axis.horizontal,
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceAround,
-                                                              children: List.generate(
-                                                                  otherEventsListEventsRecordList
-                                                                      .length,
-                                                                  (otherEventsListIndex) {
-                                                                final otherEventsListEventsRecord =
-                                                                    otherEventsListEventsRecordList[
-                                                                        otherEventsListIndex];
-                                                                return Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          0.0,
-                                                                          8.0,
-                                                                          8.0),
-                                                                  child: StreamBuilder<
-                                                                      EstablishmentsRecord>(
-                                                                    stream: EstablishmentsRecord.getDocument(
-                                                                        otherEventsListEventsRecord
-                                                                            .establishmentId!),
-                                                                    builder:
-                                                                        (context,
-                                                                            snapshot) {
-                                                                      // Customize what your widget looks like when it's loading.
-                                                                      if (!snapshot
-                                                                          .hasData) {
-                                                                        return Center(
-                                                                          child:
-                                                                              SizedBox(
-                                                                            width:
-                                                                                30.0,
-                                                                            height:
-                                                                                30.0,
+                                                              );
+                                                            }
+                                                            List<EventsRecord>
+                                                                otherEventsListEventsRecordList =
+                                                                snapshot.data!;
+                                                            return SingleChildScrollView(
+                                                              scrollDirection:
+                                                                  Axis.horizontal,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceAround,
+                                                                children: List.generate(
+                                                                    otherEventsListEventsRecordList
+                                                                        .length,
+                                                                    (otherEventsListIndex) {
+                                                                  final otherEventsListEventsRecord =
+                                                                      otherEventsListEventsRecordList[
+                                                                          otherEventsListIndex];
+                                                                  return Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            8.0),
+                                                                    child: StreamBuilder<
+                                                                        EstablishmentsRecord>(
+                                                                      stream: EstablishmentsRecord.getDocument(
+                                                                          otherEventsListEventsRecord
+                                                                              .establishmentId!),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
                                                                             child:
-                                                                                CircularProgressIndicator(
-                                                                              valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                SizedBox(
+                                                                              width: 30.0,
+                                                                              height: 30.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).primary,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        final cardEstablishmentEstablishmentsRecord =
+                                                                            snapshot.data!;
+                                                                        return InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            logFirebaseEvent('SHOW_OF_EVENTS_CardEstablishment_ON_TAP');
+                                                                            logFirebaseEvent('CardEstablishment_navigate_to');
+
+                                                                            context.pushNamed(
+                                                                              'ShowOfEvents',
+                                                                              queryParameters: {
+                                                                                'showOfEvents': serializeParam(
+                                                                                  otherEventsListEventsRecord.reference,
+                                                                                  ParamType.DocumentReference,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                            );
+                                                                          },
+                                                                          child:
+                                                                              Material(
+                                                                            color:
+                                                                                Colors.transparent,
+                                                                            elevation:
+                                                                                1.0,
+                                                                            shape:
+                                                                                RoundedRectangleBorder(
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                            ),
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.18,
+                                                                              height: 240.0,
+                                                                              decoration: BoxDecoration(
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                borderRadius: BorderRadius.circular(8.0),
+                                                                              ),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  StreamBuilder<List<MediaRecord>>(
+                                                                                    stream: queryMediaRecord(
+                                                                                      parent: otherEventsListEventsRecord.reference,
+                                                                                      singleRecord: true,
+                                                                                    ),
+                                                                                    builder: (context, snapshot) {
+                                                                                      // Customize what your widget looks like when it's loading.
+                                                                                      if (!snapshot.hasData) {
+                                                                                        return Center(
+                                                                                          child: SizedBox(
+                                                                                            width: 30.0,
+                                                                                            height: 30.0,
+                                                                                            child: CircularProgressIndicator(
+                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      }
+                                                                                      List<MediaRecord> containerMediaRecordList = snapshot.data!;
+                                                                                      final containerMediaRecord = containerMediaRecordList.isNotEmpty ? containerMediaRecordList.first : null;
+                                                                                      return Container(
+                                                                                        height: 160.0,
+                                                                                        decoration: BoxDecoration(
+                                                                                          borderRadius: BorderRadius.only(
+                                                                                            bottomLeft: Radius.circular(0.0),
+                                                                                            bottomRight: Radius.circular(0.0),
+                                                                                            topLeft: Radius.circular(8.0),
+                                                                                            topRight: Radius.circular(8.0),
+                                                                                          ),
+                                                                                        ),
+                                                                                        child: ClipRRect(
+                                                                                          borderRadius: BorderRadius.only(
+                                                                                            bottomLeft: Radius.circular(0.0),
+                                                                                            bottomRight: Radius.circular(0.0),
+                                                                                            topLeft: Radius.circular(8.0),
+                                                                                            topRight: Radius.circular(8.0),
+                                                                                          ),
+                                                                                          child: Image.network(
+                                                                                            valueOrDefault<String>(
+                                                                                              containerMediaRecord?.image,
+                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                            ),
+                                                                                            width: double.infinity,
+                                                                                            height: 160.0,
+                                                                                            fit: BoxFit.cover,
+                                                                                          ),
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: [
+                                                                                          AutoSizeText(
+                                                                                            otherEventsListEventsRecord.title,
+                                                                                            maxLines: 1,
+                                                                                            style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  fontWeight: FontWeight.w600,
+                                                                                                ),
+                                                                                          ),
+                                                                                          StreamBuilder<List<ScheduleEventRecord>>(
+                                                                                            stream: queryScheduleEventRecord(
+                                                                                              parent: otherEventsListEventsRecord.reference,
+                                                                                              singleRecord: true,
+                                                                                            ),
+                                                                                            builder: (context, snapshot) {
+                                                                                              // Customize what your widget looks like when it's loading.
+                                                                                              if (!snapshot.hasData) {
+                                                                                                return Center(
+                                                                                                  child: SizedBox(
+                                                                                                    width: 30.0,
+                                                                                                    height: 30.0,
+                                                                                                    child: CircularProgressIndicator(
+                                                                                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                        FlutterFlowTheme.of(context).primary,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                );
+                                                                                              }
+                                                                                              List<ScheduleEventRecord> dateScheduleEventRecordList = snapshot.data!;
+                                                                                              final dateScheduleEventRecord = dateScheduleEventRecordList.isNotEmpty ? dateScheduleEventRecordList.first : null;
+                                                                                              return Text(
+                                                                                                valueOrDefault<String>(
+                                                                                                  '${dateTimeFormat(
+                                                                                                    'd/M/y',
+                                                                                                    dateScheduleEventRecord?.date,
+                                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                                                  )}  ${dateTimeFormat(
+                                                                                                    'Hm',
+                                                                                                    dateScheduleEventRecord?.scheduleStart,
+                                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                                                  )}-${dateTimeFormat(
+                                                                                                    'Hm',
+                                                                                                    dateScheduleEventRecord?.scheduleEnd,
+                                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                                                  )}',
+                                                                                                  'Aucune horaire !',
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              );
+                                                                                            },
+                                                                                          ),
+                                                                                          Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            children: [
+                                                                                              Expanded(
+                                                                                                child: Text(
+                                                                                                  cardEstablishmentEstablishmentsRecord.name,
+                                                                                                  textAlign: TextAlign.start,
+                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                        fontFamily: 'Open Sans',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
                                                                               ),
                                                                             ),
                                                                           ),
                                                                         );
-                                                                      }
-                                                                      final cardEstablishmentEstablishmentsRecord =
-                                                                          snapshot
-                                                                              .data!;
-                                                                      return InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          logFirebaseEvent(
-                                                                              'SHOW_OF_EVENTS_CardEstablishment_ON_TAP');
-                                                                          logFirebaseEvent(
-                                                                              'CardEstablishment_navigate_to');
-
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'ShowOfEvents',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'showOfEvents': serializeParam(
-                                                                                otherEventsListEventsRecord.reference,
-                                                                                ParamType.DocumentReference,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                          );
-                                                                        },
-                                                                        child:
-                                                                            Material(
-                                                                          color:
-                                                                              Colors.transparent,
-                                                                          elevation:
-                                                                              1.0,
-                                                                          shape:
-                                                                              RoundedRectangleBorder(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                          ),
-                                                                          child:
-                                                                              Container(
-                                                                            width:
-                                                                                180.0,
-                                                                            height:
-                                                                                240.0,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              borderRadius: BorderRadius.circular(8.0),
-                                                                            ),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                StreamBuilder<List<MediaRecord>>(
-                                                                                  stream: queryMediaRecord(
-                                                                                    parent: otherEventsListEventsRecord.reference,
-                                                                                    singleRecord: true,
-                                                                                  ),
-                                                                                  builder: (context, snapshot) {
-                                                                                    // Customize what your widget looks like when it's loading.
-                                                                                    if (!snapshot.hasData) {
-                                                                                      return Center(
-                                                                                        child: SizedBox(
-                                                                                          width: 30.0,
-                                                                                          height: 30.0,
-                                                                                          child: CircularProgressIndicator(
-                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                              FlutterFlowTheme.of(context).primary,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      );
-                                                                                    }
-                                                                                    List<MediaRecord> containerMediaRecordList = snapshot.data!;
-                                                                                    final containerMediaRecord = containerMediaRecordList.isNotEmpty ? containerMediaRecordList.first : null;
-                                                                                    return Container(
-                                                                                      height: 160.0,
-                                                                                      decoration: BoxDecoration(
-                                                                                        borderRadius: BorderRadius.only(
-                                                                                          bottomLeft: Radius.circular(0.0),
-                                                                                          bottomRight: Radius.circular(0.0),
-                                                                                          topLeft: Radius.circular(8.0),
-                                                                                          topRight: Radius.circular(8.0),
-                                                                                        ),
-                                                                                      ),
-                                                                                      child: ClipRRect(
-                                                                                        borderRadius: BorderRadius.only(
-                                                                                          bottomLeft: Radius.circular(0.0),
-                                                                                          bottomRight: Radius.circular(0.0),
-                                                                                          topLeft: Radius.circular(8.0),
-                                                                                          topRight: Radius.circular(8.0),
-                                                                                        ),
-                                                                                        child: Image.network(
-                                                                                          valueOrDefault<String>(
-                                                                                            containerMediaRecord?.image,
-                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                          ),
-                                                                                          width: double.infinity,
-                                                                                          height: 160.0,
-                                                                                          fit: BoxFit.cover,
-                                                                                        ),
-                                                                                      ),
-                                                                                    );
-                                                                                  },
-                                                                                ),
-                                                                                Expanded(
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                      children: [
-                                                                                        AutoSizeText(
-                                                                                          otherEventsListEventsRecord.title,
-                                                                                          maxLines: 1,
-                                                                                          style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                fontFamily: 'Poppins',
-                                                                                                fontWeight: FontWeight.w600,
-                                                                                              ),
-                                                                                        ),
-                                                                                        StreamBuilder<List<ScheduleEventRecord>>(
-                                                                                          stream: queryScheduleEventRecord(
-                                                                                            parent: otherEventsListEventsRecord.reference,
-                                                                                            singleRecord: true,
-                                                                                          ),
-                                                                                          builder: (context, snapshot) {
-                                                                                            // Customize what your widget looks like when it's loading.
-                                                                                            if (!snapshot.hasData) {
-                                                                                              return Center(
-                                                                                                child: SizedBox(
-                                                                                                  width: 30.0,
-                                                                                                  height: 30.0,
-                                                                                                  child: CircularProgressIndicator(
-                                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                                      FlutterFlowTheme.of(context).primary,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              );
-                                                                                            }
-                                                                                            List<ScheduleEventRecord> dateScheduleEventRecordList = snapshot.data!;
-                                                                                            final dateScheduleEventRecord = dateScheduleEventRecordList.isNotEmpty ? dateScheduleEventRecordList.first : null;
-                                                                                            return Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '${dateTimeFormat(
-                                                                                                  'd/M/y',
-                                                                                                  dateScheduleEventRecord?.date,
-                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                )}  ${dateTimeFormat(
-                                                                                                  'Hm',
-                                                                                                  dateScheduleEventRecord?.scheduleStart,
-                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                )}-${dateTimeFormat(
-                                                                                                  'Hm',
-                                                                                                  dateScheduleEventRecord?.scheduleEnd,
-                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                )}',
-                                                                                                'Aucune horaire !',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
-                                                                                            );
-                                                                                          },
-                                                                                        ),
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            Expanded(
-                                                                                              child: Text(
-                                                                                                cardEstablishmentEstablishmentsRecord.name,
-                                                                                                textAlign: TextAlign.start,
-                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                      fontFamily: 'Open Sans',
-                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                  ),
-                                                                );
-                                                              }),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ),
-                                                    ],
+                                                                      },
+                                                                    ),
+                                                                  );
+                                                                }),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
                                             ].divide(SizedBox(height: 15.0)),
                                           ),
                                         );

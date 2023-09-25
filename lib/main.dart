@@ -197,7 +197,7 @@ class _NavBarPageState extends State<NavBarPage> {
           tabs: [
             GButton(
               icon: currentIndex == 0 ? Icons.person : Icons.person,
-              text: 'Profile',
+              text: 'Profil',
               iconSize: 30.0,
             ),
             GButton(
