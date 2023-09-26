@@ -268,135 +268,26 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                         ),
                                                         child: Stack(
                                                           children: [
-                                                            Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: 300.0,
-                                                              child: Stack(
-                                                                children: [
-                                                                  PageView(
-                                                                    controller: _model
-                                                                            .pageViewController1 ??=
-                                                                        PageController(
-                                                                            initialPage:
-                                                                                0),
-                                                                    onPageChanged: (_) =>
-                                                                        setState(
-                                                                            () {}),
-                                                                    scrollDirection:
-                                                                        Axis.horizontal,
-                                                                    children: [
-                                                                      ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(8.0),
-                                                                        child: Image
-                                                                            .network(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            imagesEventMediaRecord?.image,
-                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                          ),
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 1.0,
-                                                                          height:
-                                                                              300.0,
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            1.0,
-                                                                        height:
-                                                                            300.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        child:
-                                                                            FlutterFlowVideoPlayer(
-                                                                          path:
-                                                                              valueOrDefault<String>(
-                                                                            imagesEventMediaRecord?.video,
-                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                          ),
-                                                                          videoType:
-                                                                              VideoType.network,
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 1.0,
-                                                                          height:
-                                                                              300.0,
-                                                                          autoPlay:
-                                                                              true,
-                                                                          looping:
-                                                                              true,
-                                                                          showControls:
-                                                                              false,
-                                                                          allowFullScreen:
-                                                                              false,
-                                                                          allowPlaybackSpeedMenu:
-                                                                              false,
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.00,
-                                                                            1.00),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          16.0),
-                                                                      child: smooth_page_indicator
-                                                                          .SmoothPageIndicator(
-                                                                        controller:
-                                                                            _model.pageViewController1 ??=
-                                                                                PageController(initialPage: 0),
-                                                                        count:
-                                                                            2,
-                                                                        axisDirection:
-                                                                            Axis.horizontal,
-                                                                        onDotClicked:
-                                                                            (i) async {
-                                                                          await _model
-                                                                              .pageViewController1!
-                                                                              .animateToPage(
-                                                                            i,
-                                                                            duration:
-                                                                                Duration(milliseconds: 500),
-                                                                            curve:
-                                                                                Curves.ease,
-                                                                          );
-                                                                        },
-                                                                        effect:
-                                                                            smooth_page_indicator.ExpandingDotsEffect(
-                                                                          expansionFactor:
-                                                                              3.0,
-                                                                          spacing:
-                                                                              8.0,
-                                                                          radius:
-                                                                              16.0,
-                                                                          dotWidth:
-                                                                              16.0,
-                                                                          dotHeight:
-                                                                              8.0,
-                                                                          dotColor:
-                                                                              FlutterFlowTheme.of(context).primaryTransparent,
-                                                                          activeDotColor:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          paintStyle:
-                                                                              PaintingStyle.fill,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
+                                                            ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              child:
+                                                                  Image.network(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  imagesEventMediaRecord
+                                                                      ?.image,
+                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                ),
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    1.0,
+                                                                height: 300.0,
+                                                                fit: BoxFit
+                                                                    .cover,
                                                               ),
                                                             ),
                                                             Align(
@@ -2815,7 +2706,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                 children: [
                                                                   PageView(
                                                                     controller: _model
-                                                                            .pageViewController2 ??=
+                                                                            .pageViewController ??=
                                                                         PageController(
                                                                             initialPage:
                                                                                 0),
@@ -2893,7 +2784,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       child: smooth_page_indicator
                                                                           .SmoothPageIndicator(
                                                                         controller:
-                                                                            _model.pageViewController2 ??=
+                                                                            _model.pageViewController ??=
                                                                                 PageController(initialPage: 0),
                                                                         count:
                                                                             2,
@@ -2902,7 +2793,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                         onDotClicked:
                                                                             (i) async {
                                                                           await _model
-                                                                              .pageViewController2!
+                                                                              .pageViewController!
                                                                               .animateToPage(
                                                                             i,
                                                                             duration:

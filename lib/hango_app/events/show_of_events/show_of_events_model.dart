@@ -32,14 +32,6 @@ class ShowOfEventsModel extends FlutterFlowModel {
   final unfocusNode = FocusNode();
   // Model for SideNavWeb component.
   late SideNavWebModel sideNavWebModel;
-  // State field(s) for PageView widget.
-  PageController? pageViewController1;
-
-  int get pageViewCurrentIndex1 => pageViewController1 != null &&
-          pageViewController1!.hasClients &&
-          pageViewController1!.page != null
-      ? pageViewController1!.page!.round()
-      : 0;
   // Stores action output result for [Backend Call - API (Send Email)] action in Button widget.
   ApiCallResponse? sendingEmailPromotion;
   // State field(s) for Timer widget.
@@ -56,12 +48,12 @@ class ShowOfEventsModel extends FlutterFlowModel {
   LatLng? googleMapsCenter1;
   final googleMapsController1 = Completer<GoogleMapController>();
   // State field(s) for PageView widget.
-  PageController? pageViewController2;
+  PageController? pageViewController;
 
-  int get pageViewCurrentIndex2 => pageViewController2 != null &&
-          pageViewController2!.hasClients &&
-          pageViewController2!.page != null
-      ? pageViewController2!.page!.round()
+  int get pageViewCurrentIndex => pageViewController != null &&
+          pageViewController!.hasClients &&
+          pageViewController!.page != null
+      ? pageViewController!.page!.round()
       : 0;
   String currentPageLink = '';
   // Stores action output result for [Backend Call - API (Send Email)] action in Button widget.
