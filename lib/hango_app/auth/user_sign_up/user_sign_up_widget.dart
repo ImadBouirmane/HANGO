@@ -544,7 +544,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
-                                                        hintText: 'Genre *',
+                                                        hintText: 'Genre ',
                                                         icon: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_rounded,
@@ -2005,7 +2005,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
-                                                        hintText: 'Genre *',
+                                                        hintText: 'Genre ',
                                                         icon: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_rounded,
