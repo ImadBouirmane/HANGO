@@ -63,6 +63,8 @@
     <string>Notre application nécessite l&#39;accès à votre bibliothèque de photos pour vous permettre de sélectionner et télécharger des photos ou des vidéos existantes depuis votre appareil. Cela vous permet de partager des photos ou des vidéos avec d&#39;autres, de les utiliser dans des présentations, ou de les attacher à votre travail au sein de l&#39;application.</string>
 	<key>NSCalendarsUsageDescription</key>
     <string>L'application pourra avoir inserez une date specifique dans le remplissage du votre profile et autre chose convienent.</string>
+	<key>PermissionGroupNotification</key>
+    <string>Notre application necessite l'acces a votre notifications pour ous envoyer des notifications sur les événements à venir, les nouveaux messages et d'autres mises à jour importantes.</string>
 
     <key>LSApplicationQueriesSchemes</key>
     <array>
