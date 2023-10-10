@@ -47,7 +47,7 @@ class _ListOfEstablishmentsWidgetState
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('LIST_OF_ESTABLISHMENTS_ListOfEstablishme');
-      logFirebaseEvent('ListOfEstablishments_update_widget_state');
+      logFirebaseEvent('ListOfEstablishments_update_page_state');
       setState(() {
         _model.filterOnEstMobile = true;
         _model.filterOffEstMobile = false;
@@ -99,8 +99,9 @@ class _ListOfEstablishmentsWidgetState
             title: 'ListOfEstablishments',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: WillPopScope(
                 onWillPop: () async => false,
                 child: Scaffold(
@@ -767,7 +768,7 @@ class _ListOfEstablishmentsWidgetState
                                                           logFirebaseEvent(
                                                               'LIST_OF_ESTABLISHMENTS_estblishmentSearc');
                                                           logFirebaseEvent(
-                                                              'estblishmentSearch_update_widget_state');
+                                                              'estblishmentSearch_update_page_state');
                                                           setState(() {
                                                             _model.searchStateMobile =
                                                                 true;
@@ -957,7 +958,7 @@ class _ListOfEstablishmentsWidgetState
                                                             logFirebaseEvent(
                                                                 'LIST_OF_ESTABLISHMENTS_filter_list_sharp');
                                                             logFirebaseEvent(
-                                                                'IconButton_update_widget_state');
+                                                                'IconButton_update_page_state');
                                                             setState(() {
                                                               _model.filterOffEstMobile =
                                                                   false;
@@ -992,7 +993,7 @@ class _ListOfEstablishmentsWidgetState
                                                             logFirebaseEvent(
                                                                 'LIST_OF_ESTABLISHMENTS_clear_ICN_ON_TAP');
                                                             logFirebaseEvent(
-                                                                'IconButton_update_widget_state');
+                                                                'IconButton_update_page_state');
                                                             setState(() {
                                                               _model.filterOnEstMobile =
                                                                   false;
@@ -1010,10 +1011,12 @@ class _ListOfEstablishmentsWidgetState
                                                   ),
                                                 ].divide(SizedBox(width: 5.0)),
                                               ),
-                                              if (_model.filterOnEstMobile ==
-                                                      true
-                                                  ? true
-                                                  : false)
+                                              if (valueOrDefault<bool>(
+                                                _model.filterOnEstMobile == true
+                                                    ? true
+                                                    : false,
+                                                false,
+                                              ))
                                                 Wrap(
                                                   spacing: 5.0,
                                                   runSpacing: 5.0,
@@ -1097,7 +1100,7 @@ class _ListOfEstablishmentsWidgetState
                                                                     logFirebaseEvent(
                                                                         'LIST_OF_ESTABLISHMENTS_typeEstablishment');
                                                                     logFirebaseEvent(
-                                                                        'typeEstablishmentChoices_update_widget_s');
+                                                                        'typeEstablishmentChoices_update_page_sta');
                                                                     setState(
                                                                         () {
                                                                       _model.searchStateMobile =
@@ -1280,7 +1283,7 @@ class _ListOfEstablishmentsWidgetState
                                                                     logFirebaseEvent(
                                                                         'LIST_OF_ESTABLISHMENTS_musicStyleEstabli');
                                                                     logFirebaseEvent(
-                                                                        'musicStyleEstablishmentChoices_update_wi');
+                                                                        'musicStyleEstablishmentChoices_update_pa');
                                                                     setState(
                                                                         () {
                                                                       _model.searchStateMobile =
@@ -1409,9 +1412,11 @@ class _ListOfEstablishmentsWidgetState
                                                       .setListEstablishmentsQueryController1(
                                                     EstablishmentsRecord
                                                         .collection
-                                                        .where('type',
-                                                            arrayContains: _model
-                                                                .typeEstablishmentChoicesValue1)
+                                                        .where(
+                                                          'type',
+                                                          arrayContains: _model
+                                                              .typeEstablishmentChoicesValue1,
+                                                        )
                                                         .orderBy(
                                                             'created_time'),
                                                   ),
@@ -1915,9 +1920,11 @@ class _ListOfEstablishmentsWidgetState
                                                       .setListEstablishmentsQueryMusicFilterController1(
                                                     EstablishmentsRecord
                                                         .collection
-                                                        .where('music_style',
-                                                            arrayContains: _model
-                                                                .musicStyleEstablishmentChoicesValue1)
+                                                        .where(
+                                                          'music_style',
+                                                          arrayContains: _model
+                                                              .musicStyleEstablishmentChoicesValue1,
+                                                        )
                                                         .orderBy(
                                                             'created_time'),
                                                   ),
@@ -2386,12 +2393,48 @@ class _ListOfEstablishmentsWidgetState
                                                           false)
                                                   ? true
                                                   : false)
-                                                Builder(
-                                                  builder: (context) {
-                                                    final searchResults = _model
-                                                        .simpleSearchResults1
-                                                        .map((e) => e)
-                                                        .toList();
+                                                FutureBuilder<
+                                                    List<EstablishmentsRecord>>(
+                                                  future: EstablishmentsRecord
+                                                      .search(
+                                                    term: _model
+                                                        .estblishmentSearchController1
+                                                        .text,
+                                                  ),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 30.0,
+                                                          height: 30.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    List<EstablishmentsRecord>
+                                                        listEstablishmentsSearchResultsEstablishmentsRecordList =
+                                                        snapshot.data!;
+                                                    // Customize what your widget looks like with no search results.
+                                                    if (snapshot
+                                                        .data!.isEmpty) {
+                                                      return Container(
+                                                        height: 100,
+                                                        child: Center(
+                                                          child: Text(
+                                                              'No results.'),
+                                                        ),
+                                                      );
+                                                    }
                                                     return ListView.builder(
                                                       padding: EdgeInsets.zero,
                                                       primary: false,
@@ -2399,12 +2442,13 @@ class _ListOfEstablishmentsWidgetState
                                                       scrollDirection:
                                                           Axis.vertical,
                                                       itemCount:
-                                                          searchResults.length,
+                                                          listEstablishmentsSearchResultsEstablishmentsRecordList
+                                                              .length,
                                                       itemBuilder: (context,
-                                                          searchResultsIndex) {
-                                                        final searchResultsItem =
-                                                            searchResults[
-                                                                searchResultsIndex];
+                                                          listEstablishmentsSearchResultsIndex) {
+                                                        final listEstablishmentsSearchResultsEstablishmentsRecord =
+                                                            listEstablishmentsSearchResultsEstablishmentsRecordList[
+                                                                listEstablishmentsSearchResultsIndex];
                                                         return Align(
                                                           alignment:
                                                               AlignmentDirectional(
@@ -2440,7 +2484,7 @@ class _ListOfEstablishmentsWidgetState
                                                                       {
                                                                     'establishmentDetails':
                                                                         serializeParam(
-                                                                      searchResultsItem
+                                                                      listEstablishmentsSearchResultsEstablishmentsRecord
                                                                           .reference,
                                                                       ParamType
                                                                           .DocumentReference,
@@ -2473,7 +2517,7 @@ class _ListOfEstablishmentsWidgetState
                                                                       stream:
                                                                           queryImagesRecord(
                                                                         parent:
-                                                                            searchResultsItem.reference,
+                                                                            listEstablishmentsSearchResultsEstablishmentsRecord.reference,
                                                                         singleRecord:
                                                                             true,
                                                                       ),
@@ -2598,7 +2642,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                       Padding(
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                                                                                         child: Text(
-                                                                                          searchResultsItem.name,
+                                                                                          listEstablishmentsSearchResultsEstablishmentsRecord.name,
                                                                                           style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                 fontFamily: 'Poppins',
                                                                                                 fontWeight: FontWeight.w600,
@@ -2625,10 +2669,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                           ),
                                                                                         ),
                                                                                         Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            searchResultsItem.musicStyle.first,
-                                                                                            '*',
-                                                                                          ),
+                                                                                          listEstablishmentsSearchResultsEstablishmentsRecord.musicStyle.first,
                                                                                           style: FlutterFlowTheme.of(context).labelMedium,
                                                                                         ),
                                                                                       ],
@@ -2654,16 +2695,13 @@ class _ListOfEstablishmentsWidgetState
                                                                                             ),
                                                                                           ),
                                                                                           Text(
-                                                                                            valueOrDefault<String>(
-                                                                                              searchResultsItem.type.first,
-                                                                                              '*',
-                                                                                            ),
+                                                                                            listEstablishmentsSearchResultsEstablishmentsRecord.type.first,
                                                                                             style: FlutterFlowTheme.of(context).labelMedium,
                                                                                           ),
                                                                                         ],
                                                                                       ),
                                                                                       Text(
-                                                                                        searchResultsItem.adresse.city,
+                                                                                        listEstablishmentsSearchResultsEstablishmentsRecord.adresse.city,
                                                                                         style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                               fontFamily: 'Poppins',
                                                                                               fontWeight: FontWeight.w600,
@@ -2756,7 +2794,7 @@ class _ListOfEstablishmentsWidgetState
                                                             logFirebaseEvent(
                                                                 'LIST_OF_ESTABLISHMENTS_estblishmentSearc');
                                                             logFirebaseEvent(
-                                                                'estblishmentSearch_update_widget_state');
+                                                                'estblishmentSearch_update_page_state');
                                                             setState(() {
                                                               _model.musicFilterWeb =
                                                                   false;
@@ -2947,7 +2985,7 @@ class _ListOfEstablishmentsWidgetState
                                                               logFirebaseEvent(
                                                                   'LIST_OF_ESTABLISHMENTS_filter_list_sharp');
                                                               logFirebaseEvent(
-                                                                  'IconButton_update_widget_state');
+                                                                  'IconButton_update_page_state');
                                                               setState(() {
                                                                 _model.filterOnEstWeb =
                                                                     true;
@@ -2981,7 +3019,7 @@ class _ListOfEstablishmentsWidgetState
                                                               logFirebaseEvent(
                                                                   'LIST_OF_ESTABLISHMENTS_clear_ICN_ON_TAP');
                                                               logFirebaseEvent(
-                                                                  'IconButton_update_widget_state');
+                                                                  'IconButton_update_page_state');
                                                               setState(() {
                                                                 _model.filterOnEstWeb =
                                                                     false;
@@ -3107,7 +3145,7 @@ class _ListOfEstablishmentsWidgetState
                                                                         logFirebaseEvent(
                                                                             'LIST_OF_ESTABLISHMENTS_typeEstablishment');
                                                                         logFirebaseEvent(
-                                                                            'typeEstablishmentChoices_update_widget_s');
+                                                                            'typeEstablishmentChoices_update_page_sta');
                                                                         setState(
                                                                             () {
                                                                           _model.searchStateWeb =
@@ -3281,7 +3319,7 @@ class _ListOfEstablishmentsWidgetState
                                                                         logFirebaseEvent(
                                                                             'LIST_OF_ESTABLISHMENTS_musicStyleEstabli');
                                                                         logFirebaseEvent(
-                                                                            'musicStyleEstablishmentChoices_update_wi');
+                                                                            'musicStyleEstablishmentChoices_update_pa');
                                                                         setState(
                                                                             () {
                                                                           _model.musicFilterWeb =
@@ -3409,9 +3447,11 @@ class _ListOfEstablishmentsWidgetState
                                                         .setListEstablishmentsQueryController2(
                                                       EstablishmentsRecord
                                                           .collection
-                                                          .where('type',
-                                                              arrayContains: _model
-                                                                  .typeEstablishmentChoicesValue2)
+                                                          .where(
+                                                            'type',
+                                                            arrayContains: _model
+                                                                .typeEstablishmentChoicesValue2,
+                                                          )
                                                           .orderBy(
                                                               'created_time'),
                                                     ),
@@ -3918,9 +3958,11 @@ class _ListOfEstablishmentsWidgetState
                                                         .setListEstablishmentsQueryMusicFilterController2(
                                                       EstablishmentsRecord
                                                           .collection
-                                                          .where('music_style',
-                                                              arrayContains: _model
-                                                                  .musicStyleEstablishmentChoicesValue2)
+                                                          .where(
+                                                            'music_style',
+                                                            arrayContains: _model
+                                                                .musicStyleEstablishmentChoicesValue2,
+                                                          )
                                                           .orderBy(
                                                               'created_time'),
                                                     ),

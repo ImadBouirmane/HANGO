@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'update_est_step3_widget.dart' show UpdateEstStep3Widget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -16,7 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class UpdateEstStep3Model extends FlutterFlowModel {
+class UpdateEstStep3Model extends FlutterFlowModel<UpdateEstStep3Widget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

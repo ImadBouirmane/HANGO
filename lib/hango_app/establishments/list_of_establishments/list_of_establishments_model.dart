@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'list_of_establishments_widget.dart' show ListOfEstablishmentsWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +22,13 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 
-class ListOfEstablishmentsModel extends FlutterFlowModel {
+class ListOfEstablishmentsModel
+    extends FlutterFlowModel<ListOfEstablishmentsWidget> {
   ///  Local state fields for this page.
 
   bool filterOnEstMobile = false;
 
-  bool filterOffEstMobile = false;
+  bool filterOffEstMobile = true;
 
   bool searchStateMobile = false;
 
@@ -36,7 +38,7 @@ class ListOfEstablishmentsModel extends FlutterFlowModel {
 
   bool filterOnEstWeb = false;
 
-  bool filterOffEstWeb = false;
+  bool filterOffEstWeb = true;
 
   bool searchStateWeb = false;
 

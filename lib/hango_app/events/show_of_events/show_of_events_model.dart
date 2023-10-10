@@ -15,6 +15,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'show_of_events_widget.dart' show ShowOfEventsWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
@@ -26,7 +27,7 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ShowOfEventsModel extends FlutterFlowModel {
+class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -41,8 +42,8 @@ class ShowOfEventsModel extends FlutterFlowModel {
     hours: false,
     milliSecond: false,
   );
-  StopWatchTimer timerController1 =
-      StopWatchTimer(mode: StopWatchMode.countDown);
+  FlutterFlowTimerController timerController1 =
+      FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter1;
@@ -65,8 +66,8 @@ class ShowOfEventsModel extends FlutterFlowModel {
     hours: false,
     milliSecond: false,
   );
-  StopWatchTimer timerController2 =
-      StopWatchTimer(mode: StopWatchMode.countDown);
+  FlutterFlowTimerController timerController2 =
+      FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter2;

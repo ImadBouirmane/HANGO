@@ -12,13 +12,14 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
 import 'dart:io';
+import 'update_est_step1_widget.dart' show UpdateEstStep1Widget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class UpdateEstStep1Model extends FlutterFlowModel {
+class UpdateEstStep1Model extends FlutterFlowModel<UpdateEstStep1Widget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

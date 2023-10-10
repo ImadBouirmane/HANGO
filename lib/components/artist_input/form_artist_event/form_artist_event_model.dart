@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'form_artist_event_widget.dart' show FormArtistEventWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
@@ -14,7 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class FormArtistEventModel extends FlutterFlowModel {
+class FormArtistEventModel extends FlutterFlowModel<FormArtistEventWidget> {
   ///  Local state fields for this component.
 
   List<ArtistStruct> artistsListInput = [];
@@ -23,6 +24,8 @@ class FormArtistEventModel extends FlutterFlowModel {
       artistsListInput.remove(item);
   void removeAtIndexFromArtistsListInput(int index) =>
       artistsListInput.removeAt(index);
+  void insertAtIndexInArtistsListInput(int index, ArtistStruct item) =>
+      artistsListInput.insert(index, item);
   void updateArtistsListInputAtIndex(
           int index, Function(ArtistStruct) updateFn) =>
       artistsListInput[index] = updateFn(artistsListInput[index]);

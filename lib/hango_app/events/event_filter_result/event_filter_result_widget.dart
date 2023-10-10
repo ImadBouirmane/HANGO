@@ -68,7 +68,9 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
         title: 'eventFilterResult',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+          onTap: () => _model.unfocusNode.canRequestFocus
+              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+              : FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -103,9 +105,14 @@ class _EventFilterResultWidgetState extends State<EventFilterResultWidget> {
                 child: PagedListView<DocumentSnapshot<Object?>?, EventsRecord>(
                   pagingController: _model.setListEventsController(
                     EventsRecord.collection
-                        .where('typeEvent', arrayContains: widget.themeEvent)
-                        .where('created_time',
-                            isGreaterThanOrEqualTo: getCurrentTimestamp),
+                        .where(
+                          'typeEvent',
+                          arrayContains: widget.themeEvent,
+                        )
+                        .where(
+                          'created_time',
+                          isGreaterThanOrEqualTo: getCurrentTimestamp,
+                        ),
                   ),
                   padding: EdgeInsets.zero,
                   primary: false,

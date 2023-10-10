@@ -7,13 +7,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'event_filter_result_widget.dart' show EventFilterResultWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-class EventFilterResultModel extends FlutterFlowModel {
+class EventFilterResultModel extends FlutterFlowModel<EventFilterResultWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

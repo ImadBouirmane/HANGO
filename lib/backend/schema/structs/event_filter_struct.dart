@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -141,6 +142,44 @@ class EventFilterStruct extends FFFirebaseStruct {
           data['booked'],
           ParamType.bool,
           false,
+        ),
+      );
+
+  static EventFilterStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      EventFilterStruct(
+        themeEvent: convertAlgoliaParam(
+          data['themeEvent'],
+          ParamType.String,
+          false,
+        ),
+        musicType: convertAlgoliaParam(
+          data['musicType'],
+          ParamType.String,
+          false,
+        ),
+        weekend: convertAlgoliaParam(
+          data['Weekend'],
+          ParamType.bool,
+          false,
+        ),
+        jeudredi: convertAlgoliaParam(
+          data['Jeudredi'],
+          ParamType.bool,
+          false,
+        ),
+        freeEnter: convertAlgoliaParam(
+          data['freeEnter'],
+          ParamType.bool,
+          false,
+        ),
+        booked: convertAlgoliaParam(
+          data['booked'],
+          ParamType.bool,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

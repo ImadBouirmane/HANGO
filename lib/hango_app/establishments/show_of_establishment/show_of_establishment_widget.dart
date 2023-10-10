@@ -86,8 +86,9 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
             title: 'ShowOfEstablishment',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 resizeToAvoidBottomInset: false,
@@ -1896,7 +1897,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent2,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -1931,7 +1940,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent2,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -1966,7 +1983,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent2,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -2001,7 +2026,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent2,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -2036,7 +2069,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent2,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -2071,7 +2112,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent2,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -2106,7 +2155,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent2,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -2677,297 +2734,303 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           BorderRadius.circular(
                                                               8.0),
                                                     ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .end,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              'Autres établissements',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    10.0,
+                                                                    10.0,
+                                                                    10.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Autres établissements',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
+                                                              ),
                                                             ),
-                                                          ),
-                                                          StreamBuilder<
-                                                              List<
-                                                                  EstablishmentsRecord>>(
-                                                            stream:
-                                                                queryEstablishmentsRecord(
-                                                              queryBuilder: (establishmentsRecord) =>
-                                                                  establishmentsRecord.orderBy(
-                                                                      'created_time',
-                                                                      descending:
-                                                                          true),
-                                                              limit: 5,
-                                                            ),
-                                                            builder: (context,
-                                                                snapshot) {
-                                                              // Customize what your widget looks like when it's loading.
-                                                              if (!snapshot
-                                                                  .hasData) {
-                                                                return Center(
-                                                                  child:
-                                                                      SizedBox(
-                                                                    width: 30.0,
-                                                                    height:
-                                                                        30.0,
+                                                            StreamBuilder<
+                                                                List<
+                                                                    EstablishmentsRecord>>(
+                                                              stream:
+                                                                  queryEstablishmentsRecord(
+                                                                queryBuilder: (establishmentsRecord) =>
+                                                                    establishmentsRecord.orderBy(
+                                                                        'created_time',
+                                                                        descending:
+                                                                            true),
+                                                                limit: 5,
+                                                              ),
+                                                              builder: (context,
+                                                                  snapshot) {
+                                                                // Customize what your widget looks like when it's loading.
+                                                                if (!snapshot
+                                                                    .hasData) {
+                                                                  return Center(
                                                                     child:
-                                                                        CircularProgressIndicator(
-                                                                      valueColor:
-                                                                          AlwaysStoppedAnimation<
-                                                                              Color>(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primary,
+                                                                        SizedBox(
+                                                                      width:
+                                                                          30.0,
+                                                                      height:
+                                                                          30.0,
+                                                                      child:
+                                                                          CircularProgressIndicator(
+                                                                        valueColor:
+                                                                            AlwaysStoppedAnimation<Color>(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                );
-                                                              }
-                                                              List<EstablishmentsRecord>
-                                                                  otherEstablishmentsListEstablishmentsRecordList =
-                                                                  snapshot
-                                                                      .data!;
-                                                              return SingleChildScrollView(
-                                                                scrollDirection:
-                                                                    Axis.horizontal,
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceAround,
-                                                                  children: List.generate(
-                                                                      otherEstablishmentsListEstablishmentsRecordList
-                                                                          .length,
-                                                                      (otherEstablishmentsListIndex) {
-                                                                    final otherEstablishmentsListEstablishmentsRecord =
-                                                                        otherEstablishmentsListEstablishmentsRecordList[
-                                                                            otherEstablishmentsListIndex];
-                                                                    return Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
-                                                                      child:
-                                                                          InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          logFirebaseEvent(
-                                                                              'SHOW_OF_ESTABLISHMENT_CardEstablishment_');
-                                                                          logFirebaseEvent(
-                                                                              'CardEstablishment_navigate_to');
-
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'ShowOfEstablishment',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'establishmentDetails': serializeParam(
-                                                                                otherEstablishmentsListEstablishmentsRecord.reference,
-                                                                                ParamType.DocumentReference,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                          );
-                                                                        },
+                                                                  );
+                                                                }
+                                                                List<EstablishmentsRecord>
+                                                                    otherEstablishmentsListEstablishmentsRecordList =
+                                                                    snapshot
+                                                                        .data!;
+                                                                return SingleChildScrollView(
+                                                                  scrollDirection:
+                                                                      Axis.horizontal,
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceAround,
+                                                                    children: List.generate(
+                                                                        otherEstablishmentsListEstablishmentsRecordList
+                                                                            .length,
+                                                                        (otherEstablishmentsListIndex) {
+                                                                      final otherEstablishmentsListEstablishmentsRecord =
+                                                                          otherEstablishmentsListEstablishmentsRecordList[
+                                                                              otherEstablishmentsListIndex];
+                                                                      return Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            4.0,
+                                                                            4.0,
+                                                                            4.0,
+                                                                            4.0),
                                                                         child:
-                                                                            Material(
-                                                                          color:
+                                                                            InkWell(
+                                                                          splashColor:
                                                                               Colors.transparent,
-                                                                          elevation:
-                                                                              1.0,
-                                                                          shape:
-                                                                              RoundedRectangleBorder(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                          ),
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            logFirebaseEvent('SHOW_OF_ESTABLISHMENT_CardEstablishment_');
+                                                                            logFirebaseEvent('CardEstablishment_navigate_to');
+
+                                                                            context.pushNamed(
+                                                                              'ShowOfEstablishment',
+                                                                              queryParameters: {
+                                                                                'establishmentDetails': serializeParam(
+                                                                                  otherEstablishmentsListEstablishmentsRecord.reference,
+                                                                                  ParamType.DocumentReference,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                            );
+                                                                          },
                                                                           child:
-                                                                              Container(
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 0.4,
-                                                                            height:
-                                                                                240.0,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              boxShadow: [
-                                                                                BoxShadow(
-                                                                                  blurRadius: 1.5,
-                                                                                  color: Color(0x33000000),
-                                                                                  offset: Offset(1.5, 1.5),
-                                                                                )
-                                                                              ],
+                                                                              Material(
+                                                                            color:
+                                                                                Colors.transparent,
+                                                                            elevation:
+                                                                                1.0,
+                                                                            shape:
+                                                                                RoundedRectangleBorder(
                                                                               borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                             child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                StreamBuilder<List<ImagesRecord>>(
-                                                                                  stream: queryImagesRecord(
-                                                                                    parent: otherEstablishmentsListEstablishmentsRecord.reference,
-                                                                                    singleRecord: true,
-                                                                                  ),
-                                                                                  builder: (context, snapshot) {
-                                                                                    // Customize what your widget looks like when it's loading.
-                                                                                    if (!snapshot.hasData) {
-                                                                                      return Center(
-                                                                                        child: SizedBox(
-                                                                                          width: 30.0,
-                                                                                          height: 30.0,
-                                                                                          child: CircularProgressIndicator(
-                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                              FlutterFlowTheme.of(context).primary,
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.4,
+                                                                              height: 240.0,
+                                                                              decoration: BoxDecoration(
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                boxShadow: [
+                                                                                  BoxShadow(
+                                                                                    blurRadius: 1.5,
+                                                                                    color: Color(0x33000000),
+                                                                                    offset: Offset(1.5, 1.5),
+                                                                                  )
+                                                                                ],
+                                                                                borderRadius: BorderRadius.circular(8.0),
+                                                                              ),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  StreamBuilder<List<ImagesRecord>>(
+                                                                                    stream: queryImagesRecord(
+                                                                                      parent: otherEstablishmentsListEstablishmentsRecord.reference,
+                                                                                      singleRecord: true,
+                                                                                    ),
+                                                                                    builder: (context, snapshot) {
+                                                                                      // Customize what your widget looks like when it's loading.
+                                                                                      if (!snapshot.hasData) {
+                                                                                        return Center(
+                                                                                          child: SizedBox(
+                                                                                            width: 30.0,
+                                                                                            height: 30.0,
+                                                                                            child: CircularProgressIndicator(
+                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                              ),
                                                                                             ),
                                                                                           ),
+                                                                                        );
+                                                                                      }
+                                                                                      List<ImagesRecord> imageImagesRecordList = snapshot.data!;
+                                                                                      final imageImagesRecord = imageImagesRecordList.isNotEmpty ? imageImagesRecordList.first : null;
+                                                                                      return ClipRRect(
+                                                                                        borderRadius: BorderRadius.only(
+                                                                                          bottomLeft: Radius.circular(0.0),
+                                                                                          bottomRight: Radius.circular(0.0),
+                                                                                          topLeft: Radius.circular(8.0),
+                                                                                          topRight: Radius.circular(8.0),
+                                                                                        ),
+                                                                                        child: Image.network(
+                                                                                          valueOrDefault<String>(
+                                                                                            imageImagesRecord?.image1 != null && imageImagesRecord?.image1 != ''
+                                                                                                ? valueOrDefault<String>(
+                                                                                                    imageImagesRecord?.image1,
+                                                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                                  )
+                                                                                                : null,
+                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                          ),
+                                                                                          width: MediaQuery.sizeOf(context).width * 0.4,
+                                                                                          height: 160.0,
+                                                                                          fit: BoxFit.cover,
                                                                                         ),
                                                                                       );
-                                                                                    }
-                                                                                    List<ImagesRecord> imageImagesRecordList = snapshot.data!;
-                                                                                    final imageImagesRecord = imageImagesRecordList.isNotEmpty ? imageImagesRecordList.first : null;
-                                                                                    return ClipRRect(
-                                                                                      borderRadius: BorderRadius.only(
-                                                                                        bottomLeft: Radius.circular(0.0),
-                                                                                        bottomRight: Radius.circular(0.0),
-                                                                                        topLeft: Radius.circular(8.0),
-                                                                                        topRight: Radius.circular(8.0),
-                                                                                      ),
-                                                                                      child: Image.network(
-                                                                                        valueOrDefault<String>(
-                                                                                          imageImagesRecord?.image1 != null && imageImagesRecord?.image1 != ''
-                                                                                              ? valueOrDefault<String>(
-                                                                                                  imageImagesRecord?.image1,
-                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                                )
-                                                                                              : null,
-                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                    },
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: Container(
+                                                                                      width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                      height: 100.0,
+                                                                                      decoration: BoxDecoration(
+                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                        borderRadius: BorderRadius.only(
+                                                                                          bottomLeft: Radius.circular(8.0),
+                                                                                          bottomRight: Radius.circular(8.0),
+                                                                                          topLeft: Radius.circular(0.0),
+                                                                                          topRight: Radius.circular(0.0),
                                                                                         ),
-                                                                                        width: MediaQuery.sizeOf(context).width * 0.4,
-                                                                                        height: 160.0,
-                                                                                        fit: BoxFit.cover,
                                                                                       ),
-                                                                                    );
-                                                                                  },
-                                                                                ),
-                                                                                Expanded(
-                                                                                  child: Container(
-                                                                                    width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                    height: 100.0,
-                                                                                    decoration: BoxDecoration(
-                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                      borderRadius: BorderRadius.only(
-                                                                                        bottomLeft: Radius.circular(8.0),
-                                                                                        bottomRight: Radius.circular(8.0),
-                                                                                        topLeft: Radius.circular(0.0),
-                                                                                        topRight: Radius.circular(0.0),
-                                                                                      ),
-                                                                                    ),
-                                                                                    child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 4.0),
-                                                                                      child: Column(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                        children: [
-                                                                                          AutoSizeText(
-                                                                                            otherEstablishmentsListEstablishmentsRecord.name,
-                                                                                            maxLines: 1,
-                                                                                            style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                  fontFamily: 'Poppins',
-                                                                                                  fontWeight: FontWeight.w600,
+                                                                                      child: Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 4.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                          children: [
+                                                                                            AutoSizeText(
+                                                                                              otherEstablishmentsListEstablishmentsRecord.name,
+                                                                                              maxLines: 1,
+                                                                                              style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                    fontFamily: 'Poppins',
+                                                                                                    fontWeight: FontWeight.w600,
+                                                                                                  ),
+                                                                                            ),
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                                              children: [
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                  child: Icon(
+                                                                                                    Icons.music_note_rounded,
+                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                    size: 18.0,
+                                                                                                  ),
                                                                                                 ),
-                                                                                          ),
-                                                                                          Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                child: Icon(
-                                                                                                  Icons.music_note_rounded,
-                                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                  size: 18.0,
+                                                                                                Text(
+                                                                                                  otherEstablishmentsListEstablishmentsRecord.musicStyle.first,
+                                                                                                  style: FlutterFlowTheme.of(context).labelMedium,
                                                                                                 ),
-                                                                                              ),
-                                                                                              Text(
-                                                                                                otherEstablishmentsListEstablishmentsRecord.musicStyle.first,
-                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                          Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                                child: Icon(
-                                                                                                  Icons.home_work_sharp,
-                                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                  size: 18.0,
+                                                                                              ],
+                                                                                            ),
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                                  child: Icon(
+                                                                                                    Icons.home_work_sharp,
+                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                    size: 18.0,
+                                                                                                  ),
                                                                                                 ),
-                                                                                              ),
-                                                                                              Text(
-                                                                                                otherEstablishmentsListEstablishmentsRecord.type.first,
-                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ],
+                                                                                                Text(
+                                                                                                  otherEstablishmentsListEstablishmentsRecord.type.first,
+                                                                                                  style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                ),
-                                                                              ],
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                    );
-                                                                  }),
-                                                                ),
-                                                              );
-                                                            },
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            height: 10.0)),
+                                                                      );
+                                                                    }),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ),
+                                                          ].divide(SizedBox(
+                                                              height: 10.0)),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -5630,7 +5693,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                             ),
                                                                             child:
                                                                                 Container(
-                                                                              width: MediaQuery.sizeOf(context).width * 0.22,
+                                                                              width: MediaQuery.sizeOf(context).width * 0.18,
                                                                               height: 240.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,

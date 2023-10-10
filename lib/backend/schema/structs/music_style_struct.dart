@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -46,6 +47,19 @@ class MusicStyleStruct extends FFFirebaseStruct {
           data['Rock'],
           ParamType.String,
           false,
+        ),
+      );
+
+  static MusicStyleStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      MusicStyleStruct(
+        rock: convertAlgoliaParam(
+          data['Rock'],
+          ParamType.String,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

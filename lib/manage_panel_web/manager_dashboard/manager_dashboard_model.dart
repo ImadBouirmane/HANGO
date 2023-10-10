@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'manager_dashboard_widget.dart' show ManagerDashboardWidget;
 import 'package:map_launcher/map_launcher.dart' as $ml;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -20,7 +21,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 
-class ManagerDashboardModel extends FlutterFlowModel {
+class ManagerDashboardModel extends FlutterFlowModel<ManagerDashboardWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -1,10 +1,11 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'empty_image_widget.dart' show EmptyImageWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class EmptyImageModel extends FlutterFlowModel {
+class EmptyImageModel extends FlutterFlowModel<EmptyImageWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

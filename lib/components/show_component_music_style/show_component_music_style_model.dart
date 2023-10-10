@@ -1,11 +1,14 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'show_component_music_style_widget.dart'
+    show ShowComponentMusicStyleWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ShowComponentMusicStyleModel extends FlutterFlowModel {
+class ShowComponentMusicStyleModel
+    extends FlutterFlowModel<ShowComponentMusicStyleWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

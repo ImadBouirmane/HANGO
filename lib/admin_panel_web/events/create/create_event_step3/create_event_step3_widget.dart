@@ -86,8 +86,9 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
             title: 'CreateEventStep3',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1071,9 +1072,13 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                       _model
                                                                           .datePicked2),
                                                             ),
-                                                            'usersJoined': [
-                                                              currentUserReference
-                                                            ],
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'usersJoined': [
+                                                                  currentUserReference
+                                                                ],
+                                                              },
+                                                            ),
                                                           });
                                                           _model.promotionEventCreation =
                                                               PromotionEventRecord
@@ -1129,9 +1134,13 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                       _model
                                                                           .datePicked2),
                                                             ),
-                                                            'usersJoined': [
-                                                              currentUserReference
-                                                            ],
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'usersJoined': [
+                                                                  currentUserReference
+                                                                ],
+                                                              },
+                                                            ),
                                                           }, promotionEventRecordReference);
                                                           logFirebaseEvent(
                                                               'BTNValidateFrom_navigate_to');

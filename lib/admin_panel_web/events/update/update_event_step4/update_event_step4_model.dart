@@ -9,13 +9,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'update_event_step4_widget.dart' show UpdateEventStep4Widget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class UpdateEventStep4Model extends FlutterFlowModel {
+class UpdateEventStep4Model extends FlutterFlowModel<UpdateEventStep4Widget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

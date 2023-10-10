@@ -88,8 +88,9 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
             title: 'CreateEventsStep1',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1573,12 +1574,17 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                               'Aucune',
                                                             ),
                                                           ),
-                                                          'created_time': FieldValue
-                                                              .serverTimestamp(),
-                                                          'music_sytle': _model
-                                                              .checkBoxMusicStyleValues,
-                                                          'typeEvent': _model
-                                                              .typeEventValues,
+                                                          ...mapToFirestore(
+                                                            {
+                                                              'created_time':
+                                                                  FieldValue
+                                                                      .serverTimestamp(),
+                                                              'music_sytle': _model
+                                                                  .checkBoxMusicStyleValues,
+                                                              'typeEvent': _model
+                                                                  .typeEventValues,
+                                                            },
+                                                          ),
                                                         });
                                                     _model.eventCreation =
                                                         EventsRecord
@@ -1666,12 +1672,16 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                           'Aucune',
                                                         ),
                                                       ),
-                                                      'created_time':
-                                                          DateTime.now(),
-                                                      'music_sytle': _model
-                                                          .checkBoxMusicStyleValues,
-                                                      'typeEvent': _model
-                                                          .typeEventValues,
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'created_time':
+                                                              DateTime.now(),
+                                                          'music_sytle': _model
+                                                              .checkBoxMusicStyleValues,
+                                                          'typeEvent': _model
+                                                              .typeEventValues,
+                                                        },
+                                                      ),
                                                     }, eventsRecordReference);
                                                     _shouldSetState = true;
                                                     if (_model.eventCreation
@@ -1745,13 +1755,17 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                           createEventsStep1EstablishmentsRecord
                                                               .reference,
                                                           {
-                                                            'events_references':
-                                                                FieldValue
-                                                                    .arrayUnion([
-                                                              _model
-                                                                  .eventCreation
-                                                                  ?.reference
-                                                            ]),
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'events_references':
+                                                                    FieldValue
+                                                                        .arrayUnion([
+                                                                  _model
+                                                                      .eventCreation
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
                                                           });
                                                       logFirebaseEvent(
                                                           'BTNValidateFrom_navigate_to');

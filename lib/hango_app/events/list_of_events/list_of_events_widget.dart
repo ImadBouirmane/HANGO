@@ -76,8 +76,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
 
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(
-        queryBuilder: (eventsRecord) => eventsRecord.where('dateEvent',
-            isGreaterThanOrEqualTo: getCurrentTimestamp),
+        queryBuilder: (eventsRecord) => eventsRecord.where(
+          'dateEvent',
+          isGreaterThanOrEqualTo: getCurrentTimestamp,
+        ),
         limit: 15,
       ),
       builder: (context, snapshot) {
@@ -103,8 +105,9 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
             title: 'ListOfEvents',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: WillPopScope(
                 onWillPop: () async => false,
                 child: Scaffold(
@@ -827,7 +830,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           ;
                                                         });
                                                         logFirebaseEvent(
-                                                            'eventSearch_update_widget_state');
+                                                            'eventSearch_update_page_state');
                                                         setState(() {
                                                           _model.filterOnEventMobile =
                                                               false;
@@ -988,7 +991,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           logFirebaseEvent(
                                                               'IconButton_bottom_sheet');
                                                           logFirebaseEvent(
-                                                              'IconButton_update_widget_state');
+                                                              'IconButton_update_page_state');
                                                           setState(() {
                                                             _model.filterOnEventMobile =
                                                                 true;
@@ -1025,7 +1028,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           logFirebaseEvent(
                                                               'LIST_OF_EVENTS_PAGE_clear_ICN_ON_TAP');
                                                           logFirebaseEvent(
-                                                              'IconButton_update_widget_state');
+                                                              'IconButton_update_page_state');
                                                           setState(() {
                                                             _model.filterOnEventMobile =
                                                                 false;
@@ -1137,7 +1140,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                   logFirebaseEvent(
                                                                       'LIST_OF_EVENTS_typeEventChoices_ON_FORM_');
                                                                   logFirebaseEvent(
-                                                                      'typeEventChoices_update_widget_state');
+                                                                      'typeEventChoices_update_page_state');
                                                                   setState(() {
                                                                     _model.filterOnEventMobile =
                                                                         true;
@@ -1331,7 +1334,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                   logFirebaseEvent(
                                                                       'LIST_OF_EVENTS_musicStyleEventChoices_ON');
                                                                   logFirebaseEvent(
-                                                                      'musicStyleEventChoices_update_widget_sta');
+                                                                      'musicStyleEventChoices_update_page_state');
                                                                   setState(() {
                                                                     _model.filterOnEventMobile =
                                                                         true;
@@ -1862,9 +1865,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                 pagingController: _model
                                                     .setListEventsTypeFilterController1(
                                                   EventsRecord.collection.where(
-                                                      'typeEvent',
-                                                      arrayContains: _model
-                                                          .typeEventChoicesValue1),
+                                                    'typeEvent',
+                                                    arrayContains: _model
+                                                        .typeEventChoicesValue1,
+                                                  ),
                                                 ),
                                                 padding: EdgeInsets.zero,
                                                 primary: false,
@@ -2200,9 +2204,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                 pagingController: _model
                                                     .setListEventsMusicFilterController1(
                                                   EventsRecord.collection.where(
-                                                      'music_sytle',
-                                                      arrayContains: _model
-                                                          .musicStyleEventChoicesValue1),
+                                                    'music_sytle',
+                                                    arrayContains: _model
+                                                        .musicStyleEventChoicesValue1,
+                                                  ),
                                                 ),
                                                 padding: EdgeInsets.zero,
                                                 primary: false,
@@ -3017,7 +3022,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                             ;
                                                           });
                                                           logFirebaseEvent(
-                                                              'eventSearch_update_widget_state');
+                                                              'eventSearch_update_page_state');
                                                           setState(() {
                                                             _model.filterOnEventMobile =
                                                                 false;
@@ -3179,7 +3184,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                             logFirebaseEvent(
                                                                 'IconButton_bottom_sheet');
                                                             logFirebaseEvent(
-                                                                'IconButton_update_widget_state');
+                                                                'IconButton_update_page_state');
                                                             setState(() {
                                                               _model.filterOnEventMobile =
                                                                   true;
@@ -3216,7 +3221,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                             logFirebaseEvent(
                                                                 'LIST_OF_EVENTS_PAGE_clear_ICN_ON_TAP');
                                                             logFirebaseEvent(
-                                                                'IconButton_update_widget_state');
+                                                                'IconButton_update_page_state');
                                                             setState(() {
                                                               _model.filterOnEventMobile =
                                                                   false;
@@ -3331,7 +3336,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                     logFirebaseEvent(
                                                                         'LIST_OF_EVENTS_typeEventChoices_ON_FORM_');
                                                                     logFirebaseEvent(
-                                                                        'typeEventChoices_update_widget_state');
+                                                                        'typeEventChoices_update_page_state');
                                                                     setState(
                                                                         () {
                                                                       _model.filterOnEventMobile =
@@ -3517,7 +3522,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                     logFirebaseEvent(
                                                                         'LIST_OF_EVENTS_musicStyleEventChoices_ON');
                                                                     logFirebaseEvent(
-                                                                        'musicStyleEventChoices_update_widget_sta');
+                                                                        'musicStyleEventChoices_update_page_state');
                                                                     setState(
                                                                         () {
                                                                       _model.filterOnEventMobile =
@@ -4287,10 +4292,11 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                               EventsRecord
                                                                   .collection
                                                                   .where(
-                                                                      'typeEvent',
-                                                                      arrayContains:
-                                                                          _model
-                                                                              .typeEventChoicesValue2),
+                                                                'typeEvent',
+                                                                arrayContains:
+                                                                    _model
+                                                                        .typeEventChoicesValue2,
+                                                              ),
                                                             ),
                                                             padding:
                                                                 EdgeInsets.zero,
@@ -4597,11 +4603,14 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                               EventsRecord>(
                                                             pagingController: _model
                                                                 .setListEventsMusicFilterController2(
-                                                              EventsRecord.collection.where(
-                                                                  'music_sytle',
-                                                                  arrayContains:
-                                                                      _model
-                                                                          .musicStyleEventChoicesValue2),
+                                                              EventsRecord
+                                                                  .collection
+                                                                  .where(
+                                                                'music_sytle',
+                                                                arrayContains:
+                                                                    _model
+                                                                        .musicStyleEventChoicesValue2,
+                                                              ),
                                                             ),
                                                             padding:
                                                                 EdgeInsets.zero,

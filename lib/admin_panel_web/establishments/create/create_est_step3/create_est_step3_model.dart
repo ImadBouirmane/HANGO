@@ -10,13 +10,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'create_est_step3_widget.dart' show CreateEstStep3Widget;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CreateEstStep3Model extends FlutterFlowModel {
+class CreateEstStep3Model extends FlutterFlowModel<CreateEstStep3Widget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -83,8 +83,9 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
             title: 'UpdateEventStep1',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1620,12 +1621,14 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                         'Aucune',
                                                                       ),
                                                                     ),
-                                                                    'music_sytle':
-                                                                        _model
-                                                                            .checkBoxMusicStyleValues,
-                                                                    'typeEvent':
-                                                                        _model
-                                                                            .typeEventValues,
+                                                                    ...mapToFirestore(
+                                                                      {
+                                                                        'music_sytle':
+                                                                            _model.checkBoxMusicStyleValues,
+                                                                        'typeEvent':
+                                                                            _model.typeEventValues,
+                                                                      },
+                                                                    ),
                                                                   });
                                                               logFirebaseEvent(
                                                                   'BTNValidateFrom_backend_call');

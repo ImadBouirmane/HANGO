@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+4
+version: 1.0.0+5
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  algolia: 1.1.1
   aligned_dialog: 0.0.6
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
@@ -42,9 +43,6 @@ dependencies:
   firebase_analytics: 10.4.2
   firebase_analytics_platform_interface: 3.6.2
   firebase_analytics_web: 0.5.4+2
-  firebase_app_check: 0.1.4+2
-  firebase_app_check_platform_interface: 0.0.8+2
-  firebase_app_check_web: 0.0.10+2
   firebase_auth: 4.6.2
   firebase_auth_platform_interface: 6.15.2
   firebase_auth_web: 5.5.2
@@ -73,10 +71,10 @@ dependencies:
   flutter_svg: 2.0.4
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0
-  geolocator: 9.0.1
-  geolocator_android: 4.1.0
-  geolocator_apple: 2.2.1
-  geolocator_platform_interface: 4.0.6
+  geolocator: 10.0.1
+  geolocator_android: 4.2.4
+  geolocator_apple: 2.2.7
+  geolocator_platform_interface: 4.0.8
   geolocator_web: 2.1.6
   go_router: 7.1.1
   google_fonts: 4.0.3
@@ -90,11 +88,11 @@ dependencies:
   google_sign_in_ios: 5.6.1
   google_sign_in_platform_interface: 2.4.0
   google_sign_in_web: 0.11.0+2
-  image_picker: 0.8.5+3
-  image_picker_android: 0.8.5+3
-  image_picker_for_web: 2.1.10
-  image_picker_ios: 0.8.6+1
-  image_picker_platform_interface: 2.6.2
+  image_picker: 1.0.4
+  image_picker_android: 0.8.8
+  image_picker_for_web: 3.0.1
+  image_picker_ios: 0.8.8+2
+  image_picker_platform_interface: 2.9.1
   infinite_scroll_pagination: 
     git:
       url: https://github.com/FlutterFlow/infinite_scroll_pagination.git
@@ -128,7 +126,7 @@ dependencies:
   sign_in_with_apple_web: 1.0.1
   smooth_page_indicator: 1.0.1
   sqflite: 2.2.6
-  stop_watch_timer: 1.5.0
+  stop_watch_timer: 3.0.2
   stream_transform: 2.1.0
   synchronized: 3.1.0
   table_calendar: 3.0.9
@@ -157,7 +155,7 @@ dependencies:
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
-  flutter_launcher_icons: 0.12.0
+  flutter_launcher_icons: 0.13.1
   image: 4.0.17
   integration_test: 
     sdk: flutter
@@ -166,10 +164,12 @@ dev_dependencies:
     sdk: flutter
 
 
-flutter_icons:
+flutter_launcher_icons:
   android: true
   ios: true
   remove_alpha_ios: true
+  web:
+    generate: true
   image_path: 'assets/images/app_launcher_icon.png'
 
 

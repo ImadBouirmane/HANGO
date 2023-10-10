@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../../flutter_flow/flutter_flow_util.dart';
-
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -59,7 +58,9 @@ class SendEmailCall {
       apiUrl: '${SendGridAPIGroup.baseUrl}mail/send',
       callType: ApiCallType.POST,
       headers: {
-        ...SendGridAPIGroup.headers,
+        'Content-Type': 'application/json',
+        'Authorization':
+            'Bearer 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',
       },
       params: {},
       body: ffApiRequestBody,

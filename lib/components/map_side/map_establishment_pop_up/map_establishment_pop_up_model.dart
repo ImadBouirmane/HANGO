@@ -3,13 +3,15 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'map_establishment_pop_up_widget.dart' show MapEstablishmentPopUpWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-class MapEstablishmentPopUpModel extends FlutterFlowModel {
+class MapEstablishmentPopUpModel
+    extends FlutterFlowModel<MapEstablishmentPopUpWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

@@ -91,8 +91,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
             title: 'ShowOfEvents',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 resizeToAvoidBottomInset: false,
@@ -706,24 +707,36 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                               userRef: currentUserReference,
                                                                                               entranceCheck: true,
                                                                                             ),
-                                                                                            'usersJoined': FieldValue.arrayUnion([
-                                                                                              currentUserReference
-                                                                                            ]),
+                                                                                            ...mapToFirestore(
+                                                                                              {
+                                                                                                'usersJoined': FieldValue.arrayUnion([
+                                                                                                  currentUserReference
+                                                                                                ]),
+                                                                                              },
+                                                                                            ),
                                                                                           });
                                                                                           logFirebaseEvent('Button_backend_call');
 
                                                                                           firestoreBatch.update(promotionIsMobilePromotionEventRecord!.reference, {
-                                                                                            'entranceValue': FieldValue.increment(valueOrDefault<double>(
-                                                                                              functions.sumEntrancePromotionValue(promotionIsMobilePromotionEventRecord!.entranceValue >= 0.01 ? 0.01 : null),
-                                                                                              0.0,
-                                                                                            )),
+                                                                                            ...mapToFirestore(
+                                                                                              {
+                                                                                                'entranceValue': FieldValue.increment(valueOrDefault<double>(
+                                                                                                  functions.sumEntrancePromotionValue(promotionIsMobilePromotionEventRecord!.entranceValue >= 0.01 ? 0.01 : null),
+                                                                                                  0.0,
+                                                                                                )),
+                                                                                              },
+                                                                                            ),
                                                                                           });
                                                                                           logFirebaseEvent('Button_backend_call');
 
                                                                                           firestoreBatch.update(currentUserReference!, {
-                                                                                            'promotionEvents': FieldValue.arrayUnion([
-                                                                                              promotionIsMobilePromotionEventRecord?.reference
-                                                                                            ]),
+                                                                                            ...mapToFirestore(
+                                                                                              {
+                                                                                                'promotionEvents': FieldValue.arrayUnion([
+                                                                                                  promotionIsMobilePromotionEventRecord?.reference
+                                                                                                ]),
+                                                                                              },
+                                                                                            ),
                                                                                           });
                                                                                           logFirebaseEvent('Button_backend_call');
                                                                                           _model.sendingEmailPromotion = await SendGridAPIGroup.sendEmailCall.call(
@@ -862,6 +875,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 14.0,
                                                                             animation:
                                                                                 true,
+                                                                            animateFromLastPercent:
+                                                                                true,
                                                                             progressColor:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             backgroundColor:
@@ -931,7 +946,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                               hours: false,
                                                                               milliSecond: false,
                                                                             ),
-                                                                            timer:
+                                                                            controller:
                                                                                 _model.timerController1,
                                                                             updateStateInterval:
                                                                                 Duration(milliseconds: 1000),
@@ -2311,11 +2326,14 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     EventsRecord>>(
                                                               stream:
                                                                   queryEventsRecord(
-                                                                queryBuilder: (eventsRecord) =>
-                                                                    eventsRecord.where(
-                                                                        'dateEvent',
-                                                                        isGreaterThanOrEqualTo:
-                                                                            getCurrentTimestamp),
+                                                                queryBuilder:
+                                                                    (eventsRecord) =>
+                                                                        eventsRecord
+                                                                            .where(
+                                                                  'dateEvent',
+                                                                  isGreaterThanOrEqualTo:
+                                                                      getCurrentTimestamp,
+                                                                ),
                                                                 limit: 5,
                                                               ),
                                                               builder: (context,
@@ -3239,24 +3257,36 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                               userRef: currentUserReference,
                                                                                               entranceCheck: true,
                                                                                             ),
-                                                                                            'usersJoined': FieldValue.arrayUnion([
-                                                                                              currentUserReference
-                                                                                            ]),
+                                                                                            ...mapToFirestore(
+                                                                                              {
+                                                                                                'usersJoined': FieldValue.arrayUnion([
+                                                                                                  currentUserReference
+                                                                                                ]),
+                                                                                              },
+                                                                                            ),
                                                                                           });
                                                                                           logFirebaseEvent('Button_backend_call');
 
                                                                                           firestoreBatch.update(promotionIsWebPromotionEventRecord!.reference, {
-                                                                                            'entranceValue': FieldValue.increment(valueOrDefault<double>(
-                                                                                              functions.sumEntrancePromotionValue(promotionIsWebPromotionEventRecord!.entranceValue >= 0.01 ? 0.01 : null),
-                                                                                              0.0,
-                                                                                            )),
+                                                                                            ...mapToFirestore(
+                                                                                              {
+                                                                                                'entranceValue': FieldValue.increment(valueOrDefault<double>(
+                                                                                                  functions.sumEntrancePromotionValue(promotionIsWebPromotionEventRecord!.entranceValue >= 0.01 ? 0.01 : null),
+                                                                                                  0.0,
+                                                                                                )),
+                                                                                              },
+                                                                                            ),
                                                                                           });
                                                                                           logFirebaseEvent('Button_backend_call');
 
                                                                                           firestoreBatch.update(currentUserReference!, {
-                                                                                            'promotionEvents': FieldValue.arrayUnion([
-                                                                                              promotionIsWebPromotionEventRecord?.reference
-                                                                                            ]),
+                                                                                            ...mapToFirestore(
+                                                                                              {
+                                                                                                'promotionEvents': FieldValue.arrayUnion([
+                                                                                                  promotionIsWebPromotionEventRecord?.reference
+                                                                                                ]),
+                                                                                              },
+                                                                                            ),
                                                                                           });
                                                                                           logFirebaseEvent('Button_backend_call');
                                                                                           _model.sendingEmailPromotionWeb = await SendGridAPIGroup.sendEmailCall.call(
@@ -3412,6 +3442,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 14.0,
                                                                             animation:
                                                                                 true,
+                                                                            animateFromLastPercent:
+                                                                                true,
                                                                             progressColor:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             backgroundColor:
@@ -3481,7 +3513,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                               hours: false,
                                                                               milliSecond: false,
                                                                             ),
-                                                                            timer:
+                                                                            controller:
                                                                                 _model.timerController2,
                                                                             updateStateInterval:
                                                                                 Duration(milliseconds: 1000),
@@ -4513,7 +4545,13 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       'Email',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodySmall,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                          ),
                                                                     ),
                                                                     AutoSizeText(
                                                                       mainColumnEstablishmentsRecord
@@ -4522,7 +4560,15 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                           1,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).accent2,
+                                                                            fontWeight:
+                                                                                FontWeight.w300,
+                                                                          ),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -4599,7 +4645,13 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       'Telephone',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodySmall,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                          ),
                                                                     ),
                                                                     AutoSizeText(
                                                                       mainColumnEstablishmentsRecord
@@ -4608,7 +4660,15 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                           1,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).accent2,
+                                                                            fontWeight:
+                                                                                FontWeight.w300,
+                                                                          ),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -4694,12 +4754,16 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                           children: [
                                                                             Text(
                                                                               'Site Web ',
-                                                                              style: FlutterFlowTheme.of(context).bodySmall,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
                                                                             ),
                                                                             AutoSizeText(
                                                                               mainColumnEstablishmentsRecord.webSite,
                                                                               maxLines: 1,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).accent2,
+                                                                                    fontWeight: FontWeight.w300,
+                                                                                  ),
                                                                             ),
                                                                           ],
                                                                         ),
@@ -4876,7 +4940,15 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                               .start,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).accent2,
+                                                                            fontWeight:
+                                                                                FontWeight.w300,
+                                                                          ),
                                                                     )),
                                                                   ),
                                                                 ),
@@ -5054,11 +5126,14 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             List<EventsRecord>>(
                                                           stream:
                                                               queryEventsRecord(
-                                                            queryBuilder: (eventsRecord) =>
-                                                                eventsRecord.where(
-                                                                    'dateEvent',
-                                                                    isGreaterThanOrEqualTo:
-                                                                        getCurrentTimestamp),
+                                                            queryBuilder:
+                                                                (eventsRecord) =>
+                                                                    eventsRecord
+                                                                        .where(
+                                                              'dateEvent',
+                                                              isGreaterThanOrEqualTo:
+                                                                  getCurrentTimestamp,
+                                                            ),
                                                             limit: 5,
                                                           ),
                                                           builder: (context,

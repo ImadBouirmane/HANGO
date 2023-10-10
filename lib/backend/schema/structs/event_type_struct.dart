@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -64,6 +65,24 @@ class EventTypeStruct extends FFFirebaseStruct {
           data['Hockey'],
           ParamType.String,
           false,
+        ),
+      );
+
+  static EventTypeStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      EventTypeStruct(
+        football: convertAlgoliaParam(
+          data['Football'],
+          ParamType.String,
+          false,
+        ),
+        hockey: convertAlgoliaParam(
+          data['Hockey'],
+          ParamType.String,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

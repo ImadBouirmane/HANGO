@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'show_of_establishment_widget.dart' show ShowOfEstablishmentWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
@@ -20,7 +21,8 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ShowOfEstablishmentModel extends FlutterFlowModel {
+class ShowOfEstablishmentModel
+    extends FlutterFlowModel<ShowOfEstablishmentWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

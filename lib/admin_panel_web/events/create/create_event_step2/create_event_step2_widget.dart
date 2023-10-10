@@ -81,8 +81,9 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
             title: 'CreateEventStep2',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -496,8 +497,9 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                     builder:
                                                                         (context) {
                                                                       return GestureDetector(
-                                                                        onTap: () =>
-                                                                            FocusScope.of(context).requestFocus(_model.unfocusNode),
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
                                                                             Padding(
                                                                           padding:

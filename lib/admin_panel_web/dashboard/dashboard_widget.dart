@@ -73,8 +73,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             title: 'Dashboard',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -575,7 +576,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                           context: context,
                                                                                           builder: (context) {
                                                                                             return GestureDetector(
-                                                                                              onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+                                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                               child: Padding(
                                                                                                 padding: MediaQuery.viewInsetsOf(context),
                                                                                                 child: DeleteConfirmationEstablishementWidget(
@@ -683,7 +684,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                 ),
                                                                                 StreamBuilder<List<EventsRecord>>(
                                                                                   stream: queryEventsRecord(
-                                                                                    queryBuilder: (eventsRecord) => eventsRecord.where('establishment_id', isEqualTo: listViewEstablishmentsRecord.reference),
+                                                                                    queryBuilder: (eventsRecord) => eventsRecord.where(
+                                                                                      'establishment_id',
+                                                                                      isEqualTo: listViewEstablishmentsRecord.reference,
+                                                                                    ),
                                                                                   ),
                                                                                   builder: (context, snapshot) {
                                                                                     // Customize what your widget looks like when it's loading.
@@ -896,7 +900,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                     context: context,
                                                                                                                     builder: (context) {
                                                                                                                       return GestureDetector(
-                                                                                                                        onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+                                                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                                         child: Padding(
                                                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                                                           child: DeleteConfirmationEventWidget(

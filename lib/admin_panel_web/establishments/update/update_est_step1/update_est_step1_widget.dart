@@ -83,8 +83,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
             title: 'UpdateEstStep1',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -2731,20 +2732,24 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               updatedAt:
                                                                   getCurrentTimestamp,
                                                             ),
-                                                            'type': _model
-                                                                .choiceChipsValues,
-                                                            'music_style': _model
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'type': _model
+                                                                    .choiceChipsValues,
+                                                                'music_style': _model
+                                                                            .checkBoxMusicStyleValues
+                                                                            ?.length !=
+                                                                        null
+                                                                    ? _model
                                                                         .checkBoxMusicStyleValues
-                                                                        ?.length !=
-                                                                    null
-                                                                ? _model
-                                                                    .checkBoxMusicStyleValues
-                                                                : updateEstStep1EstablishmentsRecord
-                                                                    .musicStyle,
-                                                            'food': _model
-                                                                .checkBoxFoodValues,
-                                                            'game': _model
-                                                                .checkBoxGamesValues,
+                                                                    : updateEstStep1EstablishmentsRecord
+                                                                        .musicStyle,
+                                                                'food': _model
+                                                                    .checkBoxFoodValues,
+                                                                'game': _model
+                                                                    .checkBoxGamesValues,
+                                                              },
+                                                            ),
                                                           });
                                                           logFirebaseEvent(
                                                               'BTNValidateFrom_navigate_to');

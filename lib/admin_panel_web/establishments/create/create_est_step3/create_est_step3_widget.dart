@@ -60,7 +60,9 @@ class _CreateEstStep3WidgetState extends State<CreateEstStep3Widget> {
         title: 'CreateEstStep3',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+          onTap: () => _model.unfocusNode.canRequestFocus
+              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+              : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -457,7 +459,7 @@ class _CreateEstStep3WidgetState extends State<CreateEstStep3Widget> {
                                                                                                 return Material(
                                                                                                   color: Colors.transparent,
                                                                                                   child: GestureDetector(
-                                                                                                    onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+                                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                     child: ImagesDeleteProblemAdminPopUpWidget(),
                                                                                                   ),
                                                                                                 );

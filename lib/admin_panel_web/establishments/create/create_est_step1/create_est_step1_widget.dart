@@ -83,7 +83,9 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
         title: 'CreateEstStep1',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+          onTap: () => _model.unfocusNode.canRequestFocus
+              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+              : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -2496,16 +2498,20 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                     'Aucune',
                                                   ),
                                                 ),
-                                                'created_time': FieldValue
-                                                    .serverTimestamp(),
-                                                'type':
-                                                    _model.choiceChipsValues,
-                                                'music_style': _model
-                                                    .checkBoxMusicStyleValues,
-                                                'food':
-                                                    _model.checkBoxFoodValues,
-                                                'game':
-                                                    _model.checkBoxGamesValues,
+                                                ...mapToFirestore(
+                                                  {
+                                                    'created_time': FieldValue
+                                                        .serverTimestamp(),
+                                                    'type': _model
+                                                        .choiceChipsValues,
+                                                    'music_style': _model
+                                                        .checkBoxMusicStyleValues,
+                                                    'food': _model
+                                                        .checkBoxFoodValues,
+                                                    'game': _model
+                                                        .checkBoxGamesValues,
+                                                  },
+                                                ),
                                               });
                                               _model.createEstablishment =
                                                   EstablishmentsRecord
@@ -2630,15 +2636,20 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                     'Aucune',
                                                   ),
                                                 ),
-                                                'created_time': DateTime.now(),
-                                                'type':
-                                                    _model.choiceChipsValues,
-                                                'music_style': _model
-                                                    .checkBoxMusicStyleValues,
-                                                'food':
-                                                    _model.checkBoxFoodValues,
-                                                'game':
-                                                    _model.checkBoxGamesValues,
+                                                ...mapToFirestore(
+                                                  {
+                                                    'created_time':
+                                                        DateTime.now(),
+                                                    'type': _model
+                                                        .choiceChipsValues,
+                                                    'music_style': _model
+                                                        .checkBoxMusicStyleValues,
+                                                    'food': _model
+                                                        .checkBoxFoodValues,
+                                                    'game': _model
+                                                        .checkBoxGamesValues,
+                                                  },
+                                                ),
                                               }, establishmentsRecordReference);
                                               logFirebaseEvent(
                                                   'BTNValidateFrom_navigate_to');

@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -49,6 +50,19 @@ class EstablishmentTypeStruct extends FFFirebaseStruct {
           data['Bar'],
           ParamType.String,
           false,
+        ),
+      );
+
+  static EstablishmentTypeStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      EstablishmentTypeStruct(
+        bar: convertAlgoliaParam(
+          data['Bar'],
+          ParamType.String,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

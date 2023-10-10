@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'list_of_events_widget.dart' show ListOfEventsWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:expandable/expandable.dart';
@@ -23,7 +24,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 
-class ListOfEventsModel extends FlutterFlowModel {
+class ListOfEventsModel extends FlutterFlowModel<ListOfEventsWidget> {
   ///  Local state fields for this page.
 
   bool filterOnEventMobile = false;

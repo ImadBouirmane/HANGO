@@ -46,7 +46,9 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
         title: 'Suppression du compte',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+          onTap: () => _model.unfocusNode.canRequestFocus
+              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+              : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -66,7 +68,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                 onPressed: () async {
                   logFirebaseEvent('ACCOUNT_DELETION_keyboard_return_rounded');
                   logFirebaseEvent('IconButton_navigate_back');
-                  context.pop();
+                  context.safePop();
                 },
               ),
               title: Text(
@@ -340,20 +342,21 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .error,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
                                                       fontFamily: 'Poppins',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
                                                     ),
                                             elevation: 3.0,
                                             borderSide: BorderSide(
-                                              color: Colors.transparent,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -387,15 +390,16 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
-                                                .error,
+                                                .primaryBackground,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
                                                       fontFamily: 'Poppins',
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
                                                     ),
                                             elevation: 3.0,
                                             borderSide: BorderSide(

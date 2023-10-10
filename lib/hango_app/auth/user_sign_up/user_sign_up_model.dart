@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'user_sign_up_widget.dart' show UserSignUpWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
@@ -15,7 +16,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class UserSignUpModel extends FlutterFlowModel {
+class UserSignUpModel extends FlutterFlowModel<UserSignUpWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

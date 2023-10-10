@@ -6,19 +6,22 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'create_event_step3_widget.dart' show CreateEventStep3Widget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CreateEventStep3Model extends FlutterFlowModel {
+class CreateEventStep3Model extends FlutterFlowModel<CreateEventStep3Widget> {
   ///  Local state fields for this page.
 
   List<String> artistInput = [];
   void addToArtistInput(String item) => artistInput.add(item);
   void removeFromArtistInput(String item) => artistInput.remove(item);
   void removeAtIndexFromArtistInput(int index) => artistInput.removeAt(index);
+  void insertAtIndexInArtistInput(int index, String item) =>
+      artistInput.insert(index, item);
   void updateArtistInputAtIndex(int index, Function(String) updateFn) =>
       artistInput[index] = updateFn(artistInput[index]);
 

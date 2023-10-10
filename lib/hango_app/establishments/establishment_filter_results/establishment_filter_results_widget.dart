@@ -95,8 +95,9 @@ class _EstablishmentFilterResultsWidgetState
             title: 'establishmentFilterResults',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: WillPopScope(
                 onWillPop: () async => false,
                 child: Scaffold(
@@ -132,11 +133,22 @@ class _EstablishmentFilterResultsWidgetState
                       EstablishmentsRecord>(
                     pagingController: _model.setListEstablishmentsController(
                       EstablishmentsRecord.collection
-                          .where('type', arrayContains: widget.type)
-                          .where('terrasse', isEqualTo: widget.terrasse)
-                          .where('reservation', isEqualTo: widget.reservation)
-                          .where('cigarette_machine',
-                              isEqualTo: widget.machineacigarette),
+                          .where(
+                            'type',
+                            arrayContains: widget.type,
+                          )
+                          .where(
+                            'terrasse',
+                            isEqualTo: widget.terrasse,
+                          )
+                          .where(
+                            'reservation',
+                            isEqualTo: widget.reservation,
+                          )
+                          .where(
+                            'cigarette_machine',
+                            isEqualTo: widget.machineacigarette,
+                          ),
                     ),
                     padding: EdgeInsets.zero,
                     primary: false,

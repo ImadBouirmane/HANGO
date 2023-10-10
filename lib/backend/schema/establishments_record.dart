@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:from_css_color/from_css_color.dart';
+import '/backend/algolia/serialization_util.dart';
+import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -172,6 +175,88 @@ class EstablishmentsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       EstablishmentsRecord._(reference, mapFromFirestore(data));
+
+  static EstablishmentsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      EstablishmentsRecord.getDocumentFromData(
+        {
+          'created_time': convertAlgoliaParam(
+            snapshot.data['created_time'],
+            ParamType.DateTime,
+            false,
+          ),
+          'name': snapshot.data['name'],
+          'adresse':
+              AddressStruct.fromAlgoliaData(snapshot.data['adresse'] ?? {}),
+          'email': snapshot.data['email'],
+          'phone_number': snapshot.data['phone_number'],
+          'web_site': snapshot.data['web_site'],
+          'type': safeGet(
+            () => snapshot.data['type'].toList(),
+          ),
+          'music_style': safeGet(
+            () => snapshot.data['music_style'].toList(),
+          ),
+          'speciality': snapshot.data['speciality'],
+          'terrasse': snapshot.data['terrasse'],
+          'reservation': snapshot.data['reservation'],
+          'food': safeGet(
+            () => snapshot.data['food'].toList(),
+          ),
+          'cigarette_machine': snapshot.data['cigarette_machine'],
+          'game': safeGet(
+            () => snapshot.data['game'].toList(),
+          ),
+          'events_references': safeGet(
+            () => convertAlgoliaParam<DocumentReference>(
+              snapshot.data['events_references'],
+              ParamType.DocumentReference,
+              true,
+            ).toList(),
+          ),
+          'description': snapshot.data['description'],
+          'Location': convertAlgoliaParam(
+            snapshot.data,
+            ParamType.LatLng,
+            false,
+          ),
+          'updatedAt': convertAlgoliaParam(
+            snapshot.data['updatedAt'],
+            ParamType.DateTime,
+            false,
+          ),
+          'eventRef': convertAlgoliaParam(
+            snapshot.data['eventRef'],
+            ParamType.DocumentReference,
+            false,
+          ),
+          'scheduleEstablishment': convertAlgoliaParam(
+            snapshot.data['scheduleEstablishment'],
+            ParamType.DocumentReference,
+            false,
+          ),
+          'isManager': snapshot.data['isManager'],
+          'isAdmin': snapshot.data['isAdmin'],
+        },
+        EstablishmentsRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<EstablishmentsRecord>> search({
+    String? term,
+    FutureOr<LatLng>? location,
+    int? maxResults,
+    double? searchRadiusMeters,
+    bool useCache = false,
+  }) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'establishments',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+            useCache: useCache,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

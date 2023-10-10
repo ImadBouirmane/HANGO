@@ -58,8 +58,14 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(
         queryBuilder: (eventsRecord) => eventsRecord
-            .where('isManager', isEqualTo: true)
-            .where('isAdmin', isEqualTo: false),
+            .where(
+              'isManager',
+              isEqualTo: true,
+            )
+            .where(
+              'isAdmin',
+              isEqualTo: false,
+            ),
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -84,8 +90,9 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
             title: 'ManagerDashboard',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
-              onTap: () =>
-                  FocusScope.of(context).requestFocus(_model.unfocusNode),
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
                 resizeToAvoidBottomInset: false,
@@ -542,7 +549,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                   context: context,
                                                                                                                   builder: (context) {
                                                                                                                     return GestureDetector(
-                                                                                                                      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+                                                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                                       child: Padding(
                                                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                                                         child: DeleteConfirmationEventWidget(
@@ -694,6 +701,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                   radius: 45.0,
                                                                                                                                   lineWidth: 12.0,
                                                                                                                                   animation: true,
+                                                                                                                                  animateFromLastPercent: true,
                                                                                                                                   progressColor: FlutterFlowTheme.of(context).primary,
                                                                                                                                   backgroundColor: FlutterFlowTheme.of(context).accent4,
                                                                                                                                   center: Text(
