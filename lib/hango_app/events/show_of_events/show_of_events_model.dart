@@ -2,6 +2,7 @@ import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/back_navigation_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
 import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
@@ -33,6 +34,8 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
   final unfocusNode = FocusNode();
   // Model for SideNavWeb component.
   late SideNavWebModel sideNavWebModel;
+  // Model for backNavigation component.
+  late BackNavigationModel backNavigationModel;
   // Stores action output result for [Backend Call - API (Send Email)] action in Button widget.
   ApiCallResponse? sendingEmailPromotion;
   // State field(s) for Timer widget.
@@ -77,11 +80,13 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
 
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
+    backNavigationModel = createModel(context, () => BackNavigationModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
+    backNavigationModel.dispose();
     timerController1.dispose();
     timerController2.dispose();
   }

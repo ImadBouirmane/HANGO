@@ -2,6 +2,7 @@ import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/back_navigation_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
 import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
@@ -351,37 +352,14 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       -0.98,
                                                                       -0.90),
                                                               child:
-                                                                  FlutterFlowIconButton(
-                                                                borderColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                borderRadius:
-                                                                    20.0,
-                                                                borderWidth:
-                                                                    1.0,
-                                                                buttonSize:
-                                                                    40.0,
-                                                                fillColor: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                icon: Icon(
-                                                                  Icons
-                                                                      .arrow_back_rounded,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tertiary400,
-                                                                  size: 24.0,
-                                                                ),
-                                                                onPressed:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'SHOW_OF_EVENTS_arrow_back_rounded_ICN_ON');
-                                                                  logFirebaseEvent(
-                                                                      'IconButton_navigate_back');
-                                                                  context
-                                                                      .safePop();
-                                                                },
+                                                                  wrapWithModel(
+                                                                model: _model
+                                                                    .backNavigationModel,
+                                                                updateCallback:
+                                                                    () => setState(
+                                                                        () {}),
+                                                                child:
+                                                                    BackNavigationWidget(),
                                                               ),
                                                             ),
                                                           ],

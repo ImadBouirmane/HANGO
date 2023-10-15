@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/back_navigation_widget.dart';
 import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -142,66 +143,81 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
-                                      child: StreamBuilder<
-                                          List<EstablishmentsRecord>>(
-                                        stream: queryEstablishmentsRecord(),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 30.0,
-                                                height: 30.0,
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  valueColor:
-                                                      AlwaysStoppedAnimation<
-                                                          Color>(
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
+                                      child: Stack(
+                                        children: [
+                                          StreamBuilder<
+                                              List<EstablishmentsRecord>>(
+                                            stream: queryEstablishmentsRecord(),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 30.0,
+                                                    height: 30.0,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                          List<EstablishmentsRecord>
-                                              googleMapEstablishmentsRecordList =
-                                              snapshot.data!;
-                                          return Builder(builder: (context) {
-                                            final _googleMapMarker =
-                                                widget.estRef?.location;
-                                            return FlutterFlowGoogleMap(
-                                              controller:
-                                                  _model.googleMapsController1,
-                                              onCameraIdle: (latLng) => _model
-                                                  .googleMapsCenter1 = latLng,
-                                              initialLocation:
-                                                  _model.googleMapsCenter1 ??=
+                                                );
+                                              }
+                                              List<EstablishmentsRecord>
+                                                  googleMapEstablishmentsRecordList =
+                                                  snapshot.data!;
+                                              return Builder(
+                                                  builder: (context) {
+                                                final _googleMapMarker =
+                                                    widget.estRef?.location;
+                                                return FlutterFlowGoogleMap(
+                                                  controller: _model
+                                                      .googleMapsController1,
+                                                  onCameraIdle: (latLng) =>
+                                                      _model.googleMapsCenter1 =
+                                                          latLng,
+                                                  initialLocation: _model
+                                                          .googleMapsCenter1 ??=
                                                       currentUserLocationValue!,
-                                              markers: [
-                                                if (_googleMapMarker != null)
-                                                  FlutterFlowMarker(
-                                                    _googleMapMarker
-                                                        .serialize(),
-                                                    _googleMapMarker,
-                                                  ),
-                                              ],
-                                              markerColor:
-                                                  GoogleMarkerColor.green,
-                                              mapType: MapType.normal,
-                                              style: GoogleMapStyle.standard,
-                                              initialZoom: 14.0,
-                                              allowInteraction: true,
-                                              allowZoom: true,
-                                              showZoomControls: true,
-                                              showLocation: true,
-                                              showCompass: true,
-                                              showMapToolbar: true,
-                                              showTraffic: false,
-                                              centerMapOnMarkerTap: true,
-                                            );
-                                          });
-                                        },
+                                                  markers: [
+                                                    if (_googleMapMarker !=
+                                                        null)
+                                                      FlutterFlowMarker(
+                                                        _googleMapMarker
+                                                            .serialize(),
+                                                        _googleMapMarker,
+                                                      ),
+                                                  ],
+                                                  markerColor:
+                                                      GoogleMarkerColor.green,
+                                                  mapType: MapType.normal,
+                                                  style:
+                                                      GoogleMapStyle.standard,
+                                                  initialZoom: 14.0,
+                                                  allowInteraction: true,
+                                                  allowZoom: true,
+                                                  showZoomControls: true,
+                                                  showLocation: true,
+                                                  showCompass: true,
+                                                  showMapToolbar: true,
+                                                  showTraffic: false,
+                                                  centerMapOnMarkerTap: true,
+                                                );
+                                              });
+                                            },
+                                          ),
+                                          wrapWithModel(
+                                            model: _model.backNavigationModel1,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: BackNavigationWidget(),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -228,66 +244,81 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
-                                      child: StreamBuilder<
-                                          List<EstablishmentsRecord>>(
-                                        stream: queryEstablishmentsRecord(),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 30.0,
-                                                height: 30.0,
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  valueColor:
-                                                      AlwaysStoppedAnimation<
-                                                          Color>(
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
+                                      child: Stack(
+                                        children: [
+                                          StreamBuilder<
+                                              List<EstablishmentsRecord>>(
+                                            stream: queryEstablishmentsRecord(),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 30.0,
+                                                    height: 30.0,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                          List<EstablishmentsRecord>
-                                              googleMapEstablishmentsRecordList =
-                                              snapshot.data!;
-                                          return Builder(builder: (context) {
-                                            final _googleMapMarker =
-                                                widget.estRef?.location;
-                                            return FlutterFlowGoogleMap(
-                                              controller:
-                                                  _model.googleMapsController2,
-                                              onCameraIdle: (latLng) => _model
-                                                  .googleMapsCenter2 = latLng,
-                                              initialLocation:
-                                                  _model.googleMapsCenter2 ??=
+                                                );
+                                              }
+                                              List<EstablishmentsRecord>
+                                                  googleMapEstablishmentsRecordList =
+                                                  snapshot.data!;
+                                              return Builder(
+                                                  builder: (context) {
+                                                final _googleMapMarker =
+                                                    widget.estRef?.location;
+                                                return FlutterFlowGoogleMap(
+                                                  controller: _model
+                                                      .googleMapsController2,
+                                                  onCameraIdle: (latLng) =>
+                                                      _model.googleMapsCenter2 =
+                                                          latLng,
+                                                  initialLocation: _model
+                                                          .googleMapsCenter2 ??=
                                                       currentUserLocationValue!,
-                                              markers: [
-                                                if (_googleMapMarker != null)
-                                                  FlutterFlowMarker(
-                                                    _googleMapMarker
-                                                        .serialize(),
-                                                    _googleMapMarker,
-                                                  ),
-                                              ],
-                                              markerColor:
-                                                  GoogleMarkerColor.green,
-                                              mapType: MapType.normal,
-                                              style: GoogleMapStyle.standard,
-                                              initialZoom: 14.0,
-                                              allowInteraction: true,
-                                              allowZoom: true,
-                                              showZoomControls: true,
-                                              showLocation: true,
-                                              showCompass: true,
-                                              showMapToolbar: true,
-                                              showTraffic: false,
-                                              centerMapOnMarkerTap: true,
-                                            );
-                                          });
-                                        },
+                                                  markers: [
+                                                    if (_googleMapMarker !=
+                                                        null)
+                                                      FlutterFlowMarker(
+                                                        _googleMapMarker
+                                                            .serialize(),
+                                                        _googleMapMarker,
+                                                      ),
+                                                  ],
+                                                  markerColor:
+                                                      GoogleMarkerColor.green,
+                                                  mapType: MapType.normal,
+                                                  style:
+                                                      GoogleMapStyle.standard,
+                                                  initialZoom: 14.0,
+                                                  allowInteraction: true,
+                                                  allowZoom: true,
+                                                  showZoomControls: true,
+                                                  showLocation: true,
+                                                  showCompass: true,
+                                                  showMapToolbar: true,
+                                                  showTraffic: false,
+                                                  centerMapOnMarkerTap: true,
+                                                );
+                                              });
+                                            },
+                                          ),
+                                          wrapWithModel(
+                                            model: _model.backNavigationModel2,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: BackNavigationWidget(),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),

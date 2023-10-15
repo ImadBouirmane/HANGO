@@ -2365,7 +2365,6 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                               .location!,
                                                                           () async {
                                                                             logFirebaseEvent('SHOW_OF_ESTABLISHMENT_GoogleMap_ssjy9g5x');
-                                                                            logFirebaseEvent('GoogleMap_launch_map');
                                                                             logFirebaseEvent('GoogleMap_navigate_to');
 
                                                                             context.pushNamed(
