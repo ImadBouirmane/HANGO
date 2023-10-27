@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/confirmation/delete_confirmation_event/delete_confirmation_event_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
@@ -15,6 +16,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -41,6 +43,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ManagerDashboard'});
+    _model.expandableController2 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -53,6 +56,15 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return StreamBuilder<List<EventsRecord>>(
@@ -65,6 +77,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
             .where(
               'isAdmin',
               isEqualTo: false,
+            )
+            .where(
+              'userRef',
+              isEqualTo: currentUserReference,
             ),
       ),
       builder: (context, snapshot) {
@@ -385,7 +401,6 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                           width: double.infinity,
                                                                                           color: Color(0x00000000),
                                                                                           child: ExpandableNotifier(
-                                                                                            initialExpanded: false,
                                                                                             child: ExpandablePanel(
                                                                                               header: Container(
                                                                                                 decoration: BoxDecoration(),
@@ -1206,7 +1221,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             width: double.infinity,
                                                                                                             color: Colors.white,
                                                                                                             child: ExpandableNotifier(
-                                                                                                              initialExpanded: false,
+                                                                                                              controller: _model.expandableController2,
                                                                                                               child: ExpandablePanel(
                                                                                                                 header: Text(
                                                                                                                   establishmenDetailsEstablishmentsRecord.name,

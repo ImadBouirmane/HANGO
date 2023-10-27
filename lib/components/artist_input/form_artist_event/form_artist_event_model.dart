@@ -12,6 +12,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +34,7 @@ class FormArtistEventModel extends FlutterFlowModel<FormArtistEventWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for ArtistNameTextField widget.
+  FocusNode? artistNameTextFieldFocusNode;
   TextEditingController? artistNameTextFieldController;
   String? Function(BuildContext, String?)?
       artistNameTextFieldControllerValidator;
@@ -45,6 +47,7 @@ class FormArtistEventModel extends FlutterFlowModel<FormArtistEventWidget> {
   void initState(BuildContext context) {}
 
   void dispose() {
+    artistNameTextFieldFocusNode?.dispose();
     artistNameTextFieldController?.dispose();
   }
 

@@ -15,6 +15,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_est_step1_model.dart';
@@ -44,6 +45,31 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'UpdateEstStep1'});
+
+    _model.tFNameFocusNode ??= FocusNode();
+
+    _model.tFDescriptionFocusNode ??= FocusNode();
+
+    _model.tFStreetFocusNode ??= FocusNode();
+
+    _model.tFzipCodeFocusNode ??= FocusNode();
+
+    _model.tFcityFocusNode ??= FocusNode();
+
+    _model.tFstateFocusNode ??= FocusNode();
+
+    _model.tFcountryFocusNode ??= FocusNode();
+
+    _model.tFemailAddressFocusNode ??= FocusNode();
+
+    _model.tFphoneNumberFocusNode ??= FocusNode();
+
+    _model.tFURLWebSiteFocusNode ??= FocusNode();
+    _model.expandableController1 = ExpandableController(initialExpanded: false);
+    _model.expandableController2 = ExpandableController(initialExpanded: false);
+
+    _model.tFspecialityFocusNode ??= FocusNode();
+    _model.expandableController3 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -56,6 +82,15 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return StreamBuilder<EstablishmentsRecord>(
@@ -309,6 +344,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   updateEstStep1EstablishmentsRecord
                                                                       .name,
                                                             ),
+                                                            focusNode: _model
+                                                                .tFNameFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -417,6 +454,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               text: updateEstStep1EstablishmentsRecord
                                                                   .description,
                                                             ),
+                                                            focusNode: _model
+                                                                .tFDescriptionFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -602,6 +641,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       .adresse
                                                                       .street,
                                                             ),
+                                                            focusNode: _model
+                                                                .tFStreetFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -721,6 +762,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                           .adresse
                                                                           .zipCode,
                                                                     ),
+                                                                    focusNode:
+                                                                        _model
+                                                                            .tFzipCodeFocusNode,
                                                                     autofocus:
                                                                         true,
                                                                     obscureText:
@@ -829,6 +873,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                           .adresse
                                                                           .city,
                                                                     ),
+                                                                    focusNode:
+                                                                        _model
+                                                                            .tFcityFocusNode,
                                                                     autofocus:
                                                                         true,
                                                                     obscureText:
@@ -945,6 +992,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                           .adresse
                                                                           .state,
                                                                     ),
+                                                                    focusNode:
+                                                                        _model
+                                                                            .tFstateFocusNode,
                                                                     autofocus:
                                                                         true,
                                                                     obscureText:
@@ -1053,6 +1103,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                           .adresse
                                                                           .country,
                                                                     ),
+                                                                    focusNode:
+                                                                        _model
+                                                                            .tFcountryFocusNode,
                                                                     autofocus:
                                                                         true,
                                                                     obscureText:
@@ -1159,6 +1212,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   updateEstStep1EstablishmentsRecord
                                                                       .email,
                                                             ),
+                                                            focusNode: _model
+                                                                .tFemailAddressFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -1267,6 +1322,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               text: updateEstStep1EstablishmentsRecord
                                                                   .phoneNumber,
                                                             ),
+                                                            focusNode: _model
+                                                                .tFphoneNumberFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -1376,6 +1433,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   updateEstStep1EstablishmentsRecord
                                                                       .webSite,
                                                             ),
+                                                            focusNode: _model
+                                                                .tFURLWebSiteFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -1915,8 +1974,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                     .white,
                                                                 child:
                                                                     ExpandableNotifier(
-                                                                  initialExpanded:
-                                                                      false,
+                                                                  controller: _model
+                                                                      .expandableController1,
                                                                   child:
                                                                       ExpandablePanel(
                                                                     header: Row(
@@ -2057,8 +2116,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                     .white,
                                                                 child:
                                                                     ExpandableNotifier(
-                                                                  initialExpanded:
-                                                                      false,
+                                                                  controller: _model
+                                                                      .expandableController2,
                                                                   child:
                                                                       ExpandablePanel(
                                                                     header: Row(
@@ -2171,6 +2230,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               text: updateEstStep1EstablishmentsRecord
                                                                   .speciality,
                                                             ),
+                                                            focusNode: _model
+                                                                .tFspecialityFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -2309,8 +2370,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                     .white,
                                                                 child:
                                                                     ExpandableNotifier(
-                                                                  initialExpanded:
-                                                                      false,
+                                                                  controller: _model
+                                                                      .expandableController3,
                                                                   child:
                                                                       ExpandablePanel(
                                                                     header: Row(

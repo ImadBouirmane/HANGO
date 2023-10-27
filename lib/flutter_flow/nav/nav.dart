@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 
-import '../../auth/base_auth_user_provider.dart';
+import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
@@ -388,6 +388,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ManagerDashboard',
           path: '/managerDashboard',
+          requireAuth: true,
           builder: (context, params) => ManagerDashboardWidget(),
         ),
         FFRoute(
@@ -410,6 +411,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => MapsEstDetailsWidget(
             estRef: params.getParam('estRef', ParamType.Document),
           ),
+        ),
+        FFRoute(
+          name: 'ListEvent',
+          path: '/listEvent',
+          builder: (context, params) => ListEventWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

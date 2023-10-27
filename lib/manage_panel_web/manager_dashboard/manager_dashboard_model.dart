@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/confirmation/delete_confirmation_event/delete_confirmation_event_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
@@ -16,6 +17,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -35,6 +37,9 @@ class ManagerDashboardModel extends FlutterFlowModel<ManagerDashboardWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -48,6 +53,7 @@ class ManagerDashboardModel extends FlutterFlowModel<ManagerDashboardWidget> {
   void dispose() {
     unfocusNode.dispose();
     managerSideBarModel.dispose();
+    expandableController2.dispose();
   }
 
   /// Action blocks are added here.

@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+6
+version: 1.0.1+1
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -28,12 +28,13 @@ dependencies:
   algolia: 1.1.1
   aligned_dialog: 0.0.6
   auto_size_text: 3.0.0
+  badges: 2.0.2
   cached_network_image: 3.2.1
   chewie: 1.4.0
   cloud_firestore: 4.8.0
   cloud_firestore_platform_interface: 5.15.0
   cloud_firestore_web: 3.6.0
-  collection: 1.17.1
+  collection: 1.17.2
   csv: 5.0.1
   dropdown_button2: 2.0.0
   easy_debounce: 2.0.1
@@ -97,7 +98,7 @@ dependencies:
     git:
       url: https://github.com/FlutterFlow/infinite_scroll_pagination.git
       ref: develop
-  intl: 0.18.0
+  intl: 0.18.1
   json_path: 0.6.2
   map_launcher: 2.5.0+1
   mask_text_input_formatter: 2.4.0
@@ -130,7 +131,7 @@ dependencies:
   stream_transform: 2.1.0
   synchronized: 3.1.0
   table_calendar: 3.0.9
-  text_search: 0.0.2
+  text_search: 0.0.3
   timeago: 3.2.2
   universal_io: 2.2.2
   url_launcher: 6.1.10
@@ -193,8 +194,6 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
-
-
   fonts:
     - family: Iconsocialmedia
       fonts:

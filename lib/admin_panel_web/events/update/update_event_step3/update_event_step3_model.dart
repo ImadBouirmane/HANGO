@@ -10,6 +10,7 @@ import 'update_event_step3_widget.dart' show UpdateEventStep3Widget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -21,15 +22,19 @@ class UpdateEventStep3Model extends FlutterFlowModel<UpdateEventStep3Widget> {
   // Model for AdminSideBar component.
   late AdminSideBarModel adminSideBarModel;
   // State field(s) for promorTitle widget.
+  FocusNode? promorTitleFocusNode;
   TextEditingController? promorTitleController;
   String? Function(BuildContext, String?)? promorTitleControllerValidator;
   // State field(s) for promorSousTitle widget.
+  FocusNode? promorSousTitleFocusNode;
   TextEditingController? promorSousTitleController;
   String? Function(BuildContext, String?)? promorSousTitleControllerValidator;
   // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
   TextEditingController? descriptionController;
   String? Function(BuildContext, String?)? descriptionControllerValidator;
   // State field(s) for nbrEntrance widget.
+  FocusNode? nbrEntranceFocusNode;
   TextEditingController? nbrEntranceController;
   String? Function(BuildContext, String?)? nbrEntranceControllerValidator;
   DateTime? datePicked1;
@@ -44,9 +49,16 @@ class UpdateEventStep3Model extends FlutterFlowModel<UpdateEventStep3Widget> {
   void dispose() {
     unfocusNode.dispose();
     adminSideBarModel.dispose();
+    promorTitleFocusNode?.dispose();
     promorTitleController?.dispose();
+
+    promorSousTitleFocusNode?.dispose();
     promorSousTitleController?.dispose();
+
+    descriptionFocusNode?.dispose();
     descriptionController?.dispose();
+
+    nbrEntranceFocusNode?.dispose();
     nbrEntranceController?.dispose();
   }
 

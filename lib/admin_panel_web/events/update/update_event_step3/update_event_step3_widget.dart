@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_event_step3_model.dart';
@@ -38,6 +39,14 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'UpdateEventStep3'});
+
+    _model.promorTitleFocusNode ??= FocusNode();
+
+    _model.promorSousTitleFocusNode ??= FocusNode();
+
+    _model.descriptionFocusNode ??= FocusNode();
+
+    _model.nbrEntranceFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -50,6 +59,15 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -305,6 +323,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 'Aucune',
                                                               ),
                                                             ),
+                                                            focusNode: _model
+                                                                .promorTitleFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -410,6 +430,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 'Aucune',
                                                               ),
                                                             ),
+                                                            focusNode: _model
+                                                                .promorSousTitleFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -515,6 +537,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 'Aucune',
                                                               ),
                                                             ),
+                                                            focusNode: _model
+                                                                .descriptionFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -622,6 +646,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 '0',
                                                               ),
                                                             ),
+                                                            focusNode: _model
+                                                                .nbrEntranceFocusNode,
                                                             autofocus: true,
                                                             textInputAction:
                                                                 TextInputAction
@@ -1136,18 +1162,10 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                               .text,
                                                           'Aucune',
                                                         ),
-                                                        startTrack: _model
-                                                                    .datePicked1 !=
-                                                                null
-                                                            ? _model.datePicked1
-                                                            : columnPromotionEventRecord
-                                                                ?.startTrack,
-                                                        endTrack: _model
-                                                                    .datePicked2 !=
-                                                                null
-                                                            ? _model.datePicked2
-                                                            : columnPromotionEventRecord
-                                                                ?.endTrack,
+                                                        startTrack:
+                                                            _model.datePicked1,
+                                                        endTrack:
+                                                            _model.datePicked2,
                                                         updatedTime:
                                                             getCurrentTimestamp,
                                                         entranceValue:

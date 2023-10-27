@@ -3,24 +3,19 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
 import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'list_of_establishments_widget.dart' show ListOfEstablishmentsWidget;
-import 'package:easy_debounce/easy_debounce.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
-import 'package:text_search/text_search.dart';
 
 class ListOfEstablishmentsModel
     extends FlutterFlowModel<ListOfEstablishmentsWidget> {
@@ -51,45 +46,19 @@ class ListOfEstablishmentsModel
   final unfocusNode = FocusNode();
   // Model for SideNavWeb component.
   late SideNavWebModel sideNavWebModel;
-  // State field(s) for estblishmentSearch widget.
-  TextEditingController? estblishmentSearchController1;
-  String? Function(BuildContext, String?)?
-      estblishmentSearchController1Validator;
-  // Algolia Search Results from action on estblishmentSearch
-  List<EstablishmentsRecord>? algoliaSearchResults = [];
-  // State field(s) for typeEstablishmentChoices widget.
-  String? typeEstablishmentChoicesValue1;
-  FormFieldController<List<String>>? typeEstablishmentChoicesValueController1;
-  // State field(s) for musicStyleEstablishmentChoices widget.
-  String? musicStyleEstablishmentChoicesValue1;
-  FormFieldController<List<String>>?
-      musicStyleEstablishmentChoicesValueController1;
-  // State field(s) for estblishmentSearch widget.
-  TextEditingController? estblishmentSearchController2;
-  String? Function(BuildContext, String?)?
-      estblishmentSearchController2Validator;
-  List<EstablishmentsRecord> simpleSearchResults = [];
-  // State field(s) for typeEstablishmentChoices widget.
-  String? typeEstablishmentChoicesValue2;
-  FormFieldController<List<String>>? typeEstablishmentChoicesValueController2;
-  // State field(s) for musicStyleEstablishmentChoices widget.
-  String? musicStyleEstablishmentChoicesValue2;
-  FormFieldController<List<String>>?
-      musicStyleEstablishmentChoicesValueController2;
-  // State field(s) for ListEstablishmentsQuery widget.
+  // State field(s) for ListEstMobile widget.
 
   PagingController<DocumentSnapshot?, EstablishmentsRecord>?
-      listEstablishmentsQueryPagingController2;
-  Query? listEstablishmentsQueryPagingQuery2;
-  List<StreamSubscription?> listEstablishmentsQueryStreamSubscriptions2 = [];
+      listEstMobilePagingController;
+  Query? listEstMobilePagingQuery;
+  List<StreamSubscription?> listEstMobileStreamSubscriptions = [];
 
-  // State field(s) for ListEstablishmentsQueryMusicFilter widget.
+  // State field(s) for ListEstablishmentsQueryWeb widget.
 
   PagingController<DocumentSnapshot?, EstablishmentsRecord>?
-      listEstablishmentsQueryMusicFilterPagingController;
-  Query? listEstablishmentsQueryMusicFilterPagingQuery;
-  List<StreamSubscription?>
-      listEstablishmentsQueryMusicFilterStreamSubscriptions = [];
+      listEstablishmentsQueryWebPagingController;
+  Query? listEstablishmentsQueryWebPagingQuery;
+  List<StreamSubscription?> listEstablishmentsQueryWebStreamSubscriptions = [];
 
   /// Initialization and disposal methods.
 
@@ -100,14 +69,11 @@ class ListOfEstablishmentsModel
   void dispose() {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
-    estblishmentSearchController1?.dispose();
-    estblishmentSearchController2?.dispose();
-    listEstablishmentsQueryStreamSubscriptions2.forEach((s) => s?.cancel());
-    listEstablishmentsQueryPagingController2?.dispose();
+    listEstMobileStreamSubscriptions.forEach((s) => s?.cancel());
+    listEstMobilePagingController?.dispose();
 
-    listEstablishmentsQueryMusicFilterStreamSubscriptions
-        .forEach((s) => s?.cancel());
-    listEstablishmentsQueryMusicFilterPagingController?.dispose();
+    listEstablishmentsQueryWebStreamSubscriptions.forEach((s) => s?.cancel());
+    listEstablishmentsQueryWebPagingController?.dispose();
   }
 
   /// Action blocks are added here.
@@ -117,21 +83,21 @@ class ListOfEstablishmentsModel
   /// Additional helper methods are added here.
 
   PagingController<DocumentSnapshot?, EstablishmentsRecord>
-      setListEstablishmentsQueryController2(
+      setListEstMobileController(
     Query query, {
     DocumentReference<Object?>? parent,
   }) {
-    listEstablishmentsQueryPagingController2 ??=
-        _createListEstablishmentsQueryController2(query, parent);
-    if (listEstablishmentsQueryPagingQuery2 != query) {
-      listEstablishmentsQueryPagingQuery2 = query;
-      listEstablishmentsQueryPagingController2?.refresh();
+    listEstMobilePagingController ??=
+        _createListEstMobileController(query, parent);
+    if (listEstMobilePagingQuery != query) {
+      listEstMobilePagingQuery = query;
+      listEstMobilePagingController?.refresh();
     }
-    return listEstablishmentsQueryPagingController2!;
+    return listEstMobilePagingController!;
   }
 
   PagingController<DocumentSnapshot?, EstablishmentsRecord>
-      _createListEstablishmentsQueryController2(
+      _createListEstMobileController(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
@@ -141,9 +107,9 @@ class ListOfEstablishmentsModel
     return controller
       ..addPageRequestListener(
         (nextPageMarker) => queryEstablishmentsRecordPage(
-          queryBuilder: (_) => listEstablishmentsQueryPagingQuery2 ??= query,
+          queryBuilder: (_) => listEstMobilePagingQuery ??= query,
           nextPageMarker: nextPageMarker,
-          streamSubscriptions: listEstablishmentsQueryStreamSubscriptions2,
+          streamSubscriptions: listEstMobileStreamSubscriptions,
           controller: controller,
           pageSize: 10,
           isStream: true,
@@ -152,21 +118,21 @@ class ListOfEstablishmentsModel
   }
 
   PagingController<DocumentSnapshot?, EstablishmentsRecord>
-      setListEstablishmentsQueryMusicFilterController(
+      setListEstablishmentsQueryWebController(
     Query query, {
     DocumentReference<Object?>? parent,
   }) {
-    listEstablishmentsQueryMusicFilterPagingController ??=
-        _createListEstablishmentsQueryMusicFilterController(query, parent);
-    if (listEstablishmentsQueryMusicFilterPagingQuery != query) {
-      listEstablishmentsQueryMusicFilterPagingQuery = query;
-      listEstablishmentsQueryMusicFilterPagingController?.refresh();
+    listEstablishmentsQueryWebPagingController ??=
+        _createListEstablishmentsQueryWebController(query, parent);
+    if (listEstablishmentsQueryWebPagingQuery != query) {
+      listEstablishmentsQueryWebPagingQuery = query;
+      listEstablishmentsQueryWebPagingController?.refresh();
     }
-    return listEstablishmentsQueryMusicFilterPagingController!;
+    return listEstablishmentsQueryWebPagingController!;
   }
 
   PagingController<DocumentSnapshot?, EstablishmentsRecord>
-      _createListEstablishmentsQueryMusicFilterController(
+      _createListEstablishmentsQueryWebController(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
@@ -176,11 +142,9 @@ class ListOfEstablishmentsModel
     return controller
       ..addPageRequestListener(
         (nextPageMarker) => queryEstablishmentsRecordPage(
-          queryBuilder: (_) =>
-              listEstablishmentsQueryMusicFilterPagingQuery ??= query,
+          queryBuilder: (_) => listEstablishmentsQueryWebPagingQuery ??= query,
           nextPageMarker: nextPageMarker,
-          streamSubscriptions:
-              listEstablishmentsQueryMusicFilterStreamSubscriptions,
+          streamSubscriptions: listEstablishmentsQueryWebStreamSubscriptions,
           controller: controller,
           pageSize: 10,
           isStream: true,

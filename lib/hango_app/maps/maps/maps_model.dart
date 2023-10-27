@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'maps_widget.dart' show MapsWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,7 @@ class MapsModel extends FlutterFlowModel<MapsWidget> {
   LatLng? googleMapsCenter1;
   final googleMapsController1 = Completer<GoogleMapController>();
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
   List<EstablishmentsRecord> simpleSearchResults1 = [];
@@ -32,6 +34,7 @@ class MapsModel extends FlutterFlowModel<MapsWidget> {
   LatLng? googleMapsCenter2;
   final googleMapsController2 = Completer<GoogleMapController>();
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
   List<EstablishmentsRecord> simpleSearchResults2 = [];
@@ -48,9 +51,13 @@ class MapsModel extends FlutterFlowModel<MapsWidget> {
 
   void dispose() {
     sideNavWebModel.dispose();
+    textFieldFocusNode1?.dispose();
     textController1?.dispose();
+
     listItemsModels1.dispose();
+    textFieldFocusNode2?.dispose();
     textController2?.dispose();
+
     listItemsModels2.dispose();
   }
 

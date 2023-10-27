@@ -36,6 +36,9 @@ class ShowOfEstablishmentModel
           pageViewController1!.page != null
       ? pageViewController1!.page!.round()
       : 0;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController1;
+
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter1;
   final googleMapsController1 = Completer<GoogleMapController>();
@@ -48,6 +51,9 @@ class ShowOfEstablishmentModel
       ? pageViewController2!.page!.round()
       : 0;
   String currentPageLink = '';
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter2;
   final googleMapsController2 = Completer<GoogleMapController>();
@@ -61,6 +67,8 @@ class ShowOfEstablishmentModel
   void dispose() {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
+    expandableController1.dispose();
+    expandableController2.dispose();
   }
 
   /// Action blocks are added here.

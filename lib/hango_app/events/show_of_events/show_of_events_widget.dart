@@ -53,6 +53,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ShowOfEvents'});
+    _model.expandableController1 = ExpandableController(initialExpanded: false);
+    _model.expandableController2 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -65,6 +67,15 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return StreamBuilder<EventsRecord>(
@@ -1236,8 +1247,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   Colors.white,
                                                               child:
                                                                   ExpandableNotifier(
-                                                                initialExpanded:
-                                                                    false,
+                                                                controller: _model
+                                                                    .expandableController1,
                                                                 child:
                                                                     ExpandablePanel(
                                                                   header: Text(
@@ -2916,6 +2927,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     _model.currentPageLink =
                                                                         await generateCurrentPageLink(
                                                                       context,
+                                                                      title: showOfEventsEventsRecord
+                                                                          .title,
                                                                       imageUrl:
                                                                           valueOrDefault<
                                                                               String>(
@@ -2923,8 +2936,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                             ?.image,
                                                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                       ),
-                                                                      isShortLink:
-                                                                          false,
+                                                                      description:
+                                                                          showOfEventsEventsRecord
+                                                                              .description,
+                                                                      forceRedirect:
+                                                                          true,
                                                                     );
 
                                                                     logFirebaseEvent(
@@ -3785,8 +3801,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             color: Colors.white,
                                                             child:
                                                                 ExpandableNotifier(
-                                                              initialExpanded:
-                                                                  false,
+                                                              controller: _model
+                                                                  .expandableController2,
                                                               child:
                                                                   ExpandablePanel(
                                                                 header: Text(
@@ -4951,6 +4967,28 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                         text: columnEstablishmentsRecord
                                                                             .adresse
                                                                             .street));
+                                                                    logFirebaseEvent(
+                                                                        'Icon_show_snack_bar');
+                                                                    ScaffoldMessenger.of(
+                                                                            context)
+                                                                        .showSnackBar(
+                                                                      SnackBar(
+                                                                        content:
+                                                                            Text(
+                                                                          'Adresse copiée !',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .titleMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              ),
+                                                                        ),
+                                                                        duration:
+                                                                            Duration(milliseconds: 2000),
+                                                                        backgroundColor:
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                      ),
+                                                                    );
                                                                   },
                                                                   child: Icon(
                                                                     Icons

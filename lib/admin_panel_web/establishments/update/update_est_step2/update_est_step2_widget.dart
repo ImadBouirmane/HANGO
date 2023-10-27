@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_est_step2_model.dart';
@@ -37,6 +38,34 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'UpdateEstStep2'});
+
+    _model.mondayOpeningFocusNode ??= FocusNode();
+
+    _model.mondayClosingFocusNode ??= FocusNode();
+
+    _model.tuesdayOpeningFocusNode ??= FocusNode();
+
+    _model.tuesdayClosingFocusNode ??= FocusNode();
+
+    _model.wednesdayOpeningFocusNode ??= FocusNode();
+
+    _model.wednesdayClosingFocusNode ??= FocusNode();
+
+    _model.thursdayOpeningFocusNode ??= FocusNode();
+
+    _model.thursdayClosingFocusNode ??= FocusNode();
+
+    _model.fridayOpeningFocusNode ??= FocusNode();
+
+    _model.fridayClosingFocusNode ??= FocusNode();
+
+    _model.saturdayOpeningFocusNode ??= FocusNode();
+
+    _model.saturdayClosingFocusNode ??= FocusNode();
+
+    _model.sundayOpeningFocusNode ??= FocusNode();
+
+    _model.sundayClosingFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,6 +78,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -331,6 +369,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Lundi ouverture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.mondayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.mondayOpeningController',
                                                                                 Duration(milliseconds: 2000),
@@ -412,6 +451,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Lundi fermeture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.mondayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.mondayClosingController',
                                                                                 Duration(milliseconds: 2000),
@@ -614,6 +654,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Mardi ouverture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.tuesdayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.tuesdayOpeningController',
                                                                                 Duration(milliseconds: 2000),
@@ -695,6 +736,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Mardi fermeture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.tuesdayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.tuesdayClosingController',
                                                                                 Duration(milliseconds: 2000),
@@ -897,6 +939,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Mercredi ouverture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.wednesdayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.wednesdayOpeningController',
                                                                                 Duration(milliseconds: 2000),
@@ -978,6 +1021,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Mercredi fermeture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.wednesdayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.wednesdayClosingController',
                                                                                 Duration(milliseconds: 2000),
@@ -1180,6 +1224,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Jeudi ouverture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.thursdayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.thursdayOpeningController',
                                                                                 Duration(milliseconds: 2000),
@@ -1261,6 +1306,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Jeudi fermeture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.thursdayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.thursdayClosingController',
                                                                                 Duration(milliseconds: 2000),
@@ -1463,6 +1509,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Vendredi ouverture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.fridayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.fridayOpeningController',
                                                                                 Duration(milliseconds: 2000),
@@ -1544,6 +1591,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Vendredi fermeture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.fridayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.fridayClosingController',
                                                                                 Duration(milliseconds: 2000),
@@ -1752,6 +1800,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Samedi ouverture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.saturdayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.saturdayOpeningController',
                                                                                 Duration(milliseconds: 2000),
@@ -1833,6 +1882,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Samedi fermeture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.saturdayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.saturdayClosingController',
                                                                                 Duration(milliseconds: 2000),
@@ -2035,6 +2085,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Dimanche ouverture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.sundayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.sundayOpeningController',
                                                                                 Duration(milliseconds: 2000),
@@ -2116,6 +2167,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                   'Dimanche fermeture',
                                                                                 ),
                                                                               ),
+                                                                              focusNode: _model.sundayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.sundayClosingController',
                                                                                 Duration(milliseconds: 2000),

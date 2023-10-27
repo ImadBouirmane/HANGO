@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -30,9 +31,13 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'UserLogin'});
     _model.emailAddressController1 ??= TextEditingController();
+    _model.emailAddressFocusNode1 ??= FocusNode();
     _model.passwordController1 ??= TextEditingController();
+    _model.passwordFocusNode1 ??= FocusNode();
     _model.emailAddressController2 ??= TextEditingController();
+    _model.emailAddressFocusNode2 ??= FocusNode();
     _model.passwordController2 ??= TextEditingController();
+    _model.passwordFocusNode2 ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -45,6 +50,15 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -319,6 +333,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                       child: TextFormField(
                                                         controller: _model
                                                             .emailAddressController1,
+                                                        focusNode: _model
+                                                            .emailAddressFocusNode1,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
@@ -441,6 +457,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .passwordController1,
+                                                      focusNode: _model
+                                                          .passwordFocusNode1,
                                                       textCapitalization:
                                                           TextCapitalization
                                                               .none,
@@ -1213,6 +1231,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                         child: TextFormField(
                                                           controller: _model
                                                               .emailAddressController2,
+                                                          focusNode: _model
+                                                              .emailAddressFocusNode2,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -1335,6 +1355,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                       child: TextFormField(
                                                         controller: _model
                                                             .passwordController2,
+                                                        focusNode: _model
+                                                            .passwordFocusNode2,
                                                         textCapitalization:
                                                             TextCapitalization
                                                                 .none,

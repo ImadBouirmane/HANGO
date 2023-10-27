@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'filter_events_model.dart';
@@ -33,6 +34,8 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
     super.initState();
     _model = createModel(context, () => FilterEventsModel());
 
+    _model.expandableController1 = ExpandableController(initialExpanded: false);
+    _model.expandableController2 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -155,7 +158,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                               width: double.infinity,
                               color: Colors.white,
                               child: ExpandableNotifier(
-                                initialExpanded: false,
+                                controller: _model.expandableController1,
                                 child: ExpandablePanel(
                                   header: Text(
                                     'Thème d\'événement',
@@ -250,7 +253,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                               width: double.infinity,
                               color: Colors.white,
                               child: ExpandableNotifier(
-                                initialExpanded: false,
+                                controller: _model.expandableController2,
                                 child: ExpandablePanel(
                                   header: Text(
                                     'Genre musical',

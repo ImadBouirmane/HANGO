@@ -16,6 +16,7 @@ import 'profile_widget.dart' show ProfileWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -35,15 +36,19 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   String uploadedFileUrl1 = '';
 
   // State field(s) for lastName widget.
+  FocusNode? lastNameFocusNode1;
   TextEditingController? lastNameController1;
   String? Function(BuildContext, String?)? lastNameController1Validator;
   // State field(s) for firstName widget.
+  FocusNode? firstNameFocusNode1;
   TextEditingController? firstNameController1;
   String? Function(BuildContext, String?)? firstNameController1Validator;
   // State field(s) for emailAddress widget.
+  FocusNode? emailAddressFocusNode1;
   TextEditingController? emailAddressController1;
   String? Function(BuildContext, String?)? emailAddressController1Validator;
   // State field(s) for phone widget.
+  FocusNode? phoneFocusNode1;
   TextEditingController? phoneController1;
   String? Function(BuildContext, String?)? phoneController1Validator;
   // State field(s) for genre widget.
@@ -56,15 +61,19 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   String uploadedFileUrl2 = '';
 
   // State field(s) for lastName widget.
+  FocusNode? lastNameFocusNode2;
   TextEditingController? lastNameController2;
   String? Function(BuildContext, String?)? lastNameController2Validator;
   // State field(s) for firstName widget.
+  FocusNode? firstNameFocusNode2;
   TextEditingController? firstNameController2;
   String? Function(BuildContext, String?)? firstNameController2Validator;
   // State field(s) for emailAddress widget.
+  FocusNode? emailAddressFocusNode2;
   TextEditingController? emailAddressController2;
   String? Function(BuildContext, String?)? emailAddressController2Validator;
   // State field(s) for phone widget.
+  FocusNode? phoneFocusNode2;
   TextEditingController? phoneController2;
   String? Function(BuildContext, String?)? phoneController2Validator;
   // State field(s) for genre widget.
@@ -81,13 +90,28 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   void dispose() {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
+    lastNameFocusNode1?.dispose();
     lastNameController1?.dispose();
+
+    firstNameFocusNode1?.dispose();
     firstNameController1?.dispose();
+
+    emailAddressFocusNode1?.dispose();
     emailAddressController1?.dispose();
+
+    phoneFocusNode1?.dispose();
     phoneController1?.dispose();
+
+    lastNameFocusNode2?.dispose();
     lastNameController2?.dispose();
+
+    firstNameFocusNode2?.dispose();
     firstNameController2?.dispose();
+
+    emailAddressFocusNode2?.dispose();
     emailAddressController2?.dispose();
+
+    phoneFocusNode2?.dispose();
     phoneController2?.dispose();
   }
 

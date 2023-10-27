@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -32,10 +33,14 @@ class _SecurityWidgetState extends State<SecurityWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Security'});
     _model.emailOnMobileController ??=
         TextEditingController(text: currentUserEmail);
+    _model.emailOnMobileFocusNode ??= FocusNode();
     _model.phoneOnMobileController ??=
         TextEditingController(text: currentPhoneNumber);
+    _model.phoneOnMobileFocusNode ??= FocusNode();
     _model.textController2 ??= TextEditingController(text: currentUserEmail);
+    _model.textFieldFocusNode1 ??= FocusNode();
     _model.textController3 ??= TextEditingController(text: currentPhoneNumber);
+    _model.textFieldFocusNode2 ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -48,6 +53,15 @@ class _SecurityWidgetState extends State<SecurityWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -139,6 +153,8 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       child: TextFormField(
                                         controller:
                                             _model.emailOnMobileController,
+                                        focusNode:
+                                            _model.emailOnMobileFocusNode,
                                         onFieldSubmitted: (_) async {
                                           logFirebaseEvent(
                                               'SECURITY_emailOnMobile_ON_TEXTFIELD_SUBM');
@@ -258,6 +274,8 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         builder: (context) => TextFormField(
                                           controller:
                                               _model.phoneOnMobileController,
+                                          focusNode:
+                                              _model.phoneOnMobileFocusNode,
                                           onFieldSubmitted: (_) async {
                                             logFirebaseEvent(
                                                 'SECURITY_phoneOnMobile_ON_TEXTFIELD_SUBM');
@@ -406,6 +424,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         decoration: BoxDecoration(),
                                         child: TextFormField(
                                           controller: _model.textController2,
+                                          focusNode: _model.textFieldFocusNode1,
                                           onFieldSubmitted: (_) async {
                                             logFirebaseEvent(
                                                 'SECURITY_TextField_1bhbi5a5_ON_TEXTFIELD');
@@ -503,6 +522,8 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         child: AuthUserStreamWidget(
                                           builder: (context) => TextFormField(
                                             controller: _model.textController3,
+                                            focusNode:
+                                                _model.textFieldFocusNode2,
                                             onFieldSubmitted: (_) async {
                                               logFirebaseEvent(
                                                   'SECURITY_TextField_70gyhnph_ON_TEXTFIELD');

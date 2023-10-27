@@ -104,6 +104,11 @@ class EventsRecord extends FirestoreRecord {
   bool get isAdmin => _isAdmin ?? false;
   bool hasIsAdmin() => _isAdmin != null;
 
+  // "userRef" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
+
   void _initializeFields() {
     _eventId = snapshotData['event_id'] as String?;
     _establishmentId = snapshotData['establishment_id'] as DocumentReference?;
@@ -122,6 +127,7 @@ class EventsRecord extends FirestoreRecord {
     _entrancePrice = snapshotData['entrancePrice'] as String?;
     _isManager = snapshotData['isManager'] as bool?;
     _isAdmin = snapshotData['isAdmin'] as bool?;
+    _userRef = snapshotData['userRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -194,6 +200,11 @@ class EventsRecord extends FirestoreRecord {
           'entrancePrice': snapshot.data['entrancePrice'],
           'isManager': snapshot.data['isManager'],
           'isAdmin': snapshot.data['isAdmin'],
+          'userRef': convertAlgoliaParam(
+            snapshot.data['userRef'],
+            ParamType.DocumentReference,
+            false,
+          ),
         },
         EventsRecord.collection.doc(snapshot.objectID),
       );
@@ -244,6 +255,7 @@ Map<String, dynamic> createEventsRecordData({
   String? entrancePrice,
   bool? isManager,
   bool? isAdmin,
+  DocumentReference? userRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -261,6 +273,7 @@ Map<String, dynamic> createEventsRecordData({
       'entrancePrice': entrancePrice,
       'isManager': isManager,
       'isAdmin': isAdmin,
+      'userRef': userRef,
     }.withoutNulls,
   );
 
@@ -289,7 +302,8 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.eventEntrancePrice == e2?.eventEntrancePrice &&
         e1?.entrancePrice == e2?.entrancePrice &&
         e1?.isManager == e2?.isManager &&
-        e1?.isAdmin == e2?.isAdmin;
+        e1?.isAdmin == e2?.isAdmin &&
+        e1?.userRef == e2?.userRef;
   }
 
   @override
@@ -310,7 +324,8 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.eventEntrancePrice,
         e?.entrancePrice,
         e?.isManager,
-        e?.isAdmin
+        e?.isAdmin,
+        e?.userRef
       ]);
 
   @override

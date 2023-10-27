@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'feedback_model.dart';
@@ -30,10 +31,18 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
     _model = createModel(context, () => FeedbackModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Feedback'});
+    _model.expandableController1 = ExpandableController(initialExpanded: false);
     _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.expandableController2 = ExpandableController(initialExpanded: false);
     _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.expandableController3 = ExpandableController(initialExpanded: false);
     _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.expandableController4 = ExpandableController(initialExpanded: false);
     _model.textController4 ??= TextEditingController();
+    _model.textFieldFocusNode4 ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -46,6 +55,15 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -121,7 +139,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                     width: double.infinity,
                                     color: Color(0x00000000),
                                     child: ExpandableNotifier(
-                                      initialExpanded: false,
+                                      controller: _model.expandableController1,
                                       child: ExpandablePanel(
                                         header: Text(
                                           'Suggestion',
@@ -150,6 +168,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController1,
+                                                    focusNode: _model
+                                                        .textFieldFocusNode1,
                                                     autofocus: true,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -381,7 +401,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                     width: double.infinity,
                                     color: Color(0x00000000),
                                     child: ExpandableNotifier(
-                                      initialExpanded: false,
+                                      controller: _model.expandableController2,
                                       child: ExpandablePanel(
                                         header: Text(
                                           'Rapport',
@@ -410,6 +430,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController2,
+                                                    focusNode: _model
+                                                        .textFieldFocusNode2,
                                                     autofocus: true,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -671,7 +693,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                       width: double.infinity,
                                       color: Color(0x00000000),
                                       child: ExpandableNotifier(
-                                        initialExpanded: false,
+                                        controller:
+                                            _model.expandableController3,
                                         child: ExpandablePanel(
                                           header: Text(
                                             'Suggestion',
@@ -700,6 +723,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .textController3,
+                                                      focusNode: _model
+                                                          .textFieldFocusNode3,
                                                       autofocus: true,
                                                       obscureText: false,
                                                       decoration:
@@ -942,7 +967,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                       width: double.infinity,
                                       color: Color(0x00000000),
                                       child: ExpandableNotifier(
-                                        initialExpanded: false,
+                                        controller:
+                                            _model.expandableController4,
                                         child: ExpandablePanel(
                                           header: Text(
                                             'Rapport',
@@ -971,6 +997,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .textController4,
+                                                      focusNode: _model
+                                                          .textFieldFocusNode4,
                                                       autofocus: true,
                                                       obscureText: false,
                                                       decoration:

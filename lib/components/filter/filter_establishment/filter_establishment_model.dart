@@ -8,6 +8,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'filter_establishment_widget.dart' show FilterEstablishmentWidget;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -15,9 +16,15 @@ class FilterEstablishmentModel
     extends FlutterFlowModel<FilterEstablishmentWidget> {
   ///  State fields for stateful widgets in this component.
 
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController1;
+
   // State field(s) for typeEstablishment widget.
   String? typeEstablishmentValue;
   FormFieldController<List<String>>? typeEstablishmentValueController;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   // State field(s) for musicType widget.
   String? musicTypeValue;
   FormFieldController<List<String>>? musicTypeValueController;
@@ -38,7 +45,10 @@ class FilterEstablishmentModel
 
   void initState(BuildContext context) {}
 
-  void dispose() {}
+  void dispose() {
+    expandableController1.dispose();
+    expandableController2.dispose();
+  }
 
   /// Action blocks are added here.
 

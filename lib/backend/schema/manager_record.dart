@@ -56,6 +56,11 @@ class ManagerRecord extends FirestoreRecord {
   String get estName => _estName ?? '';
   bool hasEstName() => _estName != null;
 
+  // "isConfirmed" field.
+  bool? _isConfirmed;
+  bool get isConfirmed => _isConfirmed ?? false;
+  bool hasIsConfirmed() => _isConfirmed != null;
+
   void _initializeFields() {
     _userRef = snapshotData['userRef'] as DocumentReference?;
     _establishmentRef = snapshotData['establishmentRef'] as DocumentReference?;
@@ -65,6 +70,7 @@ class ManagerRecord extends FirestoreRecord {
     _lastName = snapshotData['LastName'] as String?;
     _phone = snapshotData['Phone'] as String?;
     _estName = snapshotData['EstName'] as String?;
+    _isConfirmed = snapshotData['isConfirmed'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -110,6 +116,7 @@ Map<String, dynamic> createManagerRecordData({
   String? lastName,
   String? phone,
   String? estName,
+  bool? isConfirmed,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -121,6 +128,7 @@ Map<String, dynamic> createManagerRecordData({
       'LastName': lastName,
       'Phone': phone,
       'EstName': estName,
+      'isConfirmed': isConfirmed,
     }.withoutNulls,
   );
 
@@ -139,7 +147,8 @@ class ManagerRecordDocumentEquality implements Equality<ManagerRecord> {
         e1?.firstName == e2?.firstName &&
         e1?.lastName == e2?.lastName &&
         e1?.phone == e2?.phone &&
-        e1?.estName == e2?.estName;
+        e1?.estName == e2?.estName &&
+        e1?.isConfirmed == e2?.isConfirmed;
   }
 
   @override
@@ -151,7 +160,8 @@ class ManagerRecordDocumentEquality implements Equality<ManagerRecord> {
         e?.firstName,
         e?.lastName,
         e?.phone,
-        e?.estName
+        e?.estName,
+        e?.isConfirmed
       ]);
 
   @override

@@ -16,6 +16,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -27,23 +28,33 @@ class UpdateEventStep1Model extends FlutterFlowModel<UpdateEventStep1Widget> {
   // Model for AdminSideBar component.
   late AdminSideBarModel adminSideBarModel;
   // State field(s) for TFTitle widget.
+  FocusNode? tFTitleFocusNode;
   TextEditingController? tFTitleController;
   String? Function(BuildContext, String?)? tFTitleControllerValidator;
   // State field(s) for TFDescriion widget.
+  FocusNode? tFDescriionFocusNode;
   TextEditingController? tFDescriionController;
   String? Function(BuildContext, String?)? tFDescriionControllerValidator;
   DateTime? datePicked1;
   DateTime? datePicked2;
   DateTime? datePicked3;
   // State field(s) for TFURLWebSite widget.
+  FocusNode? tFURLWebSiteFocusNode;
   TextEditingController? tFURLWebSiteController;
   String? Function(BuildContext, String?)? tFURLWebSiteControllerValidator;
   // State field(s) for entrancePrice widget.
+  FocusNode? entrancePriceFocusNode;
   TextEditingController? entrancePriceController;
   String? Function(BuildContext, String?)? entrancePriceControllerValidator;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController1;
+
   // State field(s) for typeEvent widget.
   List<String>? typeEventValues;
   FormFieldController<List<String>>? typeEventValueController;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   // State field(s) for CheckBoxMusicStyle widget.
   List<String>? checkBoxMusicStyleValues;
   FormFieldController<List<String>>? checkBoxMusicStyleValueController;
@@ -59,10 +70,20 @@ class UpdateEventStep1Model extends FlutterFlowModel<UpdateEventStep1Widget> {
   void dispose() {
     unfocusNode.dispose();
     adminSideBarModel.dispose();
+    tFTitleFocusNode?.dispose();
     tFTitleController?.dispose();
+
+    tFDescriionFocusNode?.dispose();
     tFDescriionController?.dispose();
+
+    tFURLWebSiteFocusNode?.dispose();
     tFURLWebSiteController?.dispose();
+
+    entrancePriceFocusNode?.dispose();
     entrancePriceController?.dispose();
+
+    expandableController1.dispose();
+    expandableController2.dispose();
   }
 
   /// Action blocks are added here.

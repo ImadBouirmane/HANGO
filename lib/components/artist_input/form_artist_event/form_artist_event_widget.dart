@@ -11,6 +11,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'form_artist_event_model.dart';
@@ -43,6 +44,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
     _model = createModel(context, () => FormArtistEventModel());
 
     _model.artistNameTextFieldController ??= TextEditingController();
+    _model.artistNameTextFieldFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.artistNameTextFieldController?.text = 'DJ Snake';
         }));
@@ -100,6 +102,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                   Expanded(
                     child: TextFormField(
                       controller: _model.artistNameTextFieldController,
+                      focusNode: _model.artistNameTextFieldFocusNode,
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(

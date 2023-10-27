@@ -15,6 +15,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_event_step1_model.dart';
@@ -44,6 +45,16 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'UpdateEventStep1'});
+
+    _model.tFTitleFocusNode ??= FocusNode();
+
+    _model.tFDescriionFocusNode ??= FocusNode();
+
+    _model.tFURLWebSiteFocusNode ??= FocusNode();
+
+    _model.entrancePriceFocusNode ??= FocusNode();
+    _model.expandableController1 = ExpandableController(initialExpanded: false);
+    _model.expandableController2 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -56,6 +67,15 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return StreamBuilder<EventsRecord>(
@@ -338,6 +358,8 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                 updateEventStep1EventsRecord
                                                                     .title,
                                                           ),
+                                                          focusNode: _model
+                                                              .tFTitleFocusNode,
                                                           autofocus: true,
                                                           obscureText: false,
                                                           decoration:
@@ -436,6 +458,8 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                 updateEventStep1EventsRecord
                                                                     .description,
                                                           ),
+                                                          focusNode: _model
+                                                              .tFDescriionFocusNode,
                                                           autofocus: true,
                                                           obscureText: false,
                                                           decoration:
@@ -913,6 +937,8 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                 updateEventStep1EventsRecord
                                                                     .siteWeb,
                                                           ),
+                                                          focusNode: _model
+                                                              .tFURLWebSiteFocusNode,
                                                           autofocus: true,
                                                           obscureText: false,
                                                           decoration:
@@ -1058,6 +1084,8 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                 text: updateEventStep1EventsRecord
                                                                     .eventEntrancePrice,
                                                               ),
+                                                              focusNode: _model
+                                                                  .entrancePriceFocusNode,
                                                               autofocus: true,
                                                               obscureText:
                                                                   false,
@@ -1196,8 +1224,8 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                   Colors.white,
                                                               child:
                                                                   ExpandableNotifier(
-                                                                initialExpanded:
-                                                                    false,
+                                                                controller: _model
+                                                                    .expandableController1,
                                                                 child:
                                                                     ExpandablePanel(
                                                                   header: Row(
@@ -1343,8 +1371,8 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                   Colors.white,
                                                               child:
                                                                   ExpandableNotifier(
-                                                                initialExpanded:
-                                                                    false,
+                                                                controller: _model
+                                                                    .expandableController2,
                                                                 child:
                                                                     ExpandablePanel(
                                                                   header: Row(

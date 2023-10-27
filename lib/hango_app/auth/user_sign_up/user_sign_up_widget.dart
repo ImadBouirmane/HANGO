@@ -10,7 +10,9 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -36,15 +38,25 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'UserSignUp'});
     _model.lastNameController1 ??= TextEditingController();
+    _model.lastNameFocusNode1 ??= FocusNode();
     _model.firstNameController1 ??= TextEditingController();
+    _model.firstNameFocusNode1 ??= FocusNode();
     _model.emailAddressController1 ??= TextEditingController();
+    _model.emailAddressFocusNode1 ??= FocusNode();
     _model.passwordController1 ??= TextEditingController();
+    _model.passwordFocusNode1 ??= FocusNode();
     _model.confirmPasswordController1 ??= TextEditingController();
+    _model.confirmPasswordFocusNode1 ??= FocusNode();
     _model.lastNameController2 ??= TextEditingController();
+    _model.lastNameFocusNode2 ??= FocusNode();
     _model.firstNameController2 ??= TextEditingController();
+    _model.firstNameFocusNode2 ??= FocusNode();
     _model.emailAddressController2 ??= TextEditingController();
+    _model.emailAddressFocusNode2 ??= FocusNode();
     _model.passwordController2 ??= TextEditingController();
+    _model.passwordFocusNode2 ??= FocusNode();
     _model.confirmPasswordController2 ??= TextEditingController();
+    _model.confirmPasswordFocusNode2 ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -57,6 +69,15 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -291,6 +312,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .lastNameController1,
+                                                      focusNode: _model
+                                                          .lastNameFocusNode1,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -398,6 +421,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .firstNameController1,
+                                                      focusNode: _model
+                                                          .firstNameFocusNode1,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -756,6 +781,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .emailAddressController1,
+                                                      focusNode: _model
+                                                          .emailAddressFocusNode1,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -869,6 +896,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .passwordController1,
+                                                      focusNode: _model
+                                                          .passwordFocusNode1,
                                                       textCapitalization:
                                                           TextCapitalization
                                                               .none,
@@ -1007,6 +1036,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .confirmPasswordController1,
+                                                      focusNode: _model
+                                                          .confirmPasswordFocusNode1,
                                                       textCapitalization:
                                                           TextCapitalization
                                                               .none,
@@ -1651,6 +1682,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                         ),
                                       ),
                                     ),
+                                    Spacer(),
                                   ]
                                       .divide(SizedBox(height: 15.0))
                                       .addToStart(SizedBox(height: 15.0))
@@ -1752,6 +1784,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .lastNameController2,
+                                                      focusNode: _model
+                                                          .lastNameFocusNode2,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -1859,6 +1893,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .firstNameController2,
+                                                      focusNode: _model
+                                                          .firstNameFocusNode2,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -2204,6 +2240,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .emailAddressController2,
+                                                      focusNode: _model
+                                                          .emailAddressFocusNode2,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -2317,6 +2355,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .passwordController2,
+                                                      focusNode: _model
+                                                          .passwordFocusNode2,
                                                       textCapitalization:
                                                           TextCapitalization
                                                               .none,
@@ -2455,6 +2495,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     child: TextFormField(
                                                       controller: _model
                                                           .confirmPasswordController2,
+                                                      focusNode: _model
+                                                          .confirmPasswordFocusNode2,
                                                       textCapitalization:
                                                           TextCapitalization
                                                               .none,
@@ -3077,24 +3119,11 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               logFirebaseEvent(
-                                                  'USER_SIGN_UP_PAGE_Text_1osuaaw4_ON_TAP');
+                                                  'USER_SIGN_UP_PAGE_Text_7ocwhn1q_ON_TAP');
                                               logFirebaseEvent(
                                                   'Text_navigate_to');
 
-                                              context.pushNamed(
-                                                'ListOfEstablishments',
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType
-                                                            .scale,
-                                                    alignment:
-                                                        Alignment.bottomCenter,
-                                                  ),
-                                                },
-                                              );
+                                              context.pushNamed('ListOfEvents');
                                             },
                                             child: Text(
                                               'Continuer sans compte',
@@ -3114,8 +3143,107 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                         ),
                                       ],
                                     ),
+                                    Spacer(),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'USER_SIGN_UP_RichText_uwgi22m2_ON_TAP');
+                                            logFirebaseEvent(
+                                                'RichText_navigate_to');
+
+                                            context.pushNamed('managerSignUp');
+                                          },
+                                          child: RichText(
+                                            textScaleFactor:
+                                                MediaQuery.of(context)
+                                                    .textScaleFactor,
+                                            text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Continuer ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
+                                                      ),
+                                                ),
+                                                TextSpan(
+                                                  text: 'avec ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
+                                                      ),
+                                                ),
+                                                TextSpan(
+                                                  text: 'Hango',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
+                                                      ),
+                                                ),
+                                                TextSpan(
+                                                  text: ' Pro',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
+                                                      ),
+                                                )
+                                              ],
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ]
                                       .divide(SizedBox(height: 15.0))
+                                      .addToStart(SizedBox(height: 15.0))
                                       .addToEnd(SizedBox(height: 40.0)),
                                 ),
                               ),

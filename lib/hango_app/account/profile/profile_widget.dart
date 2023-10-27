@@ -15,6 +15,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -42,18 +43,26 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Profile'});
     _model.lastNameController1 ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
+    _model.lastNameFocusNode1 ??= FocusNode();
     _model.firstNameController1 ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.lastName, ''));
+    _model.firstNameFocusNode1 ??= FocusNode();
     _model.emailAddressController1 ??=
         TextEditingController(text: currentUserEmail);
+    _model.emailAddressFocusNode1 ??= FocusNode();
     _model.phoneController1 ??= TextEditingController(text: currentPhoneNumber);
+    _model.phoneFocusNode1 ??= FocusNode();
     _model.lastNameController2 ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
+    _model.lastNameFocusNode2 ??= FocusNode();
     _model.firstNameController2 ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.lastName, ''));
+    _model.firstNameFocusNode2 ??= FocusNode();
     _model.emailAddressController2 ??=
         TextEditingController(text: currentUserEmail);
+    _model.emailAddressFocusNode2 ??= FocusNode();
     _model.phoneController2 ??= TextEditingController(text: currentPhoneNumber);
+    _model.phoneFocusNode2 ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -66,6 +75,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -1014,6 +1032,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                                 TextFormField(
                                                                           controller:
                                                                               _model.lastNameController1,
+                                                                          focusNode:
+                                                                              _model.lastNameFocusNode1,
                                                                           obscureText:
                                                                               false,
                                                                           decoration:
@@ -1088,6 +1108,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                                 TextFormField(
                                                                           controller:
                                                                               _model.firstNameController1,
+                                                                          focusNode:
+                                                                              _model.firstNameFocusNode1,
                                                                           obscureText:
                                                                               false,
                                                                           decoration:
@@ -1166,6 +1188,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                     controller:
                                                                         _model
                                                                             .emailAddressController1,
+                                                                    focusNode:
+                                                                        _model
+                                                                            .emailAddressFocusNode1,
                                                                     obscureText:
                                                                         false,
                                                                     decoration:
@@ -1267,6 +1292,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                     controller:
                                                                         _model
                                                                             .phoneController1,
+                                                                    focusNode:
+                                                                        _model
+                                                                            .phoneFocusNode1,
                                                                     obscureText:
                                                                         false,
                                                                     decoration:
@@ -1617,7 +1645,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           ''
                                                                   ? _model.datePicked1
                                                                   : currentUserDocument?.birthday,
-                                                              email: '',
+                                                              email: _model
+                                                                  .emailAddressController1
+                                                                  .text,
                                                               firstName: _model.firstNameController1
                                                                               .text !=
                                                                           null &&
@@ -2441,6 +2471,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               TextFormField(
                                                                             controller:
                                                                                 _model.lastNameController2,
+                                                                            focusNode:
+                                                                                _model.lastNameFocusNode2,
                                                                             obscureText:
                                                                                 false,
                                                                             decoration:
@@ -2502,6 +2534,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               TextFormField(
                                                                             controller:
                                                                                 _model.firstNameController2,
+                                                                            focusNode:
+                                                                                _model.firstNameFocusNode2,
                                                                             obscureText:
                                                                                 false,
                                                                             decoration:
@@ -2568,6 +2602,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                       controller:
                                                                           _model
                                                                               .emailAddressController2,
+                                                                      focusNode:
+                                                                          _model
+                                                                              .emailAddressFocusNode2,
                                                                       obscureText:
                                                                           false,
                                                                       decoration:
@@ -2662,6 +2699,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                       controller:
                                                                           _model
                                                                               .phoneController2,
+                                                                      focusNode:
+                                                                          _model
+                                                                              .phoneFocusNode2,
                                                                       obscureText:
                                                                           false,
                                                                       decoration:
@@ -2986,7 +3026,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           ''
                                                                   ? _model.datePicked2
                                                                   : currentUserDocument?.birthday,
-                                                              email: '',
+                                                              email: _model
+                                                                  .emailAddressController2
+                                                                  .text,
                                                               firstName: _model.firstNameController2
                                                                               .text !=
                                                                           null &&

@@ -74,3 +74,5 @@ export '/manage_panel_web/manager_wait_list/manager_wait_list_widget.dart'
     show ManagerWaitListWidget;
 export '/hango_app/maps/maps_est_details/maps_est_details_widget.dart'
     show MapsEstDetailsWidget;
+export '/hango_app/events/list_event/list_event_widget.dart'
+    show ListEventWidget;

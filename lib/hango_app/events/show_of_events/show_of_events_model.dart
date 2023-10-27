@@ -48,6 +48,9 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
   FlutterFlowTimerController timerController1 =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController1;
+
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter1;
   final googleMapsController1 = Completer<GoogleMapController>();
@@ -72,6 +75,9 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
   FlutterFlowTimerController timerController2 =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter2;
   final googleMapsController2 = Completer<GoogleMapController>();
@@ -88,7 +94,9 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
     sideNavWebModel.dispose();
     backNavigationModel.dispose();
     timerController1.dispose();
+    expandableController1.dispose();
     timerController2.dispose();
+    expandableController2.dispose();
   }
 
   /// Action blocks are added here.

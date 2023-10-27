@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'user_phone_widget.dart' show UserPhoneWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -14,9 +15,11 @@ class UserPhoneModel extends FlutterFlowModel<UserPhoneWidget> {
 
   final unfocusNode = FocusNode();
   // State field(s) for phone widget.
+  FocusNode? phoneFocusNode1;
   TextEditingController? phoneController1;
   String? Function(BuildContext, String?)? phoneController1Validator;
   // State field(s) for phone widget.
+  FocusNode? phoneFocusNode2;
   TextEditingController? phoneController2;
   String? Function(BuildContext, String?)? phoneController2Validator;
 
@@ -26,7 +29,10 @@ class UserPhoneModel extends FlutterFlowModel<UserPhoneWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    phoneFocusNode1?.dispose();
     phoneController1?.dispose();
+
+    phoneFocusNode2?.dispose();
     phoneController2?.dispose();
   }
 

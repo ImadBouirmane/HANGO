@@ -1,26 +1,12 @@
 {
   "indexes": [
     {
-      "collectionGroup": "establishments",
+      "collectionGroup": "events",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "type",
-          "arrayConfig": "CONTAINS"
-        },
-        {
-          "fieldPath": "created_time",
+          "fieldPath": "establishment_id",
           "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "establishments",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "music_style",
-          "arrayConfig": "CONTAINS"
         },
         {
           "fieldPath": "created_time",

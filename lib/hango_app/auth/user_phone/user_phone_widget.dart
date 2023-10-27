@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'user_phone_model.dart';
@@ -29,8 +30,10 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'UserPhone'});
     _model.phoneController1 ??= TextEditingController();
+    _model.phoneFocusNode1 ??= FocusNode();
     authManager.handlePhoneAuthStateChanges(context);
     _model.phoneController2 ??= TextEditingController();
+    _model.phoneFocusNode2 ??= FocusNode();
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -44,6 +47,15 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -130,6 +142,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                       decoration: BoxDecoration(),
                                       child: TextFormField(
                                         controller: _model.phoneController1,
+                                        focusNode: _model.phoneFocusNode1,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Numéro de téléphone',
@@ -363,6 +376,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                       decoration: BoxDecoration(),
                                       child: TextFormField(
                                         controller: _model.phoneController2,
+                                        focusNode: _model.phoneFocusNode2,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Numéro de téléphone',

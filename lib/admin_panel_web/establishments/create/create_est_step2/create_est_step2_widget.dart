@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_est_step2_model.dart';
@@ -38,19 +39,33 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateEstStep2'});
     _model.mondayOpeningController ??= TextEditingController();
+    _model.mondayOpeningFocusNode ??= FocusNode();
     _model.mondayClosingController ??= TextEditingController();
+    _model.mondayClosingFocusNode ??= FocusNode();
     _model.thursdayOpeningController ??= TextEditingController();
+    _model.thursdayOpeningFocusNode ??= FocusNode();
     _model.thursdayClosingController ??= TextEditingController();
+    _model.thursdayClosingFocusNode ??= FocusNode();
     _model.wednesdayOpeningController ??= TextEditingController();
+    _model.wednesdayOpeningFocusNode ??= FocusNode();
     _model.wednesdayClosingController ??= TextEditingController();
+    _model.wednesdayClosingFocusNode ??= FocusNode();
     _model.tuesdayOpeningController ??= TextEditingController();
+    _model.tuesdayOpeningFocusNode ??= FocusNode();
     _model.tuesdayClosingController ??= TextEditingController();
+    _model.tuesdayClosingFocusNode ??= FocusNode();
     _model.fridayOpeningController ??= TextEditingController();
+    _model.fridayOpeningFocusNode ??= FocusNode();
     _model.fridayClosingController ??= TextEditingController();
+    _model.fridayClosingFocusNode ??= FocusNode();
     _model.saturdayOpeningController ??= TextEditingController();
+    _model.saturdayOpeningFocusNode ??= FocusNode();
     _model.saturdayClosingController ??= TextEditingController();
+    _model.saturdayClosingFocusNode ??= FocusNode();
     _model.sundayOpeningController ??= TextEditingController();
+    _model.sundayOpeningFocusNode ??= FocusNode();
     _model.sundayClosingController ??= TextEditingController();
+    _model.sundayClosingFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -63,6 +78,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -347,6 +371,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.mondayOpeningController,
+                                                                                      focusNode: _model.mondayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.mondayOpeningController',
                                                                                         Duration(milliseconds: 2000),
@@ -416,6 +441,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.mondayClosingController,
+                                                                                      focusNode: _model.mondayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.mondayClosingController',
                                                                                         Duration(milliseconds: 2000),
@@ -574,6 +600,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.thursdayOpeningController,
+                                                                                      focusNode: _model.thursdayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.thursdayOpeningController',
                                                                                         Duration(milliseconds: 2000),
@@ -643,6 +670,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.thursdayClosingController,
+                                                                                      focusNode: _model.thursdayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.thursdayClosingController',
                                                                                         Duration(milliseconds: 2000),
@@ -802,6 +830,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.wednesdayOpeningController,
+                                                                                      focusNode: _model.wednesdayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.wednesdayOpeningController',
                                                                                         Duration(milliseconds: 2000),
@@ -872,6 +901,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.wednesdayClosingController,
+                                                                                      focusNode: _model.wednesdayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.wednesdayClosingController',
                                                                                         Duration(milliseconds: 2000),
@@ -1031,6 +1061,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.tuesdayOpeningController,
+                                                                                      focusNode: _model.tuesdayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.tuesdayOpeningController',
                                                                                         Duration(milliseconds: 2000),
@@ -1101,6 +1132,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.tuesdayClosingController,
+                                                                                      focusNode: _model.tuesdayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.tuesdayClosingController',
                                                                                         Duration(milliseconds: 2000),
@@ -1260,6 +1292,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.fridayOpeningController,
+                                                                                      focusNode: _model.fridayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.fridayOpeningController',
                                                                                         Duration(milliseconds: 2000),
@@ -1330,6 +1363,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.fridayClosingController,
+                                                                                      focusNode: _model.fridayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.fridayClosingController',
                                                                                         Duration(milliseconds: 2000),
@@ -1495,6 +1529,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.saturdayOpeningController,
+                                                                                      focusNode: _model.saturdayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.saturdayOpeningController',
                                                                                         Duration(milliseconds: 2000),
@@ -1565,6 +1600,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.saturdayClosingController,
+                                                                                      focusNode: _model.saturdayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.saturdayClosingController',
                                                                                         Duration(milliseconds: 2000),
@@ -1724,6 +1760,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.sundayOpeningController,
+                                                                                      focusNode: _model.sundayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.sundayOpeningController',
                                                                                         Duration(milliseconds: 2000),
@@ -1794,6 +1831,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.sundayClosingController,
+                                                                                      focusNode: _model.sundayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.sundayClosingController',
                                                                                         Duration(milliseconds: 2000),

@@ -15,6 +15,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_events_step1_model.dart';
@@ -46,9 +47,15 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CreateEventsStep1'});
     _model.eventTitleController ??= TextEditingController();
+    _model.eventTitleFocusNode ??= FocusNode();
     _model.tFDescriionController ??= TextEditingController();
+    _model.tFDescriionFocusNode ??= FocusNode();
     _model.tFURLWebSiteController ??= TextEditingController();
+    _model.tFURLWebSiteFocusNode ??= FocusNode();
     _model.entrancePriceController ??= TextEditingController();
+    _model.entrancePriceFocusNode ??= FocusNode();
+    _model.expandableController1 = ExpandableController(initialExpanded: false);
+    _model.expandableController2 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -61,6 +68,15 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return StreamBuilder<EstablishmentsRecord>(
@@ -270,6 +286,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                       TextFormField(
                                                         controller: _model
                                                             .eventTitleController,
+                                                        focusNode: _model
+                                                            .eventTitleFocusNode,
                                                         autofocus: true,
                                                         obscureText: false,
                                                         decoration:
@@ -364,6 +382,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                       TextFormField(
                                                         controller: _model
                                                             .tFDescriionController,
+                                                        focusNode: _model
+                                                            .tFDescriionFocusNode,
                                                         autofocus: true,
                                                         obscureText: false,
                                                         decoration:
@@ -818,6 +838,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                       TextFormField(
                                                         controller: _model
                                                             .tFURLWebSiteController,
+                                                        focusNode: _model
+                                                            .tFURLWebSiteFocusNode,
                                                         autofocus: true,
                                                         obscureText: false,
                                                         decoration:
@@ -960,6 +982,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                           TextFormField(
                                                             controller: _model
                                                                 .entrancePriceController,
+                                                            focusNode: _model
+                                                                .entrancePriceFocusNode,
                                                             autofocus: true,
                                                             obscureText: false,
                                                             decoration:
@@ -1096,8 +1120,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                             color: Colors.white,
                                                             child:
                                                                 ExpandableNotifier(
-                                                              initialExpanded:
-                                                                  false,
+                                                              controller: _model
+                                                                  .expandableController1,
                                                               child:
                                                                   ExpandablePanel(
                                                                 header: Row(
@@ -1248,8 +1272,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                             color: Colors.white,
                                                             child:
                                                                 ExpandableNotifier(
-                                                              initialExpanded:
-                                                                  false,
+                                                              controller: _model
+                                                                  .expandableController2,
                                                               child:
                                                                   ExpandablePanel(
                                                                 header: Row(

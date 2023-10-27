@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'user_forgot_password_model.dart';
@@ -30,6 +31,7 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'UserForgotPassword'});
     _model.emailAddressController ??= TextEditingController();
+    _model.emailAddressFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -42,6 +44,15 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -158,6 +169,8 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.emailAddressController,
+                                          focusNode:
+                                              _model.emailAddressFocusNode,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelText: 'Adresse Email',

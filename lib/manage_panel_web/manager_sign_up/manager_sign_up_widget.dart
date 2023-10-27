@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -32,10 +33,15 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'managerSignUp'});
     _model.firstNameController ??= TextEditingController();
+    _model.firstNameFocusNode ??= FocusNode();
     _model.lastNameController ??= TextEditingController();
+    _model.lastNameFocusNode ??= FocusNode();
     _model.emailController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
     _model.phoneController ??= TextEditingController();
+    _model.phoneFocusNode ??= FocusNode();
     _model.estNameController ??= TextEditingController();
+    _model.estNameFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -48,6 +54,15 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Title(
@@ -194,49 +209,70 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                             children: [
                               Builder(
                                 builder: (context) {
-                                  if (() {
-                                    if (MediaQuery.sizeOf(context).width <
-                                        kBreakpointSmall) {
-                                      return false;
-                                    } else if (MediaQuery.sizeOf(context)
-                                            .width <
-                                        kBreakpointMedium) {
-                                      return false;
-                                    } else if (MediaQuery.sizeOf(context)
-                                            .width <
-                                        kBreakpointLarge) {
-                                      return true;
-                                    } else {
-                                      return false;
-                                    }
-                                  }()) {
-                                    return Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.05,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.05,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
+                                  if (valueOrDefault<bool>(
+                                    () {
+                                      if (MediaQuery.sizeOf(context).width <
+                                          kBreakpointSmall) {
+                                        return false;
+                                      } else if (MediaQuery.sizeOf(context)
+                                              .width <
+                                          kBreakpointMedium) {
+                                        return false;
+                                      } else if (MediaQuery.sizeOf(context)
+                                              .width <
+                                          kBreakpointLarge) {
+                                        return true;
+                                      } else {
+                                        return false;
+                                      }
+                                    }(),
+                                    true,
+                                  )) {
+                                    return Visibility(
+                                      visible: responsiveVisibility(
+                                        context: context,
+                                        phone: false,
+                                        tablet: false,
+                                        tabletLandscape: false,
                                       ),
-                                      child: Image.asset(
-                                        'assets/images/Hango-logo-icon.png',
-                                        fit: BoxFit.cover,
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.05,
+                                        height:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.05,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/Hango-logo-icon.png',
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     );
                                   } else {
-                                    return Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.3,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.3,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
+                                    return Visibility(
+                                      visible: responsiveVisibility(
+                                        context: context,
+                                        desktop: false,
                                       ),
-                                      child: Image.asset(
-                                        'assets/images/Hango-logo-icon.png',
-                                        fit: BoxFit.cover,
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.3,
+                                        height:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.3,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/Hango-logo-icon.png',
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     );
                                   }
@@ -268,6 +304,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                   children: [
                                     TextFormField(
                                       controller: _model.firstNameController,
+                                      focusNode: _model.firstNameFocusNode,
                                       autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
@@ -326,7 +363,12 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                         filled: true,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
                                       keyboardType: TextInputType.name,
                                       validator: _model
                                           .firstNameControllerValidator
@@ -334,6 +376,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                     ),
                                     TextFormField(
                                       controller: _model.lastNameController,
+                                      focusNode: _model.lastNameFocusNode,
                                       autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
@@ -392,7 +435,12 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                         filled: true,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
                                       keyboardType: TextInputType.name,
                                       validator: _model
                                           .lastNameControllerValidator
@@ -400,6 +448,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                     ),
                                     TextFormField(
                                       controller: _model.emailController,
+                                      focusNode: _model.emailFocusNode,
                                       autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
@@ -458,13 +507,19 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                         filled: true,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model.emailControllerValidator
                                           .asValidator(context),
                                     ),
                                     TextFormField(
                                       controller: _model.phoneController,
+                                      focusNode: _model.phoneFocusNode,
                                       autofocus: true,
                                       textInputAction: TextInputAction.done,
                                       obscureText: false,
@@ -524,13 +579,19 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                         filled: true,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
                                       keyboardType: TextInputType.phone,
                                       validator: _model.phoneControllerValidator
                                           .asValidator(context),
                                     ),
                                     TextFormField(
                                       controller: _model.estNameController,
+                                      focusNode: _model.estNameFocusNode,
                                       autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
@@ -589,7 +650,12 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                         filled: true,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
                                       keyboardType: TextInputType.name,
                                       validator: _model
                                           .estNameControllerValidator
@@ -599,36 +665,99 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                       onPressed: () async {
                                         logFirebaseEvent(
                                             'MANAGER_SIGN_UP_OUVRIR_VOTRE_COMPTE_BTN_');
-                                        logFirebaseEvent('Button_backend_call');
+                                        final firestoreBatch =
+                                            FirebaseFirestore.instance.batch();
+                                        try {
+                                          logFirebaseEvent(
+                                              'Button_backend_call');
 
-                                        var managerRecordReference =
-                                            ManagerRecord.collection.doc();
-                                        await managerRecordReference
-                                            .set(createManagerRecordData(
-                                          createdTime: getCurrentTimestamp,
-                                          firstName:
-                                              _model.firstNameController.text,
-                                          lastName:
-                                              _model.lastNameController.text,
-                                          phone: _model.phoneController.text,
-                                          estName:
-                                              _model.estNameController.text,
-                                        ));
-                                        _model.managerNew =
-                                            ManagerRecord.getDocumentFromData(
-                                                createManagerRecordData(
-                                                  createdTime:
-                                                      getCurrentTimestamp,
-                                                  firstName: _model
+                                          var managerRecordReference =
+                                              ManagerRecord.collection.doc();
+                                          firestoreBatch.set(
+                                              managerRecordReference,
+                                              createManagerRecordData(
+                                                createdTime:
+                                                    getCurrentTimestamp,
+                                                firstName: _model
+                                                    .firstNameController.text,
+                                                lastName: _model
+                                                    .lastNameController.text,
+                                                phone:
+                                                    _model.phoneController.text,
+                                                estName: _model
+                                                    .estNameController.text,
+                                                isConfirmed: false,
+                                              ));
+                                          _model.managerNew =
+                                              ManagerRecord.getDocumentFromData(
+                                                  createManagerRecordData(
+                                                    createdTime:
+                                                        getCurrentTimestamp,
+                                                    firstName: _model
+                                                        .firstNameController
+                                                        .text,
+                                                    lastName: _model
+                                                        .lastNameController
+                                                        .text,
+                                                    phone: _model
+                                                        .phoneController.text,
+                                                    estName: _model
+                                                        .estNameController.text,
+                                                    isConfirmed: false,
+                                                  ),
+                                                  managerRecordReference);
+                                          logFirebaseEvent(
+                                              'Button_backend_call');
+
+                                          var notificationsRecordReference =
+                                              NotificationsRecord.collection
+                                                  .doc();
+                                          firestoreBatch.set(
+                                              notificationsRecordReference,
+                                              createNotificationsRecordData(
+                                                title: 'Nouvelle Manager !',
+                                                description:
+                                                    '${valueOrDefault<String>(
+                                                  _model
                                                       .firstNameController.text,
-                                                  lastName: _model
-                                                      .lastNameController.text,
-                                                  phone: _model
-                                                      .phoneController.text,
-                                                  estName: _model
-                                                      .estNameController.text,
-                                                ),
-                                                managerRecordReference);
+                                                  'Utilisateur (Sans Nom!)',
+                                                )} a créé un compte manager !',
+                                                createdAt: getCurrentTimestamp,
+                                              ));
+                                          _model.newNotif = NotificationsRecord
+                                              .getDocumentFromData(
+                                                  createNotificationsRecordData(
+                                                    title: 'Nouvelle Manager !',
+                                                    description:
+                                                        '${valueOrDefault<String>(
+                                                      _model.firstNameController
+                                                          .text,
+                                                      'Utilisateur (Sans Nom!)',
+                                                    )} a créé un compte manager !',
+                                                    createdAt:
+                                                        getCurrentTimestamp,
+                                                  ),
+                                                  notificationsRecordReference);
+                                          logFirebaseEvent(
+                                              'Button_navigate_to');
+
+                                          context.pushNamed(
+                                            'managerWaitList',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .bottomToTop,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                              ),
+                                            },
+                                          );
+                                        } finally {
+                                          await firestoreBatch.commit();
+                                        }
 
                                         setState(() {});
                                       },
