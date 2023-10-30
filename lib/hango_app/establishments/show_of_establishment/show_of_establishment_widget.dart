@@ -660,9 +660,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                     ),
                                   ),
                                 ),
-                                if (widget.estRef?.eventsReferences
-                                        ?.contains(widget.estRef?.reference) !=
-                                    null)
+                                if (widget.estRef!.eventsReferences.length >= 1)
                                   Material(
                                     color: Colors.transparent,
                                     elevation: 0.0,
@@ -714,11 +712,18 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                 stream: queryEventsRecord(
                                                   queryBuilder:
                                                       (eventsRecord) =>
-                                                          eventsRecord.where(
-                                                    'dateEvent',
-                                                    isGreaterThanOrEqualTo:
-                                                        getCurrentTimestamp,
-                                                  ),
+                                                          eventsRecord
+                                                              .where(
+                                                                'dateEvent',
+                                                                isGreaterThanOrEqualTo:
+                                                                    getCurrentTimestamp,
+                                                              )
+                                                              .where(
+                                                                'establishment_id',
+                                                                isEqualTo: widget
+                                                                    .estRef
+                                                                    ?.reference,
+                                                              ),
                                                   limit: 5,
                                                 ),
                                                 builder: (context, snapshot) {
@@ -2609,9 +2614,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                     ),
                                   ),
                                 ),
-                                if (widget.estRef?.eventsReferences
-                                        ?.contains(widget.estRef?.reference) !=
-                                    null)
+                                if (widget.estRef!.eventsReferences.length >= 1)
                                   Material(
                                     color: Colors.transparent,
                                     elevation: 0.0,
@@ -2663,11 +2666,18 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                 stream: queryEventsRecord(
                                                   queryBuilder:
                                                       (eventsRecord) =>
-                                                          eventsRecord.where(
-                                                    'dateEvent',
-                                                    isGreaterThanOrEqualTo:
-                                                        getCurrentTimestamp,
-                                                  ),
+                                                          eventsRecord
+                                                              .where(
+                                                                'dateEvent',
+                                                                isGreaterThanOrEqualTo:
+                                                                    getCurrentTimestamp,
+                                                              )
+                                                              .where(
+                                                                'establishment_id',
+                                                                isEqualTo: widget
+                                                                    .estRef
+                                                                    ?.reference,
+                                                              ),
                                                   limit: 5,
                                                 ),
                                                 builder: (context, snapshot) {

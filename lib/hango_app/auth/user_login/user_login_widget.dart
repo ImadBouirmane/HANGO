@@ -1115,23 +1115,10 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                             if (user == null) {
                                               return;
                                             }
-                                            logFirebaseEvent(
-                                                'Text_navigate_to');
 
-                                            context.pushNamedAuth(
-                                              'ListOfEstablishments',
-                                              context.mounted,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.scale,
-                                                  alignment:
-                                                      Alignment.bottomCenter,
-                                                ),
-                                              },
-                                            );
+                                            context.goNamedAuth(
+                                                'ListOfEstablishments',
+                                                context.mounted);
                                           },
                                           child: Text(
                                             'Continuer sans compte',
@@ -2064,22 +2051,20 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                     logFirebaseEvent(
                                                         'USER_LOGIN_PAGE_Text_zym42a23_ON_TAP');
                                                     logFirebaseEvent(
-                                                        'Text_navigate_to');
+                                                        'Text_auth');
+                                                    GoRouter.of(context)
+                                                        .prepareAuthEvent();
+                                                    final user =
+                                                        await authManager
+                                                            .signInAnonymously(
+                                                                context);
+                                                    if (user == null) {
+                                                      return;
+                                                    }
 
-                                                    context.pushNamed(
-                                                      'ListOfEstablishments',
-                                                      extra: <String, dynamic>{
-                                                        kTransitionInfoKey:
-                                                            TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .scale,
-                                                          alignment: Alignment
-                                                              .bottomCenter,
-                                                        ),
-                                                      },
-                                                    );
+                                                    context.goNamedAuth(
+                                                        'ListOfEstablishments',
+                                                        context.mounted);
                                                   },
                                                   child: Text(
                                                     'Continuer sans compte',

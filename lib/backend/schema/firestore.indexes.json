@@ -13,6 +13,20 @@
           "order": "ASCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "events",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "establishment_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "dateEvent",
+          "order": "ASCENDING"
+        }
+      ]
     }
   ]
 }

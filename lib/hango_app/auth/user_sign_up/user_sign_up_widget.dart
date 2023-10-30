@@ -1661,22 +1661,10 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                           if (user == null) {
                                             return;
                                           }
-                                          logFirebaseEvent('Text_navigate_to');
 
-                                          context.pushNamedAuth(
-                                            'ListOfEstablishments',
-                                            context.mounted,
-                                            extra: <String, dynamic>{
-                                              kTransitionInfoKey:
-                                                  TransitionInfo(
-                                                hasTransition: true,
-                                                transitionType:
-                                                    PageTransitionType.scale,
-                                                alignment:
-                                                    Alignment.bottomCenter,
-                                              ),
-                                            },
-                                          );
+                                          context.goNamedAuth(
+                                              'ListOfEstablishments',
+                                              context.mounted);
                                         },
                                         child: Text(
                                           'Continuer sans compte',
@@ -3129,10 +3117,18 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                             onTap: () async {
                                               logFirebaseEvent(
                                                   'USER_SIGN_UP_PAGE_Text_7ocwhn1q_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Text_navigate_to');
+                                              logFirebaseEvent('Text_auth');
+                                              GoRouter.of(context)
+                                                  .prepareAuthEvent();
+                                              final user = await authManager
+                                                  .signInAnonymously(context);
+                                              if (user == null) {
+                                                return;
+                                              }
 
-                                              context.pushNamed('ListsEvents');
+                                              context.goNamedAuth(
+                                                  'ListOfEstablishments',
+                                                  context.mounted);
                                             },
                                             child: Text(
                                               'Continuer sans compte',
