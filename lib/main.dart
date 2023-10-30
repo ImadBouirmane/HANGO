@@ -159,7 +159,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'Profile': ProfileWidget(),
       'ListOfEstablishments': ListOfEstablishmentsWidget(),
-      'ListOfEvents': ListOfEventsWidget(),
+      'ListsEvents': ListsEventsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -203,11 +203,9 @@ class _NavBarPageState extends State<NavBarPage> {
               iconSize: 22.0,
             ),
             GButton(
-              icon: currentIndex == 2
-                  ? Icons.calendar_today_rounded
-                  : Icons.calendar_today_rounded,
+              icon: Icons.event_note,
               text: 'Événements',
-              iconSize: 22.0,
+              iconSize: 24.0,
             )
           ],
         ),

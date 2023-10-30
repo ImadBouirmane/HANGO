@@ -274,7 +274,8 @@ class FFAppState extends ChangeNotifier {
     'Pizza',
     'Divers',
     'Planchette',
-    'Restauration'
+    'Restauration',
+    'Aucune'
   ];
   List<String> get Food => _Food;
   set Food(List<String> _value) {
@@ -321,7 +322,8 @@ class FFAppState extends ChangeNotifier {
     'Jeux de société',
     'Cartes',
     'Flipper',
-    'Borne arcade'
+    'Borne arcade',
+    'Aucun'
   ];
   List<String> get Game => _Game;
   set Game(List<String> _value) {

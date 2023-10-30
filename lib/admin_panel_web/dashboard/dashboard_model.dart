@@ -2,7 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/components/confirmation/delete_confirmation_establishement/delete_confirmation_establishement_widget.dart';
-import '/components/confirmation/delete_confirmation_event/delete_confirmation_event_widget.dart';
+import '/components/delete_confirmation_event/delete_confirmation_event_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

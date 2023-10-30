@@ -385,7 +385,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                           logFirebaseEvent('SIDE_NAV_WEB_COMP_Events_ON_TAP');
                           logFirebaseEvent('Events_navigate_to');
 
-                          context.pushNamed('ListOfEvents');
+                          context.pushNamed('ListsEvents');
                         },
                         child: Container(
                           width: double.infinity,

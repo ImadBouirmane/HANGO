@@ -94,17 +94,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : UserLoginWidget(),
         ),
         FFRoute(
-          name: 'ShowOfEstablishment',
-          path: '/showOfEstablishment',
-          builder: (context, params) => NavBarPage(
-            initialPage: '',
-            page: ShowOfEstablishmentWidget(
-              establishmentDetails: params.getParam('establishmentDetails',
-                  ParamType.DocumentReference, false, ['establishments']),
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'Maps',
           path: '/maps',
           builder: (context, params) => MapsWidget(),
@@ -138,19 +127,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
         ),
         FFRoute(
-          name: 'ListOfEvents',
-          path: '/listOfEvents',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ListOfEvents')
-              : NavBarPage(
-                  initialPage: 'ListOfEvents',
-                  page: ListOfEventsWidget(
-                    eventDetails: params.getParam('eventDetails',
-                        ParamType.DocumentReference, false, ['events']),
-                  ),
-                ),
-        ),
-        FFRoute(
           name: 'UserSignUp',
           path: '/userSignUp',
           builder: (context, params) => UserSignUpWidget(),
@@ -179,18 +155,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => WebViewEstablishmentWidget(
             itemUrlEstablishment: params.getParam('itemUrlEstablishment',
                 ParamType.DocumentReference, false, ['establishments']),
-          ),
-        ),
-        FFRoute(
-          name: 'eventFilterResult',
-          path: '/eventFilterResult',
-          builder: (context, params) => EventFilterResultWidget(
-            themeEvent: params.getParam('themeEvent', ParamType.String),
-            musicType: params.getParam('musicType', ParamType.String),
-            weekend: params.getParam('weekend', ParamType.bool),
-            jeudredi: params.getParam('jeudredi', ParamType.bool),
-            freeEnter: params.getParam('freeEnter', ParamType.bool),
-            booked: params.getParam('booked', ParamType.bool),
           ),
         ),
         FFRoute(
@@ -264,26 +228,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'UserPhoneConfirmationExist',
           path: '/userPhoneConfirmationExist',
           builder: (context, params) => UserPhoneConfirmationExistWidget(),
-        ),
-        FFRoute(
-          name: 'establishmentFilterResults',
-          path: '/establishmentFilterResults',
-          builder: (context, params) => NavBarPage(
-            initialPage: '',
-            page: EstablishmentFilterResultsWidget(
-              type: params.getParam('type', ParamType.String),
-              artist: params.getParam('artist', ParamType.String),
-              terrasse: params.getParam('terrasse', ParamType.bool),
-              reservation: params.getParam('reservation', ParamType.bool),
-              machineacigarette:
-                  params.getParam('machineacigarette', ParamType.bool),
-              nourriture: params.getParam('nourriture', ParamType.bool),
-              jeux: params.getParam('jeux', ParamType.bool),
-              ouvert: params.getParam('ouvert', ParamType.bool),
-              estRef: params.getParam('estRef', ParamType.DocumentReference,
-                  false, ['establishments']),
-            ),
-          ),
         ),
         FFRoute(
           name: 'Feedback',
@@ -413,9 +357,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'ListEvent',
-          path: '/listEvent',
-          builder: (context, params) => ListEventWidget(),
+          name: 'ListsEvents',
+          path: '/listsEvents',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'ListsEvents')
+              : NavBarPage(
+                  initialPage: 'ListsEvents',
+                  page: ListsEventsWidget(),
+                ),
+        ),
+        FFRoute(
+          name: 'ShowOfEstablishment',
+          path: '/showOfEstablishment',
+          asyncParams: {
+            'estRef':
+                getDoc(['establishments'], EstablishmentsRecord.fromSnapshot),
+          },
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: ShowOfEstablishmentWidget(
+              estRef: params.getParam('estRef', ParamType.Document),
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

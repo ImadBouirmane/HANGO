@@ -1,6 +1,4 @@
 // Export pages
-export '/hango_app/establishments/show_of_establishment/show_of_establishment_widget.dart'
-    show ShowOfEstablishmentWidget;
 export '/hango_app/maps/maps/maps_widget.dart' show MapsWidget;
 export '/hango_app/auth/user_login/user_login_widget.dart' show UserLoginWidget;
 export '/hango_app/events/web_view_event/web_view_event_widget.dart'
@@ -9,8 +7,6 @@ export '/hango_app/auth/user_forgot_password/user_forgot_password_widget.dart'
     show UserForgotPasswordWidget;
 export '/hango_app/establishments/list_of_establishments/list_of_establishments_widget.dart'
     show ListOfEstablishmentsWidget;
-export '/hango_app/events/list_of_events/list_of_events_widget.dart'
-    show ListOfEventsWidget;
 export '/hango_app/auth/user_sign_up/user_sign_up_widget.dart'
     show UserSignUpWidget;
 export '/admin_panel_web/dashboard/dashboard_widget.dart' show DashboardWidget;
@@ -20,8 +16,6 @@ export '/admin_panel_web/establishments/create/create_est_step1/create_est_step1
     show CreateEstStep1Widget;
 export '/hango_app/establishments/web_view_establishment/web_view_establishment_widget.dart'
     show WebViewEstablishmentWidget;
-export '/hango_app/events/event_filter_result/event_filter_result_widget.dart'
-    show EventFilterResultWidget;
 export '/admin_panel_web/events/create/create_events_step1/create_events_step1_widget.dart'
     show CreateEventsStep1Widget;
 export '/admin_panel_web/events/update/update_event_step1/update_event_step1_widget.dart'
@@ -41,8 +35,6 @@ export '/hango_app/account/settings_account/account_deletion/account_deletion_wi
     show AccountDeletionWidget;
 export '/hango_app/account/settings_account/user_phone_confirmation_exist/user_phone_confirmation_exist_widget.dart'
     show UserPhoneConfirmationExistWidget;
-export '/hango_app/establishments/establishment_filter_results/establishment_filter_results_widget.dart'
-    show EstablishmentFilterResultsWidget;
 export '/hango_app/account/feedback/feedback_widget.dart' show FeedbackWidget;
 export '/admin_panel_web/establishments/create/create_est_step2/create_est_step2_widget.dart'
     show CreateEstStep2Widget;
@@ -74,5 +66,7 @@ export '/manage_panel_web/manager_wait_list/manager_wait_list_widget.dart'
     show ManagerWaitListWidget;
 export '/hango_app/maps/maps_est_details/maps_est_details_widget.dart'
     show MapsEstDetailsWidget;
-export '/hango_app/events/list_event/list_event_widget.dart'
-    show ListEventWidget;
+export '/hango_app/events/lists_events/lists_events_widget.dart'
+    show ListsEventsWidget;
+export '/hango_app/establishments/show_of_establishment/show_of_establishment_widget.dart'
+    show ShowOfEstablishmentWidget;

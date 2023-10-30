@@ -165,7 +165,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   logFirebaseEvent('messagesNav_navigate_to');
 
                   context.pushNamed(
-                    'ListOfEvents',
+                    'ListsEvents',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,

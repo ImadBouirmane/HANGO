@@ -36,6 +36,9 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
   late SideNavWebModel sideNavWebModel;
   // Model for backNavigation component.
   late BackNavigationModel backNavigationModel;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController1;
+
   // Stores action output result for [Backend Call - API (Send Email)] action in Button widget.
   ApiCallResponse? sendingEmailPromotion;
   // State field(s) for Timer widget.
@@ -47,9 +50,6 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
   );
   FlutterFlowTimerController timerController1 =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
-
-  // State field(s) for Expandable widget.
-  late ExpandableController expandableController1;
 
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter1;
@@ -93,8 +93,8 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
     backNavigationModel.dispose();
-    timerController1.dispose();
     expandableController1.dispose();
+    timerController1.dispose();
     timerController2.dispose();
     expandableController2.dispose();
   }

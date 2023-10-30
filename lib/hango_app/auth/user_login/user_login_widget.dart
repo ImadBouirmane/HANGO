@@ -1107,11 +1107,20 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                           onTap: () async {
                                             logFirebaseEvent(
                                                 'USER_LOGIN_PAGE_Text_7luksvki_ON_TAP');
+                                            logFirebaseEvent('Text_auth');
+                                            GoRouter.of(context)
+                                                .prepareAuthEvent();
+                                            final user = await authManager
+                                                .signInAnonymously(context);
+                                            if (user == null) {
+                                              return;
+                                            }
                                             logFirebaseEvent(
                                                 'Text_navigate_to');
 
-                                            context.pushNamed(
+                                            context.pushNamedAuth(
                                               'ListOfEstablishments',
+                                              context.mounted,
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
                                                     TransitionInfo(

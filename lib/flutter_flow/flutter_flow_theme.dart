@@ -43,6 +43,7 @@ abstract class FlutterFlowTheme {
   late Color primaryTransparent;
   late Color secondaryTransparent;
   late Color customColor1;
+  late Color secondayTransparent;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -143,6 +144,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color primaryTransparent = Color(0x5D39D2C0);
   late Color secondaryTransparent = Color(0x7610212E);
   late Color customColor1 = Color(0xFF2FB73C);
+  late Color secondayTransparent = Color(0x2E39D2C0);
 }
 
 abstract class Typography {
@@ -235,7 +237,7 @@ class ThemeTypography extends Typography {
   String get titleMediumFamily => 'Poppins';
   TextStyle get titleMedium => GoogleFonts.getFont(
         'Poppins',
-        color: theme.primaryText,
+        color: theme.primary,
         fontWeight: FontWeight.w600,
         fontSize: 18.0,
       );
@@ -250,22 +252,22 @@ class ThemeTypography extends Typography {
   TextStyle get labelLarge => GoogleFonts.getFont(
         'Poppins',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 14.0,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
       );
   String get labelMediumFamily => 'Poppins';
   TextStyle get labelMedium => GoogleFonts.getFont(
         'Poppins',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 12.0,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
       );
   String get labelSmallFamily => 'Poppins';
   TextStyle get labelSmall => GoogleFonts.getFont(
         'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 11.0,
+        color: theme.tertiary,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
       );
   String get bodyLargeFamily => 'Poppins';
   TextStyle get bodyLarge => GoogleFonts.getFont(
@@ -278,7 +280,7 @@ class ThemeTypography extends Typography {
   TextStyle get bodyMedium => GoogleFonts.getFont(
         'Poppins',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'Poppins';
@@ -286,7 +288,7 @@ class ThemeTypography extends Typography {
         'Poppins',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 14.0,
+        fontSize: 12.0,
       );
 }
 

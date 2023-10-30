@@ -470,14 +470,20 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                         context.pushNamed(
                                                           'ShowOfEstablishment',
                                                           queryParameters: {
-                                                            'establishmentDetails':
+                                                            'estRef':
                                                                 serializeParam(
-                                                              searchResultsItem
-                                                                  .reference,
+                                                              mapsEstablishmentsRecordList
+                                                                  .first,
                                                               ParamType
-                                                                  .DocumentReference,
+                                                                  .Document,
                                                             ),
                                                           }.withoutNulls,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            'estRef':
+                                                                mapsEstablishmentsRecordList
+                                                                    .first,
+                                                          },
                                                         );
                                                       },
                                                       child: wrapWithModel(
@@ -882,14 +888,20 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                           context.pushNamed(
                                                             'ShowOfEstablishment',
                                                             queryParameters: {
-                                                              'establishmentDetails':
+                                                              'estRef':
                                                                   serializeParam(
-                                                                searchResultsItem
-                                                                    .reference,
+                                                                mapsEstablishmentsRecordList
+                                                                    .first,
                                                                 ParamType
-                                                                    .DocumentReference,
+                                                                    .Document,
                                                               ),
                                                             }.withoutNulls,
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              'estRef':
+                                                                  mapsEstablishmentsRecordList
+                                                                      .first,
+                                                            },
                                                           );
                                                         },
                                                         child: wrapWithModel(

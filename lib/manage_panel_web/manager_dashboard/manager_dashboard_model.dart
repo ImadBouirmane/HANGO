@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/confirmation/delete_confirmation_event/delete_confirmation_event_widget.dart';
+import '/components/delete_confirmation_event/delete_confirmation_event_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
 import '/components/manager_side_bar/manager_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';

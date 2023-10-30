@@ -50,7 +50,7 @@ class _BackNavigationWidgetState extends State<BackNavigationWidget> {
         borderRadius: 20.0,
         borderWidth: 1.0,
         buttonSize: 40.0,
-        fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+        fillColor: FlutterFlowTheme.of(context).primaryBackground,
         icon: Icon(
           Icons.arrow_back_rounded,
           color: FlutterFlowTheme.of(context).tertiary400,

@@ -109,7 +109,7 @@ service cloud.firestore {
     }
 
     match /Admin/{document} {
-      allow create: if true;
+      allow create: if request.resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
       allow read: if true;
       allow write: if false;
       allow delete: if false;
@@ -123,15 +123,10 @@ service cloud.firestore {
     }
 
     match /Notifications/{parent}/byManagers/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
+      allow create: if get(/databases/$(database)/documents/Notifications/$(parent)).data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
+      allow read: if get(/databases/$(database)/documents/Notifications/$(parent)).data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
+      allow write: if get(/databases/$(database)/documents/Notifications/$(parent)).data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
+      allow delete: if get(/databases/$(database)/documents/Notifications/$(parent)).data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
     }
-
-    match /{path=**}/byManagers/{document} {
-      allow read: if true;
-    }
-
   }
 }

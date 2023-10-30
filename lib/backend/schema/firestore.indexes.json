@@ -13,42 +13,6 @@
           "order": "ASCENDING"
         }
       ]
-    },
-    {
-      "collectionGroup": "events",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "typeEvent",
-          "arrayConfig": "CONTAINS"
-        },
-        {
-          "fieldPath": "created_time",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "establishments",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "terrasse",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "reservation",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "cigarette_machine",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "type",
-          "arrayConfig": "CONTAINS"
-        }
-      ]
     }
   ]
 }

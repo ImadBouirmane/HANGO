@@ -1653,10 +1653,19 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                         onTap: () async {
                                           logFirebaseEvent(
                                               'USER_SIGN_UP_PAGE_Text_g0xcejmh_ON_TAP');
+                                          logFirebaseEvent('Text_auth');
+                                          GoRouter.of(context)
+                                              .prepareAuthEvent();
+                                          final user = await authManager
+                                              .signInAnonymously(context);
+                                          if (user == null) {
+                                            return;
+                                          }
                                           logFirebaseEvent('Text_navigate_to');
 
-                                          context.pushNamed(
+                                          context.pushNamedAuth(
                                             'ListOfEstablishments',
+                                            context.mounted,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -3123,7 +3132,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                               logFirebaseEvent(
                                                   'Text_navigate_to');
 
-                                              context.pushNamed('ListOfEvents');
+                                              context.pushNamed('ListsEvents');
                                             },
                                             child: Text(
                                               'Continuer sans compte',

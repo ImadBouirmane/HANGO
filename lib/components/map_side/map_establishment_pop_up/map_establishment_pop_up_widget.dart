@@ -266,11 +266,14 @@ class _MapEstablishmentPopUpWidgetState
                                   context.pushNamed(
                                     'ShowOfEstablishment',
                                     queryParameters: {
-                                      'establishmentDetails': serializeParam(
-                                        containerEstablishmentsRecord.reference,
-                                        ParamType.DocumentReference,
+                                      'estRef': serializeParam(
+                                        containerEstablishmentsRecord,
+                                        ParamType.Document,
                                       ),
                                     }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      'estRef': containerEstablishmentsRecord,
+                                    },
                                   );
                                 },
                                 text: 'Voir les détails',
@@ -507,11 +510,14 @@ class _MapEstablishmentPopUpWidgetState
                                   context.pushNamed(
                                     'ShowOfEstablishment',
                                     queryParameters: {
-                                      'establishmentDetails': serializeParam(
-                                        containerEstablishmentsRecord.reference,
-                                        ParamType.DocumentReference,
+                                      'estRef': serializeParam(
+                                        containerEstablishmentsRecord,
+                                        ParamType.Document,
                                       ),
                                     }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      'estRef': containerEstablishmentsRecord,
+                                    },
                                   );
                                 },
                                 text: 'Voir les détails',

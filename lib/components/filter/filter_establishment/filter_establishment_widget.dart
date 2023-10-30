@@ -682,51 +682,6 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                       logFirebaseEvent(
                                           'FILTER_ESTABLISHMENT_VOIR_LES_RÉSULTATS_');
                                       logFirebaseEvent('Button_navigate_to');
-                                      if (Navigator.of(context).canPop()) {
-                                        context.pop();
-                                      }
-                                      context.pushNamed(
-                                        'establishmentFilterResults',
-                                        queryParameters: {
-                                          'type': serializeParam(
-                                            _model.typeEstablishmentValue,
-                                            ParamType.String,
-                                          ),
-                                          'artist': serializeParam(
-                                            _model.musicTypeValue,
-                                            ParamType.String,
-                                          ),
-                                          'terrasse': serializeParam(
-                                            _model.switchListTileValue1,
-                                            ParamType.bool,
-                                          ),
-                                          'reservation': serializeParam(
-                                            _model.switchListTileValue2,
-                                            ParamType.bool,
-                                          ),
-                                          'machineacigarette': serializeParam(
-                                            _model.switchListTileValue3,
-                                            ParamType.bool,
-                                          ),
-                                          'nourriture': serializeParam(
-                                            _model.switchListTileValue4,
-                                            ParamType.bool,
-                                          ),
-                                          'jeux': serializeParam(
-                                            _model.switchListTileValue5,
-                                            ParamType.bool,
-                                          ),
-                                          'ouvert': serializeParam(
-                                            _model.switchListTileValue6,
-                                            ParamType.bool,
-                                          ),
-                                          'estRef': serializeParam(
-                                            columnEstablishmentsRecord
-                                                ?.reference,
-                                            ParamType.DocumentReference,
-                                          ),
-                                        }.withoutNulls,
-                                      );
                                     },
                                     text: 'Voir les résultats ',
                                     options: FFButtonOptions(

@@ -3,13 +3,10 @@ import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/place.dart';
-import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/foundation.dart';
@@ -683,28 +680,18 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 logFirebaseEvent('CREATE_EVENTS_STEP1_ouvertureHoraire_ON_');
                                                                                 // ouvertureHoraire
                                                                                 logFirebaseEvent('ouvertureHoraire_ouvertureHoraire');
-                                                                                final _datePicked2Date = await showDatePicker(
+
+                                                                                final _datePicked2Time = await showTimePicker(
                                                                                   context: context,
-                                                                                  initialDate: getCurrentTimestamp,
-                                                                                  firstDate: getCurrentTimestamp,
-                                                                                  lastDate: DateTime(2050),
+                                                                                  initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
                                                                                 );
-
-                                                                                TimeOfDay? _datePicked2Time;
-                                                                                if (_datePicked2Date != null) {
-                                                                                  _datePicked2Time = await showTimePicker(
-                                                                                    context: context,
-                                                                                    initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
-                                                                                  );
-                                                                                }
-
-                                                                                if (_datePicked2Date != null && _datePicked2Time != null) {
+                                                                                if (_datePicked2Time != null) {
                                                                                   safeSetState(() {
                                                                                     _model.datePicked2 = DateTime(
-                                                                                      _datePicked2Date.year,
-                                                                                      _datePicked2Date.month,
-                                                                                      _datePicked2Date.day,
-                                                                                      _datePicked2Time!.hour,
+                                                                                      getCurrentTimestamp.year,
+                                                                                      getCurrentTimestamp.month,
+                                                                                      getCurrentTimestamp.day,
+                                                                                      _datePicked2Time.hour,
                                                                                       _datePicked2Time.minute,
                                                                                     );
                                                                                   });
@@ -777,28 +764,18 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 logFirebaseEvent('CREATE_EVENTS_STEP1_fermetureHoraire_ON_');
                                                                                 // fermetureHoraire
                                                                                 logFirebaseEvent('fermetureHoraire_fermetureHoraire');
-                                                                                final _datePicked3Date = await showDatePicker(
+
+                                                                                final _datePicked3Time = await showTimePicker(
                                                                                   context: context,
-                                                                                  initialDate: getCurrentTimestamp,
-                                                                                  firstDate: getCurrentTimestamp,
-                                                                                  lastDate: DateTime(2050),
+                                                                                  initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
                                                                                 );
-
-                                                                                TimeOfDay? _datePicked3Time;
-                                                                                if (_datePicked3Date != null) {
-                                                                                  _datePicked3Time = await showTimePicker(
-                                                                                    context: context,
-                                                                                    initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
-                                                                                  );
-                                                                                }
-
-                                                                                if (_datePicked3Date != null && _datePicked3Time != null) {
+                                                                                if (_datePicked3Time != null) {
                                                                                   safeSetState(() {
                                                                                     _model.datePicked3 = DateTime(
-                                                                                      _datePicked3Date.year,
-                                                                                      _datePicked3Date.month,
-                                                                                      _datePicked3Date.day,
-                                                                                      _datePicked3Time!.hour,
+                                                                                      getCurrentTimestamp.year,
+                                                                                      getCurrentTimestamp.month,
+                                                                                      getCurrentTimestamp.day,
+                                                                                      _datePicked3Time.hour,
                                                                                       _datePicked3Time.minute,
                                                                                     );
                                                                                   });
@@ -1400,89 +1377,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                       Container(
                                                         decoration:
                                                             BoxDecoration(),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Expanded(
-                                                                  child: Text(
-                                                                    'Precisez votre localization',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall,
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                FlutterFlowPlacePicker(
-                                                                  iOSGoogleMapsApiKey:
-                                                                      'AIzaSyAu1xRj92baC1e6doE7Dh_7Drh0Wn7KO90',
-                                                                  androidGoogleMapsApiKey:
-                                                                      'AIzaSyCgAGHHm7w6LdGQegp1WY5ctmX-IsLeMek',
-                                                                  webGoogleMapsApiKey:
-                                                                      'AIzaSyDmP6aJTRYjSd5-3zsciJw0I45FuYiRim4',
-                                                                  onSelect:
-                                                                      (place) async {
-                                                                    setState(() =>
-                                                                        _model.placePickerValue =
-                                                                            place);
-                                                                  },
-                                                                  defaultText:
-                                                                      'Sélectionnez l\'emplacement',
-                                                                  icon: Icon(
-                                                                    Icons.place,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBtnText,
-                                                                    size: 16.0,
-                                                                  ),
-                                                                  buttonOptions:
-                                                                      FFButtonOptions(
-                                                                    width:
-                                                                        400.0,
-                                                                    height:
-                                                                        40.0,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBtnText,
-                                                                        ),
-                                                                    elevation:
-                                                                        2.0,
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Colors
-                                                                          .transparent,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ].divide(SizedBox(
-                                                              height: 10.0)),
-                                                        ),
                                                       ),
                                                     ]
                                                         .divide(SizedBox(
@@ -1516,13 +1410,10 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                         eventsRecordReference,
                                                         {
                                                           ...createEventsRecordData(
-                                                            location: _model
-                                                                        .placePickerValue !=
-                                                                    null
-                                                                ? _model
-                                                                    .placePickerValue
-                                                                    .latLng
-                                                                : null,
+                                                            location:
+                                                                createEventsStep1EstablishmentsRecord
+                                                                    .adresse
+                                                                    .latiLong,
                                                             title:
                                                                 valueOrDefault<
                                                                     String>(
@@ -1614,13 +1505,10 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                         EventsRecord
                                                             .getDocumentFromData({
                                                       ...createEventsRecordData(
-                                                        location: _model
-                                                                    .placePickerValue !=
-                                                                null
-                                                            ? _model
-                                                                .placePickerValue
-                                                                .latLng
-                                                            : null,
+                                                        location:
+                                                            createEventsStep1EstablishmentsRecord
+                                                                .adresse
+                                                                .latiLong,
                                                         title: valueOrDefault<
                                                             String>(
                                                           _model.eventTitleController

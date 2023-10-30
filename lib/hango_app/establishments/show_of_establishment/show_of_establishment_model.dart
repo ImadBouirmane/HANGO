@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/components/empty_lists/event_empty_list/event_empty_list_widget.dart';
+import '/components/back_navigation_widget.dart';
 import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -12,13 +12,11 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'show_of_establishment_widget.dart' show ShowOfEstablishmentWidget;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ShowOfEstablishmentModel
@@ -36,6 +34,8 @@ class ShowOfEstablishmentModel
           pageViewController1!.page != null
       ? pageViewController1!.page!.round()
       : 0;
+  // Model for backNavigation component.
+  late BackNavigationModel backNavigationModel1;
   // State field(s) for Expandable widget.
   late ExpandableController expandableController1;
 
@@ -50,7 +50,8 @@ class ShowOfEstablishmentModel
           pageViewController2!.page != null
       ? pageViewController2!.page!.round()
       : 0;
-  String currentPageLink = '';
+  // Model for backNavigation component.
+  late BackNavigationModel backNavigationModel2;
   // State field(s) for Expandable widget.
   late ExpandableController expandableController2;
 
@@ -62,12 +63,16 @@ class ShowOfEstablishmentModel
 
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
+    backNavigationModel1 = createModel(context, () => BackNavigationModel());
+    backNavigationModel2 = createModel(context, () => BackNavigationModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
+    backNavigationModel1.dispose();
     expandableController1.dispose();
+    backNavigationModel2.dispose();
     expandableController2.dispose();
   }
 

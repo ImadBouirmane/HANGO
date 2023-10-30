@@ -461,36 +461,6 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                       logFirebaseEvent(
                                           'FILTER_EVENTS_VOIR_LES_RÉSULTATS_BTN_ON_');
                                       logFirebaseEvent('Button_navigate_to');
-
-                                      context.pushNamed(
-                                        'eventFilterResult',
-                                        queryParameters: {
-                                          'themeEvent': serializeParam(
-                                            _model.typeValue,
-                                            ParamType.String,
-                                          ),
-                                          'musicType': serializeParam(
-                                            _model.musicValue,
-                                            ParamType.String,
-                                          ),
-                                          'weekend': serializeParam(
-                                            _model.switchListTileValue1,
-                                            ParamType.bool,
-                                          ),
-                                          'jeudredi': serializeParam(
-                                            _model.switchListTileValue2,
-                                            ParamType.bool,
-                                          ),
-                                          'freeEnter': serializeParam(
-                                            _model.switchListTileValue3,
-                                            ParamType.bool,
-                                          ),
-                                          'booked': serializeParam(
-                                            _model.switchListTileValue4,
-                                            ParamType.bool,
-                                          ),
-                                        }.withoutNulls,
-                                      );
                                     },
                                     text: 'Voir les résultats ',
                                     options: FFButtonOptions(

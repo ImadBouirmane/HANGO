@@ -3,13 +3,10 @@ import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/place.dart';
-import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/foundation.dart';
@@ -1482,103 +1479,6 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                             ),
                                                           ),
                                                         ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        _model.placePickerValue.address != null &&
-                                                                                _model.placePickerValue.address != ''
-                                                                            ? _model.placePickerValue.address
-                                                                            : '',
-                                                                        'La localization est vide !',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleSmall,
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  FlutterFlowPlacePicker(
-                                                                    iOSGoogleMapsApiKey:
-                                                                        'AIzaSyAu1xRj92baC1e6doE7Dh_7Drh0Wn7KO90',
-                                                                    androidGoogleMapsApiKey:
-                                                                        'AIzaSyCgAGHHm7w6LdGQegp1WY5ctmX-IsLeMek',
-                                                                    webGoogleMapsApiKey:
-                                                                        'AIzaSyDmP6aJTRYjSd5-3zsciJw0I45FuYiRim4',
-                                                                    onSelect:
-                                                                        (place) async {
-                                                                      setState(() =>
-                                                                          _model.placePickerValue =
-                                                                              place);
-                                                                    },
-                                                                    defaultText:
-                                                                        'Sélectionnez l\'emplacement',
-                                                                    icon: Icon(
-                                                                      Icons
-                                                                          .place,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryBtnText,
-                                                                      size:
-                                                                          16.0,
-                                                                    ),
-                                                                    buttonOptions:
-                                                                        FFButtonOptions(
-                                                                      width:
-                                                                          400.0,
-                                                                      height:
-                                                                          40.0,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      textStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleSmall
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBtnText,
-                                                                          ),
-                                                                      elevation:
-                                                                          2.0,
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                        color: Colors
-                                                                            .transparent,
-                                                                        width:
-                                                                            1.0,
-                                                                      ),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              100.0),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ].divide(SizedBox(
-                                                                height: 10.0)),
-                                                          ),
-                                                        ),
                                                         FFButtonWidget(
                                                           onPressed: () async {
                                                             logFirebaseEvent(
@@ -1622,21 +1522,6 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                             : updateEventStep1EventsRecord.siteWeb,
                                                                         'Aucune',
                                                                       ),
-                                                                      location:
-                                                                          () {
-                                                                        if (_model.placePickerValue.latLng !=
-                                                                            null) {
-                                                                          return _model
-                                                                              .placePickerValue
-                                                                              .latLng;
-                                                                        } else if (updateEventStep1EventsRecord.location ==
-                                                                            null) {
-                                                                          return null;
-                                                                        } else {
-                                                                          return updateEventStep1EventsRecord
-                                                                              .location;
-                                                                        }
-                                                                      }(),
                                                                       updatedAt:
                                                                           getCurrentTimestamp,
                                                                       eventEntrancePrice:

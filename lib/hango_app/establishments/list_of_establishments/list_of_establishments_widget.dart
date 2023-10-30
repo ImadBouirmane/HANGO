@@ -664,15 +664,15 @@ class _ListOfEstablishmentsWidgetState
                           Expanded(
                             child: Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    if (responsiveVisibility(
-                                      context: context,
-                                      desktop: false,
-                                    ))
-                                      Container(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  if (responsiveVisibility(
+                                    context: context,
+                                    desktop: false,
+                                  ))
+                                    Expanded(
+                                      child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
@@ -684,14 +684,13 @@ class _ListOfEstablishmentsWidgetState
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 0.0),
-                                          child: SingleChildScrollView(
-                                            primary: false,
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                PagedListView<
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Expanded(
+                                                child: PagedListView<
                                                     DocumentSnapshot<Object?>?,
                                                     EstablishmentsRecord>(
                                                   pagingController: _model
@@ -857,14 +856,18 @@ class _ListOfEstablishmentsWidgetState
                                                                     'ShowOfEstablishment',
                                                                     queryParameters:
                                                                         {
-                                                                      'establishmentDetails':
+                                                                      'estRef':
                                                                           serializeParam(
-                                                                        listEstMobileEstablishmentsRecord
-                                                                            .reference,
+                                                                        listEstMobileEstablishmentsRecord,
                                                                         ParamType
-                                                                            .DocumentReference,
+                                                                            .Document,
                                                                       ),
                                                                     }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      'estRef':
+                                                                          listEstMobileEstablishmentsRecord,
+                                                                    },
                                                                   );
                                                                 },
                                                                 child: Card(
@@ -873,8 +876,6 @@ class _ListOfEstablishmentsWidgetState
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
-                                                                  elevation:
-                                                                      1.0,
                                                                   shape:
                                                                       RoundedRectangleBorder(
                                                                     borderRadius:
@@ -886,162 +887,62 @@ class _ListOfEstablishmentsWidgetState
                                                                         MainAxisSize
                                                                             .max,
                                                                     children: [
-                                                                      Stack(
-                                                                        children: [
-                                                                          if ((cardEstablishmentImagesRecord?.image1 != null && cardEstablishmentImagesRecord?.image1 != '') &&
-                                                                              (cardEstablishmentImagesRecord?.video == null || cardEstablishmentImagesRecord?.video == ''))
-                                                                            FlutterFlowMediaDisplay(
-                                                                              path: valueOrDefault<String>(
-                                                                                valueOrDefault<String>(
-                                                                                              cardEstablishmentImagesRecord?.image1,
-                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                            ) !=
-                                                                                            null &&
-                                                                                        valueOrDefault<String>(
-                                                                                              cardEstablishmentImagesRecord?.image1,
-                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                            ) !=
-                                                                                            ''
-                                                                                    ? valueOrDefault<String>(
-                                                                                        cardEstablishmentImagesRecord?.image1,
-                                                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                      )
-                                                                                    : null,
-                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                              ),
-                                                                              imageBuilder: (path) => ClipRRect(
-                                                                                borderRadius: BorderRadius.only(
-                                                                                  bottomLeft: Radius.circular(0.0),
-                                                                                  bottomRight: Radius.circular(0.0),
-                                                                                  topLeft: Radius.circular(8.0),
-                                                                                  topRight: Radius.circular(8.0),
+                                                                      FlutterFlowMediaDisplay(
+                                                                        path: valueOrDefault<
+                                                                            String>(
+                                                                          cardEstablishmentImagesRecord?.video != null && cardEstablishmentImagesRecord?.video != ''
+                                                                              ? cardEstablishmentImagesRecord?.video
+                                                                              : valueOrDefault<String>(
+                                                                                  cardEstablishmentImagesRecord?.image1,
+                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                 ),
-                                                                                child: Image.network(
-                                                                                  path,
-                                                                                  width: double.infinity,
-                                                                                  height: 220.0,
-                                                                                  fit: BoxFit.cover,
-                                                                                ),
-                                                                              ),
-                                                                              videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
-                                                                                path: path,
-                                                                                width: 300.0,
-                                                                                autoPlay: false,
-                                                                                looping: true,
-                                                                                showControls: true,
-                                                                                allowFullScreen: true,
-                                                                                allowPlaybackSpeedMenu: false,
-                                                                              ),
-                                                                            ),
-                                                                          if ((cardEstablishmentImagesRecord?.image1 == null || cardEstablishmentImagesRecord?.image1 == '') &&
-                                                                              (cardEstablishmentImagesRecord?.video != null && cardEstablishmentImagesRecord?.video != ''))
-                                                                            Stack(
-                                                                              alignment: AlignmentDirectional(0.98, -0.95),
-                                                                              children: [
-                                                                                FlutterFlowMediaDisplay(
-                                                                                  path: valueOrDefault<String>(
-                                                                                    valueOrDefault<String>(
-                                                                                                  cardEstablishmentImagesRecord?.video,
-                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                                ) !=
-                                                                                                null &&
-                                                                                            valueOrDefault<String>(
-                                                                                                  cardEstablishmentImagesRecord?.video,
-                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                                ) !=
-                                                                                                ''
-                                                                                        ? valueOrDefault<String>(
-                                                                                            cardEstablishmentImagesRecord?.video,
-                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                          )
-                                                                                        : null,
-                                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                  ),
-                                                                                  imageBuilder: (path) => ClipRRect(
-                                                                                    borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(0.0),
-                                                                                      bottomRight: Radius.circular(0.0),
-                                                                                      topLeft: Radius.circular(8.0),
-                                                                                      topRight: Radius.circular(8.0),
-                                                                                    ),
-                                                                                    child: Image.network(
-                                                                                      path,
-                                                                                      width: double.infinity,
-                                                                                      height: 220.0,
-                                                                                      fit: BoxFit.fitWidth,
-                                                                                    ),
-                                                                                  ),
-                                                                                  videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
-                                                                                    path: path,
-                                                                                    width: double.infinity,
-                                                                                    height: 220.0,
-                                                                                    autoPlay: true,
-                                                                                    looping: true,
-                                                                                    showControls: false,
-                                                                                    allowFullScreen: true,
-                                                                                    allowPlaybackSpeedMenu: false,
-                                                                                    pauseOnNavigate: false,
-                                                                                  ),
-                                                                                ),
-                                                                                Text(
-                                                                                  'Video',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
-                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                      ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          if ((cardEstablishmentImagesRecord?.image1 != null && cardEstablishmentImagesRecord?.image1 != '') &&
-                                                                              (cardEstablishmentImagesRecord?.video != null && cardEstablishmentImagesRecord?.video != ''))
-                                                                            Stack(
-                                                                              alignment: AlignmentDirectional(0.98, -0.95),
-                                                                              children: [
-                                                                                FlutterFlowMediaDisplay(
-                                                                                  path: valueOrDefault<String>(
-                                                                                                cardEstablishmentImagesRecord?.video,
-                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                              ) !=
-                                                                                              null &&
-                                                                                          valueOrDefault<String>(
-                                                                                                cardEstablishmentImagesRecord?.video,
-                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                              ) !=
-                                                                                              ''
-                                                                                      ? valueOrDefault<String>(
-                                                                                          cardEstablishmentImagesRecord?.video,
-                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                        )
-                                                                                      : null!,
-                                                                                  imageBuilder: (path) => ClipRRect(
-                                                                                    borderRadius: BorderRadius.only(
-                                                                                      bottomLeft: Radius.circular(0.0),
-                                                                                      bottomRight: Radius.circular(0.0),
-                                                                                      topLeft: Radius.circular(8.0),
-                                                                                      topRight: Radius.circular(8.0),
-                                                                                    ),
-                                                                                    child: Image.network(
-                                                                                      path,
-                                                                                      width: double.infinity,
-                                                                                      height: 220.0,
-                                                                                      fit: BoxFit.fitWidth,
-                                                                                    ),
-                                                                                  ),
-                                                                                  videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
-                                                                                    path: path,
-                                                                                    width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                    height: 220.0,
-                                                                                    autoPlay: true,
-                                                                                    looping: true,
-                                                                                    showControls: true,
-                                                                                    allowFullScreen: true,
-                                                                                    allowPlaybackSpeedMenu: false,
-                                                                                    pauseOnNavigate: false,
-                                                                                  ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                        ],
+                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                        ),
+                                                                        imageBuilder:
+                                                                            (path) =>
+                                                                                ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.only(
+                                                                            bottomLeft:
+                                                                                Radius.circular(0.0),
+                                                                            bottomRight:
+                                                                                Radius.circular(0.0),
+                                                                            topLeft:
+                                                                                Radius.circular(8.0),
+                                                                            topRight:
+                                                                                Radius.circular(8.0),
+                                                                          ),
+                                                                          child:
+                                                                              Image.network(
+                                                                            path,
+                                                                            width:
+                                                                                double.infinity,
+                                                                            height:
+                                                                                MediaQuery.sizeOf(context).height * 0.23,
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
+                                                                        ),
+                                                                        videoPlayerBuilder:
+                                                                            (path) =>
+                                                                                FlutterFlowVideoPlayer(
+                                                                          path:
+                                                                              path,
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 1.0,
+                                                                          height:
+                                                                              MediaQuery.sizeOf(context).height * 0.23,
+                                                                          autoPlay:
+                                                                              false,
+                                                                          looping:
+                                                                              true,
+                                                                          showControls:
+                                                                              true,
+                                                                          allowFullScreen:
+                                                                              true,
+                                                                          allowPlaybackSpeedMenu:
+                                                                              false,
+                                                                        ),
                                                                       ),
                                                                       Container(
                                                                         width: double
@@ -1060,7 +961,7 @@ class _ListOfEstablishmentsWidgetState
                                                                           children: [
                                                                             Expanded(
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                                                                                 child: Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -1093,10 +994,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                           children: [
                                                                                             Text(
                                                                                               'Style musical',
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    fontSize: 14.0,
-                                                                                                  ),
+                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
                                                                                             ),
                                                                                             if (listEstMobileEstablishmentsRecord.musicStyle.first != null && listEstMobileEstablishmentsRecord.musicStyle.first != '')
                                                                                               Padding(
@@ -1111,7 +1009,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                               listEstMobileEstablishmentsRecord.musicStyle.first,
                                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                     fontFamily: 'Poppins',
-                                                                                                    fontSize: 14.0,
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                                   ),
                                                                                             ),
                                                                                           ],
@@ -1152,11 +1050,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                         ),
                                                                                         Text(
                                                                                           listEstMobileEstablishmentsRecord.adresse.city,
-                                                                                          style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                fontFamily: 'Poppins',
-                                                                                                fontSize: 14.0,
-                                                                                                fontWeight: FontWeight.w600,
-                                                                                              ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                         ),
                                                                                       ],
                                                                                     ),
@@ -1178,23 +1072,23 @@ class _ListOfEstablishmentsWidgetState
                                                     },
                                                   ),
                                                 ),
-                                              ]
-                                                  .divide(SizedBox(height: 8.0))
-                                                  .addToStart(
-                                                      SizedBox(height: 8.0))
-                                                  .addToEnd(
-                                                      SizedBox(height: 50.0)),
-                                            ),
+                                              ),
+                                            ]
+                                                .divide(SizedBox(height: 8.0))
+                                                .addToStart(
+                                                    SizedBox(height: 8.0)),
                                           ),
                                         ),
                                       ),
-                                    if (responsiveVisibility(
-                                      context: context,
-                                      phone: false,
-                                      tablet: false,
-                                      tabletLandscape: false,
-                                    ))
-                                      Align(
+                                    ),
+                                  if (responsiveVisibility(
+                                    context: context,
+                                    phone: false,
+                                    tablet: false,
+                                    tabletLandscape: false,
+                                  ))
+                                    Expanded(
+                                      child: Align(
                                         alignment:
                                             AlignmentDirectional(0.00, 0.00),
                                         child: Padding(
@@ -1209,14 +1103,13 @@ class _ListOfEstablishmentsWidgetState
                                                     .height *
                                                 1.0,
                                             decoration: BoxDecoration(),
-                                            child: SingleChildScrollView(
-                                              primary: false,
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  PagedListView<
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: PagedListView<
                                                       DocumentSnapshot<
                                                           Object?>?,
                                                       EstablishmentsRecord>(
@@ -1385,14 +1278,18 @@ class _ListOfEstablishmentsWidgetState
                                                                       'ShowOfEstablishment',
                                                                       queryParameters:
                                                                           {
-                                                                        'establishmentDetails':
+                                                                        'estRef':
                                                                             serializeParam(
-                                                                          listEstablishmentsQueryWebEstablishmentsRecord
-                                                                              .reference,
+                                                                          listEstablishmentsQueryWebEstablishmentsRecord,
                                                                           ParamType
-                                                                              .DocumentReference,
+                                                                              .Document,
                                                                         ),
                                                                       }.withoutNulls,
+                                                                      extra: <String,
+                                                                          dynamic>{
+                                                                        'estRef':
+                                                                            listEstablishmentsQueryWebEstablishmentsRecord,
+                                                                      },
                                                                     );
                                                                   },
                                                                   child: Card(
@@ -1718,18 +1615,18 @@ class _ListOfEstablishmentsWidgetState
                                                       },
                                                     ),
                                                   ),
-                                                ]
-                                                    .divide(
-                                                        SizedBox(height: 10.0))
-                                                    .addToStart(
-                                                        SizedBox(height: 15.0)),
-                                              ),
+                                                ),
+                                              ]
+                                                  .divide(
+                                                      SizedBox(height: 10.0))
+                                                  .addToStart(
+                                                      SizedBox(height: 15.0)),
                                             ),
                                           ),
                                         ),
                                       ),
-                                  ],
-                                ),
+                                    ),
+                                ],
                               ),
                             ),
                           ),
