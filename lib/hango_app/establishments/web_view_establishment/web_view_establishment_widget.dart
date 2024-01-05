@@ -3,21 +3,18 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'web_view_establishment_model.dart';
 export 'web_view_establishment_model.dart';
 
 class WebViewEstablishmentWidget extends StatefulWidget {
   const WebViewEstablishmentWidget({
-    Key? key,
+    super.key,
     required this.itemUrlEstablishment,
-  }) : super(key: key);
+  });
 
   final DocumentReference? itemUrlEstablishment;
 
@@ -123,7 +120,7 @@ class _WebViewEstablishmentWidgetState
                           fontSize: 22.0,
                         ),
                   ),
-                  actions: [],
+                  actions: const [],
                   centerTitle: false,
                   elevation: 2.0,
                 ),

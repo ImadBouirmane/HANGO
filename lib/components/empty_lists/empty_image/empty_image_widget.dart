@@ -1,14 +1,12 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'empty_image_model.dart';
 export 'empty_image_model.dart';
 
 class EmptyImageWidget extends StatefulWidget {
-  const EmptyImageWidget({Key? key}) : super(key: key);
+  const EmptyImageWidget({super.key});
 
   @override
   _EmptyImageWidgetState createState() => _EmptyImageWidgetState();
@@ -50,7 +48,7 @@ class _EmptyImageWidgetState extends State<EmptyImageWidget> {
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Align(
-        alignment: AlignmentDirectional(0.00, 0.00),
+        alignment: const AlignmentDirectional(0.0, 0.0),
         child: Text(
           'Aucune Image inséré',
           style: FlutterFlowTheme.of(context).titleMedium,

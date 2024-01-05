@@ -4,18 +4,15 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'filter_options_list_est_model.dart';
 export 'filter_options_list_est_model.dart';
 
 class FilterOptionsListEstWidget extends StatefulWidget {
   const FilterOptionsListEstWidget({
-    Key? key,
+    super.key,
     bool? parameter1,
-  })  : this.parameter1 = parameter1 ?? false,
-        super(key: key);
+  })  : parameter1 = parameter1 ?? false;
 
   final bool parameter1;
 
@@ -61,7 +58,7 @@ class _FilterOptionsListEstWidgetState
         false,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
         child: Wrap(
           spacing: 0.0,
           runSpacing: 10.0,
@@ -82,7 +79,7 @@ class _FilterOptionsListEstWidgetState
                 ),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Container(
                   width: double.infinity,
                   color: Colors.white,
@@ -94,10 +91,10 @@ class _FilterOptionsListEstWidgetState
                         style: FlutterFlowTheme.of(context).titleSmall,
                       ),
                       collapsed: Container(
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                       ),
                       expanded: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowChoiceChips(
                           options: FFAppState()
                               .TypeOfEstablishment
@@ -121,24 +118,24 @@ class _FilterOptionsListEstWidgetState
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                 ),
-                            iconColor: Color(0x00000000),
+                            iconColor: const Color(0x00000000),
                             iconSize: 18.0,
-                            labelPadding: EdgeInsetsDirectional.fromSTEB(
+                            labelPadding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 7.0, 20.0, 7.0),
                             elevation: 2.0,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           unselectedChipStyle: ChipStyle(
-                            backgroundColor: Color(0x00000000),
+                            backgroundColor: const Color(0x00000000),
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context).primary,
                                 ),
-                            iconColor: Color(0x00000000),
+                            iconColor: const Color(0x00000000),
                             iconSize: 18.0,
-                            labelPadding: EdgeInsetsDirectional.fromSTEB(
+                            labelPadding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 7.0, 20.0, 7.0),
                             elevation: 0.0,
                             borderRadius: BorderRadius.circular(8.0),
@@ -179,7 +176,7 @@ class _FilterOptionsListEstWidgetState
                 ),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Container(
                   width: double.infinity,
                   color: Colors.white,
@@ -191,10 +188,10 @@ class _FilterOptionsListEstWidgetState
                         style: FlutterFlowTheme.of(context).titleSmall,
                       ),
                       collapsed: Container(
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                       ),
                       expanded: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowChoiceChips(
                           options: FFAppState()
                               .MusicStyle
@@ -219,24 +216,24 @@ class _FilterOptionsListEstWidgetState
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                 ),
-                            iconColor: Color(0x00000000),
+                            iconColor: const Color(0x00000000),
                             iconSize: 18.0,
-                            labelPadding: EdgeInsetsDirectional.fromSTEB(
+                            labelPadding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 7.0, 20.0, 7.0),
                             elevation: 2.0,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           unselectedChipStyle: ChipStyle(
-                            backgroundColor: Color(0x00000000),
+                            backgroundColor: const Color(0x00000000),
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context).primary,
                                 ),
-                            iconColor: Color(0x00000000),
+                            iconColor: const Color(0x00000000),
                             iconSize: 18.0,
-                            labelPadding: EdgeInsetsDirectional.fromSTEB(
+                            labelPadding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 7.0, 20.0, 7.0),
                             elevation: 0.0,
                             borderRadius: BorderRadius.circular(8.0),

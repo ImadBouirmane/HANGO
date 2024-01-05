@@ -5,13 +5,12 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'user_phone_confirmation_exist_model.dart';
 export 'user_phone_confirmation_exist_model.dart';
 
 class UserPhoneConfirmationExistWidget extends StatefulWidget {
-  const UserPhoneConfirmationExistWidget({Key? key}) : super(key: key);
+  const UserPhoneConfirmationExistWidget({super.key});
 
   @override
   _UserPhoneConfirmationExistWidgetState createState() =>
@@ -65,7 +64,7 @@ class _UserPhoneConfirmationExistWidgetState
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -91,7 +90,7 @@ class _UserPhoneConfirmationExistWidgetState
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
                                   'Veuillez nous donnerons votre numero de telephone pour securiser et confirmer votre compte.',
@@ -118,7 +117,7 @@ class _UserPhoneConfirmationExistWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: PinCodeTextField(
                               autoDisposeControllers: false,
                               appContext: context,
@@ -138,7 +137,12 @@ class _UserPhoneConfirmationExistWidgetState
                                 fieldHeight: 44.0,
                                 fieldWidth: 44.0,
                                 borderWidth: 2.0,
-                                borderRadius: BorderRadius.circular(12.0),
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(12.0),
+                                  bottomRight: Radius.circular(12.0),
+                                  topLeft: Radius.circular(12.0),
+                                  topRight: Radius.circular(12.0),
+                                ),
                                 shape: PinCodeFieldShape.box,
                                 activeColor:
                                     FlutterFlowTheme.of(context).primaryText,
@@ -173,10 +177,9 @@ class _UserPhoneConfirmationExistWidgetState
                                   GoRouter.of(context).prepareAuthEvent();
                                   final smsCodeVal =
                                       _model.pinCodeController1!.text;
-                                  if (smsCodeVal == null ||
-                                      smsCodeVal.isEmpty) {
+                                  if (smsCodeVal.isEmpty) {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                         content: Text(
                                             'Enter SMS verification code.'),
                                       ),
@@ -199,9 +202,9 @@ class _UserPhoneConfirmationExistWidgetState
                                 options: FFButtonOptions(
                                   width: 240.0,
                                   height: 50.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -212,7 +215,7 @@ class _UserPhoneConfirmationExistWidgetState
                                         fontWeight: FontWeight.w500,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -221,7 +224,7 @@ class _UserPhoneConfirmationExistWidgetState
                               ),
                             ],
                           ),
-                        ].divide(SizedBox(height: 30.0)),
+                        ].divide(const SizedBox(height: 30.0)),
                       ),
                     if (responsiveVisibility(
                       context: context,
@@ -231,12 +234,12 @@ class _UserPhoneConfirmationExistWidgetState
                     ))
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.5,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: PinCodeTextField(
                                 autoDisposeControllers: false,
                                 appContext: context,
@@ -259,7 +262,12 @@ class _UserPhoneConfirmationExistWidgetState
                                   fieldHeight: 44.0,
                                   fieldWidth: 44.0,
                                   borderWidth: 2.0,
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(12.0),
+                                    bottomRight: Radius.circular(12.0),
+                                    topLeft: Radius.circular(12.0),
+                                    topRight: Radius.circular(12.0),
+                                  ),
                                   shape: PinCodeFieldShape.box,
                                   activeColor:
                                       FlutterFlowTheme.of(context).primaryText,
@@ -294,11 +302,10 @@ class _UserPhoneConfirmationExistWidgetState
                                     GoRouter.of(context).prepareAuthEvent();
                                     final smsCodeVal =
                                         _model.pinCodeController2!.text;
-                                    if (smsCodeVal == null ||
-                                        smsCodeVal.isEmpty) {
+                                    if (smsCodeVal.isEmpty) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content: Text(
                                               'Enter SMS verification code.'),
                                         ),
@@ -321,9 +328,9 @@ class _UserPhoneConfirmationExistWidgetState
                                   options: FFButtonOptions(
                                     width: 240.0,
                                     height: 50.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -334,7 +341,7 @@ class _UserPhoneConfirmationExistWidgetState
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -343,12 +350,12 @@ class _UserPhoneConfirmationExistWidgetState
                                 ),
                               ],
                             ),
-                          ].divide(SizedBox(height: 30.0)),
+                          ].divide(const SizedBox(height: 30.0)),
                         ),
                       ),
                   ]
-                      .divide(SizedBox(height: 50.0))
-                      .addToStart(SizedBox(height: 40.0)),
+                      .divide(const SizedBox(height: 50.0))
+                      .addToStart(const SizedBox(height: 40.0)),
                 ),
               ),
             ),

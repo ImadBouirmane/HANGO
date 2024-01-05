@@ -1,20 +1,7 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/components/empty_lists/empty_list/empty_list_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'form_artist_event_widget.dart' show FormArtistEventWidget;
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class FormArtistEventModel extends FlutterFlowModel<FormArtistEventWidget> {
   ///  Local state fields for this component.
@@ -44,8 +31,10 @@ class FormArtistEventModel extends FlutterFlowModel<FormArtistEventWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     artistNameTextFieldFocusNode?.dispose();
     artistNameTextFieldController?.dispose();

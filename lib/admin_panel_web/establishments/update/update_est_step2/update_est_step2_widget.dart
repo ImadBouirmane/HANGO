@@ -1,24 +1,21 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_est_step2_model.dart';
 export 'update_est_step2_model.dart';
 
 class UpdateEstStep2Widget extends StatefulWidget {
   const UpdateEstStep2Widget({
-    Key? key,
+    super.key,
     required this.establishmentDetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? establishmentDetails;
 
@@ -66,6 +63,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
     _model.sundayOpeningFocusNode ??= FocusNode();
 
     _model.sundayClosingFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -125,24 +123,23 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                         child: AdminSideBarWidget(
                           oneBG:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          oneIcon: Icon(
+                          oneIcon: const Icon(
                             Icons.home_filled,
                           ),
                           twoBG:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          twoIcon: Icon(
+                          twoIcon: const Icon(
                             Icons.event,
                           ),
                           threeColor: FlutterFlowTheme.of(context).tertiary400,
-                          threeIcon: Icon(
+                          threeIcon: const Icon(
                             Icons.house_outlined,
                           ),
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 15.0, 15.0, 15.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -174,8 +171,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Modification du l\'établissement',
                                         style: FlutterFlowTheme.of(context)
@@ -212,7 +208,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                       context.pushNamed(
                                         'Dashboard',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -231,7 +227,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
@@ -254,17 +250,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                           autovalidateMode:
                                               AutovalidateMode.always,
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                -1.00, -1.00),
+                                            alignment: const AlignmentDirectional(
+                                                -1.0, -1.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.4,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 15.0, 15.0, 15.0),
+                                                padding: const EdgeInsets.all(15.0),
                                                 child: StreamBuilder<
                                                     List<ScheduleRecord>>(
                                                   stream: queryScheduleRecord(
@@ -356,9 +350,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -372,7 +366,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.mondayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.mondayOpeningController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -438,9 +432,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -454,7 +448,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.mondayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.mondayClosingController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -514,7 +508,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -595,11 +589,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               .primaryBackground,
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         10.0)),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 30.0)),
                                                           ),
                                                         ),
@@ -641,9 +635,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -657,7 +651,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.tuesdayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.tuesdayOpeningController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -723,9 +717,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -739,7 +733,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.tuesdayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.tuesdayClosingController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -799,7 +793,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -880,11 +874,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               .primaryBackground,
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         10.0)),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -926,9 +920,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -942,7 +936,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.wednesdayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.wednesdayOpeningController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -1008,9 +1002,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -1024,7 +1018,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.wednesdayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.wednesdayClosingController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -1084,7 +1078,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -1165,11 +1159,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               .primaryBackground,
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         10.0)),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -1211,9 +1205,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -1227,7 +1221,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.thursdayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.thursdayOpeningController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -1293,9 +1287,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -1309,7 +1303,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.thursdayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.thursdayClosingController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -1369,7 +1363,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -1450,11 +1444,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               .primaryBackground,
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         10.0)),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -1496,9 +1490,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -1512,7 +1506,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.fridayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.fridayOpeningController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -1578,9 +1572,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -1594,7 +1588,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.fridayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.fridayClosingController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -1654,7 +1648,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -1735,11 +1729,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               .primaryBackground,
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         10.0)),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -1787,9 +1781,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -1803,7 +1797,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.saturdayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.saturdayOpeningController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -1869,9 +1863,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -1885,7 +1879,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.saturdayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.saturdayClosingController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -1945,7 +1939,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -2026,11 +2020,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               .primaryBackground,
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         10.0)),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -2072,9 +2066,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -2088,7 +2082,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.sundayOpeningFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.sundayOpeningController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -2154,9 +2148,9 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.07,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
-                                                                              Container(
+                                                                              SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.08,
                                                                             child:
@@ -2170,7 +2164,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               focusNode: _model.sundayClosingFocusNode,
                                                                               onChanged: (_) => EasyDebounce.debounce(
                                                                                 '_model.sundayClosingController',
-                                                                                Duration(milliseconds: 2000),
+                                                                                const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
                                                                               autofocus: true,
@@ -2230,7 +2224,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -2311,11 +2305,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               .primaryBackground,
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         10.0)),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -2331,8 +2325,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
 
                                       // still some calls for schedule I will complete next two hours
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 15.0, 15.0, 15.0),
+                                        padding: const EdgeInsets.all(15.0),
                                         child:
                                             StreamBuilder<List<ScheduleRecord>>(
                                           stream: queryScheduleRecord(
@@ -2379,216 +2372,132 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                     .reference
                                                     .update(
                                                         createScheduleRecordData(
-                                                  mondayIsClose: _model
-                                                              .mondayValue !=
-                                                          null
-                                                      ? _model.mondayValue
-                                                      : bTNValidateFromScheduleRecord
-                                                          ?.mondayIsClose,
-                                                  tuesdayIsClose: _model
-                                                              .tuesdayValue !=
-                                                          null
-                                                      ? _model.tuesdayValue
-                                                      : bTNValidateFromScheduleRecord
-                                                          ?.tuesdayIsClose,
-                                                  wednesdayIsClose: _model
-                                                              .wednesdayValue !=
-                                                          null
-                                                      ? _model.wednesdayValue
-                                                      : bTNValidateFromScheduleRecord
-                                                          ?.wednesdayIsClose,
-                                                  thursdayIsClose: _model
-                                                              .thursdayValue !=
-                                                          null
-                                                      ? _model.thursdayValue
-                                                      : bTNValidateFromScheduleRecord
-                                                          ?.thursdayIsClose,
-                                                  fridayIsClose: _model
-                                                              .fridayValue !=
-                                                          null
-                                                      ? _model.fridayValue
-                                                      : bTNValidateFromScheduleRecord
-                                                          ?.fridayIsClose,
-                                                  saturdayIsClose: _model
-                                                              .saturdayValue !=
-                                                          null
-                                                      ? _model.saturdayValue
-                                                      : bTNValidateFromScheduleRecord
-                                                          ?.saturdayIsClose,
-                                                  sundayIsClose: _model
-                                                              .sundayValue !=
-                                                          null
-                                                      ? _model.sundayValue
-                                                      : bTNValidateFromScheduleRecord
-                                                          ?.sundayIsClose,
-                                                  mondayOpening: _model
-                                                                  .mondayOpeningController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.mondayOpeningController
+                                                  mondayIsClose: _model.mondayValue ?? bTNValidateFromScheduleRecord
+                                                          .mondayIsClose,
+                                                  tuesdayIsClose: _model.tuesdayValue ?? bTNValidateFromScheduleRecord
+                                                          .tuesdayIsClose,
+                                                  wednesdayIsClose: _model.wednesdayValue ?? bTNValidateFromScheduleRecord
+                                                          .wednesdayIsClose,
+                                                  thursdayIsClose: _model.thursdayValue ?? bTNValidateFromScheduleRecord
+                                                          .thursdayIsClose,
+                                                  fridayIsClose: _model.fridayValue ?? bTNValidateFromScheduleRecord
+                                                          .fridayIsClose,
+                                                  saturdayIsClose: _model.saturdayValue ?? bTNValidateFromScheduleRecord
+                                                          .saturdayIsClose,
+                                                  sundayIsClose: _model.sundayValue ?? bTNValidateFromScheduleRecord
+                                                          .sundayIsClose,
+                                                  mondayOpening: _model.mondayOpeningController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .mondayOpeningController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.mondayOpening,
-                                                  mondayClosing: _model
-                                                                  .mondayClosingController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.mondayClosingController
+                                                          .mondayOpening,
+                                                  mondayClosing: _model.mondayClosingController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .mondayClosingController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.mondayClosing,
-                                                  tuesdayOpening: _model
-                                                                  .tuesdayOpeningController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tuesdayOpeningController
+                                                          .mondayClosing,
+                                                  tuesdayOpening: _model.tuesdayOpeningController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .tuesdayOpeningController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.tuesdayOpening,
-                                                  tuesdayClosing: _model
-                                                                  .tuesdayClosingController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.tuesdayClosingController
+                                                          .tuesdayOpening,
+                                                  tuesdayClosing: _model.tuesdayClosingController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .tuesdayClosingController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.tuesdayClosing,
-                                                  wednesdayOpening: _model
-                                                                  .wednesdayOpeningController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.wednesdayOpeningController
+                                                          .tuesdayClosing,
+                                                  wednesdayOpening: _model.wednesdayOpeningController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .wednesdayOpeningController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.wednesdayOpening,
-                                                  wednesdayClosing: _model
-                                                                  .wednesdayClosingController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.wednesdayClosingController
+                                                          .wednesdayOpening,
+                                                  wednesdayClosing: _model.wednesdayClosingController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .wednesdayClosingController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.wednesdayClosing,
-                                                  thursdayOpening: _model
-                                                                  .thursdayOpeningController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.thursdayOpeningController
+                                                          .wednesdayClosing,
+                                                  thursdayOpening: _model.thursdayOpeningController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .thursdayOpeningController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.thursdayOpening,
-                                                  thursdayClosing: _model
-                                                                  .thursdayClosingController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.thursdayClosingController
+                                                          .thursdayOpening,
+                                                  thursdayClosing: _model.thursdayClosingController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .thursdayClosingController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.thursdayClosing,
-                                                  fridayOpening: _model
-                                                                  .fridayOpeningController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.fridayOpeningController
+                                                          .thursdayClosing,
+                                                  fridayOpening: _model.fridayOpeningController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .fridayOpeningController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.fridayOpening,
-                                                  fridayClosing: _model
-                                                                  .fridayClosingController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.fridayClosingController
+                                                          .fridayOpening,
+                                                  fridayClosing: _model.fridayClosingController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .fridayClosingController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.fridayClosing,
-                                                  saturdayOpening: _model
-                                                                  .saturdayOpeningController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.saturdayOpeningController
+                                                          .fridayClosing,
+                                                  saturdayOpening: _model.saturdayOpeningController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .saturdayOpeningController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.saturdayOpening,
-                                                  saturdayClosing: _model
-                                                                  .saturdayClosingController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.saturdayClosingController
+                                                          .saturdayOpening,
+                                                  saturdayClosing: _model.saturdayClosingController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .saturdayClosingController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.saturdayClosing,
-                                                  sundayOpening: _model
-                                                                  .sundayOpeningController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.sundayOpeningController
+                                                          .saturdayClosing,
+                                                  sundayOpening: _model.sundayOpeningController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .sundayOpeningController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.sundayOpening,
-                                                  sundayClosing: _model
-                                                                  .sundayClosingController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.sundayClosingController
+                                                          .sundayOpening,
+                                                  sundayClosing: _model.sundayClosingController
                                                                   .text !=
                                                               ''
                                                       ? _model
                                                           .sundayClosingController
                                                           .text
                                                       : bTNValidateFromScheduleRecord
-                                                          ?.sundayClosing,
+                                                          .sundayClosing,
                                                   estblishmentRef: widget
                                                       .establishmentDetails,
                                                   updatedAt:
@@ -2617,11 +2526,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                             .width *
                                                         1.0,
                                                 height: 50.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -2635,7 +2544,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                           color: Colors.white,
                                                         ),
                                                 elevation: 3.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -2651,8 +2560,8 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                 ),
                               ),
                             ]
-                                .divide(SizedBox(height: 20.0))
-                                .around(SizedBox(height: 20.0)),
+                                .divide(const SizedBox(height: 20.0))
+                                .around(const SizedBox(height: 20.0)),
                           ),
                         ),
                       ),

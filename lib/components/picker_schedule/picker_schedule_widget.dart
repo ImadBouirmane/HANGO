@@ -1,16 +1,13 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'picker_schedule_model.dart';
 export 'picker_schedule_model.dart';
 
 class PickerScheduleWidget extends StatefulWidget {
-  const PickerScheduleWidget({Key? key}) : super(key: key);
+  const PickerScheduleWidget({super.key});
 
   @override
   _PickerScheduleWidgetState createState() => _PickerScheduleWidgetState();
@@ -45,7 +42,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: 600.0,
         height: 400.0,
@@ -67,10 +64,10 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Theme(
                   data: ThemeData(
-                    checkboxTheme: CheckboxThemeData(
+                    checkboxTheme: const CheckboxThemeData(
                       visualDensity: VisualDensity.compact,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
@@ -128,8 +125,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -148,31 +144,30 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                         'PICKER_SCHEDULE_OUVERTURE_BTN_ON_TAP');
                                     logFirebaseEvent('Button_date_time_picker');
 
-                                    final _datePicked1Time =
+                                    final datePicked1Time =
                                         await showTimePicker(
                                       context: context,
                                       initialTime: TimeOfDay.fromDateTime(
                                           getCurrentTimestamp),
                                     );
-                                    if (_datePicked1Time != null) {
+                                    if (datePicked1Time != null) {
                                       safeSetState(() {
                                         _model.datePicked1 = DateTime(
                                           getCurrentTimestamp.year,
                                           getCurrentTimestamp.month,
                                           getCurrentTimestamp.day,
-                                          _datePicked1Time.hour,
-                                          _datePicked1Time.minute,
+                                          datePicked1Time.hour,
+                                          datePicked1Time.minute,
                                         );
                                       });
                                     }
                                   },
                                   text: 'Ouverture',
                                   options: FFButtonOptions(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsets.all(8.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFF57CFAD),
+                                    color: const Color(0xFF57CFAD),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -182,13 +177,13 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                           fontWeight: FontWeight.w300,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                     ),
                                     borderRadius: BorderRadius.circular(100.0),
                                   ),
                                 ),
-                              ].divide(SizedBox(width: 16.0)),
+                              ].divide(const SizedBox(width: 16.0)),
                             ),
                           ),
                         ),
@@ -202,8 +197,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -222,31 +216,30 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                         'PICKER_SCHEDULE_FERMETURE_BTN_ON_TAP');
                                     logFirebaseEvent('Button_date_time_picker');
 
-                                    final _datePicked2Time =
+                                    final datePicked2Time =
                                         await showTimePicker(
                                       context: context,
                                       initialTime: TimeOfDay.fromDateTime(
                                           getCurrentTimestamp),
                                     );
-                                    if (_datePicked2Time != null) {
+                                    if (datePicked2Time != null) {
                                       safeSetState(() {
                                         _model.datePicked2 = DateTime(
                                           getCurrentTimestamp.year,
                                           getCurrentTimestamp.month,
                                           getCurrentTimestamp.day,
-                                          _datePicked2Time.hour,
-                                          _datePicked2Time.minute,
+                                          datePicked2Time.hour,
+                                          datePicked2Time.minute,
                                         );
                                       });
                                     }
                                   },
                                   text: 'Fermeture',
                                   options: FFButtonOptions(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsets.all(8.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFF57CFAD),
+                                    color: const Color(0xFF57CFAD),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -256,13 +249,13 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                           fontWeight: FontWeight.w300,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                     ),
                                     borderRadius: BorderRadius.circular(100.0),
                                   ),
                                 ),
-                              ].divide(SizedBox(width: 16.0)),
+                              ].divide(const SizedBox(width: 16.0)),
                             ),
                           ),
                         ),
@@ -273,7 +266,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
               ],
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -289,9 +282,9 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -319,9 +312,9 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
@@ -333,7 +326,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                   ),
-                ].divide(SizedBox(width: 16.0)),
+                ].divide(const SizedBox(width: 16.0)),
               ),
             ),
           ],

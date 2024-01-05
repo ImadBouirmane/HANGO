@@ -10,6 +10,7 @@ export '../base_auth_user_provider.dart';
 class HangoFirebaseUser extends BaseAuthUser {
   HangoFirebaseUser(this.user);
   User? user;
+  @override
   bool get loggedIn => user != null;
 
   @override

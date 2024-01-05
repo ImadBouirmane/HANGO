@@ -2,14 +2,12 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'show_component_music_style_model.dart';
 export 'show_component_music_style_model.dart';
 
 class ShowComponentMusicStyleWidget extends StatefulWidget {
-  const ShowComponentMusicStyleWidget({Key? key}) : super(key: key);
+  const ShowComponentMusicStyleWidget({super.key});
 
   @override
   _ShowComponentMusicStyleWidgetState createState() =>
@@ -46,7 +44,7 @@ class _ShowComponentMusicStyleWidgetState
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
       child: StreamBuilder<List<EstablishmentsRecord>>(
         stream: queryEstablishmentsRecord(
           singleRecord: true,
@@ -80,11 +78,11 @@ class _ShowComponentMusicStyleWidgetState
             width: double.infinity,
             height: 80.0,
             decoration: BoxDecoration(
-              color: Color(0x7610212E),
+              color: const Color(0x7610212E),
               borderRadius: BorderRadius.circular(8.0),
               shape: BoxShape.rectangle,
               border: Border.all(
-                color: Color(0xFF10212E),
+                color: const Color(0xFF10212E),
                 width: 3.0,
               ),
             ),
@@ -96,14 +94,14 @@ class _ShowComponentMusicStyleWidgetState
                   'Hello World',
                   style: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Poppins',
-                        color: Color(0xFF57CFAD),
+                        color: const Color(0xFF57CFAD),
                       ),
                 ),
                 Text(
                   'Hello World',
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Poppins',
-                        color: Color(0xFF57CFAD),
+                        color: const Color(0xFF57CFAD),
                       ),
                 ),
               ],

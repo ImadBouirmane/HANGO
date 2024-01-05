@@ -1,22 +1,19 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'side_nav_web_model.dart';
 export 'side_nav_web_model.dart';
 
 class SideNavWebWidget extends StatefulWidget {
   const SideNavWebWidget({
-    Key? key,
+    super.key,
     required this.nav1,
     required this.nav2,
     required this.nav3,
-  }) : super(key: key);
+  });
 
   final bool? nav1;
   final bool? nav2;
@@ -70,7 +67,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
             BoxShadow(
               blurRadius: 0.0,
               color: FlutterFlowTheme.of(context).lineColor,
-              offset: Offset(1.0, 0.0),
+              offset: const Offset(1.0, 0.0),
             )
           ],
           borderRadius: BorderRadius.circular(0.0),
@@ -79,13 +76,13 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -93,7 +90,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                     boxShadow: [
                       BoxShadow(
                         color: FlutterFlowTheme.of(context).lineColor,
-                        offset: Offset(0.0, 1.0),
+                        offset: const Offset(0.0, 1.0),
                       )
                     ],
                   ),
@@ -101,7 +98,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -116,7 +113,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                         builder: (context) {
                           if (loggedIn) {
                             return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 20.0, 16.0, 16.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -143,7 +140,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 0.05,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
@@ -161,7 +158,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -184,10 +181,9 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                                       ),
                                             ),
                                           ),
-                                          if (currentUserEmail != null &&
-                                              currentUserEmail != '')
+                                          if (currentUserEmail != '')
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 currentUserEmail,
@@ -221,9 +217,9 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                               text: 'S\'identifier | S\'inscrire',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -246,9 +242,9 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                         },
                       ),
                     ]
-                        .divide(SizedBox(height: 30.0))
-                        .addToStart(SizedBox(height: 10.0))
-                        .addToEnd(SizedBox(height: 10.0)),
+                        .divide(const SizedBox(height: 30.0))
+                        .addToStart(const SizedBox(height: 10.0))
+                        .addToEnd(const SizedBox(height: 10.0)),
                   ),
                 ),
               ),
@@ -259,10 +255,16 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
                     child: MouseRegion(
                       opaque: true,
                       cursor: MouseCursor.defer ?? MouseCursor.defer,
+                      onEnter: ((event) async {
+                        setState(() => _model.mouseRegion1Hovered = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => _model.mouseRegion1Hovered = false);
+                      }),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -298,7 +300,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -325,7 +327,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                   size: 28.0,
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Établissements',
@@ -362,20 +364,20 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                           ),
                         ),
                       ),
-                      onEnter: ((event) async {
-                        setState(() => _model.mouseRegion1Hovered = true);
-                      }),
-                      onExit: ((event) async {
-                        setState(() => _model.mouseRegion1Hovered = false);
-                      }),
                     ),
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
                     child: MouseRegion(
                       opaque: true,
                       cursor: MouseCursor.defer ?? MouseCursor.defer,
+                      onEnter: ((event) async {
+                        setState(() => _model.mouseRegion2Hovered = true);
+                      }),
+                      onExit: ((event) async {
+                        setState(() => _model.mouseRegion2Hovered = false);
+                      }),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -385,7 +387,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                           logFirebaseEvent('SIDE_NAV_WEB_COMP_Events_ON_TAP');
                           logFirebaseEvent('Events_navigate_to');
 
-                          context.pushNamed('ListsEvents');
+                          context.pushNamed('ListOfEvents');
                         },
                         child: Container(
                           width: double.infinity,
@@ -410,7 +412,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -437,7 +439,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                   size: 28.0,
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Événements',
@@ -474,21 +476,21 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                           ),
                         ),
                       ),
-                      onEnter: ((event) async {
-                        setState(() => _model.mouseRegion2Hovered = true);
-                      }),
-                      onExit: ((event) async {
-                        setState(() => _model.mouseRegion2Hovered = false);
-                      }),
                     ),
                   ),
                   if (loggedIn)
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
                       child: MouseRegion(
                         opaque: true,
                         cursor: MouseCursor.defer ?? MouseCursor.defer,
+                        onEnter: ((event) async {
+                          setState(() => _model.mouseRegion3Hovered = true);
+                        }),
+                        onExit: ((event) async {
+                          setState(() => _model.mouseRegion3Hovered = false);
+                        }),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -523,7 +525,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                               shape: BoxShape.rectangle,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 12.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -550,7 +552,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                     size: 28.0,
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Profil',
@@ -588,19 +590,13 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                             ),
                           ),
                         ),
-                        onEnter: ((event) async {
-                          setState(() => _model.mouseRegion3Hovered = true);
-                        }),
-                        onExit: ((event) async {
-                          setState(() => _model.mouseRegion3Hovered = false);
-                        }),
                       ),
                     ),
-                ].divide(SizedBox(height: 10.0)),
+                ].divide(const SizedBox(height: 10.0)),
               ),
-              Spacer(),
+              const Spacer(),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -613,7 +609,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                       false,
                     ))
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: AuthUserStreamWidget(
                           builder: (context) => FFButtonWidget(
                             onPressed: () async {
@@ -624,7 +620,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                               context.pushNamed(
                                 'Dashboard',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType:
                                         PageTransitionType.leftToRight,
@@ -634,16 +630,16 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                               );
                             },
                             text: 'Accès Admin',
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.chevron_right,
                               size: 15.0,
                             ),
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width * 0.2,
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -653,7 +649,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                     color: Colors.white,
                                   ),
                               elevation: 3.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -662,12 +658,11 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                           ),
                         ),
                       ),
-                    if (loggedIn &&
-                        (valueOrDefault<bool>(
-                                currentUserDocument?.managerRole, false) ==
-                            true))
+                    if (valueOrDefault<bool>(
+                            currentUserDocument?.managerRole, false) ==
+                        true)
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: AuthUserStreamWidget(
                           builder: (context) => FFButtonWidget(
                             onPressed: () async {
@@ -676,9 +671,9 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                               logFirebaseEvent('Button_navigate_to');
 
                               context.pushNamed(
-                                'Dashboard',
+                                'ManagerDashboard',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType:
                                         PageTransitionType.leftToRight,
@@ -688,16 +683,16 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                               );
                             },
                             text: 'Accès Manager',
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.chevron_right,
                               size: 15.0,
                             ),
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width * 0.2,
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).tertiary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -708,7 +703,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                         .primaryText,
                                   ),
                               elevation: 3.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -717,7 +712,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                           ),
                         ),
                       ),
-                  ].divide(SizedBox(height: 10.0)),
+                  ].divide(const SizedBox(height: 10.0)),
                 ),
               ),
             ],

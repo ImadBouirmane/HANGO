@@ -2,14 +2,13 @@ import 'dart:async';
 
 import 'package:algolia/algolia.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 
 import '../backend.dart';
 
 export 'package:algolia/algolia.dart';
 
 const kAlgoliaApplicationId = 'HBCQK0MVMT';
-const kAlgoliaApiKey = 'e6113ebe8c5476b39b26a44b84ac4d6c';
+const kAlgoliaApiKey = '70bbcc90f9019f7851c0c8b5705ce382';
 
 class AlgoliaQueryParams extends Equatable {
   const AlgoliaQueryParams(this.index, this.term, this.latLng, this.maxResults,
@@ -27,7 +26,7 @@ class AlgoliaQueryParams extends Equatable {
 
 class FFAlgoliaManager {
   FFAlgoliaManager._()
-      : algolia = Algolia.init(
+      : algolia = const Algolia.init(
           applicationId: kAlgoliaApplicationId,
           apiKey: kAlgoliaApiKey,
           extraUserAgents: ['FlutterFlow_3.1.0'],
@@ -38,7 +37,7 @@ class FFAlgoliaManager {
   static FFAlgoliaManager get instance => _instance ??= FFAlgoliaManager._();
 
   // Cache that will ensure identical queries are not repeatedly made.
-  static Map<AlgoliaQueryParams, List<AlgoliaObjectSnapshot>> _algoliaCache =
+  static final Map<AlgoliaQueryParams, List<AlgoliaObjectSnapshot>> _algoliaCache =
       {};
 
   Future<List<AlgoliaObjectSnapshot>> algoliaQuery({

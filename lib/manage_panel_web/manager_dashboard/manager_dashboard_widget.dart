@@ -3,14 +3,12 @@ import '/backend/backend.dart';
 import '/components/delete_confirmation_event/delete_confirmation_event_widget.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
 import '/components/manager_side_bar/manager_side_bar_widget.dart';
-import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:map_launcher/map_launcher.dart' as $ml;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -18,14 +16,14 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'manager_dashboard_model.dart';
 export 'manager_dashboard_model.dart';
 
 class ManagerDashboardWidget extends StatefulWidget {
-  const ManagerDashboardWidget({Key? key}) : super(key: key);
+  const ManagerDashboardWidget({super.key});
 
   @override
   _ManagerDashboardWidgetState createState() => _ManagerDashboardWidgetState();
@@ -68,21 +66,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
     context.watch<FFAppState>();
 
     return StreamBuilder<List<EventsRecord>>(
-      stream: queryEventsRecord(
-        queryBuilder: (eventsRecord) => eventsRecord
-            .where(
-              'isManager',
-              isEqualTo: true,
-            )
-            .where(
-              'isAdmin',
-              isEqualTo: false,
-            )
-            .where(
-              'userRef',
-              isEqualTo: currentUserReference,
-            ),
-      ),
+      stream: queryEventsRecord(),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -111,7 +95,6 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
-                resizeToAvoidBottomInset: false,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
                 body: SafeArea(
                   top: true,
@@ -139,7 +122,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                 wrapWithModel(
                                   model: _model.managerSideBarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: ManagerSideBarWidget(
+                                  child: const ManagerSideBarWidget(
                                     oneIcon: Icon(
                                       Icons.dashboard,
                                     ),
@@ -182,12 +165,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                         children: [
                                           Expanded(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 16.0, 16.0, 16.0),
+                                                padding: const EdgeInsets.all(16.0),
                                                 child: StreamBuilder<
                                                     EstablishmentsRecord>(
                                                   stream: EstablishmentsRecord
@@ -226,7 +207,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        boxShadow: [
+                                                        boxShadow: const [
                                                           BoxShadow(
                                                             blurRadius: 4.0,
                                                             color: Color(
@@ -240,8 +221,8 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                 .circular(16.0),
                                                       ),
                                                       alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, -1.00),
+                                                          const AlignmentDirectional(
+                                                              0.0, -1.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -283,7 +264,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                         children:
                                                                             [
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 15.0,
                                                                                 0.0,
@@ -293,7 +274,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                               width: double.infinity,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                borderRadius: BorderRadius.only(
+                                                                                borderRadius: const BorderRadius.only(
                                                                                   bottomLeft: Radius.circular(0.0),
                                                                                   bottomRight: Radius.circular(0.0),
                                                                                   topLeft: Radius.circular(16.0),
@@ -301,7 +282,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                 ),
                                                                               ),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -330,22 +311,22 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                       text: 'Créer un événement',
                                                                                       options: FFButtonOptions(
                                                                                         height: 40.0,
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                               fontFamily: 'Poppins',
                                                                                               color: Colors.white,
                                                                                             ),
                                                                                         elevation: 3.0,
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Colors.transparent,
                                                                                           width: 1.0,
                                                                                         ),
                                                                                         borderRadius: BorderRadius.circular(15.0),
                                                                                       ),
                                                                                     ),
-                                                                                  ].addToStart(SizedBox(width: 15.0)),
+                                                                                  ].addToStart(const SizedBox(width: 15.0)),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -366,16 +347,16 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                 );
                                                                               }
                                                                               return ListView.separated(
-                                                                                padding: EdgeInsets.symmetric(vertical: 15.0),
+                                                                                padding: const EdgeInsets.symmetric(vertical: 15.0),
                                                                                 shrinkWrap: true,
                                                                                 scrollDirection: Axis.vertical,
                                                                                 itemCount: listEvents.length,
-                                                                                separatorBuilder: (_, __) => SizedBox(height: 15.0),
+                                                                                separatorBuilder: (_, __) => const SizedBox(height: 15.0),
                                                                                 itemBuilder: (context, listEventsIndex) {
                                                                                   final listEventsItem = listEvents[listEventsIndex];
-                                                                                  return StreamBuilder<List<ImagesRecord>>(
-                                                                                    stream: queryImagesRecord(
-                                                                                      parent: clipContainerEstablishmentsRecord.reference,
+                                                                                  return StreamBuilder<List<MediaRecord>>(
+                                                                                    stream: queryMediaRecord(
+                                                                                      parent: columnEventsRecord.reference,
                                                                                       singleRecord: true,
                                                                                     ),
                                                                                     builder: (context, snapshot) {
@@ -393,17 +374,17 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                           ),
                                                                                         );
                                                                                       }
-                                                                                      List<ImagesRecord> containerImagesRecordList = snapshot.data!;
-                                                                                      final containerImagesRecord = containerImagesRecordList.isNotEmpty ? containerImagesRecordList.first : null;
+                                                                                      List<MediaRecord> containerMediaRecordList = snapshot.data!;
+                                                                                      final containerMediaRecord = containerMediaRecordList.isNotEmpty ? containerMediaRecordList.first : null;
                                                                                       return Container(
-                                                                                        decoration: BoxDecoration(),
+                                                                                        decoration: const BoxDecoration(),
                                                                                         child: Container(
                                                                                           width: double.infinity,
-                                                                                          color: Color(0x00000000),
+                                                                                          color: const Color(0x00000000),
                                                                                           child: ExpandableNotifier(
                                                                                             child: ExpandablePanel(
                                                                                               header: Container(
-                                                                                                decoration: BoxDecoration(),
+                                                                                                decoration: const BoxDecoration(),
                                                                                                 child: Column(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   children: [
@@ -443,9 +424,9 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                   borderRadius: BorderRadius.circular(8.0),
                                                                                                                   child: Image.network(
                                                                                                                     valueOrDefault<String>(
-                                                                                                                      containerImagesRecord?.image1 != null && containerImagesRecord?.image1 != ''
+                                                                                                                      containerMediaRecord?.image != null && containerMediaRecord?.image != ''
                                                                                                                           ? valueOrDefault<String>(
-                                                                                                                              containerImagesRecord?.image1,
+                                                                                                                              containerMediaRecord?.image,
                                                                                                                               'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                                                             )
                                                                                                                           : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
@@ -491,11 +472,11 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                         ),
                                                                                                                         Container(
                                                                                                                           decoration: BoxDecoration(
-                                                                                                                            color: Color(0xFFFCDC0C),
+                                                                                                                            color: const Color(0xFFFCDC0C),
                                                                                                                             borderRadius: BorderRadius.circular(16.0),
                                                                                                                           ),
                                                                                                                           child: Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 5.0, 8.0, 5.0),
+                                                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(8.0, 5.0, 8.0, 5.0),
                                                                                                                             child: Row(
                                                                                                                               mainAxisSize: MainAxisSize.min,
                                                                                                                               children: [
@@ -503,16 +484,16 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                   'Promotion en cours',
                                                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                                                 ),
-                                                                                                                                FaIcon(
+                                                                                                                                const FaIcon(
                                                                                                                                   FontAwesomeIcons.percentage,
                                                                                                                                   color: Color(0xFF10212E),
                                                                                                                                   size: 20.0,
                                                                                                                                 ),
-                                                                                                                              ].divide(SizedBox(width: 10.0)),
+                                                                                                                              ].divide(const SizedBox(width: 10.0)),
                                                                                                                             ),
                                                                                                                           ),
                                                                                                                         ),
-                                                                                                                      ].divide(SizedBox(height: 4.0)),
+                                                                                                                      ].divide(const SizedBox(height: 4.0)),
                                                                                                                     ),
                                                                                                                   ),
                                                                                                                 ],
@@ -563,7 +544,8 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                   enableDrag: false,
                                                                                                                   context: context,
                                                                                                                   builder: (context) {
-                                                                                                                    return GestureDetector(
+                                                                                                                    return WebViewAware(
+                                                                                                                        child: GestureDetector(
                                                                                                                       onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                                       child: Padding(
                                                                                                                         padding: MediaQuery.viewInsetsOf(context),
@@ -571,12 +553,12 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                           eventRef: listEventsItem.reference,
                                                                                                                         ),
                                                                                                                       ),
-                                                                                                                    );
+                                                                                                                    ));
                                                                                                                   },
                                                                                                                 ).then((value) => safeSetState(() {}));
                                                                                                               },
                                                                                                             ),
-                                                                                                          ].divide(SizedBox(width: 15.0)).around(SizedBox(width: 15.0)),
+                                                                                                          ].divide(const SizedBox(width: 15.0)).around(const SizedBox(width: 15.0)),
                                                                                                         );
                                                                                                       },
                                                                                                     ),
@@ -585,17 +567,17 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                       thickness: 1.0,
                                                                                                       color: FlutterFlowTheme.of(context).lineColor,
                                                                                                     ),
-                                                                                                  ].divide(SizedBox(height: 10.0)),
+                                                                                                  ].divide(const SizedBox(height: 10.0)),
                                                                                                 ),
                                                                                               ),
                                                                                               collapsed: Container(
                                                                                                 height: 1.0,
-                                                                                                decoration: BoxDecoration(),
+                                                                                                decoration: const BoxDecoration(),
                                                                                               ),
                                                                                               expanded: Align(
-                                                                                                alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                                alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                                 child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                                                                                                  padding: const EdgeInsets.all(15.0),
                                                                                                   child: StreamBuilder<List<PromotionEventRecord>>(
                                                                                                     stream: queryPromotionEventRecord(
                                                                                                       parent: listEventsItem.reference,
@@ -641,7 +623,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                                             children: [
                                                                                                               Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 10.0),
+                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 10.0),
                                                                                                                 child: Row(
                                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -673,162 +655,161 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                       text: 'Créer une promotion',
                                                                                                                       options: FFButtonOptions(
                                                                                                                         height: 40.0,
-                                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                                                         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                               fontFamily: 'Poppins',
                                                                                                                               color: Colors.white,
                                                                                                                             ),
                                                                                                                         elevation: 3.0,
-                                                                                                                        borderSide: BorderSide(
+                                                                                                                        borderSide: const BorderSide(
                                                                                                                           color: Colors.transparent,
                                                                                                                           width: 1.0,
                                                                                                                         ),
                                                                                                                         borderRadius: BorderRadius.circular(8.0),
                                                                                                                       ),
                                                                                                                     ),
-                                                                                                                  ].divide(SizedBox(width: 20.0)).addToStart(SizedBox(width: 20.0)),
+                                                                                                                  ].divide(const SizedBox(width: 20.0)).addToStart(const SizedBox(width: 20.0)),
                                                                                                                 ),
                                                                                                               ),
-                                                                                                              if ((containerPromotionEventRecord != null) != null)
-                                                                                                                ListView(
-                                                                                                                  padding: EdgeInsets.symmetric(vertical: 10.0),
-                                                                                                                  shrinkWrap: true,
-                                                                                                                  scrollDirection: Axis.vertical,
-                                                                                                                  children: [
-                                                                                                                    Container(
-                                                                                                                      width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                                                      decoration: BoxDecoration(),
-                                                                                                                      child: Column(
-                                                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                                                        children: [
-                                                                                                                          Padding(
-                                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                                                                                                                            child: Row(
-                                                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                                                              children: [
-                                                                                                                                CircularPercentIndicator(
-                                                                                                                                  percent: valueOrDefault<double>(
-                                                                                                                                    containerPromotionEventRecord!.entranceValue > 0.1 ? containerPromotionEventRecord?.entranceValue : null,
-                                                                                                                                    0.0,
-                                                                                                                                  ),
-                                                                                                                                  radius: 45.0,
-                                                                                                                                  lineWidth: 12.0,
-                                                                                                                                  animation: true,
-                                                                                                                                  animateFromLastPercent: true,
-                                                                                                                                  progressColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                                  backgroundColor: FlutterFlowTheme.of(context).accent4,
-                                                                                                                                  center: Text(
-                                                                                                                                    '50%',
-                                                                                                                                    style: FlutterFlowTheme.of(context).headlineSmall,
-                                                                                                                                  ),
+                                                                                                              ListView(
+                                                                                                                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                                                                                                                shrinkWrap: true,
+                                                                                                                scrollDirection: Axis.vertical,
+                                                                                                                children: [
+                                                                                                                  Container(
+                                                                                                                    width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                                                    decoration: const BoxDecoration(),
+                                                                                                                    child: Column(
+                                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                                      children: [
+                                                                                                                        Padding(
+                                                                                                                          padding: const EdgeInsets.all(10.0),
+                                                                                                                          child: Row(
+                                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                                            children: [
+                                                                                                                              CircularPercentIndicator(
+                                                                                                                                percent: valueOrDefault<double>(
+                                                                                                                                  containerPromotionEventRecord!.entranceValue > 0.1 ? containerPromotionEventRecord.entranceValue : null,
+                                                                                                                                  0.0,
                                                                                                                                 ),
-                                                                                                                                Expanded(
-                                                                                                                                  child: Row(
-                                                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                                    children: [
-                                                                                                                                      Expanded(
-                                                                                                                                        child: Column(
-                                                                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                                          children: [
-                                                                                                                                            Row(
-                                                                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                                                                              children: [
-                                                                                                                                                Expanded(
-                                                                                                                                                  child: Text(
-                                                                                                                                                    valueOrDefault<String>(
-                                                                                                                                                      containerPromotionEventRecord?.title,
-                                                                                                                                                      'Aucune',
-                                                                                                                                                    ),
-                                                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                                          fontFamily: 'Poppins',
-                                                                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                                                                        ),
+                                                                                                                                radius: 45.0,
+                                                                                                                                lineWidth: 12.0,
+                                                                                                                                animation: true,
+                                                                                                                                animateFromLastPercent: true,
+                                                                                                                                progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                                                                center: Text(
+                                                                                                                                  '50%',
+                                                                                                                                  style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                ),
+                                                                                                                              ),
+                                                                                                                              Expanded(
+                                                                                                                                child: Row(
+                                                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                                  children: [
+                                                                                                                                    Expanded(
+                                                                                                                                      child: Column(
+                                                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                                        children: [
+                                                                                                                                          Row(
+                                                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                                                            children: [
+                                                                                                                                              Expanded(
+                                                                                                                                                child: Text(
+                                                                                                                                                  valueOrDefault<String>(
+                                                                                                                                                    containerPromotionEventRecord.title,
+                                                                                                                                                    'Aucune',
                                                                                                                                                   ),
+                                                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                      ),
                                                                                                                                                 ),
-                                                                                                                                              ],
-                                                                                                                                            ),
-                                                                                                                                            Text(
-                                                                                                                                              valueOrDefault<String>(
-                                                                                                                                                containerPromotionEventRecord?.subTitle,
-                                                                                                                                                'Aucune',
                                                                                                                                               ),
-                                                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                            ],
+                                                                                                                                          ),
+                                                                                                                                          Text(
+                                                                                                                                            valueOrDefault<String>(
+                                                                                                                                              containerPromotionEventRecord.subTitle,
+                                                                                                                                              'Aucune',
                                                                                                                                             ),
-                                                                                                                                            Text(
-                                                                                                                                              valueOrDefault<String>(
-                                                                                                                                                '${dateTimeFormat(
-                                                                                                                                                  'd/M/y',
-                                                                                                                                                  containerPromotionEventRecord?.startTrack,
-                                                                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                                                                )} - ${dateTimeFormat(
-                                                                                                                                                  'd/M/y',
-                                                                                                                                                  containerPromotionEventRecord?.endTrack,
-                                                                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                                                                )}',
-                                                                                                                                                'Il n\'y a pas !',
-                                                                                                                                              ),
-                                                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                          ),
+                                                                                                                                          Text(
+                                                                                                                                            valueOrDefault<String>(
+                                                                                                                                              '${dateTimeFormat(
+                                                                                                                                                'd/M/y',
+                                                                                                                                                containerPromotionEventRecord.startTrack,
+                                                                                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                                                                                              )} - ${dateTimeFormat(
+                                                                                                                                                'd/M/y',
+                                                                                                                                                containerPromotionEventRecord.endTrack,
+                                                                                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                                                                                              )}',
+                                                                                                                                              'Il n\'y a pas !',
                                                                                                                                             ),
-                                                                                                                                          ],
-                                                                                                                                        ),
+                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                          ),
+                                                                                                                                        ],
                                                                                                                                       ),
-                                                                                                                                    ].divide(SizedBox(width: 15.0)),
-                                                                                                                                  ),
+                                                                                                                                    ),
+                                                                                                                                  ].divide(const SizedBox(width: 15.0)),
                                                                                                                                 ),
-                                                                                                                                FlutterFlowIconButton(
-                                                                                                                                  borderColor: FlutterFlowTheme.of(context).primary,
-                                                                                                                                  borderRadius: 20.0,
-                                                                                                                                  borderWidth: 1.0,
-                                                                                                                                  buttonSize: 40.0,
-                                                                                                                                  icon: Icon(
-                                                                                                                                    Icons.mode_edit,
-                                                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                                                    size: 24.0,
-                                                                                                                                  ),
-                                                                                                                                  onPressed: () async {
-                                                                                                                                    logFirebaseEvent('MANAGER_DASHBOARD_mode_edit_ICN_ON_TAP');
-                                                                                                                                    logFirebaseEvent('IconButton_navigate_to');
+                                                                                                                              ),
+                                                                                                                              FlutterFlowIconButton(
+                                                                                                                                borderColor: FlutterFlowTheme.of(context).primary,
+                                                                                                                                borderRadius: 20.0,
+                                                                                                                                borderWidth: 1.0,
+                                                                                                                                buttonSize: 40.0,
+                                                                                                                                icon: Icon(
+                                                                                                                                  Icons.mode_edit,
+                                                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                                                  size: 24.0,
+                                                                                                                                ),
+                                                                                                                                onPressed: () async {
+                                                                                                                                  logFirebaseEvent('MANAGER_DASHBOARD_mode_edit_ICN_ON_TAP');
+                                                                                                                                  logFirebaseEvent('IconButton_navigate_to');
 
-                                                                                                                                    context.pushNamed(
-                                                                                                                                      'UpdateEventStep3',
-                                                                                                                                      queryParameters: {
-                                                                                                                                        'eventstDetails': serializeParam(
-                                                                                                                                          listEventsItem.reference,
-                                                                                                                                          ParamType.DocumentReference,
-                                                                                                                                        ),
-                                                                                                                                      }.withoutNulls,
-                                                                                                                                    );
-                                                                                                                                  },
+                                                                                                                                  context.pushNamed(
+                                                                                                                                    'UpdateEventStep3',
+                                                                                                                                    queryParameters: {
+                                                                                                                                      'eventstDetails': serializeParam(
+                                                                                                                                        listEventsItem.reference,
+                                                                                                                                        ParamType.DocumentReference,
+                                                                                                                                      ),
+                                                                                                                                    }.withoutNulls,
+                                                                                                                                  );
+                                                                                                                                },
+                                                                                                                              ),
+                                                                                                                              FlutterFlowIconButton(
+                                                                                                                                borderColor: Colors.transparent,
+                                                                                                                                borderRadius: 20.0,
+                                                                                                                                borderWidth: 1.0,
+                                                                                                                                buttonSize: 40.0,
+                                                                                                                                fillColor: FlutterFlowTheme.of(context).alternate,
+                                                                                                                                icon: Icon(
+                                                                                                                                  Icons.delete,
+                                                                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                                                  size: 20.0,
                                                                                                                                 ),
-                                                                                                                                FlutterFlowIconButton(
-                                                                                                                                  borderColor: Colors.transparent,
-                                                                                                                                  borderRadius: 20.0,
-                                                                                                                                  borderWidth: 1.0,
-                                                                                                                                  buttonSize: 40.0,
-                                                                                                                                  fillColor: FlutterFlowTheme.of(context).alternate,
-                                                                                                                                  icon: Icon(
-                                                                                                                                    Icons.delete,
-                                                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                                                    size: 20.0,
-                                                                                                                                  ),
-                                                                                                                                  onPressed: () async {
-                                                                                                                                    logFirebaseEvent('MANAGER_DASHBOARD_PAGE_delete_ICN_ON_TAP');
-                                                                                                                                    logFirebaseEvent('IconButton_backend_call');
-                                                                                                                                    await containerPromotionEventRecord!.reference.delete();
-                                                                                                                                  },
-                                                                                                                                ),
-                                                                                                                              ].divide(SizedBox(width: 15.0)).around(SizedBox(width: 15.0)),
-                                                                                                                            ),
+                                                                                                                                onPressed: () async {
+                                                                                                                                  logFirebaseEvent('MANAGER_DASHBOARD_PAGE_delete_ICN_ON_TAP');
+                                                                                                                                  logFirebaseEvent('IconButton_backend_call');
+                                                                                                                                  await containerPromotionEventRecord.reference.delete();
+                                                                                                                                },
+                                                                                                                              ),
+                                                                                                                            ].divide(const SizedBox(width: 15.0)).around(const SizedBox(width: 15.0)),
                                                                                                                           ),
-                                                                                                                        ].divide(SizedBox(height: 5.0)),
-                                                                                                                      ),
+                                                                                                                        ),
+                                                                                                                      ].divide(const SizedBox(height: 5.0)),
                                                                                                                     ),
-                                                                                                                  ].divide(SizedBox(height: 10.0)),
-                                                                                                                ),
+                                                                                                                  ),
+                                                                                                                ].divide(const SizedBox(height: 10.0)),
+                                                                                                              ),
                                                                                                             ],
                                                                                                           ),
                                                                                                         ),
@@ -837,7 +818,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                   ),
                                                                                                 ),
                                                                                               ),
-                                                                                              theme: ExpandableThemeData(
+                                                                                              theme: const ExpandableThemeData(
                                                                                                 tapHeaderToExpand: true,
                                                                                                 tapBodyToExpand: true,
                                                                                                 tapBodyToCollapse: true,
@@ -854,7 +835,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                               );
                                                                             },
                                                                           ),
-                                                                        ].addToStart(SizedBox(height: 5.0)),
+                                                                        ].addToStart(const SizedBox(height: 5.0)),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -919,12 +900,12 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                           children:
                                                                               [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
                                                                               child: Container(
                                                                                 width: double.infinity,
                                                                                 decoration: BoxDecoration(
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                  borderRadius: BorderRadius.only(
+                                                                                  borderRadius: const BorderRadius.only(
                                                                                     bottomLeft: Radius.circular(0.0),
                                                                                     bottomRight: Radius.circular(0.0),
                                                                                     topLeft: Radius.circular(16.0),
@@ -932,7 +913,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                   ),
                                                                                 ),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                   child: Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -961,29 +942,29 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                         text: 'Modifier',
                                                                                         options: FFButtonOptions(
                                                                                           height: 40.0,
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                 fontFamily: 'Poppins',
                                                                                                 color: Colors.white,
                                                                                               ),
                                                                                           elevation: 3.0,
-                                                                                          borderSide: BorderSide(
+                                                                                          borderSide: const BorderSide(
                                                                                             color: Colors.transparent,
                                                                                             width: 1.0,
                                                                                           ),
                                                                                           borderRadius: BorderRadius.circular(15.0),
                                                                                         ),
                                                                                       ),
-                                                                                    ].addToStart(SizedBox(width: 15.0)),
+                                                                                    ].addToStart(const SizedBox(width: 15.0)),
                                                                                   ),
                                                                                 ),
                                                                               ),
                                                                             ),
                                                                             Expanded(
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                padding: const EdgeInsets.all(10.0),
                                                                                 child: Material(
                                                                                   color: Colors.transparent,
                                                                                   elevation: 1.0,
@@ -1001,7 +982,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                       ),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                      padding: const EdgeInsets.all(8.0),
                                                                                       child: SingleChildScrollView(
                                                                                         child: Column(
                                                                                           mainAxisSize: MainAxisSize.max,
@@ -1046,7 +1027,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                         Builder(
                                                                                                           builder: (context) {
                                                                                                             if ((stackImagesRecord?.image1 != null && stackImagesRecord?.image1 != '') && (stackImagesRecord?.video != null && stackImagesRecord?.video != '')) {
-                                                                                                              return Container(
+                                                                                                              return SizedBox(
                                                                                                                 width: double.infinity,
                                                                                                                 height: 300.0,
                                                                                                                 child: Stack(
@@ -1096,9 +1077,9 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                       ],
                                                                                                                     ),
                                                                                                                     Align(
-                                                                                                                      alignment: AlignmentDirectional(-1.00, 1.00),
+                                                                                                                      alignment: const AlignmentDirectional(-1.0, 1.0),
                                                                                                                       child: Padding(
-                                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
+                                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
                                                                                                                         child: smooth_page_indicator.SmoothPageIndicator(
                                                                                                                           controller: _model.pageViewController ??= PageController(initialPage: 0),
                                                                                                                           count: 2,
@@ -1106,7 +1087,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                           onDotClicked: (i) async {
                                                                                                                             await _model.pageViewController!.animateToPage(
                                                                                                                               i,
-                                                                                                                              duration: Duration(milliseconds: 500),
+                                                                                                                              duration: const Duration(milliseconds: 500),
                                                                                                                               curve: Curves.ease,
                                                                                                                             );
                                                                                                                           },
@@ -1167,33 +1148,90 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             }
                                                                                                           },
                                                                                                         ),
-                                                                                                        Align(
-                                                                                                          alignment: AlignmentDirectional(0.00, 1.00),
-                                                                                                          child: Container(
-                                                                                                            width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                                            height: MediaQuery.sizeOf(context).height * 0.05,
-                                                                                                            decoration: BoxDecoration(
-                                                                                                              gradient: LinearGradient(
-                                                                                                                colors: [
-                                                                                                                  Color(0x0010212E),
-                                                                                                                  Color(0x3E10212E)
-                                                                                                                ],
-                                                                                                                stops: [0.0, 1.0],
-                                                                                                                begin: AlignmentDirectional(0.0, -1.0),
-                                                                                                                end: AlignmentDirectional(0, 1.0),
+                                                                                                      ],
+                                                                                                    );
+                                                                                                  },
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                            Align(
+                                                                                              alignment: const AlignmentDirectional(0.0, 1.0),
+                                                                                              child: Container(
+                                                                                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                                decoration: BoxDecoration(
+                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                  borderRadius: BorderRadius.circular(8.0),
+                                                                                                  border: Border.all(
+                                                                                                    color: FlutterFlowTheme.of(context).accent3,
+                                                                                                  ),
+                                                                                                ),
+                                                                                                child: Padding(
+                                                                                                  padding: const EdgeInsets.all(8.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    children: [
+                                                                                                      Padding(
+                                                                                                        padding: const EdgeInsets.all(8.0),
+                                                                                                        child: Container(
+                                                                                                          width: double.infinity,
+                                                                                                          color: Colors.white,
+                                                                                                          child: ExpandableNotifier(
+                                                                                                            controller: _model.expandableController2,
+                                                                                                            child: ExpandablePanel(
+                                                                                                              header: Text(
+                                                                                                                establishmenDetailsEstablishmentsRecord.name,
+                                                                                                                style: FlutterFlowTheme.of(context).titleLarge,
                                                                                                               ),
-                                                                                                              borderRadius: BorderRadius.only(
-                                                                                                                bottomLeft: Radius.circular(8.0),
-                                                                                                                bottomRight: Radius.circular(8.0),
-                                                                                                                topLeft: Radius.circular(0.0),
-                                                                                                                topRight: Radius.circular(0.0),
+                                                                                                              collapsed: Container(
+                                                                                                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                                                decoration: const BoxDecoration(),
+                                                                                                                child: Padding(
+                                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 8.0),
+                                                                                                                  child: Text(
+                                                                                                                    establishmenDetailsEstablishmentsRecord.description.maybeHandleOverflow(
+                                                                                                                      maxChars: 40,
+                                                                                                                      replacement: '…',
+                                                                                                                    ),
+                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                          fontFamily: 'Poppins',
+                                                                                                                          color: FlutterFlowTheme.of(context).accent2,
+                                                                                                                          fontWeight: FontWeight.w300,
+                                                                                                                        ),
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              expanded: Container(
+                                                                                                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                                                decoration: const BoxDecoration(),
+                                                                                                                child: Row(
+                                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                                  children: [
+                                                                                                                    Expanded(
+                                                                                                                      child: Text(
+                                                                                                                        establishmenDetailsEstablishmentsRecord.description,
+                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                              fontFamily: 'Poppins',
+                                                                                                                              color: const Color(0x8A000000),
+                                                                                                                              fontWeight: FontWeight.w300,
+                                                                                                                            ),
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              theme: const ExpandableThemeData(
+                                                                                                                tapHeaderToExpand: true,
+                                                                                                                tapBodyToExpand: false,
+                                                                                                                tapBodyToCollapse: false,
+                                                                                                                headerAlignment: ExpandablePanelHeaderAlignment.center,
+                                                                                                                hasIcon: true,
                                                                                                               ),
                                                                                                             ),
                                                                                                           ),
                                                                                                         ),
-                                                                                                      ],
-                                                                                                    );
-                                                                                                  },
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
                                                                                                 ),
                                                                                               ),
                                                                                             ),
@@ -1211,87 +1249,19 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                                                                 children: [
                                                                                                   Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                                                                                    child: Column(
-                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                      children: [
-                                                                                                        Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                                                                                          child: Container(
-                                                                                                            width: double.infinity,
-                                                                                                            color: Colors.white,
-                                                                                                            child: ExpandableNotifier(
-                                                                                                              controller: _model.expandableController2,
-                                                                                                              child: ExpandablePanel(
-                                                                                                                header: Text(
-                                                                                                                  establishmenDetailsEstablishmentsRecord.name,
-                                                                                                                  style: FlutterFlowTheme.of(context).titleLarge,
-                                                                                                                ),
-                                                                                                                collapsed: Container(
-                                                                                                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                                                  decoration: BoxDecoration(),
-                                                                                                                  child: Padding(
-                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 8.0),
-                                                                                                                    child: Text(
-                                                                                                                      establishmenDetailsEstablishmentsRecord.description.maybeHandleOverflow(
-                                                                                                                        maxChars: 40,
-                                                                                                                        replacement: '…',
-                                                                                                                      ),
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                            fontFamily: 'Poppins',
-                                                                                                                            color: FlutterFlowTheme.of(context).accent2,
-                                                                                                                            fontWeight: FontWeight.w300,
-                                                                                                                          ),
-                                                                                                                    ),
-                                                                                                                  ),
-                                                                                                                ),
-                                                                                                                expanded: Container(
-                                                                                                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                                                  decoration: BoxDecoration(),
-                                                                                                                  child: Row(
-                                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                                    children: [
-                                                                                                                      Expanded(
-                                                                                                                        child: Text(
-                                                                                                                          establishmenDetailsEstablishmentsRecord.description,
-                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                fontFamily: 'Poppins',
-                                                                                                                                color: Color(0x8A000000),
-                                                                                                                                fontWeight: FontWeight.w300,
-                                                                                                                              ),
-                                                                                                                        ),
-                                                                                                                      ),
-                                                                                                                    ],
-                                                                                                                  ),
-                                                                                                                ),
-                                                                                                                theme: ExpandableThemeData(
-                                                                                                                  tapHeaderToExpand: true,
-                                                                                                                  tapBodyToExpand: false,
-                                                                                                                  tapBodyToCollapse: false,
-                                                                                                                  headerAlignment: ExpandablePanelHeaderAlignment.center,
-                                                                                                                  hasIcon: true,
-                                                                                                                ),
-                                                                                                              ),
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ],
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                  Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                                    padding: const EdgeInsets.all(8.0),
                                                                                                     child: Container(
                                                                                                       width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                                      decoration: BoxDecoration(),
+                                                                                                      decoration: const BoxDecoration(),
                                                                                                       child: Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                                         child: Row(
                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                           children: [
                                                                                                             Expanded(
                                                                                                               child: Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                                                                                                                 child: Container(
                                                                                                                   width: double.infinity,
                                                                                                                   height: 120.0,
@@ -1305,14 +1275,14 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                     ),
                                                                                                                   ),
                                                                                                                   child: Padding(
-                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                                                                                                                    padding: const EdgeInsets.all(4.0),
                                                                                                                     child: Column(
                                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                                       children: [
                                                                                                                         Padding(
-                                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                                                           child: Text(
                                                                                                                             'Style établissement',
                                                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1328,7 +1298,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                           scrollDirection: Axis.vertical,
                                                                                                                           children: [
                                                                                                                             Padding(
-                                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                                                               child: Text(
                                                                                                                                 establishmenDetailsEstablishmentsRecord.type.first,
                                                                                                                                 style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -1347,7 +1317,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             ),
                                                                                                             Expanded(
                                                                                                               child: Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                                                 child: Container(
                                                                                                                   width: double.infinity,
                                                                                                                   height: 120.0,
@@ -1361,14 +1331,14 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                     ),
                                                                                                                   ),
                                                                                                                   child: Padding(
-                                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                                                                                                                    padding: const EdgeInsets.all(4.0),
                                                                                                                     child: Column(
                                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                                       children: [
                                                                                                                         Padding(
-                                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                                                                                                                           child: Text(
                                                                                                                             'Style musical',
                                                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1384,7 +1354,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                           scrollDirection: Axis.vertical,
                                                                                                                           children: [
                                                                                                                             Padding(
-                                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                                                               child: Text(
                                                                                                                                 establishmenDetailsEstablishmentsRecord.musicStyle.first,
                                                                                                                                 style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -1420,13 +1390,13 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                 ),
                                                                                               ),
                                                                                               child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                                padding: const EdgeInsets.all(8.0),
                                                                                                 child: Column(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                                   children: [
                                                                                                     Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                                       child: Row(
                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                         children: [
@@ -1450,7 +1420,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           children: [
                                                                                                             if (establishmenDetailsEstablishmentsRecord.reservation == false)
                                                                                                               Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 2.0, 0.0),
+                                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 2.0, 0.0),
                                                                                                                 child: Icon(
                                                                                                                   Icons.close,
                                                                                                                   color: FlutterFlowTheme.of(context).alternate,
@@ -1559,7 +1529,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                               children: [
                                                                                                                 Expanded(
                                                                                                                   child: Align(
-                                                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                                                     child: Builder(
                                                                                                                       builder: (context) {
                                                                                                                         final foodList = establishmenDetailsEstablishmentsRecord.food.toList().take(2).toList();
@@ -1571,7 +1541,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                             children: List.generate(foodList.length, (foodListIndex) {
                                                                                                                               final foodListItem = foodList[foodListIndex];
                                                                                                                               return Align(
-                                                                                                                                alignment: AlignmentDirectional(1.00, 0.00),
+                                                                                                                                alignment: const AlignmentDirectional(1.0, 0.0),
                                                                                                                                 child: Text(
                                                                                                                                   foodListItem,
                                                                                                                                   textAlign: TextAlign.end,
@@ -1582,7 +1552,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                       ),
                                                                                                                                 ),
                                                                                                                               );
-                                                                                                                            }).divide(SizedBox(width: 5.0)),
+                                                                                                                            }).divide(const SizedBox(width: 5.0)),
                                                                                                                           ),
                                                                                                                         );
                                                                                                                       },
@@ -1593,13 +1563,13 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                                   mainAxisAlignment: MainAxisAlignment.end,
                                                                                                                   children: [
-                                                                                                                    if (establishmenDetailsEstablishmentsRecord.food.length == 0)
+                                                                                                                    if (establishmenDetailsEstablishmentsRecord.food.isEmpty)
                                                                                                                       Icon(
                                                                                                                         Icons.close,
                                                                                                                         color: FlutterFlowTheme.of(context).alternate,
                                                                                                                         size: 27.0,
                                                                                                                       ),
-                                                                                                                    if (establishmenDetailsEstablishmentsRecord.food.length > 0)
+                                                                                                                    if (establishmenDetailsEstablishmentsRecord.food.isNotEmpty)
                                                                                                                       Icon(
                                                                                                                         Icons.done_rounded,
                                                                                                                         color: FlutterFlowTheme.of(context).primary,
@@ -1607,7 +1577,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                       ),
                                                                                                                   ],
                                                                                                                 ),
-                                                                                                              ].divide(SizedBox(width: 15.0)),
+                                                                                                              ].divide(const SizedBox(width: 15.0)),
                                                                                                             ),
                                                                                                           ),
                                                                                                         ],
@@ -1640,7 +1610,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                 children: [
                                                                                                                   Expanded(
                                                                                                                     child: Align(
-                                                                                                                      alignment: AlignmentDirectional(1.00, 0.00),
+                                                                                                                      alignment: const AlignmentDirectional(1.0, 0.0),
                                                                                                                       child: Text(
                                                                                                                         establishmenDetailsEstablishmentsRecord.speciality,
                                                                                                                         textAlign: TextAlign.end,
@@ -1658,13 +1628,13 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             Row(
                                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                                               children: [
-                                                                                                                if (establishmenDetailsEstablishmentsRecord.speciality == null || establishmenDetailsEstablishmentsRecord.speciality == '')
+                                                                                                                if (establishmenDetailsEstablishmentsRecord.speciality == '')
                                                                                                                   Icon(
                                                                                                                     Icons.close,
                                                                                                                     color: FlutterFlowTheme.of(context).alternate,
                                                                                                                     size: 27.0,
                                                                                                                   ),
-                                                                                                                if (establishmenDetailsEstablishmentsRecord.speciality != null && establishmenDetailsEstablishmentsRecord.speciality != '')
+                                                                                                                if (establishmenDetailsEstablishmentsRecord.speciality != '')
                                                                                                                   Icon(
                                                                                                                     Icons.done_rounded,
                                                                                                                     color: FlutterFlowTheme.of(context).primary,
@@ -1672,7 +1642,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                   ),
                                                                                                               ],
                                                                                                             ),
-                                                                                                          ].divide(SizedBox(width: 15.0)),
+                                                                                                          ].divide(const SizedBox(width: 15.0)),
                                                                                                         ),
                                                                                                       ],
                                                                                                     ),
@@ -1706,7 +1676,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                               children: [
                                                                                                                 Expanded(
                                                                                                                   child: Align(
-                                                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                                                     child: Builder(
                                                                                                                       builder: (context) {
                                                                                                                         final gamesList = establishmenDetailsEstablishmentsRecord.game.toList().take(2).toList();
@@ -1718,7 +1688,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                             children: List.generate(gamesList.length, (gamesListIndex) {
                                                                                                                               final gamesListItem = gamesList[gamesListIndex];
                                                                                                                               return Align(
-                                                                                                                                alignment: AlignmentDirectional(1.00, 0.00),
+                                                                                                                                alignment: const AlignmentDirectional(1.0, 0.0),
                                                                                                                                 child: Text(
                                                                                                                                   gamesListItem,
                                                                                                                                   textAlign: TextAlign.end,
@@ -1729,7 +1699,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                       ),
                                                                                                                                 ),
                                                                                                                               );
-                                                                                                                            }).divide(SizedBox(width: 5.0)),
+                                                                                                                            }).divide(const SizedBox(width: 5.0)),
                                                                                                                           ),
                                                                                                                         );
                                                                                                                       },
@@ -1739,13 +1709,13 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                 Row(
                                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                                   children: [
-                                                                                                                    if (establishmenDetailsEstablishmentsRecord.game.length == 0)
+                                                                                                                    if (establishmenDetailsEstablishmentsRecord.game.isEmpty)
                                                                                                                       Icon(
                                                                                                                         Icons.close,
                                                                                                                         color: FlutterFlowTheme.of(context).alternate,
                                                                                                                         size: 27.0,
                                                                                                                       ),
-                                                                                                                    if (establishmenDetailsEstablishmentsRecord.game.length > 0)
+                                                                                                                    if (establishmenDetailsEstablishmentsRecord.game.isNotEmpty)
                                                                                                                       Icon(
                                                                                                                         Icons.done_rounded,
                                                                                                                         color: FlutterFlowTheme.of(context).primary,
@@ -1753,7 +1723,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                       ),
                                                                                                                   ],
                                                                                                                 ),
-                                                                                                              ].divide(SizedBox(width: 15.0)),
+                                                                                                              ].divide(const SizedBox(width: 15.0)),
                                                                                                             ),
                                                                                                           ),
                                                                                                         ],
@@ -1799,14 +1769,14 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                     ),
                                                                                                   ),
                                                                                                   child: Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                                    padding: const EdgeInsets.all(8.0),
                                                                                                     child: Column(
                                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                       children: [
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                                                           child: Row(
                                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                                             children: [
@@ -1976,7 +1946,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                 ),
                                                                                               ),
                                                                                               child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                                padding: const EdgeInsets.all(8.0),
                                                                                                 child: Column(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -1993,7 +1963,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                         ),
                                                                                                       ],
                                                                                                     ),
-                                                                                                    if (establishmenDetailsEstablishmentsRecord.email != null && establishmenDetailsEstablishmentsRecord.email != '')
+                                                                                                    if (establishmenDetailsEstablishmentsRecord.email != '')
                                                                                                       Row(
                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -2016,7 +1986,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           ),
                                                                                                         ],
                                                                                                       ),
-                                                                                                    if (establishmenDetailsEstablishmentsRecord.phoneNumber != null && establishmenDetailsEstablishmentsRecord.phoneNumber != '')
+                                                                                                    if (establishmenDetailsEstablishmentsRecord.phoneNumber != '')
                                                                                                       Row(
                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -2039,7 +2009,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           ),
                                                                                                         ],
                                                                                                       ),
-                                                                                                    if (establishmenDetailsEstablishmentsRecord.webSite != null && establishmenDetailsEstablishmentsRecord.webSite != '')
+                                                                                                    if (establishmenDetailsEstablishmentsRecord.webSite != '')
                                                                                                       Row(
                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -2062,120 +2032,71 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                               ],
                                                                                                             ),
                                                                                                           ),
-                                                                                                        ].divide(SizedBox(width: 10.0)),
+                                                                                                        ].divide(const SizedBox(width: 10.0)),
                                                                                                       ),
-                                                                                                  ].divide(SizedBox(height: 16.0)),
+                                                                                                  ].divide(const SizedBox(height: 16.0)),
                                                                                                 ),
                                                                                               ),
                                                                                             ),
-                                                                                            if (establishmenDetailsEstablishmentsRecord.adresse.hasLatiLong() != null)
-                                                                                              Container(
-                                                                                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                                decoration: BoxDecoration(
-                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                  borderRadius: BorderRadius.circular(8.0),
-                                                                                                  border: Border.all(
-                                                                                                    color: FlutterFlowTheme.of(context).accent3,
-                                                                                                  ),
-                                                                                                ),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                                                                                  child: Column(
-                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                    children: [
-                                                                                                      Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                                                                                                        child: Row(
-                                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                                          children: [
-                                                                                                            Text(
-                                                                                                              'Adresse',
-                                                                                                              style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                                    fontFamily: 'Poppins',
-                                                                                                                    fontWeight: FontWeight.w600,
-                                                                                                                  ),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                                        child: Row(
-                                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                          children: [
-                                                                                                            Expanded(
-                                                                                                              child: Align(
-                                                                                                                alignment: AlignmentDirectional(-1.00, 0.00),
-                                                                                                                child: SelectionArea(
-                                                                                                                    child: Text(
-                                                                                                                  valueOrDefault<String>(
-                                                                                                                    '${establishmenDetailsEstablishmentsRecord.adresse.street}, ${establishmenDetailsEstablishmentsRecord.adresse.zipCode}, ${establishmenDetailsEstablishmentsRecord.adresse.city}',
-                                                                                                                    'Aucune adresse ',
-                                                                                                                  ),
-                                                                                                                  textAlign: TextAlign.start,
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                                                )),
-                                                                                                              ),
-                                                                                                            ),
-                                                                                                          ].divide(SizedBox(width: 15.0)),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      if (establishmenDetailsEstablishmentsRecord.location != null)
-                                                                                                        Material(
-                                                                                                          color: Colors.transparent,
-                                                                                                          elevation: 1.0,
-                                                                                                          shape: RoundedRectangleBorder(
-                                                                                                            borderRadius: BorderRadius.circular(8.0),
-                                                                                                          ),
-                                                                                                          child: Container(
-                                                                                                            height: 150.0,
-                                                                                                            decoration: BoxDecoration(
-                                                                                                              borderRadius: BorderRadius.circular(8.0),
-                                                                                                            ),
-                                                                                                            child: Builder(builder: (context) {
-                                                                                                              final _googleMapMarker = establishmenDetailsEstablishmentsRecord;
-                                                                                                              return FlutterFlowGoogleMap(
-                                                                                                                controller: _model.googleMapsController,
-                                                                                                                onCameraIdle: (latLng) => _model.googleMapsCenter = latLng,
-                                                                                                                initialLocation: _model.googleMapsCenter ??= establishmenDetailsEstablishmentsRecord.location!,
-                                                                                                                markers: [
-                                                                                                                  FlutterFlowMarker(
-                                                                                                                    _googleMapMarker.reference.path,
-                                                                                                                    _googleMapMarker.location!,
-                                                                                                                    () async {
-                                                                                                                      logFirebaseEvent('MANAGER_DASHBOARD_GoogleMap_k9qkfl4z_ON_');
-                                                                                                                      logFirebaseEvent('GoogleMap_launch_map');
-                                                                                                                      await launchMap(
-                                                                                                                        location: establishmenDetailsEstablishmentsRecord.adresse.latiLong,
-                                                                                                                        title: establishmenDetailsEstablishmentsRecord.name,
-                                                                                                                      );
-                                                                                                                    },
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                                markerColor: GoogleMarkerColor.yellow,
-                                                                                                                mapType: MapType.normal,
-                                                                                                                style: GoogleMapStyle.standard,
-                                                                                                                initialZoom: 14.0,
-                                                                                                                allowInteraction: true,
-                                                                                                                allowZoom: true,
-                                                                                                                showZoomControls: true,
-                                                                                                                showLocation: true,
-                                                                                                                showCompass: false,
-                                                                                                                showMapToolbar: false,
-                                                                                                                showTraffic: false,
-                                                                                                                centerMapOnMarkerTap: true,
-                                                                                                              );
-                                                                                                            }),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                    ],
-                                                                                                  ),
+                                                                                            Container(
+                                                                                              width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                              decoration: BoxDecoration(
+                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                borderRadius: BorderRadius.circular(8.0),
+                                                                                                border: Border.all(
+                                                                                                  color: FlutterFlowTheme.of(context).accent3,
                                                                                                 ),
                                                                                               ),
-                                                                                          ].divide(SizedBox(height: 15.0)).addToEnd(SizedBox(height: 35.0)),
+                                                                                              child: Padding(
+                                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                                child: Column(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                  children: [
+                                                                                                    Padding(
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                                                                                      child: Row(
+                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                        children: [
+                                                                                                          Text(
+                                                                                                            'Adresse',
+                                                                                                            style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                                  fontFamily: 'Poppins',
+                                                                                                                  fontWeight: FontWeight.w600,
+                                                                                                                ),
+                                                                                                          ),
+                                                                                                        ],
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    Padding(
+                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                                      child: Row(
+                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                        children: [
+                                                                                                          Expanded(
+                                                                                                            child: Align(
+                                                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                                              child: SelectionArea(
+                                                                                                                  child: Text(
+                                                                                                                valueOrDefault<String>(
+                                                                                                                  '${establishmenDetailsEstablishmentsRecord.adresse.street}, ${establishmenDetailsEstablishmentsRecord.adresse.zipCode}, ${establishmenDetailsEstablishmentsRecord.adresse.city}',
+                                                                                                                  'Aucune adresse ',
+                                                                                                                ),
+                                                                                                                textAlign: TextAlign.start,
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              )),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ].divide(const SizedBox(width: 15.0)),
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ].divide(const SizedBox(height: 15.0)).addToEnd(const SizedBox(height: 35.0)),
                                                                                         ),
                                                                                       ),
                                                                                     ),
@@ -2183,7 +2104,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          ].addToStart(SizedBox(height: 5.0)),
+                                                                          ].addToStart(const SizedBox(height: 5.0)),
                                                                         ),
                                                                       );
                                                                     },
@@ -2209,6 +2130,34 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                             ),
                           ),
                         );
+                      } else if (valueOrDefault<bool>(
+                              currentUserDocument?.managerRole, false) ==
+                          false) {
+                        return Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.card_membership_sharp,
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 50.0,
+                              ),
+                              Text(
+                                'Vous n\'etes pas un manager !',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
+                                    ),
+                              ),
+                            ].divide(const SizedBox(height: 30.0)),
+                          ),
+                        );
                       } else {
                         return Visibility(
                           visible: responsiveVisibility(
@@ -2217,7 +2166,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                             desktop: false,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -2238,7 +2187,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                             .accent1,
                                       ),
                                 ),
-                              ].divide(SizedBox(height: 30.0)),
+                              ].divide(const SizedBox(height: 30.0)),
                             ),
                           ),
                         );

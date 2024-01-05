@@ -3,16 +3,14 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class ManagerRecord extends FirestoreRecord {
   ManagerRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -30,11 +28,6 @@ class ManagerRecord extends FirestoreRecord {
   DateTime? _createdTime;
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
-
-  // "eventsRef" field.
-  DocumentReference? _eventsRef;
-  DocumentReference? get eventsRef => _eventsRef;
-  bool hasEventsRef() => _eventsRef != null;
 
   // "FirstName" field.
   String? _firstName;
@@ -61,16 +54,21 @@ class ManagerRecord extends FirestoreRecord {
   bool get isConfirmed => _isConfirmed ?? false;
   bool hasIsConfirmed() => _isConfirmed != null;
 
+  // "eventsRefs" field.
+  List<DocumentReference>? _eventsRefs;
+  List<DocumentReference> get eventsRefs => _eventsRefs ?? const [];
+  bool hasEventsRefs() => _eventsRefs != null;
+
   void _initializeFields() {
     _userRef = snapshotData['userRef'] as DocumentReference?;
     _establishmentRef = snapshotData['establishmentRef'] as DocumentReference?;
     _createdTime = snapshotData['createdTime'] as DateTime?;
-    _eventsRef = snapshotData['eventsRef'] as DocumentReference?;
     _firstName = snapshotData['FirstName'] as String?;
     _lastName = snapshotData['LastName'] as String?;
     _phone = snapshotData['Phone'] as String?;
     _estName = snapshotData['EstName'] as String?;
     _isConfirmed = snapshotData['isConfirmed'] as bool?;
+    _eventsRefs = getDataList(snapshotData['eventsRefs']);
   }
 
   static CollectionReference get collection =>
@@ -111,7 +109,6 @@ Map<String, dynamic> createManagerRecordData({
   DocumentReference? userRef,
   DocumentReference? establishmentRef,
   DateTime? createdTime,
-  DocumentReference? eventsRef,
   String? firstName,
   String? lastName,
   String? phone,
@@ -123,7 +120,6 @@ Map<String, dynamic> createManagerRecordData({
       'userRef': userRef,
       'establishmentRef': establishmentRef,
       'createdTime': createdTime,
-      'eventsRef': eventsRef,
       'FirstName': firstName,
       'LastName': lastName,
       'Phone': phone,
@@ -140,15 +136,16 @@ class ManagerRecordDocumentEquality implements Equality<ManagerRecord> {
 
   @override
   bool equals(ManagerRecord? e1, ManagerRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.userRef == e2?.userRef &&
         e1?.establishmentRef == e2?.establishmentRef &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.eventsRef == e2?.eventsRef &&
         e1?.firstName == e2?.firstName &&
         e1?.lastName == e2?.lastName &&
         e1?.phone == e2?.phone &&
         e1?.estName == e2?.estName &&
-        e1?.isConfirmed == e2?.isConfirmed;
+        e1?.isConfirmed == e2?.isConfirmed &&
+        listEquality.equals(e1?.eventsRefs, e2?.eventsRefs);
   }
 
   @override
@@ -156,12 +153,12 @@ class ManagerRecordDocumentEquality implements Equality<ManagerRecord> {
         e?.userRef,
         e?.establishmentRef,
         e?.createdTime,
-        e?.eventsRef,
         e?.firstName,
         e?.lastName,
         e?.phone,
         e?.estName,
-        e?.isConfirmed
+        e?.isConfirmed,
+        e?.eventsRefs
       ]);
 
   @override

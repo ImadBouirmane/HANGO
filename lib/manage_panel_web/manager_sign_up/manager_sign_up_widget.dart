@@ -1,20 +1,17 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'manager_sign_up_model.dart';
 export 'manager_sign_up_model.dart';
 
 class ManagerSignUpWidget extends StatefulWidget {
-  const ManagerSignUpWidget({Key? key}) : super(key: key);
+  const ManagerSignUpWidget({super.key});
 
   @override
   _ManagerSignUpWidgetState createState() => _ManagerSignUpWidgetState();
@@ -34,14 +31,19 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
         parameters: {'screen_name': 'managerSignUp'});
     _model.firstNameController ??= TextEditingController();
     _model.firstNameFocusNode ??= FocusNode();
+
     _model.lastNameController ??= TextEditingController();
     _model.lastNameFocusNode ??= FocusNode();
+
     _model.emailController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
+
     _model.phoneController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
+
     _model.estNameController ??= TextEditingController();
     _model.estNameFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -91,8 +93,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                         FlutterFlowTheme.of(context).primaryBtnText,
                     automaticallyImplyLeading: false,
                     leading: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: FlutterFlowIconButton(
                         borderRadius: 20.0,
                         borderWidth: 1.0,
@@ -108,7 +109,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                         },
                       ),
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: false,
                     elevation: 0.0,
                   )
@@ -131,8 +132,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            30.0, 30.0, 30.0, 30.0),
+                        padding: const EdgeInsets.all(30.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -166,7 +166,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           'Prêt à promouvoir votre établissement à nos côtés',
@@ -185,7 +185,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                 ],
                               ),
                             ),
-                          ].divide(SizedBox(height: 30.0)),
+                          ].divide(const SizedBox(height: 30.0)),
                         ),
                       ),
                     ),
@@ -198,10 +198,9 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                       color: FlutterFlowTheme.of(context).primary,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 20.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -243,7 +242,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 0.05,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.asset(
@@ -266,7 +265,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 0.3,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.asset(
@@ -326,7 +325,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                                       .primaryBackground,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 2.0,
                                           ),
@@ -398,7 +397,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                                       .primaryBackground,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 2.0,
                                           ),
@@ -470,7 +469,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                                       .primaryBackground,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 2.0,
                                           ),
@@ -542,7 +541,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                                       .primaryBackground,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 2.0,
                                           ),
@@ -613,7 +612,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                                       .primaryBackground,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0x00000000),
                                             width: 2.0,
                                           ),
@@ -745,7 +744,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             'managerWaitList',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType
@@ -767,10 +766,10 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 50.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -783,7 +782,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                                       .primary,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -791,10 +790,10 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             BorderRadius.circular(30.0),
                                       ),
                                     ),
-                                  ].divide(SizedBox(height: 15.0)),
+                                  ].divide(const SizedBox(height: 15.0)),
                                 ),
                               ),
-                            ].divide(SizedBox(height: 30.0)),
+                            ].divide(const SizedBox(height: 30.0)),
                           ),
                         ),
                       ),

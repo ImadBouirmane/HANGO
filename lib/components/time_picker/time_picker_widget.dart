@@ -2,14 +2,12 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'time_picker_model.dart';
 export 'time_picker_model.dart';
 
 class TimePickerWidget extends StatefulWidget {
-  const TimePickerWidget({Key? key}) : super(key: key);
+  const TimePickerWidget({super.key});
 
   @override
   _TimePickerWidgetState createState() => _TimePickerWidgetState();
@@ -54,7 +52,7 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Container(
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -113,9 +111,9 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
                             print('IconButton pressed ...');
                           },
                         ),
-                      ].divide(SizedBox(width: 5.0)),
+                      ].divide(const SizedBox(width: 5.0)),
                     ),
-                  ].divide(SizedBox(width: 18.0)),
+                  ].divide(const SizedBox(width: 18.0)),
                 ),
               ],
             ),

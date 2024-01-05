@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import 'backend/api_requests/api_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
@@ -21,7 +19,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   Future initializePersistedState() async {
-    secureStorage = FlutterSecureStorage();
+    secureStorage = const FlutterSecureStorage();
     await _safeInitAsync(() async {
       _MusicStyle =
           await secureStorage.getStringList('ff_MusicStyle') ?? _MusicStyle;
@@ -128,40 +126,40 @@ class FFAppState extends ChangeNotifier {
     'Varié'
   ];
   List<String> get MusicStyle => _MusicStyle;
-  set MusicStyle(List<String> _value) {
-    _MusicStyle = _value;
-    secureStorage.setStringList('ff_MusicStyle', _value);
+  set MusicStyle(List<String> value) {
+    _MusicStyle = value;
+    secureStorage.setStringList('ff_MusicStyle', value);
   }
 
   void deleteMusicStyle() {
     secureStorage.delete(key: 'ff_MusicStyle');
   }
 
-  void addToMusicStyle(String _value) {
-    _MusicStyle.add(_value);
+  void addToMusicStyle(String value) {
+    _MusicStyle.add(value);
     secureStorage.setStringList('ff_MusicStyle', _MusicStyle);
   }
 
-  void removeFromMusicStyle(String _value) {
-    _MusicStyle.remove(_value);
+  void removeFromMusicStyle(String value) {
+    _MusicStyle.remove(value);
     secureStorage.setStringList('ff_MusicStyle', _MusicStyle);
   }
 
-  void removeAtIndexFromMusicStyle(int _index) {
-    _MusicStyle.removeAt(_index);
+  void removeAtIndexFromMusicStyle(int index) {
+    _MusicStyle.removeAt(index);
     secureStorage.setStringList('ff_MusicStyle', _MusicStyle);
   }
 
   void updateMusicStyleAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _MusicStyle[_index] = updateFn(_MusicStyle[_index]);
+    _MusicStyle[index] = updateFn(_MusicStyle[index]);
     secureStorage.setStringList('ff_MusicStyle', _MusicStyle);
   }
 
-  void insertAtIndexInMusicStyle(int _index, String _value) {
-    _MusicStyle.insert(_index, _value);
+  void insertAtIndexInMusicStyle(int index, String value) {
+    _MusicStyle.insert(index, value);
     secureStorage.setStringList('ff_MusicStyle', _MusicStyle);
   }
 
@@ -177,40 +175,40 @@ class FFAppState extends ChangeNotifier {
     'Terrasse'
   ];
   List<String> get TypeOfEstablishment => _TypeOfEstablishment;
-  set TypeOfEstablishment(List<String> _value) {
-    _TypeOfEstablishment = _value;
-    secureStorage.setStringList('ff_TypeOfEstablishment', _value);
+  set TypeOfEstablishment(List<String> value) {
+    _TypeOfEstablishment = value;
+    secureStorage.setStringList('ff_TypeOfEstablishment', value);
   }
 
   void deleteTypeOfEstablishment() {
     secureStorage.delete(key: 'ff_TypeOfEstablishment');
   }
 
-  void addToTypeOfEstablishment(String _value) {
-    _TypeOfEstablishment.add(_value);
+  void addToTypeOfEstablishment(String value) {
+    _TypeOfEstablishment.add(value);
     secureStorage.setStringList('ff_TypeOfEstablishment', _TypeOfEstablishment);
   }
 
-  void removeFromTypeOfEstablishment(String _value) {
-    _TypeOfEstablishment.remove(_value);
+  void removeFromTypeOfEstablishment(String value) {
+    _TypeOfEstablishment.remove(value);
     secureStorage.setStringList('ff_TypeOfEstablishment', _TypeOfEstablishment);
   }
 
-  void removeAtIndexFromTypeOfEstablishment(int _index) {
-    _TypeOfEstablishment.removeAt(_index);
+  void removeAtIndexFromTypeOfEstablishment(int index) {
+    _TypeOfEstablishment.removeAt(index);
     secureStorage.setStringList('ff_TypeOfEstablishment', _TypeOfEstablishment);
   }
 
   void updateTypeOfEstablishmentAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _TypeOfEstablishment[_index] = updateFn(_TypeOfEstablishment[_index]);
+    _TypeOfEstablishment[index] = updateFn(_TypeOfEstablishment[index]);
     secureStorage.setStringList('ff_TypeOfEstablishment', _TypeOfEstablishment);
   }
 
-  void insertAtIndexInTypeOfEstablishment(int _index, String _value) {
-    _TypeOfEstablishment.insert(_index, _value);
+  void insertAtIndexInTypeOfEstablishment(int index, String value) {
+    _TypeOfEstablishment.insert(index, value);
     secureStorage.setStringList('ff_TypeOfEstablishment', _TypeOfEstablishment);
   }
 
@@ -229,40 +227,40 @@ class FFAppState extends ChangeNotifier {
     'Show case'
   ];
   List<String> get TypeOfEvent => _TypeOfEvent;
-  set TypeOfEvent(List<String> _value) {
-    _TypeOfEvent = _value;
-    secureStorage.setStringList('ff_TypeOfEvent', _value);
+  set TypeOfEvent(List<String> value) {
+    _TypeOfEvent = value;
+    secureStorage.setStringList('ff_TypeOfEvent', value);
   }
 
   void deleteTypeOfEvent() {
     secureStorage.delete(key: 'ff_TypeOfEvent');
   }
 
-  void addToTypeOfEvent(String _value) {
-    _TypeOfEvent.add(_value);
+  void addToTypeOfEvent(String value) {
+    _TypeOfEvent.add(value);
     secureStorage.setStringList('ff_TypeOfEvent', _TypeOfEvent);
   }
 
-  void removeFromTypeOfEvent(String _value) {
-    _TypeOfEvent.remove(_value);
+  void removeFromTypeOfEvent(String value) {
+    _TypeOfEvent.remove(value);
     secureStorage.setStringList('ff_TypeOfEvent', _TypeOfEvent);
   }
 
-  void removeAtIndexFromTypeOfEvent(int _index) {
-    _TypeOfEvent.removeAt(_index);
+  void removeAtIndexFromTypeOfEvent(int index) {
+    _TypeOfEvent.removeAt(index);
     secureStorage.setStringList('ff_TypeOfEvent', _TypeOfEvent);
   }
 
   void updateTypeOfEventAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _TypeOfEvent[_index] = updateFn(_TypeOfEvent[_index]);
+    _TypeOfEvent[index] = updateFn(_TypeOfEvent[index]);
     secureStorage.setStringList('ff_TypeOfEvent', _TypeOfEvent);
   }
 
-  void insertAtIndexInTypeOfEvent(int _index, String _value) {
-    _TypeOfEvent.insert(_index, _value);
+  void insertAtIndexInTypeOfEvent(int index, String value) {
+    _TypeOfEvent.insert(index, value);
     secureStorage.setStringList('ff_TypeOfEvent', _TypeOfEvent);
   }
 
@@ -278,40 +276,40 @@ class FFAppState extends ChangeNotifier {
     'Aucune'
   ];
   List<String> get Food => _Food;
-  set Food(List<String> _value) {
-    _Food = _value;
-    secureStorage.setStringList('ff_Food', _value);
+  set Food(List<String> value) {
+    _Food = value;
+    secureStorage.setStringList('ff_Food', value);
   }
 
   void deleteFood() {
     secureStorage.delete(key: 'ff_Food');
   }
 
-  void addToFood(String _value) {
-    _Food.add(_value);
+  void addToFood(String value) {
+    _Food.add(value);
     secureStorage.setStringList('ff_Food', _Food);
   }
 
-  void removeFromFood(String _value) {
-    _Food.remove(_value);
+  void removeFromFood(String value) {
+    _Food.remove(value);
     secureStorage.setStringList('ff_Food', _Food);
   }
 
-  void removeAtIndexFromFood(int _index) {
-    _Food.removeAt(_index);
+  void removeAtIndexFromFood(int index) {
+    _Food.removeAt(index);
     secureStorage.setStringList('ff_Food', _Food);
   }
 
   void updateFoodAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _Food[_index] = updateFn(_Food[_index]);
+    _Food[index] = updateFn(_Food[index]);
     secureStorage.setStringList('ff_Food', _Food);
   }
 
-  void insertAtIndexInFood(int _index, String _value) {
-    _Food.insert(_index, _value);
+  void insertAtIndexInFood(int index, String value) {
+    _Food.insert(index, value);
     secureStorage.setStringList('ff_Food', _Food);
   }
 
@@ -326,140 +324,140 @@ class FFAppState extends ChangeNotifier {
     'Aucun'
   ];
   List<String> get Game => _Game;
-  set Game(List<String> _value) {
-    _Game = _value;
-    secureStorage.setStringList('ff_Game', _value);
+  set Game(List<String> value) {
+    _Game = value;
+    secureStorage.setStringList('ff_Game', value);
   }
 
   void deleteGame() {
     secureStorage.delete(key: 'ff_Game');
   }
 
-  void addToGame(String _value) {
-    _Game.add(_value);
+  void addToGame(String value) {
+    _Game.add(value);
     secureStorage.setStringList('ff_Game', _Game);
   }
 
-  void removeFromGame(String _value) {
-    _Game.remove(_value);
+  void removeFromGame(String value) {
+    _Game.remove(value);
     secureStorage.setStringList('ff_Game', _Game);
   }
 
-  void removeAtIndexFromGame(int _index) {
-    _Game.removeAt(_index);
+  void removeAtIndexFromGame(int index) {
+    _Game.removeAt(index);
     secureStorage.setStringList('ff_Game', _Game);
   }
 
   void updateGameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _Game[_index] = updateFn(_Game[_index]);
+    _Game[index] = updateFn(_Game[index]);
     secureStorage.setStringList('ff_Game', _Game);
   }
 
-  void insertAtIndexInGame(int _index, String _value) {
-    _Game.insert(_index, _value);
+  void insertAtIndexInGame(int index, String value) {
+    _Game.insert(index, value);
     secureStorage.setStringList('ff_Game', _Game);
   }
 
   DateTime? _selectedDate = DateTime.fromMillisecondsSinceEpoch(1684949400000);
   DateTime? get selectedDate => _selectedDate;
-  set selectedDate(DateTime? _value) {
-    _selectedDate = _value;
+  set selectedDate(DateTime? value) {
+    _selectedDate = value;
   }
 
   List<DocumentReference> _filterEvenResults = [];
   List<DocumentReference> get filterEvenResults => _filterEvenResults;
-  set filterEvenResults(List<DocumentReference> _value) {
-    _filterEvenResults = _value;
+  set filterEvenResults(List<DocumentReference> value) {
+    _filterEvenResults = value;
   }
 
-  void addToFilterEvenResults(DocumentReference _value) {
-    _filterEvenResults.add(_value);
+  void addToFilterEvenResults(DocumentReference value) {
+    _filterEvenResults.add(value);
   }
 
-  void removeFromFilterEvenResults(DocumentReference _value) {
-    _filterEvenResults.remove(_value);
+  void removeFromFilterEvenResults(DocumentReference value) {
+    _filterEvenResults.remove(value);
   }
 
-  void removeAtIndexFromFilterEvenResults(int _index) {
-    _filterEvenResults.removeAt(_index);
+  void removeAtIndexFromFilterEvenResults(int index) {
+    _filterEvenResults.removeAt(index);
   }
 
   void updateFilterEvenResultsAtIndex(
-    int _index,
+    int index,
     DocumentReference Function(DocumentReference) updateFn,
   ) {
-    _filterEvenResults[_index] = updateFn(_filterEvenResults[_index]);
+    _filterEvenResults[index] = updateFn(_filterEvenResults[index]);
   }
 
-  void insertAtIndexInFilterEvenResults(int _index, DocumentReference _value) {
-    _filterEvenResults.insert(_index, _value);
+  void insertAtIndexInFilterEvenResults(int index, DocumentReference value) {
+    _filterEvenResults.insert(index, value);
   }
 
   bool _searchChange = false;
   bool get searchChange => _searchChange;
-  set searchChange(bool _value) {
-    _searchChange = _value;
+  set searchChange(bool value) {
+    _searchChange = value;
   }
 
   List<String> _Artistes = [];
   List<String> get Artistes => _Artistes;
-  set Artistes(List<String> _value) {
-    _Artistes = _value;
-    secureStorage.setStringList('ff_Artistes', _value);
+  set Artistes(List<String> value) {
+    _Artistes = value;
+    secureStorage.setStringList('ff_Artistes', value);
   }
 
   void deleteArtistes() {
     secureStorage.delete(key: 'ff_Artistes');
   }
 
-  void addToArtistes(String _value) {
-    _Artistes.add(_value);
+  void addToArtistes(String value) {
+    _Artistes.add(value);
     secureStorage.setStringList('ff_Artistes', _Artistes);
   }
 
-  void removeFromArtistes(String _value) {
-    _Artistes.remove(_value);
+  void removeFromArtistes(String value) {
+    _Artistes.remove(value);
     secureStorage.setStringList('ff_Artistes', _Artistes);
   }
 
-  void removeAtIndexFromArtistes(int _index) {
-    _Artistes.removeAt(_index);
+  void removeAtIndexFromArtistes(int index) {
+    _Artistes.removeAt(index);
     secureStorage.setStringList('ff_Artistes', _Artistes);
   }
 
   void updateArtistesAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _Artistes[_index] = updateFn(_Artistes[_index]);
+    _Artistes[index] = updateFn(_Artistes[index]);
     secureStorage.setStringList('ff_Artistes', _Artistes);
   }
 
-  void insertAtIndexInArtistes(int _index, String _value) {
-    _Artistes.insert(_index, _value);
+  void insertAtIndexInArtistes(int index, String value) {
+    _Artistes.insert(index, value);
     secureStorage.setStringList('ff_Artistes', _Artistes);
   }
 
   String _clickState = '';
   String get clickState => _clickState;
-  set clickState(String _value) {
-    _clickState = _value;
+  set clickState(String value) {
+    _clickState = value;
   }
 
   bool _isClose = true;
   bool get isClose => _isClose;
-  set isClose(bool _value) {
-    _isClose = _value;
+  set isClose(bool value) {
+    _isClose = value;
   }
 
   bool _visibleStateScheduleMonday = true;
   bool get visibleStateScheduleMonday => _visibleStateScheduleMonday;
-  set visibleStateScheduleMonday(bool _value) {
-    _visibleStateScheduleMonday = _value;
-    secureStorage.setBool('ff_visibleStateScheduleMonday', _value);
+  set visibleStateScheduleMonday(bool value) {
+    _visibleStateScheduleMonday = value;
+    secureStorage.setBool('ff_visibleStateScheduleMonday', value);
   }
 
   void deleteVisibleStateScheduleMonday() {
@@ -468,9 +466,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _visibleStateScheduleTuesday = true;
   bool get visibleStateScheduleTuesday => _visibleStateScheduleTuesday;
-  set visibleStateScheduleTuesday(bool _value) {
-    _visibleStateScheduleTuesday = _value;
-    secureStorage.setBool('ff_visibleStateScheduleTuesday', _value);
+  set visibleStateScheduleTuesday(bool value) {
+    _visibleStateScheduleTuesday = value;
+    secureStorage.setBool('ff_visibleStateScheduleTuesday', value);
   }
 
   void deleteVisibleStateScheduleTuesday() {
@@ -479,9 +477,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _visibleStateScheduleWednesday = true;
   bool get visibleStateScheduleWednesday => _visibleStateScheduleWednesday;
-  set visibleStateScheduleWednesday(bool _value) {
-    _visibleStateScheduleWednesday = _value;
-    secureStorage.setBool('ff_visibleStateScheduleWednesday', _value);
+  set visibleStateScheduleWednesday(bool value) {
+    _visibleStateScheduleWednesday = value;
+    secureStorage.setBool('ff_visibleStateScheduleWednesday', value);
   }
 
   void deleteVisibleStateScheduleWednesday() {
@@ -490,9 +488,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _visibleStateScheduleThursday = true;
   bool get visibleStateScheduleThursday => _visibleStateScheduleThursday;
-  set visibleStateScheduleThursday(bool _value) {
-    _visibleStateScheduleThursday = _value;
-    secureStorage.setBool('ff_visibleStateScheduleThursday', _value);
+  set visibleStateScheduleThursday(bool value) {
+    _visibleStateScheduleThursday = value;
+    secureStorage.setBool('ff_visibleStateScheduleThursday', value);
   }
 
   void deleteVisibleStateScheduleThursday() {
@@ -501,9 +499,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _visibleStateScheduleFriday = true;
   bool get visibleStateScheduleFriday => _visibleStateScheduleFriday;
-  set visibleStateScheduleFriday(bool _value) {
-    _visibleStateScheduleFriday = _value;
-    secureStorage.setBool('ff_visibleStateScheduleFriday', _value);
+  set visibleStateScheduleFriday(bool value) {
+    _visibleStateScheduleFriday = value;
+    secureStorage.setBool('ff_visibleStateScheduleFriday', value);
   }
 
   void deleteVisibleStateScheduleFriday() {
@@ -512,9 +510,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _visibleStateScheduleSaturday = true;
   bool get visibleStateScheduleSaturday => _visibleStateScheduleSaturday;
-  set visibleStateScheduleSaturday(bool _value) {
-    _visibleStateScheduleSaturday = _value;
-    secureStorage.setBool('ff_visibleStateScheduleSaturday', _value);
+  set visibleStateScheduleSaturday(bool value) {
+    _visibleStateScheduleSaturday = value;
+    secureStorage.setBool('ff_visibleStateScheduleSaturday', value);
   }
 
   void deleteVisibleStateScheduleSaturday() {
@@ -523,9 +521,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _visibleStateScheduleSunday = true;
   bool get visibleStateScheduleSunday => _visibleStateScheduleSunday;
-  set visibleStateScheduleSunday(bool _value) {
-    _visibleStateScheduleSunday = _value;
-    secureStorage.setBool('ff_visibleStateScheduleSunday', _value);
+  set visibleStateScheduleSunday(bool value) {
+    _visibleStateScheduleSunday = value;
+    secureStorage.setBool('ff_visibleStateScheduleSunday', value);
   }
 
   void deleteVisibleStateScheduleSunday() {
@@ -534,124 +532,124 @@ class FFAppState extends ChangeNotifier {
 
   String _themeEvent = '';
   String get themeEvent => _themeEvent;
-  set themeEvent(String _value) {
-    _themeEvent = _value;
+  set themeEvent(String value) {
+    _themeEvent = value;
   }
 
   String _musicType = '';
   String get musicType => _musicType;
-  set musicType(String _value) {
-    _musicType = _value;
+  set musicType(String value) {
+    _musicType = value;
   }
 
   bool _weekend = false;
   bool get weekend => _weekend;
-  set weekend(bool _value) {
-    _weekend = _value;
+  set weekend(bool value) {
+    _weekend = value;
   }
 
   bool _jeudredi = false;
   bool get jeudredi => _jeudredi;
-  set jeudredi(bool _value) {
-    _jeudredi = _value;
+  set jeudredi(bool value) {
+    _jeudredi = value;
   }
 
   bool _freeEnter = false;
   bool get freeEnter => _freeEnter;
-  set freeEnter(bool _value) {
-    _freeEnter = _value;
+  set freeEnter(bool value) {
+    _freeEnter = value;
   }
 
   bool _booked = false;
   bool get booked => _booked;
-  set booked(bool _value) {
-    _booked = _value;
+  set booked(bool value) {
+    _booked = value;
   }
 
   List<int> _clickCount = [];
   List<int> get clickCount => _clickCount;
-  set clickCount(List<int> _value) {
-    _clickCount = _value;
+  set clickCount(List<int> value) {
+    _clickCount = value;
   }
 
-  void addToClickCount(int _value) {
-    _clickCount.add(_value);
+  void addToClickCount(int value) {
+    _clickCount.add(value);
   }
 
-  void removeFromClickCount(int _value) {
-    _clickCount.remove(_value);
+  void removeFromClickCount(int value) {
+    _clickCount.remove(value);
   }
 
-  void removeAtIndexFromClickCount(int _index) {
-    _clickCount.removeAt(_index);
+  void removeAtIndexFromClickCount(int index) {
+    _clickCount.removeAt(index);
   }
 
   void updateClickCountAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _clickCount[_index] = updateFn(_clickCount[_index]);
+    _clickCount[index] = updateFn(_clickCount[index]);
   }
 
-  void insertAtIndexInClickCount(int _index, int _value) {
-    _clickCount.insert(_index, _value);
+  void insertAtIndexInClickCount(int index, int value) {
+    _clickCount.insert(index, value);
   }
 
   bool _isUploaded = false;
   bool get isUploaded => _isUploaded;
-  set isUploaded(bool _value) {
-    _isUploaded = _value;
+  set isUploaded(bool value) {
+    _isUploaded = value;
   }
 
   List<String> _uploadedNewEstImages = [];
   List<String> get uploadedNewEstImages => _uploadedNewEstImages;
-  set uploadedNewEstImages(List<String> _value) {
-    _uploadedNewEstImages = _value;
-    secureStorage.setStringList('ff_uploadedNewEstImages', _value);
+  set uploadedNewEstImages(List<String> value) {
+    _uploadedNewEstImages = value;
+    secureStorage.setStringList('ff_uploadedNewEstImages', value);
   }
 
   void deleteUploadedNewEstImages() {
     secureStorage.delete(key: 'ff_uploadedNewEstImages');
   }
 
-  void addToUploadedNewEstImages(String _value) {
-    _uploadedNewEstImages.add(_value);
+  void addToUploadedNewEstImages(String value) {
+    _uploadedNewEstImages.add(value);
     secureStorage.setStringList(
         'ff_uploadedNewEstImages', _uploadedNewEstImages);
   }
 
-  void removeFromUploadedNewEstImages(String _value) {
-    _uploadedNewEstImages.remove(_value);
+  void removeFromUploadedNewEstImages(String value) {
+    _uploadedNewEstImages.remove(value);
     secureStorage.setStringList(
         'ff_uploadedNewEstImages', _uploadedNewEstImages);
   }
 
-  void removeAtIndexFromUploadedNewEstImages(int _index) {
-    _uploadedNewEstImages.removeAt(_index);
+  void removeAtIndexFromUploadedNewEstImages(int index) {
+    _uploadedNewEstImages.removeAt(index);
     secureStorage.setStringList(
         'ff_uploadedNewEstImages', _uploadedNewEstImages);
   }
 
   void updateUploadedNewEstImagesAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _uploadedNewEstImages[_index] = updateFn(_uploadedNewEstImages[_index]);
+    _uploadedNewEstImages[index] = updateFn(_uploadedNewEstImages[index]);
     secureStorage.setStringList(
         'ff_uploadedNewEstImages', _uploadedNewEstImages);
   }
 
-  void insertAtIndexInUploadedNewEstImages(int _index, String _value) {
-    _uploadedNewEstImages.insert(_index, _value);
+  void insertAtIndexInUploadedNewEstImages(int index, String value) {
+    _uploadedNewEstImages.insert(index, value);
     secureStorage.setStringList(
         'ff_uploadedNewEstImages', _uploadedNewEstImages);
   }
 
   bool _isOpen = false;
   bool get isOpen => _isOpen;
-  set isOpen(bool _value) {
-    _isOpen = _value;
-    secureStorage.setBool('ff_isOpen', _value);
+  set isOpen(bool value) {
+    _isOpen = value;
+    secureStorage.setBool('ff_isOpen', value);
   }
 
   void deleteIsOpen() {
@@ -660,17 +658,17 @@ class FFAppState extends ChangeNotifier {
 
   String _artistName = '';
   String get artistName => _artistName;
-  set artistName(String _value) {
-    _artistName = _value;
+  set artistName(String value) {
+    _artistName = value;
   }
 
   DateTime? _artistScheduleStart;
   DateTime? get artistScheduleStart => _artistScheduleStart;
-  set artistScheduleStart(DateTime? _value) {
-    _artistScheduleStart = _value;
-    _value != null
+  set artistScheduleStart(DateTime? value) {
+    _artistScheduleStart = value;
+    value != null
         ? secureStorage.setInt(
-            'ff_artistScheduleStart', _value.millisecondsSinceEpoch)
+            'ff_artistScheduleStart', value.millisecondsSinceEpoch)
         : secureStorage.remove('ff_artistScheduleStart');
   }
 
@@ -734,12 +732,12 @@ extension FlutterSecureStorageExtensions on FlutterSecureStorage {
         if (result == null || result.isEmpty) {
           return null;
         }
-        return CsvToListConverter()
+        return const CsvToListConverter()
             .convert(result)
             .first
             .map((e) => e.toString())
             .toList();
       });
   Future<void> setStringList(String key, List<String> value) async =>
-      await writeSync(key: key, value: ListToCsvConverter().convert([value]));
+      await writeSync(key: key, value: const ListToCsvConverter().convert([value]));
 }

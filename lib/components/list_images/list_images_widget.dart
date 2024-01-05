@@ -3,20 +3,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'list_images_model.dart';
 export 'list_images_model.dart';
 
 class ListImagesWidget extends StatefulWidget {
   const ListImagesWidget({
-    Key? key,
+    super.key,
     required this.images,
-  }) : super(key: key);
+  });
 
   final List<DocumentReference>? images;
 
@@ -52,7 +48,7 @@ class _ListImagesWidgetState extends State<ListImagesWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 300.0,
       child: Stack(
@@ -91,7 +87,7 @@ class _ListImagesWidgetState extends State<ListImagesWidget> {
                   tag: 'establishmentImageTag',
                   transitionOnUserGestures: true,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(16.0),
@@ -109,9 +105,9 @@ class _ListImagesWidgetState extends State<ListImagesWidget> {
             ],
           ),
           Align(
-            alignment: AlignmentDirectional(-1.00, 1.00),
+            alignment: const AlignmentDirectional(-1.0, 1.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
               child: smooth_page_indicator.SmoothPageIndicator(
                 controller: _model.pageViewController ??=
                     PageController(initialPage: 0),
@@ -120,7 +116,7 @@ class _ListImagesWidgetState extends State<ListImagesWidget> {
                 onDotClicked: (i) async {
                   await _model.pageViewController!.animateToPage(
                     i,
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     curve: Curves.ease,
                   );
                 },

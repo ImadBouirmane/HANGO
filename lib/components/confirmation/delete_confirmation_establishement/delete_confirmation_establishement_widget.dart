@@ -2,21 +2,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'delete_confirmation_establishement_model.dart';
 export 'delete_confirmation_establishement_model.dart';
 
 class DeleteConfirmationEstablishementWidget extends StatefulWidget {
   const DeleteConfirmationEstablishementWidget({
-    Key? key,
+    super.key,
     required this.establishementRef,
     required this.mediaEst,
     required this.scheduleEst,
-  }) : super(key: key);
+  });
 
   final DocumentReference? establishementRef;
   final DocumentReference? mediaEst;
@@ -58,7 +55,7 @@ class _DeleteConfirmationEstablishementWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.35,
         height: MediaQuery.sizeOf(context).height * 0.2,
@@ -98,16 +95,16 @@ class _DeleteConfirmationEstablishementWidgetState
                   options: FFButtonOptions(
                     height: 40.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Poppins',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -136,9 +133,9 @@ class _DeleteConfirmationEstablishementWidgetState
                   options: FFButtonOptions(
                     height: 40.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).error,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Poppins',
@@ -146,16 +143,16 @@ class _DeleteConfirmationEstablishementWidgetState
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                 ),
-              ].divide(SizedBox(width: 15.0)),
+              ].divide(const SizedBox(width: 15.0)),
             ),
-          ].divide(SizedBox(height: 15.0)).around(SizedBox(height: 15.0)),
+          ].divide(const SizedBox(height: 15.0)).around(const SizedBox(height: 15.0)),
         ),
       ),
     );

@@ -2,15 +2,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'drawe_login_model.dart';
 export 'drawe_login_model.dart';
 
 class DraweLoginWidget extends StatefulWidget {
-  const DraweLoginWidget({Key? key}) : super(key: key);
+  const DraweLoginWidget({super.key});
 
   @override
   _DraweLoginWidgetState createState() => _DraweLoginWidgetState();
@@ -44,7 +43,8 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Drawer(
+    return WebViewAware(
+        child: Drawer(
       elevation: 16.0,
       child: Container(
         width: 100.0,
@@ -62,15 +62,15 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 80.0, 0.0, 80.0),
                         child: Container(
                           width: 140.0,
@@ -89,7 +89,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 15.0, 0.0, 15.0),
                         child: Text(
                           'Hango t\'aide à trouver les meilleurs soirées, events et établissements du monde de la nuit en suisse Romande',
@@ -104,7 +104,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 15.0, 0.0, 15.0),
                         child: Text(
                           'Créer toi  un compte et reçois des PROMO% exclusives dans les meilleurs établissements de ta ville',
@@ -130,10 +130,9 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -144,7 +143,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -159,9 +158,9 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color:
                                     FlutterFlowTheme.of(context).primaryBtnText,
@@ -182,7 +181,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -196,9 +195,9 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -229,8 +228,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                             ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -240,7 +238,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 5.0,
                                     color: Color(0x3314181B),
@@ -249,7 +247,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.instagram,
                                 color: FlutterFlowTheme.of(context)
@@ -262,7 +260,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 5.0,
                                     color: Color(0x3314181B),
@@ -271,7 +269,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.tiktok,
                                 color: FlutterFlowTheme.of(context)
@@ -284,7 +282,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 5.0,
                                     color: Color(0x3314181B),
@@ -293,7 +291,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.facebookF,
                                 color: FlutterFlowTheme.of(context)
@@ -312,6 +310,6 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
           ],
         ),
       ),
-    );
+    ));
   }
 }

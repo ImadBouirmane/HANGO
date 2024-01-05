@@ -2,16 +2,14 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
 
 class SettingsWidget extends StatefulWidget {
-  const SettingsWidget({Key? key}) : super(key: key);
+  const SettingsWidget({super.key});
 
   @override
   _SettingsWidgetState createState() => _SettingsWidgetState();
@@ -69,7 +67,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Color(0xFF57CFAD),
                   size: 30.0,
@@ -84,18 +82,18 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 'Compte',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Poppins',
-                      color: Color(0xFF57CFAD),
+                      color: const Color(0xFF57CFAD),
                       fontSize: 22.0,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,8 +114,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 15.0, 15.0, 15.0),
+                                padding: const EdgeInsets.all(15.0),
                                 child: ListView(
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,
@@ -137,7 +134,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         context.pushNamed(
                                           'Profile',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType: PageTransitionType
                                                   .leftToRight,
@@ -149,15 +146,15 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -209,7 +206,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         context.pushNamed(
                                           'Preferences',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType: PageTransitionType
                                                   .leftToRight,
@@ -223,7 +220,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -281,7 +278,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -317,7 +314,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(height: 10.0)),
+                                  ].divide(const SizedBox(height: 10.0)),
                                 ),
                               ),
                             ),
@@ -328,7 +325,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             tabletLandscape: false,
                           ))
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.5,
                                 decoration: BoxDecoration(
@@ -337,8 +334,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 15.0, 15.0, 15.0),
+                                  padding: const EdgeInsets.all(15.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -359,7 +355,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             'Profile',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType
@@ -372,7 +368,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -427,7 +423,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             'Preferences',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType
@@ -442,7 +438,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -501,7 +497,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -540,7 +536,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 10.0)),
+                                    ].divide(const SizedBox(height: 10.0)),
                                   ),
                                 ),
                               ),
@@ -563,7 +559,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         ),
                       ],
                     ),
-                  ].divide(SizedBox(height: 50.0)),
+                  ].divide(const SizedBox(height: 50.0)),
                 ),
               ),
             ),

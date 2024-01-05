@@ -4,17 +4,15 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'feedback_model.dart';
 export 'feedback_model.dart';
 
 class FeedbackWidget extends StatefulWidget {
-  const FeedbackWidget({Key? key}) : super(key: key);
+  const FeedbackWidget({super.key});
 
   @override
   _FeedbackWidgetState createState() => _FeedbackWidgetState();
@@ -34,15 +32,19 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
     _model.expandableController1 = ExpandableController(initialExpanded: false);
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
+
     _model.expandableController2 = ExpandableController(initialExpanded: false);
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
+
     _model.expandableController3 = ExpandableController(initialExpanded: false);
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
+
     _model.expandableController4 = ExpandableController(initialExpanded: false);
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -84,7 +86,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 50.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Color(0xFF57CFAD),
                   size: 20.0,
@@ -102,7 +104,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                       color: FlutterFlowTheme.of(context).primary,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -117,8 +119,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                       desktop: false,
                     ))
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            15.0, 15.0, 15.0, 15.0),
+                        padding: const EdgeInsets.all(15.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(
@@ -127,17 +128,16 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                             borderRadius: BorderRadius.circular(15.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 15.0, 15.0, 15.0),
+                            padding: const EdgeInsets.all(15.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Container(
                                     width: double.infinity,
-                                    color: Color(0x00000000),
+                                    color: const Color(0x00000000),
                                     child: ExpandableNotifier(
                                       controller: _model.expandableController1,
                                       child: ExpandablePanel(
@@ -147,9 +147,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                               .titleSmall,
                                         ),
                                         collapsed: Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                         ),
-                                        expanded: Container(
+                                        expanded: SizedBox(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
@@ -160,7 +160,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Container(
+                                                SizedBox(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
@@ -243,8 +243,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
-                                                          -1.00, 0.00),
+                                                      const AlignmentDirectional(
+                                                          -1.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       logFirebaseEvent(
@@ -311,7 +311,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                       .primaryBackground,
                                                                 ),
                                                           ),
-                                                          duration: Duration(
+                                                          duration: const Duration(
                                                               milliseconds:
                                                                   2000),
                                                           backgroundColor:
@@ -330,14 +330,14 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                     options: FFButtonOptions(
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -358,7 +358,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                     .white,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -371,9 +371,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                 ),
                                               ]
                                                   .divide(
-                                                      SizedBox(height: 30.0))
+                                                      const SizedBox(height: 30.0))
                                                   .addToEnd(
-                                                      SizedBox(height: 10.0)),
+                                                      const SizedBox(height: 10.0)),
                                             ),
                                           ),
                                         ),
@@ -396,10 +396,10 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                 ),
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Container(
                                     width: double.infinity,
-                                    color: Color(0x00000000),
+                                    color: const Color(0x00000000),
                                     child: ExpandableNotifier(
                                       controller: _model.expandableController2,
                                       child: ExpandablePanel(
@@ -409,9 +409,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                               .titleSmall,
                                         ),
                                         collapsed: Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                         ),
-                                        expanded: Container(
+                                        expanded: SizedBox(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
@@ -422,7 +422,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Container(
+                                                SizedBox(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
@@ -505,8 +505,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
-                                                          -1.00, 0.00),
+                                                      const AlignmentDirectional(
+                                                          -1.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       logFirebaseEvent(
@@ -573,7 +573,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                       .primaryBackground,
                                                                 ),
                                                           ),
-                                                          duration: Duration(
+                                                          duration: const Duration(
                                                               milliseconds:
                                                                   2000),
                                                           backgroundColor:
@@ -592,14 +592,14 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                     options: FFButtonOptions(
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -620,7 +620,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                     .white,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -633,9 +633,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                 ),
                                               ]
                                                   .divide(
-                                                      SizedBox(height: 30.0))
+                                                      const SizedBox(height: 30.0))
                                                   .addToEnd(
-                                                      SizedBox(height: 10.0)),
+                                                      const SizedBox(height: 10.0)),
                                             ),
                                           ),
                                         ),
@@ -656,7 +656,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 20.0)),
+                              ].divide(const SizedBox(height: 20.0)),
                             ),
                           ),
                         ),
@@ -668,10 +668,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                       tabletLandscape: false,
                     ))
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 15.0, 15.0, 15.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.5,
                             decoration: BoxDecoration(
@@ -680,18 +679,17 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 15.0, 15.0, 15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Container(
                                       width: double.infinity,
-                                      color: Color(0x00000000),
+                                      color: const Color(0x00000000),
                                       child: ExpandableNotifier(
                                         controller:
                                             _model.expandableController3,
@@ -702,9 +700,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                 .titleSmall,
                                           ),
                                           collapsed: Container(
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                           ),
-                                          expanded: Container(
+                                          expanded: SizedBox(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 1.0,
@@ -715,7 +713,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Container(
+                                                  SizedBox(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
@@ -808,8 +806,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                        const AlignmentDirectional(
+                                                            -1.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         logFirebaseEvent(
@@ -876,7 +874,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                         .primaryBackground,
                                                                   ),
                                                             ),
-                                                            duration: Duration(
+                                                            duration: const Duration(
                                                                 milliseconds:
                                                                     2000),
                                                             backgroundColor:
@@ -895,14 +893,14 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                       options: FFButtonOptions(
                                                         height: 40.0,
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     24.0,
                                                                     0.0,
                                                                     24.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -923,7 +921,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                       .white,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -936,9 +934,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                   ),
                                                 ]
                                                     .divide(
-                                                        SizedBox(height: 30.0))
+                                                        const SizedBox(height: 30.0))
                                                     .addToEnd(
-                                                        SizedBox(height: 10.0)),
+                                                        const SizedBox(height: 10.0)),
                                               ),
                                             ),
                                           ),
@@ -962,10 +960,10 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                   Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Container(
                                       width: double.infinity,
-                                      color: Color(0x00000000),
+                                      color: const Color(0x00000000),
                                       child: ExpandableNotifier(
                                         controller:
                                             _model.expandableController4,
@@ -976,9 +974,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                 .titleSmall,
                                           ),
                                           collapsed: Container(
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                           ),
-                                          expanded: Container(
+                                          expanded: SizedBox(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 1.0,
@@ -989,7 +987,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Container(
+                                                  SizedBox(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
@@ -1082,8 +1080,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                        const AlignmentDirectional(
+                                                            -1.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         logFirebaseEvent(
@@ -1149,7 +1147,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                         .primaryBackground,
                                                                   ),
                                                             ),
-                                                            duration: Duration(
+                                                            duration: const Duration(
                                                                 milliseconds:
                                                                     2000),
                                                             backgroundColor:
@@ -1168,14 +1166,14 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                       options: FFButtonOptions(
                                                         height: 40.0,
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     24.0,
                                                                     0.0,
                                                                     24.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1196,7 +1194,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                       .white,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -1209,9 +1207,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                   ),
                                                 ]
                                                     .divide(
-                                                        SizedBox(height: 30.0))
+                                                        const SizedBox(height: 30.0))
                                                     .addToEnd(
-                                                        SizedBox(height: 10.0)),
+                                                        const SizedBox(height: 10.0)),
                                               ),
                                             ),
                                           ),
@@ -1232,7 +1230,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 20.0)),
+                                ].divide(const SizedBox(height: 20.0)),
                               ),
                             ),
                           ),

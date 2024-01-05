@@ -2,14 +2,12 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'show_component_artist_model.dart';
 export 'show_component_artist_model.dart';
 
 class ShowComponentArtistWidget extends StatefulWidget {
-  const ShowComponentArtistWidget({Key? key}) : super(key: key);
+  const ShowComponentArtistWidget({super.key});
 
   @override
   _ShowComponentArtistWidgetState createState() =>
@@ -76,8 +74,8 @@ class _ShowComponentArtistWidgetState extends State<ShowComponentArtistWidget> {
           width: double.infinity,
           height: 120.0,
           decoration: BoxDecoration(
-            color: Color(0x5D39D2C0),
-            boxShadow: [
+            color: const Color(0x5D39D2C0),
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 4.0,
                 color: Color(0x33000000),
@@ -87,7 +85,7 @@ class _ShowComponentArtistWidgetState extends State<ShowComponentArtistWidget> {
             borderRadius: BorderRadius.circular(8.0),
             shape: BoxShape.rectangle,
             border: Border.all(
-              color: Color(0xFF57CFAD),
+              color: const Color(0xFF57CFAD),
               width: 3.0,
             ),
           ),

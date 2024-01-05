@@ -4,20 +4,18 @@ import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'maps_est_details_model.dart';
 export 'maps_est_details_model.dart';
 
 class MapsEstDetailsWidget extends StatefulWidget {
   const MapsEstDetailsWidget({
-    Key? key,
+    super.key,
     required this.estRef,
-  }) : super(key: key);
+  });
 
   final EstablishmentsRecord? estRef;
 
@@ -38,7 +36,7 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MapsEstDetails'});
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -85,7 +83,7 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xFFEFEFEF),
+            backgroundColor: const Color(0xFFEFEFEF),
             body: Center(
               child: SizedBox(
                 width: 30.0,
@@ -107,7 +105,7 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
             child: Scaffold(
               key: scaffoldKey,
               resizeToAvoidBottomInset: false,
-              backgroundColor: Color(0xFFEFEFEF),
+              backgroundColor: const Color(0xFFEFEFEF),
               body: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -121,7 +119,7 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                       model: _model.sideNavWebModel,
                       updateCallback: () => setState(() {}),
                       updateOnChange: true,
-                      child: SideNavWebWidget(
+                      child: const SideNavWebWidget(
                         nav1: false,
                         nav2: false,
                         nav3: false,
@@ -131,7 +129,7 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                     child: Container(
                       width: 100.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -141,10 +139,10 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                           ))
                             Expanded(
                               child: Stack(
-                                alignment: AlignmentDirectional(0.0, -0.96),
+                                alignment: const AlignmentDirectional(0.0, -0.96),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       height:
                                           MediaQuery.sizeOf(context).height *
@@ -183,7 +181,7 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                                                   snapshot.data!;
                                               return Builder(
                                                   builder: (context) {
-                                                final _googleMapMarker =
+                                                final googleMapMarker =
                                                     widget.estRef?.location;
                                                 return FlutterFlowGoogleMap(
                                                   controller: _model
@@ -195,12 +193,12 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                                                           .googleMapsCenter1 ??=
                                                       currentUserLocationValue!,
                                                   markers: [
-                                                    if (_googleMapMarker !=
+                                                    if (googleMapMarker !=
                                                         null)
                                                       FlutterFlowMarker(
-                                                        _googleMapMarker
+                                                        googleMapMarker
                                                             .serialize(),
-                                                        _googleMapMarker,
+                                                        googleMapMarker,
                                                       ),
                                                   ],
                                                   markerColor:
@@ -221,11 +219,15 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                                               });
                                             },
                                           ),
-                                          wrapWithModel(
-                                            model: _model.backNavigationModel1,
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            child: BackNavigationWidget(),
+                                          PointerInterceptor(
+                                            intercepting: isWeb,
+                                            child: wrapWithModel(
+                                              model:
+                                                  _model.backNavigationModel1,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const BackNavigationWidget(),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -242,10 +244,10 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                           ))
                             Expanded(
                               child: Stack(
-                                alignment: AlignmentDirectional(0.0, -0.96),
+                                alignment: const AlignmentDirectional(0.0, -0.96),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       height:
                                           MediaQuery.sizeOf(context).height *
@@ -284,7 +286,7 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                                                   snapshot.data!;
                                               return Builder(
                                                   builder: (context) {
-                                                final _googleMapMarker =
+                                                final googleMapMarker =
                                                     widget.estRef?.location;
                                                 return FlutterFlowGoogleMap(
                                                   controller: _model
@@ -296,12 +298,12 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                                                           .googleMapsCenter2 ??=
                                                       currentUserLocationValue!,
                                                   markers: [
-                                                    if (_googleMapMarker !=
+                                                    if (googleMapMarker !=
                                                         null)
                                                       FlutterFlowMarker(
-                                                        _googleMapMarker
+                                                        googleMapMarker
                                                             .serialize(),
-                                                        _googleMapMarker,
+                                                        googleMapMarker,
                                                       ),
                                                   ],
                                                   markerColor:
@@ -322,11 +324,15 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
                                               });
                                             },
                                           ),
-                                          wrapWithModel(
-                                            model: _model.backNavigationModel2,
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            child: BackNavigationWidget(),
+                                          PointerInterceptor(
+                                            intercepting: isWeb,
+                                            child: wrapWithModel(
+                                              model:
+                                                  _model.backNavigationModel2,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const BackNavigationWidget(),
+                                            ),
                                           ),
                                         ],
                                       ),

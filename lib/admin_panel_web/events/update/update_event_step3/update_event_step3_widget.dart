@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -6,20 +5,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_event_step3_model.dart';
 export 'update_event_step3_model.dart';
 
 class UpdateEventStep3Widget extends StatefulWidget {
   const UpdateEventStep3Widget({
-    Key? key,
+    super.key,
     required this.eventstDetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? eventstDetails;
 
@@ -47,6 +43,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
     _model.descriptionFocusNode ??= FocusNode();
 
     _model.nbrEntranceFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -105,24 +102,23 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                         child: AdminSideBarWidget(
                           oneBG:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          oneIcon: Icon(
+                          oneIcon: const Icon(
                             Icons.home_filled,
                           ),
                           twoBG: FlutterFlowTheme.of(context).tertiary400,
-                          twoIcon: Icon(
+                          twoIcon: const Icon(
                             Icons.event,
                           ),
                           threeColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          threeIcon: Icon(
+                          threeIcon: const Icon(
                             Icons.house_outlined,
                           ),
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 15.0, 15.0, 15.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -156,8 +152,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Modification du l\'événement',
                                         style: FlutterFlowTheme.of(context)
@@ -194,7 +189,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                       context.pushNamed(
                                         'Dashboard',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -215,7 +210,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
@@ -265,17 +260,13 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      15.0, 15.0, 15.0, 15.0),
+                                              padding: const EdgeInsets.all(15.0),
                                               child: Form(
                                                 key: _model.formKey,
                                                 autovalidateMode:
                                                     AutovalidateMode.always,
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(15.0, 15.0,
-                                                          15.0, 15.0),
+                                                  padding: const EdgeInsets.all(15.0),
                                                   child: SingleChildScrollView(
                                                     child: Column(
                                                       mainAxisSize:
@@ -310,7 +301,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                         ),
                                                         Container(
                                                           decoration:
-                                                              BoxDecoration(),
+                                                              const BoxDecoration(),
                                                           child: TextFormField(
                                                             controller: _model
                                                                     .promorTitleController ??=
@@ -360,7 +351,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -417,7 +408,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                         ),
                                                         Container(
                                                           decoration:
-                                                              BoxDecoration(),
+                                                              const BoxDecoration(),
                                                           child: TextFormField(
                                                             controller: _model
                                                                     .promorSousTitleController ??=
@@ -467,7 +458,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -524,7 +515,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                         ),
                                                         Container(
                                                           decoration:
-                                                              BoxDecoration(),
+                                                              const BoxDecoration(),
                                                           child: TextFormField(
                                                             controller: _model
                                                                     .descriptionController ??=
@@ -574,7 +565,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -632,7 +623,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                         ),
                                                         Container(
                                                           decoration:
-                                                              BoxDecoration(),
+                                                              const BoxDecoration(),
                                                           child: TextFormField(
                                                             controller: _model
                                                                     .nbrEntranceController ??=
@@ -686,7 +677,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -770,11 +761,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
+                                                                    const EdgeInsets
+                                                                        .all(
                                                                             8.0),
                                                                 child: Row(
                                                                   mainAxisSize:
@@ -813,7 +801,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                         // ouvertureHoraire
                                                                         logFirebaseEvent(
                                                                             'ouvertureHoraire_ouvertureHoraire');
-                                                                        final _datePicked1Date =
+                                                                        final datePicked1Date =
                                                                             await showDatePicker(
                                                                           context:
                                                                               context,
@@ -826,10 +814,10 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                         );
 
                                                                         TimeOfDay?
-                                                                            _datePicked1Time;
-                                                                        if (_datePicked1Date !=
+                                                                            datePicked1Time;
+                                                                        if (datePicked1Date !=
                                                                             null) {
-                                                                          _datePicked1Time =
+                                                                          datePicked1Time =
                                                                               await showTimePicker(
                                                                             context:
                                                                                 context,
@@ -838,19 +826,19 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                           );
                                                                         }
 
-                                                                        if (_datePicked1Date !=
+                                                                        if (datePicked1Date !=
                                                                                 null &&
-                                                                            _datePicked1Time !=
+                                                                            datePicked1Time !=
                                                                                 null) {
                                                                           safeSetState(
                                                                               () {
                                                                             _model.datePicked1 =
                                                                                 DateTime(
-                                                                              _datePicked1Date.year,
-                                                                              _datePicked1Date.month,
-                                                                              _datePicked1Date.day,
-                                                                              _datePicked1Time!.hour,
-                                                                              _datePicked1Time.minute,
+                                                                              datePicked1Date.year,
+                                                                              datePicked1Date.month,
+                                                                              datePicked1Date.day,
+                                                                              datePicked1Time!.hour,
+                                                                              datePicked1Time.minute,
                                                                             );
                                                                           });
                                                                         }
@@ -859,17 +847,14 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                           'Ouverture',
                                                                       options:
                                                                           FFButtonOptions(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
-                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding:
+                                                                            const EdgeInsets.all(8.0),
+                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF57CFAD),
                                                                         textStyle: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
@@ -881,7 +866,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                         elevation:
                                                                             3.0,
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Colors.transparent,
                                                                         ),
@@ -889,7 +874,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             BorderRadius.circular(16.0),
                                                                       ),
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           16.0)),
                                                                 ),
@@ -914,11 +899,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
+                                                                    const EdgeInsets
+                                                                        .all(
                                                                             8.0),
                                                                 child: Row(
                                                                   mainAxisSize:
@@ -957,7 +939,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                         // fermetureHoraire
                                                                         logFirebaseEvent(
                                                                             'fermetureHoraire_fermetureHoraire');
-                                                                        final _datePicked2Date =
+                                                                        final datePicked2Date =
                                                                             await showDatePicker(
                                                                           context:
                                                                               context,
@@ -970,10 +952,10 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                         );
 
                                                                         TimeOfDay?
-                                                                            _datePicked2Time;
-                                                                        if (_datePicked2Date !=
+                                                                            datePicked2Time;
+                                                                        if (datePicked2Date !=
                                                                             null) {
-                                                                          _datePicked2Time =
+                                                                          datePicked2Time =
                                                                               await showTimePicker(
                                                                             context:
                                                                                 context,
@@ -982,19 +964,19 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                           );
                                                                         }
 
-                                                                        if (_datePicked2Date !=
+                                                                        if (datePicked2Date !=
                                                                                 null &&
-                                                                            _datePicked2Time !=
+                                                                            datePicked2Time !=
                                                                                 null) {
                                                                           safeSetState(
                                                                               () {
                                                                             _model.datePicked2 =
                                                                                 DateTime(
-                                                                              _datePicked2Date.year,
-                                                                              _datePicked2Date.month,
-                                                                              _datePicked2Date.day,
-                                                                              _datePicked2Time!.hour,
-                                                                              _datePicked2Time.minute,
+                                                                              datePicked2Date.year,
+                                                                              datePicked2Date.month,
+                                                                              datePicked2Date.day,
+                                                                              datePicked2Time!.hour,
+                                                                              datePicked2Time.minute,
                                                                             );
                                                                           });
                                                                         }
@@ -1003,17 +985,14 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                           'Fermeture',
                                                                       options:
                                                                           FFButtonOptions(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
-                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding:
+                                                                            const EdgeInsets.all(8.0),
+                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF57CFAD),
                                                                         textStyle: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
@@ -1025,7 +1004,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                         elevation:
                                                                             3.0,
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Colors.transparent,
                                                                         ),
@@ -1033,16 +1012,16 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             BorderRadius.circular(16.0),
                                                                       ),
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           16.0)),
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 24.0)),
                                                         ),
-                                                      ].divide(SizedBox(
+                                                      ].divide(const SizedBox(
                                                           height: 15.0)),
                                                     ),
                                                   ),
@@ -1051,9 +1030,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 15.0, 15.0, 15.0),
+                                            padding: const EdgeInsets.all(15.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1086,14 +1063,14 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                           1.0,
                                                       height: 50.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1208,14 +1185,14 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                           1.0,
                                                       height: 50.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1236,7 +1213,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                     .white,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -1247,18 +1224,18 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(width: 10.0)),
+                                              ].divide(const SizedBox(width: 10.0)),
                                             ),
                                           ),
-                                        ].divide(SizedBox(height: 30.0)),
+                                        ].divide(const SizedBox(height: 30.0)),
                                       );
                                     },
                                   ),
                                 ),
                               ),
                             ]
-                                .divide(SizedBox(height: 20.0))
-                                .around(SizedBox(height: 20.0)),
+                                .divide(const SizedBox(height: 20.0))
+                                .around(const SizedBox(height: 20.0)),
                           ),
                         ),
                       ),

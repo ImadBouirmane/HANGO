@@ -102,7 +102,7 @@ Future<FFFirestorePage<EstablishmentsRecord>> queryEstablishmentsRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<EstablishmentsRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -114,7 +114,7 @@ Future<FFFirestorePage<EstablishmentsRecord>> queryEstablishmentsRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -180,7 +180,7 @@ Future<FFFirestorePage<EventsRecord>> queryEventsRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<EventsRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -192,7 +192,7 @@ Future<FFFirestorePage<EventsRecord>> queryEventsRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -258,7 +258,7 @@ Future<FFFirestorePage<UsersRecord>> queryUsersRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<UsersRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -270,7 +270,7 @@ Future<FFFirestorePage<UsersRecord>> queryUsersRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -336,7 +336,7 @@ Future<FFFirestorePage<FeedbackRecord>> queryFeedbackRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<FeedbackRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -348,7 +348,7 @@ Future<FFFirestorePage<FeedbackRecord>> queryFeedbackRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -418,7 +418,7 @@ Future<FFFirestorePage<ScheduleRecord>> queryScheduleRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<ScheduleRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -430,7 +430,7 @@ Future<FFFirestorePage<ScheduleRecord>> queryScheduleRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -500,7 +500,7 @@ Future<FFFirestorePage<ArtistsRecord>> queryArtistsRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<ArtistsRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -512,7 +512,7 @@ Future<FFFirestorePage<ArtistsRecord>> queryArtistsRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -582,7 +582,7 @@ Future<FFFirestorePage<ImagesRecord>> queryImagesRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<ImagesRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -594,7 +594,7 @@ Future<FFFirestorePage<ImagesRecord>> queryImagesRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -664,7 +664,7 @@ Future<FFFirestorePage<MediaRecord>> queryMediaRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<MediaRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -676,7 +676,7 @@ Future<FFFirestorePage<MediaRecord>> queryMediaRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -746,7 +746,7 @@ Future<FFFirestorePage<PromotionEventRecord>> queryPromotionEventRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<PromotionEventRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -758,7 +758,7 @@ Future<FFFirestorePage<PromotionEventRecord>> queryPromotionEventRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -828,7 +828,7 @@ Future<FFFirestorePage<ScheduleEventRecord>> queryScheduleEventRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<ScheduleEventRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -840,7 +840,7 @@ Future<FFFirestorePage<ScheduleEventRecord>> queryScheduleEventRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -906,7 +906,7 @@ Future<FFFirestorePage<ManagerRecord>> queryManagerRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<ManagerRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -918,7 +918,7 @@ Future<FFFirestorePage<ManagerRecord>> queryManagerRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -984,7 +984,7 @@ Future<FFFirestorePage<AdminRecord>> queryAdminRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<AdminRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -996,7 +996,7 @@ Future<FFFirestorePage<AdminRecord>> queryAdminRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -1062,7 +1062,7 @@ Future<FFFirestorePage<NotificationsRecord>> queryNotificationsRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<NotificationsRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -1074,7 +1074,7 @@ Future<FFFirestorePage<NotificationsRecord>> queryNotificationsRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -1144,7 +1144,7 @@ Future<FFFirestorePage<ByManagersRecord>> queryByManagersRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<ByManagersRecord> data) {
-          data.forEach((item) {
+          for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()
                 .map((k, v) => MapEntry(v.reference.id, k));
@@ -1156,7 +1156,7 @@ Future<FFFirestorePage<ByManagersRecord>> queryByManagersRecordPage({
                 for (var item in items) item.reference: item
               }.values.toList();
             }
-          });
+          }
         });
         streamSubscriptions?.add(streamSubscription);
       }
@@ -1273,7 +1273,7 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
   } else {
     docSnapshot = await query.get();
   }
-  final getDocs = (QuerySnapshot s) => s.docs
+  getDocs(QuerySnapshot s) => s.docs
       .map(
         (d) => safeGet(
           () => recordBuilder(d),

@@ -8,19 +8,15 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'user_sign_up_model.dart';
 export 'user_sign_up_model.dart';
 
 class UserSignUpWidget extends StatefulWidget {
-  const UserSignUpWidget({Key? key}) : super(key: key);
+  const UserSignUpWidget({super.key});
 
   @override
   _UserSignUpWidgetState createState() => _UserSignUpWidgetState();
@@ -39,24 +35,34 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'UserSignUp'});
     _model.lastNameController1 ??= TextEditingController();
     _model.lastNameFocusNode1 ??= FocusNode();
+
     _model.firstNameController1 ??= TextEditingController();
     _model.firstNameFocusNode1 ??= FocusNode();
+
     _model.emailAddressController1 ??= TextEditingController();
     _model.emailAddressFocusNode1 ??= FocusNode();
+
     _model.passwordController1 ??= TextEditingController();
     _model.passwordFocusNode1 ??= FocusNode();
+
     _model.confirmPasswordController1 ??= TextEditingController();
     _model.confirmPasswordFocusNode1 ??= FocusNode();
+
     _model.lastNameController2 ??= TextEditingController();
     _model.lastNameFocusNode2 ??= FocusNode();
+
     _model.firstNameController2 ??= TextEditingController();
     _model.firstNameFocusNode2 ??= FocusNode();
+
     _model.emailAddressController2 ??= TextEditingController();
     _model.emailAddressFocusNode2 ??= FocusNode();
+
     _model.passwordController2 ??= TextEditingController();
     _model.passwordFocusNode2 ??= FocusNode();
+
     _model.confirmPasswordController2 ??= TextEditingController();
     _model.confirmPasswordFocusNode2 ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -106,8 +112,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                         FlutterFlowTheme.of(context).secondaryBackground,
                     automaticallyImplyLeading: false,
                     leading: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: FlutterFlowIconButton(
                         borderColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
@@ -130,7 +135,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                         },
                       ),
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -155,8 +160,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              30.0, 30.0, 30.0, 30.0),
+                          padding: const EdgeInsets.all(30.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -192,7 +196,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
                                             'Prêt à faire la fête !',
@@ -211,7 +215,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                   ],
                                 ),
                               ),
-                            ].divide(SizedBox(height: 30.0)),
+                            ].divide(const SizedBox(height: 30.0)),
                           ),
                         ),
                       ),
@@ -233,9 +237,9 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                   .secondaryBackground,
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, -1.00),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -357,7 +361,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -370,7 +374,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -383,7 +387,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -398,7 +402,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -466,7 +470,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -479,7 +483,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -492,7 +496,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -507,7 +511,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -524,7 +528,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           .asValidator(context),
                                                     ),
                                                   ),
-                                                ].divide(SizedBox(width: 2.0)),
+                                                ].divide(const SizedBox(width: 2.0)),
                                               ),
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -532,7 +536,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                   Expanded(
                                                     child: Container(
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child:
                                                           FlutterFlowDropDown<
                                                               String>(
@@ -540,7 +544,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .genreValueController1 ??=
                                                             FormFieldController<
                                                                 String>(null),
-                                                        options: [
+                                                        options: const [
                                                           'Homme',
                                                           'Femme',
                                                           'Non binaire',
@@ -591,7 +595,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         borderWidth: 2.0,
                                                         borderRadius: 40.0,
                                                         margin:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     4.0,
@@ -616,7 +620,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       'USER_SIGN_UP_Container_wymu29d4_ON_TAP');
                                                   logFirebaseEvent(
                                                       'Container_date_time_picker');
-                                                  final _datePicked1Date =
+                                                  final datePicked1Date =
                                                       await showDatePicker(
                                                     context: context,
                                                     initialDate:
@@ -625,14 +629,14 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     lastDate: DateTime(2050),
                                                   );
 
-                                                  if (_datePicked1Date !=
+                                                  if (datePicked1Date !=
                                                       null) {
                                                     safeSetState(() {
                                                       _model.datePicked1 =
                                                           DateTime(
-                                                        _datePicked1Date.year,
-                                                        _datePicked1Date.month,
-                                                        _datePicked1Date.day,
+                                                        datePicked1Date.year,
+                                                        datePicked1Date.month,
+                                                        datePicked1Date.day,
                                                       );
                                                     });
                                                   }
@@ -659,12 +663,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -676,14 +675,6 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           valueOrDefault<
                                                               String>(
                                                             dateTimeFormat(
-                                                                          'd/M/y',
-                                                                          _model
-                                                                              .datePicked1,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        ) !=
-                                                                        null &&
-                                                                    dateTimeFormat(
                                                                           'd/M/y',
                                                                           _model
                                                                               .datePicked1,
@@ -730,7 +721,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 'USER_SIGN_UP_PAGE_Icon_ewsj2h6a_ON_TAP');
                                                             logFirebaseEvent(
                                                                 'Icon_date_time_picker');
-                                                            final _datePicked2Date =
+                                                            final datePicked2Date =
                                                                 await showDatePicker(
                                                               context: context,
                                                               initialDate:
@@ -743,16 +734,16 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                       2050),
                                                             );
 
-                                                            if (_datePicked2Date !=
+                                                            if (datePicked2Date !=
                                                                 null) {
                                                               safeSetState(() {
                                                                 _model.datePicked2 =
                                                                     DateTime(
-                                                                  _datePicked2Date
+                                                                  datePicked2Date
                                                                       .year,
-                                                                  _datePicked2Date
+                                                                  datePicked2Date
                                                                       .month,
-                                                                  _datePicked2Date
+                                                                  datePicked2Date
                                                                       .day,
                                                                 );
                                                               });
@@ -827,7 +818,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -840,7 +831,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -853,7 +844,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -868,7 +859,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -946,7 +937,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -959,7 +950,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -972,7 +963,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -987,7 +978,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -1086,7 +1077,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1099,7 +1090,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1112,7 +1103,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1127,7 +1118,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -1168,8 +1159,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 ],
                                               ),
                                             ]
-                                                .divide(SizedBox(height: 8.0))
-                                                .around(SizedBox(height: 8.0)),
+                                                .divide(const SizedBox(height: 8.0))
+                                                .around(const SizedBox(height: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -1211,7 +1202,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
-                                                          SnackBar(
+                                                          const SnackBar(
                                                             content: Text(
                                                               'Passwords don\'t match!',
                                                             ),
@@ -1253,15 +1244,10 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .datePicked2,
                                                             gender: _model
                                                                 .genreValue1,
-                                                            age: functions.ageCalculated(
-                                                                        _model
-                                                                            .datePicked2) !=
-                                                                    null
-                                                                ? functions
+                                                            age: functions
                                                                     .ageCalculated(
                                                                         _model
-                                                                            .datePicked2)
-                                                                : null,
+                                                                            .datePicked2),
                                                             firstName: _model
                                                                 .firstNameController1
                                                                 .text,
@@ -1279,14 +1265,14 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     options: FFButtonOptions(
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1311,7 +1297,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                         .normal,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -1325,7 +1311,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 12.0, 0.0, 12.0),
                                               child: Row(
@@ -1395,7 +1381,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 4.0, 0.0),
                                                     child: InkWell(
@@ -1442,7 +1428,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBtnText,
-                                                          boxShadow: [
+                                                          boxShadow: const [
                                                             BoxShadow(
                                                               blurRadius: 5.0,
                                                               color: Color(
@@ -1464,8 +1450,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           ),
                                                         ),
                                                         alignment:
-                                                            AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                            const AlignmentDirectional(
+                                                                0.0, 0.0),
                                                         child: Image.network(
                                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/qp5xdafi6s9t/google.png',
                                                           width: 30.0,
@@ -1480,11 +1466,11 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                   Expanded(
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1535,7 +1521,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryBtnText,
-                                                              boxShadow: [
+                                                              boxShadow: const [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       5.0,
@@ -1561,13 +1547,12 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                               ),
                                                             ),
                                                             alignment:
-                                                                AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
                                                             child: Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                  const AlignmentDirectional(
+                                                                      0.0, 0.0),
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
                                                                     .apple,
@@ -1584,7 +1569,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                   ),
                                               ],
                                             ),
-                                          ].divide(SizedBox(height: 5.0)),
+                                          ].divide(const SizedBox(height: 5.0)),
                                         ),
                                       ),
                                     ),
@@ -1609,7 +1594,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -1643,7 +1628,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -1679,11 +1664,11 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                         ),
                                       ),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                   ]
-                                      .divide(SizedBox(height: 15.0))
-                                      .addToStart(SizedBox(height: 15.0))
-                                      .addToEnd(SizedBox(height: 30.0)),
+                                      .divide(const SizedBox(height: 15.0))
+                                      .addToStart(const SizedBox(height: 15.0))
+                                      .addToEnd(const SizedBox(height: 30.0)),
                                 ),
                               ),
                             ),
@@ -1702,9 +1687,9 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                   .secondaryBackground,
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, -1.00),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -1826,7 +1811,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1839,7 +1824,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1852,7 +1837,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1867,7 +1852,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -1935,7 +1920,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1948,7 +1933,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1961,7 +1946,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -1976,7 +1961,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -1993,7 +1978,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           .asValidator(context),
                                                     ),
                                                   ),
-                                                ].divide(SizedBox(width: 2.0)),
+                                                ].divide(const SizedBox(width: 2.0)),
                                               ),
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2001,7 +1986,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                   Expanded(
                                                     child: Container(
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child:
                                                           FlutterFlowDropDown<
                                                               String>(
@@ -2009,7 +1994,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .genreValueController2 ??=
                                                             FormFieldController<
                                                                 String>(null),
-                                                        options: [
+                                                        options: const [
                                                           'Homme',
                                                           'Femme',
                                                           'Non binaire',
@@ -2060,7 +2045,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         borderWidth: 2.0,
                                                         borderRadius: 40.0,
                                                         margin:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     4.0,
@@ -2085,7 +2070,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       'USER_SIGN_UP_Container_91rif1vb_ON_TAP');
                                                   logFirebaseEvent(
                                                       'Container_date_time_picker');
-                                                  final _datePicked3Date =
+                                                  final datePicked3Date =
                                                       await showDatePicker(
                                                     context: context,
                                                     initialDate:
@@ -2094,14 +2079,14 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     lastDate: DateTime(2050),
                                                   );
 
-                                                  if (_datePicked3Date !=
+                                                  if (datePicked3Date !=
                                                       null) {
                                                     safeSetState(() {
                                                       _model.datePicked3 =
                                                           DateTime(
-                                                        _datePicked3Date.year,
-                                                        _datePicked3Date.month,
-                                                        _datePicked3Date.day,
+                                                        datePicked3Date.year,
+                                                        datePicked3Date.month,
+                                                        datePicked3Date.day,
                                                       );
                                                     });
                                                   }
@@ -2128,12 +2113,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2186,7 +2166,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                             // iconWebPicked
                                                             logFirebaseEvent(
                                                                 'iconWebPicked_iconWebPicked');
-                                                            final _datePicked4Date =
+                                                            final datePicked4Date =
                                                                 await showDatePicker(
                                                               context: context,
                                                               initialDate:
@@ -2199,16 +2179,16 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                       2050),
                                                             );
 
-                                                            if (_datePicked4Date !=
+                                                            if (datePicked4Date !=
                                                                 null) {
                                                               safeSetState(() {
                                                                 _model.datePicked4 =
                                                                     DateTime(
-                                                                  _datePicked4Date
+                                                                  datePicked4Date
                                                                       .year,
-                                                                  _datePicked4Date
+                                                                  datePicked4Date
                                                                       .month,
-                                                                  _datePicked4Date
+                                                                  datePicked4Date
                                                                       .day,
                                                                 );
                                                               });
@@ -2283,7 +2263,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2296,7 +2276,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2309,7 +2289,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2324,7 +2304,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -2402,7 +2382,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2415,7 +2395,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2428,7 +2408,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2443,7 +2423,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -2542,7 +2522,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2555,7 +2535,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2568,7 +2548,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0x00000000),
                                                             width: 2.0,
@@ -2583,7 +2563,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     16.0,
@@ -2624,8 +2604,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 ],
                                               ),
                                             ]
-                                                .divide(SizedBox(height: 8.0))
-                                                .around(SizedBox(height: 8.0)),
+                                                .divide(const SizedBox(height: 8.0))
+                                                .around(const SizedBox(height: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -2667,7 +2647,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
-                                                          SnackBar(
+                                                          const SnackBar(
                                                             content: Text(
                                                               'Passwords don\'t match!',
                                                             ),
@@ -2709,15 +2689,10 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .datePicked2,
                                                             gender: _model
                                                                 .genreValue1,
-                                                            age: functions.ageCalculated(
-                                                                        _model
-                                                                            .datePicked2) !=
-                                                                    null
-                                                                ? functions
+                                                            age: functions
                                                                     .ageCalculated(
                                                                         _model
-                                                                            .datePicked2)
-                                                                : null,
+                                                                            .datePicked2),
                                                             firstName: _model
                                                                 .firstNameController1
                                                                 .text,
@@ -2735,14 +2710,14 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                     options: FFButtonOptions(
                                                       height: 40.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2767,7 +2742,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                         .normal,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -2781,7 +2756,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 12.0, 0.0, 12.0),
                                               child: Row(
@@ -2851,7 +2826,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 4.0, 0.0),
                                                     child: InkWell(
@@ -2898,7 +2873,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBtnText,
-                                                          boxShadow: [
+                                                          boxShadow: const [
                                                             BoxShadow(
                                                               blurRadius: 5.0,
                                                               color: Color(
@@ -2920,8 +2895,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           ),
                                                         ),
                                                         alignment:
-                                                            AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                            const AlignmentDirectional(
+                                                                0.0, 0.0),
                                                         child: Image.network(
                                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/qp5xdafi6s9t/google.png',
                                                           width: 30.0,
@@ -2936,11 +2911,11 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                   Expanded(
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -2991,7 +2966,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryBtnText,
-                                                              boxShadow: [
+                                                              boxShadow: const [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       5.0,
@@ -3017,13 +2992,12 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                               ),
                                                             ),
                                                             alignment:
-                                                                AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
                                                             child: Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                  const AlignmentDirectional(
+                                                                      0.0, 0.0),
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
                                                                     .apple,
@@ -3040,7 +3014,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                   ),
                                               ],
                                             ),
-                                          ].divide(SizedBox(height: 5.0)),
+                                          ].divide(const SizedBox(height: 5.0)),
                                         ),
                                       ),
                                     ),
@@ -3065,7 +3039,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -3107,7 +3081,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -3148,7 +3122,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                         ),
                                       ],
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -3247,9 +3221,9 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                       ],
                                     ),
                                   ]
-                                      .divide(SizedBox(height: 15.0))
-                                      .addToStart(SizedBox(height: 15.0))
-                                      .addToEnd(SizedBox(height: 40.0)),
+                                      .divide(const SizedBox(height: 15.0))
+                                      .addToStart(const SizedBox(height: 15.0))
+                                      .addToEnd(const SizedBox(height: 40.0)),
                                 ),
                               ),
                             ),

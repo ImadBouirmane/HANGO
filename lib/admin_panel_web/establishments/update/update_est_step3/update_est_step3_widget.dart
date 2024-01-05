@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
@@ -10,20 +9,18 @@ import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_est_step3_model.dart';
 export 'update_est_step3_model.dart';
 
 class UpdateEstStep3Widget extends StatefulWidget {
   const UpdateEstStep3Widget({
-    Key? key,
+    super.key,
     required this.establishmentDetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? establishmentDetails;
 
@@ -130,25 +127,24 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                             child: AdminSideBarWidget(
                               oneBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              oneIcon: Icon(
+                              oneIcon: const Icon(
                                 Icons.home_filled,
                               ),
                               twoBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              twoIcon: Icon(
+                              twoIcon: const Icon(
                                 Icons.event,
                               ),
                               threeColor:
                                   FlutterFlowTheme.of(context).tertiary400,
-                              threeIcon: Icon(
+                              threeIcon: const Icon(
                                 Icons.house_outlined,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 15.0, 15.0, 15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -182,7 +178,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'Modification du l\'établissement',
                                             style: FlutterFlowTheme.of(context)
@@ -221,7 +217,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                             'Dashboard',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -244,7 +240,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -269,7 +265,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                               autovalidateMode:
                                                   AutovalidateMode.always,
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 20.0),
                                                 child: SingleChildScrollView(
@@ -282,7 +278,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -335,15 +331,15 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                    const AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: GridView(
                                                                   padding:
                                                                       EdgeInsets
                                                                           .zero,
                                                                   gridDelegate:
-                                                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                                                      const SliverGridDelegateWithFixedCrossAxisCount(
                                                                     crossAxisCount:
                                                                         4,
                                                                     crossAxisSpacing:
@@ -361,8 +357,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                     Stack(
                                                                       children: [
                                                                         if ((updateEstStep3ImagesRecord?.image1 == null || updateEstStep3ImagesRecord?.image1 == '') &&
-                                                                            (_model.uploadedFileUrl1 != null &&
-                                                                                _model.uploadedFileUrl1 != ''))
+                                                                            (_model.uploadedFileUrl1 != ''))
                                                                           Stack(
                                                                             children: [
                                                                               FlutterFlowMediaDisplay(
@@ -398,7 +393,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 40.0,
@@ -426,8 +421,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                             ],
                                                                           ),
                                                                         if ((updateEstStep3ImagesRecord?.image1 == null || updateEstStep3ImagesRecord?.image1 == '') &&
-                                                                            (_model.uploadedFileUrl1 == null ||
-                                                                                _model.uploadedFileUrl1 == ''))
+                                                                            (_model.uploadedFileUrl1 == ''))
                                                                           Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
@@ -444,7 +438,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 30.0,
@@ -515,13 +509,12 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                 ),
-                                                                              ].divide(SizedBox(height: 10.0)),
+                                                                              ].divide(const SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
                                                                         if ((updateEstStep3ImagesRecord?.image1 != null && updateEstStep3ImagesRecord?.image1 != '') &&
-                                                                            (_model.uploadedFileUrl1 == null ||
-                                                                                _model.uploadedFileUrl1 == ''))
-                                                                          Container(
+                                                                            (_model.uploadedFileUrl1 == ''))
+                                                                          SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
                                                                             height:
@@ -559,7 +552,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -587,14 +580,14 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                                         color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                       ),
                                                                                                 ),
-                                                                                                duration: Duration(milliseconds: 1950),
+                                                                                                duration: const Duration(milliseconds: 1950),
                                                                                                 backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                               ),
                                                                                             );
                                                                                           },
                                                                                         ),
                                                                                       ),
-                                                                                    ].divide(SizedBox(height: 10.0)),
+                                                                                    ].divide(const SizedBox(height: 10.0)),
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -604,7 +597,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                     ),
                                                                     Stack(
                                                                       children: [
-                                                                        if ((_model.uploadedFileUrl2 != null && _model.uploadedFileUrl2 != '') &&
+                                                                        if ((_model.uploadedFileUrl2 != '') &&
                                                                             (updateEstStep3ImagesRecord?.image2 == null ||
                                                                                 updateEstStep3ImagesRecord?.image2 == ''))
                                                                           Stack(
@@ -642,7 +635,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 20.0,
@@ -669,7 +662,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        if ((_model.uploadedFileUrl2 == null || _model.uploadedFileUrl2 == '') &&
+                                                                        if ((_model.uploadedFileUrl2 == '') &&
                                                                             (updateEstStep3ImagesRecord?.image2 == null ||
                                                                                 updateEstStep3ImagesRecord?.image2 == ''))
                                                                           Container(
@@ -688,7 +681,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 30.0,
@@ -759,13 +752,13 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                 ),
-                                                                              ].divide(SizedBox(height: 10.0)),
+                                                                              ].divide(const SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
-                                                                        if ((_model.uploadedFileUrl2 == null || _model.uploadedFileUrl2 == '') &&
+                                                                        if ((_model.uploadedFileUrl2 == '') &&
                                                                             (updateEstStep3ImagesRecord?.image2 != null &&
                                                                                 updateEstStep3ImagesRecord?.image2 != ''))
-                                                                          Container(
+                                                                          SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
                                                                             height:
@@ -797,7 +790,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -830,14 +823,14 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                                         color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                       ),
                                                                                                 ),
-                                                                                                duration: Duration(milliseconds: 1950),
+                                                                                                duration: const Duration(milliseconds: 1950),
                                                                                                 backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                               ),
                                                                                             );
                                                                                           },
                                                                                         ),
                                                                                       ),
-                                                                                    ].divide(SizedBox(height: 10.0)),
+                                                                                    ].divide(const SizedBox(height: 10.0)),
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -847,7 +840,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                     ),
                                                                     Stack(
                                                                       children: [
-                                                                        if ((_model.uploadedFileUrl3 != null && _model.uploadedFileUrl3 != '') &&
+                                                                        if ((_model.uploadedFileUrl3 != '') &&
                                                                             (updateEstStep3ImagesRecord?.image3 != null &&
                                                                                 updateEstStep3ImagesRecord?.image3 != ''))
                                                                           Stack(
@@ -882,7 +875,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 20.0,
@@ -909,7 +902,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        if ((_model.uploadedFileUrl3 == null || _model.uploadedFileUrl3 == '') &&
+                                                                        if ((_model.uploadedFileUrl3 == '') &&
                                                                             (updateEstStep3ImagesRecord?.image3 == null ||
                                                                                 updateEstStep3ImagesRecord?.image3 == ''))
                                                                           Container(
@@ -928,7 +921,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 30.0,
@@ -999,13 +992,13 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                 ),
-                                                                              ].divide(SizedBox(height: 10.0)),
+                                                                              ].divide(const SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
-                                                                        if ((_model.uploadedFileUrl3 == null || _model.uploadedFileUrl3 == '') &&
+                                                                        if ((_model.uploadedFileUrl3 == '') &&
                                                                             (updateEstStep3ImagesRecord?.image3 != null &&
                                                                                 updateEstStep3ImagesRecord?.image3 != ''))
-                                                                          Container(
+                                                                          SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
                                                                             height:
@@ -1037,7 +1030,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -1070,14 +1063,14 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                                         color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                       ),
                                                                                                 ),
-                                                                                                duration: Duration(milliseconds: 1950),
+                                                                                                duration: const Duration(milliseconds: 1950),
                                                                                                 backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                               ),
                                                                                             );
                                                                                           },
                                                                                         ),
                                                                                       ),
-                                                                                    ].divide(SizedBox(height: 10.0)),
+                                                                                    ].divide(const SizedBox(height: 10.0)),
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -1087,7 +1080,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                     ),
                                                                     Stack(
                                                                       children: [
-                                                                        if ((_model.uploadedFileUrl4 != null && _model.uploadedFileUrl4 != '') &&
+                                                                        if ((_model.uploadedFileUrl4 != '') &&
                                                                             (updateEstStep3ImagesRecord?.image4 == null ||
                                                                                 updateEstStep3ImagesRecord?.image4 == ''))
                                                                           Stack(
@@ -1125,7 +1118,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                   borderRadius: BorderRadius.circular(15.0),
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 20.0,
@@ -1152,7 +1145,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        if ((_model.uploadedFileUrl4 == null || _model.uploadedFileUrl4 == '') &&
+                                                                        if ((_model.uploadedFileUrl4 == '') &&
                                                                             (updateEstStep3ImagesRecord?.image4 == null ||
                                                                                 updateEstStep3ImagesRecord?.image4 == ''))
                                                                           Container(
@@ -1171,7 +1164,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: FlutterFlowIconButton(
                                                                                     borderColor: Colors.transparent,
                                                                                     borderRadius: 30.0,
@@ -1242,13 +1235,13 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
                                                                                 ),
-                                                                              ].divide(SizedBox(height: 10.0)),
+                                                                              ].divide(const SizedBox(height: 10.0)),
                                                                             ),
                                                                           ),
-                                                                        if ((_model.uploadedFileUrl4 == null || _model.uploadedFileUrl4 == '') &&
+                                                                        if ((_model.uploadedFileUrl4 == '') &&
                                                                             (updateEstStep3ImagesRecord?.image4 != null &&
                                                                                 updateEstStep3ImagesRecord?.image4 != ''))
-                                                                          Container(
+                                                                          SizedBox(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 0.3,
                                                                             height:
@@ -1280,7 +1273,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                         child: FlutterFlowIconButton(
                                                                                           borderColor: Colors.transparent,
                                                                                           borderRadius: 30.0,
@@ -1313,14 +1306,14 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                                         color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                       ),
                                                                                                 ),
-                                                                                                duration: Duration(milliseconds: 1950),
+                                                                                                duration: const Duration(milliseconds: 1950),
                                                                                                 backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                               ),
                                                                                             );
                                                                                           },
                                                                                         ),
                                                                                       ),
-                                                                                    ].divide(SizedBox(height: 10.0)),
+                                                                                    ].divide(const SizedBox(height: 10.0)),
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -1333,7 +1326,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                               ),
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 50.0)),
                                                       ),
                                                       Row(
@@ -1343,7 +1336,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1361,10 +1354,8 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                         updateEstStep3ImagesRecord?.video !=
                                                                             '') &&
                                                                     (_model.uploadedFileUrl5 ==
-                                                                            null ||
-                                                                        _model.uploadedFileUrl5 ==
                                                                             ''))
-                                                                  Container(
+                                                                  SizedBox(
                                                                     width: MediaQuery.sizeOf(context)
                                                                             .width *
                                                                         0.3,
@@ -1386,8 +1377,8 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                 BorderRadius.circular(15.0),
                                                                             child:
                                                                                 CachedNetworkImage(
-                                                                              fadeInDuration: Duration(milliseconds: 500),
-                                                                              fadeOutDuration: Duration(milliseconds: 500),
+                                                                              fadeInDuration: const Duration(milliseconds: 500),
+                                                                              fadeOutDuration: const Duration(milliseconds: 500),
                                                                               imageUrl: path,
                                                                               width: MediaQuery.sizeOf(context).width * 0.3,
                                                                               height: MediaQuery.sizeOf(context).height * 0.3,
@@ -1429,7 +1420,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                           child:
                                                                               Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                                const AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 FlutterFlowIconButton(
                                                                               borderColor: Colors.transparent,
@@ -1457,7 +1448,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                             color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           ),
                                                                                     ),
-                                                                                    duration: Duration(milliseconds: 1950),
+                                                                                    duration: const Duration(milliseconds: 1950),
                                                                                     backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                   ),
                                                                                 );
@@ -1473,8 +1464,6 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                         updateEstStep3ImagesRecord?.video ==
                                                                             '') &&
                                                                     (_model.uploadedFileUrl5 ==
-                                                                            null ||
-                                                                        _model.uploadedFileUrl5 ==
                                                                             ''))
                                                                   Container(
                                                                     width: MediaQuery.sizeOf(context)
@@ -1503,9 +1492,9 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                       children:
                                                                           [
                                                                         Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                          alignment: const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               FlutterFlowIconButton(
                                                                             borderColor:
@@ -1585,7 +1574,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                               ),
                                                                         ),
-                                                                      ].divide(SizedBox(
+                                                                      ].divide(const SizedBox(
                                                                               height: 10.0)),
                                                                     ),
                                                                   ),
@@ -1594,10 +1583,8 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                         updateEstStep3ImagesRecord?.video ==
                                                                             '') &&
                                                                     (_model.uploadedFileUrl5 !=
-                                                                            null &&
-                                                                        _model.uploadedFileUrl5 !=
                                                                             ''))
-                                                                  Container(
+                                                                  SizedBox(
                                                                     width: MediaQuery.sizeOf(context)
                                                                             .width *
                                                                         0.3,
@@ -1660,7 +1647,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                                           child:
                                                                               Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                                const AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 FlutterFlowIconButton(
                                                                               borderColor: Colors.transparent,
@@ -1692,13 +1679,13 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                               ],
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 50.0)),
                                                       ),
                                                     ]
-                                                        .divide(SizedBox(
+                                                        .divide(const SizedBox(
                                                             height: 15.0))
-                                                        .around(SizedBox(
+                                                        .around(const SizedBox(
                                                             height: 15.0)),
                                                   ),
                                                 ),
@@ -1707,9 +1694,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
 
                                             // still some calls for schedule I will complete next two hours
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      15.0, 15.0, 15.0, 15.0),
+                                              padding: const EdgeInsets.all(15.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   logFirebaseEvent(
@@ -1723,85 +1708,75 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                           createImagesRecordData(
                                                     image1: () {
                                                       if (_model.uploadedFileUrl1 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl1 !=
                                                               '') {
                                                         return _model
                                                             .uploadedFileUrl1;
                                                       } else if (updateEstStep3ImagesRecord
-                                                              ?.image1 ==
+                                                              .image1 ==
                                                           updateEstStep3ImagesRecord
-                                                              ?.image1) {
+                                                              .image1) {
                                                         return updateEstStep3ImagesRecord
-                                                            ?.image1;
+                                                            .image1;
                                                       } else {
                                                         return null;
                                                       }
                                                     }(),
                                                     image2: () {
                                                       if (_model.uploadedFileUrl2 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl2 !=
                                                               '') {
                                                         return _model
                                                             .uploadedFileUrl2;
                                                       } else if (updateEstStep3ImagesRecord
-                                                              ?.image2 ==
+                                                              .image2 ==
                                                           updateEstStep3ImagesRecord
-                                                              ?.image2) {
+                                                              .image2) {
                                                         return updateEstStep3ImagesRecord
-                                                            ?.image2;
+                                                            .image2;
                                                       } else {
                                                         return null;
                                                       }
                                                     }(),
                                                     image3: () {
                                                       if (_model.uploadedFileUrl3 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl3 !=
                                                               '') {
                                                         return _model
                                                             .uploadedFileUrl3;
                                                       } else if (updateEstStep3ImagesRecord
-                                                              ?.image3 ==
+                                                              .image3 ==
                                                           updateEstStep3ImagesRecord
-                                                              ?.image3) {
+                                                              .image3) {
                                                         return updateEstStep3ImagesRecord
-                                                            ?.image3;
+                                                            .image3;
                                                       } else {
                                                         return null;
                                                       }
                                                     }(),
                                                     image4: () {
                                                       if (_model.uploadedFileUrl4 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl4 !=
                                                               '') {
                                                         return _model
                                                             .uploadedFileUrl4;
                                                       } else if (updateEstStep3ImagesRecord
-                                                              ?.image4 ==
+                                                              .image4 ==
                                                           updateEstStep3ImagesRecord
-                                                              ?.image4) {
+                                                              .image4) {
                                                         return updateEstStep3ImagesRecord
-                                                            ?.image4;
+                                                            .image4;
                                                       } else {
                                                         return null;
                                                       }
                                                     }(),
                                                     video: () {
                                                       if (_model.uploadedFileUrl5 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl5 !=
                                                               '') {
                                                         return _model
                                                             .uploadedFileUrl5;
                                                       } else if (updateEstStep3ImagesRecord
-                                                              ?.video ==
+                                                              .video ==
                                                           updateEstStep3ImagesRecord
-                                                              ?.video) {
+                                                              .video) {
                                                         return updateEstStep3ImagesRecord
-                                                            ?.video;
+                                                            .video;
                                                       } else {
                                                         return null;
                                                       }
@@ -1825,11 +1800,11 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                               .width *
                                                           1.0,
                                                   height: 50.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           24.0, 0.0, 24.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -1843,7 +1818,7 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                                         color: Colors.white,
                                                       ),
                                                   elevation: 3.0,
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -1859,8 +1834,8 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(height: 20.0))
-                                    .around(SizedBox(height: 20.0)),
+                                    .divide(const SizedBox(height: 20.0))
+                                    .around(const SizedBox(height: 20.0)),
                               ),
                             ),
                           ),

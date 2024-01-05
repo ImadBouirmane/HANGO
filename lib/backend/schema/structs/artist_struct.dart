@@ -35,7 +35,7 @@ class ArtistStruct extends FFFirebaseStruct {
       );
 
   static ArtistStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? ArtistStruct.fromMap(data) : null;
+      data is Map ? ArtistStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'name': _name,
@@ -80,7 +80,7 @@ class ArtistStruct extends FFFirebaseStruct {
           ParamType.DateTime,
           false,
         ),
-        firestoreUtilData: FirestoreUtilData(
+        firestoreUtilData: const FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
         ),

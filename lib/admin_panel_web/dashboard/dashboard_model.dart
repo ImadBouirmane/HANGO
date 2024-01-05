@@ -1,23 +1,9 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
-import '/components/confirmation/delete_confirmation_establishement/delete_confirmation_establishement_widget.dart';
-import '/components/delete_confirmation_event/delete_confirmation_event_widget.dart';
-import '/components/empty_lists/empty_list/empty_list_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'dashboard_widget.dart' show DashboardWidget;
-import 'package:badges/badges.dart' as badges;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
 
 class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   ///  Local state fields for this page.
@@ -44,14 +30,18 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     adminSideBarModel.dispose();
-    listViewStreamSubscriptions3.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions3) {
+      s?.cancel();
+    }
     listViewPagingController3?.dispose();
   }
 

@@ -133,18 +133,18 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFE21C3D);
   late Color info = const Color(0xFF1C4494);
 
-  late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFFE0E3E7);
-  late Color grayIcon = Color(0xFF95A1AC);
-  late Color gray200 = Color(0xFFDBE2E7);
-  late Color gray600 = Color(0xFF262D34);
-  late Color black600 = Color(0xFF090F13);
-  late Color tertiary400 = Color(0xFF39D2C0);
-  late Color textColor = Color(0xFF1E2429);
-  late Color primaryTransparent = Color(0x5D39D2C0);
-  late Color secondaryTransparent = Color(0x7610212E);
-  late Color customColor1 = Color(0xFF2FB73C);
-  late Color secondayTransparent = Color(0x2E39D2C0);
+  late Color primaryBtnText = const Color(0xFFFFFFFF);
+  late Color lineColor = const Color(0xFFE0E3E7);
+  late Color grayIcon = const Color(0xFF95A1AC);
+  late Color gray200 = const Color(0xFFDBE2E7);
+  late Color gray600 = const Color(0xFF262D34);
+  late Color black600 = const Color(0xFF090F13);
+  late Color tertiary400 = const Color(0xFF39D2C0);
+  late Color textColor = const Color(0xFF1E2429);
+  late Color primaryTransparent = const Color(0x5D39D2C0);
+  late Color secondaryTransparent = const Color(0x7610212E);
+  late Color customColor1 = const Color(0xFF2FB73C);
+  late Color secondayTransparent = const Color(0x2E39D2C0);
 }
 
 abstract class Typography {

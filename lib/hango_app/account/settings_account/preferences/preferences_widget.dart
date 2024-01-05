@@ -1,16 +1,14 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'preferences_model.dart';
 export 'preferences_model.dart';
 
 class PreferencesWidget extends StatefulWidget {
-  const PreferencesWidget({Key? key}) : super(key: key);
+  const PreferencesWidget({super.key});
 
   @override
   _PreferencesWidgetState createState() => _PreferencesWidgetState();
@@ -68,7 +66,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 50.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Color(0xFF57CFAD),
                   size: 25.0,
@@ -86,14 +84,14 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                       color: FlutterFlowTheme.of(context).primary,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -103,7 +101,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                     ))
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -116,8 +114,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 15.0, 15.0, 15.0),
+                                padding: const EdgeInsets.all(15.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -139,7 +136,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                           value: _model.switchValue1 ??= false,
                                           onChanged: (newValue) async {
                                             setState(() => _model.switchValue1 =
-                                                newValue!);
+                                                newValue);
                                           },
                                           activeColor:
                                               FlutterFlowTheme.of(context)
@@ -174,7 +171,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                           value: _model.switchValue2 ??= false,
                                           onChanged: (newValue) async {
                                             setState(() => _model.switchValue2 =
-                                                newValue!);
+                                                newValue);
                                           },
                                           activeColor:
                                               FlutterFlowTheme.of(context)
@@ -205,10 +202,10 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                       tabletLandscape: false,
                     ))
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.5,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -221,8 +218,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 15.0, 15.0, 15.0),
+                                  padding: const EdgeInsets.all(15.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -247,7 +243,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                                 false,
                                             onChanged: (newValue) async {
                                               setState(() => _model
-                                                  .switchValue3 = newValue!);
+                                                  .switchValue3 = newValue);
                                             },
                                             activeColor:
                                                 FlutterFlowTheme.of(context)
@@ -285,7 +281,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                                 false,
                                             onChanged: (newValue) async {
                                               setState(() => _model
-                                                  .switchValue4 = newValue!);
+                                                  .switchValue4 = newValue);
                                             },
                                             activeColor:
                                                 FlutterFlowTheme.of(context)

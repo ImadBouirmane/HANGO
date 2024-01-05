@@ -1,32 +1,13 @@
-import '/auth/base_auth_user_provider.dart';
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
 import '/components/back_navigation_widget.dart';
-import '/components/empty_lists/empty_list/empty_list_widget.dart';
 import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:smooth_page_indicator/smooth_page_indicator.dart'
-    as smooth_page_indicator;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'show_of_events_widget.dart' show ShowOfEventsWidget;
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
   ///  State fields for stateful widgets in this page.
@@ -63,6 +44,9 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
       ? pageViewController!.page!.round()
       : 0;
   String currentPageLink = '';
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   // Stores action output result for [Backend Call - API (Send Email)] action in Button widget.
   ApiCallResponse? sendingEmailPromotionWeb;
   // State field(s) for Timer widget.
@@ -76,7 +60,7 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController2;
+  late ExpandableController expandableController3;
 
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter2;
@@ -84,19 +68,22 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
     backNavigationModel = createModel(context, () => BackNavigationModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
     backNavigationModel.dispose();
     expandableController1.dispose();
     timerController1.dispose();
-    timerController2.dispose();
     expandableController2.dispose();
+    timerController2.dispose();
+    expandableController3.dispose();
   }
 
   /// Action blocks are added here.

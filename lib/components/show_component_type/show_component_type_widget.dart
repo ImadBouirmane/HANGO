@@ -2,14 +2,12 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'show_component_type_model.dart';
 export 'show_component_type_model.dart';
 
 class ShowComponentTypeWidget extends StatefulWidget {
-  const ShowComponentTypeWidget({Key? key}) : super(key: key);
+  const ShowComponentTypeWidget({super.key});
 
   @override
   _ShowComponentTypeWidgetState createState() =>
@@ -77,8 +75,8 @@ class _ShowComponentTypeWidgetState extends State<ShowComponentTypeWidget> {
           width: double.infinity,
           height: 80.0,
           decoration: BoxDecoration(
-            color: Color(0x5D39D2C0),
-            boxShadow: [
+            color: const Color(0x5D39D2C0),
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 4.0,
                 color: Color(0x33000000),
@@ -88,7 +86,7 @@ class _ShowComponentTypeWidgetState extends State<ShowComponentTypeWidget> {
             borderRadius: BorderRadius.circular(8.0),
             shape: BoxShape.rectangle,
             border: Border.all(
-              color: Color(0xFF57CFAD),
+              color: const Color(0xFF57CFAD),
               width: 3.0,
             ),
           ),
@@ -98,14 +96,14 @@ class _ShowComponentTypeWidgetState extends State<ShowComponentTypeWidget> {
             children: [
               Text(
                 valueOrDefault<String>(
-                  typesContainerEstablishmentsRecord?.type?.first,
+                  typesContainerEstablishmentsRecord?.type.first,
                   '*',
                 ),
                 style: FlutterFlowTheme.of(context).titleMedium,
               ),
               Text(
                 valueOrDefault<String>(
-                  typesContainerEstablishmentsRecord?.type?.last,
+                  typesContainerEstablishmentsRecord?.type.last,
                   '*',
                 ),
                 style: FlutterFlowTheme.of(context).titleSmall,

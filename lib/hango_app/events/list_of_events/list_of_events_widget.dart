@@ -1,4 +1,3 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
@@ -13,29 +12,30 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'lists_events_model.dart';
-export 'lists_events_model.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
+import 'list_of_events_model.dart';
+export 'list_of_events_model.dart';
 
-class ListsEventsWidget extends StatefulWidget {
-  const ListsEventsWidget({Key? key}) : super(key: key);
+class ListOfEventsWidget extends StatefulWidget {
+  const ListOfEventsWidget({super.key});
 
   @override
-  _ListsEventsWidgetState createState() => _ListsEventsWidgetState();
+  _ListOfEventsWidgetState createState() => _ListOfEventsWidgetState();
 }
 
-class _ListsEventsWidgetState extends State<ListsEventsWidget> {
-  late ListsEventsModel _model;
+class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
+  late ListOfEventsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ListsEventsModel());
+    _model = createModel(context, () => ListOfEventsModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'ListsEvents'});
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ListOfEvents'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -85,9 +85,9 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
             ),
           );
         }
-        List<EventsRecord> listsEventsEventsRecordList = snapshot.data!;
+        List<EventsRecord> listOfEventsEventsRecordList = snapshot.data!;
         return Title(
-            title: 'ListsEvents',
+            title: 'ListOfEvents',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: GestureDetector(
               onTap: () => _model.unfocusNode.canRequestFocus
@@ -96,7 +96,8 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
               child: Scaffold(
                 key: scaffoldKey,
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-                drawer: Drawer(
+                drawer: WebViewAware(
+                    child: Drawer(
                   elevation: 16.0,
                   child: Container(
                     width: 100.0,
@@ -116,16 +117,16 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                   .secondaryBackground,
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 80.0, 0.0, 80.0),
                                       child: Container(
                                         width: 140.0,
@@ -153,7 +154,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               'Hango t\'aide à trouver les meilleurs soirées, events et établissements du monde de la nuit en suisse Romande',
@@ -173,7 +174,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               'Créer toi  un compte et reçois des PROMO% exclusives dans les meilleurs établissements de ta ville',
@@ -211,7 +212,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 16.0, 0.0, 0.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
@@ -248,10 +249,9 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                   .secondaryBackground,
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 16.0),
+                                padding: const EdgeInsets.all(16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -264,7 +264,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         logFirebaseEvent(
-                                            'LISTS_EVENTS_PAGE_LinkToUserLogin_ON_TAP');
+                                            'LIST_OF_EVENTS_LinkToUserLogin_ON_TAP');
                                         logFirebaseEvent(
                                             'LinkToUserLogin_navigate_to');
 
@@ -277,13 +277,13 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                         children: [
                                           if (!loggedIn)
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   logFirebaseEvent(
-                                                      'LISTS_EVENTS_Button-create-account_ON_TA');
+                                                      'LIST_OF_EVENTS_Button-create-account_ON_');
                                                   logFirebaseEvent(
                                                       'Button-create-account_navigate_to');
 
@@ -294,11 +294,11 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                 options: FFButtonOptions(
                                                   width: 200.0,
                                                   height: 40.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -333,7 +333,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                   false) ==
                                               true)
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: AuthUserStreamWidget(
@@ -341,7 +341,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                     FFButtonWidget(
                                                   onPressed: () async {
                                                     logFirebaseEvent(
-                                                        'LISTS_EVENTS_Button-NT-Dashboard_ON_TAP');
+                                                        'LIST_OF_EVENTS_Button-NT-Dashboard_ON_TA');
                                                     logFirebaseEvent(
                                                         'Button-NT-Dashboard_navigate_to');
 
@@ -353,11 +353,11 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                     width: 200.0,
                                                     height: 40.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -389,13 +389,13 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                             ),
                                           if (!loggedIn)
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   logFirebaseEvent(
-                                                      'LISTS_EVENTS_PAGE_Button-Login_ON_TAP');
+                                                      'LIST_OF_EVENTS_PAGE_Button-Login_ON_TAP');
                                                   logFirebaseEvent(
                                                       'Button-Login_navigate_to');
 
@@ -406,11 +406,11 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                 options: FFButtonOptions(
                                                   width: 200.0,
                                                   height: 40.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -441,13 +441,13 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                             ),
                                           if (loggedIn)
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   logFirebaseEvent(
-                                                      'LISTS_EVENTS_PAGE_Button-Logiout_ON_TAP');
+                                                      'LIST_OF_EVENTS_Button-Logiout_ON_TAP');
                                                   logFirebaseEvent(
                                                       'Button-Logiout_auth');
                                                   GoRouter.of(context)
@@ -464,11 +464,11 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                 options: FFButtonOptions(
                                                   width: 200.0,
                                                   height: 40.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -513,8 +513,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -527,7 +526,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              boxShadow: [
+                                              boxShadow: const [
                                                 BoxShadow(
                                                   blurRadius: 5.0,
                                                   color: Color(0x3314181B),
@@ -536,8 +535,8 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                               ],
                                               shape: BoxShape.circle,
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: FaIcon(
                                               FontAwesomeIcons.instagram,
                                               color:
@@ -553,7 +552,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              boxShadow: [
+                                              boxShadow: const [
                                                 BoxShadow(
                                                   blurRadius: 5.0,
                                                   color: Color(0x3314181B),
@@ -562,8 +561,8 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                               ],
                                               shape: BoxShape.circle,
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: FaIcon(
                                               FontAwesomeIcons.tiktok,
                                               color:
@@ -579,7 +578,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              boxShadow: [
+                                              boxShadow: const [
                                                 BoxShadow(
                                                   blurRadius: 5.0,
                                                   color: Color(0x3314181B),
@@ -588,8 +587,8 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                               ],
                                               shape: BoxShape.circle,
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: FaIcon(
                                               FontAwesomeIcons.facebookF,
                                               color:
@@ -606,11 +605,11 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                               ),
                             ),
                           ),
-                        ].addToEnd(SizedBox(height: 15.0)),
+                        ].addToEnd(const SizedBox(height: 15.0)),
                       ),
                     ),
                   ),
-                ),
+                )),
                 body: NestedScrollView(
                   floatHeaderSlivers: true,
                   headerSliverBuilder: (context, _) => [
@@ -635,7 +634,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                             FlutterFlowTheme.of(context).primaryBackground,
                         automaticallyImplyLeading: false,
                         title: Align(
-                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -653,7 +652,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                 ),
                                 onPressed: () async {
                                   logFirebaseEvent(
-                                      'LISTS_EVENTS_menu_rounded_ICN_ON_TAP');
+                                      'LIST_OF_EVENTS_menu_rounded_ICN_ON_TAP');
                                   logFirebaseEvent('IconButton_drawer');
                                   scaffoldKey.currentState!.openDrawer();
                                 },
@@ -668,10 +667,10 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                           .primaryText,
                                     ),
                               ),
-                            ].divide(SizedBox(width: 15.0)),
+                            ].divide(const SizedBox(width: 15.0)),
                           ),
                         ),
-                        actions: [],
+                        actions: const [],
                         centerTitle: false,
                         elevation: 0.0,
                       )
@@ -693,7 +692,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                 model: _model.sideNavWebModel,
                                 updateCallback: () => setState(() {}),
                                 updateOnChange: true,
-                                child: SideNavWebWidget(
+                                child: const SideNavWebWidget(
                                   nav1: false,
                                   nav2: true,
                                   nav3: false,
@@ -711,33 +710,25 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                   ))
                                     Expanded(
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        decoration: BoxDecoration(),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.00, 0.00),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                        width: double.infinity,
+                                        decoration: const BoxDecoration(),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(15.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         width: double.infinity,
                                                         decoration:
@@ -752,8 +743,8 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              AlignmentDirectional(
-                                                                  0.00, -1.00),
+                                                              const AlignmentDirectional(
+                                                                  0.0, -1.0),
                                                           child:
                                                               FlutterFlowCalendar(
                                                             color: FlutterFlowTheme
@@ -771,7 +762,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                               _model.calendarSelectedDay1 =
                                                                   newSelectedDate;
                                                               logFirebaseEvent(
-                                                                  'LISTS_EVENTS_Calendar_lv7o7pvb_ON_DATE_S');
+                                                                  'LIST_OF_EVENTS_Calendar_lv7o7pvb_ON_DATE');
                                                               logFirebaseEvent(
                                                                   'Calendar_update_app_state');
                                                               setState(() {
@@ -814,7 +805,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                           .primaryBackground,
                                                                     ),
                                                             inactiveDateStyle:
-                                                                TextStyle(),
+                                                                const TextStyle(),
                                                             locale: FFLocalizations
                                                                     .of(context)
                                                                 .languageCode,
@@ -823,23 +814,18 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 10.0, 10.0, 10.0),
+                                                ],
+                                              ),
+                                              Expanded(
                                                 child: Builder(
                                                   builder: (context) {
                                                     final listEventsMobile =
-                                                        listsEventsEventsRecordList
+                                                        listOfEventsEventsRecordList
                                                             .toList();
                                                     if (listEventsMobile
                                                         .isEmpty) {
                                                       return Center(
-                                                        child: Container(
+                                                        child: SizedBox(
                                                           width:
                                                               MediaQuery.sizeOf(
                                                                           context)
@@ -880,11 +866,11 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                 listEventsMobileIndex];
                                                         return Align(
                                                           alignment:
-                                                              AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                              const AlignmentDirectional(
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -954,7 +940,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                   onTap:
                                                                       () async {
                                                                     logFirebaseEvent(
-                                                                        'LISTS_EVENTS_PAGE_CardEvents_ON_TAP');
+                                                                        'LIST_OF_EVENTS_PAGE_CardEvents_ON_TAP');
                                                                     logFirebaseEvent(
                                                                         'CardEvents_navigate_to');
 
@@ -997,7 +983,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                           imageBuilder: (path) =>
                                                                               ClipRRect(
                                                                             borderRadius:
-                                                                                BorderRadius.only(
+                                                                                const BorderRadius.only(
                                                                               bottomLeft: Radius.circular(0.0),
                                                                               bottomRight: Radius.circular(0.0),
                                                                               topLeft: Radius.circular(8.0),
@@ -1041,7 +1027,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                           ),
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 15.0,
                                                                                 0.0,
                                                                                 15.0,
@@ -1052,73 +1038,77 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                               mainAxisAlignment: MainAxisAlignment.center,
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: [
-                                                                                    Expanded(
-                                                                                      child: Text(
-                                                                                        listEventsMobileItem.title,
-                                                                                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              fontWeight: FontWeight.w600,
-                                                                                            ),
+                                                                                Expanded(
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                    children: [
+                                                                                      Expanded(
+                                                                                        child: Text(
+                                                                                          listEventsMobileItem.title,
+                                                                                          style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontWeight: FontWeight.w600,
+                                                                                              ),
+                                                                                        ),
                                                                                       ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                StreamBuilder<List<ScheduleEventRecord>>(
-                                                                                  stream: queryScheduleEventRecord(
-                                                                                    parent: listEventsMobileItem.reference,
-                                                                                    singleRecord: true,
+                                                                                    ],
                                                                                   ),
-                                                                                  builder: (context, snapshot) {
-                                                                                    // Customize what your widget looks like when it's loading.
-                                                                                    if (!snapshot.hasData) {
-                                                                                      return Center(
-                                                                                        child: SizedBox(
-                                                                                          width: 30.0,
-                                                                                          height: 30.0,
-                                                                                          child: CircularProgressIndicator(
-                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                              FlutterFlowTheme.of(context).primary,
+                                                                                ),
+                                                                                Expanded(
+                                                                                  child: StreamBuilder<List<ScheduleEventRecord>>(
+                                                                                    stream: queryScheduleEventRecord(
+                                                                                      parent: listEventsMobileItem.reference,
+                                                                                      singleRecord: true,
+                                                                                    ),
+                                                                                    builder: (context, snapshot) {
+                                                                                      // Customize what your widget looks like when it's loading.
+                                                                                      if (!snapshot.hasData) {
+                                                                                        return Center(
+                                                                                          child: SizedBox(
+                                                                                            width: 30.0,
+                                                                                            height: 30.0,
+                                                                                            child: CircularProgressIndicator(
+                                                                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                              ),
                                                                                             ),
                                                                                           ),
+                                                                                        );
+                                                                                      }
+                                                                                      List<ScheduleEventRecord> rowScheduleScheduleEventRecordList = snapshot.data!;
+                                                                                      final rowScheduleScheduleEventRecord = rowScheduleScheduleEventRecordList.isNotEmpty ? rowScheduleScheduleEventRecordList.first : null;
+                                                                                      return SingleChildScrollView(
+                                                                                        scrollDirection: Axis.horizontal,
+                                                                                        child: Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Flexible(
+                                                                                              child: Text(
+                                                                                                valueOrDefault<String>(
+                                                                                                  '${dateTimeFormat(
+                                                                                                    'd/M/y',
+                                                                                                    rowScheduleScheduleEventRecord?.date,
+                                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                                                  )} de ${dateTimeFormat(
+                                                                                                    'Hm',
+                                                                                                    rowScheduleScheduleEventRecord?.scheduleStart,
+                                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                                                  )} - ${dateTimeFormat(
+                                                                                                    'Hm',
+                                                                                                    rowScheduleScheduleEventRecord?.scheduleEnd,
+                                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                                                  )}',
+                                                                                                  'Aucun horaire ',
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
                                                                                       );
-                                                                                    }
-                                                                                    List<ScheduleEventRecord> rowScheduleScheduleEventRecordList = snapshot.data!;
-                                                                                    final rowScheduleScheduleEventRecord = rowScheduleScheduleEventRecordList.isNotEmpty ? rowScheduleScheduleEventRecordList.first : null;
-                                                                                    return SingleChildScrollView(
-                                                                                      scrollDirection: Axis.horizontal,
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          Flexible(
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '${dateTimeFormat(
-                                                                                                  'd/M/y',
-                                                                                                  rowScheduleScheduleEventRecord?.scheduleStart,
-                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                )} de ${dateTimeFormat(
-                                                                                                  'Hm',
-                                                                                                  rowScheduleScheduleEventRecord?.scheduleStart,
-                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                )} - ${dateTimeFormat(
-                                                                                                  'Hm',
-                                                                                                  rowScheduleScheduleEventRecord?.scheduleEnd,
-                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                )}',
-                                                                                                'Aucun horaire ',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelSmall,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    );
-                                                                                  },
+                                                                                    },
+                                                                                  ),
                                                                                 ),
                                                                                 StreamBuilder<EstablishmentsRecord>(
                                                                                   stream: EstablishmentsRecord.getDocument(listEventsMobileItem.establishmentId!),
@@ -1142,19 +1132,24 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                       children: [
-                                                                                        Text(
-                                                                                          rowEstablishmentsRecord.name,
-                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                        Expanded(
+                                                                                          child: Text(
+                                                                                            rowEstablishmentsRecord.name,
+                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                          ),
                                                                                         ),
                                                                                         Text(
                                                                                           rowEstablishmentsRecord.adresse.city,
-                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                          style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                              ),
                                                                                         ),
-                                                                                      ],
+                                                                                      ].divide(const SizedBox(width: 15.0)),
                                                                                     );
                                                                                   },
                                                                                 ),
-                                                                              ].divide(SizedBox(height: 4.0)).addToStart(SizedBox(height: 5.0)).addToEnd(SizedBox(height: 5.0)),
+                                                                              ].divide(const SizedBox(height: 4.0)).addToStart(const SizedBox(height: 5.0)).addToEnd(const SizedBox(height: 5.0)),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1171,8 +1166,8 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                   },
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ].divide(const SizedBox(height: 15.0)),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -1184,12 +1179,12 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.5,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1203,11 +1198,11 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                   Expanded(
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -1228,9 +1223,8 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                           ),
                                                           child: Align(
                                                             alignment:
-                                                                AlignmentDirectional(
-                                                                    0.00,
-                                                                    -1.00),
+                                                                const AlignmentDirectional(
+                                                                    0.0, -1.0),
                                                             child:
                                                                 FlutterFlowCalendar(
                                                               color: FlutterFlowTheme
@@ -1248,7 +1242,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                 _model.calendarSelectedDay2 =
                                                                     newSelectedDate;
                                                                 logFirebaseEvent(
-                                                                    'LISTS_EVENTS_Calendar_dwae7wwn_ON_DATE_S');
+                                                                    'LIST_OF_EVENTS_Calendar_dwae7wwn_ON_DATE');
                                                                 logFirebaseEvent(
                                                                     'Calendar_update_app_state');
                                                                 setState(() {
@@ -1289,7 +1283,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                             .primaryBackground,
                                                                       ),
                                                               inactiveDateStyle:
-                                                                  TextStyle(),
+                                                                  const TextStyle(),
                                                               locale: FFLocalizations
                                                                       .of(context)
                                                                   .languageCode,
@@ -1303,18 +1297,16 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10.0, 10.0,
-                                                          10.0, 10.0),
+                                                  padding: const EdgeInsets.all(10.0),
                                                   child: Builder(
                                                     builder: (context) {
                                                       final listEventsMobile =
-                                                          listsEventsEventsRecordList
+                                                          listOfEventsEventsRecordList
                                                               .toList();
                                                       if (listEventsMobile
                                                           .isEmpty) {
                                                         return Center(
-                                                          child: Container(
+                                                          child: SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1356,11 +1348,11 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                   listEventsMobileIndex];
                                                           return Align(
                                                             alignment:
-                                                                AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1429,7 +1421,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                     onTap:
                                                                         () async {
                                                                       logFirebaseEvent(
-                                                                          'LISTS_EVENTS_PAGE_CardEvents_ON_TAP');
+                                                                          'LIST_OF_EVENTS_PAGE_CardEvents_ON_TAP');
                                                                       logFirebaseEvent(
                                                                           'CardEvents_navigate_to');
 
@@ -1467,7 +1459,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                                 cardEventsMediaRecord!.image,
                                                                             imageBuilder: (path) =>
                                                                                 ClipRRect(
-                                                                              borderRadius: BorderRadius.only(
+                                                                              borderRadius: const BorderRadius.only(
                                                                                 bottomLeft: Radius.circular(0.0),
                                                                                 bottomRight: Radius.circular(0.0),
                                                                                 topLeft: Radius.circular(8.0),
@@ -1502,7 +1494,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                                                                               child: Column(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -1555,7 +1547,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                                                 valueOrDefault<String>(
                                                                                                   '${dateTimeFormat(
                                                                                                     'd/M/y',
-                                                                                                    rowScheduleScheduleEventRecord?.scheduleStart,
+                                                                                                    rowScheduleScheduleEventRecord?.date,
                                                                                                     locale: FFLocalizations.of(context).languageCode,
                                                                                                   )} de ${dateTimeFormat(
                                                                                                     'Hm',
@@ -1610,7 +1602,7 @@ class _ListsEventsWidgetState extends State<ListsEventsWidget> {
                                                                                       );
                                                                                     },
                                                                                   ),
-                                                                                ].divide(SizedBox(height: 4.0)).addToStart(SizedBox(height: 5.0)).addToEnd(SizedBox(height: 5.0)),
+                                                                                ].divide(const SizedBox(height: 4.0)).addToStart(const SizedBox(height: 5.0)).addToEnd(const SizedBox(height: 5.0)),
                                                                               ),
                                                                             ),
                                                                           ),

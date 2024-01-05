@@ -1,13 +1,6 @@
-import '/auth/base_auth_user_provider.dart';
-import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'side_nav_web_widget.dart' show SideNavWebWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class SideNavWebModel extends FlutterFlowModel<SideNavWebWidget> {
   ///  State fields for stateful widgets in this component.
@@ -21,8 +14,10 @@ class SideNavWebModel extends FlutterFlowModel<SideNavWebWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

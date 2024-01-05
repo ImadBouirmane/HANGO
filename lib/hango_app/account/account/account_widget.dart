@@ -2,17 +2,15 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'account_model.dart';
 export 'account_model.dart';
 
 class AccountWidget extends StatefulWidget {
-  const AccountWidget({Key? key}) : super(key: key);
+  const AccountWidget({super.key});
 
   @override
   _AccountWidgetState createState() => _AccountWidgetState();
@@ -70,7 +68,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Color(0xFF57CFAD),
                   size: 30.0,
@@ -85,11 +83,11 @@ class _AccountWidgetState extends State<AccountWidget> {
                 'Compte',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Poppins',
-                      color: Color(0xFF57CFAD),
+                      color: const Color(0xFF57CFAD),
                       fontSize: 22.0,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -106,10 +104,9 @@ class _AccountWidgetState extends State<AccountWidget> {
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 1.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 20.0, 20.0, 20.0),
+                          padding: const EdgeInsets.all(20.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,7 +123,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                           width: 120.0,
                                           height: 120.0,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.network(
@@ -176,7 +173,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                       ),
                                     ],
                                   ),
-                                ].divide(SizedBox(height: 10.0)),
+                                ].divide(const SizedBox(height: 10.0)),
                               ),
                               Expanded(
                                 child: Column(
@@ -192,8 +189,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                             BorderRadius.circular(15.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 15.0, 15.0, 15.0),
+                                        padding: const EdgeInsets.all(15.0),
                                         child: ListView(
                                           padding: EdgeInsets.zero,
                                           shrinkWrap: true,
@@ -215,7 +211,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                   'Profile',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -229,7 +225,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         1.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -240,7 +236,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -307,7 +303,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                   'Settings',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -321,7 +317,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         1.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -332,7 +328,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -386,7 +382,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   1.0,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -396,7 +392,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -439,7 +435,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                 ],
                                               ),
                                             ),
-                                          ].divide(SizedBox(height: 10.0)),
+                                          ].divide(const SizedBox(height: 10.0)),
                                         ),
                                       ),
                                     ),
@@ -464,7 +460,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                   ),
                                 ],
                               ),
-                            ].divide(SizedBox(height: 50.0)),
+                            ].divide(const SizedBox(height: 50.0)),
                           ),
                         ),
                       ),
@@ -477,14 +473,13 @@ class _AccountWidgetState extends State<AccountWidget> {
                   ))
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           height: MediaQuery.sizeOf(context).height * 1.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 20.0, 20.0, 20.0),
+                            padding: const EdgeInsets.all(20.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -502,7 +497,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                             width: 120.0,
                                             height: 120.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
@@ -555,7 +550,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                         ),
                                       ],
                                     ),
-                                  ].divide(SizedBox(height: 10.0)),
+                                  ].divide(const SizedBox(height: 10.0)),
                                 ),
                                 Expanded(
                                   child: Column(
@@ -572,9 +567,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                               BorderRadius.circular(15.0),
                                         ),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 15.0, 15.0, 15.0),
+                                          padding: const EdgeInsets.all(15.0),
                                           child: ListView(
                                             padding: EdgeInsets.zero,
                                             shrinkWrap: true,
@@ -596,7 +589,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                     'Profile',
                                                     extra: <String, dynamic>{
                                                       kTransitionInfoKey:
-                                                          TransitionInfo(
+                                                          const TransitionInfo(
                                                         hasTransition: true,
                                                         transitionType:
                                                             PageTransitionType
@@ -610,7 +603,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           1.0,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -621,7 +614,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -688,7 +681,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                     'Settings',
                                                     extra: <String, dynamic>{
                                                       kTransitionInfoKey:
-                                                          TransitionInfo(
+                                                          const TransitionInfo(
                                                         hasTransition: true,
                                                         transitionType:
                                                             PageTransitionType
@@ -702,7 +695,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           1.0,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -713,7 +706,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -772,7 +765,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                     MediaQuery.sizeOf(context)
                                                             .height *
                                                         0.05,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -783,7 +776,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -825,7 +818,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                   ],
                                                 ),
                                               ),
-                                            ].divide(SizedBox(height: 10.0)),
+                                            ].divide(const SizedBox(height: 10.0)),
                                           ),
                                         ),
                                       ),
@@ -851,7 +844,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                     ),
                                   ],
                                 ),
-                              ].divide(SizedBox(height: 50.0)),
+                              ].divide(const SizedBox(height: 50.0)),
                             ),
                           ),
                         ),

@@ -7,14 +7,12 @@ import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'show_of_establishment_model.dart';
@@ -22,9 +20,9 @@ export 'show_of_establishment_model.dart';
 
 class ShowOfEstablishmentWidget extends StatefulWidget {
   const ShowOfEstablishmentWidget({
-    Key? key,
+    super.key,
     required this.estRef,
-  }) : super(key: key);
+  });
 
   final EstablishmentsRecord? estRef;
 
@@ -89,7 +87,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                   wrapWithModel(
                     model: _model.sideNavWebModel,
                     updateCallback: () => setState(() {}),
-                    child: SideNavWebWidget(
+                    child: const SideNavWebWidget(
                       nav1: false,
                       nav2: false,
                       nav3: false,
@@ -103,10 +101,9 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                     Expanded(
                       child: Container(
                         width: 100.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 15.0, 15.0, 15.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -141,7 +138,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                             : null;
                                     return Stack(
                                       alignment:
-                                          AlignmentDirectional(0.0, -0.9),
+                                          const AlignmentDirectional(0.0, -0.9),
                                       children: [
                                         Material(
                                           color: Colors.transparent,
@@ -168,8 +165,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                               height: MediaQuery.sizeOf(context)
                                                       .height *
                                                   0.3,
-                                              decoration: BoxDecoration(),
-                                              child: Container(
+                                              decoration: const BoxDecoration(),
+                                              child: SizedBox(
                                                 width: double.infinity,
                                                 height: 500.0,
                                                 child: Stack(
@@ -205,8 +202,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                         ),
                                                         FlutterFlowMediaDisplay(
                                                           path:
-                                                              mediaImagesRecord!
-                                                                  .video,
+                                                              mediaImagesRecord.video,
                                                           imageBuilder:
                                                               (path) =>
                                                                   ClipRRect(
@@ -248,11 +244,11 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
-                                                              -1.00, 1.00),
+                                                          const AlignmentDirectional(
+                                                              -1.0, 1.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
@@ -274,7 +270,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 .pageViewController1!
                                                                 .animateToPage(
                                                               i,
-                                                              duration: Duration(
+                                                              duration: const Duration(
                                                                   milliseconds:
                                                                       500),
                                                               curve:
@@ -311,12 +307,12 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.80),
+                                              const AlignmentDirectional(0.0, 0.8),
                                           child: wrapWithModel(
                                             model: _model.backNavigationModel1,
                                             updateCallback: () =>
                                                 setState(() {}),
-                                            child: BackNavigationWidget(),
+                                            child: const BackNavigationWidget(),
                                           ),
                                         ),
                                       ],
@@ -334,8 +330,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 15.0, 15.0, 15.0),
+                                      padding: const EdgeInsets.all(15.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -402,7 +397,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                       ),
                                                       collapsed: Container(
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                       ),
                                                       expanded: Row(
                                                         mainAxisSize:
@@ -414,13 +409,20 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   .description,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodySmall,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w300,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ],
                                                       ),
                                                       theme:
-                                                          ExpandableThemeData(
+                                                          const ExpandableThemeData(
                                                         tapHeaderToExpand: true,
                                                         tapBodyToExpand: false,
                                                         tapBodyToCollapse:
@@ -434,7 +436,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(SizedBox(height: 5.0)),
+                                            ].divide(const SizedBox(height: 5.0)),
                                           ),
                                           Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -444,19 +446,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   width: 100.0,
                                                   height: 100.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0x2E39D2C0),
+                                                    color: const Color(0x2E39D2C0),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             15.0),
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -537,7 +534,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 ),
                                                               ],
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               height: 5.0)),
                                                         ),
                                                       ],
@@ -550,19 +547,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   width: 100.0,
                                                   height: 100.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0x2E39D2C0),
+                                                    color: const Color(0x2E39D2C0),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             15.0),
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -645,7 +637,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 ),
                                                               ],
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               height: 5.0)),
                                                         ),
                                                       ],
@@ -653,14 +645,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 15.0)),
+                                            ].divide(const SizedBox(width: 15.0)),
                                           ),
-                                        ].divide(SizedBox(height: 30.0)),
+                                        ].divide(const SizedBox(height: 30.0)),
                                       ),
                                     ),
                                   ),
                                 ),
-                                if (widget.estRef!.eventsReferences.length >= 1)
+                                if (widget.estRef!.eventsReferences.isNotEmpty)
                                   Material(
                                     color: Colors.transparent,
                                     elevation: 0.0,
@@ -679,7 +671,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1.00, 0.00),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -691,7 +683,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   15.0,
                                                                   0.0,
@@ -905,7 +897,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                 : null;
                                                                             return Container(
                                                                               height: MediaQuery.sizeOf(context).height * 0.17,
-                                                                              decoration: BoxDecoration(
+                                                                              decoration: const BoxDecoration(
                                                                                 borderRadius: BorderRadius.only(
                                                                                   bottomLeft: Radius.circular(0.0),
                                                                                   bottomRight: Radius.circular(0.0),
@@ -914,7 +906,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                 ),
                                                                               ),
                                                                               child: ClipRRect(
-                                                                                borderRadius: BorderRadius.only(
+                                                                                borderRadius: const BorderRadius.only(
                                                                                   bottomLeft: Radius.circular(0.0),
                                                                                   bottomRight: Radius.circular(0.0),
                                                                                   topLeft: Radius.circular(8.0),
@@ -935,7 +927,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 8.0,
                                                                                 0.0,
                                                                                 8.0,
@@ -989,11 +981,11 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                           final dateScheduleEventRecord = dateScheduleEventRecordList.isNotEmpty ? dateScheduleEventRecordList.first : null;
                                                                                           return Text(
                                                                                             valueOrDefault<String>(
-                                                                                              '${dateTimeFormat(
+                                                                                              dateTimeFormat(
                                                                                                 'MMMEd',
                                                                                                 dateScheduleEventRecord?.date,
                                                                                                 locale: FFLocalizations.of(context).languageCode,
-                                                                                              )}',
+                                                                                              ),
                                                                                               'Aucun horaire',
                                                                                             ),
                                                                                             maxLines: 2,
@@ -1022,7 +1014,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                     ),
                                                                                   ],
                                                                                 ),
-                                                                              ].addToStart(SizedBox(height: 2.0)),
+                                                                              ].addToStart(const SizedBox(height: 2.0)),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -1035,12 +1027,12 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           },
                                                         );
                                                       }).divide(
-                                                          SizedBox(width: 8.0)),
+                                                          const SizedBox(width: 8.0)),
                                                     ),
                                                   );
                                                 },
                                               ),
-                                            ].divide(SizedBox(height: 15.0)),
+                                            ].divide(const SizedBox(height: 15.0)),
                                           ),
                                         ),
                                       ),
@@ -1096,9 +1088,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                           ),
                                         ),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 15.0, 15.0, 15.0),
+                                          padding: const EdgeInsets.all(15.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1130,12 +1120,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1172,7 +1157,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .primary,
                                                                 ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 30.0)),
                                                       ),
                                                     ),
@@ -1188,12 +1173,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1230,7 +1210,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .primary,
                                                                 ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 30.0)),
                                                       ),
                                                     ),
@@ -1246,12 +1226,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1288,7 +1263,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .primary,
                                                                 ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 30.0)),
                                                       ),
                                                     ),
@@ -1304,12 +1279,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1346,7 +1316,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .primary,
                                                                 ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 30.0)),
                                                       ),
                                                     ),
@@ -1362,12 +1332,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1404,7 +1369,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .primary,
                                                                 ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 30.0)),
                                                       ),
                                                     ),
@@ -1420,12 +1385,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1462,7 +1422,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .primary,
                                                                 ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 30.0)),
                                                       ),
                                                     ),
@@ -1478,12 +1438,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1520,14 +1475,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .primary,
                                                                 ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 30.0)),
                                                       ),
                                                     ),
                                                   ),
-                                                ].divide(SizedBox(height: 5.0)),
+                                                ].divide(const SizedBox(height: 5.0)),
                                               ),
-                                            ].divide(SizedBox(height: 30.0)),
+                                            ].divide(const SizedBox(height: 30.0)),
                                           ),
                                         ),
                                       ),
@@ -1549,8 +1504,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 15.0, 15.0, 15.0),
+                                      padding: const EdgeInsets.all(15.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1568,9 +1522,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                             ],
                                           ),
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
+                                            padding: const EdgeInsets.all(10.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1580,7 +1532,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                 Expanded(
                                                   child: Text(
                                                     valueOrDefault<String>(
-                                                      '${widget.estRef?.adresse?.street}${widget.estRef?.adresse?.zipCode}',
+                                                      '${widget.estRef?.adresse.street}${widget.estRef?.adresse.zipCode}',
                                                       'Aucune adresse',
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -1596,7 +1548,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   borderRadius: 20.0,
                                                   borderWidth: 1.0,
                                                   buttonSize: 40.0,
-                                                  fillColor: Color(0x2E39D2C0),
+                                                  fillColor: const Color(0x2E39D2C0),
                                                   icon: Icon(
                                                     Icons.content_copy,
                                                     color: FlutterFlowTheme.of(
@@ -1612,10 +1564,10 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     await Clipboard.setData(
                                                         ClipboardData(
                                                             text:
-                                                                '${widget.estRef?.adresse?.street}${widget.estRef?.adresse?.zipCode} ${widget.estRef?.adresse?.city}'));
+                                                                '${widget.estRef?.adresse.street}${widget.estRef?.adresse.zipCode} ${widget.estRef?.adresse.city}'));
                                                   },
                                                 ),
-                                              ].divide(SizedBox(width: 15.0)),
+                                              ].divide(const SizedBox(width: 15.0)),
                                             ),
                                           ),
                                           Container(
@@ -1635,7 +1587,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                               ),
                                               child:
                                                   Builder(builder: (context) {
-                                                final _googleMapMarker =
+                                                final googleMapMarker =
                                                     widget.estRef;
                                                 return FlutterFlowGoogleMap(
                                                   controller: _model
@@ -1649,12 +1601,12 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                       widget.estRef!.adresse
                                                           .latiLong!,
                                                   markers: [
-                                                    if (_googleMapMarker !=
+                                                    if (googleMapMarker !=
                                                         null)
                                                       FlutterFlowMarker(
-                                                        _googleMapMarker
+                                                        googleMapMarker
                                                             .reference.path,
-                                                        _googleMapMarker
+                                                        googleMapMarker
                                                             .location!,
                                                         () async {
                                                           logFirebaseEvent(
@@ -1719,8 +1671,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 15.0, 15.0, 15.0),
+                                      padding: const EdgeInsets.all(15.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1729,7 +1680,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 10.0),
                                                   child: Text(
@@ -1763,12 +1714,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1821,8 +1767,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           borderWidth: 1.0,
                                                           buttonSize: 40.0,
                                                           fillColor:
-                                                              Color(0x2E39D2C0),
-                                                          icon: Icon(
+                                                              const Color(0x2E39D2C0),
+                                                          icon: const Icon(
                                                             Icons.email,
                                                             color: Color(
                                                                 0xFF57CFAD),
@@ -1877,12 +1823,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1935,8 +1876,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           borderWidth: 1.0,
                                                           buttonSize: 40.0,
                                                           fillColor:
-                                                              Color(0x2E39D2C0),
-                                                          icon: Icon(
+                                                              const Color(0x2E39D2C0),
+                                                          icon: const Icon(
                                                             Icons.phone,
                                                             color: Color(
                                                                 0xFF57CFAD),
@@ -1977,12 +1918,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2035,8 +1971,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           borderWidth: 1.0,
                                                           buttonSize: 40.0,
                                                           fillColor:
-                                                              Color(0x2E39D2C0),
-                                                          icon: Icon(
+                                                              const Color(0x2E39D2C0),
+                                                          icon: const Icon(
                                                             Icons.link_sharp,
                                                             color: Color(
                                                                 0xFF57CFAD),
@@ -2056,14 +1992,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                            ].divide(SizedBox(height: 5.0)),
+                                            ].divide(const SizedBox(height: 5.0)),
                                           ),
                                         ],
                                       ),
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 20.0)),
+                              ].divide(const SizedBox(height: 20.0)),
                             ),
                           ),
                         ),
@@ -2077,10 +2013,9 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                     Expanded(
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.6,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 15.0, 15.0, 15.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -2115,7 +2050,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                             : null;
                                     return Stack(
                                       alignment:
-                                          AlignmentDirectional(0.0, -0.9),
+                                          const AlignmentDirectional(0.0, -0.9),
                                       children: [
                                         Material(
                                           color: Colors.transparent,
@@ -2142,8 +2077,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                               height: MediaQuery.sizeOf(context)
                                                       .height *
                                                   0.3,
-                                              decoration: BoxDecoration(),
-                                              child: Container(
+                                              decoration: const BoxDecoration(),
+                                              child: SizedBox(
                                                 width: double.infinity,
                                                 height: 500.0,
                                                 child: Stack(
@@ -2179,8 +2114,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                         ),
                                                         FlutterFlowMediaDisplay(
                                                           path:
-                                                              mediaImagesRecord!
-                                                                  .video,
+                                                              mediaImagesRecord.video,
                                                           imageBuilder:
                                                               (path) =>
                                                                   ClipRRect(
@@ -2222,11 +2156,11 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
-                                                              -1.00, 1.00),
+                                                          const AlignmentDirectional(
+                                                              -1.0, 1.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
@@ -2248,7 +2182,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 .pageViewController2!
                                                                 .animateToPage(
                                                               i,
-                                                              duration: Duration(
+                                                              duration: const Duration(
                                                                   milliseconds:
                                                                       500),
                                                               curve:
@@ -2285,12 +2219,12 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.80),
+                                              const AlignmentDirectional(0.0, 0.8),
                                           child: wrapWithModel(
                                             model: _model.backNavigationModel2,
                                             updateCallback: () =>
                                                 setState(() {}),
-                                            child: BackNavigationWidget(),
+                                            child: const BackNavigationWidget(),
                                           ),
                                         ),
                                       ],
@@ -2315,8 +2249,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                             BorderRadius.circular(15.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
+                                        padding: const EdgeInsets.all(10.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -2378,7 +2311,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                         ),
                                                         collapsed: Container(
                                                           decoration:
-                                                              BoxDecoration(),
+                                                              const BoxDecoration(),
                                                         ),
                                                         expanded: Row(
                                                           mainAxisSize:
@@ -2397,7 +2330,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           ],
                                                         ),
                                                         theme:
-                                                            ExpandableThemeData(
+                                                            const ExpandableThemeData(
                                                           tapHeaderToExpand:
                                                               true,
                                                           tapBodyToExpand:
@@ -2413,7 +2346,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(height: 5.0)),
+                                              ].divide(const SizedBox(height: 5.0)),
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -2423,19 +2356,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     width: 100.0,
                                                     height: 100.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0x2E39D2C0),
+                                                      color: const Color(0x2E39D2C0),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               15.0),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -2504,7 +2432,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 height: 5.0)),
                                                           ),
                                                         ],
@@ -2517,19 +2445,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     width: 100.0,
                                                     height: 100.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0x2E39D2C0),
+                                                      color: const Color(0x2E39D2C0),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               15.0),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -2598,7 +2521,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 height: 5.0)),
                                                           ),
                                                         ],
@@ -2606,15 +2529,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(width: 10.0)),
+                                              ].divide(const SizedBox(width: 10.0)),
                                             ),
-                                          ].divide(SizedBox(height: 30.0)),
+                                          ].divide(const SizedBox(height: 30.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                                if (widget.estRef!.eventsReferences.length >= 1)
+                                if (widget.estRef!.eventsReferences.isNotEmpty)
                                   Material(
                                     color: Colors.transparent,
                                     elevation: 0.0,
@@ -2633,7 +2556,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1.00, 0.00),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -2645,7 +2568,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   15.0,
                                                                   0.0,
@@ -2859,7 +2782,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                 : null;
                                                                             return Container(
                                                                               height: MediaQuery.sizeOf(context).height * 0.17,
-                                                                              decoration: BoxDecoration(
+                                                                              decoration: const BoxDecoration(
                                                                                 borderRadius: BorderRadius.only(
                                                                                   bottomLeft: Radius.circular(0.0),
                                                                                   bottomRight: Radius.circular(0.0),
@@ -2868,7 +2791,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                 ),
                                                                               ),
                                                                               child: ClipRRect(
-                                                                                borderRadius: BorderRadius.only(
+                                                                                borderRadius: const BorderRadius.only(
                                                                                   bottomLeft: Radius.circular(0.0),
                                                                                   bottomRight: Radius.circular(0.0),
                                                                                   topLeft: Radius.circular(8.0),
@@ -2889,7 +2812,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 8.0,
                                                                                 0.0,
                                                                                 8.0,
@@ -2943,11 +2866,11 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                           final dateScheduleEventRecord = dateScheduleEventRecordList.isNotEmpty ? dateScheduleEventRecordList.first : null;
                                                                                           return Text(
                                                                                             valueOrDefault<String>(
-                                                                                              '${dateTimeFormat(
+                                                                                              dateTimeFormat(
                                                                                                 'MMMEd',
                                                                                                 dateScheduleEventRecord?.date,
                                                                                                 locale: FFLocalizations.of(context).languageCode,
-                                                                                              )}',
+                                                                                              ),
                                                                                               'Aucun horaire',
                                                                                             ),
                                                                                             maxLines: 2,
@@ -2976,7 +2899,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                     ),
                                                                                   ],
                                                                                 ),
-                                                                              ].addToStart(SizedBox(height: 2.0)),
+                                                                              ].addToStart(const SizedBox(height: 2.0)),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -2989,12 +2912,12 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           },
                                                         );
                                                       }).divide(
-                                                          SizedBox(width: 8.0)),
+                                                          const SizedBox(width: 8.0)),
                                                     ),
                                                   );
                                                 },
                                               ),
-                                            ].divide(SizedBox(height: 15.0)),
+                                            ].divide(const SizedBox(height: 15.0)),
                                           ),
                                         ),
                                       ),
@@ -3054,9 +2977,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
+                                            padding: const EdgeInsets.all(10.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3089,19 +3010,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     Container(
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x2E39D2C0),
+                                                            const Color(0x2E39D2C0),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(15.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -3131,7 +3047,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .of(context)
                                                                   .bodySmall,
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 30.0)),
                                                         ),
                                                       ),
@@ -3139,19 +3055,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     Container(
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x2E39D2C0),
+                                                            const Color(0x2E39D2C0),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(15.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -3181,7 +3092,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .of(context)
                                                                   .bodySmall,
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 30.0)),
                                                         ),
                                                       ),
@@ -3189,19 +3100,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     Container(
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x2E39D2C0),
+                                                            const Color(0x2E39D2C0),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(15.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -3231,7 +3137,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .of(context)
                                                                   .bodySmall,
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 30.0)),
                                                         ),
                                                       ),
@@ -3239,19 +3145,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     Container(
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x2E39D2C0),
+                                                            const Color(0x2E39D2C0),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(15.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -3281,7 +3182,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .of(context)
                                                                   .bodySmall,
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 30.0)),
                                                         ),
                                                       ),
@@ -3289,19 +3190,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     Container(
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x2E39D2C0),
+                                                            const Color(0x2E39D2C0),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(15.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -3331,7 +3227,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .of(context)
                                                                   .bodySmall,
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 30.0)),
                                                         ),
                                                       ),
@@ -3339,19 +3235,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     Container(
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x2E39D2C0),
+                                                            const Color(0x2E39D2C0),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(15.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -3381,7 +3272,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .of(context)
                                                                   .bodySmall,
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 30.0)),
                                                         ),
                                                       ),
@@ -3389,19 +3280,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     Container(
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x2E39D2C0),
+                                                            const Color(0x2E39D2C0),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(15.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
+                                                        padding: const EdgeInsets.all(
+                                                            10.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -3431,15 +3317,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       .of(context)
                                                                   .bodySmall,
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 30.0)),
                                                         ),
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(height: 5.0)),
+                                                      const SizedBox(height: 5.0)),
                                                 ),
-                                              ].divide(SizedBox(height: 30.0)),
+                                              ].divide(const SizedBox(height: 30.0)),
                                             ),
                                           ),
                                         ),
@@ -3465,8 +3351,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                             BorderRadius.circular(15.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
+                                        padding: const EdgeInsets.all(10.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3501,7 +3386,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   children: [
                                                     Expanded(
                                                       child: Text(
-                                                        '${widget.estRef?.adresse?.street}${widget.estRef?.adresse?.zipCode} ${widget.estRef?.adresse?.city}',
+                                                        '${widget.estRef?.adresse.street}${widget.estRef?.adresse.zipCode} ${widget.estRef?.adresse.city}',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -3517,7 +3402,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                       borderWidth: 1.0,
                                                       buttonSize: 40.0,
                                                       fillColor:
-                                                          Color(0x2E39D2C0),
+                                                          const Color(0x2E39D2C0),
                                                       icon: Icon(
                                                         Icons.content_copy,
                                                         color:
@@ -3534,11 +3419,11 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                         await Clipboard.setData(
                                                             ClipboardData(
                                                                 text:
-                                                                    '${widget.estRef?.adresse?.street}${widget.estRef?.adresse?.zipCode} ${widget.estRef?.adresse?.city}'));
+                                                                    '${widget.estRef?.adresse.street}${widget.estRef?.adresse.zipCode} ${widget.estRef?.adresse.city}'));
                                                       },
                                                     ),
                                                   ].divide(
-                                                      SizedBox(width: 15.0)),
+                                                      const SizedBox(width: 15.0)),
                                                 ),
                                                 Container(
                                                   width:
@@ -3559,7 +3444,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     child: Builder(
                                                         builder: (context) {
-                                                      final _googleMapMarker =
+                                                      final googleMapMarker =
                                                           widget.estRef;
                                                       return FlutterFlowGoogleMap(
                                                         controller: _model
@@ -3575,13 +3460,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 .adresse
                                                                 .latiLong!,
                                                         markers: [
-                                                          if (_googleMapMarker !=
+                                                          if (googleMapMarker !=
                                                               null)
                                                             FlutterFlowMarker(
-                                                              _googleMapMarker
+                                                              googleMapMarker
                                                                   .reference
                                                                   .path,
-                                                              _googleMapMarker
+                                                              googleMapMarker
                                                                   .location!,
                                                             ),
                                                         ],
@@ -3605,9 +3490,9 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     }),
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(height: 10.0)),
+                                              ].divide(const SizedBox(height: 10.0)),
                                             ),
-                                          ].divide(SizedBox(height: 30.0)),
+                                          ].divide(const SizedBox(height: 30.0)),
                                         ),
                                       ),
                                     ),
@@ -3631,8 +3516,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                             BorderRadius.circular(15.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
+                                        padding: const EdgeInsets.all(10.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3667,19 +3551,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                             .width *
                                                         1.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0x2E39D2C0),
+                                                      color: const Color(0x2E39D2C0),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               15.0),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -3730,9 +3609,9 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                             borderRadius: 40.0,
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
-                                                            fillColor: Color(
+                                                            fillColor: const Color(
                                                                 0x2E39D2C0),
-                                                            icon: Icon(
+                                                            icon: const Icon(
                                                               Icons.email,
                                                               color: Color(
                                                                   0xFF57CFAD),
@@ -3780,19 +3659,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                             .width *
                                                         1.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0x2E39D2C0),
+                                                      color: const Color(0x2E39D2C0),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               15.0),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -3843,9 +3717,9 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                             borderRadius: 40.0,
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
-                                                            fillColor: Color(
+                                                            fillColor: const Color(
                                                                 0x2E39D2C0),
-                                                            icon: Icon(
+                                                            icon: const Icon(
                                                               Icons.phone,
                                                               color: Color(
                                                                   0xFF57CFAD),
@@ -3880,19 +3754,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                             .width *
                                                         1.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0x2E39D2C0),
+                                                      color: const Color(0x2E39D2C0),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               15.0),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -3943,9 +3812,9 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                             borderRadius: 40.0,
                                                             borderWidth: 1.0,
                                                             buttonSize: 40.0,
-                                                            fillColor: Color(
+                                                            fillColor: const Color(
                                                                 0x2E39D2C0),
-                                                            icon: Icon(
+                                                            icon: const Icon(
                                                               Icons.link_sharp,
                                                               color: Color(
                                                                   0xFF57CFAD),
@@ -3966,15 +3835,15 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                              ].divide(SizedBox(height: 5.0)),
+                                              ].divide(const SizedBox(height: 5.0)),
                                             ),
-                                          ].divide(SizedBox(height: 30.0)),
+                                          ].divide(const SizedBox(height: 30.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 20.0)),
+                              ].divide(const SizedBox(height: 20.0)),
                             ),
                           ),
                         ),

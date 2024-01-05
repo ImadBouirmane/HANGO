@@ -2,14 +2,12 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'back_navigation_model.dart';
 export 'back_navigation_model.dart';
 
 class BackNavigationWidget extends StatefulWidget {
-  const BackNavigationWidget({Key? key}) : super(key: key);
+  const BackNavigationWidget({super.key});
 
   @override
   _BackNavigationWidgetState createState() => _BackNavigationWidgetState();
@@ -44,7 +42,7 @@ class _BackNavigationWidgetState extends State<BackNavigationWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(-0.98, -0.90),
+      alignment: const AlignmentDirectional(-0.98, -0.9),
       child: FlutterFlowIconButton(
         borderColor: FlutterFlowTheme.of(context).primary,
         borderRadius: 20.0,

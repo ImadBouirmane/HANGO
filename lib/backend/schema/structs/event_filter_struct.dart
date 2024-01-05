@@ -71,8 +71,9 @@ class EventFilterStruct extends FFFirebaseStruct {
         booked: data['booked'] as bool?,
       );
 
-  static EventFilterStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? EventFilterStruct.fromMap(data) : null;
+  static EventFilterStruct? maybeFromMap(dynamic data) => data is Map
+      ? EventFilterStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'themeEvent': _themeEvent,
@@ -177,7 +178,7 @@ class EventFilterStruct extends FFFirebaseStruct {
           ParamType.bool,
           false,
         ),
-        firestoreUtilData: FirestoreUtilData(
+        firestoreUtilData: const FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
         ),

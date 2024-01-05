@@ -1,21 +1,8 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_media_display.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
 import 'create_event_step4_widget.dart' show CreateEventStep4Widget;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class CreateEventStep4Model extends FlutterFlowModel<CreateEventStep4Widget> {
   ///  Local state fields for this page.
@@ -50,10 +37,12 @@ class CreateEventStep4Model extends FlutterFlowModel<CreateEventStep4Widget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     adminSideBarModel.dispose();

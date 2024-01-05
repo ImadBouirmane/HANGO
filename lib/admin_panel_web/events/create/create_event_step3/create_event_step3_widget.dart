@@ -6,21 +6,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_event_step3_model.dart';
 export 'create_event_step3_model.dart';
 
 class CreateEventStep3Widget extends StatefulWidget {
   const CreateEventStep3Widget({
-    Key? key,
+    super.key,
     required this.establishmentRef,
     required this.eventRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? establishmentRef;
   final DocumentReference? eventRef;
@@ -43,12 +40,16 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
         parameters: {'screen_name': 'CreateEventStep3'});
     _model.promorTitleController ??= TextEditingController();
     _model.promorTitleFocusNode ??= FocusNode();
+
     _model.promorSousTitleController ??= TextEditingController();
     _model.promorSousTitleFocusNode ??= FocusNode();
+
     _model.descriptionController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
+
     _model.nbrEntranceController ??= TextEditingController();
     _model.nbrEntranceFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -116,8 +117,8 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                       tabletLandscape: false,
                     ),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 1.0,
+                      width: double.infinity,
+                      height: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -132,24 +133,23 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                             child: AdminSideBarWidget(
                               oneBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              oneIcon: Icon(
+                              oneIcon: const Icon(
                                 Icons.home_filled,
                               ),
                               twoBG: FlutterFlowTheme.of(context).tertiary400,
-                              twoIcon: Icon(
+                              twoIcon: const Icon(
                                 Icons.event,
                               ),
                               threeColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              threeIcon: Icon(
+                              threeIcon: const Icon(
                                 Icons.house_outlined,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 16.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -183,7 +183,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'Création d\'un événement',
                                             style: FlutterFlowTheme.of(context)
@@ -222,7 +222,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                             'Dashboard',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -245,7 +245,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -303,12 +303,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                       AutovalidateMode.always,
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                15.0,
-                                                                15.0,
-                                                                15.0,
-                                                                15.0),
+                                                        const EdgeInsets.all(15.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -328,12 +323,8 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      15.0,
-                                                                      15.0,
-                                                                      15.0,
-                                                                      15.0),
+                                                              const EdgeInsets.all(
+                                                                  15.0),
                                                           child:
                                                               SingleChildScrollView(
                                                             child: Column(
@@ -366,7 +357,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                 ),
                                                                 Container(
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   child:
                                                                       TextFormField(
                                                                     controller:
@@ -409,7 +400,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -460,7 +451,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                 ),
                                                                 Container(
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   child:
                                                                       TextFormField(
                                                                     controller:
@@ -503,7 +494,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -554,7 +545,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                 ),
                                                                 Container(
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   child:
                                                                       TextFormField(
                                                                     controller:
@@ -597,7 +588,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -649,7 +640,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                 ),
                                                                 Container(
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   child:
                                                                       TextFormField(
                                                                     controller:
@@ -692,7 +683,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -764,11 +755,8 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
+                                                                        padding:
+                                                                            const EdgeInsets.all(8.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -795,51 +783,51 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                                 logFirebaseEvent('CREATE_EVENT_STEP3_ouvertureHoraire_ON_T');
                                                                                 // ouvertureHoraire
                                                                                 logFirebaseEvent('ouvertureHoraire_ouvertureHoraire');
-                                                                                final _datePicked1Date = await showDatePicker(
+                                                                                final datePicked1Date = await showDatePicker(
                                                                                   context: context,
                                                                                   initialDate: getCurrentTimestamp,
                                                                                   firstDate: getCurrentTimestamp,
                                                                                   lastDate: DateTime(2050),
                                                                                 );
 
-                                                                                TimeOfDay? _datePicked1Time;
-                                                                                if (_datePicked1Date != null) {
-                                                                                  _datePicked1Time = await showTimePicker(
+                                                                                TimeOfDay? datePicked1Time;
+                                                                                if (datePicked1Date != null) {
+                                                                                  datePicked1Time = await showTimePicker(
                                                                                     context: context,
                                                                                     initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
                                                                                   );
                                                                                 }
 
-                                                                                if (_datePicked1Date != null && _datePicked1Time != null) {
+                                                                                if (datePicked1Date != null && datePicked1Time != null) {
                                                                                   safeSetState(() {
                                                                                     _model.datePicked1 = DateTime(
-                                                                                      _datePicked1Date.year,
-                                                                                      _datePicked1Date.month,
-                                                                                      _datePicked1Date.day,
-                                                                                      _datePicked1Time!.hour,
-                                                                                      _datePicked1Time.minute,
+                                                                                      datePicked1Date.year,
+                                                                                      datePicked1Date.month,
+                                                                                      datePicked1Date.day,
+                                                                                      datePicked1Time!.hour,
+                                                                                      datePicked1Time.minute,
                                                                                     );
                                                                                   });
                                                                                 }
                                                                               },
                                                                               text: 'Ouverture',
                                                                               options: FFButtonOptions(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: Color(0xFF57CFAD),
+                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                color: const Color(0xFF57CFAD),
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       fontWeight: FontWeight.w300,
                                                                                     ),
                                                                                 elevation: 3.0,
-                                                                                borderSide: BorderSide(
+                                                                                borderSide: const BorderSide(
                                                                                   color: Colors.transparent,
                                                                                 ),
                                                                                 borderRadius: BorderRadius.circular(16.0),
                                                                               ),
                                                                             ),
-                                                                          ].divide(SizedBox(width: 16.0)),
+                                                                          ].divide(const SizedBox(width: 16.0)),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -858,11 +846,8 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
+                                                                        padding:
+                                                                            const EdgeInsets.all(8.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -889,59 +874,59 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                                 logFirebaseEvent('CREATE_EVENT_STEP3_fermetureHoraire_ON_T');
                                                                                 // fermetureHoraire
                                                                                 logFirebaseEvent('fermetureHoraire_fermetureHoraire');
-                                                                                final _datePicked2Date = await showDatePicker(
+                                                                                final datePicked2Date = await showDatePicker(
                                                                                   context: context,
                                                                                   initialDate: getCurrentTimestamp,
                                                                                   firstDate: getCurrentTimestamp,
                                                                                   lastDate: DateTime(2050),
                                                                                 );
 
-                                                                                TimeOfDay? _datePicked2Time;
-                                                                                if (_datePicked2Date != null) {
-                                                                                  _datePicked2Time = await showTimePicker(
+                                                                                TimeOfDay? datePicked2Time;
+                                                                                if (datePicked2Date != null) {
+                                                                                  datePicked2Time = await showTimePicker(
                                                                                     context: context,
                                                                                     initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
                                                                                   );
                                                                                 }
 
-                                                                                if (_datePicked2Date != null && _datePicked2Time != null) {
+                                                                                if (datePicked2Date != null && datePicked2Time != null) {
                                                                                   safeSetState(() {
                                                                                     _model.datePicked2 = DateTime(
-                                                                                      _datePicked2Date.year,
-                                                                                      _datePicked2Date.month,
-                                                                                      _datePicked2Date.day,
-                                                                                      _datePicked2Time!.hour,
-                                                                                      _datePicked2Time.minute,
+                                                                                      datePicked2Date.year,
+                                                                                      datePicked2Date.month,
+                                                                                      datePicked2Date.day,
+                                                                                      datePicked2Time!.hour,
+                                                                                      datePicked2Time.minute,
                                                                                     );
                                                                                   });
                                                                                 }
                                                                               },
                                                                               text: 'Fermeture',
                                                                               options: FFButtonOptions(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: Color(0xFF57CFAD),
+                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                color: const Color(0xFF57CFAD),
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       fontWeight: FontWeight.w300,
                                                                                     ),
                                                                                 elevation: 3.0,
-                                                                                borderSide: BorderSide(
+                                                                                borderSide: const BorderSide(
                                                                                   color: Colors.transparent,
                                                                                 ),
                                                                                 borderRadius: BorderRadius.circular(16.0),
                                                                               ),
                                                                             ),
-                                                                          ].divide(SizedBox(width: 16.0)),
+                                                                          ].divide(const SizedBox(width: 16.0)),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           24.0)),
                                                                 ),
-                                                              ].divide(SizedBox(
+                                                              ].divide(const SizedBox(
                                                                   height:
                                                                       15.0)),
                                                             ),
@@ -953,9 +938,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 15.0, 15.0, 15.0),
+                                                padding: const EdgeInsets.all(15.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -990,14 +973,10 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                   1.0,
                                                           height: 50.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                              const EdgeInsets.all(
+                                                                  0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1196,14 +1175,10 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                   1.0,
                                                           height: 50.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                              const EdgeInsets.all(
+                                                                  0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1224,7 +1199,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -1237,7 +1212,7 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(width: 10.0)),
+                                                      const SizedBox(width: 10.0)),
                                                 ),
                                               ),
                                             ],
@@ -1247,8 +1222,8 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(height: 20.0))
-                                    .around(SizedBox(height: 20.0)),
+                                    .divide(const SizedBox(height: 20.0))
+                                    .around(const SizedBox(height: 20.0)),
                               ),
                             ),
                           ),

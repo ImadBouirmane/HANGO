@@ -1,19 +1,17 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'empty_list_model.dart';
 export 'empty_list_model.dart';
 
 class EmptyListWidget extends StatefulWidget {
   const EmptyListWidget({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     required this.description,
-  }) : super(key: key);
+  });
 
   final Widget? icon;
   final String? title;
@@ -52,7 +50,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -95,9 +93,9 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
             ],
           ),
         ]
-            .divide(SizedBox(height: 20.0))
-            .addToStart(SizedBox(height: 10.0))
-            .addToEnd(SizedBox(height: 30.0)),
+            .divide(const SizedBox(height: 20.0))
+            .addToStart(const SizedBox(height: 10.0))
+            .addToEnd(const SizedBox(height: 30.0)),
       ),
     );
   }

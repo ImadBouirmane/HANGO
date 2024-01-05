@@ -2,21 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -84,302 +77,314 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => _RouteErrorBuilder(
         state: state,
-        child: appStateNotifier.loggedIn ? NavBarPage() : UserLoginWidget(),
+        child: appStateNotifier.loggedIn ? const NavBarPage() : const UserLoginWidget(),
       ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : UserLoginWidget(),
-        ),
-        FFRoute(
-          name: 'Maps',
-          path: '/maps',
-          builder: (context, params) => MapsWidget(),
-        ),
-        FFRoute(
-          name: 'UserLogin',
-          path: '/userLogin',
-          builder: (context, params) => UserLoginWidget(),
-        ),
-        FFRoute(
-          name: 'WebViewEvent',
-          path: '/webViewEvent',
-          builder: (context, params) => WebViewEventWidget(
-            itemUrl: params.getParam(
-                'itemUrl', ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'UserForgotPassword',
-          path: '/userForgotPassword',
-          builder: (context, params) => UserForgotPasswordWidget(),
-        ),
-        FFRoute(
-          name: 'ListOfEstablishments',
-          path: '/listOfEstablishments',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ListOfEstablishments')
-              : NavBarPage(
-                  initialPage: 'ListOfEstablishments',
-                  page: ListOfEstablishmentsWidget(),
-                ),
-        ),
-        FFRoute(
-          name: 'UserSignUp',
-          path: '/userSignUp',
-          builder: (context, params) => UserSignUpWidget(),
-        ),
-        FFRoute(
-          name: 'Dashboard',
-          path: '/dashboard',
-          builder: (context, params) => DashboardWidget(),
-        ),
-        FFRoute(
-          name: 'UpdateEstStep1',
-          path: '/updateEstStep1',
-          builder: (context, params) => UpdateEstStep1Widget(
-            establishmentDetails: params.getParam('establishmentDetails',
-                ParamType.DocumentReference, false, ['establishments']),
-          ),
-        ),
-        FFRoute(
-          name: 'CreateEstStep1',
-          path: '/step1Info',
-          builder: (context, params) => CreateEstStep1Widget(),
-        ),
-        FFRoute(
-          name: 'WebViewEstablishment',
-          path: '/webViewEstablishment',
-          builder: (context, params) => WebViewEstablishmentWidget(
-            itemUrlEstablishment: params.getParam('itemUrlEstablishment',
-                ParamType.DocumentReference, false, ['establishments']),
-          ),
-        ),
-        FFRoute(
-          name: 'CreateEventsStep1',
-          path: '/createEventsStep1',
-          builder: (context, params) => CreateEventsStep1Widget(
-            establishmentRef: params.getParam('establishmentRef',
-                ParamType.DocumentReference, false, ['establishments']),
-          ),
-        ),
-        FFRoute(
-          name: 'UpdateEventStep1',
-          path: '/updateEventStep1',
-          builder: (context, params) => UpdateEventStep1Widget(
-            eventstDetails: params.getParam('eventstDetails',
-                ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'UserPhone',
-          path: '/userPhone',
-          builder: (context, params) => UserPhoneWidget(),
-        ),
-        FFRoute(
-          name: 'UserPhoneConfirmationNew',
-          path: '/userPhoneConfirmationNew',
-          builder: (context, params) => UserPhoneConfirmationNewWidget(),
-        ),
-        FFRoute(
-          name: 'Profile',
-          path: '/profile',
-          requireAuth: true,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Profile')
-              : NavBarPage(
-                  initialPage: 'Profile',
-                  page: ProfileWidget(),
-                ),
-        ),
-        FFRoute(
-          name: 'Account',
-          path: '/account',
-          requireAuth: true,
-          builder: (context, params) => AccountWidget(),
-        ),
-        FFRoute(
-          name: 'Settings',
-          path: '/settings',
-          requireAuth: true,
-          builder: (context, params) => SettingsWidget(),
-        ),
-        FFRoute(
-          name: 'Security',
-          path: '/security',
-          requireAuth: true,
-          builder: (context, params) => SecurityWidget(),
-        ),
-        FFRoute(
-          name: 'Preferences',
-          path: '/preferences',
-          requireAuth: true,
-          builder: (context, params) => PreferencesWidget(),
-        ),
-        FFRoute(
-          name: 'accountDeletion',
-          path: '/accountDeletion',
-          requireAuth: true,
-          builder: (context, params) => AccountDeletionWidget(),
-        ),
-        FFRoute(
-          name: 'UserPhoneConfirmationExist',
-          path: '/userPhoneConfirmationExist',
-          builder: (context, params) => UserPhoneConfirmationExistWidget(),
-        ),
-        FFRoute(
-          name: 'Feedback',
-          path: '/feedback',
-          builder: (context, params) => FeedbackWidget(),
-        ),
-        FFRoute(
-          name: 'CreateEstStep2',
-          path: '/createEstStep2',
-          builder: (context, params) => CreateEstStep2Widget(
-            estRef: params.getParam('estRef', ParamType.DocumentReference,
-                false, ['establishments']),
-          ),
-        ),
-        FFRoute(
-          name: 'CreateEstStep3',
-          path: '/createEstStep3',
-          builder: (context, params) => CreateEstStep3Widget(
-            estRef: params.getParam('estRef', ParamType.DocumentReference,
-                false, ['establishments']),
-          ),
-        ),
-        FFRoute(
-          name: 'UpdateEstStep2',
-          path: '/updateEstStep2',
-          builder: (context, params) => UpdateEstStep2Widget(
-            establishmentDetails: params.getParam('establishmentDetails',
-                ParamType.DocumentReference, false, ['establishments']),
-          ),
-        ),
-        FFRoute(
-          name: 'UpdateEstStep3',
-          path: '/updateEstStep3',
-          builder: (context, params) => UpdateEstStep3Widget(
-            establishmentDetails: params.getParam('establishmentDetails',
-                ParamType.DocumentReference, false, ['establishments']),
-          ),
-        ),
-        FFRoute(
-          name: 'CreateEventStep4',
-          path: '/createEventStep4',
-          builder: (context, params) => CreateEventStep4Widget(
-            eventRef: params.getParam(
-                'eventRef', ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'CreateEventStep2',
-          path: '/createEventStep2',
-          builder: (context, params) => CreateEventStep2Widget(
-            establishmentRef: params.getParam('establishmentRef',
-                ParamType.DocumentReference, false, ['establishments']),
-            eventRef: params.getParam(
-                'eventRef', ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'UpdateEventStep4',
-          path: '/updateEventStep4',
-          builder: (context, params) => UpdateEventStep4Widget(
-            eventstDetails: params.getParam('eventstDetails',
-                ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'UpdateEventStep2',
-          path: '/updateEventStep2',
-          builder: (context, params) => UpdateEventStep2Widget(
-            eventstDetails: params.getParam('eventstDetails',
-                ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'ShowOfEvents',
-          path: '/showOfEvents',
-          builder: (context, params) => NavBarPage(
-            initialPage: '',
-            page: ShowOfEventsWidget(
-              showOfEvents: params.getParam('showOfEvents',
-                  ParamType.DocumentReference, false, ['events']),
+              appStateNotifier.loggedIn ? const NavBarPage() : const UserLoginWidget(),
+          routes: [
+            FFRoute(
+              name: 'Maps',
+              path: 'maps',
+              builder: (context, params) => const MapsWidget(),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'CreateEventStep3',
-          path: '/createEventStep3',
-          builder: (context, params) => CreateEventStep3Widget(
-            establishmentRef: params.getParam('establishmentRef',
-                ParamType.DocumentReference, false, ['establishments']),
-            eventRef: params.getParam(
-                'eventRef', ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'UpdateEventStep3',
-          path: '/updateEventStep3',
-          builder: (context, params) => UpdateEventStep3Widget(
-            eventstDetails: params.getParam('eventstDetails',
-                ParamType.DocumentReference, false, ['events']),
-          ),
-        ),
-        FFRoute(
-          name: 'ManagerDashboard',
-          path: '/managerDashboard',
-          requireAuth: true,
-          builder: (context, params) => ManagerDashboardWidget(),
-        ),
-        FFRoute(
-          name: 'managerSignUp',
-          path: '/managerSignUp',
-          builder: (context, params) => ManagerSignUpWidget(),
-        ),
-        FFRoute(
-          name: 'managerWaitList',
-          path: '/managerWaitList',
-          builder: (context, params) => ManagerWaitListWidget(),
-        ),
-        FFRoute(
-          name: 'MapsEstDetails',
-          path: '/mapsEstDetails',
-          asyncParams: {
-            'estRef':
-                getDoc(['establishments'], EstablishmentsRecord.fromSnapshot),
-          },
-          builder: (context, params) => MapsEstDetailsWidget(
-            estRef: params.getParam('estRef', ParamType.Document),
-          ),
-        ),
-        FFRoute(
-          name: 'ListsEvents',
-          path: '/listsEvents',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ListsEvents')
-              : NavBarPage(
-                  initialPage: 'ListsEvents',
-                  page: ListsEventsWidget(),
-                ),
-        ),
-        FFRoute(
-          name: 'ShowOfEstablishment',
-          path: '/showOfEstablishment',
-          asyncParams: {
-            'estRef':
-                getDoc(['establishments'], EstablishmentsRecord.fromSnapshot),
-          },
-          builder: (context, params) => NavBarPage(
-            initialPage: '',
-            page: ShowOfEstablishmentWidget(
-              estRef: params.getParam('estRef', ParamType.Document),
+            FFRoute(
+              name: 'UserLogin',
+              path: 'userLogin',
+              builder: (context, params) => const UserLoginWidget(),
             ),
-          ),
-        )
+            FFRoute(
+              name: 'WebViewEvent',
+              path: 'webViewEvent',
+              builder: (context, params) => WebViewEventWidget(
+                itemUrl: params.getParam(
+                    'itemUrl', ParamType.DocumentReference, false, ['events']),
+              ),
+            ),
+            FFRoute(
+              name: 'UserForgotPassword',
+              path: 'userForgotPassword',
+              builder: (context, params) => const UserForgotPasswordWidget(),
+            ),
+            FFRoute(
+              name: 'ListOfEstablishments',
+              path: 'listOfEstablishments',
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'ListOfEstablishments')
+                  : const NavBarPage(
+                      initialPage: 'ListOfEstablishments',
+                      page: ListOfEstablishmentsWidget(),
+                    ),
+            ),
+            FFRoute(
+              name: 'UserSignUp',
+              path: 'userSignUp',
+              builder: (context, params) => const UserSignUpWidget(),
+            ),
+            FFRoute(
+              name: 'Dashboard',
+              path: 'dashboard',
+              builder: (context, params) => const DashboardWidget(),
+            ),
+            FFRoute(
+              name: 'UpdateEstStep1',
+              path: 'updateEstStep1',
+              builder: (context, params) => UpdateEstStep1Widget(
+                establishmentDetails: params.getParam('establishmentDetails',
+                    ParamType.DocumentReference, false, ['establishments']),
+              ),
+            ),
+            FFRoute(
+              name: 'CreateEstStep1',
+              path: 'step1Info',
+              builder: (context, params) => const CreateEstStep1Widget(),
+            ),
+            FFRoute(
+              name: 'WebViewEstablishment',
+              path: 'webViewEstablishment',
+              builder: (context, params) => WebViewEstablishmentWidget(
+                itemUrlEstablishment: params.getParam('itemUrlEstablishment',
+                    ParamType.DocumentReference, false, ['establishments']),
+              ),
+            ),
+            FFRoute(
+              name: 'CreateEventsStep1',
+              path: 'createEventsStep1',
+              builder: (context, params) => CreateEventsStep1Widget(
+                establishmentRef: params.getParam('establishmentRef',
+                    ParamType.DocumentReference, false, ['establishments']),
+              ),
+            ),
+            FFRoute(
+              name: 'UpdateEventStep1',
+              path: 'updateEventStep1',
+              builder: (context, params) => UpdateEventStep1Widget(
+                eventstDetails: params.getParam('eventstDetails',
+                    ParamType.DocumentReference, false, ['events']),
+              ),
+            ),
+            FFRoute(
+              name: 'UserPhone',
+              path: 'userPhone',
+              builder: (context, params) => const UserPhoneWidget(),
+            ),
+            FFRoute(
+              name: 'UserPhoneConfirmationNew',
+              path: 'userPhoneConfirmationNew',
+              builder: (context, params) => const UserPhoneConfirmationNewWidget(),
+            ),
+            FFRoute(
+              name: 'Profile',
+              path: 'profile',
+              requireAuth: true,
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'Profile')
+                  : const NavBarPage(
+                      initialPage: 'Profile',
+                      page: ProfileWidget(),
+                    ),
+            ),
+            FFRoute(
+              name: 'Account',
+              path: 'account',
+              requireAuth: true,
+              builder: (context, params) => const AccountWidget(),
+            ),
+            FFRoute(
+              name: 'Settings',
+              path: 'settings',
+              requireAuth: true,
+              builder: (context, params) => const SettingsWidget(),
+            ),
+            FFRoute(
+              name: 'Security',
+              path: 'security',
+              requireAuth: true,
+              builder: (context, params) => const SecurityWidget(),
+            ),
+            FFRoute(
+              name: 'Preferences',
+              path: 'preferences',
+              requireAuth: true,
+              builder: (context, params) => const PreferencesWidget(),
+            ),
+            FFRoute(
+              name: 'accountDeletion',
+              path: 'accountDeletion',
+              requireAuth: true,
+              builder: (context, params) => const AccountDeletionWidget(),
+            ),
+            FFRoute(
+              name: 'UserPhoneConfirmationExist',
+              path: 'userPhoneConfirmationExist',
+              builder: (context, params) => const UserPhoneConfirmationExistWidget(),
+            ),
+            FFRoute(
+              name: 'Feedback',
+              path: 'feedback',
+              builder: (context, params) => const FeedbackWidget(),
+            ),
+            FFRoute(
+              name: 'CreateEstStep2',
+              path: 'createEstStep2',
+              builder: (context, params) => CreateEstStep2Widget(
+                estRef: params.getParam('estRef', ParamType.DocumentReference,
+                    false, ['establishments']),
+              ),
+            ),
+            FFRoute(
+              name: 'CreateEstStep3',
+              path: 'createEstStep3',
+              builder: (context, params) => CreateEstStep3Widget(
+                estRef: params.getParam('estRef', ParamType.DocumentReference,
+                    false, ['establishments']),
+              ),
+            ),
+            FFRoute(
+              name: 'UpdateEstStep2',
+              path: 'updateEstStep2',
+              builder: (context, params) => UpdateEstStep2Widget(
+                establishmentDetails: params.getParam('establishmentDetails',
+                    ParamType.DocumentReference, false, ['establishments']),
+              ),
+            ),
+            FFRoute(
+              name: 'UpdateEstStep3',
+              path: 'updateEstStep3',
+              builder: (context, params) => UpdateEstStep3Widget(
+                establishmentDetails: params.getParam('establishmentDetails',
+                    ParamType.DocumentReference, false, ['establishments']),
+              ),
+            ),
+            FFRoute(
+              name: 'CreateEventStep4',
+              path: 'createEventStep4',
+              builder: (context, params) => CreateEventStep4Widget(
+                eventRef: params.getParam(
+                    'eventRef', ParamType.DocumentReference, false, ['events']),
+              ),
+            ),
+            FFRoute(
+              name: 'CreateEventStep2',
+              path: 'createEventStep2',
+              builder: (context, params) => CreateEventStep2Widget(
+                establishmentRef: params.getParam('establishmentRef',
+                    ParamType.DocumentReference, false, ['establishments']),
+                eventRef: params.getParam(
+                    'eventRef', ParamType.DocumentReference, false, ['events']),
+              ),
+            ),
+            FFRoute(
+              name: 'UpdateEventStep4',
+              path: 'updateEventStep4',
+              builder: (context, params) => UpdateEventStep4Widget(
+                eventstDetails: params.getParam('eventstDetails',
+                    ParamType.DocumentReference, false, ['events']),
+              ),
+            ),
+            FFRoute(
+              name: 'UpdateEventStep2',
+              path: 'updateEventStep2',
+              builder: (context, params) => UpdateEventStep2Widget(
+                eventstDetails: params.getParam('eventstDetails',
+                    ParamType.DocumentReference, false, ['events']),
+              ),
+            ),
+            FFRoute(
+              name: 'ShowOfEvents',
+              path: 'showOfEvents',
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: ShowOfEventsWidget(
+                  showOfEvents: params.getParam('showOfEvents',
+                      ParamType.DocumentReference, false, ['events']),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'CreateEventStep3',
+              path: 'createEventStep3',
+              builder: (context, params) => CreateEventStep3Widget(
+                establishmentRef: params.getParam('establishmentRef',
+                    ParamType.DocumentReference, false, ['establishments']),
+                eventRef: params.getParam(
+                    'eventRef', ParamType.DocumentReference, false, ['events']),
+              ),
+            ),
+            FFRoute(
+              name: 'UpdateEventStep3',
+              path: 'updateEventStep3',
+              builder: (context, params) => UpdateEventStep3Widget(
+                eventstDetails: params.getParam('eventstDetails',
+                    ParamType.DocumentReference, false, ['events']),
+              ),
+            ),
+            FFRoute(
+              name: 'ManagerDashboard',
+              path: 'managerDashboard',
+              requireAuth: true,
+              builder: (context, params) => const ManagerDashboardWidget(),
+            ),
+            FFRoute(
+              name: 'managerSignUp',
+              path: 'managerSignUp',
+              builder: (context, params) => const ManagerSignUpWidget(),
+            ),
+            FFRoute(
+              name: 'managerWaitList',
+              path: 'managerWaitList',
+              builder: (context, params) => const ManagerWaitListWidget(),
+            ),
+            FFRoute(
+              name: 'MapsEstDetails',
+              path: 'mapsEstDetails',
+              asyncParams: {
+                'estRef': getDoc(
+                    ['establishments'], EstablishmentsRecord.fromSnapshot),
+              },
+              builder: (context, params) => MapsEstDetailsWidget(
+                estRef: params.getParam('estRef', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'ListOfEvents',
+              path: 'listOfEvents',
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'ListOfEvents')
+                  : const NavBarPage(
+                      initialPage: 'ListOfEvents',
+                      page: ListOfEventsWidget(),
+                    ),
+            ),
+            FFRoute(
+              name: 'ShowOfEstablishment',
+              path: 'showOfEstablishment',
+              asyncParams: {
+                'estRef': getDoc(
+                    ['establishments'], EstablishmentsRecord.fromSnapshot),
+              },
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: ShowOfEstablishmentWidget(
+                  estRef: params.getParam('estRef', ParamType.Document),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'createPromotion',
+              path: 'createPromotion',
+              builder: (context, params) => const CreatePromotionWidget(),
+            ),
+            FFRoute(
+              name: 'updatePromotion',
+              path: 'updatePromotion',
+              builder: (context, params) => const UpdatePromotionWidget(),
+            )
+          ].map((r) => r.toRoute(appStateNotifier)).toList(),
+        ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
     );
@@ -560,11 +565,11 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: FlutterFlowTheme.of(context).primaryBtnText,
+                  color: Colors.transparent,
                   child: Center(
                     child: Image.asset(
-                      'assets/images/Typo_-_bleu_fonce.png',
-                      width: 200.0,
+                      'assets/images/Typo_-_bleu_clair.png',
+                      width: MediaQuery.sizeOf(context).width * 0.6,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -577,13 +582,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },
@@ -604,7 +616,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(
+  static TransitionInfo appDefault() => const TransitionInfo(
         hasTransition: true,
         transitionType: PageTransitionType.fade,
         duration: Duration(milliseconds: 300),
@@ -613,10 +625,9 @@ class TransitionInfo {
 
 class _RouteErrorBuilder extends StatefulWidget {
   const _RouteErrorBuilder({
-    Key? key,
     required this.state,
     required this.child,
-  }) : super(key: key);
+  });
 
   final GoRouterState state;
   final Widget child;
@@ -630,7 +641,8 @@ class _RouteErrorBuilderState extends State<_RouteErrorBuilder> {
   void initState() {
     super.initState();
     // Handle erroneous links from Firebase Dynamic Links.
-    if (widget.state.location.startsWith('/link?request_ip_version')) {
+    if (widget.state.location.startsWith('/link') &&
+        widget.state.location.contains('request_ip_version')) {
       SchedulerBinding.instance.addPostFrameCallback((_) => context.go('/'));
     }
   }

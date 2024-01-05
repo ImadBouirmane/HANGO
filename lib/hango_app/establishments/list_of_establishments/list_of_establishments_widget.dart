@@ -1,4 +1,3 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
@@ -9,17 +8,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'list_of_establishments_model.dart';
 export 'list_of_establishments_model.dart';
 
 class ListOfEstablishmentsWidget extends StatefulWidget {
-  const ListOfEstablishmentsWidget({Key? key}) : super(key: key);
+  const ListOfEstablishmentsWidget({super.key});
 
   @override
   _ListOfEstablishmentsWidgetState createState() =>
@@ -31,6 +31,7 @@ class _ListOfEstablishmentsWidgetState
   late ListOfEstablishmentsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -39,6 +40,9 @@ class _ListOfEstablishmentsWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ListOfEstablishments'});
+    _model.estblishmentSearchMobileController ??= TextEditingController();
+    _model.estblishmentSearchMobileFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -74,7 +78,8 @@ class _ListOfEstablishmentsWidgetState
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-              drawer: Drawer(
+              drawer: WebViewAware(
+                  child: Drawer(
                 elevation: 16.0,
                 child: Container(
                   width: 100.0,
@@ -94,16 +99,16 @@ class _ListOfEstablishmentsWidgetState
                                 .secondaryBackground,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 80.0, 0.0, 80.0),
                                     child: Container(
                                       width: 140.0,
@@ -131,7 +136,7 @@ class _ListOfEstablishmentsWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 15.0, 0.0, 15.0),
                                           child: Text(
                                             'Hango t\'aide à trouver les meilleurs soirées, events et établissements du monde de la nuit en suisse Romande',
@@ -150,7 +155,7 @@ class _ListOfEstablishmentsWidgetState
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 15.0, 0.0, 15.0),
                                           child: Text(
                                             'Créer toi  un compte et reçois des PROMO% exclusives dans les meilleurs établissements de ta ville',
@@ -187,7 +192,7 @@ class _ListOfEstablishmentsWidgetState
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 16.0, 0.0, 0.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => Text(
@@ -223,10 +228,9 @@ class _ListOfEstablishmentsWidgetState
                                 .secondaryBackground,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 16.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -253,7 +257,7 @@ class _ListOfEstablishmentsWidgetState
                                         if (!loggedIn)
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -268,11 +272,11 @@ class _ListOfEstablishmentsWidgetState
                                               options: FFButtonOptions(
                                                 width: 200.0,
                                                 height: 40.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -307,7 +311,7 @@ class _ListOfEstablishmentsWidgetState
                                             true)
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) =>
@@ -325,11 +329,11 @@ class _ListOfEstablishmentsWidgetState
                                                 options: FFButtonOptions(
                                                   width: 200.0,
                                                   height: 40.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -362,7 +366,7 @@ class _ListOfEstablishmentsWidgetState
                                         if (!loggedIn)
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -377,11 +381,11 @@ class _ListOfEstablishmentsWidgetState
                                               options: FFButtonOptions(
                                                 width: 200.0,
                                                 height: 40.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -412,7 +416,7 @@ class _ListOfEstablishmentsWidgetState
                                         if (loggedIn)
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -433,11 +437,11 @@ class _ListOfEstablishmentsWidgetState
                                               options: FFButtonOptions(
                                                 width: 200.0,
                                                 height: 40.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -481,8 +485,7 @@ class _ListOfEstablishmentsWidgetState
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -494,7 +497,7 @@ class _ListOfEstablishmentsWidgetState
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                 blurRadius: 5.0,
                                                 color: Color(0x3314181B),
@@ -504,7 +507,7 @@ class _ListOfEstablishmentsWidgetState
                                             shape: BoxShape.circle,
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.instagram,
                                             color: FlutterFlowTheme.of(context)
@@ -518,7 +521,7 @@ class _ListOfEstablishmentsWidgetState
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                 blurRadius: 5.0,
                                                 color: Color(0x3314181B),
@@ -528,7 +531,7 @@ class _ListOfEstablishmentsWidgetState
                                             shape: BoxShape.circle,
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.tiktok,
                                             color: FlutterFlowTheme.of(context)
@@ -542,7 +545,7 @@ class _ListOfEstablishmentsWidgetState
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                 blurRadius: 5.0,
                                                 color: Color(0x3314181B),
@@ -552,7 +555,7 @@ class _ListOfEstablishmentsWidgetState
                                             shape: BoxShape.circle,
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.facebookF,
                                             color: FlutterFlowTheme.of(context)
@@ -568,11 +571,11 @@ class _ListOfEstablishmentsWidgetState
                             ),
                           ),
                         ),
-                      ].addToEnd(SizedBox(height: 15.0)),
+                      ].addToEnd(const SizedBox(height: 15.0)),
                     ),
                   ),
                 ),
-              ),
+              )),
               body: NestedScrollView(
                 floatHeaderSlivers: true,
                 headerSliverBuilder: (context, _) => [
@@ -597,7 +600,7 @@ class _ListOfEstablishmentsWidgetState
                           FlutterFlowTheme.of(context).primaryBackground,
                       automaticallyImplyLeading: false,
                       title: Align(
-                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -630,10 +633,10 @@ class _ListOfEstablishmentsWidgetState
                                         .primaryText,
                                   ),
                             ),
-                          ].divide(SizedBox(width: 15.0)),
+                          ].divide(const SizedBox(width: 15.0)),
                         ),
                       ),
-                      actions: [],
+                      actions: const [],
                       centerTitle: false,
                       elevation: 0.0,
                     )
@@ -655,7 +658,7 @@ class _ListOfEstablishmentsWidgetState
                               model: _model.sideNavWebModel,
                               updateCallback: () => setState(() {}),
                               updateOnChange: true,
-                              child: SideNavWebWidget(
+                              child: const SideNavWebWidget(
                                 nav1: true,
                                 nav2: false,
                                 nav3: false,
@@ -663,7 +666,7 @@ class _ListOfEstablishmentsWidgetState
                             ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -673,410 +676,988 @@ class _ListOfEstablishmentsWidgetState
                                   ))
                                     Expanded(
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
+                                        width: double.infinity,
                                         height:
                                             MediaQuery.sizeOf(context).height *
                                                 1.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
-                                              Expanded(
-                                                child: PagedListView<
-                                                    DocumentSnapshot<Object?>?,
-                                                    EstablishmentsRecord>(
-                                                  pagingController: _model
-                                                      .setListEstMobileController(
-                                                    EstablishmentsRecord
-                                                        .collection
-                                                        .orderBy(
-                                                            'created_time'),
-                                                  ),
-                                                  padding: EdgeInsets.zero,
-                                                  primary: false,
-                                                  shrinkWrap: true,
-                                                  reverse: false,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  builderDelegate:
-                                                      PagedChildBuilderDelegate<
-                                                          EstablishmentsRecord>(
-                                                    // Customize what your widget looks like when it's loading the first page.
-                                                    firstPageProgressIndicatorBuilder:
-                                                        (_) => Center(
-                                                      child: SizedBox(
-                                                        width: 30.0,
-                                                        height: 30.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          valueColor:
-                                                              AlwaysStoppedAnimation<
-                                                                  Color>(
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                          ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .estblishmentSearchMobileController,
+                                                        focusNode: _model
+                                                            .estblishmentSearchMobileFocusNode,
+                                                        onChanged: (_) =>
+                                                            EasyDebounce
+                                                                .debounce(
+                                                          '_model.estblishmentSearchMobileController',
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  2000),
+                                                          () async {
+                                                            logFirebaseEvent(
+                                                                'LIST_OF_ESTABLISHMENTS_estblishmentSearc');
+                                                            currentUserLocationValue =
+                                                                await getCurrentUserLocation(
+                                                                    defaultLocation:
+                                                                        const LatLng(
+                                                                            0.0,
+                                                                            0.0));
+                                                            logFirebaseEvent(
+                                                                'estblishmentSearchMobile_update_page_sta');
+                                                            setState(() {
+                                                              _model.isSearchMobile =
+                                                                  true;
+                                                            });
+                                                            logFirebaseEvent(
+                                                                'estblishmentSearchMobile_algolia_search');
+                                                            safeSetState(() =>
+                                                                _model.algoliaSearchResults =
+                                                                    null);
+                                                            await EstablishmentsRecord
+                                                                    .search(
+                                                              term: _model
+                                                                  .estblishmentSearchMobileController
+                                                                  .text,
+                                                              location: getCurrentUserLocation(
+                                                                  defaultLocation: const LatLng(
+                                                                      37.4298229,
+                                                                      -122.1735655)),
+                                                            )
+                                                                .then((r) =>
+                                                                    _model.algoliaSearchResults =
+                                                                        r)
+                                                                .onError((_,
+                                                                        __) =>
+                                                                    _model.algoliaSearchResults =
+                                                                        [])
+                                                                .whenComplete(() =>
+                                                                    setState(
+                                                                        () {}));
+                                                          },
                                                         ),
-                                                      ),
-                                                    ),
-                                                    // Customize what your widget looks like when it's loading another page.
-                                                    newPageProgressIndicatorBuilder:
-                                                        (_) => Center(
-                                                      child: SizedBox(
-                                                        width: 30.0,
-                                                        height: 30.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          valueColor:
-                                                              AlwaysStoppedAnimation<
-                                                                  Color>(
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium,
+                                                          hintText:
+                                                              'Trouver une établissement',
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelLarge,
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .lineColor,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        40.0),
                                                           ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    noItemsFoundIndicatorBuilder:
-                                                        (_) => Center(
-                                                      child: Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.8,
-                                                        height:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .height *
-                                                                0.2,
-                                                        child: EmptyListWidget(
-                                                          icon: Icon(
-                                                            Icons.business,
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        40.0),
+                                                          ),
+                                                          errorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        40.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        40.0),
+                                                          ),
+                                                          filled: true,
+                                                          fillColor: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          prefixIcon: Icon(
+                                                            Icons.search_sharp,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryText,
-                                                            size: 30.0,
+                                                                .secondaryText,
                                                           ),
-                                                          title:
-                                                              'Il n\'y a pas d\'établissements',
-                                                          description: '',
+                                                          suffixIcon: _model
+                                                                  .estblishmentSearchMobileController!
+                                                                  .text
+                                                                  .isNotEmpty
+                                                              ? InkWell(
+                                                                  onTap:
+                                                                      () async {
+                                                                    _model
+                                                                        .estblishmentSearchMobileController
+                                                                        ?.clear();
+                                                                    logFirebaseEvent(
+                                                                        'LIST_OF_ESTABLISHMENTS_estblishmentSearc');
+                                                                    currentUserLocationValue = await getCurrentUserLocation(
+                                                                        defaultLocation: const LatLng(
+                                                                            0.0,
+                                                                            0.0));
+                                                                    logFirebaseEvent(
+                                                                        'estblishmentSearchMobile_update_page_sta');
+                                                                    setState(
+                                                                        () {
+                                                                      _model.isSearchMobile =
+                                                                          true;
+                                                                    });
+                                                                    logFirebaseEvent(
+                                                                        'estblishmentSearchMobile_algolia_search');
+                                                                    safeSetState(() =>
+                                                                        _model.algoliaSearchResults =
+                                                                            null);
+                                                                    await EstablishmentsRecord
+                                                                            .search(
+                                                                      term: _model
+                                                                          .estblishmentSearchMobileController
+                                                                          .text,
+                                                                      location: getCurrentUserLocation(
+                                                                          defaultLocation: const LatLng(
+                                                                              37.4298229,
+                                                                              -122.1735655)),
+                                                                    )
+                                                                        .then((r) =>
+                                                                            _model.algoliaSearchResults =
+                                                                                r)
+                                                                        .onError((_,
+                                                                                __) =>
+                                                                            _model.algoliaSearchResults =
+                                                                                [])
+                                                                        .whenComplete(() =>
+                                                                            setState(() {}));
+
+                                                                    setState(
+                                                                        () {});
+                                                                  },
+                                                                  child: Icon(
+                                                                    Icons.clear,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .grayIcon,
+                                                                    size: 25.0,
+                                                                  ),
+                                                                )
+                                                              : null,
                                                         ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                        cursorColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        validator: _model
+                                                            .estblishmentSearchMobileControllerValidator
+                                                            .asValidator(
+                                                                context),
                                                       ),
                                                     ),
-                                                    itemBuilder: (context, _,
-                                                        listEstMobileIndex) {
-                                                      final listEstMobileEstablishmentsRecord =
-                                                          _model.listEstMobilePagingController!
-                                                                  .itemList![
-                                                              listEstMobileIndex];
-                                                      return Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.00, 0.00),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      5.0),
-                                                          child: StreamBuilder<
-                                                              List<
-                                                                  ImagesRecord>>(
-                                                            stream:
-                                                                queryImagesRecord(
-                                                              parent:
-                                                                  listEstMobileEstablishmentsRecord
-                                                                      .reference,
-                                                              singleRecord:
-                                                                  true,
+                                                  ),
+                                                  FlutterFlowIconButton(
+                                                    borderColor:
+                                                        Colors.transparent,
+                                                    borderRadius: 20.0,
+                                                    borderWidth: 1.0,
+                                                    buttonSize: 40.0,
+                                                    fillColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    hoverColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    hoverIconColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    icon: Icon(
+                                                      Icons.filter_list_sharp,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                      size: 24.0,
+                                                    ),
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'LIST_OF_ESTABLISHMENTS_filter_list_sharp');
+                                                      logFirebaseEvent(
+                                                          'IconButton_update_page_state');
+                                                      logFirebaseEvent(
+                                                          'IconButton_bottom_sheet');
+                                                    },
+                                                  ),
+                                                ].divide(const SizedBox(width: 5.0)),
+                                              ),
+                                              if (valueOrDefault<bool>(
+                                                _model.isSearchMobile == true,
+                                                false,
+                                              ))
+                                                Expanded(
+                                                  child: Builder(
+                                                    builder: (context) {
+                                                      if (_model
+                                                              .algoliaSearchResults ==
+                                                          null) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 30.0,
+                                                            height: 30.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
                                                             ),
-                                                            builder: (context,
-                                                                snapshot) {
-                                                              // Customize what your widget looks like when it's loading.
-                                                              if (!snapshot
-                                                                  .hasData) {
-                                                                return Center(
-                                                                  child:
-                                                                      SizedBox(
-                                                                    width: 30.0,
-                                                                    height:
-                                                                        30.0,
-                                                                    child:
-                                                                        CircularProgressIndicator(
-                                                                      valueColor:
-                                                                          AlwaysStoppedAnimation<
-                                                                              Color>(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primary,
+                                                          ),
+                                                        );
+                                                      }
+                                                      final searchResults = _model
+                                                              .algoliaSearchResults
+                                                              ?.toList() ??
+                                                          [];
+                                                      if (searchResults
+                                                          .isEmpty) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.8,
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                0.2,
+                                                            child:
+                                                                EmptyListWidget(
+                                                              icon: Icon(
+                                                                Icons.business,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                size: 30.0,
+                                                              ),
+                                                              title:
+                                                                  'Il n\'y a pas d\'établissements',
+                                                              description: '',
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      return ListView.builder(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        primary: false,
+                                                        shrinkWrap: true,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        itemCount: searchResults
+                                                            .length,
+                                                        itemBuilder: (context,
+                                                            searchResultsIndex) {
+                                                          final searchResultsItem =
+                                                              searchResults[
+                                                                  searchResultsIndex];
+                                                          return Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          5.0),
+                                                              child: StreamBuilder<
+                                                                  List<
+                                                                      ImagesRecord>>(
+                                                                stream:
+                                                                    queryImagesRecord(
+                                                                  parent: searchResultsItem
+                                                                      .reference,
+                                                                  singleRecord:
+                                                                      true,
+                                                                ),
+                                                                builder: (context,
+                                                                    snapshot) {
+                                                                  // Customize what your widget looks like when it's loading.
+                                                                  if (!snapshot
+                                                                      .hasData) {
+                                                                    return Center(
+                                                                      child:
+                                                                          SizedBox(
+                                                                        width:
+                                                                            30.0,
+                                                                        height:
+                                                                            30.0,
+                                                                        child:
+                                                                            CircularProgressIndicator(
+                                                                          valueColor:
+                                                                              AlwaysStoppedAnimation<Color>(
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                          ),
+                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              }
-                                                              List<ImagesRecord>
-                                                                  cardEstablishmentImagesRecordList =
-                                                                  snapshot
-                                                                      .data!;
-                                                              final cardEstablishmentImagesRecord =
-                                                                  cardEstablishmentImagesRecordList
+                                                                    );
+                                                                  }
+                                                                  List<ImagesRecord>
+                                                                      cardEstablishmentImagesRecordList =
+                                                                      snapshot
+                                                                          .data!;
+                                                                  final cardEstablishmentImagesRecord = cardEstablishmentImagesRecordList
                                                                           .isNotEmpty
                                                                       ? cardEstablishmentImagesRecordList
                                                                           .first
                                                                       : null;
-                                                              return InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'LIST_OF_ESTABLISHMENTS_CardEstablishment');
-                                                                  logFirebaseEvent(
-                                                                      'CardEstablishment_navigate_to');
+                                                                  return InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      logFirebaseEvent(
+                                                                          'LIST_OF_ESTABLISHMENTS_CardEstablishment');
+                                                                      logFirebaseEvent(
+                                                                          'CardEstablishment_navigate_to');
 
-                                                                  context
-                                                                      .pushNamed(
-                                                                    'ShowOfEstablishment',
-                                                                    queryParameters:
-                                                                        {
-                                                                      'estRef':
-                                                                          serializeParam(
-                                                                        listEstMobileEstablishmentsRecord,
-                                                                        ParamType
-                                                                            .Document,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                    extra: <String,
-                                                                        dynamic>{
-                                                                      'estRef':
-                                                                          listEstMobileEstablishmentsRecord,
-                                                                    },
-                                                                  );
-                                                                },
-                                                                child: Card(
-                                                                  clipBehavior:
-                                                                      Clip.antiAliasWithSaveLayer,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  shape:
-                                                                      RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      FlutterFlowMediaDisplay(
-                                                                        path: valueOrDefault<
-                                                                            String>(
-                                                                          cardEstablishmentImagesRecord?.video != null && cardEstablishmentImagesRecord?.video != ''
-                                                                              ? cardEstablishmentImagesRecord?.video
-                                                                              : valueOrDefault<String>(
-                                                                                  cardEstablishmentImagesRecord?.image1,
-                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                ),
-                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                        ),
-                                                                        imageBuilder:
-                                                                            (path) =>
-                                                                                ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.only(
-                                                                            bottomLeft:
-                                                                                Radius.circular(0.0),
-                                                                            bottomRight:
-                                                                                Radius.circular(0.0),
-                                                                            topLeft:
-                                                                                Radius.circular(8.0),
-                                                                            topRight:
-                                                                                Radius.circular(8.0),
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'ShowOfEstablishment',
+                                                                        queryParameters:
+                                                                            {
+                                                                          'estRef':
+                                                                              serializeParam(
+                                                                            searchResultsItem,
+                                                                            ParamType.Document,
                                                                           ),
-                                                                          child:
-                                                                              Image.network(
-                                                                            path,
+                                                                        }.withoutNulls,
+                                                                        extra: <String,
+                                                                            dynamic>{
+                                                                          'estRef':
+                                                                              searchResultsItem,
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                    child: Card(
+                                                                      clipBehavior:
+                                                                          Clip.antiAliasWithSaveLayer,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                      shape:
+                                                                          RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          FlutterFlowMediaDisplay(
+                                                                            path:
+                                                                                valueOrDefault<String>(
+                                                                              cardEstablishmentImagesRecord?.video != null && cardEstablishmentImagesRecord?.video != ''
+                                                                                  ? cardEstablishmentImagesRecord?.video
+                                                                                  : valueOrDefault<String>(
+                                                                                      cardEstablishmentImagesRecord?.image1,
+                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                    ),
+                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                            ),
+                                                                            imageBuilder: (path) =>
+                                                                                ClipRRect(
+                                                                              borderRadius: const BorderRadius.only(
+                                                                                bottomLeft: Radius.circular(0.0),
+                                                                                bottomRight: Radius.circular(0.0),
+                                                                                topLeft: Radius.circular(8.0),
+                                                                                topRight: Radius.circular(8.0),
+                                                                              ),
+                                                                              child: Image.network(
+                                                                                path,
+                                                                                width: double.infinity,
+                                                                                height: MediaQuery.sizeOf(context).height * 0.23,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            ),
+                                                                            videoPlayerBuilder: (path) =>
+                                                                                FlutterFlowVideoPlayer(
+                                                                              path: path,
+                                                                              width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                              height: MediaQuery.sizeOf(context).height * 0.23,
+                                                                              autoPlay: false,
+                                                                              looping: true,
+                                                                              showControls: true,
+                                                                              allowFullScreen: true,
+                                                                              allowPlaybackSpeedMenu: false,
+                                                                            ),
+                                                                          ),
+                                                                          Container(
                                                                             width:
                                                                                 double.infinity,
-                                                                            height:
-                                                                                MediaQuery.sizeOf(context).height * 0.23,
-                                                                            fit:
-                                                                                BoxFit.cover,
-                                                                          ),
-                                                                        ),
-                                                                        videoPlayerBuilder:
-                                                                            (path) =>
-                                                                                FlutterFlowVideoPlayer(
-                                                                          path:
-                                                                              path,
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 1.0,
-                                                                          height:
-                                                                              MediaQuery.sizeOf(context).height * 0.23,
-                                                                          autoPlay:
-                                                                              false,
-                                                                          looping:
-                                                                              true,
-                                                                          showControls:
-                                                                              true,
-                                                                          allowFullScreen:
-                                                                              true,
-                                                                          allowPlaybackSpeedMenu:
-                                                                              false,
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width: double
-                                                                            .infinity,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        ),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          children: [
-                                                                            Expanded(
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Row(
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              children: [
+                                                                                Expanded(
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                                                                                    child: Column(
                                                                                       mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                      children: [
-                                                                                        Expanded(
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
-                                                                                            child: Text(
-                                                                                              listEstMobileEstablishmentsRecord.name,
-                                                                                              style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    fontWeight: FontWeight.w600,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-                                                                                      child: SingleChildScrollView(
-                                                                                        scrollDirection: Axis.horizontal,
-                                                                                        child: Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            Text(
-                                                                                              'Style musical',
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
-                                                                                            ),
-                                                                                            if (listEstMobileEstablishmentsRecord.musicStyle.first != null && listEstMobileEstablishmentsRecord.musicStyle.first != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                                                child: Icon(
-                                                                                                  Icons.circle_rounded,
-                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                  size: 6.0,
-                                                                                                ),
-                                                                                              ),
-                                                                                            Text(
-                                                                                              listEstMobileEstablishmentsRecord.musicStyle.first,
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
                                                                                       children: [
                                                                                         Row(
                                                                                           mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                           children: [
-                                                                                            Text(
-                                                                                              'Type',
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    fontSize: 14.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                            if (listEstMobileEstablishmentsRecord.type.first != null && listEstMobileEstablishmentsRecord.type.first != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                                                child: Icon(
-                                                                                                  Icons.circle_rounded,
-                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                  size: 6.0,
+                                                                                            Expanded(
+                                                                                              child: Padding(
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                                                                                                child: Text(
+                                                                                                  searchResultsItem.name,
+                                                                                                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                      ),
                                                                                                 ),
                                                                                               ),
-                                                                                            Text(
-                                                                                              listEstMobileEstablishmentsRecord.type.first,
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    fontSize: 14.0,
-                                                                                                  ),
                                                                                             ),
                                                                                           ],
                                                                                         ),
-                                                                                        Text(
-                                                                                          listEstMobileEstablishmentsRecord.adresse.city,
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                        Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                          child: SingleChildScrollView(
+                                                                                            scrollDirection: Axis.horizontal,
+                                                                                            child: Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                if (searchResultsItem.musicStyle.first != '')
+                                                                                                  Text(
+                                                                                                    'Style musical',
+                                                                                                    style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                  ),
+                                                                                                if (searchResultsItem.musicStyle.first != '')
+                                                                                                  Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                    child: Icon(
+                                                                                                      Icons.circle_rounded,
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      size: 6.0,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                Text(
+                                                                                                  searchResultsItem.musicStyle.first,
+                                                                                                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ),
                                                                                         ),
-                                                                                      ],
+                                                                                        Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                if (searchResultsItem.type.first != '')
+                                                                                                  Text(
+                                                                                                    'Type',
+                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                          fontFamily: 'Poppins',
+                                                                                                          fontSize: 14.0,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                if (searchResultsItem.type.first != '')
+                                                                                                  Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                    child: Icon(
+                                                                                                      Icons.circle_rounded,
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      size: 6.0,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                Text(
+                                                                                                  searchResultsItem.type.first,
+                                                                                                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                                        fontSize: 14.0,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            Text(
+                                                                                              searchResultsItem.adresse.city,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ].addToStart(const SizedBox(height: 10.0)).addToEnd(const SizedBox(height: 10.0)),
                                                                                     ),
-                                                                                  ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
+                                                                                  ),
                                                                                 ),
-                                                                              ),
+                                                                              ],
                                                                             ),
-                                                                          ],
-                                                                        ),
+                                                                          ),
+                                                                        ],
                                                                       ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          ),
-                                                        ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
                                                       );
                                                     },
                                                   ),
                                                 ),
-                                              ),
+                                              if (valueOrDefault<bool>(
+                                                _model.isSearchMobile == false,
+                                                true,
+                                              ))
+                                                Expanded(
+                                                  child: StreamBuilder<
+                                                      List<
+                                                          EstablishmentsRecord>>(
+                                                    stream:
+                                                        queryEstablishmentsRecord(
+                                                      queryBuilder:
+                                                          (establishmentsRecord) =>
+                                                              establishmentsRecord
+                                                                  .orderBy(
+                                                                      'created_time'),
+                                                    ),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 30.0,
+                                                            height: 30.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      List<EstablishmentsRecord>
+                                                          listEstMobileEstablishmentsRecordList =
+                                                          snapshot.data!;
+                                                      if (listEstMobileEstablishmentsRecordList
+                                                          .isEmpty) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.8,
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                0.2,
+                                                            child:
+                                                                EmptyListWidget(
+                                                              icon: Icon(
+                                                                Icons.business,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                size: 30.0,
+                                                              ),
+                                                              title:
+                                                                  'Il n\'y a pas d\'établissements',
+                                                              description: '',
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      return ListView.builder(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        primary: false,
+                                                        shrinkWrap: true,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        itemCount:
+                                                            listEstMobileEstablishmentsRecordList
+                                                                .length,
+                                                        itemBuilder: (context,
+                                                            listEstMobileIndex) {
+                                                          final listEstMobileEstablishmentsRecord =
+                                                              listEstMobileEstablishmentsRecordList[
+                                                                  listEstMobileIndex];
+                                                          return Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          5.0),
+                                                              child: StreamBuilder<
+                                                                  List<
+                                                                      ImagesRecord>>(
+                                                                stream:
+                                                                    queryImagesRecord(
+                                                                  parent: listEstMobileEstablishmentsRecord
+                                                                      .reference,
+                                                                  singleRecord:
+                                                                      true,
+                                                                ),
+                                                                builder: (context,
+                                                                    snapshot) {
+                                                                  // Customize what your widget looks like when it's loading.
+                                                                  if (!snapshot
+                                                                      .hasData) {
+                                                                    return Center(
+                                                                      child:
+                                                                          SizedBox(
+                                                                        width:
+                                                                            30.0,
+                                                                        height:
+                                                                            30.0,
+                                                                        child:
+                                                                            CircularProgressIndicator(
+                                                                          valueColor:
+                                                                              AlwaysStoppedAnimation<Color>(
+                                                                            FlutterFlowTheme.of(context).primary,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  }
+                                                                  List<ImagesRecord>
+                                                                      cardEstablishmentImagesRecordList =
+                                                                      snapshot
+                                                                          .data!;
+                                                                  final cardEstablishmentImagesRecord = cardEstablishmentImagesRecordList
+                                                                          .isNotEmpty
+                                                                      ? cardEstablishmentImagesRecordList
+                                                                          .first
+                                                                      : null;
+                                                                  return InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      logFirebaseEvent(
+                                                                          'LIST_OF_ESTABLISHMENTS_CardEstablishment');
+                                                                      logFirebaseEvent(
+                                                                          'CardEstablishment_navigate_to');
+
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'ShowOfEstablishment',
+                                                                        queryParameters:
+                                                                            {
+                                                                          'estRef':
+                                                                              serializeParam(
+                                                                            listEstMobileEstablishmentsRecord,
+                                                                            ParamType.Document,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                        extra: <String,
+                                                                            dynamic>{
+                                                                          'estRef':
+                                                                              listEstMobileEstablishmentsRecord,
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                    child: Card(
+                                                                      clipBehavior:
+                                                                          Clip.antiAliasWithSaveLayer,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                      shape:
+                                                                          RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          FlutterFlowMediaDisplay(
+                                                                            path:
+                                                                                valueOrDefault<String>(
+                                                                              cardEstablishmentImagesRecord?.video != null && cardEstablishmentImagesRecord?.video != ''
+                                                                                  ? cardEstablishmentImagesRecord?.video
+                                                                                  : valueOrDefault<String>(
+                                                                                      cardEstablishmentImagesRecord?.image1,
+                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                                    ),
+                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
+                                                                            ),
+                                                                            imageBuilder: (path) =>
+                                                                                ClipRRect(
+                                                                              borderRadius: const BorderRadius.only(
+                                                                                bottomLeft: Radius.circular(0.0),
+                                                                                bottomRight: Radius.circular(0.0),
+                                                                                topLeft: Radius.circular(8.0),
+                                                                                topRight: Radius.circular(8.0),
+                                                                              ),
+                                                                              child: Image.network(
+                                                                                path,
+                                                                                width: double.infinity,
+                                                                                height: MediaQuery.sizeOf(context).height * 0.23,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            ),
+                                                                            videoPlayerBuilder: (path) =>
+                                                                                FlutterFlowVideoPlayer(
+                                                                              path: path,
+                                                                              width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                              height: MediaQuery.sizeOf(context).height * 0.23,
+                                                                              autoPlay: false,
+                                                                              looping: true,
+                                                                              showControls: true,
+                                                                              allowFullScreen: true,
+                                                                              allowPlaybackSpeedMenu: false,
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                double.infinity,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              children: [
+                                                                                Expanded(
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                      children: [
+                                                                                        Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          children: [
+                                                                                            Expanded(
+                                                                                              child: Padding(
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                                                                                                child: Text(
+                                                                                                  listEstMobileEstablishmentsRecord.name,
+                                                                                                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                        if (listEstMobileEstablishmentsRecord.musicStyle.first != '')
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                            child: SingleChildScrollView(
+                                                                                              scrollDirection: Axis.horizontal,
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'Style musical',
+                                                                                                    style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                  ),
+                                                                                                  Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                    child: Icon(
+                                                                                                      Icons.circle_rounded,
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      size: 6.0,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  Text(
+                                                                                                    listEstMobileEstablishmentsRecord.musicStyle.first,
+                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                          fontFamily: 'Poppins',
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          children: [
+                                                                                            if (listEstMobileEstablishmentsRecord.type.first != '')
+                                                                                              Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                children: [
+                                                                                                  if (listEstMobileEstablishmentsRecord.type.first != '')
+                                                                                                    Text(
+                                                                                                      'Type',
+                                                                                                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                            fontFamily: 'Poppins',
+                                                                                                            fontSize: 14.0,
+                                                                                                          ),
+                                                                                                    ),
+                                                                                                  Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                    child: Icon(
+                                                                                                      Icons.circle_rounded,
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      size: 6.0,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  Text(
+                                                                                                    listEstMobileEstablishmentsRecord.type.first,
+                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                          fontFamily: 'Poppins',
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                          fontSize: 14.0,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            Text(
+                                                                                              listEstMobileEstablishmentsRecord.adresse.city,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ].addToStart(const SizedBox(height: 10.0)).addToEnd(const SizedBox(height: 10.0)),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
                                             ]
-                                                .divide(SizedBox(height: 8.0))
+                                                .divide(const SizedBox(height: 8.0))
                                                 .addToStart(
-                                                    SizedBox(height: 8.0)),
+                                                    const SizedBox(height: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -1090,11 +1671,9 @@ class _ListOfEstablishmentsWidgetState
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 15.0, 15.0, 15.0),
+                                          padding: const EdgeInsets.all(15.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -1102,7 +1681,7 @@ class _ListOfEstablishmentsWidgetState
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
                                                 1.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1167,7 +1746,7 @@ class _ListOfEstablishmentsWidgetState
                                                       ),
                                                       noItemsFoundIndicatorBuilder:
                                                           (_) => Center(
-                                                        child: Container(
+                                                        child: SizedBox(
                                                           width:
                                                               MediaQuery.sizeOf(
                                                                           context)
@@ -1201,11 +1780,11 @@ class _ListOfEstablishmentsWidgetState
                                                                 listEstablishmentsQueryWebIndex];
                                                         return Align(
                                                           alignment:
-                                                              AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                              const AlignmentDirectional(
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1322,11 +1901,6 @@ class _ListOfEstablishmentsWidgetState
                                                                                                 cardEstablishmentImagesRecord?.image1,
                                                                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                               ) !=
-                                                                                              null &&
-                                                                                          valueOrDefault<String>(
-                                                                                                cardEstablishmentImagesRecord?.image1,
-                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                              ) !=
                                                                                               ''
                                                                                       ? valueOrDefault<String>(
                                                                                           cardEstablishmentImagesRecord?.image1,
@@ -1336,7 +1910,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                 ),
                                                                                 imageBuilder: (path) => ClipRRect(
-                                                                                  borderRadius: BorderRadius.only(
+                                                                                  borderRadius: const BorderRadius.only(
                                                                                     bottomLeft: Radius.circular(0.0),
                                                                                     bottomRight: Radius.circular(0.0),
                                                                                     topLeft: Radius.circular(8.0),
@@ -1363,16 +1937,11 @@ class _ListOfEstablishmentsWidgetState
                                                                             if ((cardEstablishmentImagesRecord?.image1 == null || cardEstablishmentImagesRecord?.image1 == '') &&
                                                                                 (cardEstablishmentImagesRecord?.video != null && cardEstablishmentImagesRecord?.video != ''))
                                                                               Stack(
-                                                                                alignment: AlignmentDirectional(0.98, -0.95),
+                                                                                alignment: const AlignmentDirectional(0.98, -0.95),
                                                                                 children: [
                                                                                   FlutterFlowMediaDisplay(
                                                                                     path: valueOrDefault<String>(
                                                                                       valueOrDefault<String>(
-                                                                                                    cardEstablishmentImagesRecord?.video,
-                                                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                                  ) !=
-                                                                                                  null &&
-                                                                                              valueOrDefault<String>(
                                                                                                     cardEstablishmentImagesRecord?.video,
                                                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                                   ) !=
@@ -1385,7 +1954,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                     ),
                                                                                     imageBuilder: (path) => ClipRRect(
-                                                                                      borderRadius: BorderRadius.only(
+                                                                                      borderRadius: const BorderRadius.only(
                                                                                         bottomLeft: Radius.circular(0.0),
                                                                                         bottomRight: Radius.circular(0.0),
                                                                                         topLeft: Radius.circular(8.0),
@@ -1422,15 +1991,10 @@ class _ListOfEstablishmentsWidgetState
                                                                             if ((cardEstablishmentImagesRecord?.image1 != null && cardEstablishmentImagesRecord?.image1 != '') &&
                                                                                 (cardEstablishmentImagesRecord?.video != null && cardEstablishmentImagesRecord?.video != ''))
                                                                               Stack(
-                                                                                alignment: AlignmentDirectional(0.98, -0.95),
+                                                                                alignment: const AlignmentDirectional(0.98, -0.95),
                                                                                 children: [
                                                                                   FlutterFlowMediaDisplay(
                                                                                     path: valueOrDefault<String>(
-                                                                                                  cardEstablishmentImagesRecord?.video,
-                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
-                                                                                                ) !=
-                                                                                                null &&
-                                                                                            valueOrDefault<String>(
                                                                                                   cardEstablishmentImagesRecord?.video,
                                                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                                                 ) !=
@@ -1441,7 +2005,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                           )
                                                                                         : null!,
                                                                                     imageBuilder: (path) => ClipRRect(
-                                                                                      borderRadius: BorderRadius.only(
+                                                                                      borderRadius: const BorderRadius.only(
                                                                                         bottomLeft: Radius.circular(0.0),
                                                                                         bottomRight: Radius.circular(0.0),
                                                                                         topLeft: Radius.circular(8.0),
@@ -1494,7 +2058,7 @@ class _ListOfEstablishmentsWidgetState
                                                                             children: [
                                                                               Expanded(
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                   child: Column(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -1506,7 +2070,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                         children: [
                                                                                           Expanded(
                                                                                             child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                                                                                               child: Text(
                                                                                                 valueOrDefault<String>(
                                                                                                   listEstablishmentsQueryWebEstablishmentsRecord.name,
@@ -1522,7 +2086,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                         ],
                                                                                       ),
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                         child: SingleChildScrollView(
                                                                                           scrollDirection: Axis.horizontal,
                                                                                           child: Row(
@@ -1535,9 +2099,9 @@ class _ListOfEstablishmentsWidgetState
                                                                                                       fontSize: 14.0,
                                                                                                     ),
                                                                                               ),
-                                                                                              if (listEstablishmentsQueryWebEstablishmentsRecord.musicStyle.first != null && listEstablishmentsQueryWebEstablishmentsRecord.musicStyle.first != '')
+                                                                                              if (listEstablishmentsQueryWebEstablishmentsRecord.musicStyle.first != '')
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                                   child: Icon(
                                                                                                     Icons.circle_rounded,
                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
@@ -1569,9 +2133,9 @@ class _ListOfEstablishmentsWidgetState
                                                                                                       fontSize: 14.0,
                                                                                                     ),
                                                                                               ),
-                                                                                              if (listEstablishmentsQueryWebEstablishmentsRecord.type.first != null && listEstablishmentsQueryWebEstablishmentsRecord.type.first != '')
+                                                                                              if (listEstablishmentsQueryWebEstablishmentsRecord.type.first != '')
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                                   child: Icon(
                                                                                                     Icons.circle_rounded,
                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
@@ -1597,7 +2161,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                           ),
                                                                                         ],
                                                                                       ),
-                                                                                    ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
+                                                                                    ].addToStart(const SizedBox(height: 10.0)).addToEnd(const SizedBox(height: 10.0)),
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -1618,9 +2182,9 @@ class _ListOfEstablishmentsWidgetState
                                                 ),
                                               ]
                                                   .divide(
-                                                      SizedBox(height: 10.0))
+                                                      const SizedBox(height: 10.0))
                                                   .addToStart(
-                                                      SizedBox(height: 15.0)),
+                                                      const SizedBox(height: 15.0)),
                                             ),
                                           ),
                                         ),

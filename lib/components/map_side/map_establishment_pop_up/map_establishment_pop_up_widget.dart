@@ -5,18 +5,15 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'map_establishment_pop_up_model.dart';
 export 'map_establishment_pop_up_model.dart';
 
 class MapEstablishmentPopUpWidget extends StatefulWidget {
   const MapEstablishmentPopUpWidget({
-    Key? key,
+    super.key,
     required this.establishmentRef,
-  }) : super(key: key);
+  });
 
   final EstablishmentsRecord? establishmentRef;
 
@@ -61,7 +58,7 @@ class _MapEstablishmentPopUpWidgetState
           desktop: false,
         ))
           Align(
-            alignment: AlignmentDirectional(0.00, 1.00),
+            alignment: const AlignmentDirectional(0.0, 1.0),
             child: StreamBuilder<EstablishmentsRecord>(
               stream: EstablishmentsRecord.getDocument(
                   widget.establishmentRef!.reference),
@@ -84,7 +81,7 @@ class _MapEstablishmentPopUpWidgetState
                 return Material(
                   color: Colors.transparent,
                   elevation: 10.0,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
@@ -97,7 +94,7 @@ class _MapEstablishmentPopUpWidgetState
                     height: MediaQuery.sizeOf(context).height * 0.3,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(0.0),
                         bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(20.0),
@@ -168,9 +165,7 @@ class _MapEstablishmentPopUpWidgetState
                                           ),
                                         ),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  1.0, 1.0, 1.0, 1.0),
+                                          padding: const EdgeInsets.all(1.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -222,7 +217,7 @@ class _MapEstablishmentPopUpWidgetState
                                                             .width *
                                                         0.2,
                                                 clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
+                                                decoration: const BoxDecoration(
                                                   shape: BoxShape.circle,
                                                 ),
                                                 child: Image.network(
@@ -255,7 +250,7 @@ class _MapEstablishmentPopUpWidgetState
                                       ),
                                     ],
                                   ),
-                                ].divide(SizedBox(height: 5.0)),
+                                ].divide(const SizedBox(height: 5.0)),
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
@@ -279,9 +274,9 @@ class _MapEstablishmentPopUpWidgetState
                                 text: 'Voir les détails',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -291,7 +286,7 @@ class _MapEstablishmentPopUpWidgetState
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -301,7 +296,7 @@ class _MapEstablishmentPopUpWidgetState
                             ],
                           ),
                         ),
-                      ].addToEnd(SizedBox(height: 15.0)),
+                      ].addToEnd(const SizedBox(height: 15.0)),
                     ),
                   ),
                 );
@@ -315,7 +310,7 @@ class _MapEstablishmentPopUpWidgetState
           tabletLandscape: false,
         ))
           Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: StreamBuilder<EstablishmentsRecord>(
               stream: EstablishmentsRecord.getDocument(
                   widget.establishmentRef!.reference),
@@ -412,9 +407,7 @@ class _MapEstablishmentPopUpWidgetState
                                           ),
                                         ),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  1.0, 1.0, 1.0, 1.0),
+                                          padding: const EdgeInsets.all(1.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -466,7 +459,7 @@ class _MapEstablishmentPopUpWidgetState
                                                             .width *
                                                         0.2,
                                                 clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
+                                                decoration: const BoxDecoration(
                                                   shape: BoxShape.circle,
                                                 ),
                                                 child: Image.network(
@@ -499,7 +492,7 @@ class _MapEstablishmentPopUpWidgetState
                                       ),
                                     ],
                                   ),
-                                ].divide(SizedBox(height: 5.0)),
+                                ].divide(const SizedBox(height: 5.0)),
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
@@ -523,9 +516,9 @@ class _MapEstablishmentPopUpWidgetState
                                 text: 'Voir les détails',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -535,7 +528,7 @@ class _MapEstablishmentPopUpWidgetState
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -545,7 +538,7 @@ class _MapEstablishmentPopUpWidgetState
                             ],
                           ),
                         ),
-                      ].addToEnd(SizedBox(height: 15.0)),
+                      ].addToEnd(const SizedBox(height: 15.0)),
                     ),
                   ),
                 );

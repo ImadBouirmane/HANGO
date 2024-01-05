@@ -1,16 +1,13 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'images_delete_problem_admin_pop_up_model.dart';
 export 'images_delete_problem_admin_pop_up_model.dart';
 
 class ImagesDeleteProblemAdminPopUpWidget extends StatefulWidget {
-  const ImagesDeleteProblemAdminPopUpWidget({Key? key}) : super(key: key);
+  const ImagesDeleteProblemAdminPopUpWidget({super.key});
 
   @override
   _ImagesDeleteProblemAdminPopUpWidgetState createState() =>
@@ -47,7 +44,7 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Material(
         color: Colors.transparent,
         elevation: 5.0,
@@ -62,7 +59,7 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
             borderRadius: BorderRadius.circular(15.0),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -87,7 +84,7 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
-                              TextSpan(
+                              const TextSpan(
                                 text:
                                     'Nous souhaitons vous informer qu\'en téléchargeant les images et en affichant la liste des images à gauche, vous pouvez désormais les supprimer toutes en une seule fois, au lieu de devoir les supprimer une par une !\nNous savons que cela n\'est pas encore suffisant, mais nous ajouterons cette option dans les prochaines mises à jour.\n\nMerci de votre compréhension.',
                                 style: TextStyle(),
@@ -101,7 +98,7 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, -1.00),
+                            alignment: const AlignmentDirectional(0.0, -1.0),
                             child: FlutterFlowIconButton(
                               borderColor: FlutterFlowTheme.of(context).primary,
                               borderRadius: 20.0,

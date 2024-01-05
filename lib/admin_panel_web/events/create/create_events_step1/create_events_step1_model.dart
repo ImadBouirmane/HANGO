@@ -1,21 +1,10 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
-import '/flutter_flow/flutter_flow_checkbox_group.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'create_events_step1_widget.dart' show CreateEventsStep1Widget;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class CreateEventsStep1Model extends FlutterFlowModel<CreateEventsStep1Widget> {
   ///  State fields for stateful widgets in this page.
@@ -70,11 +59,13 @@ class CreateEventsStep1Model extends FlutterFlowModel<CreateEventsStep1Widget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
     eventTitleControllerValidator = _eventTitleControllerValidator;
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     adminSideBarModel.dispose();

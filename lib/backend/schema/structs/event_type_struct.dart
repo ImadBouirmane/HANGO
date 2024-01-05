@@ -3,9 +3,7 @@ import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class EventTypeStruct extends FFFirebaseStruct {
@@ -34,8 +32,9 @@ class EventTypeStruct extends FFFirebaseStruct {
         hockey: data['Hockey'] as String?,
       );
 
-  static EventTypeStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? EventTypeStruct.fromMap(data) : null;
+  static EventTypeStruct? maybeFromMap(dynamic data) => data is Map
+      ? EventTypeStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'Football': _football,
@@ -80,7 +79,7 @@ class EventTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        firestoreUtilData: FirestoreUtilData(
+        firestoreUtilData: const FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
         ),

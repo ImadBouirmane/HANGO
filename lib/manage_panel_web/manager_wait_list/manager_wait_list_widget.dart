@@ -2,17 +2,15 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'manager_wait_list_model.dart';
 export 'manager_wait_list_model.dart';
 
 class ManagerWaitListWidget extends StatefulWidget {
-  const ManagerWaitListWidget({Key? key}) : super(key: key);
+  const ManagerWaitListWidget({super.key});
 
   @override
   _ManagerWaitListWidgetState createState() => _ManagerWaitListWidgetState();
@@ -79,8 +77,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                         FlutterFlowTheme.of(context).primaryBtnText,
                     automaticallyImplyLeading: false,
                     leading: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: FlutterFlowIconButton(
                         borderRadius: 20.0,
                         borderWidth: 1.0,
@@ -96,7 +93,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                         },
                       ),
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: false,
                     elevation: 0.0,
                   )
@@ -108,7 +105,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                 color: FlutterFlowTheme.of(context).primaryBackground,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 30.0),
+                padding: const EdgeInsets.all(30.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -197,7 +194,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
-                                    TextSpan(
+                                    const TextSpan(
                                       text:
                                           '\n\nVotre compte est en cours d\'analyse. Nous vous contacterons dans les 48h par email.  Vous pouvez nous contacter via le formulaire de contact sur notre site web',
                                       style: TextStyle(),
@@ -219,7 +216,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                               context.pushNamed(
                                 'ListOfEstablishments',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.scale,
                                     alignment: Alignment.bottomCenter,
@@ -231,9 +228,9 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                             text: 'Application web',
                             options: FFButtonOptions(
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -243,7 +240,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                     color: Colors.white,
                                   ),
                               elevation: 3.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -260,9 +257,9 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                             text: 'Formulaire de contact',
                             options: FFButtonOptions(
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -273,14 +270,14 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                     color: FlutterFlowTheme.of(context).primary,
                                   ),
                               elevation: 3.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(30.0),
                             ),
                           ),
-                        ].divide(SizedBox(height: 30.0)),
+                        ].divide(const SizedBox(height: 30.0)),
                       ),
                     ),
                   ],

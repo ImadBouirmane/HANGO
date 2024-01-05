@@ -5,13 +5,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'account_deletion_model.dart';
 export 'account_deletion_model.dart';
 
 class AccountDeletionWidget extends StatefulWidget {
-  const AccountDeletionWidget({Key? key}) : super(key: key);
+  const AccountDeletionWidget({super.key});
 
   @override
   _AccountDeletionWidgetState createState() => _AccountDeletionWidgetState();
@@ -70,7 +69,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 40.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Color(0xFF57CFAD),
                   size: 20.0,
@@ -88,14 +87,14 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                       color: FlutterFlowTheme.of(context).primary,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -117,8 +116,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                             borderRadius: BorderRadius.circular(15.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 15.0, 15.0, 15.0),
+                            padding: const EdgeInsets.all(15.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -181,10 +179,10 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                   0.5,
                                           height: 40.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
@@ -198,7 +196,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                         .error,
                                               ),
                                           elevation: 3.0,
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -226,10 +224,10 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                   0.5,
                                           height: 40.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .error,
@@ -253,9 +251,9 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 10.0)),
+                                  ].divide(const SizedBox(width: 10.0)),
                                 ),
-                              ].divide(SizedBox(height: 30.0)),
+                              ].divide(const SizedBox(height: 30.0)),
                             ),
                           ),
                         ),
@@ -267,7 +265,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                       tabletLandscape: false,
                     ))
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Material(
                           color: Colors.transparent,
                           elevation: 1.0,
@@ -281,8 +279,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 15.0, 15.0, 15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -346,10 +343,10 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                 0.5,
                                             height: 40.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .error,
@@ -394,10 +391,10 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                 0.5,
                                             height: 40.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
@@ -423,9 +420,9 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(SizedBox(width: 10.0)),
+                                    ].divide(const SizedBox(width: 10.0)),
                                   ),
-                                ].divide(SizedBox(height: 30.0)),
+                                ].divide(const SizedBox(height: 30.0)),
                               ),
                             ),
                           ),

@@ -1,4 +1,3 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
@@ -17,11 +16,9 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -31,9 +28,9 @@ export 'show_of_events_model.dart';
 
 class ShowOfEventsWidget extends StatefulWidget {
   const ShowOfEventsWidget({
-    Key? key,
+    super.key,
     required this.showOfEvents,
-  }) : super(key: key);
+  });
 
   final DocumentReference? showOfEvents;
 
@@ -55,6 +52,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
         parameters: {'screen_name': 'ShowOfEvents'});
     _model.expandableController1 = ExpandableController(initialExpanded: false);
     _model.expandableController2 = ExpandableController(initialExpanded: false);
+    _model.expandableController3 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -125,7 +123,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                           model: _model.sideNavWebModel,
                           updateCallback: () => setState(() {}),
                           updateOnChange: true,
-                          child: SideNavWebWidget(
+                          child: const SideNavWebWidget(
                             nav1: false,
                             nav2: true,
                             nav3: false,
@@ -142,14 +140,13 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                               tabletLandscape: false,
                             ))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 15.0, 15.0, 15.0),
+                                padding: const EdgeInsets.all(15.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-0.98, -0.90),
+                                          const AlignmentDirectional(-0.98, -0.9),
                                       child: FlutterFlowIconButton(
                                         borderColor:
                                             FlutterFlowTheme.of(context)
@@ -183,10 +180,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                             ))
                               Expanded(
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 1.0,
-                                  decoration: BoxDecoration(),
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  decoration: const BoxDecoration(),
                                   child: StreamBuilder<EstablishmentsRecord>(
                                     stream: EstablishmentsRecord.getDocument(
                                         showOfEventsEventsRecord
@@ -213,9 +209,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                       return Stack(
                                         children: [
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
+                                            padding: const EdgeInsets.all(10.0),
                                             child: SingleChildScrollView(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -258,11 +252,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   .first
                                                               : null;
                                                       return Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.0,
+                                                        width: double.infinity,
                                                         height: 300.0,
                                                         decoration:
                                                             BoxDecoration(
@@ -294,10 +284,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       ?.image,
                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/hango-jmkvyo/assets/s6jl709e4v2s/Logo_-_bleu_clair.png',
                                                                 ),
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    1.0,
+                                                                width: double
+                                                                    .infinity,
                                                                 height: 300.0,
                                                                 fit: BoxFit
                                                                     .cover,
@@ -305,20 +293,17 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.00,
-                                                                      1.00),
+                                                                  const AlignmentDirectional(
+                                                                      0.0, 1.0),
                                                               child: Container(
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    1.0,
+                                                                width: double
+                                                                    .infinity,
                                                                 height: MediaQuery.sizeOf(
                                                                             context)
                                                                         .height *
                                                                     0.05,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   gradient:
                                                                       LinearGradient(
                                                                     colors: [
@@ -359,9 +344,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       -0.98,
-                                                                      -0.90),
+                                                                      -0.9),
                                                               child:
                                                                   wrapWithModel(
                                                                 model: _model
@@ -370,7 +355,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     () => setState(
                                                                         () {}),
                                                                 child:
-                                                                    BackNavigationWidget(),
+                                                                    const BackNavigationWidget(),
                                                               ),
                                                             ),
                                                           ],
@@ -379,10 +364,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                     },
                                                   ),
                                                   Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
+                                                    width: double.infinity,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -399,12 +381,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0),
+                                                          const EdgeInsets.all(15.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -491,14 +468,14 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Flexible(
+                                                                  Expanded(
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
                                                                         '${dateTimeFormat(
                                                                           'MMMEd',
                                                                           rowScheduleScheduleEventRecord
-                                                                              ?.scheduleStart,
+                                                                              ?.date,
                                                                           locale:
                                                                               FFLocalizations.of(context).languageCode,
                                                                         )}  de  ${dateTimeFormat(
@@ -550,17 +527,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     ExpandablePanel(
                                                                   header:
                                                                       AutoSizeText(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      showOfEventsEventsRecord
-                                                                          .description,
-                                                                      'Aucune description',
-                                                                    ).maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          100,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
+                                                                    'Description:',
                                                                     textAlign:
                                                                         TextAlign
                                                                             .start,
@@ -578,7 +545,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   collapsed:
                                                                       Container(
                                                                     decoration:
-                                                                        BoxDecoration(),
+                                                                        const BoxDecoration(),
                                                                   ),
                                                                   expanded: Row(
                                                                     mainAxisSize:
@@ -590,14 +557,18 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                             Text(
                                                                           showOfEventsEventsRecord
                                                                               .description,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodySmall,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontWeight: FontWeight.w300,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ],
                                                                   ),
                                                                   theme:
-                                                                      ExpandableThemeData(
+                                                                      const ExpandableThemeData(
                                                                     tapHeaderToExpand:
                                                                         true,
                                                                     tapBodyToExpand:
@@ -616,7 +587,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         8.0,
@@ -642,7 +613,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                           .labelMedium,
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           4.0,
                                                                           0.0,
                                                                           4.0,
@@ -685,7 +656,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                             Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            showOfEventsEventsRecord.entrancePrice != null && showOfEventsEventsRecord.entrancePrice != ''
+                                                                            showOfEventsEventsRecord.entrancePrice != ''
                                                                                 ? '${showOfEventsEventsRecord.entrancePrice}.-'
                                                                                 : 'Gratuit',
                                                                             'Prix inconnu',
@@ -702,7 +673,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                               ],
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             height: 2.0)),
                                                       ),
                                                     ),
@@ -752,11 +723,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   .first
                                                               : null;
                                                       return Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.0,
+                                                        width: double.infinity,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -774,12 +741,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      15.0,
-                                                                      15.0,
-                                                                      15.0,
-                                                                      15.0),
+                                                              const EdgeInsets.all(
+                                                                  15.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -814,11 +777,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
+                                                                    padding:
+                                                                        const EdgeInsets.all(
                                                                             8.0),
                                                                     child:
                                                                         Column(
@@ -828,7 +788,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       children:
                                                                           [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -847,7 +807,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     AutoSizeText(
-                                                                                      'Entrée gratuite \"Sponsorisé par le festival LaBelleNuit\"',
+                                                                                      'Entrée gratuite "Sponsorisé par le festival LaBelleNuit"',
                                                                                       maxLines: 2,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                       minFontSize: 10.0,
@@ -873,7 +833,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                     return FFButtonWidget(
                                                                                       onPressed: () async {
                                                                                         logFirebaseEvent('SHOW_OF_EVENTS_J\'EN_PROFITE_BTN_ON_TAP');
-                                                                                        var _shouldSetState = false;
+                                                                                        var shouldSetState = false;
                                                                                         final firestoreBatch = FirebaseFirestore.instance.batch();
                                                                                         try {
                                                                                           if (loggedIn) {
@@ -894,11 +854,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                             });
                                                                                             logFirebaseEvent('Button_backend_call');
 
-                                                                                            firestoreBatch.update(promotionIsMobilePromotionEventRecord!.reference, {
+                                                                                            firestoreBatch.update(promotionIsMobilePromotionEventRecord.reference, {
                                                                                               ...mapToFirestore(
                                                                                                 {
                                                                                                   'entranceValue': FieldValue.increment(valueOrDefault<double>(
-                                                                                                    functions.sumEntrancePromotionValue(promotionIsMobilePromotionEventRecord!.entranceValue >= 0.01 ? 0.01 : null),
+                                                                                                    functions.sumEntrancePromotionValue(promotionIsMobilePromotionEventRecord.entranceValue >= 0.01 ? 0.01 : null),
                                                                                                     0.0,
                                                                                                   )),
                                                                                                 },
@@ -910,7 +870,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                               ...mapToFirestore(
                                                                                                 {
                                                                                                   'promotionEvents': FieldValue.arrayUnion([
-                                                                                                    promotionIsMobilePromotionEventRecord?.reference
+                                                                                                    promotionIsMobilePromotionEventRecord.reference
                                                                                                   ]),
                                                                                                 },
                                                                                               ),
@@ -919,7 +879,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                             _model.sendingEmailPromotion = await SendGridAPIGroup.sendEmailCall.call(
                                                                                               receiverEmail: currentUserEmail,
                                                                                               subjectEmail: valueOrDefault<String>(
-                                                                                                'Hango - ${promotionIsMobilePromotionEventRecord?.title} - ${valueOrDefault<String>(
+                                                                                                'Hango - ${promotionIsMobilePromotionEventRecord.title} - ${valueOrDefault<String>(
                                                                                                   dateTimeFormat(
                                                                                                     'd/M H:mm',
                                                                                                     showOfEventsEventsRecord.dateEvent,
@@ -934,15 +894,15 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                     currentUserDisplayName,
                                                                                                     'User Name',
                                                                                                   ),
-                                                                                                  promotionIsMobilePromotionEventRecord?.title,
-                                                                                                  promotionIsMobilePromotionEventRecord?.subTitle,
-                                                                                                  promotionIsMobilePromotionEventRecord?.message != null && promotionIsMobilePromotionEventRecord?.message != '' ? promotionIsMobilePromotionEventRecord?.message : '',
-                                                                                                  currentUserDocument?.birthday != null ? currentUserDocument?.birthday : null,
-                                                                                                  stackEstablishmentsRecord.name != null && stackEstablishmentsRecord.name != '' ? stackEstablishmentsRecord.name : '',
-                                                                                                  showOfEventsEventsRecord.title != null && showOfEventsEventsRecord.title != '' ? showOfEventsEventsRecord.title : '',
-                                                                                                  showOfEventsEventsRecord.dateEvent != null ? showOfEventsEventsRecord.dateEvent : null),
+                                                                                                  promotionIsMobilePromotionEventRecord.title,
+                                                                                                  promotionIsMobilePromotionEventRecord.subTitle,
+                                                                                                  promotionIsMobilePromotionEventRecord.message != '' ? promotionIsMobilePromotionEventRecord.message : '',
+                                                                                                  currentUserDocument?.birthday,
+                                                                                                  stackEstablishmentsRecord.name != '' ? stackEstablishmentsRecord.name : '',
+                                                                                                  showOfEventsEventsRecord.title != '' ? showOfEventsEventsRecord.title : '',
+                                                                                                  showOfEventsEventsRecord.dateEvent),
                                                                                             );
-                                                                                            _shouldSetState = true;
+                                                                                            shouldSetState = true;
                                                                                             if ((_model.sendingEmailPromotion?.succeeded ?? true)) {
                                                                                               logFirebaseEvent('Button_show_snack_bar');
                                                                                               ScaffoldMessenger.of(context).clearSnackBars();
@@ -955,7 +915,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                         ),
                                                                                                   ),
-                                                                                                  duration: Duration(milliseconds: 1800),
+                                                                                                  duration: const Duration(milliseconds: 1800),
                                                                                                   backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                                 ),
                                                                                               );
@@ -971,11 +931,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                         ),
                                                                                                   ),
-                                                                                                  duration: Duration(milliseconds: 1800),
+                                                                                                  duration: const Duration(milliseconds: 1800),
                                                                                                   backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                                 ),
                                                                                               );
-                                                                                              if (_shouldSetState) setState(() {});
+                                                                                              if (shouldSetState) setState(() {});
                                                                                               return;
                                                                                             }
                                                                                           } else {
@@ -987,20 +947,20 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                           await firestoreBatch.commit();
                                                                                         }
 
-                                                                                        if (_shouldSetState) setState(() {});
+                                                                                        if (shouldSetState) setState(() {});
                                                                                       },
                                                                                       text: 'J\'en profite',
                                                                                       options: FFButtonOptions(
                                                                                         height: 40.0,
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                         color: FlutterFlowTheme.of(context).warning,
                                                                                         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                               fontFamily: 'Poppins',
                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                             ),
                                                                                         elevation: 3.0,
-                                                                                        borderSide: BorderSide(
+                                                                                        borderSide: const BorderSide(
                                                                                           color: Colors.transparent,
                                                                                           width: 1.0,
                                                                                         ),
@@ -1016,7 +976,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                         borderRadius: BorderRadius.circular(30.0),
                                                                                       ),
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                        padding: const EdgeInsets.all(10.0),
                                                                                         child: Text(
                                                                                           'Offre utilisée',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium,
@@ -1026,23 +986,23 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                   }
                                                                                 },
                                                                               ),
-                                                                            ].divide(SizedBox(width: 15.0)),
+                                                                            ].divide(const SizedBox(width: 15.0)),
                                                                           ),
                                                                         ),
                                                                         Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                          alignment: const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Container(
                                                                             width:
                                                                                 MediaQuery.sizeOf(context).width * 1.0,
                                                                             decoration:
-                                                                                BoxDecoration(),
+                                                                                const BoxDecoration(),
                                                                             child:
                                                                                 LinearPercentIndicator(
                                                                               percent: valueOrDefault<double>(
-                                                                                promotionIsMobilePromotionEventRecord?.entranceValue != null ? promotionIsMobilePromotionEventRecord?.entranceValue : null,
+                                                                                promotionIsMobilePromotionEventRecord?.entranceValue,
                                                                                 0.0,
                                                                               ),
                                                                               lineHeight: 14.0,
@@ -1050,7 +1010,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                               animateFromLastPercent: true,
                                                                               progressColor: FlutterFlowTheme.of(context).primary,
                                                                               backgroundColor: FlutterFlowTheme.of(context).accent4,
-                                                                              barRadius: Radius.circular(300.0),
+                                                                              barRadius: const Radius.circular(300.0),
                                                                               padding: EdgeInsets.zero,
                                                                             ),
                                                                           ),
@@ -1068,7 +1028,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 mainAxisAlignment: MainAxisAlignment.start,
                                                                                 children: [
                                                                                   Text(
-                                                                                    functions.getPourcentageValue(functions.getDecimalNumber(promotionIsMobilePromotionEventRecord?.entranceValue != null ? promotionIsMobilePromotionEventRecord?.entranceValue : null)?.toDouble())!,
+                                                                                    functions.getPourcentageValue(functions.getDecimalNumber(promotionIsMobilePromotionEventRecord?.entranceValue)?.toDouble())!,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Poppins',
                                                                                           color: FlutterFlowTheme.of(context).tertiary,
@@ -1083,18 +1043,12 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                           ),
                                                                                     ),
                                                                                   ),
-                                                                                ].divide(SizedBox(width: 8.0)),
+                                                                                ].divide(const SizedBox(width: 8.0)),
                                                                               ),
                                                                             ),
                                                                             FlutterFlowTimer(
                                                                               initialTime: valueOrDefault<int>(
                                                                                 (dateTimeFormat(
-                                                                                                  '00:00',
-                                                                                                  promotionIsMobilePromotionEventRecord?.trackTime,
-                                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                                ) !=
-                                                                                                null &&
-                                                                                            dateTimeFormat(
                                                                                                   '00:00',
                                                                                                   promotionIsMobilePromotionEventRecord?.trackTime,
                                                                                                   locale: FFLocalizations.of(context).languageCode,
@@ -1111,7 +1065,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 milliSecond: false,
                                                                               ),
                                                                               controller: _model.timerController1,
-                                                                              updateStateInterval: Duration(milliseconds: 1000),
+                                                                              updateStateInterval: const Duration(milliseconds: 1000),
                                                                               onChanged: (value, displayTime, shouldUpdate) {
                                                                                 _model.timerMilliseconds1 = value;
                                                                                 _model.timerValue1 = displayTime;
@@ -1123,9 +1077,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                   ),
                                                                             ),
-                                                                          ].divide(SizedBox(width: 15.0)),
+                                                                          ].divide(const SizedBox(width: 15.0)),
                                                                         ),
-                                                                      ].divide(SizedBox(
+                                                                      ].divide(const SizedBox(
                                                                               height: 10.0)),
                                                                     ),
                                                                   ),
@@ -1168,13 +1122,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           artistsArtistsRecordList =
                                                           snapshot.data!;
                                                       return Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.0,
+                                                        width: double.infinity,
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                         child: Visibility(
                                                           visible:
                                                               artistsArtistsRecordList
@@ -1216,6 +1166,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   snapshot
                                                                       .data!;
                                                               return Container(
+                                                                width: double
+                                                                    .infinity,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -1233,12 +1185,10 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   ),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15.0,
-                                                                          15.0,
-                                                                          15.0,
-                                                                          15.0),
+                                                                  padding:
+                                                                      const EdgeInsets
+                                                                          .all(
+                                                                              15.0),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -1248,7 +1198,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                             .start,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             8.0,
                                                                             0.0,
                                                                             0.0,
@@ -1285,7 +1235,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                               children: List.generate(listArtists.length, (listArtistsIndex) {
                                                                                 final listArtistsItem = listArtists[listArtistsIndex];
                                                                                 return Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                   child: Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1294,7 +1244,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         children: [
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 16.0, 0.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 16.0, 0.0),
                                                                                             child: Icon(
                                                                                               Icons.person_sharp,
                                                                                               color: FlutterFlowTheme.of(context).primaryText,
@@ -1315,7 +1265,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                         ],
                                                                                       ),
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                         child: Text(
                                                                                           dateTimeFormat(
                                                                                             'Hm',
@@ -1336,7 +1286,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                           },
                                                                         ),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         height:
                                                                             8.0)),
                                                                   ),
@@ -1392,11 +1342,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                         8.0),
                                                           ),
                                                           child: Container(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                1.0,
+                                                            width:
+                                                                double.infinity,
                                                             decoration:
                                                                 BoxDecoration(
                                                               borderRadius:
@@ -1416,7 +1363,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           15.0,
                                                                           0.0,
@@ -1431,8 +1378,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                 ),
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
-                                                                          0.00,
+                                                                      const AlignmentDirectional(
+                                                                          0.0,
                                                                           0.05),
                                                                   child:
                                                                       InkWell(
@@ -1538,7 +1485,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1554,7 +1501,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                           children: [
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                                                                                               child: Text(
                                                                                                 containerEstablishmentEstablishmentsRecord.name,
                                                                                                 style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -1567,7 +1514,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                         ),
                                                                                         Expanded(
                                                                                           child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                             child: StreamBuilder<List<ScheduleRecord>>(
                                                                                               stream: queryScheduleRecord(
                                                                                                 parent: containerEstablishmentEstablishmentsRecord.reference,
@@ -1603,7 +1550,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                             ),
                                                                                                       ),
                                                                                                       Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                                         child: Icon(
                                                                                                           Icons.circle_rounded,
                                                                                                           color: FlutterFlowTheme.of(context).primaryText,
@@ -1642,7 +1589,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                       ),
                                                                                                 ),
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                                   child: Icon(
                                                                                                     Icons.circle_rounded,
                                                                                                     color: FlutterFlowTheme.of(context).primaryText,
@@ -1669,7 +1616,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                             ),
                                                                                           ],
                                                                                         ),
-                                                                                      ].addToStart(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 10.0)),
+                                                                                      ].addToStart(const SizedBox(height: 10.0)).addToEnd(const SizedBox(height: 10.0)),
                                                                                     ),
                                                                                   ),
                                                                                 ],
@@ -1688,10 +1635,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                       },
                                                     ),
                                                   Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
+                                                    width: double.infinity,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1708,12 +1652,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0),
+                                                          const EdgeInsets.all(15.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1743,17 +1682,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           ),
                                                           if (stackEstablishmentsRecord
                                                                       .email !=
-                                                                  null &&
-                                                              stackEstablishmentsRecord
-                                                                      .email !=
                                                                   '')
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
+                                                                  const EdgeInsets
+                                                                      .all(
                                                                           10.0),
                                                               child: Row(
                                                                 mainAxisSize:
@@ -1804,9 +1737,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     buttonSize:
                                                                         40.0,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x2E39D2C0),
-                                                                    icon: Icon(
+                                                                    icon: const Icon(
                                                                       Icons
                                                                           .email,
                                                                       color: Color(
@@ -1836,17 +1769,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             ),
                                                           if (stackEstablishmentsRecord
                                                                       .phoneNumber !=
-                                                                  null &&
-                                                              stackEstablishmentsRecord
-                                                                      .phoneNumber !=
                                                                   '')
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
+                                                                  const EdgeInsets
+                                                                      .all(
                                                                           10.0),
                                                               child: Row(
                                                                 mainAxisSize:
@@ -1897,9 +1824,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     buttonSize:
                                                                         40.0,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x2E39D2C0),
-                                                                    icon: Icon(
+                                                                    icon: const Icon(
                                                                       Icons
                                                                           .phone,
                                                                       color: Color(
@@ -1927,17 +1854,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             ),
                                                           if (stackEstablishmentsRecord
                                                                       .webSite !=
-                                                                  null &&
-                                                              stackEstablishmentsRecord
-                                                                      .webSite !=
                                                                   '')
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
+                                                                  const EdgeInsets
+                                                                      .all(
                                                                           10.0),
                                                               child: Row(
                                                                 mainAxisSize:
@@ -1998,9 +1919,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     buttonSize:
                                                                         40.0,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x2E39D2C0),
-                                                                    icon: Icon(
+                                                                    icon: const Icon(
                                                                       Icons
                                                                           .link_sharp,
                                                                       color: Color(
@@ -2027,10 +1948,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
+                                                    width: double.infinity,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -2047,12 +1965,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0),
+                                                          const EdgeInsets.all(15.0),
                                                       child: StreamBuilder<
                                                           EstablishmentsRecord>(
                                                         stream: EstablishmentsRecord
@@ -2114,12 +2027,10 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                 ],
                                                               ),
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        10.0,
-                                                                        10.0,
-                                                                        10.0),
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                        .all(
+                                                                            10.0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -2131,14 +2042,14 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     Expanded(
                                                                       child:
                                                                           Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            -1.00,
-                                                                            0.00),
+                                                                        alignment: const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
                                                                         child: SelectionArea(
                                                                             child: Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            '${columnEstablishmentsRecord.adresse.street}',
+                                                                            columnEstablishmentsRecord.adresse.street,
                                                                             'Aucune adresse ',
                                                                           ),
                                                                           style:
@@ -2157,7 +2068,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       buttonSize:
                                                                           40.0,
                                                                       fillColor:
-                                                                          Color(
+                                                                          const Color(
                                                                               0x2E39D2C0),
                                                                       icon:
                                                                           Icon(
@@ -2179,7 +2090,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 '${columnEstablishmentsRecord.adresse.street}${columnEstablishmentsRecord.adresse.zipCode} ${columnEstablishmentsRecord.adresse.city}'));
                                                                       },
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           15.0)),
                                                                 ),
@@ -2211,7 +2122,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     child: Builder(
                                                                         builder:
                                                                             (context) {
-                                                                      final _googleMapMarker =
+                                                                      final googleMapMarker =
                                                                           columnEstablishmentsRecord
                                                                               .location;
                                                                       return FlutterFlowGoogleMap(
@@ -2224,11 +2135,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                             _model.googleMapsCenter1 ??=
                                                                                 columnEstablishmentsRecord.location!,
                                                                         markers: [
-                                                                          if (_googleMapMarker !=
+                                                                          if (googleMapMarker !=
                                                                               null)
                                                                             FlutterFlowMarker(
-                                                                              _googleMapMarker.serialize(),
-                                                                              _googleMapMarker,
+                                                                              googleMapMarker.serialize(),
+                                                                              googleMapMarker,
                                                                             ),
                                                                         ],
                                                                         markerColor:
@@ -2290,7 +2201,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         15.0,
                                                                         8.0,
@@ -2456,7 +2367,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                     final imageContainerMediaRecord = imageContainerMediaRecordList.isNotEmpty ? imageContainerMediaRecordList.first : null;
                                                                                     return Container(
                                                                                       height: MediaQuery.sizeOf(context).height * 0.17,
-                                                                                      decoration: BoxDecoration(
+                                                                                      decoration: const BoxDecoration(
                                                                                         borderRadius: BorderRadius.only(
                                                                                           bottomLeft: Radius.circular(0.0),
                                                                                           bottomRight: Radius.circular(0.0),
@@ -2465,7 +2376,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                         ),
                                                                                       ),
                                                                                       child: ClipRRect(
-                                                                                        borderRadius: BorderRadius.only(
+                                                                                        borderRadius: const BorderRadius.only(
                                                                                           bottomLeft: Radius.circular(0.0),
                                                                                           bottomRight: Radius.circular(0.0),
                                                                                           topLeft: Radius.circular(8.0),
@@ -2484,7 +2395,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                   },
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                   child: Column(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -2525,11 +2436,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                           final dateScheduleEventRecord = dateScheduleEventRecordList.isNotEmpty ? dateScheduleEventRecordList.first : null;
                                                                                           return Text(
                                                                                             valueOrDefault<String>(
-                                                                                              '${dateTimeFormat(
+                                                                                              dateTimeFormat(
                                                                                                 'MMMEd',
                                                                                                 dateScheduleEventRecord?.date,
                                                                                                 locale: FFLocalizations.of(context).languageCode,
-                                                                                              )}',
+                                                                                              ),
                                                                                               'Aucun horaire',
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).labelSmall,
@@ -2548,7 +2459,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                           ),
                                                                                         ],
                                                                                       ),
-                                                                                    ].divide(SizedBox(height: 3.0)).addToStart(SizedBox(height: 3.0)),
+                                                                                    ].divide(const SizedBox(height: 3.0)).addToStart(const SizedBox(height: 3.0)),
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -2558,7 +2469,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       },
                                                                     );
                                                                   }).divide(
-                                                                      SizedBox(
+                                                                      const SizedBox(
                                                                           width:
                                                                               5.0)),
                                                                 ),
@@ -2569,7 +2480,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                       ),
                                                     ),
                                                 ].divide(
-                                                    SizedBox(height: 20.0)),
+                                                    const SizedBox(height: 15.0)),
                                               ),
                                             ),
                                           ),
@@ -2590,10 +2501,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                   width: MediaQuery.sizeOf(context).width * 0.6,
                                   height:
                                       MediaQuery.sizeOf(context).height * 1.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
+                                    padding: const EdgeInsets.all(10.0),
                                     child: StreamBuilder<EstablishmentsRecord>(
                                       stream: EstablishmentsRecord.getDocument(
                                           showOfEventsEventsRecord
@@ -2623,9 +2533,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 5.0, 5.0, 5.0),
+                                                padding: const EdgeInsets.all(5.0),
                                                 child: StreamBuilder<
                                                     List<MediaRecord>>(
                                                   stream: queryMediaRecord(
@@ -2694,7 +2602,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                         ),
                                                         child: Stack(
                                                           children: [
-                                                            Container(
+                                                            SizedBox(
                                                               width: double
                                                                   .infinity,
                                                               height: 300.0,
@@ -2767,12 +2675,12 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.00,
-                                                                            1.00),
+                                                                        const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            1.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           0.0,
@@ -2793,7 +2701,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                               .animateToPage(
                                                                             i,
                                                                             duration:
-                                                                                Duration(milliseconds: 500),
+                                                                                const Duration(milliseconds: 500),
                                                                             curve:
                                                                                 Curves.ease,
                                                                           );
@@ -2825,9 +2733,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.00,
-                                                                      1.00),
+                                                                  const AlignmentDirectional(
+                                                                      0.0, 1.0),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
@@ -2838,7 +2745,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                         .height *
                                                                     0.05,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   gradient:
                                                                       LinearGradient(
                                                                     colors: [
@@ -2879,9 +2786,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       0.98,
-                                                                      0.90),
+                                                                      0.9),
                                                               child: Builder(
                                                                 builder:
                                                                     (context) =>
@@ -2972,9 +2879,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 0.0,
-                                                                8.0, 0.0),
+                                                        const EdgeInsets.all(15.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2982,95 +2887,283 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      8.0),
-                                                          child: Text(
-                                                            showOfEventsEventsRecord
-                                                                .title,
-                                                            style: FlutterFlowTheme
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              child: Text(
+                                                                showOfEventsEventsRecord
+                                                                    .title,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        StreamBuilder<
+                                                            List<
+                                                                ScheduleEventRecord>>(
+                                                          stream:
+                                                              queryScheduleEventRecord(
+                                                            parent: widget
+                                                                .showOfEvents,
+                                                            singleRecord: true,
+                                                          ),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  child:
+                                                                      CircularProgressIndicator(
+                                                                    valueColor:
+                                                                        AlwaysStoppedAnimation<
+                                                                            Color>(
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            }
+                                                            List<ScheduleEventRecord>
+                                                                rowScheduleScheduleEventRecordList =
+                                                                snapshot.data!;
+                                                            // Return an empty Container when the item does not exist.
+                                                            if (snapshot.data!
+                                                                .isEmpty) {
+                                                              return Container();
+                                                            }
+                                                            final rowScheduleScheduleEventRecord =
+                                                                rowScheduleScheduleEventRecordList
+                                                                        .isNotEmpty
+                                                                    ? rowScheduleScheduleEventRecordList
+                                                                        .first
+                                                                    : null;
+                                                            return Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Expanded(
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      '${dateTimeFormat(
+                                                                        'MMMEd',
+                                                                        rowScheduleScheduleEventRecord
+                                                                            ?.date,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      )}  de  ${dateTimeFormat(
+                                                                        'Hm',
+                                                                        rowScheduleScheduleEventRecord
+                                                                            ?.scheduleStart,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      )} - ${dateTimeFormat(
+                                                                        'Hm',
+                                                                        rowScheduleScheduleEventRecord
+                                                                            ?.scheduleEnd,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      )}',
+                                                                      'Aucun horaire',
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelSmall,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        ),
+                                                        Container(
+                                                          width:
+                                                              double.infinity,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .titleLarge,
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Container(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                1.0,
+                                                            color: Colors.white,
+                                                            child:
+                                                                ExpandableNotifier(
+                                                              controller: _model
+                                                                  .expandableController2,
+                                                              child:
+                                                                  ExpandablePanel(
+                                                                header:
+                                                                    AutoSizeText(
+                                                                  'Description:',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  maxLines: 2,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontWeight:
+                                                                            FontWeight.w300,
+                                                                      ),
+                                                                ),
+                                                                collapsed:
+                                                                    Container(
+                                                                  decoration:
+                                                                      const BoxDecoration(),
+                                                                ),
+                                                                expanded: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      child:
+                                                                          Text(
+                                                                        showOfEventsEventsRecord
+                                                                            .description,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontWeight: FontWeight.w300,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                theme:
+                                                                    const ExpandableThemeData(
+                                                                  tapHeaderToExpand:
+                                                                      true,
+                                                                  tapBodyToExpand:
+                                                                      false,
+                                                                  tapBodyToCollapse:
+                                                                      false,
+                                                                  headerAlignment:
+                                                                      ExpandablePanelHeaderAlignment
+                                                                          .center,
+                                                                  hasIcon: true,
+                                                                ),
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
+                                                                      8.0,
                                                                       0.0,
-                                                                      0.0,
-                                                                      8.0),
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
                                                                     .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
                                                             children: [
-                                                              Text(
-                                                                'Style musical',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge,
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Text(
+                                                                    'Style musical',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium,
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             4.0,
                                                                             0.0,
                                                                             4.0,
                                                                             0.0),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .circle_rounded,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  size: 6.0,
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .circle_rounded,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      size: 6.0,
+                                                                    ),
+                                                                  ),
+                                                                  Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      showOfEventsEventsRecord
+                                                                          .musicSytle
+                                                                          .first,
+                                                                      'Inconnu',
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Expanded(
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .end,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      child:
+                                                                          Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          showOfEventsEventsRecord.entrancePrice != ''
+                                                                              ? '${showOfEventsEventsRecord.entrancePrice}.-'
+                                                                              : 'Gratuit',
+                                                                          'Prix inconnu',
+                                                                        ),
+                                                                        textAlign:
+                                                                            TextAlign.end,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelMedium,
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
-                                                              ),
-                                                              Text(
-                                                                showOfEventsEventsRecord
-                                                                    .musicSytle
-                                                                    .first,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge,
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .circle_rounded,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  size: 6.0,
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                showOfEventsEventsRecord
-                                                                    .musicSytle
-                                                                    .last,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge,
                                                               ),
                                                             ],
                                                           ),
                                                         ),
-                                                      ],
+                                                      ].divide(const SizedBox(
+                                                          height: 2.0)),
                                                     ),
                                                   ),
                                                 ),
@@ -3172,19 +3265,17 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   ),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0),
+                                                                  padding:
+                                                                      const EdgeInsets
+                                                                          .all(
+                                                                              10.0),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
                                                                             .min,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -3203,7 +3294,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
                                                                                   AutoSizeText(
-                                                                                    'Entrée gratuite \"Sponsorisé par le festival LaBelleNuit\"',
+                                                                                    'Entrée gratuite "Sponsorisé par le festival LaBelleNuit"',
                                                                                     maxLines: 2,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                     minFontSize: 10.0,
@@ -3229,7 +3320,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                   return FFButtonWidget(
                                                                                     onPressed: () async {
                                                                                       logFirebaseEvent('SHOW_OF_EVENTS_J\'EN_PROFITE_BTN_ON_TAP');
-                                                                                      var _shouldSetState = false;
+                                                                                      var shouldSetState = false;
                                                                                       final firestoreBatch = FirebaseFirestore.instance.batch();
                                                                                       try {
                                                                                         if (loggedIn) {
@@ -3250,11 +3341,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                           });
                                                                                           logFirebaseEvent('Button_backend_call');
 
-                                                                                          firestoreBatch.update(promotionIsWebPromotionEventRecord!.reference, {
+                                                                                          firestoreBatch.update(promotionIsWebPromotionEventRecord.reference, {
                                                                                             ...mapToFirestore(
                                                                                               {
                                                                                                 'entranceValue': FieldValue.increment(valueOrDefault<double>(
-                                                                                                  functions.sumEntrancePromotionValue(promotionIsWebPromotionEventRecord!.entranceValue >= 0.01 ? 0.01 : null),
+                                                                                                  functions.sumEntrancePromotionValue(promotionIsWebPromotionEventRecord.entranceValue >= 0.01 ? 0.01 : null),
                                                                                                   0.0,
                                                                                                 )),
                                                                                               },
@@ -3266,7 +3357,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                             ...mapToFirestore(
                                                                                               {
                                                                                                 'promotionEvents': FieldValue.arrayUnion([
-                                                                                                  promotionIsWebPromotionEventRecord?.reference
+                                                                                                  promotionIsWebPromotionEventRecord.reference
                                                                                                 ]),
                                                                                               },
                                                                                             ),
@@ -3275,7 +3366,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                           _model.sendingEmailPromotionWeb = await SendGridAPIGroup.sendEmailCall.call(
                                                                                             receiverEmail: currentUserEmail,
                                                                                             subjectEmail: valueOrDefault<String>(
-                                                                                              'Hango - ${promotionIsWebPromotionEventRecord?.title} - ${valueOrDefault<String>(
+                                                                                              'Hango - ${promotionIsWebPromotionEventRecord.title} - ${valueOrDefault<String>(
                                                                                                 dateTimeFormat(
                                                                                                   'd/M H:mm',
                                                                                                   showOfEventsEventsRecord.dateEvent,
@@ -3290,15 +3381,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                   currentUserDisplayName,
                                                                                                   'User Name',
                                                                                                 ),
-                                                                                                promotionIsWebPromotionEventRecord?.title,
-                                                                                                promotionIsWebPromotionEventRecord?.subTitle,
+                                                                                                promotionIsWebPromotionEventRecord.title,
+                                                                                                promotionIsWebPromotionEventRecord.subTitle,
                                                                                                 dateTimeFormat(
-                                                                                                              'd/M/y',
-                                                                                                              currentUserDocument?.birthday,
-                                                                                                              locale: FFLocalizations.of(context).languageCode,
-                                                                                                            ) !=
-                                                                                                            null &&
-                                                                                                        dateTimeFormat(
                                                                                                               'd/M/y',
                                                                                                               currentUserDocument?.birthday,
                                                                                                               locale: FFLocalizations.of(context).languageCode,
@@ -3310,12 +3395,12 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                         locale: FFLocalizations.of(context).languageCode,
                                                                                                       )
                                                                                                     : '',
-                                                                                                currentUserDocument?.birthday != null ? currentUserDocument?.birthday : null,
-                                                                                                mainColumnEstablishmentsRecord.name != null && mainColumnEstablishmentsRecord.name != '' ? mainColumnEstablishmentsRecord.name : '',
-                                                                                                showOfEventsEventsRecord.title != null && showOfEventsEventsRecord.title != '' ? showOfEventsEventsRecord.title : '',
-                                                                                                showOfEventsEventsRecord.dateEvent != null ? showOfEventsEventsRecord.dateEvent : null),
+                                                                                                currentUserDocument?.birthday,
+                                                                                                mainColumnEstablishmentsRecord.name != '' ? mainColumnEstablishmentsRecord.name : '',
+                                                                                                showOfEventsEventsRecord.title != '' ? showOfEventsEventsRecord.title : '',
+                                                                                                showOfEventsEventsRecord.dateEvent),
                                                                                           );
-                                                                                          _shouldSetState = true;
+                                                                                          shouldSetState = true;
                                                                                           if ((_model.sendingEmailPromotionWeb?.succeeded ?? true)) {
                                                                                             logFirebaseEvent('Button_show_snack_bar');
                                                                                             ScaffoldMessenger.of(context).clearSnackBars();
@@ -3328,7 +3413,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                         color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                       ),
                                                                                                 ),
-                                                                                                duration: Duration(milliseconds: 1800),
+                                                                                                duration: const Duration(milliseconds: 1800),
                                                                                                 backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                               ),
                                                                                             );
@@ -3344,11 +3429,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                         color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                       ),
                                                                                                 ),
-                                                                                                duration: Duration(milliseconds: 1800),
+                                                                                                duration: const Duration(milliseconds: 1800),
                                                                                                 backgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                               ),
                                                                                             );
-                                                                                            if (_shouldSetState) setState(() {});
+                                                                                            if (shouldSetState) setState(() {});
                                                                                             return;
                                                                                           }
                                                                                         } else {
@@ -3360,20 +3445,20 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                         await firestoreBatch.commit();
                                                                                       }
 
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (shouldSetState) setState(() {});
                                                                                     },
                                                                                     text: 'J\'en profite',
                                                                                     options: FFButtonOptions(
                                                                                       height: 40.0,
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                       color: FlutterFlowTheme.of(context).warning,
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
                                                                                           ),
                                                                                       elevation: 3.0,
-                                                                                      borderSide: BorderSide(
+                                                                                      borderSide: const BorderSide(
                                                                                         color: Colors.transparent,
                                                                                         width: 1.0,
                                                                                       ),
@@ -3389,7 +3474,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                       borderRadius: BorderRadius.circular(30.0),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                      padding: const EdgeInsets.all(10.0),
                                                                                       child: Text(
                                                                                         'Offre utilisée',
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium,
@@ -3399,24 +3484,24 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 }
                                                                               },
                                                                             ),
-                                                                          ].divide(SizedBox(width: 15.0)),
+                                                                          ].divide(const SizedBox(width: 15.0)),
                                                                         ),
                                                                       ),
                                                                       Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            -1.00,
-                                                                            0.00),
+                                                                        alignment: const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
                                                                               MediaQuery.sizeOf(context).width * 0.55,
                                                                           decoration:
-                                                                              BoxDecoration(),
+                                                                              const BoxDecoration(),
                                                                           child:
                                                                               LinearPercentIndicator(
                                                                             percent:
                                                                                 valueOrDefault<double>(
-                                                                              promotionIsWebPromotionEventRecord?.entranceValue != null ? promotionIsWebPromotionEventRecord?.entranceValue : null,
+                                                                              promotionIsWebPromotionEventRecord?.entranceValue,
                                                                               0.0,
                                                                             ),
                                                                             width:
@@ -3432,7 +3517,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).accent4,
                                                                             barRadius:
-                                                                                Radius.circular(300.0),
+                                                                                const Radius.circular(300.0),
                                                                             padding:
                                                                                 EdgeInsets.zero,
                                                                           ),
@@ -3452,7 +3537,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                               mainAxisAlignment: MainAxisAlignment.start,
                                                                               children: [
                                                                                 Text(
-                                                                                  functions.getPourcentageValue(functions.getDecimalNumber(promotionIsWebPromotionEventRecord?.entranceValue != null ? promotionIsWebPromotionEventRecord?.entranceValue : null)?.toDouble())!,
+                                                                                  functions.getPourcentageValue(functions.getDecimalNumber(promotionIsWebPromotionEventRecord?.entranceValue)?.toDouble())!,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         color: FlutterFlowTheme.of(context).tertiary,
@@ -3467,19 +3552,13 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                         ),
                                                                                   ),
                                                                                 ),
-                                                                              ].divide(SizedBox(width: 8.0)),
+                                                                              ].divide(const SizedBox(width: 8.0)),
                                                                             ),
                                                                           ),
                                                                           FlutterFlowTimer(
                                                                             initialTime:
                                                                                 valueOrDefault<int>(
                                                                               (dateTimeFormat(
-                                                                                                '00:00',
-                                                                                                promotionIsWebPromotionEventRecord?.trackTime,
-                                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                                              ) !=
-                                                                                              null &&
-                                                                                          dateTimeFormat(
                                                                                                 '00:00',
                                                                                                 promotionIsWebPromotionEventRecord?.trackTime,
                                                                                                 locale: FFLocalizations.of(context).languageCode,
@@ -3499,14 +3578,15 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                             controller:
                                                                                 _model.timerController2,
                                                                             updateStateInterval:
-                                                                                Duration(milliseconds: 1000),
+                                                                                const Duration(milliseconds: 1000),
                                                                             onChanged: (value,
                                                                                 displayTime,
                                                                                 shouldUpdate) {
                                                                               _model.timerMilliseconds2 = value;
                                                                               _model.timerValue2 = displayTime;
-                                                                              if (shouldUpdate)
+                                                                              if (shouldUpdate) {
                                                                                 setState(() {});
+                                                                              }
                                                                             },
                                                                             textAlign:
                                                                                 TextAlign.start,
@@ -3515,9 +3595,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                 ),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 15.0)),
+                                                                        ].divide(const SizedBox(width: 15.0)),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         height:
                                                                             10.0)),
                                                                   ),
@@ -3586,7 +3666,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -3601,12 +3681,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        8.0,
-                                                                        8.0,
-                                                                        8.0),
+                                                                const EdgeInsets.all(
+                                                                    8.0),
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
@@ -3630,12 +3706,10 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                 ),
                                                               ),
                                                               child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        10.0,
-                                                                        10.0,
-                                                                        10.0),
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                        .all(
+                                                                            10.0),
                                                                 child: Builder(
                                                                   builder:
                                                                       (context) {
@@ -3677,7 +3751,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                         final listArtistsItem =
                                                                             listArtists[listArtistsIndex];
                                                                         return Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               4.0,
                                                                               0.0,
@@ -3693,7 +3767,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 16.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 16.0, 0.0),
                                                                                     child: Icon(
                                                                                       Icons.person_sharp,
                                                                                       color: FlutterFlowTheme.of(context).primaryText,
@@ -3711,7 +3785,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 ],
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                 child: Text(
                                                                                   dateTimeFormat(
                                                                                     'Hm',
@@ -3741,9 +3815,6 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                 },
                                               ),
                                               if (mainColumnEstablishmentsRecord
-                                                          .description !=
-                                                      null &&
-                                                  mainColumnEstablishmentsRecord
                                                           .description !=
                                                       '')
                                                 Material(
@@ -3778,7 +3849,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -3791,7 +3862,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             child:
                                                                 ExpandableNotifier(
                                                               controller: _model
-                                                                  .expandableController2,
+                                                                  .expandableController3,
                                                               child:
                                                                   ExpandablePanel(
                                                                 header: Text(
@@ -3825,7 +3896,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -3898,7 +3969,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   iconColor: FlutterFlowTheme.of(
                                                                           context)
                                                                       .accent2,
-                                                                  iconPadding: EdgeInsets
+                                                                  iconPadding: const EdgeInsets
                                                                       .fromLTRB(
                                                                           0.0,
                                                                           10.0,
@@ -3976,12 +4047,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    8.0,
-                                                                    8.0,
-                                                                    8.0,
-                                                                    8.0),
+                                                            const EdgeInsets.all(8.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -3991,7 +4057,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           4.0,
                                                                           0.0,
@@ -4132,7 +4198,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -4147,8 +4213,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.00,
+                                                                  const AlignmentDirectional(
+                                                                      0.0,
                                                                       0.05),
                                                               child: InkWell(
                                                                 splashColor: Colors
@@ -4266,11 +4332,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                         ),
                                                                         child:
                                                                             Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              8.0,
-                                                                              8.0,
-                                                                              8.0,
-                                                                              8.0),
+                                                                          padding:
+                                                                              const EdgeInsets.all(8.0),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -4289,7 +4352,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                                                                                           child: Text(
                                                                                             containerEstablishmentEstablishmentsRecord.name,
                                                                                             style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -4302,7 +4365,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                     ),
                                                                                     Expanded(
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                                                                                         child: StreamBuilder<List<ScheduleRecord>>(
                                                                                           stream: queryScheduleRecord(
                                                                                             parent: containerEstablishmentEstablishmentsRecord.reference,
@@ -4338,7 +4401,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                         ),
                                                                                                   ),
                                                                                                   Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                                     child: Icon(
                                                                                                       Icons.circle_rounded,
                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
@@ -4353,7 +4416,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                         ),
                                                                                                   ),
                                                                                                   Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                                     child: Icon(
                                                                                                       Icons.circle_rounded,
                                                                                                       color: FlutterFlowTheme.of(context).primaryText,
@@ -4361,7 +4424,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                     ),
                                                                                                   ),
                                                                                                   Text(
-                                                                                                    rowMusicStyleScheduleRecord!.sundayClosing,
+                                                                                                    rowMusicStyleScheduleRecord.sundayClosing,
                                                                                                     style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                           fontFamily: 'Poppins',
                                                                                                           fontSize: 14.0,
@@ -4389,7 +4452,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                                   ),
                                                                                             ),
                                                                                             Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                               child: Icon(
                                                                                                 Icons.circle_rounded,
                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
@@ -4456,7 +4519,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(4.0, 0.0,
                                                                 4.0, 0.0),
                                                     child: Column(
@@ -4468,12 +4531,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      8.0,
-                                                                      8.0,
-                                                                      8.0),
+                                                              const EdgeInsets.all(
+                                                                  8.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -4497,13 +4556,10 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                         ),
                                                         if (mainColumnEstablishmentsRecord
                                                                     .email !=
-                                                                null &&
-                                                            mainColumnEstablishmentsRecord
-                                                                    .email !=
                                                                 '')
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -4569,7 +4625,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       1.0,
                                                                   buttonSize:
                                                                       60.0,
-                                                                  icon: Icon(
+                                                                  icon: const Icon(
                                                                     Icons.email,
                                                                     color: Color(
                                                                         0xFF57CFAD),
@@ -4597,13 +4653,10 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           ),
                                                         if (mainColumnEstablishmentsRecord
                                                                     .phoneNumber !=
-                                                                null &&
-                                                            mainColumnEstablishmentsRecord
-                                                                    .phoneNumber !=
                                                                 '')
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -4669,7 +4722,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       1.0,
                                                                   buttonSize:
                                                                       60.0,
-                                                                  icon: Icon(
+                                                                  icon: const Icon(
                                                                     Icons
                                                                         .phone_sharp,
                                                                     color: Color(
@@ -4696,8 +4749,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           ),
                                                         Align(
                                                           alignment:
-                                                              AlignmentDirectional(
-                                                                  -1.00, 0.00),
+                                                              const AlignmentDirectional(
+                                                                  -1.0, 0.0),
                                                           child: ClipRRect(
                                                             child: Container(
                                                               width: MediaQuery
@@ -4706,16 +4759,13 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       .width *
                                                                   0.6,
                                                               decoration:
-                                                                  BoxDecoration(),
+                                                                  const BoxDecoration(),
                                                               child: Visibility(
                                                                 visible: mainColumnEstablishmentsRecord
                                                                             .webSite !=
-                                                                        null &&
-                                                                    mainColumnEstablishmentsRecord
-                                                                            .webSite !=
                                                                         '',
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -4765,7 +4815,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                         buttonSize:
                                                                             60.0,
                                                                         icon:
-                                                                            Icon(
+                                                                            const Icon(
                                                                           Icons
                                                                               .insert_link_sharp,
                                                                           color:
@@ -4867,12 +4917,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        8.0,
-                                                                        8.0,
-                                                                        8.0),
+                                                                const EdgeInsets.all(
+                                                                    8.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -4895,7 +4941,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -4912,9 +4958,9 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                 Expanded(
                                                                   child: Align(
                                                                     alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.00,
-                                                                            0.00),
+                                                                        const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
                                                                     child: SelectionArea(
                                                                         child: Text(
                                                                       valueOrDefault<
@@ -4977,7 +5023,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                               ),
                                                                         ),
                                                                         duration:
-                                                                            Duration(milliseconds: 2000),
+                                                                            const Duration(milliseconds: 2000),
                                                                         backgroundColor:
                                                                             FlutterFlowTheme.of(context).primary,
                                                                       ),
@@ -4992,7 +5038,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                     size: 24.0,
                                                                   ),
                                                                 ),
-                                                              ].divide(SizedBox(
+                                                              ].divide(const SizedBox(
                                                                   width: 15.0)),
                                                             ),
                                                           ),
@@ -5001,12 +5047,8 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                               null)
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          8.0,
-                                                                          8.0,
-                                                                          8.0),
+                                                                  const EdgeInsets
+                                                                      .all(8.0),
                                                               child: Material(
                                                                 color: Colors
                                                                     .transparent,
@@ -5030,7 +5072,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                   child: Builder(
                                                                       builder:
                                                                           (context) {
-                                                                    final _googleMapMarker =
+                                                                    final googleMapMarker =
                                                                         columnEstablishmentsRecord
                                                                             .location;
                                                                     return FlutterFlowGoogleMap(
@@ -5045,11 +5087,11 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                           columnEstablishmentsRecord
                                                                               .location!,
                                                                       markers: [
-                                                                        if (_googleMapMarker !=
+                                                                        if (googleMapMarker !=
                                                                             null)
                                                                           FlutterFlowMarker(
-                                                                            _googleMapMarker.serialize(),
-                                                                            _googleMapMarker,
+                                                                            googleMapMarker.serialize(),
+                                                                            googleMapMarker,
                                                                           ),
                                                                       ],
                                                                       markerColor:
@@ -5104,9 +5146,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                        const EdgeInsets.all(8.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -5118,7 +5158,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       8.0,
@@ -5188,7 +5228,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                       otherEventsListEventsRecordList[
                                                                           otherEventsListIndex];
                                                                   return Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             4.0,
                                                                             0.0,
@@ -5289,7 +5329,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                       final containerMediaRecord = containerMediaRecordList.isNotEmpty ? containerMediaRecordList.first : null;
                                                                                       return Container(
                                                                                         height: 160.0,
-                                                                                        decoration: BoxDecoration(
+                                                                                        decoration: const BoxDecoration(
                                                                                           borderRadius: BorderRadius.only(
                                                                                             bottomLeft: Radius.circular(0.0),
                                                                                             bottomRight: Radius.circular(0.0),
@@ -5298,7 +5338,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                           ),
                                                                                         ),
                                                                                         child: ClipRRect(
-                                                                                          borderRadius: BorderRadius.only(
+                                                                                          borderRadius: const BorderRadius.only(
                                                                                             bottomLeft: Radius.circular(0.0),
                                                                                             bottomRight: Radius.circular(0.0),
                                                                                             topLeft: Radius.circular(8.0),
@@ -5319,7 +5359,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                   ),
                                                                                   Expanded(
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                       child: Column(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         mainAxisAlignment: MainAxisAlignment.center,
@@ -5412,7 +5452,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                            ].divide(SizedBox(height: 15.0)),
+                                            ].divide(const SizedBox(height: 15.0)),
                                           ),
                                         );
                                       },

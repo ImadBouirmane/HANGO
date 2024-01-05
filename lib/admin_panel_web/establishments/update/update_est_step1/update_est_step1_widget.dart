@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
@@ -10,22 +9,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/place.dart';
-import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_est_step1_model.dart';
 export 'update_est_step1_model.dart';
 
 class UpdateEstStep1Widget extends StatefulWidget {
   const UpdateEstStep1Widget({
-    Key? key,
+    super.key,
     required this.establishmentDetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? establishmentDetails;
 
@@ -65,10 +60,12 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
     _model.tFphoneNumberFocusNode ??= FocusNode();
 
     _model.tFURLWebSiteFocusNode ??= FocusNode();
+
     _model.expandableController1 = ExpandableController(initialExpanded: false);
     _model.expandableController2 = ExpandableController(initialExpanded: false);
 
     _model.tFspecialityFocusNode ??= FocusNode();
+
     _model.expandableController3 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -150,25 +147,24 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                             child: AdminSideBarWidget(
                               oneBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              oneIcon: Icon(
+                              oneIcon: const Icon(
                                 Icons.home_filled,
                               ),
                               twoBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              twoIcon: Icon(
+                              twoIcon: const Icon(
                                 Icons.event,
                               ),
                               threeColor:
                                   FlutterFlowTheme.of(context).tertiary400,
-                              threeIcon: Icon(
+                              threeIcon: const Icon(
                                 Icons.house_outlined,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 15.0, 15.0, 15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: StreamBuilder<List<ImagesRecord>>(
                                 stream: queryImagesRecord(
                                   parent: updateEstStep1EstablishmentsRecord
@@ -232,8 +228,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                           ),
                                           Expanded(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Text(
                                                 'Modification du l\'établissement',
                                                 style:
@@ -275,7 +271,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                 'Dashboard',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
-                                                      TransitionInfo(
+                                                      const TransitionInfo(
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType.fade,
@@ -299,7 +295,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
@@ -324,7 +320,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                       AutovalidateMode.always,
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 0.0,
                                                                 15.0, 0.0),
                                                     child:
@@ -393,7 +389,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -491,7 +487,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -548,7 +544,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                           ),
                                                           Container(
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -615,7 +611,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                         elevation:
                                                                             2.0,
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Colors.transparent,
                                                                           width:
@@ -627,7 +623,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              ].divide(SizedBox(
+                                                              ].divide(const SizedBox(
                                                                   height:
                                                                       10.0)),
                                                             ),
@@ -690,7 +686,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -751,7 +747,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             children: [
                                                               Expanded(
                                                                 child:
-                                                                    Container(
+                                                                    SizedBox(
                                                                   width: 150.0,
                                                                   child:
                                                                       TextFormField(
@@ -810,7 +806,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -862,7 +858,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               ),
                                                               Expanded(
                                                                 child:
-                                                                    Container(
+                                                                    SizedBox(
                                                                   width: 150.0,
                                                                   child:
                                                                       TextFormField(
@@ -921,7 +917,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -971,7 +967,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                           Row(
@@ -981,7 +977,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             children: [
                                                               Expanded(
                                                                 child:
-                                                                    Container(
+                                                                    SizedBox(
                                                                   width: 150.0,
                                                                   child:
                                                                       TextFormField(
@@ -1040,7 +1036,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -1092,7 +1088,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               ),
                                                               Expanded(
                                                                 child:
-                                                                    Container(
+                                                                    SizedBox(
                                                                   width: 150.0,
                                                                   child:
                                                                       TextFormField(
@@ -1151,7 +1147,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       focusedBorder:
                                                                           OutlineInputBorder(
                                                                         borderSide:
-                                                                            BorderSide(
+                                                                            const BorderSide(
                                                                           color:
                                                                               Color(0x00000000),
                                                                           width:
@@ -1201,7 +1197,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                           TextFormField(
@@ -1261,7 +1257,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1371,7 +1367,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1482,7 +1478,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1560,12 +1556,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1601,7 +1593,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                     ],
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -1700,12 +1692,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1740,11 +1728,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
+                                                                      padding:
+                                                                          const EdgeInsets.all(
+                                                                              4.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -1783,7 +1769,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                             radioButtonColor:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             inactiveRadioButtonColor:
-                                                                                Color(0x8A000000),
+                                                                                const Color(0x8A000000),
                                                                             toggleable:
                                                                                 false,
                                                                             horizontalAlignment:
@@ -1809,11 +1795,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
+                                                                      padding:
+                                                                          const EdgeInsets.all(
+                                                                              4.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -1852,7 +1836,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                             radioButtonColor:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             inactiveRadioButtonColor:
-                                                                                Color(0x8A000000),
+                                                                                const Color(0x8A000000),
                                                                             toggleable:
                                                                                 false,
                                                                             horizontalAlignment:
@@ -1878,11 +1862,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
+                                                                      padding:
+                                                                          const EdgeInsets.all(
+                                                                              4.0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -1921,7 +1903,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                             radioButtonColor:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             inactiveRadioButtonColor:
-                                                                                Color(0x8A000000),
+                                                                                const Color(0x8A000000),
                                                                             toggleable:
                                                                                 false,
                                                                             horizontalAlignment:
@@ -1961,12 +1943,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
@@ -2007,9 +1985,10 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                       ),
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Text(
                                                                         '* Sélectionne 2 styles musicales maximum',
@@ -2061,7 +2040,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       ],
                                                                     ),
                                                                     theme:
-                                                                        ExpandableThemeData(
+                                                                        const ExpandableThemeData(
                                                                       tapHeaderToExpand:
                                                                           true,
                                                                       tapBodyToExpand:
@@ -2103,12 +2082,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
@@ -2149,9 +2124,10 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                       ),
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Text(
                                                                         '* Sélectionne 2 styles musicales maximum',
@@ -2205,7 +2181,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       ],
                                                                     ),
                                                                     theme:
-                                                                        ExpandableThemeData(
+                                                                        const ExpandableThemeData(
                                                                       tapHeaderToExpand:
                                                                           true,
                                                                       tapBodyToExpand:
@@ -2279,7 +2255,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -2357,12 +2333,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
@@ -2403,9 +2375,10 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                       ),
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Text(
                                                                         '* Sélectionne 2 styles musicales maximum',
@@ -2459,7 +2432,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       ],
                                                                     ),
                                                                     theme:
-                                                                        ExpandableThemeData(
+                                                                        const ExpandableThemeData(
                                                                       tapHeaderToExpand:
                                                                           true,
                                                                       tapBodyToExpand:
@@ -2478,9 +2451,9 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             ),
                                                           ),
                                                         ]
-                                                            .divide(SizedBox(
+                                                            .divide(const SizedBox(
                                                                 height: 15.0))
-                                                            .around(SizedBox(
+                                                            .around(const SizedBox(
                                                                 height: 15.0)),
                                                       ),
                                                     ),
@@ -2489,9 +2462,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
 
                                                 // still some calls for schedule I will complete next two hours
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(15.0, 15.0,
-                                                          15.0, 15.0),
+                                                  padding: const EdgeInsets.all(15.0),
                                                   child: StreamBuilder<
                                                       List<ScheduleRecord>>(
                                                     stream: queryScheduleRecord(
@@ -2543,9 +2514,6 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                             ...createEstablishmentsRecordData(
                                                               name: _model.tFNameController
                                                                               .text !=
-                                                                          null &&
-                                                                      _model.tFNameController
-                                                                              .text !=
                                                                           ''
                                                                   ? _model
                                                                       .tFNameController
@@ -2558,18 +2526,11 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                 street: () {
                                                                   if (_model.tFStreetController
                                                                               .text !=
-                                                                          null &&
-                                                                      _model.tFStreetController
-                                                                              .text !=
                                                                           '') {
                                                                     return _model
                                                                         .tFStreetController
                                                                         .text;
-                                                                  } else if (_model
-                                                                              .placePickerValue
-                                                                              .address !=
-                                                                          null &&
-                                                                      _model.placePickerValue
+                                                                  } else if (_model.placePickerValue
                                                                               .address !=
                                                                           '') {
                                                                     return _model
@@ -2584,18 +2545,11 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                 zipCode: () {
                                                                   if (_model.tFzipCodeController
                                                                               .text !=
-                                                                          null &&
-                                                                      _model.tFzipCodeController
-                                                                              .text !=
                                                                           '') {
                                                                     return _model
                                                                         .tFzipCodeController
                                                                         .text;
-                                                                  } else if (_model
-                                                                              .placePickerValue
-                                                                              .zipCode !=
-                                                                          null &&
-                                                                      _model.placePickerValue
+                                                                  } else if (_model.placePickerValue
                                                                               .zipCode !=
                                                                           '') {
                                                                     return _model
@@ -2611,18 +2565,11 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                 city: () {
                                                                   if (_model.tFcityController
                                                                               .text !=
-                                                                          null &&
-                                                                      _model.tFcityController
-                                                                              .text !=
                                                                           '') {
                                                                     return _model
                                                                         .tFcityController
                                                                         .text;
-                                                                  } else if (_model
-                                                                              .placePickerValue
-                                                                              .city !=
-                                                                          null &&
-                                                                      _model.placePickerValue
+                                                                  } else if (_model.placePickerValue
                                                                               .city !=
                                                                           '') {
                                                                     return _model
@@ -2638,18 +2585,11 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                 state: () {
                                                                   if (_model.tFstateController
                                                                               .text !=
-                                                                          null &&
-                                                                      _model.tFstateController
-                                                                              .text !=
                                                                           '') {
                                                                     return _model
                                                                         .tFstateController
                                                                         .text;
-                                                                  } else if (_model
-                                                                              .placePickerValue
-                                                                              .state !=
-                                                                          null &&
-                                                                      _model.placePickerValue
+                                                                  } else if (_model.placePickerValue
                                                                               .state !=
                                                                           '') {
                                                                     return _model
@@ -2665,18 +2605,11 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                 country: () {
                                                                   if (_model.tFcountryController
                                                                               .text !=
-                                                                          null &&
-                                                                      _model.tFcountryController
-                                                                              .text !=
                                                                           '') {
                                                                     return _model
                                                                         .tFcountryController
                                                                         .text;
-                                                                  } else if (_model
-                                                                              .placePickerValue
-                                                                              .country !=
-                                                                          null &&
-                                                                      _model.placePickerValue
+                                                                  } else if (_model.placePickerValue
                                                                               .country !=
                                                                           '') {
                                                                     return _model
@@ -2838,14 +2771,14 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   1.0,
                                                           height: 50.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       24.0,
                                                                       0.0,
                                                                       24.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -2866,7 +2799,7 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -2886,8 +2819,8 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                         ),
                                       ),
                                     ]
-                                        .divide(SizedBox(height: 20.0))
-                                        .around(SizedBox(height: 20.0)),
+                                        .divide(const SizedBox(height: 20.0))
+                                        .around(const SizedBox(height: 20.0)),
                                   );
                                 },
                               ),

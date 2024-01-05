@@ -7,14 +7,12 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'filter_events_model.dart';
 export 'filter_events_model.dart';
 
 class FilterEventsWidget extends StatefulWidget {
-  const FilterEventsWidget({Key? key}) : super(key: key);
+  const FilterEventsWidget({super.key});
 
   @override
   _FilterEventsWidgetState createState() => _FilterEventsWidgetState();
@@ -51,11 +49,11 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 1.00),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Material(
         color: Colors.transparent,
         elevation: 10.0,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
@@ -67,7 +65,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
           width: MediaQuery.sizeOf(context).width * 1.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(20.0),
@@ -86,7 +84,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                   color: FlutterFlowTheme.of(context).primary,
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: StreamBuilder<List<EventsRecord>>(
                     stream: queryEventsRecord(
                       singleRecord: true,
@@ -166,10 +164,10 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
                                   collapsed: Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: FlutterFlowChoiceChips(
                                       options: FFAppState()
                                           .TypeOfEvent
@@ -189,17 +187,17 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                             ),
-                                        iconColor: Color(0x00000000),
+                                        iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
                                         labelPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 7.0, 20.0, 7.0),
                                         elevation: 2.0,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
                                       unselectedChipStyle: ChipStyle(
-                                        backgroundColor: Color(0x00000000),
+                                        backgroundColor: const Color(0x00000000),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -208,10 +206,10 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
                                             ),
-                                        iconColor: Color(0x00000000),
+                                        iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
                                         labelPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 7.0, 20.0, 7.0),
                                         elevation: 0.0,
                                         borderRadius:
@@ -261,10 +259,10 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
                                   collapsed: Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: FlutterFlowChoiceChips(
                                       options: FFAppState()
                                           .MusicStyle
@@ -284,17 +282,17 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                             ),
-                                        iconColor: Color(0x00000000),
+                                        iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
                                         labelPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 7.0, 20.0, 7.0),
                                         elevation: 2.0,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
                                       unselectedChipStyle: ChipStyle(
-                                        backgroundColor: Color(0x00000000),
+                                        backgroundColor: const Color(0x00000000),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -303,10 +301,10 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
                                             ),
-                                        iconColor: Color(0x00000000),
+                                        iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
                                         labelPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 7.0, 20.0, 7.0),
                                         elevation: 0.0,
                                         borderRadius:
@@ -346,14 +344,14 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 value: _model.switchListTileValue1 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue1 = newValue!);
+                                      _model.switchListTileValue1 = newValue);
                                 },
                                 title: Text(
                                   'Weekend',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -364,14 +362,14 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 value: _model.switchListTileValue2 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue2 = newValue!);
+                                      _model.switchListTileValue2 = newValue);
                                 },
                                 title: Text(
                                   'Jeudi',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -382,14 +380,14 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 value: _model.switchListTileValue3 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue3 = newValue!);
+                                      _model.switchListTileValue3 = newValue);
                                 },
                                 title: Text(
                                   'Entrée gratuite',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -400,14 +398,14 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 value: _model.switchListTileValue4 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue4 = newValue!);
+                                      _model.switchListTileValue4 = newValue);
                                 },
                                 title: Text(
                                   'Réservation',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -429,10 +427,9 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                     },
                                     text: 'Supprimer les filtres',
                                     options: FFButtonOptions(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 20.0, 20.0, 20.0),
+                                      padding: const EdgeInsets.all(20.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .tertiary400,
@@ -443,7 +440,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                             fontSize: 16.0,
                                           ),
                                       elevation: 2.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -464,10 +461,9 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                     },
                                     text: 'Voir les résultats ',
                                     options: FFButtonOptions(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 20.0, 20.0, 20.0),
+                                      padding: const EdgeInsets.all(20.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
@@ -475,11 +471,11 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFF10212E),
+                                            color: const Color(0xFF10212E),
                                             fontSize: 16.0,
                                           ),
                                       elevation: 2.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -488,16 +484,16 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                   ),
                                 ],
                               ),
-                            ].divide(SizedBox(height: 5.0)),
+                            ].divide(const SizedBox(height: 5.0)),
                           ),
                         ]
-                            .divide(SizedBox(height: 30.0))
-                            .around(SizedBox(height: 30.0)),
+                            .divide(const SizedBox(height: 30.0))
+                            .around(const SizedBox(height: 30.0)),
                       );
                     },
                   ),
                 ),
-              ].addToEnd(SizedBox(height: 30.0)),
+              ].addToEnd(const SizedBox(height: 30.0)),
             ),
           ),
         ),

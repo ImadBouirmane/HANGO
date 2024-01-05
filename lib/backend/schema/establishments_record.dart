@@ -1,21 +1,19 @@
 import 'dart:async';
 
-import 'package:from_css_color/from_css_color.dart';
 import '/backend/algolia/serialization_util.dart';
 import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class EstablishmentsRecord extends FirestoreRecord {
   EstablishmentsRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -186,7 +184,8 @@ class EstablishmentsRecord extends FirestoreRecord {
           ),
           'name': snapshot.data['name'],
           'adresse':
-              AddressStruct.fromAlgoliaData(snapshot.data['adresse'] ?? {}),
+              AddressStruct.fromAlgoliaData(snapshot.data['adresse'] ?? {})
+                  .toMap(),
           'email': snapshot.data['email'],
           'phone_number': snapshot.data['phone_number'],
           'web_site': snapshot.data['web_site'],

@@ -3,16 +3,14 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'user_phone_model.dart';
 export 'user_phone_model.dart';
 
 class UserPhoneWidget extends StatefulWidget {
-  const UserPhoneWidget({Key? key}) : super(key: key);
+  const UserPhoneWidget({super.key});
 
   @override
   _UserPhoneWidgetState createState() => _UserPhoneWidgetState();
@@ -31,9 +29,11 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'UserPhone'});
     _model.phoneController1 ??= TextEditingController();
     _model.phoneFocusNode1 ??= FocusNode();
+
     authManager.handlePhoneAuthStateChanges(context);
     _model.phoneController2 ??= TextEditingController();
     _model.phoneFocusNode2 ??= FocusNode();
+
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -76,14 +76,14 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                   desktop: false,
                 ))
                   Align(
-                    alignment: AlignmentDirectional(0.00, -1.00),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, -1.00),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 15.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
@@ -112,7 +112,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Text(
                                               'Vous receverez un SMS afin de valider votre compte.',
@@ -139,7 +139,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Container(
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: TextFormField(
                                         controller: _model.phoneController1,
                                         focusNode: _model.phoneFocusNode1,
@@ -173,7 +173,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                 BorderRadius.circular(40.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -181,7 +181,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                 BorderRadius.circular(40.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -190,7 +190,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -202,7 +202,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .secondaryBackground,
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 16.0, 0.0, 16.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -219,7 +219,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         FFButtonWidget(
-                                          key: ValueKey('Button-Login_vef7'),
+                                          key: const ValueKey('Button-Login_vef7'),
                                           onPressed: () async {
                                             logFirebaseEvent(
                                                 'USER_PHONE_PAGE_Button-Login_ON_TAP');
@@ -235,13 +235,12 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                 'Button-Login_auth');
                                             final phoneNumberVal =
                                                 _model.phoneController1.text;
-                                            if (phoneNumberVal == null ||
-                                                phoneNumberVal.isEmpty ||
+                                            if (phoneNumberVal.isEmpty ||
                                                 !phoneNumberVal
                                                     .startsWith('+')) {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
-                                                SnackBar(
+                                                const SnackBar(
                                                   content: Text(
                                                       'Phone Number is required and has to start with +.'),
                                                 ),
@@ -265,10 +264,10 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                             width: 240.0,
                                             height: 50.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
@@ -282,7 +281,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                           FontWeight.w500,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -292,11 +291,11 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                         ),
                                       ],
                                     ),
-                                  ].divide(SizedBox(height: 30.0)),
+                                  ].divide(const SizedBox(height: 30.0)),
                                 ),
                               ]
-                                  .divide(SizedBox(height: 50.0))
-                                  .addToStart(SizedBox(height: 40.0)),
+                                  .divide(const SizedBox(height: 50.0))
+                                  .addToStart(const SizedBox(height: 40.0)),
                             ),
                           ),
                         ),
@@ -310,14 +309,14 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                   tabletLandscape: false,
                 ))
                   Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.5,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, -1.00),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               15.0, 0.0, 15.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
@@ -346,7 +345,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Text(
                                               'Vous receverez un SMS afin de valider votre compte',
@@ -373,7 +372,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Container(
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: TextFormField(
                                         controller: _model.phoneController2,
                                         focusNode: _model.phoneFocusNode2,
@@ -407,7 +406,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                 BorderRadius.circular(40.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -415,7 +414,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                 BorderRadius.circular(40.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -424,7 +423,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -436,7 +435,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .secondaryBackground,
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 16.0, 0.0, 16.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -468,13 +467,12 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                 'Button-Login_auth');
                                             final phoneNumberVal =
                                                 _model.phoneController2.text;
-                                            if (phoneNumberVal == null ||
-                                                phoneNumberVal.isEmpty ||
+                                            if (phoneNumberVal.isEmpty ||
                                                 !phoneNumberVal
                                                     .startsWith('+')) {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
-                                                SnackBar(
+                                                const SnackBar(
                                                   content: Text(
                                                       'Phone Number is required and has to start with +.'),
                                                 ),
@@ -498,10 +496,10 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                             width: 240.0,
                                             height: 50.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
@@ -515,7 +513,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                           FontWeight.w500,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -525,11 +523,11 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                         ),
                                       ],
                                     ),
-                                  ].divide(SizedBox(height: 30.0)),
+                                  ].divide(const SizedBox(height: 30.0)),
                                 ),
                               ]
-                                  .divide(SizedBox(height: 50.0))
-                                  .addToStart(SizedBox(height: 40.0)),
+                                  .divide(const SizedBox(height: 50.0))
+                                  .addToStart(const SizedBox(height: 40.0)),
                             ),
                           ),
                         ),

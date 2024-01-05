@@ -6,19 +6,18 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'update_event_step2_model.dart';
 export 'update_event_step2_model.dart';
 
 class UpdateEventStep2Widget extends StatefulWidget {
   const UpdateEventStep2Widget({
-    Key? key,
+    super.key,
     required this.eventstDetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? eventstDetails;
 
@@ -119,24 +118,23 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                             child: AdminSideBarWidget(
                               oneBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              oneIcon: Icon(
+                              oneIcon: const Icon(
                                 Icons.home_filled,
                               ),
                               twoBG: FlutterFlowTheme.of(context).tertiary400,
-                              twoIcon: Icon(
+                              twoIcon: const Icon(
                                 Icons.event,
                               ),
                               threeColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              threeIcon: Icon(
+                              threeIcon: const Icon(
                                 Icons.house_outlined,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 15.0, 15.0, 15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -172,7 +170,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'Modification du l\'événement',
                                             style: FlutterFlowTheme.of(context)
@@ -211,7 +209,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                             'Dashboard',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -234,7 +232,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -253,9 +251,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      15.0, 15.0, 15.0, 15.0),
+                                              padding: const EdgeInsets.all(15.0),
                                               child: Form(
                                                 key: _model.formKey,
                                                 autovalidateMode:
@@ -285,12 +281,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                15.0,
-                                                                15.0,
-                                                                15.0,
-                                                                15.0),
+                                                        const EdgeInsets.all(15.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -298,12 +289,8 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        15.0,
-                                                                        15.0,
-                                                                        15.0),
+                                                                const EdgeInsets.all(
+                                                                    15.0),
                                                             child: Container(
                                                               width: MediaQuery
                                                                           .sizeOf(
@@ -311,7 +298,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                                       .width *
                                                                   1.0,
                                                               decoration:
-                                                                  BoxDecoration(),
+                                                                  const BoxDecoration(),
                                                               child: Builder(
                                                                 builder:
                                                                     (context) {
@@ -348,7 +335,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                                           aristsList[
                                                                               aristsListIndex];
                                                                       return Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             26.0,
                                                                             4.0,
                                                                             26.0,
@@ -363,11 +350,6 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                                             Text(
                                                                               valueOrDefault<String>(
                                                                                 valueOrDefault<String>(
-                                                                                              aristsListItem.name,
-                                                                                              'Aucune',
-                                                                                            ) !=
-                                                                                            null &&
-                                                                                        valueOrDefault<String>(
                                                                                               aristsListItem.name,
                                                                                               'Aucune',
                                                                                             ) !=
@@ -387,15 +369,6 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                                             Text(
                                                                               valueOrDefault<String>(
                                                                                 valueOrDefault<String>(
-                                                                                              dateTimeFormat(
-                                                                                                'Hm',
-                                                                                                aristsListItem.scheduleStart,
-                                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                                              ),
-                                                                                              'Aucune',
-                                                                                            ) !=
-                                                                                            null &&
-                                                                                        valueOrDefault<String>(
                                                                                               dateTimeFormat(
                                                                                                 'Hm',
                                                                                                 aristsListItem.scheduleStart,
@@ -477,7 +450,9 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                                       context,
                                                                   builder:
                                                                       (context) {
-                                                                    return GestureDetector(
+                                                                    return WebViewAware(
+                                                                        child:
+                                                                            GestureDetector(
                                                                       onTap: () => _model
                                                                               .unfocusNode
                                                                               .canRequestFocus
@@ -495,7 +470,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                                               widget.eventstDetails!,
                                                                         ),
                                                                       ),
-                                                                    );
+                                                                    ));
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -504,7 +479,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                             ),
                                                           ],
                                                         ),
-                                                      ].divide(SizedBox(
+                                                      ].divide(const SizedBox(
                                                           height: 30.0)),
                                                     ),
                                                   ),
@@ -513,9 +488,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 15.0, 15.0, 15.0),
+                                            padding: const EdgeInsets.all(15.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 logFirebaseEvent(
@@ -542,11 +515,11 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                             .width *
                                                         1.0,
                                                 height: 50.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -560,7 +533,7 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                           color: Colors.white,
                                                         ),
                                                 elevation: 3.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -569,13 +542,13 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                               ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(height: 30.0)),
+                                        ].divide(const SizedBox(height: 30.0)),
                                       ),
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(height: 20.0))
-                                    .around(SizedBox(height: 20.0)),
+                                    .divide(const SizedBox(height: 20.0))
+                                    .around(const SizedBox(height: 20.0)),
                               ),
                             ),
                           ),

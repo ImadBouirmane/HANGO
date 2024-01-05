@@ -1,10 +1,8 @@
 import 'package:provider/provider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
@@ -15,9 +13,7 @@ import 'flutter_flow/internationalization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
 import '/backend/firebase_dynamic_links/firebase_dynamic_links.dart';
@@ -36,11 +32,13 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
@@ -70,7 +68,7 @@ class _MyAppState extends State<MyApp> {
       ..listen((user) => _appStateNotifier.update(user));
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      Duration(milliseconds: 1000),
+      const Duration(milliseconds: 1000),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -94,7 +92,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'HANGO',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -110,15 +108,15 @@ class _MyAppState extends State<MyApp> {
           thumbVisibility: MaterialStateProperty.all(false),
           trackVisibility: MaterialStateProperty.all(true),
           interactive: true,
-          radius: Radius.circular(15.0),
+          radius: const Radius.circular(15.0),
           thumbColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.dragged)) {
-              return Color(1564070592);
+              return const Color(0x5d39d2c0);
             }
             if (states.contains(MaterialState.hovered)) {
-              return Color(1564070592);
+              return const Color(0x5d39d2c0);
             }
-            return Color(1564070592);
+            return const Color(0x5d39d2c0);
           }),
         ),
       ),
@@ -133,7 +131,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+  const NavBarPage({super.key, this.initialPage, this.page});
 
   final String? initialPage;
   final Widget? page;
@@ -157,9 +155,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Profile': ProfileWidget(),
-      'ListOfEstablishments': ListOfEstablishmentsWidget(),
-      'ListsEvents': ListsEventsWidget(),
+      'Profile': const ProfileWidget(),
+      'ListOfEstablishments': const ListOfEstablishmentsWidget(),
+      'ListOfEvents': const ListOfEventsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -185,11 +183,11 @@ class _NavBarPageState extends State<NavBarPage> {
             width: 1.0,
           ),
           tabBorderRadius: 100.0,
-          tabMargin: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-          padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+          tabMargin: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
           gap: 10.0,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           haptic: true,
           tabs: [
             GButton(
@@ -202,7 +200,7 @@ class _NavBarPageState extends State<NavBarPage> {
               text: 'Établissements',
               iconSize: 22.0,
             ),
-            GButton(
+            const GButton(
               icon: Icons.event_note,
               text: 'Événements',
               iconSize: 24.0,

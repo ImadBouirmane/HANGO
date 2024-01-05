@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
-import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -32,16 +30,16 @@ class SendEmailCall {
     {
       "to": [
         {
-          "email": "${receiverEmail}"
+          "email": "$receiverEmail"
         }
       ],
-      "subject": "${subjectEmail}"
+      "subject": "$subjectEmail"
     }
   ],
   "content": [
     {
       "type": "text/plain",
-      "value": "${bodyEmail}"
+      "value": "$bodyEmail"
     }
   ],
   "from": {
@@ -69,6 +67,7 @@ class SendEmailCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }

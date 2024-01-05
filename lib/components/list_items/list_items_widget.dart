@@ -2,17 +2,15 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'list_items_model.dart';
 export 'list_items_model.dart';
 
 class ListItemsWidget extends StatefulWidget {
   const ListItemsWidget({
-    Key? key,
+    super.key,
     this.parameter1,
-  }) : super(key: key);
+  });
 
   final String? parameter1;
 
@@ -51,8 +49,14 @@ class _ListItemsWidgetState extends State<ListItemsWidget> {
     return MouseRegion(
       opaque: false,
       cursor: MouseCursor.defer ?? MouseCursor.defer,
+      onEnter: ((event) async {
+        setState(() => _model.mouseRegionHovered = true);
+      }),
+      onExit: ((event) async {
+        setState(() => _model.mouseRegionHovered = false);
+      }),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
           height: MediaQuery.sizeOf(context).height * 0.05,
@@ -70,7 +74,7 @@ class _ListItemsWidgetState extends State<ListItemsWidget> {
             children: [
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: SelectionArea(
                       child: AutoSizeText(
                     widget.parameter1!.maybeHandleOverflow(
@@ -86,16 +90,10 @@ class _ListItemsWidgetState extends State<ListItemsWidget> {
                   )),
                 ),
               ),
-            ].addToStart(SizedBox(width: 10.0)),
+            ].addToStart(const SizedBox(width: 10.0)),
           ),
         ),
       ),
-      onEnter: ((event) async {
-        setState(() => _model.mouseRegionHovered = true);
-      }),
-      onExit: ((event) async {
-        setState(() => _model.mouseRegionHovered = false);
-      }),
     );
   }
 }

@@ -3,9 +3,7 @@ import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class MusicStyleStruct extends FFFirebaseStruct {
@@ -26,8 +24,9 @@ class MusicStyleStruct extends FFFirebaseStruct {
         rock: data['Rock'] as String?,
       );
 
-  static MusicStyleStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? MusicStyleStruct.fromMap(data) : null;
+  static MusicStyleStruct? maybeFromMap(dynamic data) => data is Map
+      ? MusicStyleStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'Rock': _rock,
@@ -57,7 +56,7 @@ class MusicStyleStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        firestoreUtilData: FirestoreUtilData(
+        firestoreUtilData: const FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
         ),

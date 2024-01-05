@@ -10,18 +10,17 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:badges/badges.dart' as badges;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
 
 class DashboardWidget extends StatefulWidget {
-  const DashboardWidget({Key? key}) : super(key: key);
+  const DashboardWidget({super.key});
 
   @override
   _DashboardWidgetState createState() => _DashboardWidgetState();
@@ -151,10 +150,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 Expanded(
                                   flex: 4,
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 16.0, 16.0, 16.0),
+                                      padding: const EdgeInsets.all(16.0),
                                       child: Container(
                                         width: double.infinity,
                                         height:
@@ -163,7 +161,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
@@ -174,7 +172,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               BorderRadius.circular(16.0),
                                         ),
                                         alignment:
-                                            AlignmentDirectional(0.00, -1.00),
+                                            const AlignmentDirectional(0.0, -1.0),
                                         child: SingleChildScrollView(
                                           primary: false,
                                           child: Column(
@@ -186,7 +184,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 builder: (context) => ListTile(
                                                   title: Text(
                                                     valueOrDefault<String>(
-                                                      'Bonjour ${currentUserDisplayName}',
+                                                      'Bonjour $currentUserDisplayName',
                                                       'Bonjour utilisateur! (Essayez d\'indiquer votre nom complet)',
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -214,7 +212,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 1.0, 0.0, 0.0),
                                                 child: Container(
@@ -231,11 +229,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                     context)
                                                                 .lineColor,
                                                         offset:
-                                                            Offset(0.0, 1.0),
+                                                            const Offset(0.0, 1.0),
                                                       )
                                                     ],
                                                     borderRadius:
-                                                        BorderRadius.only(
+                                                        const BorderRadius.only(
                                                       bottomLeft:
                                                           Radius.circular(0.0),
                                                       bottomRight:
@@ -249,7 +247,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Container(
@@ -259,7 +257,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                             context)
                                                         .secondaryBackground,
                                                     borderRadius:
-                                                        BorderRadius.only(
+                                                        const BorderRadius.only(
                                                       bottomLeft:
                                                           Radius.circular(0.0),
                                                       bottomRight:
@@ -272,7 +270,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: Row(
@@ -325,7 +323,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 'CreateEstStep1');
                                                           },
                                                         ),
-                                                      ].addToStart(SizedBox(
+                                                      ].addToStart(const SizedBox(
                                                           width: 15.0)),
                                                     ),
                                                   ),
@@ -366,7 +364,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       snapshot.data!;
                                                   return ListView.separated(
                                                     padding:
-                                                        EdgeInsets.symmetric(
+                                                        const EdgeInsets.symmetric(
                                                             vertical: 15.0),
                                                     shrinkWrap: true,
                                                     scrollDirection:
@@ -375,7 +373,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         listViewEstablishmentsRecordList
                                                             .length,
                                                     separatorBuilder: (_, __) =>
-                                                        SizedBox(height: 15.0),
+                                                        const SizedBox(height: 15.0),
                                                     itemBuilder: (context,
                                                         listViewIndex) {
                                                       final listViewEstablishmentsRecord =
@@ -423,11 +421,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                   : null;
                                                           return Container(
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0x00000000),
                                                               child:
                                                                   ExpandableNotifier(
@@ -436,7 +434,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                   header:
                                                                       Container(
                                                                     decoration:
-                                                                        BoxDecoration(),
+                                                                        const BoxDecoration(),
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -564,7 +562,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       enableDrag: false,
                                                                                       context: context,
                                                                                       builder: (context) {
-                                                                                        return GestureDetector(
+                                                                                        return WebViewAware(
+                                                                                            child: GestureDetector(
                                                                                           onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
@@ -574,12 +573,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                               scheduleEst: rowScheduleRecord!.reference,
                                                                                             ),
                                                                                           ),
-                                                                                        );
+                                                                                        ));
                                                                                       },
                                                                                     ).then((value) => safeSetState(() {}));
                                                                                   },
                                                                                 ),
-                                                                              ].divide(SizedBox(width: 15.0)).around(SizedBox(width: 15.0)),
+                                                                              ].divide(const SizedBox(width: 15.0)).around(const SizedBox(width: 15.0)),
                                                                             );
                                                                           },
                                                                         ),
@@ -591,7 +590,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).lineColor,
                                                                         ),
-                                                                      ].divide(SizedBox(
+                                                                      ].divide(const SizedBox(
                                                                               height: 10.0)),
                                                                     ),
                                                                   ),
@@ -599,21 +598,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                       Container(
                                                                     height: 1.0,
                                                                     decoration:
-                                                                        BoxDecoration(),
+                                                                        const BoxDecoration(),
                                                                   ),
                                                                   expanded:
                                                                       Align(
                                                                     alignment:
-                                                                        AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                        const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          15.0,
-                                                                          15.0,
-                                                                          15.0,
-                                                                          15.0),
+                                                                      padding:
+                                                                          const EdgeInsets.all(
+                                                                              15.0),
                                                                       child:
                                                                           Container(
                                                                         width: MediaQuery.sizeOf(context).width *
@@ -634,7 +631,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 10.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 10.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -676,7 +673,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       );
                                                                                     },
                                                                                   ),
-                                                                                ].divide(SizedBox(width: 20.0)).addToStart(SizedBox(width: 20.0)),
+                                                                                ].divide(const SizedBox(width: 20.0)).addToStart(const SizedBox(width: 20.0)),
                                                                               ),
                                                                             ),
                                                                             StreamBuilder<List<EventsRecord>>(
@@ -714,11 +711,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                   );
                                                                                 }
                                                                                 return ListView.separated(
-                                                                                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                                                                                  padding: const EdgeInsets.symmetric(vertical: 10.0),
                                                                                   shrinkWrap: true,
                                                                                   scrollDirection: Axis.vertical,
                                                                                   itemCount: listViewEventsRecordList.length,
-                                                                                  separatorBuilder: (_, __) => SizedBox(height: 10.0),
+                                                                                  separatorBuilder: (_, __) => const SizedBox(height: 10.0),
                                                                                   itemBuilder: (context, listViewIndex) {
                                                                                     final listViewEventsRecord = listViewEventsRecordList[listViewIndex];
                                                                                     return StreamBuilder<EventsRecord>(
@@ -741,12 +738,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                         final containerEventsRecord = snapshot.data!;
                                                                                         return Container(
                                                                                           width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                          decoration: BoxDecoration(),
+                                                                                          decoration: const BoxDecoration(),
                                                                                           child: Column(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             children: [
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                                                                                                padding: const EdgeInsets.all(10.0),
                                                                                                 child: StreamBuilder<List<MediaRecord>>(
                                                                                                   stream: queryMediaRecord(
                                                                                                     parent: listViewEventsRecord.reference,
@@ -792,7 +789,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                               Expanded(
                                                                                                                 child: Text(
                                                                                                                   valueOrDefault<String>(
-                                                                                                                    listViewEventsRecord.title != null && listViewEventsRecord.title != '' ? listViewEventsRecord.title : '',
+                                                                                                                    listViewEventsRecord.title != '' ? listViewEventsRecord.title : '',
                                                                                                                     'Aucune',
                                                                                                                   ),
                                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium,
@@ -827,12 +824,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                                     dateEventScheduleEventRecord?.date,
                                                                                                                                     locale: FFLocalizations.of(context).languageCode,
                                                                                                                                   ) !=
-                                                                                                                                  null &&
-                                                                                                                              dateTimeFormat(
-                                                                                                                                    'd/M/y',
-                                                                                                                                    dateEventScheduleEventRecord?.date,
-                                                                                                                                    locale: FFLocalizations.of(context).languageCode,
-                                                                                                                                  ) !=
                                                                                                                                   ''
                                                                                                                           ? dateTimeFormat(
                                                                                                                               'd/M/y',
@@ -846,7 +837,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                   );
                                                                                                                 },
                                                                                                               ),
-                                                                                                            ].divide(SizedBox(width: 15.0)),
+                                                                                                            ].divide(const SizedBox(width: 15.0)),
                                                                                                           ),
                                                                                                         ),
                                                                                                         FlutterFlowIconButton(
@@ -896,7 +887,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                 enableDrag: false,
                                                                                                                 context: context,
                                                                                                                 builder: (context) {
-                                                                                                                  return GestureDetector(
+                                                                                                                  return WebViewAware(
+                                                                                                                      child: GestureDetector(
                                                                                                                     onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                                     child: Padding(
                                                                                                                       padding: MediaQuery.viewInsetsOf(context),
@@ -904,7 +896,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                         eventRef: listViewEventsRecord.reference,
                                                                                                                       ),
                                                                                                                     ),
-                                                                                                                  );
+                                                                                                                  ));
                                                                                                                 },
                                                                                                               ).then((value) => safeSetState(() {}));
 
@@ -917,7 +909,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                             }
                                                                                                           },
                                                                                                         ),
-                                                                                                      ].divide(SizedBox(width: 15.0)).around(SizedBox(width: 15.0)),
+                                                                                                      ].divide(const SizedBox(width: 15.0)).around(const SizedBox(width: 15.0)),
                                                                                                     );
                                                                                                   },
                                                                                                 ),
@@ -928,7 +920,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                 indent: 30.0,
                                                                                                 color: FlutterFlowTheme.of(context).lineColor,
                                                                                               ),
-                                                                                            ].divide(SizedBox(height: 5.0)),
+                                                                                            ].divide(const SizedBox(height: 5.0)),
                                                                                           ),
                                                                                         );
                                                                                       },
@@ -943,7 +935,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                     ),
                                                                   ),
                                                                   theme:
-                                                                      ExpandableThemeData(
+                                                                      const ExpandableThemeData(
                                                                     tapHeaderToExpand:
                                                                         true,
                                                                     tapBodyToExpand:
@@ -966,7 +958,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   );
                                                 },
                                               ),
-                                            ].addToStart(SizedBox(height: 5.0)),
+                                            ].addToStart(const SizedBox(height: 5.0)),
                                           ),
                                         ),
                                       ),
@@ -978,7 +970,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                   false,
                                 ))
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: FutureBuilder<int>(
                                       future: queryNotificationsRecordCount(),
                                       builder: (context, snapshot) {
@@ -1008,9 +1000,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               false,
                                             )) {
                                               return Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 16.0, 16.0, 16.0),
+                                                padding: const EdgeInsets.all(16.0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
@@ -1024,7 +1014,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 4.0,
                                                         color:
@@ -1038,16 +1028,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                             16.0),
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
-                                                          0.00, -1.00),
+                                                      const AlignmentDirectional(
+                                                          0.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1097,7 +1082,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 });
                                                               },
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               width: 10.0)),
                                                         ),
                                                         Expanded(
@@ -1191,11 +1176,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            10.0,
-                                                                            10.0,
+                                                                    padding:
+                                                                        const EdgeInsets.all(
                                                                             10.0),
                                                                     child:
                                                                         Column(
@@ -1231,7 +1213,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                           ],
                                                                         ),
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               15.0,
                                                                               0.0,
@@ -1296,15 +1278,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                     text: 'Refusez',
                                                                                     options: FFButtonOptions(
                                                                                       height: 40.0,
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                       color: FlutterFlowTheme.of(context).alternate,
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             color: Colors.white,
                                                                                           ),
                                                                                       elevation: 3.0,
-                                                                                      borderSide: BorderSide(
+                                                                                      borderSide: const BorderSide(
                                                                                         color: Colors.transparent,
                                                                                         width: 1.0,
                                                                                       ),
@@ -1338,28 +1320,28 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                     text: 'Acceptez',
                                                                                     options: FFButtonOptions(
                                                                                       height: 40.0,
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             color: Colors.white,
                                                                                           ),
                                                                                       elevation: 3.0,
-                                                                                      borderSide: BorderSide(
+                                                                                      borderSide: const BorderSide(
                                                                                         color: Colors.transparent,
                                                                                         width: 1.0,
                                                                                       ),
                                                                                       borderRadius: BorderRadius.circular(30.0),
                                                                                     ),
                                                                                   ),
-                                                                                ].divide(SizedBox(width: 5.0)),
+                                                                                ].divide(const SizedBox(width: 5.0)),
                                                                               );
                                                                             },
                                                                           ),
                                                                         ),
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               15.0,
                                                                               0.0,
@@ -1417,7 +1399,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                   checkColor: FlutterFlowTheme.of(context).info,
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 5.0)),
+                                                                            ].divide(const SizedBox(width: 5.0)),
                                                                           ),
                                                                         ),
                                                                       ],
@@ -1429,9 +1411,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           ),
                                                         ),
                                                       ]
-                                                          .divide(SizedBox(
+                                                          .divide(const SizedBox(
                                                               height: 15.0))
-                                                          .addToStart(SizedBox(
+                                                          .addToStart(const SizedBox(
                                                               height: 5.0)),
                                                     ),
                                                   ),
@@ -1439,10 +1421,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               );
                                             } else {
                                               return Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, -0.90),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, -0.9),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 15.0, 0.0),
                                                   child: InkWell(
@@ -1487,12 +1469,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                               .alternate,
                                                       elevation: 4.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0),
+                                                          const EdgeInsets.all(8.0),
                                                       position:
                                                           badges.BadgePosition
                                                               .topEnd(),
@@ -1502,7 +1479,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       toAnimate: true,
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1539,7 +1516,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                             desktop: false,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -1559,7 +1536,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                             .accent1,
                                       ),
                                 ),
-                              ].divide(SizedBox(height: 30.0)),
+                              ].divide(const SizedBox(height: 30.0)),
                             ),
                           ),
                         );

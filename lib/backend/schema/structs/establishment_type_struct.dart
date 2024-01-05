@@ -3,9 +3,7 @@ import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class EstablishmentTypeStruct extends FFFirebaseStruct {
@@ -26,10 +24,9 @@ class EstablishmentTypeStruct extends FFFirebaseStruct {
         bar: data['Bar'] as String?,
       );
 
-  static EstablishmentTypeStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? EstablishmentTypeStruct.fromMap(data)
-          : null;
+  static EstablishmentTypeStruct? maybeFromMap(dynamic data) => data is Map
+      ? EstablishmentTypeStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'Bar': _bar,
@@ -60,7 +57,7 @@ class EstablishmentTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        firestoreUtilData: FirestoreUtilData(
+        firestoreUtilData: const FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
         ),

@@ -1,24 +1,21 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_est_step2_model.dart';
 export 'create_est_step2_model.dart';
 
 class CreateEstStep2Widget extends StatefulWidget {
   const CreateEstStep2Widget({
-    Key? key,
+    super.key,
     required this.estRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? estRef;
 
@@ -40,32 +37,46 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
         parameters: {'screen_name': 'CreateEstStep2'});
     _model.mondayOpeningController ??= TextEditingController();
     _model.mondayOpeningFocusNode ??= FocusNode();
+
     _model.mondayClosingController ??= TextEditingController();
     _model.mondayClosingFocusNode ??= FocusNode();
+
     _model.thursdayOpeningController ??= TextEditingController();
     _model.thursdayOpeningFocusNode ??= FocusNode();
+
     _model.thursdayClosingController ??= TextEditingController();
     _model.thursdayClosingFocusNode ??= FocusNode();
+
     _model.wednesdayOpeningController ??= TextEditingController();
     _model.wednesdayOpeningFocusNode ??= FocusNode();
+
     _model.wednesdayClosingController ??= TextEditingController();
     _model.wednesdayClosingFocusNode ??= FocusNode();
+
     _model.tuesdayOpeningController ??= TextEditingController();
     _model.tuesdayOpeningFocusNode ??= FocusNode();
+
     _model.tuesdayClosingController ??= TextEditingController();
     _model.tuesdayClosingFocusNode ??= FocusNode();
+
     _model.fridayOpeningController ??= TextEditingController();
     _model.fridayOpeningFocusNode ??= FocusNode();
+
     _model.fridayClosingController ??= TextEditingController();
     _model.fridayClosingFocusNode ??= FocusNode();
+
     _model.saturdayOpeningController ??= TextEditingController();
     _model.saturdayOpeningFocusNode ??= FocusNode();
+
     _model.saturdayClosingController ??= TextEditingController();
     _model.saturdayClosingFocusNode ??= FocusNode();
+
     _model.sundayOpeningController ??= TextEditingController();
     _model.sundayOpeningFocusNode ??= FocusNode();
+
     _model.sundayClosingController ??= TextEditingController();
     _model.sundayClosingFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -124,24 +135,23 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                         child: AdminSideBarWidget(
                           oneBG:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          oneIcon: Icon(
+                          oneIcon: const Icon(
                             Icons.home_filled,
                           ),
                           twoBG:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          twoIcon: Icon(
+                          twoIcon: const Icon(
                             Icons.event,
                           ),
                           threeColor: FlutterFlowTheme.of(context).tertiary400,
-                          threeIcon: Icon(
+                          threeIcon: const Icon(
                             Icons.house_outlined,
                           ),
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
+                          padding: const EdgeInsets.all(16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -173,8 +183,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Créer un nouvelle établissement',
                                         style: FlutterFlowTheme.of(context)
@@ -211,7 +220,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                       context.pushNamed(
                                         'Dashboard',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -232,7 +241,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
@@ -257,7 +266,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 20.0),
                                                 child: SingleChildScrollView(
@@ -270,7 +279,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -298,8 +307,8 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
-                                                                -1.00, 0.00),
+                                                            const AlignmentDirectional(
+                                                                -1.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -307,12 +316,11 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                       .width *
                                                                   0.4,
                                                           decoration:
-                                                              BoxDecoration(),
+                                                              const BoxDecoration(),
                                                           child: Align(
                                                             alignment:
-                                                                AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                const AlignmentDirectional(
+                                                                    -1.0, 0.0),
                                                             child: Wrap(
                                                               spacing: 50.0,
                                                               runSpacing: 15.0,
@@ -366,15 +374,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                 [
                                                                               Expanded(
                                                                                 child: Container(
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.mondayOpeningController,
                                                                                       focusNode: _model.mondayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.mondayOpeningController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -436,15 +444,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               ),
                                                                               Expanded(
                                                                                 child: Container(
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.mondayClosingController,
                                                                                       focusNode: _model.mondayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.mondayClosingController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -504,7 +512,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 10.0)),
+                                                                            ].divide(const SizedBox(width: 10.0)),
                                                                           ),
                                                                         ),
                                                                       Row(
@@ -552,9 +560,9 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               checkColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                             ),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 10.0)),
+                                                                        ].divide(const SizedBox(width: 10.0)),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             30.0)),
                                                                   ),
@@ -595,15 +603,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                 [
                                                                               Expanded(
                                                                                 child: Container(
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.thursdayOpeningController,
                                                                                       focusNode: _model.thursdayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.thursdayOpeningController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -665,15 +673,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               ),
                                                                               Expanded(
                                                                                 child: Container(
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.thursdayClosingController,
                                                                                       focusNode: _model.thursdayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.thursdayClosingController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -733,7 +741,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 10.0)),
+                                                                            ].divide(const SizedBox(width: 10.0)),
                                                                           ),
                                                                         ),
                                                                       Row(
@@ -781,9 +789,9 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               checkColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                             ),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 10.0)),
+                                                                        ].divide(const SizedBox(width: 10.0)),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -825,15 +833,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.wednesdayOpeningController,
                                                                                       focusNode: _model.wednesdayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.wednesdayOpeningController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -896,15 +904,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.wednesdayClosingController,
                                                                                       focusNode: _model.wednesdayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.wednesdayClosingController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -964,7 +972,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 10.0)),
+                                                                            ].divide(const SizedBox(width: 10.0)),
                                                                           ),
                                                                         ),
                                                                       Row(
@@ -1012,9 +1020,9 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               checkColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                             ),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 10.0)),
+                                                                        ].divide(const SizedBox(width: 10.0)),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -1056,15 +1064,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.tuesdayOpeningController,
                                                                                       focusNode: _model.tuesdayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.tuesdayOpeningController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -1127,15 +1135,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.tuesdayClosingController,
                                                                                       focusNode: _model.tuesdayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.tuesdayClosingController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -1195,7 +1203,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 10.0)),
+                                                                            ].divide(const SizedBox(width: 10.0)),
                                                                           ),
                                                                         ),
                                                                       Row(
@@ -1243,9 +1251,9 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               checkColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                             ),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 10.0)),
+                                                                        ].divide(const SizedBox(width: 10.0)),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -1287,15 +1295,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.fridayOpeningController,
                                                                                       focusNode: _model.fridayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.fridayOpeningController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -1358,15 +1366,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.fridayClosingController,
                                                                                       focusNode: _model.fridayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.fridayClosingController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -1426,7 +1434,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 10.0)),
+                                                                            ].divide(const SizedBox(width: 10.0)),
                                                                           ),
                                                                         ),
                                                                       Row(
@@ -1474,9 +1482,9 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               checkColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                             ),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 10.0)),
+                                                                        ].divide(const SizedBox(width: 10.0)),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -1524,15 +1532,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.saturdayOpeningController,
                                                                                       focusNode: _model.saturdayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.saturdayOpeningController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -1595,15 +1603,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.saturdayClosingController,
                                                                                       focusNode: _model.saturdayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.saturdayClosingController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -1663,7 +1671,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 10.0)),
+                                                                            ].divide(const SizedBox(width: 10.0)),
                                                                           ),
                                                                         ),
                                                                       Row(
@@ -1711,9 +1719,9 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               checkColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                             ),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 10.0)),
+                                                                        ].divide(const SizedBox(width: 10.0)),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -1755,15 +1763,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.sundayOpeningController,
                                                                                       focusNode: _model.sundayOpeningFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.sundayOpeningController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -1826,15 +1834,15 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               Expanded(
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 0.07,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
+                                                                                  decoration: const BoxDecoration(),
+                                                                                  child: SizedBox(
                                                                                     width: MediaQuery.sizeOf(context).width * 0.08,
                                                                                     child: TextFormField(
                                                                                       controller: _model.sundayClosingController,
                                                                                       focusNode: _model.sundayClosingFocusNode,
                                                                                       onChanged: (_) => EasyDebounce.debounce(
                                                                                         '_model.sundayClosingController',
-                                                                                        Duration(milliseconds: 2000),
+                                                                                        const Duration(milliseconds: 2000),
                                                                                         () => setState(() {}),
                                                                                       ),
                                                                                       autofocus: true,
@@ -1894,7 +1902,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 10.0)),
+                                                                            ].divide(const SizedBox(width: 10.0)),
                                                                           ),
                                                                         ),
                                                                       Row(
@@ -1942,9 +1950,9 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                                               checkColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                             ),
                                                                           ),
-                                                                        ].divide(SizedBox(width: 10.0)),
+                                                                        ].divide(const SizedBox(width: 10.0)),
                                                                       ),
-                                                                    ].divide(SizedBox(
+                                                                    ].divide(const SizedBox(
                                                                         width:
                                                                             10.0)),
                                                                   ),
@@ -1955,9 +1963,9 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                         ),
                                                       ),
                                                     ]
-                                                        .divide(SizedBox(
+                                                        .divide(const SizedBox(
                                                             height: 15.0))
-                                                        .around(SizedBox(
+                                                        .around(const SizedBox(
                                                             height: 15.0)),
                                                   ),
                                                 ),
@@ -1966,9 +1974,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 15.0, 15.0, 15.0),
+                                          padding: const EdgeInsets.all(15.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               logFirebaseEvent(
@@ -2127,9 +2133,8 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                       .width *
                                                   1.0,
                                               height: 50.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              padding: const EdgeInsets.all(0.0),
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -2142,7 +2147,7 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                                         color: Colors.white,
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -2151,14 +2156,14 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
                                             ),
                                           ),
                                         ),
-                                      ].addToEnd(SizedBox(height: 20.0)),
+                                      ].addToEnd(const SizedBox(height: 20.0)),
                                     ),
                                   ),
                                 ),
                               ),
                             ]
-                                .divide(SizedBox(height: 20.0))
-                                .around(SizedBox(height: 20.0)),
+                                .divide(const SizedBox(height: 20.0))
+                                .around(const SizedBox(height: 20.0)),
                           ),
                         ),
                       ),

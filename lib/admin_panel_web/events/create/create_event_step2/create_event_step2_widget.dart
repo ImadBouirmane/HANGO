@@ -6,20 +6,19 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'create_event_step2_model.dart';
 export 'create_event_step2_model.dart';
 
 class CreateEventStep2Widget extends StatefulWidget {
   const CreateEventStep2Widget({
-    Key? key,
+    super.key,
     required this.establishmentRef,
     required this.eventRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? establishmentRef;
   final DocumentReference? eventRef;
@@ -123,24 +122,23 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                             child: AdminSideBarWidget(
                               oneBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              oneIcon: Icon(
+                              oneIcon: const Icon(
                                 Icons.home_filled,
                               ),
                               twoBG: FlutterFlowTheme.of(context).tertiary400,
-                              twoIcon: Icon(
+                              twoIcon: const Icon(
                                 Icons.event,
                               ),
                               threeColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              threeIcon: Icon(
+                              threeIcon: const Icon(
                                 Icons.house_outlined,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 16.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -174,7 +172,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'Création d\'un événement',
                                             style: FlutterFlowTheme.of(context)
@@ -213,7 +211,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                             'Dashboard',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -236,7 +234,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -259,9 +257,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                               autovalidateMode:
                                                   AutovalidateMode.always,
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 15.0, 15.0, 15.0),
+                                                padding: const EdgeInsets.all(15.0),
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -278,12 +274,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0,
-                                                                  15.0),
+                                                          const EdgeInsets.all(15.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.min,
@@ -400,7 +391,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                     return ListView
                                                                         .builder(
                                                                       padding:
-                                                                          EdgeInsets
+                                                                          const EdgeInsets
                                                                               .fromLTRB(
                                                                         0,
                                                                         15.0,
@@ -418,7 +409,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                         final listArtistSetArtistsRecord =
                                                                             listArtistSetArtistsRecordList[listArtistSetIndex];
                                                                         return Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               26.0,
                                                                               4.0,
                                                                               26.0,
@@ -506,7 +497,9 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                         context,
                                                                     builder:
                                                                         (context) {
-                                                                      return GestureDetector(
+                                                                      return WebViewAware(
+                                                                          child:
+                                                                              GestureDetector(
                                                                         onTap: () => _model.unfocusNode.canRequestFocus
                                                                             ? FocusScope.of(context).requestFocus(_model.unfocusNode)
                                                                             : FocusScope.of(context).unfocus(),
@@ -520,7 +513,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                                 widget.eventRef!,
                                                                           ),
                                                                         ),
-                                                                      );
+                                                                      ));
                                                                     },
                                                                   ).then((value) =>
                                                                       safeSetState(
@@ -529,7 +522,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                               ),
                                                             ],
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             height: 15.0)),
                                                       ),
                                                     ),
@@ -539,9 +532,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 15.0, 15.0, 15.0),
+                                            padding: const EdgeInsets.all(15.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 logFirebaseEvent(
@@ -573,11 +564,9 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                             .width *
                                                         1.0,
                                                 height: 50.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
+                                                padding: const EdgeInsets.all(0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -591,7 +580,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                           color: Colors.white,
                                                         ),
                                                 elevation: 3.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -605,8 +594,8 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(height: 20.0))
-                                    .around(SizedBox(height: 20.0)),
+                                    .divide(const SizedBox(height: 20.0))
+                                    .around(const SizedBox(height: 20.0)),
                               ),
                             ),
                           ),

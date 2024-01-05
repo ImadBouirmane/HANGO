@@ -7,14 +7,12 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'filter_establishment_model.dart';
 export 'filter_establishment_model.dart';
 
 class FilterEstablishmentWidget extends StatefulWidget {
-  const FilterEstablishmentWidget({Key? key}) : super(key: key);
+  const FilterEstablishmentWidget({super.key});
 
   @override
   _FilterEstablishmentWidgetState createState() =>
@@ -52,11 +50,11 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 1.00),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Material(
         color: Colors.transparent,
         elevation: 10.0,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
@@ -68,7 +66,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
           width: MediaQuery.sizeOf(context).width * 1.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(20.0),
@@ -87,7 +85,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                   color: FlutterFlowTheme.of(context).primary,
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: StreamBuilder<List<EstablishmentsRecord>>(
                     stream: queryEstablishmentsRecord(
                       singleRecord: true,
@@ -123,7 +121,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     'Filtrez les établissements',
@@ -173,11 +171,10 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
                                   collapsed: Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment:
-                                        AlignmentDirectional(-1.00, 0.00),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: FlutterFlowChoiceChips(
                                       options: FFAppState()
                                           .TypeOfEstablishment
@@ -212,17 +209,17 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                             ),
-                                        iconColor: Color(0x00000000),
+                                        iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
                                         labelPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 7.0, 20.0, 7.0),
                                         elevation: 2.0,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
                                       unselectedChipStyle: ChipStyle(
-                                        backgroundColor: Color(0x00000000),
+                                        backgroundColor: const Color(0x00000000),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -231,10 +228,10 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
                                             ),
-                                        iconColor: Color(0x00000000),
+                                        iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
                                         labelPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 7.0, 20.0, 7.0),
                                         elevation: 0.0,
                                         borderRadius:
@@ -285,10 +282,10 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
                                   collapsed: Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                   ),
                                   expanded: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: FlutterFlowChoiceChips(
                                       options: FFAppState()
                                           .MusicStyle
@@ -322,17 +319,17 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                             ),
-                                        iconColor: Color(0x00000000),
+                                        iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
                                         labelPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 7.0, 20.0, 7.0),
                                         elevation: 2.0,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
                                       unselectedChipStyle: ChipStyle(
-                                        backgroundColor: Color(0x00000000),
+                                        backgroundColor: const Color(0x00000000),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -341,10 +338,10 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
                                             ),
-                                        iconColor: Color(0x00000000),
+                                        iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
                                         labelPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 7.0, 20.0, 7.0),
                                         elevation: 0.0,
                                         borderRadius:
@@ -384,8 +381,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 value: _model.switchListTileValue1 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue1 = newValue!);
-                                  if (newValue!) {
+                                      _model.switchListTileValue1 = newValue);
+                                  if (newValue) {
                                     logFirebaseEvent(
                                         'FILTER_ESTABLISHMENT_SwitchListTile_vkfj');
                                     logFirebaseEvent(
@@ -412,7 +409,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -423,8 +420,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 value: _model.switchListTileValue2 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue2 = newValue!);
-                                  if (newValue!) {
+                                      _model.switchListTileValue2 = newValue);
+                                  if (newValue) {
                                     logFirebaseEvent(
                                         'FILTER_ESTABLISHMENT_SwitchListTile_nbnw');
                                     logFirebaseEvent(
@@ -455,7 +452,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -466,8 +463,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 value: _model.switchListTileValue3 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue3 = newValue!);
-                                  if (newValue!) {
+                                      _model.switchListTileValue3 = newValue);
+                                  if (newValue) {
                                     logFirebaseEvent(
                                         'FILTER_ESTABLISHMENT_SwitchListTile_ehc2');
                                     logFirebaseEvent(
@@ -494,7 +491,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -505,8 +502,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 value: _model.switchListTileValue4 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue4 = newValue!);
-                                  if (newValue!) {
+                                      _model.switchListTileValue4 = newValue);
+                                  if (newValue) {
                                     logFirebaseEvent(
                                         'FILTER_ESTABLISHMENT_SwitchListTile_h0wk');
                                     logFirebaseEvent(
@@ -533,7 +530,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -544,8 +541,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 value: _model.switchListTileValue5 ??= false,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue5 = newValue!);
-                                  if (newValue!) {
+                                      _model.switchListTileValue5 = newValue);
+                                  if (newValue) {
                                     logFirebaseEvent(
                                         'FILTER_ESTABLISHMENT_SwitchListTile_w6zz');
                                     logFirebaseEvent(
@@ -576,7 +573,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   'Billard, fléchettes, bord, cartes,...',
                                   style: FlutterFlowTheme.of(context).bodySmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -588,8 +585,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                     FFAppState().isOpen,
                                 onChanged: (newValue) async {
                                   setState(() =>
-                                      _model.switchListTileValue6 = newValue!);
-                                  if (newValue!) {
+                                      _model.switchListTileValue6 = newValue);
+                                  if (newValue) {
                                     logFirebaseEvent(
                                         'FILTER_ESTABLISHMENT_SwitchListTile_mk5a');
                                     logFirebaseEvent(
@@ -616,7 +613,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
-                                tileColor: Color(0xFFF5F5F5),
+                                tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 dense: false,
@@ -650,10 +647,9 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                     },
                                     text: 'Supprimer les filtres',
                                     options: FFButtonOptions(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 20.0, 20.0, 20.0),
+                                      padding: const EdgeInsets.all(20.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .tertiary400,
@@ -664,7 +660,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                             fontSize: 16.0,
                                           ),
                                       elevation: 2.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -685,10 +681,9 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                     },
                                     text: 'Voir les résultats ',
                                     options: FFButtonOptions(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 20.0, 20.0, 20.0),
+                                      padding: const EdgeInsets.all(20.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
@@ -696,11 +691,11 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFF10212E),
+                                            color: const Color(0xFF10212E),
                                             fontSize: 16.0,
                                           ),
                                       elevation: 2.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -709,16 +704,16 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   ),
                                 ],
                               ),
-                            ].divide(SizedBox(height: 5.0)),
+                            ].divide(const SizedBox(height: 5.0)),
                           ),
                         ]
-                            .divide(SizedBox(height: 30.0))
-                            .around(SizedBox(height: 30.0)),
+                            .divide(const SizedBox(height: 30.0))
+                            .around(const SizedBox(height: 30.0)),
                       );
                     },
                   ),
                 ),
-              ].addToEnd(SizedBox(height: 30.0)),
+              ].addToEnd(const SizedBox(height: 30.0)),
             ),
           ),
         ),

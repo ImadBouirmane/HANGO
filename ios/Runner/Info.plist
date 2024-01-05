@@ -66,22 +66,6 @@
 	<key>PermissionGroupNotification</key>
     <string>Notre application necessite l'acces a votre notifications pour ous envoyer des notifications sur les événements à venir, les nouveaux messages et d'autres mises à jour importantes.</string>
 
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>comgooglemaps</string>
-      <string>baidumap</string>
-      <string>iosamap</string>
-      <string>waze</string>
-      <string>yandexmaps</string>
-      <string>yandexnavi</string>
-      <string>citymapper</string>
-      <string>mapswithme</string>
-      <string>osmandmaps</string>
-      <string>dgis</string>
-      <string>qqmap</string>
-      <string>here-location</string>
-
-    </array>
 
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

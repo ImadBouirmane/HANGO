@@ -1,7 +1,5 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
@@ -10,19 +8,17 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_event_step4_model.dart';
 export 'create_event_step4_model.dart';
 
 class CreateEventStep4Widget extends StatefulWidget {
   const CreateEventStep4Widget({
-    Key? key,
+    super.key,
     required this.eventRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? eventRef;
 
@@ -101,24 +97,23 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                         child: AdminSideBarWidget(
                           oneBG:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          oneIcon: Icon(
+                          oneIcon: const Icon(
                             Icons.home_filled,
                           ),
                           twoBG: FlutterFlowTheme.of(context).tertiary400,
-                          twoIcon: Icon(
+                          twoIcon: const Icon(
                             Icons.event,
                           ),
                           threeColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          threeIcon: Icon(
+                          threeIcon: const Icon(
                             Icons.house_outlined,
                           ),
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
+                          padding: const EdgeInsets.all(16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -150,8 +145,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Création d\'un événement',
                                         style: FlutterFlowTheme.of(context)
@@ -188,7 +182,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                       context.pushNamed(
                                         'Dashboard',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -209,7 +203,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
@@ -270,12 +264,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                15.0,
-                                                                15.0,
-                                                                15.0,
-                                                                15.0),
+                                                        const EdgeInsets.all(15.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -286,8 +275,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                         Stack(
                                                           children: [
                                                             if (_model.uploadedFileUrl1 !=
-                                                                    null &&
-                                                                _model.uploadedFileUrl1 !=
                                                                     '')
                                                               Stack(
                                                                 children: [
@@ -356,9 +343,10 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                     ),
                                                                     child:
                                                                         Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -404,8 +392,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                 ],
                                                               ),
                                                             if (_model.uploadedFileUrl1 ==
-                                                                    null ||
-                                                                _model.uploadedFileUrl1 ==
                                                                     '')
                                                               Container(
                                                                 width: MediaQuery.sizeOf(
@@ -435,9 +421,10 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                           .center,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -538,7 +525,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                                 FlutterFlowTheme.of(context).primaryText,
                                                                           ),
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       height:
                                                                           10.0)),
                                                                 ),
@@ -550,12 +537,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                15.0,
-                                                                15.0,
-                                                                15.0,
-                                                                15.0),
+                                                        const EdgeInsets.all(15.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -566,8 +548,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                         Stack(
                                                           children: [
                                                             if (_model.uploadedFileUrl2 !=
-                                                                    null &&
-                                                                _model.uploadedFileUrl2 !=
                                                                     '')
                                                               Stack(
                                                                 children: [
@@ -636,9 +616,10 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                     ),
                                                                     child:
                                                                         Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -684,8 +665,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                 ],
                                                               ),
                                                             if (_model.uploadedFileUrl2 ==
-                                                                    null ||
-                                                                _model.uploadedFileUrl2 ==
                                                                     '')
                                                               Container(
                                                                 width: MediaQuery.sizeOf(
@@ -715,9 +694,10 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                           .center,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -818,7 +798,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                                 FlutterFlowTheme.of(context).primaryText,
                                                                           ),
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       height:
                                                                           10.0)),
                                                                 ),
@@ -835,8 +815,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 15.0, 15.0, 15.0),
+                                        padding: const EdgeInsets.all(15.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             logFirebaseEvent(
@@ -851,8 +830,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                 .set(createMediaRecordData(
                                               image: valueOrDefault<String>(
                                                 _model.uploadedFileUrl1 !=
-                                                            null &&
-                                                        _model.uploadedFileUrl1 !=
                                                             ''
                                                     ? _model.uploadedFileUrl1
                                                     : null,
@@ -861,8 +838,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                               eventRef: widget.eventRef,
                                               video: valueOrDefault<String>(
                                                 _model.uploadedFileUrl2 !=
-                                                            null &&
-                                                        _model.uploadedFileUrl2 !=
                                                             ''
                                                     ? _model.uploadedFileUrl2
                                                     : valueOrDefault<String>(
@@ -879,8 +854,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                       image: valueOrDefault<
                                                           String>(
                                                         _model.uploadedFileUrl1 !=
-                                                                    null &&
-                                                                _model.uploadedFileUrl1 !=
                                                                     ''
                                                             ? _model
                                                                 .uploadedFileUrl1
@@ -891,8 +864,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                       video: valueOrDefault<
                                                           String>(
                                                         _model.uploadedFileUrl2 !=
-                                                                    null &&
-                                                                _model.uploadedFileUrl2 !=
                                                                     ''
                                                             ? _model
                                                                 .uploadedFileUrl2
@@ -920,11 +891,9 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                     .width *
                                                 1.0,
                                             height: 50.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
+                                            padding: const EdgeInsets.all(0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
@@ -936,7 +905,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                       color: Colors.white,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -945,13 +914,13 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 30.0)),
+                                    ].divide(const SizedBox(height: 30.0)),
                                   ),
                                 ),
                               ),
                             ]
-                                .divide(SizedBox(height: 20.0))
-                                .around(SizedBox(height: 20.0)),
+                                .divide(const SizedBox(height: 20.0))
+                                .around(const SizedBox(height: 20.0)),
                           ),
                         ),
                       ),

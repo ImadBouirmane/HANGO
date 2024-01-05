@@ -66,7 +66,11 @@ export '/manage_panel_web/manager_wait_list/manager_wait_list_widget.dart'
     show ManagerWaitListWidget;
 export '/hango_app/maps/maps_est_details/maps_est_details_widget.dart'
     show MapsEstDetailsWidget;
-export '/hango_app/events/lists_events/lists_events_widget.dart'
-    show ListsEventsWidget;
+export '/hango_app/events/list_of_events/list_of_events_widget.dart'
+    show ListOfEventsWidget;
 export '/hango_app/establishments/show_of_establishment/show_of_establishment_widget.dart'
     show ShowOfEstablishmentWidget;
+export '/admin_panel_web/event_promotion/create_promotion/create_promotion_widget.dart'
+    show CreatePromotionWidget;
+export '/admin_panel_web/event_promotion/update_promotion/update_promotion_widget.dart'
+    show UpdatePromotionWidget;

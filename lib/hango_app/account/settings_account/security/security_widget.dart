@@ -3,18 +3,14 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'security_model.dart';
 export 'security_model.dart';
 
 class SecurityWidget extends StatefulWidget {
-  const SecurityWidget({Key? key}) : super(key: key);
+  const SecurityWidget({super.key});
 
   @override
   _SecurityWidgetState createState() => _SecurityWidgetState();
@@ -34,13 +30,17 @@ class _SecurityWidgetState extends State<SecurityWidget> {
     _model.emailOnMobileController ??=
         TextEditingController(text: currentUserEmail);
     _model.emailOnMobileFocusNode ??= FocusNode();
+
     _model.phoneOnMobileController ??=
         TextEditingController(text: currentPhoneNumber);
     _model.phoneOnMobileFocusNode ??= FocusNode();
+
     _model.textController2 ??= TextEditingController(text: currentUserEmail);
     _model.textFieldFocusNode1 ??= FocusNode();
+
     _model.textController3 ??= TextEditingController(text: currentPhoneNumber);
     _model.textFieldFocusNode2 ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -82,7 +82,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 50.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Color(0xFF57CFAD),
                   size: 20.0,
@@ -100,14 +100,14 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                       color: FlutterFlowTheme.of(context).primary,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -123,8 +123,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -144,12 +143,12 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                 ],
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Container(
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: TextFormField(
                                         controller:
                                             _model.emailOnMobileController,
@@ -172,7 +171,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                               .text.isEmpty) {
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
-                                              SnackBar(
+                                              const SnackBar(
                                                 content: Text(
                                                   'Email required!',
                                                 ),
@@ -223,7 +222,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                 BorderRadius.circular(40.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -231,7 +230,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                 BorderRadius.circular(40.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -240,7 +239,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 2.0,
                                             ),
@@ -252,7 +251,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .secondaryBackground,
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 24.0, 0.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -269,7 +268,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                       ),
                                     ),
                                     Container(
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: AuthUserStreamWidget(
                                         builder: (context) => TextFormField(
                                           controller:
@@ -324,7 +323,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   BorderRadius.circular(40.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 2.0,
                                               ),
@@ -332,7 +331,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   BorderRadius.circular(40.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 2.0,
                                               ),
@@ -341,7 +340,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 2.0,
                                               ),
@@ -353,7 +352,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 24.0, 0.0, 24.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -372,10 +371,10 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(height: 15.0)),
+                                  ].divide(const SizedBox(height: 15.0)),
                                 ),
                               ),
-                            ].divide(SizedBox(height: 30.0)),
+                            ].divide(const SizedBox(height: 30.0)),
                           ),
                         ),
                       ),
@@ -386,7 +385,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                       tabletLandscape: false,
                     ))
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           decoration: BoxDecoration(
@@ -395,8 +394,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                             borderRadius: BorderRadius.circular(15.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
+                            padding: const EdgeInsets.all(10.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -416,12 +414,12 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                   ],
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: TextFormField(
                                           controller: _model.textController2,
                                           focusNode: _model.textFieldFocusNode1,
@@ -472,7 +470,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   BorderRadius.circular(40.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 2.0,
                                               ),
@@ -480,7 +478,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   BorderRadius.circular(40.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 2.0,
                                               ),
@@ -489,7 +487,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 2.0,
                                               ),
@@ -501,7 +499,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 24.0, 0.0, 24.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -518,7 +516,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                         ),
                                       ),
                                       Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: AuthUserStreamWidget(
                                           builder: (context) => TextFormField(
                                             controller: _model.textController3,
@@ -575,7 +573,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                     BorderRadius.circular(40.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 2.0,
                                                 ),
@@ -583,7 +581,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                     BorderRadius.circular(40.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 2.0,
                                                 ),
@@ -592,7 +590,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 2.0,
                                                 ),
@@ -604,7 +602,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(16.0, 24.0, 0.0,
                                                           24.0),
                                             ),
@@ -624,10 +622,10 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 15.0)),
+                                    ].divide(const SizedBox(height: 15.0)),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 30.0)),
+                              ].divide(const SizedBox(height: 30.0)),
                             ),
                           ),
                         ),

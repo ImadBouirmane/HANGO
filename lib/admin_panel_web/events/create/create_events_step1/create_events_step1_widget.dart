@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/admin_side_bar/admin_side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
@@ -7,22 +6,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'create_events_step1_model.dart';
 export 'create_events_step1_model.dart';
 
 class CreateEventsStep1Widget extends StatefulWidget {
   const CreateEventsStep1Widget({
-    Key? key,
+    super.key,
     required this.establishmentRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? establishmentRef;
 
@@ -45,12 +40,16 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
         parameters: {'screen_name': 'CreateEventsStep1'});
     _model.eventTitleController ??= TextEditingController();
     _model.eventTitleFocusNode ??= FocusNode();
+
     _model.tFDescriionController ??= TextEditingController();
     _model.tFDescriionFocusNode ??= FocusNode();
+
     _model.tFURLWebSiteController ??= TextEditingController();
     _model.tFURLWebSiteFocusNode ??= FocusNode();
+
     _model.entrancePriceController ??= TextEditingController();
     _model.entrancePriceFocusNode ??= FocusNode();
+
     _model.expandableController1 = ExpandableController(initialExpanded: false);
     _model.expandableController2 = ExpandableController(initialExpanded: false);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -117,8 +116,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                       tabletLandscape: false,
                     ),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 1.0,
+                      width: double.infinity,
+                      height: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -133,24 +132,23 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                             child: AdminSideBarWidget(
                               oneBG: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              oneIcon: Icon(
+                              oneIcon: const Icon(
                                 Icons.home_filled,
                               ),
                               twoBG: FlutterFlowTheme.of(context).tertiary400,
-                              twoIcon: Icon(
+                              twoIcon: const Icon(
                                 Icons.event,
                               ),
                               threeColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              threeIcon: Icon(
+                              threeIcon: const Icon(
                                 Icons.house_outlined,
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 16.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -184,7 +182,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'Création d\'un événement',
                                             style: FlutterFlowTheme.of(context)
@@ -223,7 +221,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                             'Dashboard',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -246,7 +244,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -269,7 +267,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                               autovalidateMode:
                                                   AutovalidateMode.always,
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: SingleChildScrollView(
@@ -321,7 +319,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -417,7 +415,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -508,12 +506,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 _model.datePicked1,
                                                                                 locale: FFLocalizations.of(context).languageCode,
                                                                               ) !=
-                                                                              null &&
-                                                                          dateTimeFormat(
-                                                                                'd/M/y',
-                                                                                _model.datePicked1,
-                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                              ) !=
                                                                               ''
                                                                       ? dateTimeFormat(
                                                                           'd/M/y',
@@ -555,7 +547,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   // eventDate
                                                                   logFirebaseEvent(
                                                                       'eventDate_eventDate');
-                                                                  final _datePicked1Date =
+                                                                  final datePicked1Date =
                                                                       await showDatePicker(
                                                                     context:
                                                                         context,
@@ -569,27 +561,27 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                             2050),
                                                                   );
 
-                                                                  if (_datePicked1Date !=
+                                                                  if (datePicked1Date !=
                                                                       null) {
                                                                     safeSetState(
                                                                         () {
                                                                       _model.datePicked1 =
                                                                           DateTime(
-                                                                        _datePicked1Date
+                                                                        datePicked1Date
                                                                             .year,
-                                                                        _datePicked1Date
+                                                                        datePicked1Date
                                                                             .month,
-                                                                        _datePicked1Date
+                                                                        datePicked1Date
                                                                             .day,
                                                                       );
                                                                     });
                                                                   }
                                                                 },
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 30.0)),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             height: 5.0)),
                                                       ),
                                                       Column(
@@ -649,11 +641,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
+                                                                        padding:
+                                                                            const EdgeInsets.all(8.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -681,40 +670,40 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 // ouvertureHoraire
                                                                                 logFirebaseEvent('ouvertureHoraire_ouvertureHoraire');
 
-                                                                                final _datePicked2Time = await showTimePicker(
+                                                                                final datePicked2Time = await showTimePicker(
                                                                                   context: context,
                                                                                   initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
                                                                                 );
-                                                                                if (_datePicked2Time != null) {
+                                                                                if (datePicked2Time != null) {
                                                                                   safeSetState(() {
                                                                                     _model.datePicked2 = DateTime(
                                                                                       getCurrentTimestamp.year,
                                                                                       getCurrentTimestamp.month,
                                                                                       getCurrentTimestamp.day,
-                                                                                      _datePicked2Time.hour,
-                                                                                      _datePicked2Time.minute,
+                                                                                      datePicked2Time.hour,
+                                                                                      datePicked2Time.minute,
                                                                                     );
                                                                                   });
                                                                                 }
                                                                               },
                                                                               text: 'Ouverture',
                                                                               options: FFButtonOptions(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: Color(0xFF57CFAD),
+                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                color: const Color(0xFF57CFAD),
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       fontWeight: FontWeight.w300,
                                                                                     ),
                                                                                 elevation: 3.0,
-                                                                                borderSide: BorderSide(
+                                                                                borderSide: const BorderSide(
                                                                                   color: Colors.transparent,
                                                                                 ),
                                                                                 borderRadius: BorderRadius.circular(16.0),
                                                                               ),
                                                                             ),
-                                                                          ].divide(SizedBox(width: 16.0)),
+                                                                          ].divide(const SizedBox(width: 16.0)),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -733,11 +722,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
+                                                                        padding:
+                                                                            const EdgeInsets.all(8.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -765,51 +751,51 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 // fermetureHoraire
                                                                                 logFirebaseEvent('fermetureHoraire_fermetureHoraire');
 
-                                                                                final _datePicked3Time = await showTimePicker(
+                                                                                final datePicked3Time = await showTimePicker(
                                                                                   context: context,
                                                                                   initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
                                                                                 );
-                                                                                if (_datePicked3Time != null) {
+                                                                                if (datePicked3Time != null) {
                                                                                   safeSetState(() {
                                                                                     _model.datePicked3 = DateTime(
                                                                                       getCurrentTimestamp.year,
                                                                                       getCurrentTimestamp.month,
                                                                                       getCurrentTimestamp.day,
-                                                                                      _datePicked3Time.hour,
-                                                                                      _datePicked3Time.minute,
+                                                                                      datePicked3Time.hour,
+                                                                                      datePicked3Time.minute,
                                                                                     );
                                                                                   });
                                                                                 }
                                                                               },
                                                                               text: 'Fermeture',
                                                                               options: FFButtonOptions(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: Color(0xFF57CFAD),
+                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                color: const Color(0xFF57CFAD),
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       fontWeight: FontWeight.w300,
                                                                                     ),
                                                                                 elevation: 3.0,
-                                                                                borderSide: BorderSide(
+                                                                                borderSide: const BorderSide(
                                                                                   color: Colors.transparent,
                                                                                 ),
                                                                                 borderRadius: BorderRadius.circular(16.0),
                                                                               ),
                                                                             ),
-                                                                          ].divide(SizedBox(width: 16.0)),
+                                                                          ].divide(const SizedBox(width: 16.0)),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           24.0)),
                                                                 ),
                                                               ),
                                                             ],
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             height: 5.0)),
                                                       ),
                                                       TextFormField(
@@ -853,7 +839,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -939,7 +925,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                       ),
                                                                       TextSpan(
                                                                         text:
-                                                                            '\" Si gratuit laissé vide \"',
+                                                                            '" Si gratuit laissé vide "',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
@@ -996,7 +982,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -1059,7 +1045,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 .asValidator(
                                                                     context),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             height: 10.0)),
                                                       ),
                                                       Container(
@@ -1085,12 +1071,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      4.0,
-                                                                      4.0,
-                                                                      4.0,
-                                                                      4.0),
+                                                              const EdgeInsets.all(
+                                                                  4.0),
                                                           child: Container(
                                                             width:
                                                                 double.infinity,
@@ -1136,9 +1118,9 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                         .secondaryBackground,
                                                                   ),
                                                                   alignment:
-                                                                      AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      const AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     '* Sélectionner 1 type d\'événement qui convient',
                                                                     style: FlutterFlowTheme.of(
@@ -1197,7 +1179,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   ],
                                                                 ),
                                                                 theme:
-                                                                    ExpandableThemeData(
+                                                                    const ExpandableThemeData(
                                                                   tapHeaderToExpand:
                                                                       true,
                                                                   tapBodyToExpand:
@@ -1237,12 +1219,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      4.0,
-                                                                      4.0,
-                                                                      4.0,
-                                                                      4.0),
+                                                              const EdgeInsets.all(
+                                                                  4.0),
                                                           child: Container(
                                                             width:
                                                                 double.infinity,
@@ -1288,9 +1266,9 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                         .secondaryBackground,
                                                                   ),
                                                                   alignment:
-                                                                      AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      const AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     '* Sélectionne 2 styles musicales maximum',
                                                                     style: FlutterFlowTheme.of(
@@ -1349,7 +1327,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   ],
                                                                 ),
                                                                 theme:
-                                                                    ExpandableThemeData(
+                                                                    const ExpandableThemeData(
                                                                   tapHeaderToExpand:
                                                                       true,
                                                                   tapBodyToExpand:
@@ -1376,26 +1354,24 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                       ),
                                                       Container(
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                       ),
                                                     ]
-                                                        .divide(SizedBox(
+                                                        .divide(const SizedBox(
                                                             height: 15.0))
-                                                        .around(SizedBox(
+                                                        .around(const SizedBox(
                                                             height: 15.0)),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      15.0, 15.0, 15.0, 15.0),
+                                              padding: const EdgeInsets.all(15.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   logFirebaseEvent(
                                                       'CREATE_EVENTS_STEP1_BTNValidateFrom_ON_T');
-                                                  var _shouldSetState = false;
+                                                  var shouldSetState = false;
                                                   final firestoreBatch =
                                                       FirebaseFirestore.instance
                                                           .batch();
@@ -1419,9 +1395,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                     String>(
                                                               _model.eventTitleController
                                                                               .text !=
-                                                                          null &&
-                                                                      _model.eventTitleController
-                                                                              .text !=
                                                                           ''
                                                                   ? _model
                                                                       .eventTitleController
@@ -1433,9 +1406,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 valueOrDefault<
                                                                     String>(
                                                               _model.tFDescriionController
-                                                                              .text !=
-                                                                          null &&
-                                                                      _model.tFDescriionController
                                                                               .text !=
                                                                           ''
                                                                   ? _model
@@ -1449,9 +1419,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                     String>(
                                                               _model.tFURLWebSiteController
                                                                               .text !=
-                                                                          null &&
-                                                                      _model.tFURLWebSiteController
-                                                                              .text !=
                                                                           ''
                                                                   ? _model
                                                                       .tFURLWebSiteController
@@ -1463,14 +1430,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 createEventsStep1EstablishmentsRecord
                                                                     .reference,
                                                             dateEvent: dateTimeFormat(
-                                                                          'd/M/y',
-                                                                          _model
-                                                                              .datePicked1,
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        ) !=
-                                                                        null &&
-                                                                    dateTimeFormat(
                                                                           'd/M/y',
                                                                           _model
                                                                               .datePicked1,
@@ -1513,9 +1472,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                             String>(
                                                           _model.eventTitleController
                                                                           .text !=
-                                                                      null &&
-                                                                  _model.eventTitleController
-                                                                          .text !=
                                                                       ''
                                                               ? _model
                                                                   .eventTitleController
@@ -1528,9 +1484,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 String>(
                                                           _model.tFDescriionController
                                                                           .text !=
-                                                                      null &&
-                                                                  _model.tFDescriionController
-                                                                          .text !=
                                                                       ''
                                                               ? _model
                                                                   .tFDescriionController
@@ -1541,9 +1494,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                         siteWeb: valueOrDefault<
                                                             String>(
                                                           _model.tFURLWebSiteController
-                                                                          .text !=
-                                                                      null &&
-                                                                  _model.tFURLWebSiteController
                                                                           .text !=
                                                                       ''
                                                               ? _model
@@ -1556,15 +1506,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                             createEventsStep1EstablishmentsRecord
                                                                 .reference,
                                                         dateEvent: dateTimeFormat(
-                                                                      'd/M/y',
-                                                                      _model
-                                                                          .datePicked1,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ) !=
-                                                                    null &&
-                                                                dateTimeFormat(
                                                                       'd/M/y',
                                                                       _model
                                                                           .datePicked1,
@@ -1595,7 +1536,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                         },
                                                       ),
                                                     }, eventsRecordReference);
-                                                    _shouldSetState = true;
+                                                    shouldSetState = true;
                                                     if (_model.eventCreation
                                                             ?.reference !=
                                                         null) {
@@ -1610,23 +1551,12 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                       firestoreBatch.set(
                                                           scheduleEventRecordReference,
                                                           createScheduleEventRecordData(
-                                                            date: _model.datePicked1 !=
-                                                                    null
-                                                                ? _model
-                                                                    .datePicked1
-                                                                : null,
+                                                            date: _model
+                                                                    .datePicked1,
                                                             scheduleStart: _model
-                                                                        .datePicked2 !=
-                                                                    null
-                                                                ? _model
-                                                                    .datePicked2
-                                                                : null,
+                                                                    .datePicked2,
                                                             scheduleEnd: _model
-                                                                        .datePicked3 !=
-                                                                    null
-                                                                ? _model
-                                                                    .datePicked3
-                                                                : null,
+                                                                    .datePicked3,
                                                             eventRef: _model
                                                                 .eventCreation
                                                                 ?.reference,
@@ -1637,21 +1567,12 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                           ScheduleEventRecord
                                                               .getDocumentFromData(
                                                                   createScheduleEventRecordData(
-                                                                    date: _model.datePicked1 !=
-                                                                            null
-                                                                        ? _model
-                                                                            .datePicked1
-                                                                        : null,
-                                                                    scheduleStart: _model.datePicked2 !=
-                                                                            null
-                                                                        ? _model
-                                                                            .datePicked2
-                                                                        : null,
-                                                                    scheduleEnd: _model.datePicked3 !=
-                                                                            null
-                                                                        ? _model
-                                                                            .datePicked3
-                                                                        : null,
+                                                                    date: _model
+                                                                            .datePicked1,
+                                                                    scheduleStart: _model
+                                                                            .datePicked2,
+                                                                    scheduleEnd: _model
+                                                                            .datePicked3,
                                                                     eventRef: _model
                                                                         .eventCreation
                                                                         ?.reference,
@@ -1659,7 +1580,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                         getCurrentTimestamp,
                                                                   ),
                                                                   scheduleEventRecordReference);
-                                                      _shouldSetState = true;
+                                                      shouldSetState = true;
                                                       logFirebaseEvent(
                                                           'BTNValidateFrom_backend_call');
 
@@ -1721,7 +1642,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                       .secondaryBackground,
                                                                 ),
                                                           ),
-                                                          duration: Duration(
+                                                          duration: const Duration(
                                                               milliseconds:
                                                                   2000),
                                                           backgroundColor:
@@ -1730,8 +1651,9 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   .primary,
                                                         ),
                                                       );
-                                                      if (_shouldSetState)
+                                                      if (shouldSetState) {
                                                         setState(() {});
+                                                      }
                                                       return;
                                                     }
                                                   } finally {
@@ -1739,8 +1661,9 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                         .commit();
                                                   }
 
-                                                  if (_shouldSetState)
+                                                  if (shouldSetState) {
                                                     setState(() {});
+                                                  }
                                                 },
                                                 text:
                                                     'Enregistrer et continuer',
@@ -1750,11 +1673,9 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                               .width *
                                                           1.0,
                                                   height: 50.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
+                                                  padding: const EdgeInsets.all(0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -1768,7 +1689,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                         color: Colors.white,
                                                       ),
                                                   elevation: 3.0,
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -1778,14 +1699,14 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                 ),
                                               ),
                                             ),
-                                          ].divide(SizedBox(height: 30.0)),
+                                          ].divide(const SizedBox(height: 30.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(height: 20.0))
-                                    .around(SizedBox(height: 20.0)),
+                                    .divide(const SizedBox(height: 20.0))
+                                    .around(const SizedBox(height: 20.0)),
                               ),
                             ),
                           ),

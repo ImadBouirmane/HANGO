@@ -3,21 +3,18 @@ import '/components/empty_lists/event_empty_list/event_empty_list_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'est_show_events_refs_model.dart';
 export 'est_show_events_refs_model.dart';
 
 class EstShowEventsRefsWidget extends StatefulWidget {
   const EstShowEventsRefsWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     this.parameter2,
     this.parameter3,
-  }) : super(key: key);
+  });
 
   final DocumentReference? parameter1;
   final DateTime? parameter2;
@@ -69,14 +66,14 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
                 child: Text(
                   'Events',
                   style: FlutterFlowTheme.of(context).titleMedium,
@@ -112,9 +109,9 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                       List<EventsRecord> eventsListEventsRecordList =
                           snapshot.data!;
                       if (eventsListEventsRecordList.isEmpty) {
-                        return Container(
+                        return SizedBox(
                           width: MediaQuery.sizeOf(context).width * 1.0,
-                          child: EventEmptyListWidget(),
+                          child: const EventEmptyListWidget(),
                         );
                       }
                       return SingleChildScrollView(
@@ -128,8 +125,7 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                             final eventsListEventsRecord =
                                 eventsListEventsRecordList[eventsListIndex];
                             return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 4.0, 4.0, 4.0),
+                              padding: const EdgeInsets.all(4.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -202,7 +198,7 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                                                     ? imageMediaRecordList.first
                                                     : null;
                                             return ClipRRect(
-                                              borderRadius: BorderRadius.only(
+                                              borderRadius: const BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(0.0),
                                                 bottomRight:
@@ -232,7 +228,7 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              borderRadius: BorderRadius.only(
+                                              borderRadius: const BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(8.0),
                                                 bottomRight:
@@ -242,7 +238,7 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.0, 8.0, 4.0),
                                               child: StreamBuilder<
                                                   List<ScheduleEventRecord>>(

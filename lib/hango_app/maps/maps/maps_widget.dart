@@ -5,19 +5,17 @@ import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'maps_model.dart';
 export 'maps_model.dart';
 
 class MapsWidget extends StatefulWidget {
-  const MapsWidget({Key? key}) : super(key: key);
+  const MapsWidget({super.key});
 
   @override
   _MapsWidgetState createState() => _MapsWidgetState();
@@ -35,12 +33,14 @@ class _MapsWidgetState extends State<MapsWidget> {
     _model = createModel(context, () => MapsModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Maps'});
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
+
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -86,7 +86,7 @@ class _MapsWidgetState extends State<MapsWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xFFEFEFEF),
+            backgroundColor: const Color(0xFFEFEFEF),
             body: Center(
               child: SizedBox(
                 width: 30.0,
@@ -108,7 +108,7 @@ class _MapsWidgetState extends State<MapsWidget> {
             child: Scaffold(
               key: scaffoldKey,
               resizeToAvoidBottomInset: false,
-              backgroundColor: Color(0xFFEFEFEF),
+              backgroundColor: const Color(0xFFEFEFEF),
               body: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -122,7 +122,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                       model: _model.sideNavWebModel,
                       updateCallback: () => setState(() {}),
                       updateOnChange: true,
-                      child: SideNavWebWidget(
+                      child: const SideNavWebWidget(
                         nav1: false,
                         nav2: false,
                         nav3: false,
@@ -132,7 +132,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                     child: Container(
                       width: 100.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -142,10 +142,10 @@ class _MapsWidgetState extends State<MapsWidget> {
                           ))
                             Expanded(
                               child: Stack(
-                                alignment: AlignmentDirectional(0.0, -0.96),
+                                alignment: const AlignmentDirectional(0.0, -0.96),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       height:
                                           MediaQuery.sizeOf(context).height *
@@ -214,7 +214,9 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                                 false,
                                                             context: context,
                                                             builder: (context) {
-                                                              return Padding(
+                                                              return WebViewAware(
+                                                                  child:
+                                                                      Padding(
                                                                 padding: MediaQuery
                                                                     .viewInsetsOf(
                                                                         context),
@@ -224,7 +226,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                                       mapsEstablishmentsRecordList
                                                                           .first,
                                                                 ),
-                                                              );
+                                                              ));
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -252,7 +254,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 8.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -263,7 +265,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.textController1',
-                                            Duration(milliseconds: 2000),
+                                            const Duration(milliseconds: 2000),
                                             () async {
                                               logFirebaseEvent(
                                                   'MAPS_TextField_ctuf8mb6_ON_TEXTFIELD_CHA');
@@ -278,8 +280,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                             TextSearchItem
                                                                 .fromTerms(
                                                                     record, [
-                                                          record.name!
-                                                        ]),
+                                                          record.name]),
                                                       )
                                                       .toList(),
                                                 )
@@ -288,7 +289,6 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                             .text)
                                                         .map((r) => r.object)
                                                         .toList();
-                                                ;
                                               });
                                               logFirebaseEvent(
                                                   'TextField_update_app_state');
@@ -297,8 +297,6 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                     true;
                                               });
                                               if (_model.textController1.text ==
-                                                      null ||
-                                                  _model.textController1.text ==
                                                       '') {
                                                 logFirebaseEvent(
                                                     'TextField_update_app_state');
@@ -325,8 +323,6 @@ class _MapsWidgetState extends State<MapsWidget> {
                                               FFAppState().searchChange = true;
                                             });
                                             if (_model.textController1.text ==
-                                                    null ||
-                                                _model.textController1.text ==
                                                     '') {
                                               logFirebaseEvent(
                                                   'TextField_update_app_state');
@@ -517,8 +513,8 @@ class _MapsWidgetState extends State<MapsWidget> {
                                             ),
                                           ),
                                       ]
-                                          .divide(SizedBox(height: 5.0))
-                                          .addToStart(SizedBox(height: 50.0)),
+                                          .divide(const SizedBox(height: 5.0))
+                                          .addToStart(const SizedBox(height: 50.0)),
                                     ),
                                   ),
                                 ],
@@ -532,10 +528,10 @@ class _MapsWidgetState extends State<MapsWidget> {
                           ))
                             Expanded(
                               child: Stack(
-                                alignment: AlignmentDirectional(0.0, -0.96),
+                                alignment: const AlignmentDirectional(0.0, -0.96),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       height:
                                           MediaQuery.sizeOf(context).height *
@@ -604,7 +600,9 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                                 false,
                                                             context: context,
                                                             builder: (context) {
-                                                              return Padding(
+                                                              return WebViewAware(
+                                                                  child:
+                                                                      Padding(
                                                                 padding: MediaQuery
                                                                     .viewInsetsOf(
                                                                         context),
@@ -614,7 +612,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                                       mapsEstablishmentsRecordList
                                                                           .first,
                                                                 ),
-                                                              );
+                                                              ));
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -642,15 +640,14 @@ class _MapsWidgetState extends State<MapsWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 15.0, 15.0, 15.0),
+                                    padding: const EdgeInsets.all(15.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.00, 0.00),
-                                          child: Container(
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: SizedBox(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.3,
@@ -662,7 +659,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.textController2',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () async {
                                                   logFirebaseEvent(
                                                       'MAPS_TextField_m80xvrq2_ON_TEXTFIELD_CHA');
@@ -678,8 +675,7 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                                     .fromTerms(
                                                                         record,
                                                                         [
-                                                                  record.name!
-                                                                ]),
+                                                                  record.name]),
                                                           )
                                                           .toList(),
                                                     )
@@ -689,7 +685,6 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                             .map(
                                                                 (r) => r.object)
                                                             .toList();
-                                                    ;
                                                   });
                                                   logFirebaseEvent(
                                                       'TextField_update_app_state');
@@ -698,9 +693,6 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                         true;
                                                   });
                                                   if (_model.textController2
-                                                              .text ==
-                                                          null ||
-                                                      _model.textController2
                                                               .text ==
                                                           '') {
                                                     logFirebaseEvent(
@@ -729,9 +721,6 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                       true;
                                                 });
                                                 if (_model.textController2
-                                                            .text ==
-                                                        null ||
-                                                    _model.textController2
                                                             .text ==
                                                         '') {
                                                   logFirebaseEvent(
@@ -834,8 +823,8 @@ class _MapsWidgetState extends State<MapsWidget> {
                                           false,
                                         ))
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                -1.00, 0.00),
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -937,8 +926,8 @@ class _MapsWidgetState extends State<MapsWidget> {
                                             ),
                                           ),
                                       ]
-                                          .divide(SizedBox(height: 5.0))
-                                          .addToStart(SizedBox(height: 50.0)),
+                                          .divide(const SizedBox(height: 5.0))
+                                          .addToStart(const SizedBox(height: 50.0)),
                                     ),
                                   ),
                                 ],

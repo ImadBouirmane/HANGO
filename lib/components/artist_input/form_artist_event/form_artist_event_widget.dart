@@ -1,27 +1,20 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/empty_lists/empty_list/empty_list_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'form_artist_event_model.dart';
 export 'form_artist_event_model.dart';
 
 class FormArtistEventWidget extends StatefulWidget {
   const FormArtistEventWidget({
-    Key? key,
+    super.key,
     required this.eventRef,
-  }) : super(key: key);
+  });
 
   final DocumentReference? eventRef;
 
@@ -45,6 +38,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
 
     _model.artistNameTextFieldController ??= TextEditingController();
     _model.artistNameTextFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.artistNameTextFieldController?.text = 'DJ Snake';
         }));
@@ -62,7 +56,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.8,
         height: MediaQuery.sizeOf(context).height * 0.7,
@@ -138,7 +132,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                           borderRadius: BorderRadius.circular(16.0),
                         ),
                         contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 1.0, 1.0, 1.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 1.0, 1.0, 1.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
@@ -157,8 +151,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          10.0, 10.0, 10.0, 10.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -177,30 +170,29 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                               logFirebaseEvent(
                                   'TimePickerBTN_date_time_picker');
 
-                              final _datePickedTime = await showTimePicker(
+                              final datePickedTime = await showTimePicker(
                                 context: context,
                                 initialTime:
                                     TimeOfDay.fromDateTime(getCurrentTimestamp),
                               );
-                              if (_datePickedTime != null) {
+                              if (datePickedTime != null) {
                                 safeSetState(() {
                                   _model.datePicked = DateTime(
                                     getCurrentTimestamp.year,
                                     getCurrentTimestamp.month,
                                     getCurrentTimestamp.day,
-                                    _datePickedTime.hour,
-                                    _datePickedTime.minute,
+                                    datePickedTime.hour,
+                                    datePickedTime.minute,
                                   );
                                 });
                               }
                             },
                             text: 'horaire',
                             options: FFButtonOptions(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsets.all(8.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF57CFAD),
+                              color: const Color(0xFF57CFAD),
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -210,13 +202,13 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                     fontWeight: FontWeight.w300,
                                   ),
                               elevation: 3.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                               ),
                               borderRadius: BorderRadius.circular(100.0),
                             ),
                           ),
-                        ].divide(SizedBox(width: 16.0)),
+                        ].divide(const SizedBox(width: 16.0)),
                       ),
                     ),
                   ),
@@ -262,15 +254,15 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                       setState(() {});
                     },
                   ),
-                ].divide(SizedBox(width: 16.0)).around(SizedBox(width: 16.0)),
+                ].divide(const SizedBox(width: 16.0)).around(const SizedBox(width: 16.0)),
               ),
             ),
             Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 0.3,
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: StreamBuilder<List<ArtistsRecord>>(
                   stream: queryArtistsRecord(
                     parent: widget.eventRef,
@@ -308,13 +300,12 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: listViewArtistsRecordList.length,
-                      separatorBuilder: (_, __) => SizedBox(height: 5.0),
+                      separatorBuilder: (_, __) => const SizedBox(height: 5.0),
                       itemBuilder: (context, listViewIndex) {
                         final listViewArtistsRecord =
                             listViewArtistsRecordList[listViewIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
@@ -335,8 +326,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
+                                      padding: const EdgeInsets.all(10.0),
                                       child: SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
                                         child: Row(
@@ -438,8 +428,8 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                               ),
                                             ),
                                           ]
-                                              .divide(SizedBox(width: 16.0))
-                                              .around(SizedBox(width: 16.0)),
+                                              .divide(const SizedBox(width: 16.0))
+                                              .around(const SizedBox(width: 16.0)),
                                         ),
                                       ),
                                     ),
@@ -465,7 +455,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                         .delete();
                                   },
                                 ),
-                              ].divide(SizedBox(width: 10.0)),
+                              ].divide(const SizedBox(width: 10.0)),
                             ),
                           ),
                         );
@@ -476,7 +466,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -495,9 +485,9 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                         text: 'Annuler',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -522,9 +512,9 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                         text: 'Enregistrer',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -539,7 +529,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
-                    ].divide(SizedBox(width: 10.0)),
+                    ].divide(const SizedBox(width: 10.0)),
                   ),
                 ],
               ),

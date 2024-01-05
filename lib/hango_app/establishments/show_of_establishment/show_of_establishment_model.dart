@@ -1,23 +1,10 @@
-import '/backend/backend.dart';
 import '/components/back_navigation_widget.dart';
 import '/components/web_side_bar/side_nav_web/side_nav_web_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_media_display.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart'
-    as smooth_page_indicator;
 import 'show_of_establishment_widget.dart' show ShowOfEstablishmentWidget;
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ShowOfEstablishmentModel
     extends FlutterFlowModel<ShowOfEstablishmentWidget> {
@@ -61,12 +48,14 @@ class ShowOfEstablishmentModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
     backNavigationModel1 = createModel(context, () => BackNavigationModel());
     backNavigationModel2 = createModel(context, () => BackNavigationModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     sideNavWebModel.dispose();

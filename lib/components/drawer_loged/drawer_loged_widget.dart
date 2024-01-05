@@ -3,17 +3,15 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'drawer_loged_model.dart';
 export 'drawer_loged_model.dart';
 
 class DrawerLogedWidget extends StatefulWidget {
-  const DrawerLogedWidget({Key? key}) : super(key: key);
+  const DrawerLogedWidget({super.key});
 
   @override
   _DrawerLogedWidgetState createState() => _DrawerLogedWidgetState();
@@ -35,6 +33,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,7 +48,8 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Drawer(
+    return WebViewAware(
+        child: Drawer(
       elevation: 16.0,
       child: Container(
         width: 100.0,
@@ -67,16 +67,16 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 0.0),
                         child: Container(
                           width: 140.0,
                           height: 140.0,
@@ -94,7 +94,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 15.0, 0.0, 15.0),
                         child: Text(
                           'Hey  ! Merci pour ta confiance ',
@@ -110,7 +110,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                         child: Text(
                           'Tu peux nous écrire et nous faire parvenir tes idées d\'amélioration, le récit d\'une de tes soirées ou les problèmes que tu pourrais rencontrer avec notre application',
                           textAlign: TextAlign.center,
@@ -139,28 +139,28 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodySmall,
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFF10212E),
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(4.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0x00000000),
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(4.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0x00000000),
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(4.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0x00000000),
                                     width: 1.0,
                                   ),
@@ -178,7 +178,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                   .asValidator(context),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -207,7 +207,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                                       .primaryBackground,
                                             ),
                                       ),
-                                      duration: Duration(milliseconds: 2000),
+                                      duration: const Duration(milliseconds: 2000),
                                       backgroundColor:
                                           FlutterFlowTheme.of(context).primary,
                                     ),
@@ -220,11 +220,11 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                 options: FFButtonOptions(
                                   width: 200.0,
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF57CFAD),
+                                  color: const Color(0xFF57CFAD),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -232,7 +232,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBtnText,
                                       ),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFF57CFAD),
                                     width: 1.0,
                                   ),
@@ -255,10 +255,9 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -269,7 +268,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () {
@@ -279,9 +278,9 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color:
                                     FlutterFlowTheme.of(context).primaryBtnText,
@@ -293,7 +292,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                           .primaryText,
                                     ),
                                 elevation: 3.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFF10212E),
                                   width: 1.0,
                                 ),
@@ -313,8 +312,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                             ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -324,7 +322,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 5.0,
                                     color: Color(0x3314181B),
@@ -333,7 +331,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.instagram,
                                 color: FlutterFlowTheme.of(context)
@@ -346,7 +344,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 5.0,
                                     color: Color(0x3314181B),
@@ -355,7 +353,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.tiktok,
                                 color: FlutterFlowTheme.of(context)
@@ -368,7 +366,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 5.0,
                                     color: Color(0x3314181B),
@@ -377,7 +375,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                 ],
                                 shape: BoxShape.circle,
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.facebookF,
                                 color: FlutterFlowTheme.of(context)
@@ -396,6 +394,6 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
           ],
         ),
       ),
-    );
+    ));
   }
 }
