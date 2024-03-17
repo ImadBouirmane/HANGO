@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'preferences_model.dart';
 export 'preferences_model.dart';
 
@@ -11,7 +9,7 @@ class PreferencesWidget extends StatefulWidget {
   const PreferencesWidget({super.key});
 
   @override
-  _PreferencesWidgetState createState() => _PreferencesWidgetState();
+  State<PreferencesWidget> createState() => _PreferencesWidgetState();
 }
 
 class _PreferencesWidgetState extends State<PreferencesWidget> {
@@ -37,17 +35,6 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Preferences',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -69,7 +56,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                 icon: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Color(0xFF57CFAD),
-                  size: 25.0,
+                  size: 20.0,
                 ),
                 onPressed: () async {
                   logFirebaseEvent('PREFERENCES_keyboard_return_rounded_ICN_');

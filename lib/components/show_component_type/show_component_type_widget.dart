@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'show_component_type_model.dart';
 export 'show_component_type_model.dart';
 
@@ -10,7 +9,7 @@ class ShowComponentTypeWidget extends StatefulWidget {
   const ShowComponentTypeWidget({super.key});
 
   @override
-  _ShowComponentTypeWidgetState createState() =>
+  State<ShowComponentTypeWidget> createState() =>
       _ShowComponentTypeWidgetState();
 }
 
@@ -40,8 +39,6 @@ class _ShowComponentTypeWidgetState extends State<ShowComponentTypeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<EstablishmentsRecord>>(
       stream: queryEstablishmentsRecord(
         singleRecord: true,

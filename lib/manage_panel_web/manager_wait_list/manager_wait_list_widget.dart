@@ -3,9 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 import 'manager_wait_list_model.dart';
 export 'manager_wait_list_model.dart';
 
@@ -13,7 +11,7 @@ class ManagerWaitListWidget extends StatefulWidget {
   const ManagerWaitListWidget({super.key});
 
   @override
-  _ManagerWaitListWidgetState createState() => _ManagerWaitListWidgetState();
+  State<ManagerWaitListWidget> createState() => _ManagerWaitListWidgetState();
 }
 
 class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
@@ -40,17 +38,6 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'managerWaitList',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -160,8 +147,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               RichText(
-                                textScaleFactor:
-                                    MediaQuery.of(context).textScaleFactor,
+                                textScaler: MediaQuery.of(context).textScaler,
                                 text: TextSpan(
                                   children: [
                                     TextSpan(

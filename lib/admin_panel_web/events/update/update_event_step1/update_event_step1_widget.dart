@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'update_event_step1_model.dart';
 export 'update_event_step1_model.dart';
@@ -22,7 +21,7 @@ class UpdateEventStep1Widget extends StatefulWidget {
   final DocumentReference? eventstDetails;
 
   @override
-  _UpdateEventStep1WidgetState createState() => _UpdateEventStep1WidgetState();
+  State<UpdateEventStep1Widget> createState() => _UpdateEventStep1WidgetState();
 }
 
 class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
@@ -60,15 +59,6 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<EventsRecord>(
@@ -1027,9 +1017,9 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                 Expanded(
                                                                   child:
                                                                       RichText(
-                                                                    textScaleFactor:
+                                                                    textScaler:
                                                                         MediaQuery.of(context)
-                                                                            .textScaleFactor,
+                                                                            .textScaler,
                                                                     text:
                                                                         TextSpan(
                                                                       children: [
@@ -1046,7 +1036,7 @@ class _UpdateEventStep1WidgetState extends State<UpdateEventStep1Widget> {
                                                                         ),
                                                                         TextSpan(
                                                                           text:
-                                                                              '" Si gratuit laissé vide "',
+                                                                              '\" Si gratuit laissé vide \"',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodySmall
                                                                               .override(

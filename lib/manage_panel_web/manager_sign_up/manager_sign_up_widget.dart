@@ -4,9 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 import 'manager_sign_up_model.dart';
 export 'manager_sign_up_model.dart';
 
@@ -14,7 +12,7 @@ class ManagerSignUpWidget extends StatefulWidget {
   const ManagerSignUpWidget({super.key});
 
   @override
-  _ManagerSignUpWidgetState createState() => _ManagerSignUpWidgetState();
+  State<ManagerSignUpWidget> createState() => _ManagerSignUpWidgetState();
 }
 
 class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
@@ -56,17 +54,6 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'managerSignUp',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

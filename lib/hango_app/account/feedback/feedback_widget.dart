@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'feedback_model.dart';
 export 'feedback_model.dart';
 
@@ -15,7 +13,7 @@ class FeedbackWidget extends StatefulWidget {
   const FeedbackWidget({super.key});
 
   @override
-  _FeedbackWidgetState createState() => _FeedbackWidgetState();
+  State<FeedbackWidget> createState() => _FeedbackWidgetState();
 }
 
 class _FeedbackWidgetState extends State<FeedbackWidget> {
@@ -57,17 +55,6 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Feedback',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

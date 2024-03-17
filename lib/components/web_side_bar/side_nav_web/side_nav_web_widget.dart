@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'side_nav_web_model.dart';
 export 'side_nav_web_model.dart';
 
@@ -20,7 +19,7 @@ class SideNavWebWidget extends StatefulWidget {
   final bool? nav3;
 
   @override
-  _SideNavWebWidgetState createState() => _SideNavWebWidgetState();
+  State<SideNavWebWidget> createState() => _SideNavWebWidgetState();
 }
 
 class _SideNavWebWidgetState extends State<SideNavWebWidget> {
@@ -49,8 +48,6 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Visibility(
       visible: responsiveVisibility(
         context: context,

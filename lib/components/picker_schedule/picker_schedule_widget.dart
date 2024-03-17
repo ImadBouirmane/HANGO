@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'picker_schedule_model.dart';
 export 'picker_schedule_model.dart';
 
@@ -10,7 +9,7 @@ class PickerScheduleWidget extends StatefulWidget {
   const PickerScheduleWidget({super.key});
 
   @override
-  _PickerScheduleWidgetState createState() => _PickerScheduleWidgetState();
+  State<PickerScheduleWidget> createState() => _PickerScheduleWidgetState();
 }
 
 class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
@@ -39,8 +38,6 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(

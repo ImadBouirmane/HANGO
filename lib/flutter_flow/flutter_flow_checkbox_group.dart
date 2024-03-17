@@ -113,11 +113,14 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     visualDensity: VisualDensity.compact,
                   ),
-                  Padding(
-                    padding: widget.labelPadding ?? EdgeInsets.zero,
-                    child: Text(
-                      widget.options[index],
-                      style: selected ? widget.textStyle : unselectedTextStyle,
+                  Expanded(
+                    child: Padding(
+                      padding: widget.labelPadding ?? EdgeInsets.zero,
+                      child: Text(
+                        widget.options[index],
+                        style:
+                            selected ? widget.textStyle : unselectedTextStyle,
+                      ),
                     ),
                   ),
                 ],

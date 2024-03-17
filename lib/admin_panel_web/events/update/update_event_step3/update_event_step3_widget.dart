@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'update_event_step3_model.dart';
 export 'update_event_step3_model.dart';
 
@@ -20,7 +18,7 @@ class UpdateEventStep3Widget extends StatefulWidget {
   final DocumentReference? eventstDetails;
 
   @override
-  _UpdateEventStep3WidgetState createState() => _UpdateEventStep3WidgetState();
+  State<UpdateEventStep3Widget> createState() => _UpdateEventStep3WidgetState();
 }
 
 class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
@@ -56,17 +54,6 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'UpdateEventStep3',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

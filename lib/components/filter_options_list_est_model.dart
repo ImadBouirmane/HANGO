@@ -12,15 +12,22 @@ class FilterOptionsListEstModel
   late ExpandableController expandableController1;
 
   // State field(s) for typeEstablishmentChoices widget.
-  String? typeEstablishmentChoicesValue;
   FormFieldController<List<String>>? typeEstablishmentChoicesValueController;
+  String? get typeEstablishmentChoicesValue =>
+      typeEstablishmentChoicesValueController?.value?.firstOrNull;
+  set typeEstablishmentChoicesValue(String? val) =>
+      typeEstablishmentChoicesValueController?.value = val != null ? [val] : [];
   // State field(s) for Expandable widget.
   late ExpandableController expandableController2;
 
   // State field(s) for musicStyleEstablishmentChoices widget.
-  String? musicStyleEstablishmentChoicesValue;
   FormFieldController<List<String>>?
       musicStyleEstablishmentChoicesValueController;
+  String? get musicStyleEstablishmentChoicesValue =>
+      musicStyleEstablishmentChoicesValueController?.value?.firstOrNull;
+  set musicStyleEstablishmentChoicesValue(String? val) =>
+      musicStyleEstablishmentChoicesValueController?.value =
+          val != null ? [val] : [];
 
   /// Initialization and disposal methods.
 

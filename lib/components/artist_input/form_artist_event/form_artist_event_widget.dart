@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'form_artist_event_model.dart';
 export 'form_artist_event_model.dart';
 
@@ -19,7 +18,7 @@ class FormArtistEventWidget extends StatefulWidget {
   final DocumentReference? eventRef;
 
   @override
-  _FormArtistEventWidgetState createState() => _FormArtistEventWidgetState();
+  State<FormArtistEventWidget> createState() => _FormArtistEventWidgetState();
 }
 
 class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
@@ -53,8 +52,6 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
@@ -335,9 +332,8 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             RichText(
-                                              textScaleFactor:
-                                                  MediaQuery.of(context)
-                                                      .textScaleFactor,
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
                                               text: TextSpan(
                                                 children: [
                                                   TextSpan(
@@ -378,9 +374,8 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                               ),
                                             ),
                                             RichText(
-                                              textScaleFactor:
-                                                  MediaQuery.of(context)
-                                                      .textScaleFactor,
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
                                               text: TextSpan(
                                                 children: [
                                                   TextSpan(

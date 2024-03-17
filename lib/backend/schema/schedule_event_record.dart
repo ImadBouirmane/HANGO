@@ -60,8 +60,8 @@ class ScheduleEventRecord extends FirestoreRecord {
           ? parent.collection('scheduleEvent')
           : FirebaseFirestore.instance.collectionGroup('scheduleEvent');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('scheduleEvent').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('scheduleEvent').doc(id);
 
   static Stream<ScheduleEventRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => ScheduleEventRecord.fromSnapshot(s));

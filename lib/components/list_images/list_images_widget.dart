@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'list_images_model.dart';
 export 'list_images_model.dart';
 
@@ -17,7 +16,7 @@ class ListImagesWidget extends StatefulWidget {
   final List<DocumentReference>? images;
 
   @override
-  _ListImagesWidgetState createState() => _ListImagesWidgetState();
+  State<ListImagesWidget> createState() => _ListImagesWidgetState();
 }
 
 class _ListImagesWidgetState extends State<ListImagesWidget> {
@@ -46,8 +45,6 @@ class _ListImagesWidgetState extends State<ListImagesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return SizedBox(
       width: double.infinity,
       height: 300.0,

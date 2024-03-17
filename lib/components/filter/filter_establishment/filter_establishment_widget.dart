@@ -15,7 +15,7 @@ class FilterEstablishmentWidget extends StatefulWidget {
   const FilterEstablishmentWidget({super.key});
 
   @override
-  _FilterEstablishmentWidgetState createState() =>
+  State<FilterEstablishmentWidget> createState() =>
       _FilterEstablishmentWidgetState();
 }
 
@@ -183,7 +183,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                       onChanged: (val) async {
                                         setState(() =>
                                             _model.typeEstablishmentValue =
-                                                val?.first);
+                                                val?.firstOrNull);
                                         logFirebaseEvent(
                                             'FILTER_ESTABLISHMENT_typeEstablishment_O');
                                         logFirebaseEvent(
@@ -292,8 +292,8 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                           .map((label) => ChipData(label))
                                           .toList(),
                                       onChanged: (val) async {
-                                        setState(() =>
-                                            _model.musicTypeValue = val?.first);
+                                        setState(() => _model.musicTypeValue =
+                                            val?.firstOrNull);
                                         logFirebaseEvent(
                                             'FILTER_ESTABLISHMENT_musicType_ON_FORM_W');
                                         logFirebaseEvent(
@@ -677,7 +677,6 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                     onPressed: () async {
                                       logFirebaseEvent(
                                           'FILTER_ESTABLISHMENT_VOIR_LES_RÉSULTATS_');
-                                      logFirebaseEvent('Button_navigate_to');
                                     },
                                     text: 'Voir les résultats ',
                                     options: FFButtonOptions(

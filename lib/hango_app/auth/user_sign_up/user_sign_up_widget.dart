@@ -9,9 +9,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'user_sign_up_model.dart';
 export 'user_sign_up_model.dart';
 
@@ -19,7 +17,7 @@ class UserSignUpWidget extends StatefulWidget {
   const UserSignUpWidget({super.key});
 
   @override
-  _UserSignUpWidgetState createState() => _UserSignUpWidgetState();
+  State<UserSignUpWidget> createState() => _UserSignUpWidgetState();
 }
 
 class _UserSignUpWidgetState extends State<UserSignUpWidget> {
@@ -75,17 +73,6 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'UserSignUp',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -3142,9 +3129,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                             context.pushNamed('managerSignUp');
                                           },
                                           child: RichText(
-                                            textScaleFactor:
-                                                MediaQuery.of(context)
-                                                    .textScaleFactor,
+                                            textScaler: MediaQuery.of(context)
+                                                .textScaler,
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(

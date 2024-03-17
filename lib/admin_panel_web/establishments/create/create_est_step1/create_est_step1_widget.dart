@@ -11,7 +11,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'create_est_step1_model.dart';
 export 'create_est_step1_model.dart';
@@ -20,7 +19,7 @@ class CreateEstStep1Widget extends StatefulWidget {
   const CreateEstStep1Widget({super.key});
 
   @override
-  _CreateEstStep1WidgetState createState() => _CreateEstStep1WidgetState();
+  State<CreateEstStep1Widget> createState() => _CreateEstStep1WidgetState();
 }
 
 class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
@@ -98,15 +97,6 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Title(

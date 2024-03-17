@@ -14,10 +14,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'manager_dashboard_model.dart';
 export 'manager_dashboard_model.dart';
@@ -26,7 +24,7 @@ class ManagerDashboardWidget extends StatefulWidget {
   const ManagerDashboardWidget({super.key});
 
   @override
-  _ManagerDashboardWidgetState createState() => _ManagerDashboardWidgetState();
+  State<ManagerDashboardWidget> createState() => _ManagerDashboardWidgetState();
 }
 
 class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
@@ -54,17 +52,6 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(),
       builder: (context, snapshot) {
@@ -382,6 +369,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                           width: double.infinity,
                                                                                           color: const Color(0x00000000),
                                                                                           child: ExpandableNotifier(
+                                                                                            initialExpanded: false,
                                                                                             child: ExpandablePanel(
                                                                                               header: Container(
                                                                                                 decoration: const BoxDecoration(),
@@ -545,15 +533,16 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                   context: context,
                                                                                                                   builder: (context) {
                                                                                                                     return WebViewAware(
-                                                                                                                        child: GestureDetector(
-                                                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                                      child: Padding(
-                                                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                                                        child: DeleteConfirmationEventWidget(
-                                                                                                                          eventRef: listEventsItem.reference,
+                                                                                                                      child: GestureDetector(
+                                                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                                        child: Padding(
+                                                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                                                          child: DeleteConfirmationEventWidget(
+                                                                                                                            eventRef: listEventsItem.reference,
+                                                                                                                          ),
                                                                                                                         ),
                                                                                                                       ),
-                                                                                                                    ));
+                                                                                                                    );
                                                                                                                   },
                                                                                                                 ).then((value) => safeSetState(() {}));
                                                                                                               },

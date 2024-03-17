@@ -15,7 +15,7 @@ class FilterEventsWidget extends StatefulWidget {
   const FilterEventsWidget({super.key});
 
   @override
-  _FilterEventsWidgetState createState() => _FilterEventsWidgetState();
+  State<FilterEventsWidget> createState() => _FilterEventsWidgetState();
 }
 
 class _FilterEventsWidgetState extends State<FilterEventsWidget> {
@@ -173,8 +173,8 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                           .TypeOfEvent
                                           .map((label) => ChipData(label))
                                           .toList(),
-                                      onChanged: (val) => setState(
-                                          () => _model.typeValue = val?.first),
+                                      onChanged: (val) => setState(() =>
+                                          _model.typeValue = val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
@@ -268,8 +268,8 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                           .MusicStyle
                                           .map((label) => ChipData(label))
                                           .toList(),
-                                      onChanged: (val) => setState(
-                                          () => _model.musicValue = val?.first),
+                                      onChanged: (val) => setState(() =>
+                                          _model.musicValue = val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
@@ -457,7 +457,6 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                     onPressed: () async {
                                       logFirebaseEvent(
                                           'FILTER_EVENTS_VOIR_LES_RÉSULTATS_BTN_ON_');
-                                      logFirebaseEvent('Button_navigate_to');
                                     },
                                     text: 'Voir les résultats ',
                                     options: FFButtonOptions(

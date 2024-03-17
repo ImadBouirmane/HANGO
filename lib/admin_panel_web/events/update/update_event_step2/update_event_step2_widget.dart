@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'update_event_step2_model.dart';
 export 'update_event_step2_model.dart';
@@ -22,7 +20,7 @@ class UpdateEventStep2Widget extends StatefulWidget {
   final DocumentReference? eventstDetails;
 
   @override
-  _UpdateEventStep2WidgetState createState() => _UpdateEventStep2WidgetState();
+  State<UpdateEventStep2Widget> createState() => _UpdateEventStep2WidgetState();
 }
 
 class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
@@ -49,17 +47,6 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<ArtistsRecord>>(
       stream: queryArtistsRecord(
         parent: widget.eventstDetails,
@@ -451,26 +438,23 @@ class _UpdateEventStep2WidgetState extends State<UpdateEventStep2Widget> {
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            FormArtistEventWidget(
-                                                                          eventRef:
-                                                                              widget.eventstDetails!,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              FormArtistEventWidget(
+                                                                            eventRef:
+                                                                                widget.eventstDetails!,
+                                                                          ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(

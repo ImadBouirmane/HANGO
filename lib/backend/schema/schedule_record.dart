@@ -168,8 +168,8 @@ class ScheduleRecord extends FirestoreRecord {
           ? parent.collection('schedule')
           : FirebaseFirestore.instance.collectionGroup('schedule');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('schedule').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('schedule').doc(id);
 
   static Stream<ScheduleRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => ScheduleRecord.fromSnapshot(s));

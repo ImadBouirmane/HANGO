@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'images_delete_problem_admin_pop_up_model.dart';
 export 'images_delete_problem_admin_pop_up_model.dart';
 
@@ -10,7 +9,7 @@ class ImagesDeleteProblemAdminPopUpWidget extends StatefulWidget {
   const ImagesDeleteProblemAdminPopUpWidget({super.key});
 
   @override
-  _ImagesDeleteProblemAdminPopUpWidgetState createState() =>
+  State<ImagesDeleteProblemAdminPopUpWidget> createState() =>
       _ImagesDeleteProblemAdminPopUpWidgetState();
 }
 
@@ -41,8 +40,6 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Material(
@@ -69,8 +66,7 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
                     children: [
                       Expanded(
                         child: RichText(
-                          textScaleFactor:
-                              MediaQuery.of(context).textScaleFactor,
+                          textScaler: MediaQuery.of(context).textScaler,
                           text: TextSpan(
                             children: [
                               TextSpan(

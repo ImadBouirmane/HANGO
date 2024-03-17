@@ -60,8 +60,8 @@ class ArtistsRecord extends FirestoreRecord {
           ? parent.collection('Artists')
           : FirebaseFirestore.instance.collectionGroup('Artists');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('Artists').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('Artists').doc(id);
 
   static Stream<ArtistsRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => ArtistsRecord.fromSnapshot(s));

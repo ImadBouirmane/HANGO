@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'security_model.dart';
 export 'security_model.dart';
 
@@ -13,7 +11,7 @@ class SecurityWidget extends StatefulWidget {
   const SecurityWidget({super.key});
 
   @override
-  _SecurityWidgetState createState() => _SecurityWidgetState();
+  State<SecurityWidget> createState() => _SecurityWidgetState();
 }
 
 class _SecurityWidgetState extends State<SecurityWidget> {
@@ -53,17 +51,6 @@ class _SecurityWidgetState extends State<SecurityWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Security',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

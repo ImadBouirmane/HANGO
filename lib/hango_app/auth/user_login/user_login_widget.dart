@@ -5,9 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'user_login_model.dart';
 export 'user_login_model.dart';
 
@@ -15,7 +13,7 @@ class UserLoginWidget extends StatefulWidget {
   const UserLoginWidget({super.key});
 
   @override
-  _UserLoginWidgetState createState() => _UserLoginWidgetState();
+  State<UserLoginWidget> createState() => _UserLoginWidgetState();
 }
 
 class _UserLoginWidgetState extends State<UserLoginWidget> {
@@ -53,17 +51,6 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'UserLogin',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

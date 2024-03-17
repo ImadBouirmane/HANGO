@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'show_component_music_style_model.dart';
 export 'show_component_music_style_model.dart';
 
@@ -10,7 +9,7 @@ class ShowComponentMusicStyleWidget extends StatefulWidget {
   const ShowComponentMusicStyleWidget({super.key});
 
   @override
-  _ShowComponentMusicStyleWidgetState createState() =>
+  State<ShowComponentMusicStyleWidget> createState() =>
       _ShowComponentMusicStyleWidgetState();
 }
 
@@ -41,8 +40,6 @@ class _ShowComponentMusicStyleWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
       child: StreamBuilder<List<EstablishmentsRecord>>(

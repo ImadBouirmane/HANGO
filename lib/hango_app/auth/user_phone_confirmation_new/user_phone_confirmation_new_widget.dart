@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'user_phone_confirmation_new_model.dart';
 export 'user_phone_confirmation_new_model.dart';
 
@@ -13,7 +11,7 @@ class UserPhoneConfirmationNewWidget extends StatefulWidget {
   const UserPhoneConfirmationNewWidget({super.key});
 
   @override
-  _UserPhoneConfirmationNewWidgetState createState() =>
+  State<UserPhoneConfirmationNewWidget> createState() =>
       _UserPhoneConfirmationNewWidgetState();
 }
 
@@ -42,17 +40,6 @@ class _UserPhoneConfirmationNewWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'UserPhoneConfirmationNew',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

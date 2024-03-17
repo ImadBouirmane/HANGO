@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'delete_confirmation_establishement_model.dart';
 export 'delete_confirmation_establishement_model.dart';
 
@@ -20,7 +19,7 @@ class DeleteConfirmationEstablishementWidget extends StatefulWidget {
   final DocumentReference? scheduleEst;
 
   @override
-  _DeleteConfirmationEstablishementWidgetState createState() =>
+  State<DeleteConfirmationEstablishementWidget> createState() =>
       _DeleteConfirmationEstablishementWidgetState();
 }
 
@@ -52,8 +51,6 @@ class _DeleteConfirmationEstablishementWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(

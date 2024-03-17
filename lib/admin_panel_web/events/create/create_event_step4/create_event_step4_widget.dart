@@ -9,8 +9,6 @@ import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'create_event_step4_model.dart';
 export 'create_event_step4_model.dart';
 
@@ -23,7 +21,7 @@ class CreateEventStep4Widget extends StatefulWidget {
   final DocumentReference? eventRef;
 
   @override
-  _CreateEventStep4WidgetState createState() => _CreateEventStep4WidgetState();
+  State<CreateEventStep4Widget> createState() => _CreateEventStep4WidgetState();
 }
 
 class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
@@ -50,17 +48,6 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'CreateEventStep4',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

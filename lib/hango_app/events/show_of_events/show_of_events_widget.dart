@@ -20,7 +20,6 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'show_of_events_model.dart';
@@ -35,7 +34,7 @@ class ShowOfEventsWidget extends StatefulWidget {
   final DocumentReference? showOfEvents;
 
   @override
-  _ShowOfEventsWidgetState createState() => _ShowOfEventsWidgetState();
+  State<ShowOfEventsWidget> createState() => _ShowOfEventsWidgetState();
 }
 
 class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
@@ -65,17 +64,6 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<EventsRecord>(
       stream: EventsRecord.getDocument(widget.showOfEvents!),
       builder: (context, snapshot) {
@@ -807,7 +795,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     AutoSizeText(
-                                                                                      'Entrée gratuite "Sponsorisé par le festival LaBelleNuit"',
+                                                                                      'Entrée gratuite \"Sponsorisé par le festival LaBelleNuit\"',
                                                                                       maxLines: 2,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                       minFontSize: 10.0,
@@ -3294,7 +3282,7 @@ class _ShowOfEventsWidgetState extends State<ShowOfEventsWidget> {
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
                                                                                   AutoSizeText(
-                                                                                    'Entrée gratuite "Sponsorisé par le festival LaBelleNuit"',
+                                                                                    'Entrée gratuite \"Sponsorisé par le festival LaBelleNuit\"',
                                                                                     maxLines: 2,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                     minFontSize: 10.0,

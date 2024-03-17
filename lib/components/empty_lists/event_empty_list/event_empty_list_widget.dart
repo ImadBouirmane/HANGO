@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'event_empty_list_model.dart';
 export 'event_empty_list_model.dart';
 
@@ -9,7 +8,7 @@ class EventEmptyListWidget extends StatefulWidget {
   const EventEmptyListWidget({super.key});
 
   @override
-  _EventEmptyListWidgetState createState() => _EventEmptyListWidgetState();
+  State<EventEmptyListWidget> createState() => _EventEmptyListWidgetState();
 }
 
 class _EventEmptyListWidgetState extends State<EventEmptyListWidget> {
@@ -38,8 +37,6 @@ class _EventEmptyListWidgetState extends State<EventEmptyListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(

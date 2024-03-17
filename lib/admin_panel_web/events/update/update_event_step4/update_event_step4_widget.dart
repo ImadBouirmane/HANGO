@@ -10,8 +10,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'update_event_step4_model.dart';
 export 'update_event_step4_model.dart';
 
@@ -24,7 +22,7 @@ class UpdateEventStep4Widget extends StatefulWidget {
   final DocumentReference? eventstDetails;
 
   @override
-  _UpdateEventStep4WidgetState createState() => _UpdateEventStep4WidgetState();
+  State<UpdateEventStep4Widget> createState() => _UpdateEventStep4WidgetState();
 }
 
 class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
@@ -51,17 +49,6 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<MediaRecord>>(
       stream: queryMediaRecord(
         parent: widget.eventstDetails,

@@ -5,9 +5,7 @@ import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
-import 'package:provider/provider.dart';
 import 'maps_est_details_model.dart';
 export 'maps_est_details_model.dart';
 
@@ -20,7 +18,7 @@ class MapsEstDetailsWidget extends StatefulWidget {
   final EstablishmentsRecord? estRef;
 
   @override
-  _MapsEstDetailsWidgetState createState() => _MapsEstDetailsWidgetState();
+  State<MapsEstDetailsWidget> createState() => _MapsEstDetailsWidgetState();
 }
 
 class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
@@ -50,16 +48,6 @@ class _MapsEstDetailsWidgetState extends State<MapsEstDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
       return Container(
         color: FlutterFlowTheme.of(context).primaryBackground,

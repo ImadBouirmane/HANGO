@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'user_forgot_password_model.dart';
 export 'user_forgot_password_model.dart';
 
@@ -13,7 +11,7 @@ class UserForgotPasswordWidget extends StatefulWidget {
   const UserForgotPasswordWidget({super.key});
 
   @override
-  _UserForgotPasswordWidgetState createState() =>
+  State<UserForgotPasswordWidget> createState() =>
       _UserForgotPasswordWidgetState();
 }
 
@@ -44,17 +42,6 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'UserForgotPassword',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

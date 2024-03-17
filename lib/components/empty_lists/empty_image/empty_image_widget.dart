@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'empty_image_model.dart';
 export 'empty_image_model.dart';
 
@@ -9,7 +8,7 @@ class EmptyImageWidget extends StatefulWidget {
   const EmptyImageWidget({super.key});
 
   @override
-  _EmptyImageWidgetState createState() => _EmptyImageWidgetState();
+  State<EmptyImageWidget> createState() => _EmptyImageWidgetState();
 }
 
 class _EmptyImageWidgetState extends State<EmptyImageWidget> {
@@ -38,8 +37,6 @@ class _EmptyImageWidgetState extends State<EmptyImageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: MediaQuery.sizeOf(context).width * 0.3,
       height: MediaQuery.sizeOf(context).height * 0.3,

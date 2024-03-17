@@ -103,8 +103,8 @@ class PromotionEventRecord extends FirestoreRecord {
           ? parent.collection('PromotionEvent')
           : FirebaseFirestore.instance.collectionGroup('PromotionEvent');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('PromotionEvent').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('PromotionEvent').doc(id);
 
   static Stream<PromotionEventRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => PromotionEventRecord.fromSnapshot(s));

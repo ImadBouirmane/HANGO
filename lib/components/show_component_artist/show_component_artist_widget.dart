@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'show_component_artist_model.dart';
 export 'show_component_artist_model.dart';
 
@@ -10,7 +9,7 @@ class ShowComponentArtistWidget extends StatefulWidget {
   const ShowComponentArtistWidget({super.key});
 
   @override
-  _ShowComponentArtistWidgetState createState() =>
+  State<ShowComponentArtistWidget> createState() =>
       _ShowComponentArtistWidgetState();
 }
 
@@ -40,8 +39,6 @@ class _ShowComponentArtistWidgetState extends State<ShowComponentArtistWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(
         singleRecord: true,

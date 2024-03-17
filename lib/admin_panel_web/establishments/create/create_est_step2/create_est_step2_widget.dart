@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'create_est_step2_model.dart';
 export 'create_est_step2_model.dart';
@@ -20,7 +19,7 @@ class CreateEstStep2Widget extends StatefulWidget {
   final DocumentReference? estRef;
 
   @override
-  _CreateEstStep2WidgetState createState() => _CreateEstStep2WidgetState();
+  State<CreateEstStep2Widget> createState() => _CreateEstStep2WidgetState();
 }
 
 class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
@@ -89,15 +88,6 @@ class _CreateEstStep2WidgetState extends State<CreateEstStep2Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Title(

@@ -54,8 +54,8 @@ class MediaRecord extends FirestoreRecord {
           ? parent.collection('Media')
           : FirebaseFirestore.instance.collectionGroup('Media');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('Media').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('Media').doc(id);
 
   static Stream<MediaRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => MediaRecord.fromSnapshot(s));

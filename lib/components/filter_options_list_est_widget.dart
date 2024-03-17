@@ -12,12 +12,12 @@ class FilterOptionsListEstWidget extends StatefulWidget {
   const FilterOptionsListEstWidget({
     super.key,
     bool? parameter1,
-  })  : parameter1 = parameter1 ?? false;
+  }) : parameter1 = parameter1 ?? false;
 
   final bool parameter1;
 
   @override
-  _FilterOptionsListEstWidgetState createState() =>
+  State<FilterOptionsListEstWidget> createState() =>
       _FilterOptionsListEstWidgetState();
 }
 
@@ -101,12 +101,11 @@ class _FilterOptionsListEstWidgetState
                               .map((label) => ChipData(label))
                               .toList(),
                           onChanged: (val) async {
-                            setState(() => _model
-                                .typeEstablishmentChoicesValue = val?.first);
+                            setState(() =>
+                                _model.typeEstablishmentChoicesValue =
+                                    val?.firstOrNull);
                             logFirebaseEvent(
                                 'FILTER_OPTIONS_LIST_EST_typeEstablishmen');
-                            logFirebaseEvent(
-                                'typeEstablishmentChoices_update_componen');
                           },
                           selectedChipStyle: ChipStyle(
                             backgroundColor:
@@ -200,11 +199,9 @@ class _FilterOptionsListEstWidgetState
                           onChanged: (val) async {
                             setState(() =>
                                 _model.musicStyleEstablishmentChoicesValue =
-                                    val?.first);
+                                    val?.firstOrNull);
                             logFirebaseEvent(
                                 'FILTER_OPTIONS_LIST_EST_musicStyleEstabl');
-                            logFirebaseEvent(
-                                'musicStyleEstablishmentChoices_update_co');
                           },
                           selectedChipStyle: ChipStyle(
                             backgroundColor:

@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'user_phone_model.dart';
 export 'user_phone_model.dart';
 
@@ -13,7 +11,7 @@ class UserPhoneWidget extends StatefulWidget {
   const UserPhoneWidget({super.key});
 
   @override
-  _UserPhoneWidgetState createState() => _UserPhoneWidgetState();
+  State<UserPhoneWidget> createState() => _UserPhoneWidgetState();
 }
 
 class _UserPhoneWidgetState extends State<UserPhoneWidget> {
@@ -47,17 +45,6 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'UserPhone',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

@@ -55,11 +55,6 @@ class FFAlgoliaManager {
     LatLng? loc;
     if (location != null) {
       loc = await location;
-      // Either the user denied permissions, we could not access
-      // their location, or null location specified.
-      if (loc == null) {
-        return [];
-      }
     }
     final params =
         AlgoliaQueryParams(index, term, loc, maxResults, searchRadiusMeters);

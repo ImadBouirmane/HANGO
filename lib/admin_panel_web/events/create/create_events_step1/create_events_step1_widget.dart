@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'create_events_step1_model.dart';
 export 'create_events_step1_model.dart';
@@ -22,7 +21,7 @@ class CreateEventsStep1Widget extends StatefulWidget {
   final DocumentReference? establishmentRef;
 
   @override
-  _CreateEventsStep1WidgetState createState() =>
+  State<CreateEventsStep1Widget> createState() =>
       _CreateEventsStep1WidgetState();
 }
 
@@ -64,15 +63,6 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<EstablishmentsRecord>(
@@ -905,10 +895,9 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                             children: [
                                                               Expanded(
                                                                 child: RichText(
-                                                                  textScaleFactor:
-                                                                      MediaQuery.of(
-                                                                              context)
-                                                                          .textScaleFactor,
+                                                                  textScaler: MediaQuery.of(
+                                                                          context)
+                                                                      .textScaler,
                                                                   text:
                                                                       TextSpan(
                                                                     children: [
@@ -925,7 +914,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                       ),
                                                                       TextSpan(
                                                                         text:
-                                                                            '" Si gratuit laissé vide "',
+                                                                            '\" Si gratuit laissé vide \"',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(

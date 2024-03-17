@@ -11,8 +11,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'create_est_step3_model.dart';
 export 'create_est_step3_model.dart';
@@ -26,7 +24,7 @@ class CreateEstStep3Widget extends StatefulWidget {
   final DocumentReference? estRef;
 
   @override
-  _CreateEstStep3WidgetState createState() => _CreateEstStep3WidgetState();
+  State<CreateEstStep3Widget> createState() => _CreateEstStep3WidgetState();
 }
 
 class _CreateEstStep3WidgetState extends State<CreateEstStep3Widget> {
@@ -53,17 +51,6 @@ class _CreateEstStep3WidgetState extends State<CreateEstStep3Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'CreateEstStep3',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -463,10 +450,11 @@ class _CreateEstStep3WidgetState extends State<CreateEstStep3Widget> {
                                                                                                 return Material(
                                                                                                   color: Colors.transparent,
                                                                                                   child: WebViewAware(
-                                                                                                      child: GestureDetector(
-                                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                    child: const ImagesDeleteProblemAdminPopUpWidget(),
-                                                                                                  )),
+                                                                                                    child: GestureDetector(
+                                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                      child: const ImagesDeleteProblemAdminPopUpWidget(),
+                                                                                                    ),
+                                                                                                  ),
                                                                                                 );
                                                                                               },
                                                                                             ).then((value) => setState(() {}));

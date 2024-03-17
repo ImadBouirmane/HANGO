@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'list_items_model.dart';
 export 'list_items_model.dart';
 
@@ -15,7 +14,7 @@ class ListItemsWidget extends StatefulWidget {
   final String? parameter1;
 
   @override
-  _ListItemsWidgetState createState() => _ListItemsWidgetState();
+  State<ListItemsWidget> createState() => _ListItemsWidgetState();
 }
 
 class _ListItemsWidgetState extends State<ListItemsWidget> {
@@ -44,8 +43,6 @@ class _ListItemsWidgetState extends State<ListItemsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return MouseRegion(
       opaque: false,
       cursor: MouseCursor.defer ?? MouseCursor.defer,

@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'create_event_step3_model.dart';
 export 'create_event_step3_model.dart';
 
@@ -23,7 +21,7 @@ class CreateEventStep3Widget extends StatefulWidget {
   final DocumentReference? eventRef;
 
   @override
-  _CreateEventStep3WidgetState createState() => _CreateEventStep3WidgetState();
+  State<CreateEventStep3Widget> createState() => _CreateEventStep3WidgetState();
 }
 
 class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
@@ -62,17 +60,6 @@ class _CreateEventStep3WidgetState extends State<CreateEventStep3Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<ArtistsRecord>>(
       stream: queryArtistsRecord(
         parent: widget.eventRef,

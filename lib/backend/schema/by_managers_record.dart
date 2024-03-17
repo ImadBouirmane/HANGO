@@ -36,8 +36,8 @@ class ByManagersRecord extends FirestoreRecord {
           ? parent.collection('byManagers')
           : FirebaseFirestore.instance.collectionGroup('byManagers');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('byManagers').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('byManagers').doc(id);
 
   static Stream<ByManagersRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => ByManagersRecord.fromSnapshot(s));

@@ -11,14 +11,18 @@ class FilterEventsModel extends FlutterFlowModel<FilterEventsWidget> {
   late ExpandableController expandableController1;
 
   // State field(s) for type widget.
-  String? typeValue;
   FormFieldController<List<String>>? typeValueController;
+  String? get typeValue => typeValueController?.value?.firstOrNull;
+  set typeValue(String? val) =>
+      typeValueController?.value = val != null ? [val] : [];
   // State field(s) for Expandable widget.
   late ExpandableController expandableController2;
 
   // State field(s) for music widget.
-  String? musicValue;
   FormFieldController<List<String>>? musicValueController;
+  String? get musicValue => musicValueController?.value?.firstOrNull;
+  set musicValue(String? val) =>
+      musicValueController?.value = val != null ? [val] : [];
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue1;
   // State field(s) for SwitchListTile widget.

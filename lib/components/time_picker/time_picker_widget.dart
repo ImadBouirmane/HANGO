@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'time_picker_model.dart';
 export 'time_picker_model.dart';
 
@@ -10,7 +9,7 @@ class TimePickerWidget extends StatefulWidget {
   const TimePickerWidget({super.key});
 
   @override
-  _TimePickerWidgetState createState() => _TimePickerWidgetState();
+  State<TimePickerWidget> createState() => _TimePickerWidgetState();
 }
 
 class _TimePickerWidgetState extends State<TimePickerWidget> {
@@ -39,8 +38,6 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return ClipRRect(
       borderRadius: BorderRadius.circular(8.0),
       child: Container(

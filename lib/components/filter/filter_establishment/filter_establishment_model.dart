@@ -12,14 +12,19 @@ class FilterEstablishmentModel
   late ExpandableController expandableController1;
 
   // State field(s) for typeEstablishment widget.
-  String? typeEstablishmentValue;
   FormFieldController<List<String>>? typeEstablishmentValueController;
+  String? get typeEstablishmentValue =>
+      typeEstablishmentValueController?.value?.firstOrNull;
+  set typeEstablishmentValue(String? val) =>
+      typeEstablishmentValueController?.value = val != null ? [val] : [];
   // State field(s) for Expandable widget.
   late ExpandableController expandableController2;
 
   // State field(s) for musicType widget.
-  String? musicTypeValue;
   FormFieldController<List<String>>? musicTypeValueController;
+  String? get musicTypeValue => musicTypeValueController?.value?.firstOrNull;
+  set musicTypeValue(String? val) =>
+      musicTypeValueController?.value = val != null ? [val] : [];
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue1;
   // State field(s) for SwitchListTile widget.

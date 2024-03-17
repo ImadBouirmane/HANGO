@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'search_filter_model.dart';
 export 'search_filter_model.dart';
 
@@ -13,13 +12,13 @@ class SearchFilterWidget extends StatefulWidget {
     super.key,
     this.parameter1,
     bool? parameter2,
-  })  : parameter2 = parameter2 ?? false;
+  }) : parameter2 = parameter2 ?? false;
 
   final List<EstablishmentsRecord>? parameter1;
   final bool parameter2;
 
   @override
-  _SearchFilterWidgetState createState() => _SearchFilterWidgetState();
+  State<SearchFilterWidget> createState() => _SearchFilterWidgetState();
 }
 
 class _SearchFilterWidgetState extends State<SearchFilterWidget> {
@@ -51,8 +50,6 @@ class _SearchFilterWidgetState extends State<SearchFilterWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -70,8 +67,6 @@ class _SearchFilterWidgetState extends State<SearchFilterWidget> {
               ),
               onFieldSubmitted: (_) async {
                 logFirebaseEvent('SEARCH_FILTER_estblishmentSearchMobile_O');
-                logFirebaseEvent('estblishmentSearchMobile_update_componen');
-                logFirebaseEvent('estblishmentSearchMobile_simple_search');
               },
               obscureText: false,
               decoration: InputDecoration(
@@ -153,8 +148,6 @@ class _SearchFilterWidgetState extends State<SearchFilterWidget> {
                 ),
                 onPressed: () async {
                   logFirebaseEvent('SEARCH_FILTER_filter_list_sharp_ICN_ON_T');
-                  logFirebaseEvent('IconButton_update_component_state');
-                  logFirebaseEvent('IconButton_bottom_sheet');
                 },
               );
             } else {
@@ -171,8 +164,6 @@ class _SearchFilterWidgetState extends State<SearchFilterWidget> {
                 ),
                 onPressed: () async {
                   logFirebaseEvent('SEARCH_FILTER_COMP_clear_ICN_ON_TAP');
-                  logFirebaseEvent('IconButton_update_component_state');
-                  logFirebaseEvent('IconButton_bottom_sheet');
                 },
               );
             }

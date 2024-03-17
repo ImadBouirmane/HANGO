@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'web_view_event_model.dart';
 export 'web_view_event_model.dart';
 
@@ -19,7 +17,7 @@ class WebViewEventWidget extends StatefulWidget {
   final DocumentReference? itemUrl;
 
   @override
-  _WebViewEventWidgetState createState() => _WebViewEventWidgetState();
+  State<WebViewEventWidget> createState() => _WebViewEventWidgetState();
 }
 
 class _WebViewEventWidgetState extends State<WebViewEventWidget> {
@@ -46,17 +44,6 @@ class _WebViewEventWidgetState extends State<WebViewEventWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<EventsRecord>(
       stream: EventsRecord.getDocument(widget.itemUrl!),
       builder: (context, snapshot) {

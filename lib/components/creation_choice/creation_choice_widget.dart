@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'creation_choice_model.dart';
 export 'creation_choice_model.dart';
 
@@ -9,7 +8,7 @@ class CreationChoiceWidget extends StatefulWidget {
   const CreationChoiceWidget({super.key});
 
   @override
-  _CreationChoiceWidgetState createState() => _CreationChoiceWidgetState();
+  State<CreationChoiceWidget> createState() => _CreationChoiceWidgetState();
 }
 
 class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
@@ -38,8 +37,6 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.9, -0.8),
       child: Container(

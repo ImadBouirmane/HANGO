@@ -11,7 +11,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'update_est_step1_model.dart';
 export 'update_est_step1_model.dart';
@@ -25,7 +24,7 @@ class UpdateEstStep1Widget extends StatefulWidget {
   final DocumentReference? establishmentDetails;
 
   @override
-  _UpdateEstStep1WidgetState createState() => _UpdateEstStep1WidgetState();
+  State<UpdateEstStep1Widget> createState() => _UpdateEstStep1WidgetState();
 }
 
 class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
@@ -79,15 +78,6 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<EstablishmentsRecord>(
@@ -2623,26 +2613,10 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                   }
                                                                 }(),
                                                                 latiLong: () {
-                                                                  if (_model
-                                                                          .placePickerValue
-                                                                          .latLng !=
-                                                                      null) {
-                                                                    return _model
-                                                                        .placePickerValue
-                                                                        .latLng;
-                                                                  } else if (_model
-                                                                          .placePickerValue
-                                                                          .latLng ==
-                                                                      null) {
-                                                                    return updateEstStep1EstablishmentsRecord
-                                                                        .adresse
-                                                                        .latiLong;
-                                                                  } else {
-                                                                    return updateEstStep1EstablishmentsRecord
-                                                                        .adresse
-                                                                        .latiLong;
-                                                                  }
-                                                                }(),
+                                                                  return _model
+                                                                      .placePickerValue
+                                                                      .latLng;
+                                                                                                                                }(),
                                                                 clearUnsetFields:
                                                                     true,
                                                               ),
@@ -2704,25 +2678,10 @@ class _UpdateEstStep1WidgetState extends State<UpdateEstStep1Widget> {
                                                                       .tFDescriptionController
                                                                       .text,
                                                               location: () {
-                                                                if (_model
-                                                                        .placePickerValue
-                                                                        .latLng !=
-                                                                    null) {
-                                                                  return _model
-                                                                      .placePickerValue
-                                                                      .latLng;
-                                                                } else if (_model
-                                                                        .placePickerValue
-                                                                        .latLng ==
-                                                                    null) {
-                                                                  return updateEstStep1EstablishmentsRecord
-                                                                      .adresse
-                                                                      .latiLong;
-                                                                } else {
-                                                                  return updateEstStep1EstablishmentsRecord
-                                                                      .location;
-                                                                }
-                                                              }(),
+                                                                return _model
+                                                                    .placePickerValue
+                                                                    .latLng;
+                                                                                                                            }(),
                                                               updatedAt:
                                                                   getCurrentTimestamp,
                                                             ),

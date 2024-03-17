@@ -1,8 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'create_promotion_model.dart';
 export 'create_promotion_model.dart';
 
@@ -10,7 +8,7 @@ class CreatePromotionWidget extends StatefulWidget {
   const CreatePromotionWidget({super.key});
 
   @override
-  _CreatePromotionWidgetState createState() => _CreatePromotionWidgetState();
+  State<CreatePromotionWidget> createState() => _CreatePromotionWidgetState();
 }
 
 class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
@@ -37,17 +35,6 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'createPromotion',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

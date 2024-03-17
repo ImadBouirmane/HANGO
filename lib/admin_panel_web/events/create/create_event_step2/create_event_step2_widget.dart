@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'create_event_step2_model.dart';
 export 'create_event_step2_model.dart';
@@ -24,7 +22,7 @@ class CreateEventStep2Widget extends StatefulWidget {
   final DocumentReference? eventRef;
 
   @override
-  _CreateEventStep2WidgetState createState() => _CreateEventStep2WidgetState();
+  State<CreateEventStep2Widget> createState() => _CreateEventStep2WidgetState();
 }
 
 class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
@@ -51,17 +49,6 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<ArtistsRecord>>(
       stream: queryArtistsRecord(
         parent: widget.eventRef,
@@ -498,22 +485,22 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                     builder:
                                                                         (context) {
                                                                       return WebViewAware(
-                                                                          child:
-                                                                              GestureDetector(
-                                                                        onTap: () => _model.unfocusNode.canRequestFocus
-                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
+                                                                            GestureDetector(
+                                                                          onTap: () => _model.unfocusNode.canRequestFocus
+                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                              : FocusScope.of(context).unfocus(),
                                                                           child:
-                                                                              FormArtistEventWidget(
-                                                                            eventRef:
-                                                                                widget.eventRef!,
+                                                                              Padding(
+                                                                            padding:
+                                                                                MediaQuery.viewInsetsOf(context),
+                                                                            child:
+                                                                                FormArtistEventWidget(
+                                                                              eventRef: widget.eventRef!,
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ));
+                                                                      );
                                                                     },
                                                                   ).then((value) =>
                                                                       safeSetState(

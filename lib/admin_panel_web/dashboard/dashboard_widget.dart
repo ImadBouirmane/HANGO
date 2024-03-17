@@ -12,9 +12,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:badges/badges.dart' as badges;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
@@ -23,7 +21,7 @@ class DashboardWidget extends StatefulWidget {
   const DashboardWidget({super.key});
 
   @override
-  _DashboardWidgetState createState() => _DashboardWidgetState();
+  State<DashboardWidget> createState() => _DashboardWidgetState();
 }
 
 class _DashboardWidgetState extends State<DashboardWidget> {
@@ -49,17 +47,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(),
       builder: (context, snapshot) {
@@ -429,6 +416,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                   0x00000000),
                                                               child:
                                                                   ExpandableNotifier(
+                                                                initialExpanded:
+                                                                    false,
                                                                 child:
                                                                     ExpandablePanel(
                                                                   header:
@@ -563,17 +552,18 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       context: context,
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
-                                                                                            child: GestureDetector(
-                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                          child: Padding(
-                                                                                            padding: MediaQuery.viewInsetsOf(context),
-                                                                                            child: DeleteConfirmationEstablishementWidget(
-                                                                                              establishementRef: listViewEstablishmentsRecord.reference,
-                                                                                              mediaEst: containerImagesRecord!.reference,
-                                                                                              scheduleEst: rowScheduleRecord!.reference,
+                                                                                          child: GestureDetector(
+                                                                                            onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: DeleteConfirmationEstablishementWidget(
+                                                                                                establishementRef: listViewEstablishmentsRecord.reference,
+                                                                                                mediaEst: containerImagesRecord!.reference,
+                                                                                                scheduleEst: rowScheduleRecord!.reference,
+                                                                                              ),
                                                                                             ),
                                                                                           ),
-                                                                                        ));
+                                                                                        );
                                                                                       },
                                                                                     ).then((value) => safeSetState(() {}));
                                                                                   },
@@ -888,15 +878,16 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                 context: context,
                                                                                                                 builder: (context) {
                                                                                                                   return WebViewAware(
-                                                                                                                      child: GestureDetector(
-                                                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                                    child: Padding(
-                                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                                      child: DeleteConfirmationEventWidget(
-                                                                                                                        eventRef: listViewEventsRecord.reference,
+                                                                                                                    child: GestureDetector(
+                                                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                                      child: Padding(
+                                                                                                                        padding: MediaQuery.viewInsetsOf(context),
+                                                                                                                        child: DeleteConfirmationEventWidget(
+                                                                                                                          eventRef: listViewEventsRecord.reference,
+                                                                                                                        ),
                                                                                                                       ),
                                                                                                                     ),
-                                                                                                                  ));
+                                                                                                                  );
                                                                                                                 },
                                                                                                               ).then((value) => safeSetState(() {}));
 

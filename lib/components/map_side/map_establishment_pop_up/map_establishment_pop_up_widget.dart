@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'map_establishment_pop_up_model.dart';
 export 'map_establishment_pop_up_model.dart';
 
@@ -18,7 +17,7 @@ class MapEstablishmentPopUpWidget extends StatefulWidget {
   final EstablishmentsRecord? establishmentRef;
 
   @override
-  _MapEstablishmentPopUpWidgetState createState() =>
+  State<MapEstablishmentPopUpWidget> createState() =>
       _MapEstablishmentPopUpWidgetState();
 }
 
@@ -49,8 +48,6 @@ class _MapEstablishmentPopUpWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Stack(
       children: [
         if (responsiveVisibility(

@@ -78,8 +78,8 @@ class ImagesRecord extends FirestoreRecord {
           ? parent.collection('Images')
           : FirebaseFirestore.instance.collectionGroup('Images');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('Images').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('Images').doc(id);
 
   static Stream<ImagesRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => ImagesRecord.fromSnapshot(s));

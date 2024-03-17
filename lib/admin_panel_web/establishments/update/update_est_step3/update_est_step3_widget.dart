@@ -11,8 +11,6 @@ import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'update_est_step3_model.dart';
 export 'update_est_step3_model.dart';
 
@@ -25,7 +23,7 @@ class UpdateEstStep3Widget extends StatefulWidget {
   final DocumentReference? establishmentDetails;
 
   @override
-  _UpdateEstStep3WidgetState createState() => _UpdateEstStep3WidgetState();
+  State<UpdateEstStep3Widget> createState() => _UpdateEstStep3WidgetState();
 }
 
 class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
@@ -52,17 +50,6 @@ class _UpdateEstStep3WidgetState extends State<UpdateEstStep3Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<ImagesRecord>>(
       stream: queryImagesRecord(
         parent: widget.establishmentDetails,

@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'update_est_step2_model.dart';
 export 'update_est_step2_model.dart';
 
@@ -20,7 +18,7 @@ class UpdateEstStep2Widget extends StatefulWidget {
   final DocumentReference? establishmentDetails;
 
   @override
-  _UpdateEstStep2WidgetState createState() => _UpdateEstStep2WidgetState();
+  State<UpdateEstStep2Widget> createState() => _UpdateEstStep2WidgetState();
 }
 
 class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
@@ -76,17 +74,6 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'UpdateEstStep2',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

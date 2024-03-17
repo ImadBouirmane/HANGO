@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'user_phone_confirmation_exist_model.dart';
 export 'user_phone_confirmation_exist_model.dart';
 
@@ -13,7 +11,7 @@ class UserPhoneConfirmationExistWidget extends StatefulWidget {
   const UserPhoneConfirmationExistWidget({super.key});
 
   @override
-  _UserPhoneConfirmationExistWidgetState createState() =>
+  State<UserPhoneConfirmationExistWidget> createState() =>
       _UserPhoneConfirmationExistWidgetState();
 }
 
@@ -42,17 +40,6 @@ class _UserPhoneConfirmationExistWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'UserPhoneConfirmationExist',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),

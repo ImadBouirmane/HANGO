@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'manager_side_bar_model.dart';
 export 'manager_side_bar_model.dart';
 
@@ -27,7 +26,7 @@ class ManagerSideBarWidget extends StatefulWidget {
   final Widget? threeIcon;
 
   @override
-  _ManagerSideBarWidgetState createState() => _ManagerSideBarWidgetState();
+  State<ManagerSideBarWidget> createState() => _ManagerSideBarWidgetState();
 }
 
 class _ManagerSideBarWidgetState extends State<ManagerSideBarWidget>
@@ -146,8 +145,6 @@ class _ManagerSideBarWidgetState extends State<ManagerSideBarWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: 270.0,
       height: double.infinity,

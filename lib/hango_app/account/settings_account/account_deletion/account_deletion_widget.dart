@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'account_deletion_model.dart';
 export 'account_deletion_model.dart';
 
@@ -13,7 +11,7 @@ class AccountDeletionWidget extends StatefulWidget {
   const AccountDeletionWidget({super.key});
 
   @override
-  _AccountDeletionWidgetState createState() => _AccountDeletionWidgetState();
+  State<AccountDeletionWidget> createState() => _AccountDeletionWidgetState();
 }
 
 class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
@@ -40,17 +38,6 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Suppression du compte',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -72,7 +59,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                 icon: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Color(0xFF57CFAD),
-                  size: 20.0,
+                  size: 30.0,
                 ),
                 onPressed: () async {
                   logFirebaseEvent('ACCOUNT_DELETION_keyboard_return_rounded');

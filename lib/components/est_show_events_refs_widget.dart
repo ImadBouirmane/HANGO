@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'est_show_events_refs_model.dart';
 export 'est_show_events_refs_model.dart';
 
@@ -21,7 +20,7 @@ class EstShowEventsRefsWidget extends StatefulWidget {
   final bool? parameter3;
 
   @override
-  _EstShowEventsRefsWidgetState createState() =>
+  State<EstShowEventsRefsWidget> createState() =>
       _EstShowEventsRefsWidgetState();
 }
 
@@ -51,8 +50,6 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Visibility(
       visible: (widget.parameter2! >= getCurrentTimestamp) &&
           (widget.parameter3 == true),

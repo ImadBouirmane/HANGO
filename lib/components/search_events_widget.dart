@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'search_events_model.dart';
 export 'search_events_model.dart';
 
@@ -12,12 +11,12 @@ class SearchEventsWidget extends StatefulWidget {
   const SearchEventsWidget({
     super.key,
     bool? parameter1,
-  })  : parameter1 = parameter1 ?? false;
+  }) : parameter1 = parameter1 ?? false;
 
   final bool parameter1;
 
   @override
-  _SearchEventsWidgetState createState() => _SearchEventsWidgetState();
+  State<SearchEventsWidget> createState() => _SearchEventsWidgetState();
 }
 
 class _SearchEventsWidgetState extends State<SearchEventsWidget> {
@@ -51,8 +50,6 @@ class _SearchEventsWidgetState extends State<SearchEventsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -162,8 +159,6 @@ class _SearchEventsWidgetState extends State<SearchEventsWidget> {
                 ),
                 onPressed: () async {
                   logFirebaseEvent('SEARCH_EVENTS_filter_list_sharp_ICN_ON_T');
-                  logFirebaseEvent('IconButton_update_component_state');
-                  logFirebaseEvent('IconButton_bottom_sheet');
                 },
               );
             } else {
@@ -180,8 +175,6 @@ class _SearchEventsWidgetState extends State<SearchEventsWidget> {
                 ),
                 onPressed: () async {
                   logFirebaseEvent('SEARCH_EVENTS_COMP_clear_ICN_ON_TAP');
-                  logFirebaseEvent('IconButton_update_component_state');
-                  logFirebaseEvent('IconButton_bottom_sheet');
                 },
               );
             }
