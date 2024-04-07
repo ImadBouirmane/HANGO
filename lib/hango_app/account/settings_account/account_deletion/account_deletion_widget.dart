@@ -72,6 +72,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                 style: FlutterFlowTheme.of(context).labelLarge.override(
                       fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).primary,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: const [],
@@ -122,6 +123,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ],
@@ -139,6 +141,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .gray200,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -181,6 +184,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .error,
+                                                letterSpacing: 0.0,
                                               ),
                                           elevation: 3.0,
                                           borderSide: const BorderSide(
@@ -226,6 +230,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
+                                                letterSpacing: 0.0,
                                               ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -285,6 +290,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ],
@@ -303,6 +309,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .gray200,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                             ),
@@ -345,6 +352,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
                                             borderSide: BorderSide(
@@ -394,6 +402,7 @@ class _AccountDeletionWidgetState extends State<AccountDeletionWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
                                             borderSide: BorderSide(

@@ -29,8 +29,6 @@ class FormArtistEventModel extends FlutterFlowModel<FormArtistEventWidget> {
   // Stores action output result for [Backend Call - Create Document] action in DeleteBTN widget.
   ArtistsRecord? artistInput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -39,8 +37,4 @@ class FormArtistEventModel extends FlutterFlowModel<FormArtistEventWidget> {
     artistNameTextFieldFocusNode?.dispose();
     artistNameTextFieldController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -91,8 +91,6 @@ class CreateEstStep1Model extends FlutterFlowModel<CreateEstStep1Widget> {
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
   EstablishmentsRecord? createEstablishment;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -140,10 +138,7 @@ class CreateEstStep1Model extends FlutterFlowModel<CreateEstStep1Widget> {
     expandableController3.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   String? get rBTNRservationValue => rBTNRservationValueController?.value;
   String? get rBTNTerrasseValue => rBTNTerrasseValueController?.value;
   String? get rBTNCigaretteMAchineValue =>

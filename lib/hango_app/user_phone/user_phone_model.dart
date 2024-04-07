@@ -15,8 +15,6 @@ class UserPhoneModel extends FlutterFlowModel<UserPhoneWidget> {
   TextEditingController? phoneController2;
   String? Function(BuildContext, String?)? phoneController2Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -29,8 +27,4 @@ class UserPhoneModel extends FlutterFlowModel<UserPhoneWidget> {
     phoneFocusNode2?.dispose();
     phoneController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

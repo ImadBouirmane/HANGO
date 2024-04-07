@@ -39,8 +39,6 @@ class CreateEstStep3Model extends FlutterFlowModel<CreateEstStep3Widget> {
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
   ImagesRecord? imageEstUpload;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -51,8 +49,4 @@ class CreateEstStep3Model extends FlutterFlowModel<CreateEstStep3Widget> {
     unfocusNode.dispose();
     adminSideBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -14,8 +14,6 @@ class SearchEventsModel extends FlutterFlowModel<SearchEventsWidget> {
   // Algolia Search Results from action on eventsSearchMobile
   List<EventsRecord>? algoliaSearchResults = [];
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -24,8 +22,4 @@ class SearchEventsModel extends FlutterFlowModel<SearchEventsWidget> {
     eventsSearchMobileFocusNode?.dispose();
     eventsSearchMobileController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

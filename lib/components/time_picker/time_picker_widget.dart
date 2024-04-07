@@ -63,7 +63,10 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
               children: [
                 Text(
                   'Lundi',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
@@ -71,7 +74,10 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
                   children: [
                     Text(
                       'Fermé',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,

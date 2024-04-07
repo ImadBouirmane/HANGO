@@ -29,8 +29,6 @@ class FilterOptionsListEstModel
       musicStyleEstablishmentChoicesValueController?.value =
           val != null ? [val] : [];
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -39,8 +37,4 @@ class FilterOptionsListEstModel
     expandableController1.dispose();
     expandableController2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

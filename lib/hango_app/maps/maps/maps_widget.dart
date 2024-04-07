@@ -328,16 +328,25 @@ class _MapsWidgetState extends State<MapsWidget> {
                                               });
                                             }
                                           },
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .labelMedium,
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             hintText:
                                                 'Trouvez se que vous cherchez...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .labelLarge,
+                                                    .labelLarge
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -391,7 +400,12 @@ class _MapsWidgetState extends State<MapsWidget> {
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                          minLines: null,
                                           cursorColor:
                                               FlutterFlowTheme.of(context)
                                                   .primary,
@@ -726,16 +740,25 @@ class _MapsWidgetState extends State<MapsWidget> {
                                                   });
                                                 }
                                               },
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 hintText:
                                                     'Trouvez se que vous cherchez...',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelLarge,
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
@@ -796,7 +819,12 @@ class _MapsWidgetState extends State<MapsWidget> {
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              minLines: null,
                                               cursorColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,

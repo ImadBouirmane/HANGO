@@ -169,6 +169,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -225,7 +226,10 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
-                                            offset: Offset(0.0, 2.0),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
                                           )
                                         ],
                                         borderRadius:
@@ -285,6 +289,8 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -413,7 +419,10 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                                   listArtistSetArtistsRecord.name,
                                                                                   'Aucune',
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                               ),
                                                                               Text(
                                                                                 valueOrDefault<String>(
@@ -424,7 +433,10 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                                                   ),
                                                                                   'Aucune',
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                               ),
                                                                             ],
                                                                           ),
@@ -565,6 +577,7 @@ class _CreateEventStep2WidgetState extends State<CreateEventStep2Widget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: const BorderSide(

@@ -15,8 +15,6 @@ class UserPhoneConfirmationExistModel
   TextEditingController? pinCodeController2;
   String? Function(BuildContext, String?)? pinCodeController2Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     pinCodeController1 = TextEditingController();
@@ -29,8 +27,4 @@ class UserPhoneConfirmationExistModel
     pinCodeController1?.dispose();
     pinCodeController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

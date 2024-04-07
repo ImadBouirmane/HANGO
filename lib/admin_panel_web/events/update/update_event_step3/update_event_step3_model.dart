@@ -29,8 +29,6 @@ class UpdateEventStep3Model extends FlutterFlowModel<UpdateEventStep3Widget> {
   DateTime? datePicked1;
   DateTime? datePicked2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -52,8 +50,4 @@ class UpdateEventStep3Model extends FlutterFlowModel<UpdateEventStep3Widget> {
     nbrEntranceFocusNode?.dispose();
     nbrEntranceController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -98,6 +98,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                   fontFamily: 'Poppins',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                           ),
@@ -114,6 +115,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                   fontFamily: 'Poppins',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                 ),
                           ),
@@ -170,6 +172,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
@@ -207,6 +210,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBtnText,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
@@ -228,6 +232,7 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 fontSize: 10.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w300,
                               ),
                         ),
@@ -247,7 +252,10 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x3314181B),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   shape: BoxShape.circle,
@@ -270,7 +278,10 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x3314181B),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   shape: BoxShape.circle,
@@ -293,7 +304,10 @@ class _DraweLoginWidgetState extends State<DraweLoginWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x3314181B),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   shape: BoxShape.circle,

@@ -64,7 +64,10 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
             BoxShadow(
               blurRadius: 0.0,
               color: FlutterFlowTheme.of(context).lineColor,
-              offset: const Offset(1.0, 0.0),
+              offset: const Offset(
+                1.0,
+                0.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.circular(0.0),
@@ -87,7 +90,10 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                     boxShadow: [
                       BoxShadow(
                         color: FlutterFlowTheme.of(context).lineColor,
-                        offset: const Offset(0.0, 1.0),
+                        offset: const Offset(
+                          0.0,
+                          1.0,
+                        ),
                       )
                     ],
                   ),
@@ -175,6 +181,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -192,6 +199,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -226,6 +234,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                       fontFamily: 'Poppins',
                                       color:
                                           FlutterFlowTheme.of(context).primary,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(
@@ -353,6 +362,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                             FlutterFlowTheme.of(context)
                                                 .primaryText,
                                           ),
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -465,6 +475,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                             FlutterFlowTheme.of(context)
                                                 .primaryText,
                                           ),
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -579,6 +590,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .primaryText,
                                             ),
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -644,6 +656,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(
@@ -698,6 +711,7 @@ class _SideNavWebWidgetState extends State<SideNavWebWidget> {
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(

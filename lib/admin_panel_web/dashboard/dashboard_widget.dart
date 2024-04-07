@@ -152,7 +152,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
-                                              offset: Offset(0.0, 2.0),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius:
@@ -176,7 +179,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .titleLarge,
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                   subtitle: Text(
                                                     functions.timeCheck(
@@ -189,6 +196,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   tileColor:
@@ -215,8 +223,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .lineColor,
-                                                        offset:
-                                                            const Offset(0.0, 1.0),
+                                                        offset: const Offset(
+                                                          0.0,
+                                                          1.0,
+                                                        ),
                                                       )
                                                     ],
                                                     borderRadius:
@@ -272,7 +282,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                             'Établissements',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .headlineSmall,
+                                                                .headlineSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         FlutterFlowIconButton(
@@ -500,7 +516,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       Expanded(
                                                                                         child: Text(
                                                                                           listViewEstablishmentsRecord.name,
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -632,6 +651,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             color: FlutterFlowTheme.of(context).primary,
+                                                                                            letterSpacing: 0.0,
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -782,7 +802,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                     listViewEventsRecord.title != '' ? listViewEventsRecord.title : '',
                                                                                                                     'Aucune',
                                                                                                                   ),
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
                                                                                                                 ),
                                                                                                               ),
                                                                                                               StreamBuilder<List<ScheduleEventRecord>>(
@@ -823,7 +846,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                                                           : '',
                                                                                                                       'Aucune',
                                                                                                                     ),
-                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                          fontFamily: 'Poppins',
+                                                                                                                          letterSpacing: 0.0,
+                                                                                                                        ),
                                                                                                                   );
                                                                                                                 },
                                                                                                               ),
@@ -1010,8 +1036,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         blurRadius: 4.0,
                                                         color:
                                                             Color(0x33000000),
-                                                        offset:
-                                                            Offset(0.0, 2.0),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          2.0,
+                                                        ),
                                                       )
                                                     ],
                                                     borderRadius:
@@ -1037,7 +1065,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 'Notifications Panel',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .headlineSmall,
+                                                                    .headlineSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             FlutterFlowIconButton(
@@ -1183,7 +1217,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                             Expanded(
                                                                               child: Text(
                                                                                 listViewNotificationsRecord.title,
-                                                                                style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                               ),
                                                                             ),
                                                                           ],
@@ -1198,6 +1235,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1275,6 +1313,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             color: Colors.white,
+                                                                                            letterSpacing: 0.0,
                                                                                           ),
                                                                                       elevation: 3.0,
                                                                                       borderSide: const BorderSide(
@@ -1317,6 +1356,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             color: Colors.white,
+                                                                                            letterSpacing: 0.0,
                                                                                           ),
                                                                                       elevation: 3.0,
                                                                                       borderSide: const BorderSide(
@@ -1353,6 +1393,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                               Theme(
@@ -1386,6 +1427,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                       ));
                                                                                     }
                                                                                   },
+                                                                                  side: BorderSide(
+                                                                                    width: 2,
+                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  ),
                                                                                   activeColor: FlutterFlowTheme.of(context).primary,
                                                                                   checkColor: FlutterFlowTheme.of(context).info,
                                                                                 ),
@@ -1449,7 +1494,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyLarge,
+                                                                .bodyLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                       showBadge: true,
                                                       shape: badges
@@ -1525,6 +1576,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .accent1,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ].divide(const SizedBox(height: 30.0)),

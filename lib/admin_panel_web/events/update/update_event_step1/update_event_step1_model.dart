@@ -44,8 +44,6 @@ class UpdateEventStep1Model extends FlutterFlowModel<UpdateEventStep1Widget> {
   List<String>? checkBoxMusicStyleValues;
   FormFieldController<List<String>>? checkBoxMusicStyleValueController;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -70,8 +68,4 @@ class UpdateEventStep1Model extends FlutterFlowModel<UpdateEventStep1Widget> {
     expandableController1.dispose();
     expandableController2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

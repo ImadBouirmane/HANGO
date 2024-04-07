@@ -49,8 +49,6 @@ class FeedbackModel extends FlutterFlowModel<FeedbackWidget> {
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FeedbackRecord? newReportWeb;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -73,8 +71,4 @@ class FeedbackModel extends FlutterFlowModel<FeedbackWidget> {
     textFieldFocusNode4?.dispose();
     textController4?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

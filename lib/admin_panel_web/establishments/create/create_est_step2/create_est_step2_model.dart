@@ -84,8 +84,6 @@ class CreateEstStep2Model extends FlutterFlowModel<CreateEstStep2Widget> {
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
   ScheduleRecord? estScheduleInput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -137,8 +135,4 @@ class CreateEstStep2Model extends FlutterFlowModel<CreateEstStep2Widget> {
     sundayClosingFocusNode?.dispose();
     sundayClosingController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

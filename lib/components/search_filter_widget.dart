@@ -68,11 +68,18 @@ class _SearchFilterWidgetState extends State<SearchFilterWidget> {
               onFieldSubmitted: (_) async {
                 logFirebaseEvent('SEARCH_FILTER_estblishmentSearchMobile_O');
               },
+              autofocus: false,
               obscureText: false,
               decoration: InputDecoration(
-                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
                 hintText: 'Trouver une établissement',
-                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: FlutterFlowTheme.of(context).lineColor,
@@ -122,7 +129,11 @@ class _SearchFilterWidgetState extends State<SearchFilterWidget> {
                       )
                     : null,
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Poppins',
+                    letterSpacing: 0.0,
+                  ),
+              minLines: null,
               cursorColor: FlutterFlowTheme.of(context).primary,
               validator: _model.estblishmentSearchMobileControllerValidator
                   .asValidator(context),

@@ -67,7 +67,10 @@ class _DeleteConfirmationEventWidgetState
                   child: AutoSizeText(
                     'Êtes-vous sûr de vouloir supprimer l\'événement!',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).headlineMedium,
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
+                          fontFamily: 'Poppins',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
               ],
@@ -94,6 +97,7 @@ class _DeleteConfirmationEventWidgetState
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Poppins',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
@@ -124,6 +128,7 @@ class _DeleteConfirmationEventWidgetState
                           fontFamily: 'Poppins',
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(

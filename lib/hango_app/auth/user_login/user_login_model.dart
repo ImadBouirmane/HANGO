@@ -25,8 +25,6 @@ class UserLoginModel extends FlutterFlowModel<UserLoginWidget> {
   late bool passwordVisibility2;
   String? Function(BuildContext, String?)? passwordController2Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     passwordVisibility1 = false;
@@ -48,8 +46,4 @@ class UserLoginModel extends FlutterFlowModel<UserLoginWidget> {
     passwordFocusNode2?.dispose();
     passwordController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

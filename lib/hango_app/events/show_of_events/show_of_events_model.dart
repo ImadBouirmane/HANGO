@@ -66,8 +66,6 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
   LatLng? googleMapsCenter2;
   final googleMapsController2 = Completer<GoogleMapController>();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
@@ -85,8 +83,4 @@ class ShowOfEventsModel extends FlutterFlowModel<ShowOfEventsWidget> {
     timerController2.dispose();
     expandableController3.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

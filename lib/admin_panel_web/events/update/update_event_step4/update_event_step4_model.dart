@@ -20,8 +20,6 @@ class UpdateEventStep4Model extends FlutterFlowModel<UpdateEventStep4Widget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -32,8 +30,4 @@ class UpdateEventStep4Model extends FlutterFlowModel<UpdateEventStep4Widget> {
     unfocusNode.dispose();
     adminSideBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

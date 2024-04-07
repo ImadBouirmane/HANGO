@@ -48,7 +48,7 @@ class _AccountWidgetState extends State<AccountWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
+              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
@@ -72,6 +72,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                       fontFamily: 'Poppins',
                       color: const Color(0xFF57CFAD),
                       fontSize: 22.0,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: const [],
@@ -134,7 +135,11 @@ class _AccountWidgetState extends State<AccountWidget> {
                                             currentUserDisplayName,
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .titleLarge,
+                                                .titleLarge
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -155,6 +160,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent2,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -247,6 +253,8 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -338,6 +346,8 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -403,6 +413,8 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -510,7 +522,11 @@ class _AccountWidgetState extends State<AccountWidget> {
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .titleLarge,
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -532,6 +548,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent2,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -625,6 +642,8 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -716,6 +735,8 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -787,6 +808,8 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,

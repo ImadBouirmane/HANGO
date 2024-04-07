@@ -72,7 +72,10 @@ class _DeleteConfirmationEstablishementWidgetState
                   child: AutoSizeText(
                     'Êtes-vous sûr de vouloir supprimer l\'établissement!',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).headlineMedium,
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
+                          fontFamily: 'Poppins',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
               ],
@@ -99,6 +102,7 @@ class _DeleteConfirmationEstablishementWidgetState
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Poppins',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
@@ -138,6 +142,7 @@ class _DeleteConfirmationEstablishementWidgetState
                           fontFamily: 'Poppins',
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(

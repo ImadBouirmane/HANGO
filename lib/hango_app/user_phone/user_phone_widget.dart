@@ -88,7 +88,11 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                           child: Text(
                                             'Vérifiez votre compte',
                                             style: FlutterFlowTheme.of(context)
-                                                .displaySmall,
+                                                .displaySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -112,6 +116,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent2,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -138,6 +143,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                   .bodySmall
                                                   .override(
                                                     fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -147,6 +153,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                   .bodySmall
                                                   .override(
                                                     fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                           enabledBorder: OutlineInputBorder(
@@ -193,8 +200,13 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                   16.0, 16.0, 0.0, 16.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         maxLines: null,
+                                        minLines: null,
                                         validator: _model
                                             .phoneController1Validator
                                             .asValidator(context),
@@ -264,6 +276,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                     ),
@@ -321,7 +334,11 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                           child: Text(
                                             'Vérifiez votre numéro de téléphone',
                                             style: FlutterFlowTheme.of(context)
-                                                .displaySmall,
+                                                .displaySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -345,6 +362,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent2,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -371,6 +389,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                   .bodySmall
                                                   .override(
                                                     fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -380,6 +399,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                   .bodySmall
                                                   .override(
                                                     fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                           enabledBorder: OutlineInputBorder(
@@ -426,8 +446,13 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                   16.0, 16.0, 0.0, 16.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         maxLines: null,
+                                        minLines: null,
                                         validator: _model
                                             .phoneController2Validator
                                             .asValidator(context),
@@ -496,6 +521,7 @@ class _UserPhoneWidgetState extends State<UserPhoneWidget> {
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                     ),

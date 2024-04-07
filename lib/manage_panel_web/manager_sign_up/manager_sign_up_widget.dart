@@ -149,6 +149,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -163,6 +164,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 30.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                         ),
@@ -277,6 +279,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -302,6 +305,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -310,6 +314,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: const BorderSide(
@@ -354,7 +359,9 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       keyboardType: TextInputType.name,
                                       validator: _model
                                           .firstNameControllerValidator
@@ -374,6 +381,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -382,6 +390,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: const BorderSide(
@@ -426,7 +435,9 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       keyboardType: TextInputType.name,
                                       validator: _model
                                           .lastNameControllerValidator
@@ -446,6 +457,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -454,6 +466,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: const BorderSide(
@@ -498,7 +511,9 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model.emailControllerValidator
                                           .asValidator(context),
@@ -518,6 +533,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -526,6 +542,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: const BorderSide(
@@ -570,7 +587,9 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       keyboardType: TextInputType.phone,
                                       validator: _model.phoneControllerValidator
                                           .asValidator(context),
@@ -589,6 +608,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -597,6 +617,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: const BorderSide(
@@ -641,7 +662,9 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       keyboardType: TextInputType.name,
                                       validator: _model
                                           .estNameControllerValidator
@@ -767,6 +790,7 @@ class _ManagerSignUpWidgetState extends State<ManagerSignUpWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
                                         borderSide: const BorderSide(

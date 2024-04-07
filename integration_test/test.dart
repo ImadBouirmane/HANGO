@@ -18,20 +18,23 @@ import 'package:firebase_auth/firebase_auth.dart';
 void main() async {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('Phone OTP', (WidgetTester tester) async {
+  setUpAll(() async {
     _overrideOnError();
     await initFirebase();
+  });
 
+  setUp(() async {
     await authManager.signOut();
-
     FFAppState.reset();
     final appState = FFAppState();
     await appState.initializePersistedState();
+  });
 
+  testWidgets('Phone OTP', (WidgetTester tester) async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: 'imadbouirmane@gmail.com', password: 'IB2030');
     await tester.pumpWidget(ChangeNotifierProvider(
-      create: (context) => appState,
+      create: (context) => FFAppState(),
       child: MyApp(),
     ));
 

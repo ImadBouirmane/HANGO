@@ -178,6 +178,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -193,6 +194,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 30.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -259,6 +261,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 30.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -270,6 +273,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 24.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -316,6 +320,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -327,6 +333,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -396,11 +404,16 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                     0.0,
                                                                     16.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       maxLines: null,
+                                                      minLines: null,
                                                       validator: _model
                                                           .lastNameController1Validator
                                                           .asValidator(context),
@@ -417,6 +430,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
+                                                        isDense: false,
                                                         labelText: 'Prénom *',
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
@@ -425,6 +439,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -436,6 +452,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -505,11 +523,16 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                     0.0,
                                                                     16.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       maxLines: null,
+                                                      minLines: null,
                                                       validator: _model
                                                           .firstNameController1Validator
                                                           .asValidator(context),
@@ -558,6 +581,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -689,6 +714,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -773,6 +800,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -784,6 +813,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -853,11 +884,16 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                     0.0,
                                                                     16.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       maxLines: null,
+                                                      minLines: null,
                                                       validator: _model
                                                           .emailAddressController1Validator
                                                           .asValidator(context),
@@ -892,6 +928,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -903,6 +941,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -994,10 +1034,15 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .passwordController1Validator
                                                           .asValidator(context),
@@ -1032,6 +1077,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -1043,6 +1090,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -1134,10 +1183,15 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .confirmPasswordController1Validator
                                                           .asValidator(context),
@@ -1279,6 +1333,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1335,6 +1391,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -1421,7 +1478,9 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                               color: Color(
                                                                   0x3314181B),
                                                               offset: Offset(
-                                                                  0.0, 2.0),
+                                                                0.0,
+                                                                2.0,
+                                                              ),
                                                             )
                                                           ],
                                                           borderRadius:
@@ -1516,8 +1575,9 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                       0x3314181B),
                                                                   offset:
                                                                       Offset(
-                                                                          0.0,
-                                                                          2.0),
+                                                                    0.0,
+                                                                    2.0,
+                                                                  ),
                                                                 )
                                                               ],
                                                               borderRadius:
@@ -1576,6 +1636,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -1603,6 +1664,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         decoration:
@@ -1644,6 +1706,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                                 decoration:
                                                     TextDecoration.underline,
@@ -1709,6 +1772,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 30.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1720,6 +1784,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 24.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -1766,6 +1831,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -1777,6 +1844,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -1846,11 +1915,16 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                     0.0,
                                                                     16.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       maxLines: null,
+                                                      minLines: null,
                                                       validator: _model
                                                           .lastNameController2Validator
                                                           .asValidator(context),
@@ -1867,6 +1941,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
+                                                        isDense: false,
                                                         labelText: 'Prénom *',
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
@@ -1875,6 +1950,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -1886,6 +1963,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -1955,11 +2034,16 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                     0.0,
                                                                     16.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       maxLines: null,
+                                                      minLines: null,
                                                       validator: _model
                                                           .firstNameController2Validator
                                                           .asValidator(context),
@@ -2008,6 +2092,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -2133,6 +2219,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -2218,6 +2306,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -2229,6 +2319,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -2298,11 +2390,16 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                     0.0,
                                                                     16.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       maxLines: null,
+                                                      minLines: null,
                                                       validator: _model
                                                           .emailAddressController2Validator
                                                           .asValidator(context),
@@ -2337,6 +2434,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -2348,6 +2447,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -2439,10 +2540,15 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .passwordController2Validator
                                                           .asValidator(context),
@@ -2477,6 +2583,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -2488,6 +2596,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -2579,10 +2689,15 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .confirmPasswordController2Validator
                                                           .asValidator(context),
@@ -2724,6 +2839,8 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -2780,6 +2897,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -2866,7 +2984,9 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                               color: Color(
                                                                   0x3314181B),
                                                               offset: Offset(
-                                                                  0.0, 2.0),
+                                                                0.0,
+                                                                2.0,
+                                                              ),
                                                             )
                                                           ],
                                                           borderRadius:
@@ -2961,8 +3081,9 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                                       0x3314181B),
                                                                   offset:
                                                                       Offset(
-                                                                          0.0,
-                                                                          2.0),
+                                                                    0.0,
+                                                                    2.0,
+                                                                  ),
                                                                 )
                                                               ],
                                                               borderRadius:
@@ -3021,6 +3142,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -3048,6 +3170,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         decoration:
@@ -3098,6 +3221,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         decoration:
@@ -3144,6 +3268,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         decoration:
@@ -3158,6 +3283,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         decoration:
@@ -3176,6 +3302,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
+                                                        letterSpacing: 0.0,
                                                         decoration:
                                                             TextDecoration
                                                                 .underline,
@@ -3192,6 +3319,7 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .tertiary,
+                                                        letterSpacing: 0.0,
                                                         decoration:
                                                             TextDecoration
                                                                 .underline,
@@ -3200,7 +3328,11 @@ class _UserSignUpWidgetState extends State<UserSignUpWidget> {
                                               ],
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),

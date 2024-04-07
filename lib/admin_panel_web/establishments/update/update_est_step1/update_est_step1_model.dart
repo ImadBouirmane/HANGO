@@ -88,8 +88,6 @@ class UpdateEstStep1Model extends FlutterFlowModel<UpdateEstStep1Widget> {
   List<String>? checkBoxGamesValues;
   FormFieldController<List<String>>? checkBoxGamesValueController;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -137,10 +135,7 @@ class UpdateEstStep1Model extends FlutterFlowModel<UpdateEstStep1Widget> {
     expandableController3.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   String? get rBTNRservationValue => rBTNRservationValueController?.value;
   String? get rBTNTerrasseValue => rBTNTerrasseValueController?.value;
   String? get rBTNCigaretteMAchineValue =>

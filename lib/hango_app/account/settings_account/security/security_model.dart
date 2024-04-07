@@ -26,8 +26,6 @@ class SecurityModel extends FlutterFlowModel<SecurityWidget> {
   final textFieldMask2 = MaskTextInputFormatter(mask: '+# (###) ###-##-##');
   String? Function(BuildContext, String?)? textController3Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -46,8 +44,4 @@ class SecurityModel extends FlutterFlowModel<SecurityWidget> {
     textFieldFocusNode2?.dispose();
     textController3?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -67,7 +67,10 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                 child: Text(
                   widget.title!,
                   textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).titleSmall,
+                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 ),
               ),
             ],
@@ -83,6 +86,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Poppins',
                         color: FlutterFlowTheme.of(context).accent2,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),

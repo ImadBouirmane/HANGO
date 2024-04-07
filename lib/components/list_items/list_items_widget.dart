@@ -82,6 +82,7 @@ class _ListItemsWidgetState extends State<ListItemsWidget> {
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).primaryText,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   )),

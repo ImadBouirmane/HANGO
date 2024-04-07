@@ -149,6 +149,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -201,7 +202,10 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
-                                        offset: Offset(0.0, 2.0),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(16.0),
@@ -278,6 +282,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -318,6 +324,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -383,10 +391,13 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                            minLines: null,
                                                             validator: _model
                                                                 .promorTitleControllerValidator
                                                                 .asValidator(
@@ -425,6 +436,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -490,10 +503,13 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                            minLines: null,
                                                             validator: _model
                                                                 .promorSousTitleControllerValidator
                                                                 .asValidator(
@@ -532,6 +548,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -597,11 +615,14 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
                                                             maxLines: 3,
+                                                            minLines: null,
                                                             validator: _model
                                                                 .descriptionControllerValidator
                                                                 .asValidator(
@@ -644,6 +665,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -709,10 +732,13 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                            minLines: null,
                                                             keyboardType:
                                                                 TextInputType
                                                                     .number,
@@ -778,7 +804,13 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                     FFButtonWidget(
                                                                       onPressed:
@@ -848,6 +880,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w300,
                                                                             ),
                                                                         elevation:
@@ -916,7 +949,13 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                     FFButtonWidget(
                                                                       onPressed:
@@ -986,6 +1025,7 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w300,
                                                                             ),
                                                                         elevation:
@@ -1076,6 +1116,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -1198,6 +1240,8 @@ class _UpdateEventStep3WidgetState extends State<UpdateEventStep3Widget> {
                                                                     'Poppins',
                                                                 color: Colors
                                                                     .white,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: const BorderSide(

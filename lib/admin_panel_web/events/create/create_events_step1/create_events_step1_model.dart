@@ -57,8 +57,6 @@ class CreateEventsStep1Model extends FlutterFlowModel<CreateEventsStep1Widget> {
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
   ScheduleEventRecord? eventScheduleInput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -84,8 +82,4 @@ class CreateEventsStep1Model extends FlutterFlowModel<CreateEventsStep1Widget> {
     expandableController1.dispose();
     expandableController2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

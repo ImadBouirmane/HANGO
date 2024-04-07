@@ -332,10 +332,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   Expanded(
                                                     child: Text(
                                                       widget.estRef!.name,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -352,7 +356,9 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           1.0,
-                                                  color: Colors.white,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
                                                   child: ExpandableNotifier(
                                                     controller: _model
                                                         .expandableController1,
@@ -379,6 +385,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .accent2,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -402,6 +410,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w300,
@@ -411,7 +421,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                         ],
                                                       ),
                                                       theme:
-                                                          const ExpandableThemeData(
+                                                          ExpandableThemeData(
                                                         tapHeaderToExpand: true,
                                                         tapBodyToExpand: false,
                                                         tapBodyToCollapse:
@@ -420,6 +430,10 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                             ExpandablePanelHeaderAlignment
                                                                 .center,
                                                         hasIcon: true,
+                                                        iconColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
                                                       ),
                                                     ),
                                                   ),
@@ -465,6 +479,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],
@@ -486,7 +502,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                         .first,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ],
@@ -517,6 +539,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .accent2,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -566,6 +590,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],
@@ -587,7 +613,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                         .first,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ],
@@ -620,6 +652,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .accent2,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -683,7 +717,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleMedium,
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -937,7 +977,10 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                           replacement: '…',
                                                                                         ),
                                                                                         maxLines: 1,
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -982,6 +1025,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                                   fontFamily: 'Poppins',
                                                                                                   color: FlutterFlowTheme.of(context).tertiary,
                                                                                                   fontSize: 16.0,
+                                                                                                  letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w300,
                                                                                                 ),
                                                                                           );
@@ -998,7 +1042,10 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                         otherEventsListEventsRecord.typeEvent.first,
                                                                                         textAlign: TextAlign.end,
                                                                                         maxLines: 1,
-                                                                                        style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                        style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -1087,10 +1134,14 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   Expanded(
                                                     child: Text(
                                                       'Horaires',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -1122,7 +1173,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               'Lundi',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Text(
@@ -1144,6 +1201,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -1175,7 +1234,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               'Mardi',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Text(
@@ -1197,6 +1262,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -1228,7 +1295,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               'Mercredi',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Text(
@@ -1250,6 +1323,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -1281,7 +1356,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               'Jeudi',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Text(
@@ -1303,6 +1384,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -1334,7 +1417,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               'Vendredi',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Text(
@@ -1356,6 +1445,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -1387,7 +1478,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               'Samedi',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Text(
@@ -1409,6 +1506,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -1440,7 +1539,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               'Dimanche',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Text(
@@ -1462,6 +1567,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -1505,7 +1612,11 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                   'Adresse',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .titleMedium,
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -1526,7 +1637,11 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 FlutterFlowIconButton(
@@ -1676,7 +1791,11 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                     'Contact',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .titleMedium,
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                               ),
@@ -1727,7 +1846,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Email',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodySmall,
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               SelectionArea(
                                                                   child: Text(
@@ -1742,6 +1867,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               )),
                                                             ],
@@ -1836,7 +1963,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Téléphone',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodySmall,
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               SelectionArea(
                                                                   child: Text(
@@ -1851,6 +1984,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               )),
                                                             ],
@@ -1931,7 +2066,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Site Web',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodySmall,
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               SelectionArea(
                                                                   child: Text(
@@ -1946,6 +2087,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               )),
                                                             ],
@@ -2263,6 +2406,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                       ),
                                                     ),
@@ -2297,7 +2442,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           maxLines: 2,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodySmall,
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                         collapsed: Container(
                                                           decoration:
@@ -2314,7 +2465,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 maxLines: 3,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodySmall,
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -2377,6 +2534,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ],
@@ -2399,7 +2558,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                           .first,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 ],
@@ -2417,7 +2582,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                           .last,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodySmall,
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 ],
@@ -2466,6 +2637,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ],
@@ -2488,7 +2661,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                           .first,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 ],
@@ -2506,7 +2685,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                           .last,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodySmall,
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 ],
@@ -2569,7 +2754,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleMedium,
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -2823,7 +3014,10 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                           replacement: '…',
                                                                                         ),
                                                                                         maxLines: 1,
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -2868,6 +3062,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                                   fontFamily: 'Poppins',
                                                                                                   color: FlutterFlowTheme.of(context).tertiary,
                                                                                                   fontSize: 16.0,
+                                                                                                  letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w300,
                                                                                                 ),
                                                                                           );
@@ -2884,7 +3079,10 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                                         otherEventsListEventsRecord.typeEvent.first,
                                                                                         textAlign: TextAlign.end,
                                                                                         maxLines: 1,
-                                                                                        style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                        style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
@@ -2988,6 +3186,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                       ),
                                                     ),
@@ -3020,7 +3220,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Lundi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Text(
@@ -3035,7 +3241,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               width: 30.0)),
@@ -3065,7 +3277,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Mardi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Text(
@@ -3080,7 +3298,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               width: 30.0)),
@@ -3110,7 +3334,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Mercredi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Text(
@@ -3125,7 +3355,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               width: 30.0)),
@@ -3155,7 +3391,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Jeudi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Text(
@@ -3170,7 +3412,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               width: 30.0)),
@@ -3200,7 +3448,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Vendredi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Text(
@@ -3215,7 +3469,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               width: 30.0)),
@@ -3245,7 +3505,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Samedi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Text(
@@ -3260,7 +3526,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               width: 30.0)),
@@ -3290,7 +3562,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                 'Dimanche',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Text(
@@ -3305,7 +3583,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               width: 30.0)),
@@ -3359,6 +3643,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -3380,7 +3665,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                     FlutterFlowIconButton(
@@ -3524,6 +3815,7 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -3572,7 +3864,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   'Email',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmall,
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                                 SelectionArea(
                                                                     child: Text(
@@ -3586,6 +3884,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 )),
                                                               ],
@@ -3680,7 +3980,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   'Téléphone',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmall,
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                                 SelectionArea(
                                                                     child: Text(
@@ -3694,6 +4000,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 )),
                                                               ],
@@ -3775,7 +4083,13 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                   'Site Web',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmall,
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                                 SelectionArea(
                                                                     child: Text(
@@ -3789,6 +4103,8 @@ class _ShowOfEstablishmentWidgetState extends State<ShowOfEstablishmentWidget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 )),
                                                               ],

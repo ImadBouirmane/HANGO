@@ -77,7 +77,10 @@ class _ShowComponentTypeWidgetState extends State<ShowComponentTypeWidget> {
               BoxShadow(
                 blurRadius: 4.0,
                 color: Color(0x33000000),
-                offset: Offset(0.0, 2.0),
+                offset: Offset(
+                  0.0,
+                  2.0,
+                ),
               )
             ],
             borderRadius: BorderRadius.circular(8.0),
@@ -96,14 +99,20 @@ class _ShowComponentTypeWidgetState extends State<ShowComponentTypeWidget> {
                   typesContainerEstablishmentsRecord?.type.first,
                   '*',
                 ),
-                style: FlutterFlowTheme.of(context).titleMedium,
+                style: FlutterFlowTheme.of(context).titleMedium.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
               ),
               Text(
                 valueOrDefault<String>(
                   typesContainerEstablishmentsRecord?.type.last,
                   '*',
                 ),
-                style: FlutterFlowTheme.of(context).titleSmall,
+                style: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
               ),
             ],
           ),

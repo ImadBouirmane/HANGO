@@ -168,6 +168,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -218,7 +219,10 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
-                                        offset: Offset(0.0, 2.0),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(16.0),
@@ -320,7 +324,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                 'Lundi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               if (wrapScheduleRecord
                                                                       ?.mondayIsClose ==
@@ -361,9 +371,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Lundi Ouverture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -406,7 +422,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.mondayOpeningControllerValidator.asValidator(context),
                                                                             ),
@@ -443,9 +463,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Lundi Fermeture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -488,7 +514,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.mondayClosingControllerValidator.asValidator(context),
                                                                             ),
@@ -509,7 +539,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                     'Fermé',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   Theme(
                                                                     data:
@@ -568,6 +604,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ));
                                                                         }
                                                                       },
+                                                                      side:
+                                                                          BorderSide(
+                                                                        width:
+                                                                            2,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                      ),
                                                                       activeColor:
                                                                           FlutterFlowTheme.of(context)
                                                                               .primary,
@@ -605,7 +648,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                 'Mardi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               if (wrapScheduleRecord
                                                                       ?.tuesdayIsClose ==
@@ -646,9 +695,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Mardi Ouverture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -691,7 +746,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.tuesdayOpeningControllerValidator.asValidator(context),
                                                                             ),
@@ -728,9 +787,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Mardi Fermeture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -773,7 +838,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.tuesdayClosingControllerValidator.asValidator(context),
                                                                             ),
@@ -794,7 +863,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                     'Fermé',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   Theme(
                                                                     data:
@@ -853,6 +928,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ));
                                                                         }
                                                                       },
+                                                                      side:
+                                                                          BorderSide(
+                                                                        width:
+                                                                            2,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                      ),
                                                                       activeColor:
                                                                           FlutterFlowTheme.of(context)
                                                                               .primary,
@@ -890,7 +972,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                 'Mercredi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               if (wrapScheduleRecord
                                                                       ?.wednesdayIsClose ==
@@ -931,9 +1019,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Mercredi Ouverture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -976,7 +1070,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.wednesdayOpeningControllerValidator.asValidator(context),
                                                                             ),
@@ -1013,9 +1111,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Mercredi Fermeture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -1058,7 +1162,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.wednesdayClosingControllerValidator.asValidator(context),
                                                                             ),
@@ -1079,7 +1187,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                     'Fermé',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   Theme(
                                                                     data:
@@ -1138,6 +1252,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ));
                                                                         }
                                                                       },
+                                                                      side:
+                                                                          BorderSide(
+                                                                        width:
+                                                                            2,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                      ),
                                                                       activeColor:
                                                                           FlutterFlowTheme.of(context)
                                                                               .primary,
@@ -1175,7 +1296,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                 'Jeudi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               if (wrapScheduleRecord
                                                                       ?.thursdayIsClose ==
@@ -1216,9 +1343,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Mardi Ouverture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -1261,7 +1394,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.thursdayOpeningControllerValidator.asValidator(context),
                                                                             ),
@@ -1298,9 +1435,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Mardi Fermeture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -1343,7 +1486,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.thursdayClosingControllerValidator.asValidator(context),
                                                                             ),
@@ -1364,7 +1511,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                     'Fermé',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   Theme(
                                                                     data:
@@ -1423,6 +1576,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ));
                                                                         }
                                                                       },
+                                                                      side:
+                                                                          BorderSide(
+                                                                        width:
+                                                                            2,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                      ),
                                                                       activeColor:
                                                                           FlutterFlowTheme.of(context)
                                                                               .primary,
@@ -1460,7 +1620,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                 'Vendredi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               if (wrapScheduleRecord
                                                                       ?.fridayIsClose ==
@@ -1501,9 +1667,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Vendredi Ouverture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -1546,7 +1718,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.fridayOpeningControllerValidator.asValidator(context),
                                                                             ),
@@ -1583,9 +1759,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Vendredi Fermeture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -1628,7 +1810,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.fridayClosingControllerValidator.asValidator(context),
                                                                             ),
@@ -1649,7 +1835,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                     'Fermé',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   Theme(
                                                                     data:
@@ -1708,6 +1900,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ));
                                                                         }
                                                                       },
+                                                                      side:
+                                                                          BorderSide(
+                                                                        width:
+                                                                            2,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                      ),
                                                                       activeColor:
                                                                           FlutterFlowTheme.of(context)
                                                                               .primary,
@@ -1745,7 +1944,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                 'Samedi',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               if ((wrapScheduleRecord
                                                                           ?.saturdayIsClose ==
@@ -1792,9 +1997,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Samedi Ouverture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -1837,7 +2048,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.saturdayOpeningControllerValidator.asValidator(context),
                                                                             ),
@@ -1874,9 +2089,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Samedi Fermeture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -1919,7 +2140,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.saturdayClosingControllerValidator.asValidator(context),
                                                                             ),
@@ -1940,7 +2165,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                     'Fermé',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   Theme(
                                                                     data:
@@ -1999,6 +2230,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ));
                                                                         }
                                                                       },
+                                                                      side:
+                                                                          BorderSide(
+                                                                        width:
+                                                                            2,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                      ),
                                                                       activeColor:
                                                                           FlutterFlowTheme.of(context)
                                                                               .primary,
@@ -2036,7 +2274,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                 'Dimanche',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               if (wrapScheduleRecord
                                                                       ?.sundayIsClose ==
@@ -2077,9 +2321,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Dimanche Ouverture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -2122,7 +2372,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.sundayOpeningControllerValidator.asValidator(context),
                                                                             ),
@@ -2159,9 +2413,15 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
                                                                                 labelText: 'Dimanche Fermeture',
-                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                                                                                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 hintText: '00:00 ',
-                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                                                                                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).accent2,
@@ -2204,7 +2464,11 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                                       )
                                                                                     : null,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                              minLines: null,
                                                                               keyboardType: TextInputType.datetime,
                                                                               validator: _model.sundayClosingControllerValidator.asValidator(context),
                                                                             ),
@@ -2225,7 +2489,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                     'Fermé',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   Theme(
                                                                     data:
@@ -2284,6 +2554,13 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                                           ));
                                                                         }
                                                                       },
+                                                                      side:
+                                                                          BorderSide(
+                                                                        width:
+                                                                            2,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                      ),
                                                                       activeColor:
                                                                           FlutterFlowTheme.of(context)
                                                                               .primary,
@@ -2529,6 +2806,7 @@ class _UpdateEstStep2WidgetState extends State<UpdateEstStep2Widget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: const BorderSide(

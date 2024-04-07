@@ -158,6 +158,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           context)
                                                       .primaryText,
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -176,6 +177,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent2,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -197,6 +199,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 fontSize: 22.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                         Padding(
@@ -215,6 +218,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             context)
                                                         .accent2,
                                                     fontSize: 30.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                     fontStyle: FontStyle.italic,
@@ -299,6 +303,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -357,6 +362,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
@@ -408,6 +414,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBtnText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -464,6 +471,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBtnText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -490,6 +498,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                   ),
@@ -510,7 +519,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               BoxShadow(
                                                 blurRadius: 5.0,
                                                 color: Color(0x3314181B),
-                                                offset: Offset(0.0, 2.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
                                               )
                                             ],
                                             shape: BoxShape.circle,
@@ -534,7 +546,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               BoxShadow(
                                                 blurRadius: 5.0,
                                                 color: Color(0x3314181B),
-                                                offset: Offset(0.0, 2.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
                                               )
                                             ],
                                             shape: BoxShape.circle,
@@ -558,7 +573,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               BoxShadow(
                                                 blurRadius: 5.0,
                                                 color: Color(0x3314181B),
-                                                offset: Offset(0.0, 2.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
                                               )
                                             ],
                                             shape: BoxShape.circle,
@@ -623,6 +641,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 fontFamily: 'Poppins',
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 fontSize: 22.0,
+                                letterSpacing: 0.0,
                               ),
                     ),
                     actions: const [],
@@ -1036,10 +1055,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                                 'Nom *',
                                                                             labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                             hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w300,
                                                                                 ),
                                                                             enabledBorder:
@@ -1084,9 +1105,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                                 0.0,
                                                                                 16.0),
                                                                           ),
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                           maxLines:
+                                                                              null,
+                                                                          minLines:
                                                                               null,
                                                                           validator: _model
                                                                               .lastNameController1Validator
@@ -1108,14 +1135,18 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               false,
                                                                           decoration:
                                                                               InputDecoration(
+                                                                            isDense:
+                                                                                false,
                                                                             labelText:
                                                                                 'Prénom *',
                                                                             labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                             hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w300,
                                                                                 ),
                                                                             enabledBorder:
@@ -1160,9 +1191,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                                 0.0,
                                                                                 16.0),
                                                                           ),
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                           maxLines:
+                                                                              null,
+                                                                          minLines:
                                                                               null,
                                                                           validator: _model
                                                                               .firstNameController1Validator
@@ -1197,6 +1234,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1206,6 +1245,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w300,
                                                                           ),
@@ -1270,8 +1311,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                     maxLines:
+                                                                        null,
+                                                                    minLines:
                                                                         null,
                                                                     validator: _model
                                                                         .emailAddressController1Validator
@@ -1303,6 +1352,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                                 'Poppins',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1312,6 +1363,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1380,10 +1433,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
                                                                         ),
                                                                     maxLines:
+                                                                        null,
+                                                                    minLines:
                                                                         null,
                                                                     validator: _model
                                                                         .phoneController1Validator
@@ -1430,6 +1487,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
                                                                         ),
@@ -1515,6 +1574,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
                                                                                 ),
                                                                           ),
@@ -1695,6 +1755,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           'Poppins',
                                                                       color: Colors
                                                                           .white,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
@@ -1805,7 +1867,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                     'Parametres',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                                 Icon(
@@ -1882,6 +1950,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).alternate,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1964,6 +2034,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -2004,7 +2076,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ],
                                         ),
@@ -2038,6 +2114,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
                                             borderSide: const BorderSide(
@@ -2438,10 +2515,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               labelText: 'Nom *',
                                                                               labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                               hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w300,
                                                                                   ),
                                                                               enabledBorder: OutlineInputBorder(
@@ -2476,9 +2555,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               contentPadding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 16.0),
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                             maxLines:
+                                                                                null,
+                                                                            minLines:
                                                                                 null,
                                                                             validator:
                                                                                 _model.lastNameController2Validator.asValidator(context),
@@ -2498,13 +2581,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                                 false,
                                                                             decoration:
                                                                                 InputDecoration(
+                                                                              isDense: false,
                                                                               labelText: 'Prénom *',
                                                                               labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                               hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w300,
                                                                                   ),
                                                                               enabledBorder: OutlineInputBorder(
@@ -2539,9 +2625,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               contentPadding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 16.0),
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                             maxLines:
+                                                                                null,
+                                                                            minLines:
                                                                                 null,
                                                                             validator:
                                                                                 _model.firstNameController2Validator.asValidator(context),
@@ -2573,12 +2663,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                             .bodySmall
                                                                             .override(
                                                                               fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                         hintStyle: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
                                                                               fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w300,
                                                                             ),
                                                                         enabledBorder:
@@ -2641,8 +2733,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                       maxLines:
+                                                                          null,
+                                                                      minLines:
                                                                           null,
                                                                       validator: _model
                                                                           .emailAddressController2Validator
@@ -2671,12 +2771,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                         hintStyle: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
                                                                               fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                         enabledBorder:
@@ -2743,10 +2845,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                           ),
                                                                       maxLines:
+                                                                          null,
+                                                                      minLines:
                                                                           null,
                                                                       validator: _model
                                                                           .phoneController2Validator
@@ -2791,6 +2897,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                           ),
@@ -2872,6 +2980,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -3041,6 +3150,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                           'Poppins',
                                                                       color: Colors
                                                                           .white,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
@@ -3132,7 +3243,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                   'Parametres',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyMedium,
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                               Icon(
@@ -3188,6 +3305,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .alternate,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3248,6 +3367,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3286,7 +3407,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 textAlign: TextAlign.center,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .titleMedium,
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ],
                                           ),
@@ -3320,6 +3445,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               elevation: 3.0,
                                               borderSide: const BorderSide(

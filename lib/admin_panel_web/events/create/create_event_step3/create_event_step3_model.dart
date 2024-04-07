@@ -43,8 +43,6 @@ class CreateEventStep3Model extends FlutterFlowModel<CreateEventStep3Widget> {
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
   PromotionEventRecord? promotionEventCreation;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -66,8 +64,4 @@ class CreateEventStep3Model extends FlutterFlowModel<CreateEventStep3Widget> {
     nbrEntranceFocusNode?.dispose();
     nbrEntranceController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

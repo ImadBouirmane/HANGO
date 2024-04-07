@@ -48,7 +48,10 @@ class _EmptyImageWidgetState extends State<EmptyImageWidget> {
         alignment: const AlignmentDirectional(0.0, 0.0),
         child: Text(
           'Aucune Image inséré',
-          style: FlutterFlowTheme.of(context).titleMedium,
+          style: FlutterFlowTheme.of(context).titleMedium.override(
+                fontFamily: 'Poppins',
+                letterSpacing: 0.0,
+              ),
         ),
       ),
     );

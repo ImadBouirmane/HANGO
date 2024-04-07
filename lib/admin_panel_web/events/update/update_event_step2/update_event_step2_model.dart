@@ -11,8 +11,6 @@ class UpdateEventStep2Model extends FlutterFlowModel<UpdateEventStep2Widget> {
   // Model for AdminSideBar component.
   late AdminSideBarModel adminSideBarModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -23,8 +21,4 @@ class UpdateEventStep2Model extends FlutterFlowModel<UpdateEventStep2Widget> {
     unfocusNode.dispose();
     adminSideBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

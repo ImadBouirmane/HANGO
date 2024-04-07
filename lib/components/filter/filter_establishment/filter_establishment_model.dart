@@ -38,8 +38,6 @@ class FilterEstablishmentModel
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue6;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -48,8 +46,4 @@ class FilterEstablishmentModel
     expandableController1.dispose();
     expandableController2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

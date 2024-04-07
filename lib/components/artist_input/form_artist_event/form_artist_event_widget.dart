@@ -76,6 +76,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                     style: FlutterFlowTheme.of(context).titleMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).primary,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -98,8 +99,16 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Nom de l\'artiste',
-                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                        hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).accent2,
@@ -134,7 +143,9 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
                             fontSize: 14.0,
+                            letterSpacing: 0.0,
                           ),
+                      minLines: null,
                       validator: _model.artistNameTextFieldControllerValidator
                           .asValidator(context),
                     ),
@@ -158,7 +169,12 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                               _model.datePicked?.toString(),
                               '--:--',
                             ),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           FFButtonWidget(
                             onPressed: () async {
@@ -196,6 +212,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                               elevation: 3.0,
@@ -346,6 +363,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -365,12 +383,17 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )
                                                 ],
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             RichText(
@@ -388,6 +411,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -414,12 +438,17 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )
                                                 ],
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                           ]
@@ -490,6 +519,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).primary,
+                                    letterSpacing: 0.0,
                                   ),
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).primary,
@@ -517,6 +547,7 @@ class _FormArtistEventWidgetState extends State<FormArtistEventWidget> {
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
+                                    letterSpacing: 0.0,
                                   ),
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).primary,

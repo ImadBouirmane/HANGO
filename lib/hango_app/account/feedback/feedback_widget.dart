@@ -66,7 +66,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
+              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
@@ -89,6 +89,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).primary,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: const [],
@@ -131,7 +132,11 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                         header: Text(
                                           'Suggestion',
                                           style: FlutterFlowTheme.of(context)
-                                              .titleSmall,
+                                              .titleSmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                         collapsed: Container(
                                           decoration: const BoxDecoration(),
@@ -165,11 +170,23 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
@@ -221,8 +238,13 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     maxLines: 8,
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController1Validator
                                                         .asValidator(context),
@@ -296,6 +318,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           duration: const Duration(
@@ -343,6 +367,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                     'Poppins',
                                                                 color: Colors
                                                                     .white,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: const BorderSide(
@@ -393,7 +419,11 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                         header: Text(
                                           'Rapport',
                                           style: FlutterFlowTheme.of(context)
-                                              .titleSmall,
+                                              .titleSmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                         collapsed: Container(
                                           decoration: const BoxDecoration(),
@@ -427,11 +457,23 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
@@ -483,8 +525,13 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     maxLines: 8,
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController2Validator
                                                         .asValidator(context),
@@ -558,6 +605,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           duration: const Duration(
@@ -605,6 +654,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                     'Poppins',
                                                                 color: Colors
                                                                     .white,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: const BorderSide(
@@ -684,7 +735,11 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                           header: Text(
                                             'Suggestion',
                                             style: FlutterFlowTheme.of(context)
-                                                .titleSmall,
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                           collapsed: Container(
                                             decoration: const BoxDecoration(),
@@ -719,11 +774,23 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         enabledBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
@@ -781,11 +848,16 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                       15.0),
                                                         ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       maxLines: 8,
+                                                      minLines: null,
                                                       validator: _model
                                                           .textController3Validator
                                                           .asValidator(context),
@@ -859,6 +931,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBackground,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             duration: const Duration(
@@ -906,6 +980,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                       'Poppins',
                                                                   color: Colors
                                                                       .white,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                         elevation: 3.0,
                                                         borderSide: const BorderSide(
@@ -958,7 +1034,11 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                           header: Text(
                                             'Rapport',
                                             style: FlutterFlowTheme.of(context)
-                                                .titleSmall,
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                           collapsed: Container(
                                             decoration: const BoxDecoration(),
@@ -993,11 +1073,23 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         enabledBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
@@ -1055,11 +1147,16 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                       15.0),
                                                         ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       maxLines: 8,
+                                                      minLines: null,
                                                       validator: _model
                                                           .textController4Validator
                                                           .asValidator(context),
@@ -1132,6 +1229,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBackground,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             duration: const Duration(
@@ -1179,6 +1278,8 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                                                       'Poppins',
                                                                   color: Colors
                                                                       .white,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                         elevation: 3.0,
                                                         borderSide: const BorderSide(

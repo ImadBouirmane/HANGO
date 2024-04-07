@@ -182,6 +182,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -238,7 +239,10 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
-                                            offset: Offset(0.0, 2.0),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
                                           )
                                         ],
                                         borderRadius:
@@ -288,6 +292,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -355,10 +361,13 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .eventTitleControllerValidator
                                                             .asValidator(
@@ -384,6 +393,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -451,11 +462,14 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
                                                         maxLines: 5,
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFDescriionControllerValidator
                                                             .asValidator(
@@ -475,7 +489,13 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   'Inserez une date',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleSmall,
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ],
@@ -509,7 +529,13 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                               FlutterFlowIconButton(
                                                                 borderColor:
@@ -588,7 +614,13 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   'Inserez un horaire d\'ouverture et de fermeture',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleSmall,
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ],
@@ -652,7 +684,10 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                     : '--:--',
                                                                                 '--:--',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
                                                                             ),
                                                                             FFButtonWidget(
                                                                               onPressed: () async {
@@ -684,6 +719,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w300,
                                                                                     ),
                                                                                 elevation: 3.0,
@@ -733,7 +769,10 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                     : '--:--',
                                                                                 '--:--',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
                                                                             ),
                                                                             FFButtonWidget(
                                                                               onPressed: () async {
@@ -765,6 +804,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w300,
                                                                                     ),
                                                                                 elevation: 3.0,
@@ -808,6 +848,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -875,10 +917,13 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFURLWebSiteControllerValidator
                                                             .asValidator(
@@ -909,6 +954,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               color: FlutterFlowTheme.of(context).primary,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
                                                                             ),
                                                                       ),
@@ -920,12 +966,19 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               color: FlutterFlowTheme.of(context).accent1,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       )
                                                                     ],
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -951,6 +1004,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -1016,10 +1071,13 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                            minLines: null,
                                                             keyboardType:
                                                                 const TextInputType
                                                                     .numberWithOptions(
@@ -1088,6 +1146,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                           ),
@@ -1120,6 +1180,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).accent2,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -1156,8 +1218,12 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                             FlutterFlowTheme.of(context).primaryBtnText,
                                                                         checkboxBorderColor:
                                                                             FlutterFlowTheme.of(context).accent2,
-                                                                        textStyle:
-                                                                            FlutterFlowTheme.of(context).bodyMedium,
+                                                                        textStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                         checkboxBorderRadius:
                                                                             BorderRadius.circular(4.0),
                                                                         initialized:
@@ -1236,6 +1302,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                           ),
@@ -1268,6 +1336,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).accent2,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -1304,8 +1374,12 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                             FlutterFlowTheme.of(context).primaryBtnText,
                                                                         checkboxBorderColor:
                                                                             FlutterFlowTheme.of(context).accent2,
-                                                                        textStyle:
-                                                                            FlutterFlowTheme.of(context).bodyMedium,
+                                                                        textStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                         checkboxBorderRadius:
                                                                             BorderRadius.circular(4.0),
                                                                         initialized:
@@ -1629,6 +1703,8 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           duration: const Duration(
@@ -1676,6 +1752,7 @@ class _CreateEventsStep1WidgetState extends State<CreateEventsStep1Widget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: const BorderSide(

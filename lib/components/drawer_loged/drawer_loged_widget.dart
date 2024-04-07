@@ -103,6 +103,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                   fontFamily: 'Poppins',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                           ),
@@ -119,6 +120,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                   fontFamily: 'Poppins',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                 ),
                           ),
@@ -136,8 +138,12 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: 'Écris nous !',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: Color(0xFF10212E),
@@ -171,9 +177,11 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                     .labelSmall
                                     .override(
                                       fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                                 maxLines: null,
+                                minLines: null,
                                 validator: _model.textControllerValidator
                                     .asValidator(context),
                               ),
@@ -205,6 +213,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                         duration: const Duration(milliseconds: 2000),
@@ -232,6 +241,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBtnText,
+                                          letterSpacing: 0.0,
                                         ),
                                     borderSide: const BorderSide(
                                       color: Color(0xFF57CFAD),
@@ -291,6 +301,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: const BorderSide(
@@ -312,6 +323,7 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 fontSize: 10.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w300,
                               ),
                         ),
@@ -331,7 +343,10 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x3314181B),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   shape: BoxShape.circle,
@@ -354,7 +369,10 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x3314181B),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   shape: BoxShape.circle,
@@ -377,7 +395,10 @@ class _DrawerLogedWidgetState extends State<DrawerLogedWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x3314181B),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   shape: BoxShape.circle,

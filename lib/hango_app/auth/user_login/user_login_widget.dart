@@ -175,6 +175,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -189,6 +190,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 30.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                         ),
@@ -265,6 +267,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                         .headlineLarge
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -282,6 +285,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 30.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
                                                         ),
@@ -336,6 +340,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -349,6 +355,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w300,
@@ -421,8 +429,15 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         maxLines: null,
+                                                        minLines: null,
                                                         validator: _model
                                                             .emailAddressController1Validator
                                                             .asValidator(
@@ -464,6 +479,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -477,6 +494,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -568,10 +587,15 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .passwordController1Validator
                                                           .asValidator(context),
@@ -617,6 +641,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                           decoration:
@@ -696,6 +721,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBtnText,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           duration: const Duration(
@@ -743,6 +770,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -799,6 +828,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -875,14 +905,16 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryBtnText,
+                                                                .primaryBackground,
                                                             boxShadow: const [
                                                               BoxShadow(
                                                                 blurRadius: 5.0,
                                                                 color: Color(
                                                                     0x3314181B),
                                                                 offset: Offset(
-                                                                    0.0, 2.0),
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
                                                               )
                                                             ],
                                                             borderRadius:
@@ -894,7 +926,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                             border: Border.all(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .accent2,
+                                                                  .lineColor,
                                                             ),
                                                           ),
                                                           alignment:
@@ -962,7 +994,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryBtnText,
+                                                                    .primaryBackground,
                                                                 boxShadow: const [
                                                                   BoxShadow(
                                                                     blurRadius:
@@ -971,8 +1003,9 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                         0x3314181B),
                                                                     offset:
                                                                         Offset(
-                                                                            0.0,
-                                                                            2.0),
+                                                                      0.0,
+                                                                      2.0,
+                                                                    ),
                                                                   )
                                                                 ],
                                                                 borderRadius:
@@ -985,7 +1018,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                     Border.all(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .accent2,
+                                                                      .lineColor,
                                                                 ),
                                                               ),
                                                               alignment:
@@ -1042,6 +1075,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -1071,6 +1105,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         decoration:
@@ -1113,6 +1148,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                   decoration:
                                                       TextDecoration.underline,
@@ -1228,6 +1264,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1241,6 +1279,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w300,
@@ -1312,8 +1352,15 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyMedium,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                           maxLines: null,
+                                                          minLines: null,
                                                           validator: _model
                                                               .emailAddressController2Validator
                                                               .asValidator(
@@ -1356,6 +1403,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -1369,6 +1418,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w300,
@@ -1464,7 +1515,14 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .passwordController2Validator
                                                             .asValidator(
@@ -1520,6 +1578,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                         context)
                                                                     .primaryText,
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1601,6 +1661,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             duration: const Duration(
@@ -1649,6 +1711,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                       .white,
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -1709,6 +1773,8 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1797,8 +1863,9 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                       0x3314181B),
                                                                   offset:
                                                                       Offset(
-                                                                          0.0,
-                                                                          2.0),
+                                                                    0.0,
+                                                                    2.0,
+                                                                  ),
                                                                 )
                                                               ],
                                                               borderRadius:
@@ -1887,9 +1954,11 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                                           5.0,
                                                                       color: Color(
                                                                           0x3314181B),
-                                                                      offset: Offset(
-                                                                          0.0,
-                                                                          2.0),
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        2.0,
+                                                                      ),
                                                                     )
                                                                   ],
                                                                   borderRadius:
@@ -1962,6 +2031,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -1990,20 +2060,20 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                     },
                                                     child: Text(
                                                       'Créer un compte',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                                decoration:
-                                                                    TextDecoration
-                                                                        .underline,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
+                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -2065,6 +2135,7 @@ class _UserLoginWidgetState extends State<UserLoginWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                           decoration:

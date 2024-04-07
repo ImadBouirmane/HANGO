@@ -53,6 +53,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).primary,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: const [],

@@ -23,6 +23,8 @@ void main() async {
   usePathUrlStrategy();
   await initFirebase();
 
+  await FlutterFlowTheme.initialize();
+
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
@@ -51,7 +53,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
-  ThemeMode _themeMode = ThemeMode.system;
+  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
   late Stream<BaseAuthUser> userStream;
 
@@ -88,6 +90,7 @@ class _MyAppState extends State<MyApp> {
 
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
+        FlutterFlowTheme.saveThemeMode(mode);
       });
 
   @override
@@ -106,6 +109,25 @@ class _MyAppState extends State<MyApp> {
       ],
       theme: ThemeData(
         brightness: Brightness.light,
+        scrollbarTheme: ScrollbarThemeData(
+          thumbVisibility: MaterialStateProperty.all(false),
+          trackVisibility: MaterialStateProperty.all(true),
+          interactive: true,
+          radius: const Radius.circular(15.0),
+          thumbColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.dragged)) {
+              return const Color(0x5d39d2c0);
+            }
+            if (states.contains(MaterialState.hovered)) {
+              return const Color(0x5d39d2c0);
+            }
+            return const Color(0x5d39d2c0);
+          }),
+        ),
+        useMaterial3: false,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
         scrollbarTheme: ScrollbarThemeData(
           thumbVisibility: MaterialStateProperty.all(false),
           trackVisibility: MaterialStateProperty.all(true),
@@ -177,7 +199,7 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: Colors.white,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           color: FlutterFlowTheme.of(context).primaryText,
           activeColor: FlutterFlowTheme.of(context).primaryBackground,
           tabBackgroundColor: FlutterFlowTheme.of(context).primary,

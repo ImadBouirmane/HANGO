@@ -33,8 +33,6 @@ class ManagerSignUpModel extends FlutterFlowModel<ManagerSignUpWidget> {
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   NotificationsRecord? newNotif;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -56,8 +54,4 @@ class ManagerSignUpModel extends FlutterFlowModel<ManagerSignUpWidget> {
     estNameFocusNode?.dispose();
     estNameController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

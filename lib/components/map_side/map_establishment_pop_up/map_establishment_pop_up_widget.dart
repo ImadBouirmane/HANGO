@@ -242,7 +242,11 @@ class _MapEstablishmentPopUpWidgetState
                                           containerEstablishmentsRecord.name,
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         )),
                                       ),
                                     ],
@@ -281,6 +285,7 @@ class _MapEstablishmentPopUpWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: const BorderSide(
@@ -484,7 +489,11 @@ class _MapEstablishmentPopUpWidgetState
                                           containerEstablishmentsRecord.name,
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         )),
                                       ),
                                     ],
@@ -523,6 +532,7 @@ class _MapEstablishmentPopUpWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: const BorderSide(

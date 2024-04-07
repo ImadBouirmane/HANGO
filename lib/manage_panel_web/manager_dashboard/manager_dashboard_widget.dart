@@ -200,7 +200,9 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                             color: Color(
                                                                 0x33000000),
                                                             offset: Offset(
-                                                                0.0, 2.0),
+                                                              0.0,
+                                                              2.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -277,7 +279,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                     Expanded(
                                                                                       child: Text(
                                                                                         'Mes Événements',
-                                                                                        style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                        style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              letterSpacing: 0.0,
+                                                                                            ),
                                                                                       ),
                                                                                     ),
                                                                                     FFButtonWidget(
@@ -304,6 +309,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                               fontFamily: 'Poppins',
                                                                                               color: Colors.white,
+                                                                                              letterSpacing: 0.0,
                                                                                             ),
                                                                                         elevation: 3.0,
                                                                                         borderSide: const BorderSide(
@@ -313,7 +319,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                         borderRadius: BorderRadius.circular(15.0),
                                                                                       ),
                                                                                     ),
-                                                                                  ].addToStart(const SizedBox(width: 15.0)),
+                                                                                  ].divide(const SizedBox(width: 10.0)).addToStart(const SizedBox(width: 15.0)),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -448,6 +454,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                           style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                                                                 fontFamily: 'Poppins',
                                                                                                                                 color: FlutterFlowTheme.of(context).primary,
+                                                                                                                                letterSpacing: 0.0,
                                                                                                                               ),
                                                                                                                         )),
                                                                                                                         Text(
@@ -456,7 +463,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                             rowScheduleEventRecord!.date!,
                                                                                                                             locale: FFLocalizations.of(context).languageCode,
                                                                                                                           ),
-                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                fontFamily: 'Poppins',
+                                                                                                                                letterSpacing: 0.0,
+                                                                                                                              ),
                                                                                                                         ),
                                                                                                                         Container(
                                                                                                                           decoration: BoxDecoration(
@@ -470,7 +480,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                               children: [
                                                                                                                                 Text(
                                                                                                                                   'Promotion en cours',
-                                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                                        letterSpacing: 0.0,
+                                                                                                                                      ),
                                                                                                                                 ),
                                                                                                                                 const FaIcon(
                                                                                                                                   FontAwesomeIcons.percentage,
@@ -623,6 +636,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                         style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                                                               fontFamily: 'Poppins',
                                                                                                                               color: FlutterFlowTheme.of(context).primary,
+                                                                                                                              letterSpacing: 0.0,
                                                                                                                             ),
                                                                                                                       ),
                                                                                                                     ),
@@ -650,6 +664,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                               fontFamily: 'Poppins',
                                                                                                                               color: Colors.white,
+                                                                                                                              letterSpacing: 0.0,
                                                                                                                             ),
                                                                                                                         elevation: 3.0,
                                                                                                                         borderSide: const BorderSide(
@@ -691,7 +706,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                 backgroundColor: FlutterFlowTheme.of(context).accent4,
                                                                                                                                 center: Text(
                                                                                                                                   '50%',
-                                                                                                                                  style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                                                                  style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                                        letterSpacing: 0.0,
+                                                                                                                                      ),
                                                                                                                                 ),
                                                                                                                               ),
                                                                                                                               Expanded(
@@ -716,6 +734,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                                         fontFamily: 'Poppins',
                                                                                                                                                         color: FlutterFlowTheme.of(context).primary,
+                                                                                                                                                        letterSpacing: 0.0,
                                                                                                                                                       ),
                                                                                                                                                 ),
                                                                                                                                               ),
@@ -726,7 +745,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                               containerPromotionEventRecord.subTitle,
                                                                                                                                               'Aucune',
                                                                                                                                             ),
-                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                  fontFamily: 'Poppins',
+                                                                                                                                                  letterSpacing: 0.0,
+                                                                                                                                                ),
                                                                                                                                           ),
                                                                                                                                           Text(
                                                                                                                                             valueOrDefault<String>(
@@ -741,7 +763,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                               )}',
                                                                                                                                               'Il n\'y a pas !',
                                                                                                                                             ),
-                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                                  fontFamily: 'Poppins',
+                                                                                                                                                  letterSpacing: 0.0,
+                                                                                                                                                ),
                                                                                                                                           ),
                                                                                                                                         ],
                                                                                                                                       ),
@@ -910,7 +935,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                       Expanded(
                                                                                         child: Text(
                                                                                           'Mon établissement',
-                                                                                          style: FlutterFlowTheme.of(context).headlineSmall,
+                                                                                          style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
                                                                                         ),
                                                                                       ),
                                                                                       FFButtonWidget(
@@ -937,6 +965,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                           textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                 fontFamily: 'Poppins',
                                                                                                 color: Colors.white,
+                                                                                                letterSpacing: 0.0,
                                                                                               ),
                                                                                           elevation: 3.0,
                                                                                           borderSide: const BorderSide(
@@ -964,7 +993,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                     width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                     height: MediaQuery.sizeOf(context).height * 1.069,
                                                                                     decoration: BoxDecoration(
-                                                                                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                       borderRadius: BorderRadius.circular(16.0),
                                                                                       border: Border.all(
                                                                                         color: FlutterFlowTheme.of(context).accent3,
@@ -1163,13 +1192,16 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                         padding: const EdgeInsets.all(8.0),
                                                                                                         child: Container(
                                                                                                           width: double.infinity,
-                                                                                                          color: Colors.white,
+                                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                           child: ExpandableNotifier(
                                                                                                             controller: _model.expandableController2,
                                                                                                             child: ExpandablePanel(
                                                                                                               header: Text(
                                                                                                                 establishmenDetailsEstablishmentsRecord.name,
-                                                                                                                style: FlutterFlowTheme.of(context).titleLarge,
+                                                                                                                style: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                                                                      fontFamily: 'Poppins',
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
                                                                                                               ),
                                                                                                               collapsed: Container(
                                                                                                                 width: MediaQuery.sizeOf(context).width * 1.0,
@@ -1184,6 +1216,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                           fontFamily: 'Poppins',
                                                                                                                           color: FlutterFlowTheme.of(context).accent2,
+                                                                                                                          letterSpacing: 0.0,
                                                                                                                           fontWeight: FontWeight.w300,
                                                                                                                         ),
                                                                                                                   ),
@@ -1201,6 +1234,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                               fontFamily: 'Poppins',
                                                                                                                               color: const Color(0x8A000000),
+                                                                                                                              letterSpacing: 0.0,
                                                                                                                               fontWeight: FontWeight.w300,
                                                                                                                             ),
                                                                                                                       ),
@@ -1208,12 +1242,13 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                   ],
                                                                                                                 ),
                                                                                                               ),
-                                                                                                              theme: const ExpandableThemeData(
+                                                                                                              theme: ExpandableThemeData(
                                                                                                                 tapHeaderToExpand: true,
                                                                                                                 tapBodyToExpand: false,
                                                                                                                 tapBodyToCollapse: false,
                                                                                                                 headerAlignment: ExpandablePanelHeaderAlignment.center,
                                                                                                                 hasIcon: true,
+                                                                                                                iconColor: FlutterFlowTheme.of(context).lineColor,
                                                                                                               ),
                                                                                                             ),
                                                                                                           ),
@@ -1277,6 +1312,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                   fontFamily: 'Poppins',
                                                                                                                                   color: FlutterFlowTheme.of(context).accent2,
+                                                                                                                                  letterSpacing: 0.0,
                                                                                                                                   fontWeight: FontWeight.w300,
                                                                                                                                 ),
                                                                                                                           ),
@@ -1292,6 +1328,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                 establishmenDetailsEstablishmentsRecord.type.first,
                                                                                                                                 style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                                       fontFamily: 'Poppins',
+                                                                                                                                      letterSpacing: 0.0,
                                                                                                                                       fontWeight: FontWeight.w600,
                                                                                                                                     ),
                                                                                                                               ),
@@ -1333,6 +1370,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                   fontFamily: 'Poppins',
                                                                                                                                   color: FlutterFlowTheme.of(context).accent2,
+                                                                                                                                  letterSpacing: 0.0,
                                                                                                                                   fontWeight: FontWeight.w300,
                                                                                                                                 ),
                                                                                                                           ),
@@ -1348,6 +1386,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                 establishmenDetailsEstablishmentsRecord.musicStyle.first,
                                                                                                                                 style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                                       fontFamily: 'Poppins',
+                                                                                                                                      letterSpacing: 0.0,
                                                                                                                                       fontWeight: FontWeight.w600,
                                                                                                                                     ),
                                                                                                                               ),
@@ -1391,7 +1430,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                         children: [
                                                                                                           Text(
                                                                                                             'Détails',
-                                                                                                            style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                                            style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                                  fontFamily: 'Poppins',
+                                                                                                                  letterSpacing: 0.0,
+                                                                                                                ),
                                                                                                           ),
                                                                                                         ],
                                                                                                       ),
@@ -1402,7 +1444,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                       children: [
                                                                                                         Text(
                                                                                                           'Réservation',
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Poppins',
+                                                                                                                letterSpacing: 0.0,
+                                                                                                              ),
                                                                                                         ),
                                                                                                         Row(
                                                                                                           mainAxisSize: MainAxisSize.max,
@@ -1436,7 +1481,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                       children: [
                                                                                                         Text(
                                                                                                           'Terrasse',
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Poppins',
+                                                                                                                letterSpacing: 0.0,
+                                                                                                              ),
                                                                                                         ),
                                                                                                         Row(
                                                                                                           mainAxisSize: MainAxisSize.max,
@@ -1467,7 +1515,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                       children: [
                                                                                                         Text(
                                                                                                           'Machine à cigarette ',
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Poppins',
+                                                                                                                letterSpacing: 0.0,
+                                                                                                              ),
                                                                                                         ),
                                                                                                         Row(
                                                                                                           mainAxisSize: MainAxisSize.max,
@@ -1506,7 +1557,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                               children: [
                                                                                                                 Text(
                                                                                                                   'Nourriture',
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
                                                                                                                 ),
                                                                                                               ],
                                                                                                             ),
@@ -1537,6 +1591,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                         fontFamily: 'Poppins',
                                                                                                                                         color: FlutterFlowTheme.of(context).accent2,
+                                                                                                                                        letterSpacing: 0.0,
                                                                                                                                         fontWeight: FontWeight.w300,
                                                                                                                                       ),
                                                                                                                                 ),
@@ -1582,7 +1637,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                       children: [
                                                                                                         Text(
                                                                                                           'Spécialité',
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Poppins',
+                                                                                                                letterSpacing: 0.0,
+                                                                                                              ),
                                                                                                         ),
                                                                                                         Row(
                                                                                                           mainAxisSize: MainAxisSize.min,
@@ -1606,6 +1664,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                               fontFamily: 'Poppins',
                                                                                                                               color: FlutterFlowTheme.of(context).accent2,
+                                                                                                                              letterSpacing: 0.0,
                                                                                                                               fontWeight: FontWeight.w300,
                                                                                                                             ),
                                                                                                                       ),
@@ -1653,7 +1712,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                               children: [
                                                                                                                 Text(
                                                                                                                   'Jeux',
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
                                                                                                                 ),
                                                                                                               ],
                                                                                                             ),
@@ -1684,6 +1746,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                         fontFamily: 'Poppins',
                                                                                                                                         color: FlutterFlowTheme.of(context).accent2,
+                                                                                                                                        letterSpacing: 0.0,
                                                                                                                                         fontWeight: FontWeight.w300,
                                                                                                                                       ),
                                                                                                                                 ),
@@ -1771,7 +1834,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             children: [
                                                                                                               Text(
                                                                                                                 'Horaires',
-                                                                                                                style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                                                style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                                                      fontFamily: 'Poppins',
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
                                                                                                               ),
                                                                                                             ],
                                                                                                           ),
@@ -1782,14 +1848,20 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               'Lundi',
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                             Text(
                                                                                                               valueOrDefault<String>(
                                                                                                                 scheduleScheduleRecord?.mondayIsClose == true ? 'Fermé' : '${scheduleScheduleRecord?.mondayOpening}-${scheduleScheduleRecord?.mondayClosing}',
                                                                                                                 'Aucun horaire',
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                           ],
                                                                                                         ),
@@ -1803,14 +1875,20 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               'Mardi',
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                             Text(
                                                                                                               valueOrDefault<String>(
                                                                                                                 scheduleScheduleRecord?.tuesdayIsClose == true ? 'Fermé' : '${scheduleScheduleRecord?.tuesdayOpening}-${scheduleScheduleRecord?.tuesdayClosing}',
                                                                                                                 'Aucun horaire',
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                           ],
                                                                                                         ),
@@ -1824,14 +1902,20 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               'Mercredi',
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                             Text(
                                                                                                               valueOrDefault<String>(
                                                                                                                 scheduleScheduleRecord?.wednesdayIsClose == true ? 'Fermé' : '${scheduleScheduleRecord?.wednesdayOpening}-${scheduleScheduleRecord?.wednesdayClosing}',
                                                                                                                 'Aucun horaire',
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                           ],
                                                                                                         ),
@@ -1845,14 +1929,20 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               'Jeudi',
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                             Text(
                                                                                                               valueOrDefault<String>(
                                                                                                                 scheduleScheduleRecord?.thursdayIsClose == true ? 'Fermé' : '${scheduleScheduleRecord?.thursdayOpening}-${scheduleScheduleRecord?.thursdayClosing}',
                                                                                                                 'Aucun horaire',
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                           ],
                                                                                                         ),
@@ -1866,14 +1956,20 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               'Vendredi',
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                             Text(
                                                                                                               valueOrDefault<String>(
                                                                                                                 scheduleScheduleRecord?.fridayIsClose == true ? 'Fermé' : '${scheduleScheduleRecord?.fridayOpening}-${scheduleScheduleRecord?.fridayClosing}',
                                                                                                                 'Aucun horaire',
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                           ],
                                                                                                         ),
@@ -1887,14 +1983,20 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               'Samedi',
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                             Text(
                                                                                                               valueOrDefault<String>(
                                                                                                                 scheduleScheduleRecord?.saturdayIsClose == true ? 'Fermé' : '${scheduleScheduleRecord?.saturdayOpening}-${scheduleScheduleRecord?.saturdayClosing}',
                                                                                                                 'Aucun horaire',
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                           ],
                                                                                                         ),
@@ -1908,14 +2010,20 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           children: [
                                                                                                             Text(
                                                                                                               'Dimanche',
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                             Text(
                                                                                                               valueOrDefault<String>(
                                                                                                                 scheduleScheduleRecord?.sundayIsClose == true ? 'Fermé' : '${scheduleScheduleRecord?.sundayOpening}-${scheduleScheduleRecord?.sundayClosing}',
                                                                                                                 'Aucun horaire',
                                                                                                               ),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    letterSpacing: 0.0,
+                                                                                                                  ),
                                                                                                             ),
                                                                                                           ],
                                                                                                         ),
@@ -1947,6 +2055,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                           'Contact',
                                                                                                           style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                                                 fontFamily: 'Poppins',
+                                                                                                                letterSpacing: 0.0,
                                                                                                                 fontWeight: FontWeight.w600,
                                                                                                               ),
                                                                                                         ),
@@ -1964,12 +2073,18 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             children: [
                                                                                                               Text(
                                                                                                                 'Email',
-                                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                                      fontFamily: 'Poppins',
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
                                                                                                               ),
                                                                                                               SelectionArea(
                                                                                                                   child: Text(
                                                                                                                 establishmenDetailsEstablishmentsRecord.email,
-                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                      fontFamily: 'Poppins',
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
                                                                                                               )),
                                                                                                             ],
                                                                                                           ),
@@ -1987,12 +2102,18 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             children: [
                                                                                                               Text(
                                                                                                                 'Telephone',
-                                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                                      fontFamily: 'Poppins',
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
                                                                                                               ),
                                                                                                               SelectionArea(
                                                                                                                   child: Text(
                                                                                                                 establishmenDetailsEstablishmentsRecord.phoneNumber,
-                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                      fontFamily: 'Poppins',
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
                                                                                                               )),
                                                                                                             ],
                                                                                                           ),
@@ -2011,12 +2132,18 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                               children: [
                                                                                                                 Text(
                                                                                                                   'Site Web ',
-                                                                                                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
                                                                                                                 ),
                                                                                                                 SelectionArea(
                                                                                                                     child: Text(
                                                                                                                   establishmenDetailsEstablishmentsRecord.webSite,
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                        letterSpacing: 0.0,
+                                                                                                                      ),
                                                                                                                 )),
                                                                                                               ],
                                                                                                             ),
@@ -2052,6 +2179,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                             'Adresse',
                                                                                                             style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                                                   fontFamily: 'Poppins',
+                                                                                                                  letterSpacing: 0.0,
                                                                                                                   fontWeight: FontWeight.w600,
                                                                                                                 ),
                                                                                                           ),
@@ -2074,7 +2202,10 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                                                                                                   'Aucune adresse ',
                                                                                                                 ),
                                                                                                                 textAlign: TextAlign.start,
-                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                      fontFamily: 'Poppins',
+                                                                                                                      letterSpacing: 0.0,
+                                                                                                                    ),
                                                                                                               )),
                                                                                                             ),
                                                                                                           ),
@@ -2142,6 +2273,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                       fontFamily: 'Poppins',
                                       color:
                                           FlutterFlowTheme.of(context).accent1,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ].divide(const SizedBox(height: 30.0)),
@@ -2174,6 +2306,7 @@ class _ManagerDashboardWidgetState extends State<ManagerDashboardWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .accent1,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ].divide(const SizedBox(height: 30.0)),

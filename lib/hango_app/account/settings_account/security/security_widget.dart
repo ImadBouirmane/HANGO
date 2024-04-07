@@ -85,6 +85,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).primary,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: const [],
@@ -125,6 +126,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ],
@@ -186,6 +188,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           hintText:
@@ -195,6 +198,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   .bodySmall
                                                   .override(
                                                     fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -242,8 +246,13 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   16.0, 24.0, 0.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         maxLines: null,
+                                        minLines: null,
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         cursorColor:
@@ -287,6 +296,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             hintText:
@@ -296,6 +306,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                     .bodySmall
                                                     .override(
                                                       fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
@@ -343,8 +354,13 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                     16.0, 24.0, 0.0, 24.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                           maxLines: null,
+                                          minLines: null,
                                           keyboardType: TextInputType.phone,
                                           cursorColor:
                                               FlutterFlowTheme.of(context)
@@ -396,6 +412,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -434,6 +451,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             hintText:
@@ -443,6 +461,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                     .bodySmall
                                                     .override(
                                                       fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
@@ -490,8 +509,13 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                     16.0, 24.0, 0.0, 24.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                           maxLines: null,
+                                          minLines: null,
                                           keyboardType:
                                               TextInputType.emailAddress,
                                           cursorColor:
@@ -536,6 +560,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -546,6 +571,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                       .bodySmall
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -594,8 +620,13 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                           24.0),
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                             maxLines: null,
+                                            minLines: null,
                                             keyboardType: TextInputType.phone,
                                             cursorColor:
                                                 FlutterFlowTheme.of(context)

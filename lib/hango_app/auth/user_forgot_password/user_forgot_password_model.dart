@@ -12,8 +12,6 @@ class UserForgotPasswordModel
   TextEditingController? emailAddressController;
   String? Function(BuildContext, String?)? emailAddressControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -23,8 +21,4 @@ class UserForgotPasswordModel
     emailAddressFocusNode?.dispose();
     emailAddressController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

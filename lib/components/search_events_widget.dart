@@ -80,11 +80,18 @@ class _SearchEventsWidgetState extends State<SearchEventsWidget> {
                     .onError((_, __) => _model.algoliaSearchResults = [])
                     .whenComplete(() => setState(() {}));
               },
+              autofocus: false,
               obscureText: false,
               decoration: InputDecoration(
-                labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
                 hintText: 'Trouver une événement',
-                hintStyle: FlutterFlowTheme.of(context).labelLarge,
+                hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: FlutterFlowTheme.of(context).lineColor,
@@ -133,7 +140,11 @@ class _SearchEventsWidgetState extends State<SearchEventsWidget> {
                       )
                     : null,
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Poppins',
+                    letterSpacing: 0.0,
+                  ),
+              minLines: null,
               cursorColor: FlutterFlowTheme.of(context).primary,
               validator: _model.eventsSearchMobileControllerValidator
                   .asValidator(context),

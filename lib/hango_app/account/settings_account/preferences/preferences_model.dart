@@ -15,8 +15,6 @@ class PreferencesModel extends FlutterFlowModel<PreferencesWidget> {
   // State field(s) for Switch widget.
   bool? switchValue4;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -24,8 +22,4 @@ class PreferencesModel extends FlutterFlowModel<PreferencesWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -120,8 +120,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                             children: [
                               Text(
                                 'Filtrer les événements',
-                                style:
-                                    FlutterFlowTheme.of(context).headlineSmall,
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               FlutterFlowIconButton(
                                 borderColor:
@@ -160,8 +164,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 child: ExpandablePanel(
                                   header: Text(
                                     'Thème d\'événement',
-                                    style:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   collapsed: Container(
                                     decoration: const BoxDecoration(),
@@ -186,6 +194,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
@@ -205,6 +214,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                         iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
@@ -255,8 +265,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 child: ExpandablePanel(
                                   header: Text(
                                     'Genre musical',
-                                    style:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   collapsed: Container(
                                     decoration: const BoxDecoration(),
@@ -281,6 +295,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
@@ -300,6 +315,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                         iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
@@ -348,8 +364,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 },
                                 title: Text(
                                   'Weekend',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -366,8 +386,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 },
                                 title: Text(
                                   'Jeudi',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -384,8 +408,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 },
                                 title: Text(
                                   'Entrée gratuite',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -402,8 +430,12 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                 },
                                 title: Text(
                                   'Réservation',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -438,6 +470,7 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 2.0,
                                       borderSide: const BorderSide(
@@ -470,8 +503,10 @@ class _FilterEventsWidgetState extends State<FilterEventsWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            color: const Color(0xFF10212E),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 2.0,
                                       borderSide: const BorderSide(

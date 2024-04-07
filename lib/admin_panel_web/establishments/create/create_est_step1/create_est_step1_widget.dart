@@ -192,6 +192,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -244,7 +245,10 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
-                                        offset: Offset(0.0, 2.0),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(16.0),
@@ -296,6 +300,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -363,10 +369,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFNameControllerValidator
                                                             .asValidator(
@@ -392,6 +401,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -459,11 +470,14 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
                                                         maxLines: 5,
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFDescriptionControllerValidator
                                                             .asValidator(
@@ -491,7 +505,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                     'Precisez votre localization',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleSmall,
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ],
@@ -540,6 +560,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     elevation:
                                                                         2.0,
@@ -580,6 +602,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -591,6 +615,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w300,
@@ -658,10 +684,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFStreetControllerValidator
                                                             .asValidator(
@@ -695,6 +724,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -760,10 +791,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
                                                                     ),
+                                                                minLines: null,
                                                                 validator: _model
                                                                     .tFzipCodeControllerValidator
                                                                     .asValidator(
@@ -795,6 +829,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -862,10 +898,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
                                                                     ),
+                                                                minLines: null,
                                                                 validator: _model
                                                                     .tFcityControllerValidator
                                                                     .asValidator(
@@ -904,6 +943,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -969,10 +1010,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
                                                                     ),
+                                                                minLines: null,
                                                                 validator: _model
                                                                     .tFstateControllerValidator
                                                                     .asValidator(
@@ -1004,6 +1048,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
@@ -1069,10 +1115,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
                                                                     ),
+                                                                minLines: null,
                                                                 validator: _model
                                                                     .tFcountryControllerValidator
                                                                     .asValidator(
@@ -1103,6 +1152,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1172,10 +1223,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFemailAddressControllerValidator
                                                             .asValidator(
@@ -1201,6 +1255,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1270,10 +1326,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFphoneNumberControllerValidator
                                                             .asValidator(
@@ -1299,6 +1358,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1368,10 +1429,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFURLWebSiteControllerValidator
                                                             .asValidator(
@@ -1423,6 +1487,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
@@ -1437,6 +1503,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).accent2,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w300,
                                                                         ),
@@ -1476,6 +1544,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                     iconColor: FlutterFlowTheme.of(
                                                                             context)
@@ -1492,7 +1562,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             .primaryBtnText,
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleSmall,
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                     iconColor: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
@@ -1568,6 +1644,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -1604,6 +1682,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1627,6 +1706,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               color: Colors.black,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         buttonPosition:
                                                                             RadioButtonPosition.left,
@@ -1678,6 +1758,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1701,6 +1782,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               color: Colors.black,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         buttonPosition:
                                                                             RadioButtonPosition.left,
@@ -1752,6 +1834,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1775,6 +1858,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               color: Colors.black,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                         buttonPosition:
                                                                             RadioButtonPosition.left,
@@ -1850,6 +1934,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                           ),
@@ -1882,6 +1968,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).accent2,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -1918,8 +2006,12 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             FlutterFlowTheme.of(context).primaryBtnText,
                                                                         checkboxBorderColor:
                                                                             FlutterFlowTheme.of(context).accent2,
-                                                                        textStyle:
-                                                                            FlutterFlowTheme.of(context).bodyMedium,
+                                                                        textStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                         checkboxBorderRadius:
                                                                             BorderRadius.circular(4.0),
                                                                         initialized:
@@ -1998,6 +2090,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                           ),
@@ -2030,6 +2124,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                               'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).accent2,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -2069,8 +2165,12 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             FlutterFlowTheme.of(context).primaryBtnText,
                                                                         checkboxBorderColor:
                                                                             FlutterFlowTheme.of(context).accent2,
-                                                                        textStyle:
-                                                                            FlutterFlowTheme.of(context).bodyMedium,
+                                                                        textStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                         checkboxBorderRadius:
                                                                             BorderRadius.circular(4.0),
                                                                         initialized:
@@ -2118,6 +2218,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -2134,6 +2236,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -2201,10 +2305,13 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .tFspecialityControllerValidator
                                                             .asValidator(
@@ -2268,6 +2375,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -2298,6 +2406,8 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                                 'Poppins',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).accent2,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -2334,8 +2444,12 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
                                                                           checkboxBorderColor:
                                                                               FlutterFlowTheme.of(context).accent2,
-                                                                          textStyle:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                          textStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                           checkboxBorderRadius:
                                                                               BorderRadius.circular(4.0),
                                                                           initialized:
@@ -2651,6 +2765,7 @@ class _CreateEstStep1WidgetState extends State<CreateEstStep1Widget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               elevation: 3.0,
                                               borderSide: const BorderSide(

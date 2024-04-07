@@ -80,7 +80,11 @@ class _UserPhoneConfirmationNewWidgetState
                                       child: Text(
                                         'Code SMS',
                                         style: FlutterFlowTheme.of(context)
-                                            .displaySmall,
+                                            .displaySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                   ],
@@ -101,6 +105,7 @@ class _UserPhoneConfirmationNewWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent2,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -116,8 +121,12 @@ class _UserPhoneConfirmationNewWidgetState
                                 autoDisposeControllers: false,
                                 appContext: context,
                                 length: 6,
-                                textStyle:
-                                    FlutterFlowTheme.of(context).bodyLarge,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 enableActiveFill: true,
@@ -210,6 +219,7 @@ class _UserPhoneConfirmationNewWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 3.0,
@@ -252,7 +262,11 @@ class _UserPhoneConfirmationNewWidgetState
                                         child: Text(
                                           'Code SMS',
                                           style: FlutterFlowTheme.of(context)
-                                              .displaySmall,
+                                              .displaySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                     ],
@@ -274,6 +288,7 @@ class _UserPhoneConfirmationNewWidgetState
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent2,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -289,8 +304,12 @@ class _UserPhoneConfirmationNewWidgetState
                                   autoDisposeControllers: false,
                                   appContext: context,
                                   length: 6,
-                                  textStyle:
-                                      FlutterFlowTheme.of(context).bodyLarge,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   enableActiveFill: true,
@@ -387,6 +406,7 @@ class _UserPhoneConfirmationNewWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       elevation: 3.0,

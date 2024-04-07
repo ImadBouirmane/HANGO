@@ -158,6 +158,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                     TextSpan(
@@ -169,6 +170,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                     TextSpan(
@@ -177,6 +179,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                           .titleMedium
                                           .override(
                                             fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -186,8 +189,12 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                       style: TextStyle(),
                                     )
                                   ],
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 textAlign: TextAlign.center,
                               ),
@@ -224,6 +231,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(
@@ -254,6 +262,7 @@ class _ManagerWaitListWidgetState extends State<ManagerWaitListWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).primary,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(

@@ -66,8 +66,12 @@ class _UserPhoneConfirmationExistWidgetState
                             Expanded(
                               child: Text(
                                 'Confirmation du compte',
-                                style:
-                                    FlutterFlowTheme.of(context).displaySmall,
+                                style: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ],
@@ -87,6 +91,7 @@ class _UserPhoneConfirmationExistWidgetState
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -109,7 +114,12 @@ class _UserPhoneConfirmationExistWidgetState
                               autoDisposeControllers: false,
                               appContext: context,
                               length: 6,
-                              textStyle: FlutterFlowTheme.of(context).bodyLarge,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               enableActiveFill: true,
                               autoFocus: true,
@@ -199,6 +209,7 @@ class _UserPhoneConfirmationExistWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                   elevation: 3.0,
@@ -231,8 +242,12 @@ class _UserPhoneConfirmationExistWidgetState
                                 autoDisposeControllers: false,
                                 appContext: context,
                                 length: 6,
-                                textStyle:
-                                    FlutterFlowTheme.of(context).bodyLarge,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 enableActiveFill: true,
@@ -325,6 +340,7 @@ class _UserPhoneConfirmationExistWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 3.0,

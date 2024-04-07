@@ -46,8 +46,6 @@ class ShowOfEstablishmentModel
   LatLng? googleMapsCenter2;
   final googleMapsController2 = Completer<GoogleMapController>();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
@@ -64,8 +62,4 @@ class ShowOfEstablishmentModel
     backNavigationModel2.dispose();
     expandableController2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

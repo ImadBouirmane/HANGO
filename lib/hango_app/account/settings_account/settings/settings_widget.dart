@@ -71,6 +71,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       fontFamily: 'Poppins',
                       color: const Color(0xFF57CFAD),
                       fontSize: 22.0,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: const [],
@@ -154,6 +155,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -222,6 +224,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -283,6 +286,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .alternate,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -371,6 +375,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -441,6 +446,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -494,20 +500,19 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                   Expanded(
                                                     child: Text(
                                                       'Suppression du compte',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
                                                     ),
                                                   ),
                                                   Icon(

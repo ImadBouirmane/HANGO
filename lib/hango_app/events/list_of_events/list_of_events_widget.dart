@@ -158,6 +158,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -178,6 +179,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .accent2,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
                                                         ),
@@ -202,6 +204,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                     context)
                                                                 .secondary,
                                                         fontSize: 22.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                             Padding(
@@ -221,6 +224,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                     context)
                                                                 .accent2,
                                                         fontSize: 30.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontStyle:
@@ -309,6 +313,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
@@ -377,6 +382,8 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -431,6 +438,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBtnText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
@@ -490,6 +498,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBtnText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
@@ -518,6 +527,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               fontSize: 10.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                             ),
                                       ),
@@ -539,7 +549,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                   BoxShadow(
                                                     blurRadius: 5.0,
                                                     color: Color(0x3314181B),
-                                                    offset: Offset(0.0, 2.0),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
                                                   )
                                                 ],
                                                 shape: BoxShape.circle,
@@ -565,7 +578,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                   BoxShadow(
                                                     blurRadius: 5.0,
                                                     color: Color(0x3314181B),
-                                                    offset: Offset(0.0, 2.0),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
                                                   )
                                                 ],
                                                 shape: BoxShape.circle,
@@ -591,7 +607,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                   BoxShadow(
                                                     blurRadius: 5.0,
                                                     color: Color(0x3314181B),
-                                                    offset: Offset(0.0, 2.0),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
                                                   )
                                                 ],
                                                 shape: BoxShape.circle,
@@ -658,7 +677,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                   Icons.menu_rounded,
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  size: 30.0,
+                                  size: 20.0,
                                 ),
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -675,6 +694,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ].divide(const SizedBox(width: 15.0)),
@@ -792,7 +812,13 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                             titleStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                             dayOfWeekStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -800,6 +826,8 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
@@ -807,7 +835,13 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                             dateStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                             selectedDateStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -818,6 +852,8 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryBackground,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             inactiveDateStyle:
                                                                 const TextStyle(),
@@ -1063,6 +1099,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                           listEventsMobileItem.title,
                                                                                           style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                 fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
                                                                                                 fontWeight: FontWeight.w600,
                                                                                               ),
                                                                                         ),
@@ -1116,7 +1153,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                                   )}',
                                                                                                   'Aucun horaire ',
                                                                                                 ),
-                                                                                                style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                                style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      letterSpacing: 0.0,
+                                                                                                    ),
                                                                                               ),
                                                                                             ),
                                                                                           ],
@@ -1150,7 +1190,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                         Expanded(
                                                                                           child: Text(
                                                                                             rowEstablishmentsRecord.name,
-                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  letterSpacing: 0.0,
+                                                                                                ),
                                                                                           ),
                                                                                         ),
                                                                                         Text(
@@ -1158,6 +1201,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                           style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                 fontFamily: 'Poppins',
                                                                                                 color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                letterSpacing: 0.0,
                                                                                               ),
                                                                                         ),
                                                                                       ].divide(const SizedBox(width: 15.0)),
@@ -1277,7 +1321,13 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                               titleStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyMedium,
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                               dayOfWeekStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -1285,13 +1335,21 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                       .override(
                                                                         fontFamily:
                                                                             'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
                                                               dateStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyMedium,
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                               selectedDateStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -1301,6 +1359,8 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                             'Poppins',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryBackground,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                               inactiveDateStyle:
                                                                   const TextStyle(),
@@ -1529,6 +1589,7 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                           listEventsMobileItem.title,
                                                                                           style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                 fontFamily: 'Poppins',
+                                                                                                letterSpacing: 0.0,
                                                                                                 fontWeight: FontWeight.w600,
                                                                                               ),
                                                                                         ),
@@ -1580,7 +1641,10 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                                   )}',
                                                                                                   'Aucun horaire ',
                                                                                                 ),
-                                                                                                style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                                style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      letterSpacing: 0.0,
+                                                                                                    ),
                                                                                               ),
                                                                                             ),
                                                                                           ],
@@ -1612,11 +1676,17 @@ class _ListOfEventsWidgetState extends State<ListOfEventsWidget> {
                                                                                         children: [
                                                                                           Text(
                                                                                             rowEstablishmentsRecord.name,
-                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  letterSpacing: 0.0,
+                                                                                                ),
                                                                                           ),
                                                                                           Text(
                                                                                             rowEstablishmentsRecord.adresse.city,
-                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  letterSpacing: 0.0,
+                                                                                                ),
                                                                                           ),
                                                                                         ],
                                                                                       );

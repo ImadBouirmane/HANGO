@@ -126,7 +126,11 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                   child: Text(
                                     'Filtrez les établissements',
                                     style: FlutterFlowTheme.of(context)
-                                        .headlineSmall,
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -161,14 +165,19 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                             ),
                             child: Container(
                               width: double.infinity,
-                              color: Colors.white,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
                               child: ExpandableNotifier(
                                 controller: _model.expandableController1,
                                 child: ExpandablePanel(
                                   header: Text(
                                     'Type d\'établissement',
-                                    style:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   collapsed: Container(
                                     decoration: const BoxDecoration(),
@@ -208,6 +217,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
@@ -227,6 +237,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                         iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
@@ -272,14 +283,19 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                             ),
                             child: Container(
                               width: double.infinity,
-                              color: Colors.white,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
                               child: ExpandableNotifier(
                                 controller: _model.expandableController2,
                                 child: ExpandablePanel(
                                   header: Text(
                                     'Genre musical',
-                                    style:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   collapsed: Container(
                                     decoration: const BoxDecoration(),
@@ -318,6 +334,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
@@ -337,6 +354,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                         iconColor: const Color(0x00000000),
                                         iconSize: 18.0,
@@ -406,8 +424,12 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 },
                                 title: Text(
                                   'Terrasse',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -449,8 +471,12 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 },
                                 title: Text(
                                   'Réservation',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -488,8 +514,12 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 },
                                 title: Text(
                                   'Machine à cigarette',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -527,8 +557,12 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 },
                                 title: Text(
                                   'Nourriture',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -566,12 +600,21 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 },
                                 title: Text(
                                   'Jeux',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 subtitle: Text(
                                   'Billard, fléchettes, bord, cartes,...',
-                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -610,8 +653,12 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                 },
                                 title: Text(
                                   'Ouvert',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: const Color(0xFFF5F5F5),
                                 activeColor:
@@ -658,6 +705,7 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 2.0,
                                       borderSide: const BorderSide(
@@ -690,8 +738,10 @@ class _FilterEstablishmentWidgetState extends State<FilterEstablishmentWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            color: const Color(0xFF10212E),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 2.0,
                                       borderSide: const BorderSide(

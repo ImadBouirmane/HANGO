@@ -32,8 +32,6 @@ class FilterEventsModel extends FlutterFlowModel<FilterEventsWidget> {
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue4;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -42,8 +40,4 @@ class FilterEventsModel extends FlutterFlowModel<FilterEventsWidget> {
     expandableController1.dispose();
     expandableController2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

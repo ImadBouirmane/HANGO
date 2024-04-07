@@ -88,7 +88,10 @@ class _FilterOptionsListEstWidgetState
                     child: ExpandablePanel(
                       header: Text(
                         'Type ',
-                        style: FlutterFlowTheme.of(context).titleSmall,
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                       collapsed: Container(
                         decoration: const BoxDecoration(),
@@ -116,6 +119,7 @@ class _FilterOptionsListEstWidgetState
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
+                                  letterSpacing: 0.0,
                                 ),
                             iconColor: const Color(0x00000000),
                             iconSize: 18.0,
@@ -131,6 +135,7 @@ class _FilterOptionsListEstWidgetState
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context).primary,
+                                  letterSpacing: 0.0,
                                 ),
                             iconColor: const Color(0x00000000),
                             iconSize: 18.0,
@@ -184,7 +189,10 @@ class _FilterOptionsListEstWidgetState
                     child: ExpandablePanel(
                       header: Text(
                         'Musique Style ',
-                        style: FlutterFlowTheme.of(context).titleSmall,
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                       collapsed: Container(
                         decoration: const BoxDecoration(),
@@ -212,6 +220,7 @@ class _FilterOptionsListEstWidgetState
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
+                                  letterSpacing: 0.0,
                                 ),
                             iconColor: const Color(0x00000000),
                             iconSize: 18.0,
@@ -227,6 +236,7 @@ class _FilterOptionsListEstWidgetState
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context).primary,
+                                  letterSpacing: 0.0,
                                 ),
                             iconColor: const Color(0x00000000),
                             iconSize: 18.0,

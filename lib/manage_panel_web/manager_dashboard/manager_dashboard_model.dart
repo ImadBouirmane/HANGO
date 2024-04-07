@@ -21,8 +21,6 @@ class ManagerDashboardModel extends FlutterFlowModel<ManagerDashboardWidget> {
   // State field(s) for Expandable widget.
   late ExpandableController expandableController2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     managerSideBarModel = createModel(context, () => ManagerSideBarModel());
@@ -34,8 +32,4 @@ class ManagerDashboardModel extends FlutterFlowModel<ManagerDashboardWidget> {
     managerSideBarModel.dispose();
     expandableController2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

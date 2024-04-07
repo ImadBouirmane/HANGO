@@ -32,8 +32,6 @@ class MapsModel extends FlutterFlowModel<MapsWidget> {
   // Models for listItems dynamic component.
   late FlutterFlowDynamicModels<ListItemsModel> listItemsModels2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
@@ -53,8 +51,4 @@ class MapsModel extends FlutterFlowModel<MapsWidget> {
 
     listItemsModels2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

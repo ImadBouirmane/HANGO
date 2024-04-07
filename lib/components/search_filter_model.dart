@@ -11,8 +11,6 @@ class SearchFilterModel extends FlutterFlowModel<SearchFilterWidget> {
   String? Function(BuildContext, String?)?
       estblishmentSearchMobileControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -21,8 +19,4 @@ class SearchFilterModel extends FlutterFlowModel<SearchFilterWidget> {
     estblishmentSearchMobileFocusNode?.dispose();
     estblishmentSearchMobileController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

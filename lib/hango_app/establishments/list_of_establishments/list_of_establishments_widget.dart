@@ -137,6 +137,7 @@ class _ListOfEstablishmentsWidgetState
                                                             context)
                                                         .primaryText,
                                                     fontSize: 16.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -156,6 +157,7 @@ class _ListOfEstablishmentsWidgetState
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .accent2,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                             ),
@@ -177,6 +179,7 @@ class _ListOfEstablishmentsWidgetState
                                                           context)
                                                       .secondary,
                                                   fontSize: 22.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                           Padding(
@@ -195,6 +198,7 @@ class _ListOfEstablishmentsWidgetState
                                                                   .of(context)
                                                               .accent2,
                                                           fontSize: 30.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                           fontStyle:
@@ -282,6 +286,7 @@ class _ListOfEstablishmentsWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
@@ -340,6 +345,7 @@ class _ListOfEstablishmentsWidgetState
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
@@ -394,6 +400,7 @@ class _ListOfEstablishmentsWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryBtnText,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
@@ -452,6 +459,7 @@ class _ListOfEstablishmentsWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryBtnText,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
@@ -478,6 +486,7 @@ class _ListOfEstablishmentsWidgetState
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             fontSize: 10.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
                                           ),
                                     ),
@@ -499,7 +508,10 @@ class _ListOfEstablishmentsWidgetState
                                                 BoxShadow(
                                                   blurRadius: 5.0,
                                                   color: Color(0x3314181B),
-                                                  offset: Offset(0.0, 2.0),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
                                                 )
                                               ],
                                               shape: BoxShape.circle,
@@ -525,7 +537,10 @@ class _ListOfEstablishmentsWidgetState
                                                 BoxShadow(
                                                   blurRadius: 5.0,
                                                   color: Color(0x3314181B),
-                                                  offset: Offset(0.0, 2.0),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
                                                 )
                                               ],
                                               shape: BoxShape.circle,
@@ -551,7 +566,10 @@ class _ListOfEstablishmentsWidgetState
                                                 BoxShadow(
                                                   blurRadius: 5.0,
                                                   color: Color(0x3314181B),
-                                                  offset: Offset(0.0, 2.0),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
                                                 )
                                               ],
                                               shape: BoxShape.circle,
@@ -635,6 +653,7 @@ class _ListOfEstablishmentsWidgetState
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ].divide(const SizedBox(width: 15.0)),
@@ -759,19 +778,32 @@ class _ListOfEstablishmentsWidgetState
                                                                         () {}));
                                                           },
                                                         ),
+                                                        autofocus: false,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMedium,
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           hintText:
                                                               'Trouver une établissement',
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelLarge,
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
@@ -902,7 +934,14 @@ class _ListOfEstablishmentsWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        minLines: null,
                                                         cursorColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -941,6 +980,14 @@ class _ListOfEstablishmentsWidgetState
                                                     onPressed: () async {
                                                       logFirebaseEvent(
                                                           'LIST_OF_ESTABLISHMENTS_filter_list_sharp');
+                                                      logFirebaseEvent(
+                                                          'IconButton_update_page_state');
+                                                      setState(() {
+                                                        _model.filterOffEstMobile =
+                                                            false;
+                                                        _model.filterOnEstMobile =
+                                                            true;
+                                                      });
                                                     },
                                                   ),
                                                 ].divide(const SizedBox(width: 5.0)),
@@ -1196,6 +1243,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                   searchResultsItem.name,
                                                                                                   style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                         fontFamily: 'Poppins',
+                                                                                                        letterSpacing: 0.0,
                                                                                                         fontWeight: FontWeight.w600,
                                                                                                       ),
                                                                                                 ),
@@ -1213,7 +1261,10 @@ class _ListOfEstablishmentsWidgetState
                                                                                                 if (searchResultsItem.musicStyle.first != '')
                                                                                                   Text(
                                                                                                     'Style musical',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                          fontFamily: 'Poppins',
+                                                                                                          letterSpacing: 0.0,
+                                                                                                        ),
                                                                                                   ),
                                                                                                 if (searchResultsItem.musicStyle.first != '')
                                                                                                   Padding(
@@ -1229,6 +1280,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                   style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                         fontFamily: 'Poppins',
                                                                                                         color: FlutterFlowTheme.of(context).primary,
+                                                                                                        letterSpacing: 0.0,
                                                                                                       ),
                                                                                                 ),
                                                                                               ],
@@ -1248,6 +1300,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                     style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                           fontFamily: 'Poppins',
                                                                                                           fontSize: 14.0,
+                                                                                                          letterSpacing: 0.0,
                                                                                                         ),
                                                                                                   ),
                                                                                                 if (searchResultsItem.type.first != '')
@@ -1265,13 +1318,17 @@ class _ListOfEstablishmentsWidgetState
                                                                                                         fontFamily: 'Poppins',
                                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                                         fontSize: 14.0,
+                                                                                                        letterSpacing: 0.0,
                                                                                                       ),
                                                                                                 ),
                                                                                               ],
                                                                                             ),
                                                                                             Text(
                                                                                               searchResultsItem.adresse.city,
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Poppins',
+                                                                                                    letterSpacing: 0.0,
+                                                                                                  ),
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -1556,6 +1613,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                   listEstMobileEstablishmentsRecord.name,
                                                                                                   style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                         fontFamily: 'Poppins',
+                                                                                                        letterSpacing: 0.0,
                                                                                                         fontWeight: FontWeight.w600,
                                                                                                       ),
                                                                                                 ),
@@ -1573,7 +1631,10 @@ class _ListOfEstablishmentsWidgetState
                                                                                                 children: [
                                                                                                   Text(
                                                                                                     'Style musical',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                          fontFamily: 'Poppins',
+                                                                                                          letterSpacing: 0.0,
+                                                                                                        ),
                                                                                                   ),
                                                                                                   Padding(
                                                                                                     padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
@@ -1588,6 +1649,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                     style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                           fontFamily: 'Poppins',
                                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                                          letterSpacing: 0.0,
                                                                                                         ),
                                                                                                   ),
                                                                                                 ],
@@ -1608,6 +1670,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                       style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                             fontFamily: 'Poppins',
                                                                                                             fontSize: 14.0,
+                                                                                                            letterSpacing: 0.0,
                                                                                                           ),
                                                                                                     ),
                                                                                                   Padding(
@@ -1624,13 +1687,17 @@ class _ListOfEstablishmentsWidgetState
                                                                                                           fontFamily: 'Poppins',
                                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                                           fontSize: 14.0,
+                                                                                                          letterSpacing: 0.0,
                                                                                                         ),
                                                                                                   ),
                                                                                                 ],
                                                                                               ),
                                                                                             Text(
                                                                                               listEstMobileEstablishmentsRecord.adresse.city,
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Poppins',
+                                                                                                    letterSpacing: 0.0,
+                                                                                                  ),
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -1984,6 +2051,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Poppins',
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ],
@@ -2035,6 +2103,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Poppins',
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ],
@@ -2078,6 +2147,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                 ),
                                                                                                 style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                       fontFamily: 'Poppins',
+                                                                                                      letterSpacing: 0.0,
                                                                                                       fontWeight: FontWeight.w600,
                                                                                                     ),
                                                                                               ),
@@ -2097,6 +2167,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                 style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                       fontFamily: 'Poppins',
                                                                                                       fontSize: 14.0,
+                                                                                                      letterSpacing: 0.0,
                                                                                                     ),
                                                                                               ),
                                                                                               if (listEstablishmentsQueryWebEstablishmentsRecord.musicStyle.first != '')
@@ -2113,6 +2184,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                 style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                       fontFamily: 'Poppins',
                                                                                                       fontSize: 14.0,
+                                                                                                      letterSpacing: 0.0,
                                                                                                     ),
                                                                                               ),
                                                                                             ],
@@ -2131,6 +2203,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                 style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                       fontFamily: 'Poppins',
                                                                                                       fontSize: 14.0,
+                                                                                                      letterSpacing: 0.0,
                                                                                                     ),
                                                                                               ),
                                                                                               if (listEstablishmentsQueryWebEstablishmentsRecord.type.first != '')
@@ -2147,6 +2220,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                                 style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                       fontFamily: 'Poppins',
                                                                                                       fontSize: 14.0,
+                                                                                                      letterSpacing: 0.0,
                                                                                                     ),
                                                                                               ),
                                                                                             ],
@@ -2156,6 +2230,7 @@ class _ListOfEstablishmentsWidgetState
                                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                   fontFamily: 'Poppins',
                                                                                                   fontSize: 14.0,
+                                                                                                  letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.w600,
                                                                                                 ),
                                                                                           ),

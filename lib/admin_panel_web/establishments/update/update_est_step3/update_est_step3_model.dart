@@ -35,8 +35,6 @@ class UpdateEstStep3Model extends FlutterFlowModel<UpdateEstStep3Widget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl5 = '';
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -47,8 +45,4 @@ class UpdateEstStep3Model extends FlutterFlowModel<UpdateEstStep3Widget> {
     unfocusNode.dispose();
     adminSideBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

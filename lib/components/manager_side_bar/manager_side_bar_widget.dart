@@ -210,7 +210,11 @@ class _ManagerSideBarWidgetState extends State<ManagerSideBarWidget>
                         ),
                         Text(
                           'Tableau de bord',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ],
                     ),
@@ -244,7 +248,10 @@ class _ManagerSideBarWidgetState extends State<ManagerSideBarWidget>
                       ),
                       Text(
                         'Mes événements',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ],
                   ),
@@ -277,7 +284,10 @@ class _ManagerSideBarWidgetState extends State<ManagerSideBarWidget>
                       ),
                       Text(
                         'Mon établissement',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ],
                   ),
@@ -325,7 +335,11 @@ class _ManagerSideBarWidgetState extends State<ManagerSideBarWidget>
                                         'NoCodeUI',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .titleMedium,
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                   Padding(
@@ -341,6 +355,7 @@ class _ManagerSideBarWidgetState extends State<ManagerSideBarWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),

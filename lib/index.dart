@@ -20,7 +20,7 @@ export '/admin_panel_web/events/create/create_events_step1/create_events_step1_w
     show CreateEventsStep1Widget;
 export '/admin_panel_web/events/update/update_event_step1/update_event_step1_widget.dart'
     show UpdateEventStep1Widget;
-export '/hango_app/auth/user_phone/user_phone_widget.dart' show UserPhoneWidget;
+export '/hango_app/user_phone/user_phone_widget.dart' show UserPhoneWidget;
 export '/hango_app/auth/user_phone_confirmation_new/user_phone_confirmation_new_widget.dart'
     show UserPhoneConfirmationNewWidget;
 export '/hango_app/account/profile/profile_widget.dart' show ProfileWidget;

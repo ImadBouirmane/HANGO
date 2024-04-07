@@ -211,7 +211,11 @@ class _AdminSideBarWidgetState extends State<AdminSideBarWidget>
                         ),
                         Text(
                           'Tableau de bord',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ],
                     ),
@@ -245,7 +249,10 @@ class _AdminSideBarWidgetState extends State<AdminSideBarWidget>
                       ),
                       Text(
                         'Événements',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ],
                   ),
@@ -278,7 +285,10 @@ class _AdminSideBarWidgetState extends State<AdminSideBarWidget>
                       ),
                       Text(
                         'Établissements',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ],
                   ),
@@ -322,6 +332,7 @@ class _AdminSideBarWidgetState extends State<AdminSideBarWidget>
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context)
                                           .secondary,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(
@@ -371,7 +382,11 @@ class _AdminSideBarWidgetState extends State<AdminSideBarWidget>
                                         'NoCodeUI',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .titleMedium,
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                   Padding(
@@ -387,6 +402,7 @@ class _AdminSideBarWidgetState extends State<AdminSideBarWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),

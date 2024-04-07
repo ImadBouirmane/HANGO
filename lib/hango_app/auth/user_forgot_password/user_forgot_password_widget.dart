@@ -122,7 +122,11 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                     Text(
                                       'Mot de passe oublié ?',
                                       style: FlutterFlowTheme.of(context)
-                                          .displaySmall,
+                                          .displaySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -138,6 +142,7 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -169,6 +174,7 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             hintText:
@@ -178,6 +184,7 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                                     .bodySmall
                                                     .override(
                                                       fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
@@ -225,8 +232,13 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                                     16.0, 24.0, 0.0, 24.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                           maxLines: null,
+                                          minLines: null,
                                           validator: _model
                                               .emailAddressControllerValidator
                                               .asValidator(context),
@@ -282,6 +294,7 @@ class _UserForgotPasswordWidgetState extends State<UserForgotPasswordWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         elevation: 3.0,

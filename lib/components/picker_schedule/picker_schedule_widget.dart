@@ -54,7 +54,10 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
             Text(
               'Sélectionner des horaires',
               textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).titleMedium,
+              style: FlutterFlowTheme.of(context).titleMedium.override(
+                    fontFamily: 'Poppins',
+                    letterSpacing: 0.0,
+                  ),
             ),
             Container(
               decoration: BoxDecoration(
@@ -77,12 +80,16 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                     },
                     title: Text(
                       'Fermé',
-                      style: FlutterFlowTheme.of(context).titleSmall,
+                      style: FlutterFlowTheme.of(context).titleSmall.override(
+                            fontFamily: 'Poppins',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                     subtitle: Text(
                       'Chochez la case si l\'établissement est fermé le jour sélectionné',
                       style: FlutterFlowTheme.of(context).labelSmall.override(
                             fontFamily: 'Poppins',
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w300,
                           ),
                     ),
@@ -132,8 +139,12 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                     _model.datePicked1?.toString(),
                                     '--:--',
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 FFButtonWidget(
                                   onPressed: () async {
@@ -171,6 +182,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                     elevation: 3.0,
@@ -204,8 +216,12 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                     _model.datePicked2?.toString(),
                                     '--:--',
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 FFButtonWidget(
                                   onPressed: () async {
@@ -243,6 +259,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                     elevation: 3.0,
@@ -287,6 +304,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Poppins',
                                 color: FlutterFlowTheme.of(context).primary,
+                                letterSpacing: 0.0,
                               ),
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).primary,
@@ -319,6 +337,7 @@ class _PickerScheduleWidgetState extends State<PickerScheduleWidget> {
                             fontFamily: 'Poppins',
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
+                            letterSpacing: 0.0,
                           ),
                       borderRadius: BorderRadius.circular(15.0),
                     ),

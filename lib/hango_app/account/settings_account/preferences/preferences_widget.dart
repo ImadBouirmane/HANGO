@@ -69,6 +69,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).primary,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: const [],
@@ -115,6 +116,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -150,6 +152,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -220,6 +223,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -258,6 +262,7 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),

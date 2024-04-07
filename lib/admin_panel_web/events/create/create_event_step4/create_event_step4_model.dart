@@ -35,8 +35,6 @@ class CreateEventStep4Model extends FlutterFlowModel<CreateEventStep4Widget> {
   // Stores action output result for [Backend Call - Create Document] action in BTNValidateFrom widget.
   MediaRecord? mediaEventUpload;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -47,8 +45,4 @@ class CreateEventStep4Model extends FlutterFlowModel<CreateEventStep4Widget> {
     unfocusNode.dispose();
     adminSideBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

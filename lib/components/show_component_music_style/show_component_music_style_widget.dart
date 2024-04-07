@@ -92,6 +92,7 @@ class _ShowComponentMusicStyleWidgetState
                   style: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Poppins',
                         color: const Color(0xFF57CFAD),
+                        letterSpacing: 0.0,
                       ),
                 ),
                 Text(
@@ -99,6 +100,7 @@ class _ShowComponentMusicStyleWidgetState
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Poppins',
                         color: const Color(0xFF57CFAD),
+                        letterSpacing: 0.0,
                       ),
                 ),
               ],

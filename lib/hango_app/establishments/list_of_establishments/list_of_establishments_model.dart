@@ -46,8 +46,6 @@ class ListOfEstablishmentsModel
   Query? listEstablishmentsQueryWebPagingQuery;
   List<StreamSubscription?> listEstablishmentsQueryWebStreamSubscriptions = [];
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
@@ -66,12 +64,10 @@ class ListOfEstablishmentsModel
     listEstablishmentsQueryWebPagingController?.dispose();
   }
 
-  /// Action blocks are added here.
-
+  /// Action blocks.
   Future estListState(BuildContext context) async {}
 
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   PagingController<DocumentSnapshot?, EstablishmentsRecord>
       setListEstablishmentsQueryWebController(
     Query query, {

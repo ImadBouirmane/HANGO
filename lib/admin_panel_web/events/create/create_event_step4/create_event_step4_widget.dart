@@ -142,6 +142,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -194,7 +195,10 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
-                                        offset: Offset(0.0, 2.0),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(16.0),
@@ -510,6 +514,8 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                                 'Poppins',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryText,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ].divide(const SizedBox(
@@ -783,6 +789,8 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                                                 'Poppins',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryText,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ].divide(const SizedBox(
@@ -890,6 +898,7 @@ class _CreateEventStep4WidgetState extends State<CreateEventStep4Widget> {
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
                                             borderSide: const BorderSide(

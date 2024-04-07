@@ -21,8 +21,6 @@ class MapsEstDetailsModel extends FlutterFlowModel<MapsEstDetailsWidget> {
   // Model for backNavigation component.
   late BackNavigationModel backNavigationModel2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
@@ -36,8 +34,4 @@ class MapsEstDetailsModel extends FlutterFlowModel<MapsEstDetailsWidget> {
     backNavigationModel1.dispose();
     backNavigationModel2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

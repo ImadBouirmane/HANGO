@@ -63,8 +63,6 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   FormFieldController<String>? genreValueController2;
   DateTime? datePicked2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
@@ -98,8 +96,4 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
     phoneFocusNode2?.dispose();
     phoneController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -77,6 +77,7 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
                                       fontFamily: 'Poppins',
                                       color:
                                           FlutterFlowTheme.of(context).primary,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
@@ -86,7 +87,12 @@ class _ImagesDeleteProblemAdminPopUpWidgetState
                                 style: TextStyle(),
                               )
                             ],
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),

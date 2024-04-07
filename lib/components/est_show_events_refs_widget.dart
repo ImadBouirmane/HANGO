@@ -73,7 +73,10 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
                 child: Text(
                   'Events',
-                  style: FlutterFlowTheme.of(context).titleMedium,
+                  style: FlutterFlowTheme.of(context).titleMedium.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 ),
               ),
               Column(
@@ -295,6 +298,8 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -315,7 +320,13 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                       Row(
                                                         mainAxisSize:
@@ -345,7 +356,13 @@ class _EstShowEventsRefsWidgetState extends State<EstShowEventsRefsWidget> {
                                                                   maxChars: 6),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .labelMedium,
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ],

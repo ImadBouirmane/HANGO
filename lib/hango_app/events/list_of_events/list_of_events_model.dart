@@ -19,8 +19,6 @@ class ListOfEventsModel extends FlutterFlowModel<ListOfEventsWidget> {
   // State field(s) for Calendar widget.
   DateTimeRange? calendarSelectedDay2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     sideNavWebModel = createModel(context, () => SideNavWebModel());
@@ -39,8 +37,4 @@ class ListOfEventsModel extends FlutterFlowModel<ListOfEventsWidget> {
     unfocusNode.dispose();
     sideNavWebModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

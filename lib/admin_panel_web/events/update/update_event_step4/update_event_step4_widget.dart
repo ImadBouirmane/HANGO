@@ -174,6 +174,7 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -230,7 +231,10 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
-                                            offset: Offset(0.0, 2.0),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
                                           )
                                         ],
                                         borderRadius:
@@ -287,6 +291,8 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                                                 'Poppins',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ],
@@ -461,6 +467,7 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                                                 style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ].divide(const SizedBox(height: 10.0)),
@@ -596,6 +603,8 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                                                 'Poppins',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ],
@@ -698,6 +707,7 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                                                             style: FlutterFlowTheme.of(context).headlineLarge.override(
                                                                                                   fontFamily: 'Poppins',
                                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                  letterSpacing: 0.0,
                                                                                                 ),
                                                                                           ),
                                                                                           duration: const Duration(milliseconds: 1950),
@@ -803,6 +813,7 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                                                 style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ].divide(const SizedBox(height: 10.0)),
@@ -963,6 +974,7 @@ class _UpdateEventStep4WidgetState extends State<UpdateEventStep4Widget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: const BorderSide(

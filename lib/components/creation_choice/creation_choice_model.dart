@@ -10,15 +10,9 @@ class CreationChoiceModel extends FlutterFlowModel<CreationChoiceWidget> {
   // State field(s) for MouseRegion widget.
   bool mouseRegionHovered2 = false;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

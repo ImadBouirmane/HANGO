@@ -81,8 +81,6 @@ class UpdateEstStep2Model extends FlutterFlowModel<UpdateEstStep2Widget> {
   // State field(s) for sunday widget.
   bool? sundayValue;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     adminSideBarModel = createModel(context, () => AdminSideBarModel());
@@ -134,8 +132,4 @@ class UpdateEstStep2Model extends FlutterFlowModel<UpdateEstStep2Widget> {
     sundayClosingFocusNode?.dispose();
     sundayClosingController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

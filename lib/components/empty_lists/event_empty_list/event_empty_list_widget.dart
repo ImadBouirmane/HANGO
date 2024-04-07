@@ -53,6 +53,7 @@ class _EventEmptyListWidgetState extends State<EventEmptyListWidget> {
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Poppins',
                   color: FlutterFlowTheme.of(context).accent2,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w300,
                 ),
           ),

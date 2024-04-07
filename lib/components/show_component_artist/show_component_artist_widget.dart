@@ -76,7 +76,10 @@ class _ShowComponentArtistWidgetState extends State<ShowComponentArtistWidget> {
               BoxShadow(
                 blurRadius: 4.0,
                 color: Color(0x33000000),
-                offset: Offset(0.0, 2.0),
+                offset: Offset(
+                  0.0,
+                  2.0,
+                ),
               )
             ],
             borderRadius: BorderRadius.circular(8.0),
@@ -92,15 +95,24 @@ class _ShowComponentArtistWidgetState extends State<ShowComponentArtistWidget> {
             children: [
               Text(
                 'Hello World',
-                style: FlutterFlowTheme.of(context).headlineSmall,
+                style: FlutterFlowTheme.of(context).headlineSmall.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
               ),
               Text(
                 'Hello World',
-                style: FlutterFlowTheme.of(context).titleSmall,
+                style: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
               ),
               Text(
                 'Hello World',
-                style: FlutterFlowTheme.of(context).titleSmall,
+                style: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
               ),
             ],
           ),

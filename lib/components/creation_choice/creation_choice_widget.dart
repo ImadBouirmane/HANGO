@@ -47,7 +47,10 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x33000000),
-              offset: Offset(0.0, 2.0),
+              offset: Offset(
+                0.0,
+                2.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.circular(12.0),
@@ -92,7 +95,12 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
                               child: Text(
                                 'Événement',
                                 textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ),
@@ -133,7 +141,12 @@ class _CreationChoiceWidgetState extends State<CreationChoiceWidget> {
                             child: Text(
                               'Établissement',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ),
