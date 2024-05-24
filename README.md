@@ -1,32 +1,16 @@
 # HANGO
 
-A new Flutter project.
+A New MVP project for events starting by night clubs. 
+The app offer a bunch of services for users and clients that represent the establishments, every client they can pubblsh their establishment with his live upcoming events in the events from the an admin panel that is also built in FlutterFlow.
+App list those establishments and events with his detalls to share the informations and get updated of the latest events will happen.
+Also the app offer other features like:
+- Receiving emails for every new attend of the event 
+- Pick a place on the event as wishlist
+- Share the event or Establishment in the phone
 
-## Getting Started
+The admin panel is all in one in the same project of FF, I made all what the client need to create and manage their events 
 
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+Finally the app is multi handled by users, clients and super admin that is the owner with different access in the app.
 
-## Integration Tests
-
-To test on a real iOS / Android device, first connect the device and run the following command from the root of the project:
-
-```bash
-flutter test integration_test/test.dart
-```
-
-To test on a web browser, first launch `chromedriver` as follows:
-```bash
-chromedriver --port=4444
-```
-
-Then from the root of the project, run the following command:
-```bash
-flutter drive \
-  --driver=test_driver/integration_test.dart \
-  --target=integration_test/test.dart \
-  -d chrome
-```
-
-Find more information about running Flutter integration tests [here](https://docs.flutter.dev/cookbook/testing/integration/introduction#5-run-the-integration-test).
-
-Refer to this guide for instructions on running the tests on [Firebase Test Lab](https://github.com/flutter/flutter/tree/main/packages/integration_test#firebase-test-lab).
+Try out the app from my portfolio: https://imaddhin.com/showcase 
+Notice: You wil find list of other projects, just look for HANGO and you can get the apps and the website (hango.ch)
